@@ -7,12 +7,6 @@ export const newRound = (number) => {
   }
 }
 
-export const makeMove = () => {
-  return {
-    type: 'MAKE_MOVE'
-  }
-}
-
 export const endRound = () => {
   return {
     type: 'END_ROUND'

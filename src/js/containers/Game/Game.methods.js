@@ -1,6 +1,6 @@
 import { Game } from 'js/containers';
 import { BossPuzzle } from 'js/components';
-import { makeMove, setDimension, toggleGameLoader, switchTiles } from 'js/actions';
+import { setDimension, toggleGameLoader, switchTiles } from 'js/actions';
 import { shuffleIntArray } from 'js/helpers';
 
 
@@ -93,7 +93,6 @@ export function onSquareTileClick() {
         const index2 = BossPuzzle.coordsToIndex(coords, bossPuzzle.dimension);
 
         // Switching tiles
-        dispatch(makeMove());
         dispatch(switchTiles(index1, index2, targetCoords));
         return;
       }
