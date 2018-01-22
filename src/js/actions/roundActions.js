@@ -13,12 +13,6 @@ export const makeMove = () => {
   }
 }
 
-export const setAsSolved = () => {
-  return {
-    type: 'SET_AS_SOLVED'
-  }
-}
-
 export const endRound = () => {
   return {
     type: 'END_ROUND'

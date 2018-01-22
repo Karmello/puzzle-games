@@ -14,6 +14,12 @@ export const toggleGameLoader = (show, id) => {
   return action;
 }
 
+export const setAsSolved = () => {
+  return {
+    type: 'SET_AS_SOLVED'
+  }
+}
+
 export const endGame = () => {
   return {
     type: 'END_GAME'

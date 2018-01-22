@@ -105,7 +105,7 @@ class Game extends Component {
             <div className='Game-dashboard'>
               <div><Chip label={game.id} /></div>
               <div><Chip label={'Moves: ' + round.moves} /></div>
-              <div><Timer on={!round.isSolved} paused={round.isSolved} /></div>
+              <div><Timer on={!game.isSolved} paused={game.isSolved} /></div>
             </div>
             <div className='Game-navigation'>
               <div>{'img' + bossPuzzle.imgNumbers[round.number - 1] + '.jpg'}</div>

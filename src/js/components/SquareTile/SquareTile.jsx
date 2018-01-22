@@ -31,10 +31,10 @@ export default class SquareTile extends Component {
 
   getStyle() {
     
-    const { round, bossPuzzle, imgSrc } = this.props;
+    const { game, bossPuzzle, imgSrc } = this.props;
 
     // Setting background image    
-    if ((!this.isHidden || round.isSolved) && imgSrc) {
+    if ((!this.isHidden || game.isSolved) && imgSrc) {
 
       const imgCoords = BossPuzzle.indexToCoords(this.getLabel() - 1, bossPuzzle.dimension);
       const imgSize = BossPuzzle.tilesSizes[bossPuzzle.dimension];
@@ -43,7 +43,7 @@ export default class SquareTile extends Component {
         backgroundImage: `url(${imgSrc})`,
         backgroundSize: `${bossPuzzle.dimension * imgSize}px ${bossPuzzle.dimension * imgSize}px`,
         backgroundPosition: `-${imgCoords.y * imgSize}px -${imgCoords.x * imgSize}px`,
-        pointerEvents: round.isSolved ? 'none': 'initial'
+        pointerEvents: game.isSolved ? 'none': 'initial'
       }
   
     // Hiding

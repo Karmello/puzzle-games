@@ -1,7 +1,6 @@
 const initialState = {
   number: 0,
-  moves: 0,
-  isSolved: false
+  moves: 0
 };
 
 const roundReducer = (state = initialState, action) => {
@@ -12,8 +11,7 @@ const roundReducer = (state = initialState, action) => {
       return {
         ...state,
         number: action.payload.number,
-        moves: 0,
-        isSolved: false
+        moves: 0
       }
 
     case 'MAKE_MOVE':
@@ -22,17 +20,10 @@ const roundReducer = (state = initialState, action) => {
         moves: state.moves + 1
       }
 
-    case 'SET_AS_SOLVED':
-      return {
-        ...state,
-        isSolved: true
-      }
-
     case 'END_ROUND':
       return {
         number: 0,
-        moves: 0,
-        isSolved: false
+        moves: 0
       }
 
     default:

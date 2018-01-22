@@ -77,9 +77,9 @@ export function onNewGameChoose(id) {
 
 export function onSquareTileClick() {
 
-  const { round, bossPuzzle, row, col, dispatch } = this.props;
+  const { game, bossPuzzle, row, col, dispatch } = this.props;
 
-  if (!round.isSolved) {
+  if (!game.isSolved) {
     
     const targetCoords = { x: row, y: col };
     const allMovementCoords = BossPuzzle.findAllMovementCoords(targetCoords, bossPuzzle.dimension);
