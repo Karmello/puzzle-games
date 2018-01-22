@@ -41,6 +41,12 @@ const bossPuzzleReducer = (state = initialState, action) => {
       newState.tiles[action.meta.index2] = temp;
       return newState;
 
+    case 'CLEAR_HIDDEN_TILE_COORDS':
+      return {
+        ...state,
+        hiddenTileCoords: {}
+      }
+
     case 'RESET_FRAME':
       return {
         ...state,

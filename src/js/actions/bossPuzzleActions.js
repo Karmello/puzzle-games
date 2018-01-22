@@ -33,6 +33,12 @@ export const switchTiles = (index1, index2, hiddenTileCoords) => {
   }
 }
 
+export const clearHiddenTileCoords = () => {
+  return {
+    type: 'CLEAR_HIDDEN_TILE_COORDS'
+  }
+}
+
 export const resetFrame = () => {
   return {
     type: 'RESET_FRAME'

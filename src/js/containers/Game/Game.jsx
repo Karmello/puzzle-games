@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Chip } from 'material-ui';
 
-import { App } from 'js/containers';
-import { BossPuzzle, Loader, GamesList, Timer } from 'js/components';
-import { initFrame, resetFrame, setAsSolved, toggleGameLoader } from 'js/actions';
+import { App, BossPuzzle } from 'js/containers';
+import { Loader, GamesList, Timer } from 'js/components';
+import { initFrame, setAsSolved, toggleGameLoader } from 'js/actions';
 import * as GameMethods from './Game.methods';
 import './Game.css';
 
@@ -54,34 +54,6 @@ class Game extends Component {
         setTimeout(() => { dispatch(toggleGameLoader(false)); }, App.minLoadTime);
       });
     }
-
-    // End game
-    if (game.id && !nextProps.game.id) {
-      dispatch(resetFrame());
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-    const { games, dispatch } = this.props;
-    const bossPuzzle = games.BOSS_PUZZLE;
-
-    if (bossPuzzle.moves === prevProps.games.BOSS_PUZZLE.moves + 1) {
-      this.wasJustSolved(yes => {
-        if (yes) {
-          dispatch(setAsSolved());
-        }
-      });
-    }
-  }
-
-  componentWillUnmount() {
-    
-    const { game, dispatch } = this.props;
-    
-    if (game.id) {
-      dispatch(resetFrame());
-    }
   }
 
   render() {
@@ -115,12 +87,20 @@ class Game extends Component {
               </div>
             </div>
             <div className='Game-component'>
-              <BossPuzzle {...this.props} imgSrc={this.imgSrc} onSquareTileClick={this.onSquareTileClick} />
+              <BossPuzzle
+                imgSrc={this.imgSrc}
+                onBeenSolved={this.onBeenSolved.bind(this)}
+              />
             </div>
           </div>}
         </Loader>
       </div>
     );
+  }
+
+  onBeenSolved() {
+
+    this.props.dispatch(setAsSolved());
   }
 }
 

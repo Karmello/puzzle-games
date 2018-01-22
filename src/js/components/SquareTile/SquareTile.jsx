@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { Button } from 'material-ui';
 
-import { BossPuzzle } from 'js/components';
+import { BossPuzzle } from 'js/containers';
+import { coordsToIndex, findAllMovementCoords, indexToCoords } from 'js/components/BossPuzzle/BossPuzzle.methods';
 
 
 export default class SquareTile extends Component {
 
   constructor(props) {
     super(props);
-    this.showLabel = false;
-    this.index = props.row * props.games.BOSS_PUZZLE.dimension + props.col;
+    this.index = props.row * props.bossPuzzle.dimension + props.col;
   }
 
   componentWillUpdate(nextProps, nextState) {
-    const bossPuzzle = nextProps.games.BOSS_PUZZLE;
-    const { row, col } = nextProps;
+    const { bossPuzzle, row, col } = nextProps;
     this.isHidden = (row === bossPuzzle.hiddenTileCoords.x && col === bossPuzzle.hiddenTileCoords.y);
   }
 
@@ -25,27 +24,25 @@ export default class SquareTile extends Component {
         className='SquareTile'
         style={this.getStyle()}
         color={this.isInProperPlace() ? 'default' : 'contrast'}
-        onClick={this.props.onSquareTileClick.bind(this)}
-      >{this.showLabel ? this.getLabel() : ''}</Button>
+        onClick={this.onClick.bind(this)}
+      >{this.props.showLabel ? this.getLabel() : ''}</Button>
     );
   }
 
   getStyle() {
     
-    const { games, game, imgSrc } = this.props;
-    const bossPuzzle = games.BOSS_PUZZLE;
+    const { bossPuzzle, imgSrc } = this.props;
 
     // Setting background image    
-    if ((!this.isHidden || game.isSolved) && imgSrc) {
+    if (!this.isHidden && imgSrc) {
 
-      const imgCoords = BossPuzzle.indexToCoords(this.getLabel() - 1, bossPuzzle.dimension);
+      const imgCoords = indexToCoords(this.getLabel() - 1, bossPuzzle.dimension);
       const imgSize = BossPuzzle.tilesSizes[bossPuzzle.dimension];
 
       return {
         backgroundImage: `url(${imgSrc})`,
         backgroundSize: `${bossPuzzle.dimension * imgSize}px ${bossPuzzle.dimension * imgSize}px`,
-        backgroundPosition: `-${imgCoords.y * imgSize}px -${imgCoords.x * imgSize}px`,
-        pointerEvents: game.isSolved ? 'none': 'initial'
+        backgroundPosition: `-${imgCoords.y * imgSize}px -${imgCoords.x * imgSize}px`
       }
   
     // Hiding
@@ -56,13 +53,34 @@ export default class SquareTile extends Component {
 
   getLabel() {
 
-    return this.props.games.BOSS_PUZZLE.tiles[this.index];
+    return this.props.bossPuzzle.tiles[this.index];
   }
 
   isInProperPlace() {
 
-    const { games, row, col } = this.props;
-    const bossPuzzle = games.BOSS_PUZZLE;
+    const { bossPuzzle, row, col } = this.props;
     return row * bossPuzzle.dimension + col + 1 === this.getLabel();
+  }
+
+  onClick() {
+
+    const { bossPuzzle, row, col, isSolved, onMoveMade } = this.props;
+
+    if (!isSolved) {
+      
+      const targetCoords = { x: row, y: col };
+      const allMovementCoords = findAllMovementCoords(targetCoords, bossPuzzle.dimension);
+
+      for (let coords of allMovementCoords) {
+
+        // If hidden tile found
+        if (coords.x === bossPuzzle.hiddenTileCoords.x && coords.y === bossPuzzle.hiddenTileCoords.y) {
+
+          const index1 = coordsToIndex(targetCoords, bossPuzzle.dimension);
+          const index2 = coordsToIndex(coords, bossPuzzle.dimension);
+          return onMoveMade(index1, index2, targetCoords);
+        }
+      }
+    }
   }
 }

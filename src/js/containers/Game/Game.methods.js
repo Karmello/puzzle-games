@@ -1,6 +1,6 @@
 import { Game } from 'js/containers';
-import { BossPuzzle } from 'js/components';
-import { setDimension, toggleGameLoader, switchTiles } from 'js/actions';
+import * as BossPuzzleMethods from 'js/components/BossPuzzle/BossPuzzle.methods';
+import { setDimension, toggleGameLoader } from 'js/actions';
 import { shuffleIntArray } from 'js/helpers';
 
 
@@ -16,7 +16,7 @@ export function getNewRoundData(dimension, imgNumber) {
     }
   };
   
-  return Promise.all([this.loadImg(imgNumber), BossPuzzle.initData(initFrameDataConfig)]);
+  return Promise.all([this.loadImg(imgNumber), BossPuzzleMethods.initData(initFrameDataConfig)]);
 }
 
 export function loadImg(imgNumber) {
@@ -52,19 +52,6 @@ export function getNewImgNumbers() {
   return run();
 }
 
-export function wasJustSolved(cb) {
-
-  const bossPuzzle = this.props.games.BOSS_PUZZLE;
-
-  for (let i = 0; i < bossPuzzle.tiles.length; i++) {
-    if (i + 1 !== bossPuzzle.tiles[i]) {
-      return cb(false);
-    }
-  }
-
-  cb(true);
-}
-
 export function onDimensionChange(newDimension) {
 
   this.props.dispatch(setDimension(newDimension));
@@ -73,32 +60,6 @@ export function onDimensionChange(newDimension) {
 export function onNewGameChoose(id) {
 
   this.props.dispatch(toggleGameLoader(true, id));
-}
-
-export function onSquareTileClick() {
-
-  const { games, game, row, col, dispatch } = this.props;
-  const bossPuzzle = games.BOSS_PUZZLE;
-
-  if (!game.isSolved) {
-    
-    const targetCoords = { x: row, y: col };
-    const allMovementCoords = BossPuzzle.findAllMovementCoords(targetCoords, bossPuzzle.dimension);
-
-    for (let coords of allMovementCoords) {
-
-      // If hidden tile found
-      if (coords.x === bossPuzzle.hiddenTileCoords.x && coords.y === bossPuzzle.hiddenTileCoords.y) {
-
-        const index1 = BossPuzzle.coordsToIndex(targetCoords, bossPuzzle.dimension);
-        const index2 = BossPuzzle.coordsToIndex(coords, bossPuzzle.dimension);
-
-        // Switching tiles
-        dispatch(switchTiles(index1, index2, targetCoords));
-        return;
-      }
-    }
-  }
 }
 
 export function onNextClick() {
