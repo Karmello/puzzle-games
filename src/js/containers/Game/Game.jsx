@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Chip } from 'material-ui';
 
 import { App } from 'js/containers';
-import { Frame, Loader, NewGameSetup, Timer } from 'js/components';
+import { BossPuzzle, Loader, GamesList, Timer } from 'js/components';
 import { endRound, initFrame, newRound, resetFrame, setAsSolved, toggleGameLoader } from 'js/actions';
 import * as GameMethods from './Game.methods';
 import './Game.css';
@@ -33,7 +33,7 @@ class Game extends Component {
     if (!game.isLoading && nextProps.game.isLoading) {
 
       const config = {
-        dimension: nextProps.frame.dimension,
+        dimension: nextProps.bossPuzzle.dimension,
         roundNumber: round.number === nextProps.game.imgNumbers.length ? 1 : round.number + 1
       }
 
@@ -47,7 +47,7 @@ class Game extends Component {
     }
 
     // End game
-    if (game.mode !== 'OFF' && nextProps.game.mode === 'OFF') {
+    if (game.id && !nextProps.game.id) {
       
       dispatch(endRound());
       dispatch(resetFrame());
@@ -71,7 +71,7 @@ class Game extends Component {
     
     const { game, dispatch } = this.props;
     
-    if (game.mode !== 'OFF') {
+    if (game.id) {
       dispatch(endRound());
       dispatch(resetFrame());
     }
@@ -85,29 +85,29 @@ class Game extends Component {
     return (
       <div className='Game'>
         <Loader isShown={game.isLoading}>
-          {game.mode === 'OFF' &&
+          {!game.id &&
           <div className='Game-off'>
-            <NewGameSetup
+            <GamesList
               {...this.props}
               onDimensionChange={this.onDimensionChange.bind(this)}
               onChoose={this.onNewGameChoose.bind(this)}
             />
           </div>}
-          {isImgLoaded && game.mode !== 'OFF' &&
+          {isImgLoaded && game.id &&
           <div className='Game-on'>
             <div className='Game-dashboard'>
-              <div><Chip label={'Mode: ' + game.mode} /></div>
-              {game.mode !== 'PRACTICE' && <div><Chip label={'Moves: ' + round.moves} /></div>}
-              {game.mode !== 'PRACTICE' && <div><Timer on={!round.isSolved} paused={round.isSolved} /></div>}
+              <div><Chip label={game.id} /></div>
+              <div><Chip label={'Moves: ' + round.moves} /></div>
+              <div><Timer on={!round.isSolved} paused={round.isSolved} /></div>
             </div>
             <div className='Game-navigation'>
               <div>{'img' + game.imgNumbers[round.number - 1] + '.jpg'}</div>
               <div>
-                {(game.mode === 'PRACTICE' || round.isSolved) && <Button raised onClick={this.onNextClick.bind(this)}>Next</Button>}
+                <Button raised onClick={this.onNextClick.bind(this)}>New</Button>
               </div>
             </div>
-            <div className='Game-frameContainer'>
-              <Frame {...this.props} tilesSizes={tilesSizes} imgSrc={this.imgSrc} onSquareTileClick={this.onSquareTileClick} />
+            <div className='Game-component'>
+              <BossPuzzle {...this.props} tilesSizes={tilesSizes} imgSrc={this.imgSrc} onSquareTileClick={this.onSquareTileClick} />
             </div>
           </div>}
         </Loader>

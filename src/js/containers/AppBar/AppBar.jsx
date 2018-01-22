@@ -29,7 +29,7 @@ class AppBar extends Component {
             type='title'
             color='inherit'
           >{app.name}</Typography>
-          {game.mode !== 'OFF' && <GameMenu {...this.props} onItemClick={this.onGameMenuItemClick.bind(this)} />}
+          {game.id && <GameMenu {...this.props} onItemClick={this.onGameMenuItemClick.bind(this)} />}
         </Toolbar>
       </MaterialAppBar>
     );

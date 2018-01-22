@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 
 import { SquareTile } from 'js/components';
-import './Frame.css';
+import './BossPuzzle.css';
 
 
 const initDataLoopRuns = 1000;
 
-export default class Frame extends Component {
+export default class BossPuzzle extends Component {
 
   static initData(args) {
 
@@ -20,11 +20,11 @@ export default class Frame extends Component {
     
       for (let i = 0; i < initDataLoopRuns; i++) {
 
-        const allMovementCoords = Frame.findAllMovementCoords(hiddenTileCoords, dimension);
+        const allMovementCoords = BossPuzzle.findAllMovementCoords(hiddenTileCoords, dimension);
         const coordsToSwitchWith = allMovementCoords[Math.floor(Math.random() * allMovementCoords.length)];
 
-        const index1 = Frame.coordsToIndex(hiddenTileCoords, dimension);
-        const index2 = Frame.coordsToIndex(coordsToSwitchWith, dimension);
+        const index1 = BossPuzzle.coordsToIndex(hiddenTileCoords, dimension);
+        const index2 = BossPuzzle.coordsToIndex(coordsToSwitchWith, dimension);
 
         const temp = tiles[index1];
         tiles[index1] = tiles[index2];
@@ -35,7 +35,7 @@ export default class Frame extends Component {
 
       for (let i = 0; i < tiles.length; i++) {
         if (i + 1 === tiles[i]) {
-          return Frame.initData({ dimension, hiddenTileCoords: tempHiddenTileCoords });
+          return BossPuzzle.initData({ dimension, hiddenTileCoords: tempHiddenTileCoords });
         }
       }
 
@@ -88,14 +88,14 @@ export default class Frame extends Component {
   
   render() {
 
-    const { frame, imgSrc } = this.props;
+    const { bossPuzzle, imgSrc } = this.props;
     
     return (
-      <div className={'Frame-' + frame.dimension}> {
-      Array.from({ length: frame.dimension }, (v, k) => k).map((i) => (
-        <Row key={i} className='Frame-row'> {
-        Array.from({ length: frame.dimension }, (v, k) => k).map((j) => (
-          <Col key={j} className='Frame-col'>
+      <div className={'BossPuzzle-' + bossPuzzle.dimension}> {
+      Array.from({ length: bossPuzzle.dimension }, (v, k) => k).map((i) => (
+        <Row key={i} className='BossPuzzle-row'> {
+        Array.from({ length: bossPuzzle.dimension }, (v, k) => k).map((j) => (
+          <Col key={j} className='BossPuzzle-col'>
             <SquareTile {...this.props} imgSrc={imgSrc} row={Number(i)} col={Number(j)} />
           </Col>
         ))}</Row>

@@ -1,0 +1,15 @@
+.GamesList {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 25px; }
+  .GamesList > div {
+    width: 350px;
+    margin: 10px;
+    padding: 10px; }
+    .GamesList > div .GamesList-settings {
+      text-align: center; }
+    .GamesList > div .GamesList-actions {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-end; }

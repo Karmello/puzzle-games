@@ -16,8 +16,8 @@
     align-items: center; }
     .Game .Game-on .Game-navigation > div {
       padding: 5px 10px 5px 10px; }
-  .Game .Game-on .Game-frameContainer {
+  .Game .Game-on .Game-component {
     overflow-x: auto;
     margin-top: 25px; }
-  .Game .Game-on .Game-navigation, .Game .Game-on .Game-frameContainer {
+  .Game .Game-on .Game-navigation, .Game .Game-on .Game-component {
     justify-content: center; }

@@ -1,38 +1,33 @@
-.Frame-3 {
+.BossPuzzle-3 {
   min-width: 450px; }
-  .Frame-3 .SquareTile {
+  .BossPuzzle-3 .SquareTile {
     font-size: 50px; }
-  .Frame-3 .SquareTile {
+  .BossPuzzle-3 .SquareTile {
     width: 150px;
     height: 150px;
     margin: 0; }
 
-.Frame-4 {
+.BossPuzzle-4 {
   min-width: 500px; }
-  .Frame-4 .SquareTile {
+  .BossPuzzle-4 .SquareTile {
     font-size: 40px; }
-  .Frame-4 .SquareTile {
+  .BossPuzzle-4 .SquareTile {
     width: 125px;
     height: 125px;
     margin: 0; }
 
-.Frame-5 {
+.BossPuzzle-5 {
   min-width: 500px; }
-  .Frame-5 .SquareTile {
+  .BossPuzzle-5 .SquareTile {
     font-size: 30px; }
-  .Frame-5 .SquareTile {
+  .BossPuzzle-5 .SquareTile {
     width: 100px;
     height: 100px;
     margin: 0; }
 
-.Frame-row {
+.BossPuzzle-row {
   padding: 0;
   margin: 0; }
 
-.Frame-col {
+.BossPuzzle-col {
   padding: 0; }
-
-.FrameLogo {
-  font-size: 50px;
-  text-align: center;
-  padding: 25px; }

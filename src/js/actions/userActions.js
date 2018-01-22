@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { apiRequestSuccess, apiRequestFailure } from 'js/actionCreators';
 
-console.log(process.env);
 const api = axios.create({ baseURL: process.env.REACT_APP_API_URI });
 
 export const postUser = (user) => {

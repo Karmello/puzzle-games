@@ -4,7 +4,7 @@ const initialState = {
   hiddenTileCoords: {}
 };
 
-const frameReducer = (state = initialState, action) => {
+const bossPuzzleReducer = (state = initialState, action) => {
   
   switch (action.type) {
 
@@ -46,4 +46,4 @@ const frameReducer = (state = initialState, action) => {
   }
 }
 
-export default frameReducer;
+export default bossPuzzleReducer;

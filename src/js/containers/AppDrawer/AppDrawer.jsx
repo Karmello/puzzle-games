@@ -8,8 +8,6 @@ import { setAuthStatus, toggleAppDrawer, toggleAppLoader } from 'js/actions';
 import './AppDrawer.css';
 
 
-const slideTime = 300;
-
 class AppDrawer extends Component {
   
   render() {
@@ -19,7 +17,6 @@ class AppDrawer extends Component {
     return (
       <Drawer
         className='AppDrawer'
-        transitionDuration={{ enter: slideTime, exit: slideTime * 2 }}
         open={app.showAppDrawer}
         onClose={this.closeDrawer.bind(this)}
       >

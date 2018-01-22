@@ -32,7 +32,7 @@ class App extends Component {
     if (isAnyTrue) {
       if (app.status && trueConditionIndex === 1) { this.onLoginSuccess(); }
       if (!app.isLoading) { dispatch(toggleAppLoader(true)); }
-      if (game.mode !== 'OFF') { dispatch(endGame()); }
+      if (game.id) { dispatch(endGame()); }
       setTimeout(() => { dispatch(toggleAppLoader(false)); }, App.minLoadTime);
     }
   }

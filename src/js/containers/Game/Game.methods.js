@@ -1,5 +1,5 @@
 import { Game } from 'js/containers';
-import { Frame } from 'js/components';
+import { BossPuzzle } from 'js/components';
 import { makeMove, setDimension, toggleGameLoader, switchTiles } from 'js/actions';
 import { shuffleIntArray } from 'js/helpers';
 
@@ -16,7 +16,7 @@ export function getNewRoundData(dimension, imgNumber) {
     }
   };
   
-  return Promise.all([this.loadImg(imgNumber), Frame.initData(initFrameDataConfig)]);
+  return Promise.all([this.loadImg(imgNumber), BossPuzzle.initData(initFrameDataConfig)]);
 }
 
 export function loadImg(imgNumber) {
@@ -54,10 +54,10 @@ export function getNewImgNumbers() {
 
 export function wasJustSolved(cb) {
 
-  const { frame } = this.props;
+  const { bossPuzzle } = this.props;
 
-  for (let i = 0; i < frame.tiles.length; i++) {
-    if (i + 1 !== frame.tiles[i]) {
+  for (let i = 0; i < bossPuzzle.tiles.length; i++) {
+    if (i + 1 !== bossPuzzle.tiles[i]) {
       return cb(false);
     }
   }
@@ -70,27 +70,27 @@ export function onDimensionChange(newDimension) {
   this.props.dispatch(setDimension(newDimension));
 }
 
-export function onNewGameChoose(mode) {
+export function onNewGameChoose(id) {
 
-  this.props.dispatch(toggleGameLoader(true, mode, this.getNewImgNumbers()));
+  this.props.dispatch(toggleGameLoader(true, id, this.getNewImgNumbers()));
 }
 
 export function onSquareTileClick() {
 
-  const { round, frame, row, col, dispatch } = this.props;
+  const { round, bossPuzzle, row, col, dispatch } = this.props;
 
   if (!round.isSolved) {
     
     const targetCoords = { x: row, y: col };
-    const allMovementCoords = Frame.findAllMovementCoords(targetCoords, frame.dimension);
+    const allMovementCoords = BossPuzzle.findAllMovementCoords(targetCoords, bossPuzzle.dimension);
 
     for (let coords of allMovementCoords) {
 
       // If hidden tile found
-      if (coords.x === frame.hiddenTileCoords.x && coords.y === frame.hiddenTileCoords.y) {
+      if (coords.x === bossPuzzle.hiddenTileCoords.x && coords.y === bossPuzzle.hiddenTileCoords.y) {
 
-        const index1 = Frame.coordsToIndex(targetCoords, frame.dimension);
-        const index2 = Frame.coordsToIndex(coords, frame.dimension);
+        const index1 = BossPuzzle.coordsToIndex(targetCoords, bossPuzzle.dimension);
+        const index2 = BossPuzzle.coordsToIndex(coords, bossPuzzle.dimension);
 
         // Switching tiles
         dispatch(makeMove());

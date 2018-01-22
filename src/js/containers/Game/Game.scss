@@ -24,12 +24,12 @@
       > div { padding: 5px 10px 5px 10px; }
     }
 
-    .Game-frameContainer {
+    .Game-component {
       overflow-x: auto;
       margin-top: 25px;
     }
 
-    .Game-navigation, .Game-frameContainer {
+    .Game-navigation, .Game-component {
       justify-content: center;
     }
   }
