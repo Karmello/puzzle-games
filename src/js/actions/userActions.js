@@ -1,11 +1,8 @@
 import axios from 'axios';
 import { apiRequestSuccess, apiRequestFailure } from 'js/actionCreators';
 
-
-const { NODE_ENV } = process.env;
-const api = axios.create({
-  baseURL: NODE_ENV === 'production' ? 'https://puzzle-games-api.herokuapp.com/' : 'http://localhost:3001'
-});
+console.log(process.env);
+const api = axios.create({ baseURL: process.env.REACT_APP_API_URI });
 
 export const postUser = (user) => {
   return (dispatch) => {
