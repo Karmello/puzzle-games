@@ -27,21 +27,31 @@ class Game extends Component {
 
   componentWillUpdate(nextProps, nextState) {
 
-    const { game, round, dispatch } = this.props;
+    const { game, round, bossPuzzle, dispatch } = this.props;
 
     // Game loader started
     if (!game.isLoading && nextProps.game.isLoading) {
 
-      const config = {
-        dimension: nextProps.bossPuzzle.dimension,
-        roundNumber: round.number === nextProps.game.imgNumbers.length ? 1 : round.number + 1
+      let imgNumbers;
+      
+      if (round.number === bossPuzzle.imgNumbers.length) {
+        imgNumbers = this.getNewImgNumbers();
+
+      } else {
+        imgNumbers = nextProps.bossPuzzle.imgNumbers;
       }
 
-      config.imgNumber = nextProps.game.imgNumbers[config.roundNumber - 1];
+      const config = {
+        dimension: nextProps.bossPuzzle.dimension,
+        roundNumber: round.number === imgNumbers.length ? 1 : round.number + 1
+      }
+
+      config.imgNumber = imgNumbers[config.roundNumber - 1];
+      console.log(config.imgNumber);
 
       this.getNewRoundData(config.dimension, config.imgNumber).then((data) => {
         dispatch(newRound(config.roundNumber));
-        dispatch(initFrame(config.dimension, data[1].tiles, data[1].hiddenTileCoords));
+        dispatch(initFrame(config.dimension, data[1].tiles, data[1].hiddenTileCoords, imgNumbers));
         setTimeout(() => { dispatch(toggleGameLoader(false)); }, App.minLoadTime);
       });
     }
@@ -80,7 +90,7 @@ class Game extends Component {
   render() {
     
     const { isImgLoaded } = this.state;
-    const { game, round } = this.props;
+    const { game, round, bossPuzzle } = this.props;
 
     return (
       <div className='Game'>
@@ -101,7 +111,7 @@ class Game extends Component {
               <div><Timer on={!round.isSolved} paused={round.isSolved} /></div>
             </div>
             <div className='Game-navigation'>
-              <div>{'img' + game.imgNumbers[round.number - 1] + '.jpg'}</div>
+              <div>{'img' + bossPuzzle.imgNumbers[round.number - 1] + '.jpg'}</div>
               <div>
                 <Button raised onClick={this.onNextClick.bind(this)}>New</Button>
               </div>

@@ -1,7 +1,6 @@
 const initialState = {
-  isLoading: false,
   id: undefined,
-  imgNumbers: []
+  isLoading: false
 };
 
 const gameReducer = (state = initialState, action) => {
@@ -10,16 +9,14 @@ const gameReducer = (state = initialState, action) => {
   
     case 'TOGGLE_GAME_LOADER':
       return {
-        isLoading: action.payload.isLoading,
         id: action.payload.id || state.id,
-        imgNumbers: action.payload.imgNumbers || state.imgNumbers
+        isLoading: action.payload.isLoading
       }
   
     case 'END_GAME':
       return {
         ...state,
-        id: undefined,
-        imgNumbers: []
+        id: undefined
       }
 
     default:

@@ -1,7 +1,8 @@
 const initialState = {
   dimension: 3,
   tiles: [],
-  hiddenTileCoords: {}
+  hiddenTileCoords: {},
+  imgNumbers: []
 };
 
 const bossPuzzleReducer = (state = initialState, action) => {
@@ -13,7 +14,8 @@ const bossPuzzleReducer = (state = initialState, action) => {
         ...state,
         dimension: action.payload.dimension,
         tiles: action.payload.tiles,
-        hiddenTileCoords: action.payload.hiddenTileCoords
+        hiddenTileCoords: action.payload.hiddenTileCoords,
+        imgNumbers: action.payload.imgNumbers
       }
 
     case 'SET_DIMENSION':
@@ -38,7 +40,8 @@ const bossPuzzleReducer = (state = initialState, action) => {
       return {
         ...state,
         tiles: [],
-        hiddenTileCoords: {}
+        hiddenTileCoords: {},
+        imgNumbers: []
       }
 
     default:

@@ -16,7 +16,7 @@ export default class GamesList extends Component {
         {games.map((game, key) => (
         <div key={key}>
           <Card>
-            {game.img && <CardMedia image={game.img.src} title={game.img.title} />}
+            {game.imgSrc && <CardMedia style={{ height: '250px' }} image={game.imgSrc} title={game.title} />}
             <CardContent>
               <Typography type='headline' component='h2'>{game.title}</Typography>
               <Typography component='p'>{game.description}</Typography>

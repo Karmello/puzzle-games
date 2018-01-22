@@ -38,11 +38,11 @@ export function loadImg(imgNumber) {
 
 export function getNewImgNumbers() {
 
-  const { game } = this.props;
+  const { bossPuzzle } = this.props;
 
   const run = () => {
     const newImgNumbers = shuffleIntArray(Array.from({ length: Game.numOfImgs }, (v, k) => k + 1));
-    if (game.imgNumbers[game.imgNumbers.length - 1] === newImgNumbers[0]) {
+    if (bossPuzzle.imgNumbers[bossPuzzle.imgNumbers.length - 1] === newImgNumbers[0]) {
       return run();
     } else {
       return newImgNumbers;
@@ -72,7 +72,7 @@ export function onDimensionChange(newDimension) {
 
 export function onNewGameChoose(id) {
 
-  this.props.dispatch(toggleGameLoader(true, id, this.getNewImgNumbers()));
+  this.props.dispatch(toggleGameLoader(true, id));
 }
 
 export function onSquareTileClick() {
@@ -103,12 +103,5 @@ export function onSquareTileClick() {
 
 export function onNextClick() {
 
-  const { game, round } = this.props;
-  let imgNumbers;
-
-  if (round.number === game.imgNumbers.length) {
-    imgNumbers = this.getNewImgNumbers();
-  }
-
-  this.props.dispatch(toggleGameLoader(true, undefined, imgNumbers));
+  this.props.dispatch(toggleGameLoader(true));
 }

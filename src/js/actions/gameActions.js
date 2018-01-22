@@ -1,4 +1,4 @@
-export const toggleGameLoader = (show, id, imgNumbers) => {
+export const toggleGameLoader = (show, id) => {
   
   const action = {
     type: 'TOGGLE_GAME_LOADER',
@@ -9,7 +9,6 @@ export const toggleGameLoader = (show, id, imgNumbers) => {
 
   if (show) {
     action.payload.id = id;
-    action.payload.imgNumbers = imgNumbers;
   }
 
   return action;
