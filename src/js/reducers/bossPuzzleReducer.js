@@ -3,6 +3,7 @@ const initialState = {
   tiles: [],
   hiddenTileCoords: {},
   imgNumbers: [],
+  imgIndex: undefined,
   moves: 0
 };
 
@@ -17,6 +18,7 @@ const bossPuzzleReducer = (state = initialState, action) => {
         tiles: action.payload.tiles,
         hiddenTileCoords: action.payload.hiddenTileCoords,
         imgNumbers: action.payload.imgNumbers,
+        imgIndex: action.payload.imgIndex,
         moves: 0
       }
 
@@ -45,6 +47,7 @@ const bossPuzzleReducer = (state = initialState, action) => {
         tiles: [],
         hiddenTileCoords: {},
         imgNumbers: [],
+        imgIndex: undefined,
         moves: 0
       }
 

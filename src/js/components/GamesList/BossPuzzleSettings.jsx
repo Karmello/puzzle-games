@@ -9,7 +9,7 @@ export default class BossPuzzleSettings extends Component {
   
   render() {
 
-    const { bossPuzzle } = this.props;
+    const bossPuzzle = this.props.games.BOSS_PUZZLE;
 
     return (
       <FormControl style={{ marginTop: '15px' }}>
@@ -29,7 +29,7 @@ export default class BossPuzzleSettings extends Component {
 
   onDimensionChange(e) {
 
-    if (e.target.value !== this.props.bossPuzzle.dimension) {
+    if (e.target.value !== this.props.games.BOSS_PUZZLE.dimension) {
       this.props.onDimensionChange(e.target.value);
     }
   }

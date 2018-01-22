@@ -9,11 +9,12 @@ export default class SquareTile extends Component {
   constructor(props) {
     super(props);
     this.showLabel = false;
-    this.index = props.row * props.bossPuzzle.dimension + props.col;
+    this.index = props.row * props.games.BOSS_PUZZLE.dimension + props.col;
   }
 
   componentWillUpdate(nextProps, nextState) {
-    const { bossPuzzle, row, col } = nextProps;
+    const bossPuzzle = nextProps.games.BOSS_PUZZLE;
+    const { row, col } = nextProps;
     this.isHidden = (row === bossPuzzle.hiddenTileCoords.x && col === bossPuzzle.hiddenTileCoords.y);
   }
 
@@ -31,7 +32,8 @@ export default class SquareTile extends Component {
 
   getStyle() {
     
-    const { game, bossPuzzle, imgSrc } = this.props;
+    const { games, game, imgSrc } = this.props;
+    const bossPuzzle = games.BOSS_PUZZLE;
 
     // Setting background image    
     if ((!this.isHidden || game.isSolved) && imgSrc) {
@@ -54,12 +56,13 @@ export default class SquareTile extends Component {
 
   getLabel() {
 
-    return this.props.bossPuzzle.tiles[this.index];
+    return this.props.games.BOSS_PUZZLE.tiles[this.index];
   }
 
   isInProperPlace() {
 
-    const { bossPuzzle, row, col } = this.props;
+    const { games, row, col } = this.props;
+    const bossPuzzle = games.BOSS_PUZZLE;
     return row * bossPuzzle.dimension + col + 1 === this.getLabel();
   }
 }

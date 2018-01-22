@@ -4,7 +4,7 @@ import { Button, Chip } from 'material-ui';
 
 import { App } from 'js/containers';
 import { BossPuzzle, Loader, GamesList, Timer } from 'js/components';
-import { endRound, initFrame, newRound, resetFrame, setAsSolved, toggleGameLoader } from 'js/actions';
+import { initFrame, resetFrame, setAsSolved, toggleGameLoader } from 'js/actions';
 import * as GameMethods from './Game.methods';
 import './Game.css';
 
@@ -25,47 +25,48 @@ class Game extends Component {
 
   componentWillUpdate(nextProps, nextState) {
 
-    const { game, round, bossPuzzle, dispatch } = this.props;
+    const { games, game, dispatch } = this.props;
+    const bossPuzzle = games.BOSS_PUZZLE;
 
     // Game loader started
     if (!game.isLoading && nextProps.game.isLoading) {
 
-      let imgNumbers;
+      let imgNumbers, imgIndex;
       
-      if (round.number === bossPuzzle.imgNumbers.length) {
+      if (bossPuzzle.imgIndex === undefined || bossPuzzle.imgIndex === bossPuzzle.imgNumbers.length - 1) {
         imgNumbers = this.getNewImgNumbers();
+        imgIndex = 0;
 
       } else {
-        imgNumbers = nextProps.bossPuzzle.imgNumbers;
+        imgNumbers = nextProps.games.BOSS_PUZZLE.imgNumbers;
+        imgIndex = bossPuzzle.imgIndex + 1;
       }
 
       const config = {
-        dimension: nextProps.bossPuzzle.dimension,
-        roundNumber: round.number === imgNumbers.length ? 1 : round.number + 1
+        dimension: nextProps.games.BOSS_PUZZLE.dimension,
+        imgIndex: imgIndex
       }
 
-      config.imgNumber = imgNumbers[config.roundNumber - 1];
+      config.imgNumber = imgNumbers[config.imgIndex];
 
       this.getNewRoundData(config.dimension, config.imgNumber).then((data) => {
-        dispatch(newRound(config.roundNumber));
-        dispatch(initFrame(config.dimension, data[1].tiles, data[1].hiddenTileCoords, imgNumbers));
+        dispatch(initFrame(config.dimension, data[1].tiles, data[1].hiddenTileCoords, imgNumbers, config.imgIndex));
         setTimeout(() => { dispatch(toggleGameLoader(false)); }, App.minLoadTime);
       });
     }
 
     // End game
     if (game.id && !nextProps.game.id) {
-      
-      dispatch(endRound());
       dispatch(resetFrame());
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
 
-    const { round, dispatch } = this.props;
+    const { games, dispatch } = this.props;
+    const bossPuzzle = games.BOSS_PUZZLE;
 
-    if (round.moves === prevProps.round.moves + 1) {
+    if (bossPuzzle.moves === prevProps.games.BOSS_PUZZLE.moves + 1) {
       this.wasJustSolved(yes => {
         if (yes) {
           dispatch(setAsSolved());
@@ -79,7 +80,6 @@ class Game extends Component {
     const { game, dispatch } = this.props;
     
     if (game.id) {
-      dispatch(endRound());
       dispatch(resetFrame());
     }
   }
@@ -87,7 +87,8 @@ class Game extends Component {
   render() {
     
     const { isImgLoaded } = this.state;
-    const { game, round, bossPuzzle } = this.props;
+    const { games, game } = this.props;
+    const bossPuzzle = games.BOSS_PUZZLE;
 
     return (
       <div className='Game'>
@@ -104,11 +105,11 @@ class Game extends Component {
           <div className='Game-on'>
             <div className='Game-dashboard'>
               <div><Chip label={game.id} /></div>
-              <div><Chip label={'Moves: ' + round.moves} /></div>
+              <div><Chip label={'Moves: ' + bossPuzzle.moves} /></div>
               <div><Timer on={!game.isSolved} paused={game.isSolved} /></div>
             </div>
             <div className='Game-navigation'>
-              <div>{'img' + bossPuzzle.imgNumbers[round.number - 1] + '.jpg'}</div>
+              <div>{'img' + bossPuzzle.imgNumbers[bossPuzzle.imgIndex] + '.jpg'}</div>
               <div>
                 <Button raised onClick={this.onNextClick.bind(this)}>New</Button>
               </div>

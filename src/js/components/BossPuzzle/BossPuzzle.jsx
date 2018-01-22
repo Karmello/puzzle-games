@@ -90,7 +90,8 @@ export default class BossPuzzle extends Component {
   
   render() {
 
-    const { bossPuzzle, imgSrc } = this.props;
+    const { imgSrc } = this.props;
+    const bossPuzzle = this.props.games.BOSS_PUZZLE;
     
     return (
       <div className={'BossPuzzle-' + bossPuzzle.dimension}> {

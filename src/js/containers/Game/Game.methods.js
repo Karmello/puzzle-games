@@ -38,7 +38,7 @@ export function loadImg(imgNumber) {
 
 export function getNewImgNumbers() {
 
-  const { bossPuzzle } = this.props;
+  const bossPuzzle = this.props.games.BOSS_PUZZLE;
 
   const run = () => {
     const newImgNumbers = shuffleIntArray(Array.from({ length: Game.numOfImgs }, (v, k) => k + 1));
@@ -54,7 +54,7 @@ export function getNewImgNumbers() {
 
 export function wasJustSolved(cb) {
 
-  const { bossPuzzle } = this.props;
+  const bossPuzzle = this.props.games.BOSS_PUZZLE;
 
   for (let i = 0; i < bossPuzzle.tiles.length; i++) {
     if (i + 1 !== bossPuzzle.tiles[i]) {
@@ -77,7 +77,8 @@ export function onNewGameChoose(id) {
 
 export function onSquareTileClick() {
 
-  const { game, bossPuzzle, row, col, dispatch } = this.props;
+  const { games, game, row, col, dispatch } = this.props;
+  const bossPuzzle = games.BOSS_PUZZLE;
 
   if (!game.isSolved) {
     
