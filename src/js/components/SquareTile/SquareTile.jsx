@@ -31,13 +31,13 @@ export default class SquareTile extends Component {
 
   getStyle() {
     
-    const { round, bossPuzzle, imgSrc, tilesSizes } = this.props;
+    const { round, bossPuzzle, imgSrc } = this.props;
 
     // Setting background image    
     if ((!this.isHidden || round.isSolved) && imgSrc) {
 
       const imgCoords = BossPuzzle.indexToCoords(this.getLabel() - 1, bossPuzzle.dimension);
-      const imgSize = tilesSizes[bossPuzzle.dimension];
+      const imgSize = BossPuzzle.tilesSizes[bossPuzzle.dimension];
 
       return {
         backgroundImage: `url(${imgSrc})`,

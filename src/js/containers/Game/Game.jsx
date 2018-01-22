@@ -9,8 +9,6 @@ import * as GameMethods from './Game.methods';
 import './Game.css';
 
 
-const tilesSizes = { 3: 150, 4: 125, 5: 100 };
-
 class Game extends Component {
   
   static numOfImgs = 15;
@@ -47,7 +45,6 @@ class Game extends Component {
       }
 
       config.imgNumber = imgNumbers[config.roundNumber - 1];
-      console.log(config.imgNumber);
 
       this.getNewRoundData(config.dimension, config.imgNumber).then((data) => {
         dispatch(newRound(config.roundNumber));
@@ -117,7 +114,7 @@ class Game extends Component {
               </div>
             </div>
             <div className='Game-component'>
-              <BossPuzzle {...this.props} tilesSizes={tilesSizes} imgSrc={this.imgSrc} onSquareTileClick={this.onSquareTileClick} />
+              <BossPuzzle {...this.props} imgSrc={this.imgSrc} onSquareTileClick={this.onSquareTileClick} />
             </div>
           </div>}
         </Loader>

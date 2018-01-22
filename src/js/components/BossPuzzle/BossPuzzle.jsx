@@ -9,6 +9,8 @@ const initDataLoopRuns = 1000;
 
 export default class BossPuzzle extends Component {
 
+  static tilesSizes = { 3: 150, 4: 125, 5: 100 };
+
   static initData(args) {
 
     const run = () => {
