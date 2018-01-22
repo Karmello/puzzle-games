@@ -2,7 +2,7 @@ import axios from 'axios';
 import { apiRequestSuccess, apiRequestFailure } from 'js/actionCreators';
 
 
-const api = axios.create({ baseURL: process.env.API_URL });
+const api = axios.create({ baseURL: process.env.API_URI || 'http://localhost:3001' });
 
 export const postUser = (user) => {
   return (dispatch) => {
