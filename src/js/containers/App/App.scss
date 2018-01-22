@@ -1,0 +1,21 @@
+.App {
+
+  margin-bottom: 50px;
+
+  .App-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > * {
+      padding: 15px;
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .App-auth-welcomeImgContainer {
+      margin-bottom: 25px;
+    }
+  }
+}

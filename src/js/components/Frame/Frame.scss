@@ -1,0 +1,38 @@
+@import '_vars';
+@import 'js/components/SquareTile/SquareTile.scss';
+
+@mixin Frame($dimension, $btnSize) {
+  min-width: $dimension * ($btnSize + 2 * $tileMargin);
+  @include SquareTile($btnSize, $tileMargin);
+}
+
+
+.Frame-3 {
+  .SquareTile { font-size: 50px; }
+  @include Frame(3, $bigTile);
+}
+
+.Frame-4 {
+  .SquareTile { font-size: 40px; }
+  @include Frame(4, $mediumTile);
+}
+
+.Frame-5 {
+  .SquareTile { font-size: 30px; }
+  @include Frame(5, $smallTile);
+}
+
+.Frame-row {
+  padding: 0;
+  margin: 0;
+}
+
+.Frame-col {
+  padding: 0;
+}
+
+.FrameLogo {
+  font-size: 50px;
+  text-align: center;
+  padding: 25px;
+}
