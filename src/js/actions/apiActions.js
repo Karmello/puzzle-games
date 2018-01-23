@@ -27,6 +27,12 @@ export const getUser = (query) => {
 export const getGames = () => {
   return (dispatch) => {
     return api.get('/games').then(res => {
+
+      // interception
+      const data = {};
+      for (const obj of res.data) { data[obj.id] = obj; }
+      res.data = data;
+
       dispatch(apiRequestSuccess('GET', 'GAMES', res));
     }, err => {
       dispatch(apiRequestFailure('GET', 'GAMES', err));

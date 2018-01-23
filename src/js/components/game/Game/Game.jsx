@@ -11,14 +11,14 @@ class Game extends Component {
 
   render() {
     
-    const { games, game } = this.props;
+    const { games, game, gameApiData } = this.props;
     const currentGame = games[game.id];
 
     return (
       <Loader isShown={game.isLoading}>
         <div className='Game'>
           <div className='Game-dashboard'>
-            <div><Chip label={game.id} /></div>
+            <div><Chip label={gameApiData[game.id].name} /></div>
             <div><Chip label={'Moves: ' + currentGame.moves} /></div>
             <div><Timer on={!game.isLoading && !game.isSolved} paused={game.isSolved} /></div>
           </div>
@@ -46,5 +46,6 @@ class Game extends Component {
 
 export default connect(store => ({
   game: store.game,
-  games: store.games
+  games: store.games,
+  gameApiData: store.api.games.data
 }))(Game);

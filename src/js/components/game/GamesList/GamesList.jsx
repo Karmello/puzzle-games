@@ -17,19 +17,19 @@ class GamesList extends Component {
 
     return (
       <div className='GamesList'>
-        {gameApiData.map((game, key) => (
+        {Object.keys(gameApiData).map((key, index) => (
         <div key={key}>
           <Card>
             <CardMedia
               style={{ height: '250px' }}
-              image={`${process.env.REACT_APP_S3_BUCKET}/${game.id}/logo.jpg`}
-              title={game.name}
+              image={`${process.env.REACT_APP_S3_BUCKET}/${gameApiData[key].id}/logo.jpg`}
+              title={gameApiData[key].name}
             />
             <CardContent>
-              <Typography type='headline' component='h2'>{game.name}</Typography>
-              <Typography component='p'>{game.description}</Typography>
+              <Typography type='headline' component='h2'>{gameApiData[key].name}</Typography>
+              <Typography component='p'>{gameApiData[key].description}</Typography>
               <div className='GamesList-settings'>
-                {game.id === 'BOSS_PUZZLE' &&
+                {gameApiData[key].id === 'BOSS_PUZZLE' &&
                 <BossPuzzleSettings
                   dimension={bossPuzzle.dimension}
                   dispatch={this.props.dispatch}
@@ -38,7 +38,7 @@ class GamesList extends Component {
             </CardContent>
             <CardActions className='GamesList-actions'>
               <div>
-                <Button color='primary' onClick={() => { this.onChoose(game.id) }}>Play</Button>
+                <Button color='primary' onClick={() => { this.onChoose(gameApiData[key].id) }}>Play</Button>
               </div>
             </CardActions>
           </Card>
