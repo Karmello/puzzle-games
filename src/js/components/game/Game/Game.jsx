@@ -21,6 +21,7 @@ class Game extends Component {
             <div><Chip label={gameApiData[game.id].name} /></div>
             <div><Chip label={'Moves: ' + currentGame.moves} /></div>
             <div><Timer on={!game.isLoading && !game.isSolved} paused={game.isSolved} /></div>
+            {game.isSolved && <div><Chip label='SOLVED' /></div>}
           </div>
           <div className='Game-component'>
             <BossPuzzle
