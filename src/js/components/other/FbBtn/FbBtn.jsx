@@ -26,10 +26,10 @@ export default class FbBtn extends Component {
 
   onClick() {
 
-    const { app, setAuthStatus } = this.props;
+    const { app, onDoneTryLogin } = this.props;
 
     if (app.authStatus !== 'connected') {
-      window.FB.login(res => setAuthStatus(res.status), { scope: 'public_profile' });
+      window.FB.login(res => onDoneTryLogin(res), { scope: 'public_profile' });
     }
   }
 }

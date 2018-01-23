@@ -19,3 +19,9 @@ export const apiRequestFailure = (verb, subject, err) => {
     }
   }
 }
+
+export const apiRequestClear = (subject) => {
+  return {
+    type: `${subject}_CLEAR`
+  }
+}

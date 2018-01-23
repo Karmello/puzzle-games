@@ -18,6 +18,14 @@ const getApiRequestReducer = (subject) => {
         data: undefined
       }
     
+    } else if (action.type.indexOf(subject + '_CLEAR') > -1) {
+
+      return {
+        status: undefined,
+        statusText: undefined,
+        data: undefined
+      }
+
     } else {
       return state;
     }

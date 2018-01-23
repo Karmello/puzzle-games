@@ -4,7 +4,7 @@ import { Drawer, List } from 'material-ui';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import PowerSettingsNewIcon from 'material-ui-icons/PowerSettingsNew';
 
-import { setAuthStatus, toggleAppDrawer, toggleAppLoader } from 'js/actions';
+import { toggleAppDrawer } from 'js/actions';
 import './AppDrawer.css';
 
 
@@ -12,12 +12,12 @@ class AppDrawer extends Component {
   
   render() {
 
-    const { app } = this.props;
+    const { showDrawer, onLogout } = this.props;
 
     return (
       <Drawer
         className='AppDrawer'
-        open={app.showDrawer}
+        open={showDrawer}
         onClose={this.closeDrawer.bind(this)}
       >
         <div
@@ -28,7 +28,7 @@ class AppDrawer extends Component {
         >
           <div className='AppDrawer-content'>
             <List>
-              <ListItem button onClick={this.onItemClick.bind(this)}>
+              <ListItem button onClick={onLogout}>
                 <ListItemIcon>
                   <PowerSettingsNewIcon />
                 </ListItemIcon>
@@ -45,13 +45,8 @@ class AppDrawer extends Component {
     
     this.props.dispatch(toggleAppDrawer(false));
   }
-
-  onItemClick() {
-
-    const { dispatch } = this.props;
-    dispatch(toggleAppLoader(true));
-    window.FB.logout(res => dispatch(setAuthStatus(res.status)));
-  }
 }
 
-export default connect(store => store)(AppDrawer);
+export default connect(store => ({
+  showDrawer: store.app.showDrawer
+}))(AppDrawer);
