@@ -30,13 +30,19 @@ export default class GameMenu extends Component {
           open={Boolean(btnElem)}
           onClose={() => { this.setup() }}
         >
-          <MenuItem onClick={() => { this.onItemClick('NEW') }}>New</MenuItem>
-          <MenuItem onClick={() => { this.onItemClick('END') }}>End</MenuItem>
+          <MenuItem style={this.getItemStyle()} onClick={() => { this.onItemClick('NEW') }}>New</MenuItem>
+          <MenuItem style={this.getItemStyle()} onClick={() => { this.onItemClick('END') }}>End</MenuItem>
         </Menu>
       </div>
     );
   }
   
+  getItemStyle() {
+    return {
+      width: '100px'
+    }
+  }
+
   setup(e) {
 
     this.setState({

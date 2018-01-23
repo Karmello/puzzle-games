@@ -9,6 +9,9 @@ import { endGame, getUser, postUser, setAuthStatus, toggleAppLoader } from 'js/a
 import './App.css';
 
 
+const logoSrc = process.env.PUBLIC_URL + '/imgs/welcome.jpg';
+const logoHref = 'https://en.wikipedia.org/wiki/15_puzzle';
+
 class App extends Component {
 
   static minLoadTime = 300;
@@ -66,8 +69,8 @@ class App extends Component {
               {app.status !== 'connected' && 
               <div className='App-auth'>
                 <div className='App-auth-welcomeImgContainer'>
-                  <a href='https://en.wikipedia.org/wiki/15_puzzle' target='new'>
-                    <img src={process.env.PUBLIC_URL + '/imgs/welcome.jpg'} alt='' />
+                  <a href={logoHref} target='new'>
+                    <img src={logoSrc} alt='' />
                   </a>
                 </div>
                 <div>{this.props.app.name}</div>
@@ -91,11 +94,6 @@ class App extends Component {
     );
   }
 
-  setAuthStatus(status) {
-
-    this.props.dispatch(setAuthStatus(status));
-  }
-
   onLoginSuccess() {
 
     // getting fb user data
@@ -114,7 +112,11 @@ class App extends Component {
       });
     });
   }
+
+  setAuthStatus(status) {
+
+    this.props.dispatch(setAuthStatus(status));
+  }
 }
 
-const mapStateToProps = (store) => { return store; }
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(connect(store => store)(App));
