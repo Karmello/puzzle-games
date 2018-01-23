@@ -4,6 +4,10 @@
   text-align: center;
   font-size: 13px;
   padding: 10px; }
+  .AppDrawer .AppDrawer-user > div {
+    margin: 2px; }
+    .AppDrawer .AppDrawer-user > div img {
+      border-radius: 50%; }
 
 .AppDrawer .AppDrawer-content {
   width: 200px; }

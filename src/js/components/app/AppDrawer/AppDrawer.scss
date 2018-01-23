@@ -6,6 +6,11 @@
     text-align: center;
     font-size: 13px;
     padding: 10px;
+
+    > div {
+      margin: 2px;
+      img { border-radius: 50%; }
+    }
   }
 
   .AppDrawer-content {

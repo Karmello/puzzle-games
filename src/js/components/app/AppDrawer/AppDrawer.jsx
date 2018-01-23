@@ -39,7 +39,7 @@ class AppDrawer extends Component {
       >
         {user.data && avatar &&
         <div className='AppDrawer-user'>
-          <div>{avatar && <img src={avatar.url} alt='' />}</div>
+          <div>{avatar && <img src={avatar.url} alt='' title={user.data.fb.name} />}</div>
           <div>{user.data.fb.name}</div>
         </div>}
         <div
@@ -50,10 +50,14 @@ class AppDrawer extends Component {
         >
           <div className='AppDrawer-content'>
             <List>
+              <ListItem button>
+                <ListItemText primary='Page1' />
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary='Page2' />
+              </ListItem>
               <ListItem button onClick={onLogout}>
-                <ListItemIcon>
-                  <PowerSettingsNewIcon />
-                </ListItemIcon>
+                <ListItemIcon><PowerSettingsNewIcon /></ListItemIcon>
                 <ListItemText primary='Logout' />
               </ListItem>
             </List>
