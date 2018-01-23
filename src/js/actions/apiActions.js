@@ -23,3 +23,13 @@ export const getUser = (query) => {
     });
   }
 }
+
+export const getGames = () => {
+  return (dispatch) => {
+    return api.get('/games').then(res => {
+      dispatch(apiRequestSuccess('GET', 'GAMES', res));
+    }, err => {
+      dispatch(apiRequestFailure('GET', 'GAMES', err));
+    });
+  }
+}

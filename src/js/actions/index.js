@@ -1,4 +1,4 @@
 export * from './appActions';
-export * from './userActions';
+export * from './apiActions';
 export * from './gameActions';
 export * from './bossPuzzleActions';

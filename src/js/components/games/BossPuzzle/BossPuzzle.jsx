@@ -126,7 +126,7 @@ class BossPuzzle extends Component {
     return new Promise((resolve, reject) => {
 
       const img = new Image();
-      img.src = process.env.PUBLIC_URL + '/imgs/img' + imgNumber + '.jpg';
+      img.src = `${process.env.REACT_APP_S3_BUCKET}/BOSS_PUZZLE/img${imgNumber}.jpg`;
         
       img.onload = () => {
         this.setState({ imgSrc: img.src });

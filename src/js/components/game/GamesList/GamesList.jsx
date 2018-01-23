@@ -5,7 +5,6 @@ import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
 import { BossPuzzleSettings } from 'js/components';
 import { startGame } from 'js/actions';
-import games from './GamesList.games';
 import './GamesList.css';
 
 
@@ -13,16 +12,21 @@ class GamesList extends Component {
   
   render() {
 
-    const bossPuzzle = this.props.games.BOSS_PUZZLE;
+    const { gameApiData, games } = this.props;
+    const bossPuzzle = games.BOSS_PUZZLE;
 
     return (
       <div className='GamesList'>
-        {games.map((game, key) => (
+        {gameApiData.map((game, key) => (
         <div key={key}>
           <Card>
-            {game.imgSrc && <CardMedia style={{ height: '250px' }} image={game.imgSrc} title={game.title} />}
+            <CardMedia
+              style={{ height: '250px' }}
+              image={`${process.env.REACT_APP_S3_BUCKET}/${game.id}/logo.jpg`}
+              title={game.name}
+            />
             <CardContent>
-              <Typography type='headline' component='h2'>{game.title}</Typography>
+              <Typography type='headline' component='h2'>{game.name}</Typography>
               <Typography component='p'>{game.description}</Typography>
               <div className='GamesList-settings'>
                 {game.id === 'BOSS_PUZZLE' &&
@@ -50,5 +54,6 @@ class GamesList extends Component {
 }
 
 export default connect(store => ({
+  gameApiData: store.api.games.data,
   games: store.games
 }))(GamesList);

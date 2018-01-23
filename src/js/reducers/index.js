@@ -9,7 +9,8 @@ import bossPuzzleReducer from 'js/reducers/bossPuzzleReducer';
 const reducers = combineReducers({
   app: appReducer,
   api: combineReducers({
-    me: getApiRequestReducer('USER')
+    me: getApiRequestReducer('USER'),
+    games: getApiRequestReducer('GAMES')
   }),
   game: gameReducer,
   games: combineReducers({

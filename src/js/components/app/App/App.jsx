@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AppBar, AppDrawer, FbBtn, Game, GamesList, Loader } from 'js/components';
-import { endGame, getUser, postUser, setAuthStatus, toggleAppLoader } from 'js/actions';
+import { endGame, getGames, getUser, postUser, setAuthStatus, toggleAppLoader } from 'js/actions';
 import { fbLoginConfig, loadFbScript } from './App.auth.js';
 import './App.css';
 
 
-const logoSrc = process.env.PUBLIC_URL + '/imgs/welcome.jpg';
+const logoSrc = `${process.env.REACT_APP_S3_BUCKET}/logo.jpg`;
 const logoHref = 'https://en.wikipedia.org/wiki/15_puzzle';
 
 class App extends Component {
@@ -65,7 +65,7 @@ class App extends Component {
         <Switch>
           <Route exact={true} path='/' render={props => (
             <Loader isShown={app.isLoading}>
-              {app.authStatus !== 'connected' && 
+              {app.authStatus !== 'connected' &&
               <div className='App-auth'>
                 <div className='App-auth-welcomeImgContainer'>
                   <a href={logoHref} target='new'>
@@ -95,6 +95,10 @@ class App extends Component {
 
   onLoginSuccess() {
 
+    const cb = () => {
+      this.fetchAppMustHaveData().then(() => this.setAuthStatus('connected'));
+    }
+  
     // getting fb user data
     window.FB.api('/me', fbUser => {
 
@@ -105,11 +109,17 @@ class App extends Component {
         
         // need to create new db user
         if (this.props.api.me.status === 404) {
-          dispatch(postUser({ fb: fbUser })).then(() => this.setAuthStatus('connected'));
+          dispatch(postUser({ fb: fbUser })).then(() => cb());
 
-        } else { this.setAuthStatus('connected'); }
+        // db user already exists in db
+        } else { cb(); }
       });
     });
+  }
+
+  fetchAppMustHaveData() {
+
+    return this.props.dispatch(getGames());
   }
 
   setAuthStatus(status) {
