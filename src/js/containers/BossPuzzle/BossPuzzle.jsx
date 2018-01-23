@@ -3,14 +3,36 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'react-flexbox-grid';
 
 import { SquareTile } from 'js/components';
-import { clearHiddenTileCoords, switchTiles, resetFrame } from 'js/actions';
+import { clearHiddenTileCoords, initFrame, switchTiles, resetFrame } from 'js/actions';
+import { getNewImgNumbers, initData } from 'js/containers/BossPuzzle/BossPuzzle.static';
 import './BossPuzzle.css';
 
 
 class BossPuzzle extends Component {
 
   static tilesSizes = { 3: 150, 4: 125, 5: 100 };
+  static numOfImgs = 15;
   
+  constructor(props) {
+    super(props);
+    this.state = { isImgLoaded: false };
+  }
+
+  componentWillMount() {
+
+    this.startNew();
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+
+    // Game loader started
+    if (!this.props.game.isLoading && nextProps.game.isLoading) {
+
+      this.setState({ isImgLoaded: false });
+      this.startNew();
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
 
     const { bossPuzzle, onBeenSolved, dispatch } = this.props;
@@ -38,27 +60,82 @@ class BossPuzzle extends Component {
 
   render() {
 
-    const { bossPuzzle, imgSrc, isSolved } = this.props;
+    const { isImgLoaded } = this.state;
+    const { game, bossPuzzle } = this.props;
     
-    return (
-      <div className={'BossPuzzle-' + bossPuzzle.dimension}> {
-      Array.from({ length: bossPuzzle.dimension }, (v, k) => k).map((i) => (
-        <Row key={i} className='BossPuzzle-row'> {
-        Array.from({ length: bossPuzzle.dimension }, (v, k) => k).map((j) => (
-          <Col key={j} className='BossPuzzle-col'>
-            <SquareTile
-              bossPuzzle={bossPuzzle}
-              imgSrc={imgSrc}
-              row={Number(i)}
-              col={Number(j)}
-              isSolved={isSolved}
-              onMoveMade={this.onMoveMade.bind(this)}
-              showLabel={false}
-            />
-          </Col>
-        ))}</Row>
-      ))}</div>
-    );
+    if (isImgLoaded) {
+      return (
+        <div
+          className={'BossPuzzle-' + bossPuzzle.dimension}
+          style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}
+        > {
+        Array.from({ length: bossPuzzle.dimension }, (v, k) => k).map((i) => (
+          <Row key={i} className='BossPuzzle-row'> {
+          Array.from({ length: bossPuzzle.dimension }, (v, k) => k).map((j) => (
+            <Col key={j} className='BossPuzzle-col'>
+              <SquareTile
+                bossPuzzle={bossPuzzle}
+                imgSrc={this.imgSrc}
+                row={Number(i)}
+                col={Number(j)}
+                isSolved={game.isSolved}
+                onMoveMade={this.onMoveMade.bind(this)}
+                showLabel={false}
+              />
+            </Col>
+          ))}</Row>
+        ))}</div>
+      );
+    }
+
+    return null;
+  }
+
+  startNew() {
+
+    const { bossPuzzle, dispatch, onFinishInit } = this.props;
+    const { dimension, imgIndex, imgNumbers } = bossPuzzle;
+
+    let nextImgIndex, nextImgNumbers;
+
+    if (imgIndex !== undefined && imgIndex < imgNumbers.length - 1) {
+      nextImgIndex = imgIndex + 1;
+      nextImgNumbers = imgNumbers;
+
+    } else {
+      nextImgIndex = 0;
+      nextImgNumbers = getNewImgNumbers(imgNumbers)
+    }
+        
+    const newHiddenTileCoords = {
+      x: Math.floor(Math.random() * dimension),
+      y: Math.floor(Math.random() * dimension)
+    }
+    
+    const task1 = this.loadImg(nextImgNumbers[nextImgIndex]);
+    const task2 = initData({ dimension, hiddenTileCoords: newHiddenTileCoords });
+
+    return Promise.all([task1, task2]).then((data) => {
+      dispatch(initFrame(dimension, data[1].tiles, data[1].hiddenTileCoords, nextImgNumbers, nextImgIndex));
+      onFinishInit();
+    });
+  }
+
+  loadImg(imgNumber) {
+
+    return new Promise((resolve, reject) => {
+
+      const img = new Image();
+      img.src = process.env.PUBLIC_URL + '/imgs/img' + imgNumber + '.jpg';
+        
+      img.onload = () => {
+        this.setState({ isImgLoaded: true });
+        this.imgSrc = img.src;
+        resolve();
+      }
+
+      img.onerror = (err) => { reject(err); }
+    });
   }
 
   onMoveMade(index1, index2, targetCoords) {
@@ -68,6 +145,6 @@ class BossPuzzle extends Component {
 };
 
 export default connect(store => ({
-  bossPuzzle: store.games.BOSS_PUZZLE,
-  isSolved: store.game.isSolved
+  game: store.game,
+  bossPuzzle: store.games.BOSS_PUZZLE
 }))(BossPuzzle);

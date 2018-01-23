@@ -1,3 +1,7 @@
+import { BossPuzzle } from 'js/containers';
+import { shuffleIntArray } from 'js/helpers';
+
+
 const initDataLoopRuns = 1000;
 
 export const initData = (args) => {
@@ -75,4 +79,18 @@ export const indexToCoords = (index, dimension) => {
     x: Math.floor(index/dimension),
     y: index % dimension
   }
+}
+
+export function getNewImgNumbers(currentNumbers) {
+
+  const run = () => {
+    const newImgNumbers = shuffleIntArray(Array.from({ length: BossPuzzle.numOfImgs }, (v, k) => k + 1));
+    if (currentNumbers[currentNumbers.length - 1] === newImgNumbers[0]) {
+      return run();
+    } else {
+      return newImgNumbers;
+    }
+  }
+
+  return run();
 }

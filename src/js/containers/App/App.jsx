@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
-import { AppBar, AppDrawer, Game } from 'js/containers';
+import { AppBar, AppDrawer, Game, GamesList } from 'js/containers';
 import { fbLoginConfig, loadFbScript } from 'js/containers/App/App.auth.js';
 import { FbBtn, Loader } from 'js/components';
 import { endGame, getUser, postUser, setAuthStatus, toggleAppLoader } from 'js/actions';
@@ -56,7 +56,7 @@ class App extends Component {
 
   render() {
 
-    const { app } = this.props;
+    const { app, game } = this.props;
 
     return (
       <div className='App'>
@@ -80,7 +80,8 @@ class App extends Component {
               <div>
                 <AppDrawer setAuthStatus={this.setAuthStatus.bind(this)} />
                 <AppBar/>
-                <Game/>
+                {!game.id && <GamesList/>}
+                {game.id && <Game/>}
               </div>}
             </Loader>
           )}/>

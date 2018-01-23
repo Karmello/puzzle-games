@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Button, Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
-import BossPuzzleSettings from './BossPuzzleSettings';
+import { BossPuzzleSettings } from 'js/components';
+import { toggleGameLoader } from 'js/actions';
 import games from './GamesList.games';
 import './GamesList.css';
 
 
-export default class GamesList extends Component {
+class GamesList extends Component {
   
   render() {
+
+    const bossPuzzle = this.props.games.BOSS_PUZZLE;
 
     return (
       <div className='GamesList'>
@@ -21,12 +25,16 @@ export default class GamesList extends Component {
               <Typography type='headline' component='h2'>{game.title}</Typography>
               <Typography component='p'>{game.description}</Typography>
               <div className='GamesList-settings'>
-                {game.id === 'BOSS_PUZZLE' && <BossPuzzleSettings {...this.props} />}
+                {game.id === 'BOSS_PUZZLE' &&
+                <BossPuzzleSettings
+                  dimension={bossPuzzle.dimension}
+                  dispatch={this.props.dispatch}
+                />}
               </div>
             </CardContent>
             <CardActions className='GamesList-actions'>
               <div>
-                <Button color='primary' onClick={() => { this.props.onChoose(game.id) }}>Play</Button>
+                <Button color='primary' onClick={() => { this.onChoose(game.id) }}>Play</Button>
               </div>
             </CardActions>
           </Card>
@@ -34,4 +42,13 @@ export default class GamesList extends Component {
       </div>
     );
   }
+
+  onChoose(id) {
+
+    this.props.dispatch(toggleGameLoader(true, id));
+  }
 }
+
+export default connect(store => ({
+  games: store.games
+}))(GamesList);

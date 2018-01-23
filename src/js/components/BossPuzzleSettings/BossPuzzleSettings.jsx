@@ -4,18 +4,20 @@ import { InputLabel } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
 import { MenuItem } from 'material-ui/Menu';
 
+import { setDimension } from 'js/actions';
+
 
 export default class BossPuzzleSettings extends Component {
   
   render() {
 
-    const bossPuzzle = this.props.games.BOSS_PUZZLE;
+    const { dimension } = this.props;
 
     return (
       <FormControl style={{ marginTop: '15px' }}>
         <InputLabel htmlFor='dimension'>Dimension</InputLabel>
         <Select
-          value={bossPuzzle.dimension}
+          value={dimension}
           input={<Input name='dimension' id='dimension' />}
           onChange={this.onDimensionChange.bind(this)}
         >
@@ -29,8 +31,7 @@ export default class BossPuzzleSettings extends Component {
 
   onDimensionChange(e) {
 
-    if (e.target.value !== this.props.games.BOSS_PUZZLE.dimension) {
-      this.props.onDimensionChange(e.target.value);
-    }
+    const { dimension, dispatch } = this.props;
+    if (e.target.value !== dimension) { dispatch(setDimension(e.target.value)); }
   }
 }
