@@ -1,36 +1,24 @@
 .Game {
 
-  .Game-on {
-    
+  display: flex;
+  flex-flow: column wrap;
+
+  > div {
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: row;
+  }
 
-    > div {
-      display: flex;
-      flex-direction: row;
-    }
+  .Game-dashboard {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    > div { margin: 3px 5px 3px 5px; }
+  }
 
-    .Game-dashboard {
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      padding: 5px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      > div { margin: 3px 5px 3px 5px; }
-    }
-
-    .Game-navigation {
-      align-items: center;
-      > div { padding: 5px 10px 5px 10px; }
-    }
-
-    .Game-component {
-      overflow-x: auto;
-      margin-top: 25px;
-    }
-
-    .Game-navigation, .Game-component {
-      justify-content: center;
-    }
+  .Game-component {
+    overflow-x: auto;
+    justify-content: center;
   }
 }

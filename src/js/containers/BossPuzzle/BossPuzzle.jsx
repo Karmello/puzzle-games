@@ -15,7 +15,7 @@ class BossPuzzle extends Component {
   
   constructor(props) {
     super(props);
-    this.state = { isImgLoaded: false };
+    this.state = { imgSrc: null };
   }
 
   componentWillMount() {
@@ -28,7 +28,7 @@ class BossPuzzle extends Component {
     // Game loader started
     if (!this.props.game.isLoading && nextProps.game.isLoading) {
 
-      this.setState({ isImgLoaded: false });
+      this.setState({ imgSrc: null });
       this.startNew();
     }
   }
@@ -60,10 +60,10 @@ class BossPuzzle extends Component {
 
   render() {
 
-    const { isImgLoaded } = this.state;
+    const { imgSrc } = this.state;
     const { game, bossPuzzle } = this.props;
     
-    if (isImgLoaded) {
+    if (imgSrc) {
       return (
         <div
           className={'BossPuzzle-' + bossPuzzle.dimension}
@@ -75,7 +75,7 @@ class BossPuzzle extends Component {
             <Col key={j} className='BossPuzzle-col'>
               <SquareTile
                 bossPuzzle={bossPuzzle}
-                imgSrc={this.imgSrc}
+                imgSrc={imgSrc}
                 row={Number(i)}
                 col={Number(j)}
                 isSolved={game.isSolved}
@@ -129,8 +129,7 @@ class BossPuzzle extends Component {
       img.src = process.env.PUBLIC_URL + '/imgs/img' + imgNumber + '.jpg';
         
       img.onload = () => {
-        this.setState({ isImgLoaded: true });
-        this.imgSrc = img.src;
+        this.setState({ imgSrc: img.src });
         resolve();
       }
 

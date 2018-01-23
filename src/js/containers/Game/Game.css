@@ -1,23 +1,17 @@
-.Game .Game-on {
+.Game {
   display: flex;
   flex-flow: column wrap; }
-  .Game .Game-on > div {
+  .Game > div {
     display: flex;
     flex-direction: row; }
-  .Game .Game-on .Game-dashboard {
+  .Game .Game-dashboard {
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 5px;
     margin-top: 5px;
     margin-bottom: 15px; }
-    .Game .Game-on .Game-dashboard > div {
+    .Game .Game-dashboard > div {
       margin: 3px 5px 3px 5px; }
-  .Game .Game-on .Game-navigation {
-    align-items: center; }
-    .Game .Game-on .Game-navigation > div {
-      padding: 5px 10px 5px 10px; }
-  .Game .Game-on .Game-component {
+  .Game .Game-component {
     overflow-x: auto;
-    margin-top: 25px; }
-  .Game .Game-on .Game-navigation, .Game .Game-on .Game-component {
     justify-content: center; }

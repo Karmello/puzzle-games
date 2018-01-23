@@ -30,6 +30,7 @@ export default class GameMenu extends Component {
           open={Boolean(btnElem)}
           onClose={() => { this.setup() }}
         >
+          <MenuItem onClick={() => { this.onItemClick('NEW') }}>New</MenuItem>
           <MenuItem onClick={() => { this.onItemClick('END') }}>End</MenuItem>
         </Menu>
       </div>
