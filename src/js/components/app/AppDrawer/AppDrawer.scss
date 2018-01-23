@@ -1,5 +1,13 @@
 .AppDrawer {
 
+  .AppDrawer-user {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px;
+  }
+
   .AppDrawer-content {
     width: 200px;
   }

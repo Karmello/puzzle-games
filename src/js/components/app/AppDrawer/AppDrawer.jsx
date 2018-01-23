@@ -10,9 +10,26 @@ import './AppDrawer.css';
 
 class AppDrawer extends Component {
   
+  constructor(props) {
+    super(props);
+    this.state = { avatar: undefined };
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+
+    if (nextProps.user.data) {
+      window.FB.api(`/${nextProps.user.data.fb.id}/picture`, 'GET', {}, res => {
+        if (!res.data.is_silhouette) {
+          this.setState({ avatar: res.data });
+        }
+      });
+    }
+  }
+
   render() {
 
-    const { showDrawer, onLogout } = this.props;
+    const { user, showDrawer, onLogout } = this.props;
+    const avatar = this.state.avatar;
 
     return (
       <Drawer
@@ -20,6 +37,11 @@ class AppDrawer extends Component {
         open={showDrawer}
         onClose={this.closeDrawer.bind(this)}
       >
+        {user.data && avatar &&
+        <div className='AppDrawer-user'>
+          <div>{avatar && <img src={avatar.url} alt='' />}</div>
+          <div>{user.data.fb.name}</div>
+        </div>}
         <div
           tabIndex={0}
           role='button'
@@ -48,5 +70,6 @@ class AppDrawer extends Component {
 }
 
 export default connect(store => ({
-  showDrawer: store.app.showDrawer
+  showDrawer: store.app.showDrawer,
+  user: store.api.user
 }))(AppDrawer);

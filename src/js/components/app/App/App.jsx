@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AppBar, AppDrawer, FbBtn, Game, GamesList, Loader } from 'js/components';
-import { endGame, getGames, getUser, postUser, setAuthStatus, toggleAppLoader } from 'js/actions';
-import { apiRequestClear } from 'js/actionCreators';
-import { fbLoginConfig, loadFbScript } from './App.auth.js';
+import { endGame, getGames, setAuthStatus, toggleAppLoader } from 'js/actions';
+import { onDoneTryLogin, onLogout } from './App.methods.js';
+import { fbLoginConfig, loadFbScript } from './App.fb.js';
 import './App.css';
 
 
@@ -16,14 +16,20 @@ class App extends Component {
 
   static minLoadTime = 300;
 
+  constructor(props) {
+    super(props);
+    this.onDoneTryLogin = onDoneTryLogin;
+    this.onLogout = onLogout;
+  }
+
   componentWillUpdate(nextProps, nextState) {
   
     const { app, game, dispatch } = this.props;
 
     const conditions = [
-      !app.authStatus && ['unknown', 'not_authorized'].indexOf(nextProps.app.authStatus) > -1,
+      !app.authStatus && ['unknown', 'not_authorized', 'error'].indexOf(nextProps.app.authStatus) > -1,
       app.authStatus !== 'connected' && nextProps.app.authStatus === 'connected',
-      app.authStatus === 'connected' && nextProps.app.authStatus === 'unknown'
+      app.authStatus === 'connected' && ['unknown', 'error'].indexOf(nextProps.app.authStatus) > -1
     ];
 
     const isAnyTrue = conditions.some(bool => bool);
@@ -35,24 +41,20 @@ class App extends Component {
     }
   }
 
-  // first app load
   componentDidMount() {
     
-    // loading fb script
+    const { dispatch } = this.props;
+
     loadFbScript(() => {
-      
-      // connecting to fb app
       window.FB.init(fbLoginConfig);
-
-      // getting must have app data
-      this.props.dispatch(getGames()).then(() => {
-
-        // checking fb login status
-        window.FB.getLoginStatus(res => {
-
-          // when done
-          this.onDoneTryLogin(res);
-        });
+      dispatch(getGames()).then(() => {
+        if (this.props.api.games.status === 200) {
+          window.FB.getLoginStatus(res => {
+            this.onDoneTryLogin(res);
+          });
+        } else {
+          dispatch(setAuthStatus('error'));
+        }
       });
     });
   }
@@ -66,19 +68,12 @@ class App extends Component {
         <Switch>
           <Route exact={true} path='/' render={props => (
             <Loader isShown={app.isLoading}>
-              {app.authStatus !== 'connected' &&
+              {['unknown', 'not_authorized'].indexOf(app.authStatus) > -1 &&
               <div className='App-auth'>
-                <div className='App-auth-welcomeImgContainer'>
-                  <a href={logoHref} target='new'>
-                    <img src={logoSrc} alt='' />
-                  </a>
-                </div>
+                <div className='App-auth-welcomeImgContainer'><a href={logoHref} target='new'><img src={logoSrc} alt='' /></a></div>
                 <div>{this.props.app.name}</div>
-                <div>
-                  <FbBtn {...this.props} onDoneTryLogin={this.onDoneTryLogin.bind(this)} />
-                </div>
-              </div>
-              }
+                <div><FbBtn {...this.props} onDoneTryLogin={this.onDoneTryLogin.bind(this)} /></div>
+              </div>}
               {app.authStatus === 'connected' &&
               <div>
                 <AppDrawer onLogout={this.onLogout.bind(this)} />
@@ -86,6 +81,7 @@ class App extends Component {
                 {!game.id && <GamesList/>}
                 {game.id && <Game/>}
               </div>}
+              {app.authStatus === 'error' && <div className='App-error'><p>Something went wrong, please try again later.</p></div>}
             </Loader>
           )}/>
           <Redirect from='*' to='/' />
@@ -94,48 +90,7 @@ class App extends Component {
     );
   }
 
-  onDoneTryLogin(res) {
   
-    if (res.status === 'connected') {
-
-      // getting fb user data
-      window.FB.api('/me', fbUser => {
-
-        const { dispatch } = this.props;
-
-        // checking if fb user already in db
-        dispatch(getUser(`fb.id=${fbUser.id}`)).then(() => {
-          
-          // need to create new db user
-          if (this.props.api.user.status === 404) {
-            dispatch(postUser({ fb: fbUser })).then(() => this.setAuthStatus('connected'));
-
-          // db user already exists in db
-          } else { this.setAuthStatus('connected'); }
-        });
-      });
-
-    } else {
-      this.setAuthStatus(res.status);
-    }
-  }
-
-  onLogout() {
-
-    const { dispatch } = this.props;
-    
-    dispatch(toggleAppLoader(true));
-    
-    window.FB.logout(res => {
-      dispatch(apiRequestClear('USER'));
-      dispatch(setAuthStatus(res.status));
-    });
-  }
-
-  setAuthStatus(status) {
-
-    this.props.dispatch(setAuthStatus(status));
-  }
 }
 
 export default withRouter(connect(store => store)(App));
