@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-flexbox-grid';
 
-import { SquareTile } from 'js/components';
+import SquareTile from './SquareTile';
 import { clearHiddenTileCoords, initFrame, switchTiles, resetFrame } from 'js/actions';
-import { getNewImgNumbers, initData } from 'js/containers/BossPuzzle/BossPuzzle.static';
+import { getNewImgNumbers, initData } from './BossPuzzle.static';
 import './BossPuzzle.css';
 
 
@@ -116,7 +116,7 @@ class BossPuzzle extends Component {
     const task2 = initData({ dimension, hiddenTileCoords: newHiddenTileCoords });
 
     return Promise.all([task1, task2]).then((data) => {
-      dispatch(initFrame(dimension, data[1].tiles, data[1].hiddenTileCoords, nextImgNumbers, nextImgIndex));
+      dispatch(initFrame(dimension, nextImgNumbers, nextImgIndex, data[1].tiles, data[1].hiddenTileCoords));
       onFinishInit();
     });
   }

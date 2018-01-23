@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'material-ui';
 
-import { BossPuzzle } from 'js/containers';
-import { coordsToIndex, findAllMovementCoords, indexToCoords } from 'js/containers/BossPuzzle/BossPuzzle.static';
+import { BossPuzzle } from 'js/components';
+import { coordsToIndex, findAllMovementCoords, indexToCoords } from './BossPuzzle.static';
 
 
 export default class SquareTile extends Component {

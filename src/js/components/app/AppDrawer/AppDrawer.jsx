@@ -17,7 +17,7 @@ class AppDrawer extends Component {
     return (
       <Drawer
         className='AppDrawer'
-        open={app.showAppDrawer}
+        open={app.showDrawer}
         onClose={this.closeDrawer.bind(this)}
       >
         <div

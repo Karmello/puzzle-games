@@ -1,17 +1,16 @@
-export const toggleGameLoader = (show, id) => {
-  
-  const action = {
-    type: 'TOGGLE_GAME_LOADER',
+export const startGame = (id) => {
+  return {
+    type: 'START_GAME',
     payload: {
-      isLoading: show
+      id: id
     }
-  };
-
-  if (show) {
-    action.payload.id = id;
   }
+}
 
-  return action;
+export const stopGameLoader = () => {
+  return {
+    type: 'STOP_GAME_LOADER'
+  }
 }
 
 export const setAsSolved = () => {

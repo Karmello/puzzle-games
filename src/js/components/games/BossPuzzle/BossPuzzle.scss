@@ -1,5 +1,12 @@
 @import '_vars';
-@import 'js/components/SquareTile/SquareTile.scss';
+
+@mixin SquareTile($btnSize, $tileMargin) {
+  .SquareTile {
+    width: $btnSize;
+    height: $btnSize;
+    margin: $tileMargin;
+  }
+}
 
 @mixin BossPuzzle($dimension, $btnSize) {
   min-width: $dimension * ($btnSize + 2 * $tileMargin);

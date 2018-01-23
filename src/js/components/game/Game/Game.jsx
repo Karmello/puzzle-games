@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Chip } from 'material-ui';
 
-import { App, BossPuzzle } from 'js/containers';
-import { Loader, Timer } from 'js/components';
-import { setAsSolved, toggleGameLoader } from 'js/actions';
+import { App, BossPuzzle, Loader, Timer } from 'js/components';
+import { setAsSolved, stopGameLoader } from 'js/actions';
 import './Game.css';
 
 
@@ -36,7 +35,7 @@ class Game extends Component {
 
   onFinishInit() {
 
-    setTimeout(() => { this.props.dispatch(toggleGameLoader(false)); }, App.minLoadTime);
+    setTimeout(() => { this.props.dispatch(stopGameLoader()); }, App.minLoadTime);
   }
   
   onBeenSolved() {

@@ -1,9 +1,9 @@
 const initialState = {
   dimension: 3,
-  tiles: [],
-  hiddenTileCoords: {},
   imgNumbers: [],
   imgIndex: undefined,
+  tiles: [],
+  hiddenTileCoords: {},
   moves: 0
 };
 
@@ -15,10 +15,10 @@ const bossPuzzleReducer = (state = initialState, action) => {
       return {
         ...state,
         dimension: action.payload.dimension,
-        tiles: action.payload.tiles,
-        hiddenTileCoords: action.payload.hiddenTileCoords,
         imgNumbers: action.payload.imgNumbers,
         imgIndex: action.payload.imgIndex,
+        tiles: action.payload.tiles,
+        hiddenTileCoords: action.payload.hiddenTileCoords,
         moves: 0
       }
 
@@ -50,10 +50,10 @@ const bossPuzzleReducer = (state = initialState, action) => {
     case 'RESET_FRAME':
       return {
         ...state,
-        tiles: [],
-        hiddenTileCoords: {},
         imgNumbers: [],
         imgIndex: undefined,
+        tiles: [],
+        hiddenTileCoords: {},
         moves: 0
       }
 

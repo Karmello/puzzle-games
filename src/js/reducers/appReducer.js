@@ -1,7 +1,7 @@
 const initialState = {
   name: 'Puzzle Games',
-  status: '',
-  showAppDrawer: false,
+  authStatus: '',
+  showDrawer: false,
   isLoading: true
 };
 
@@ -9,23 +9,23 @@ const appReducer = (state = initialState, action) => {
   
   switch (action.type) {
 
+     case 'TOGGLE_APP_LOADER':
+      return {
+        ...state,
+        isLoading: action.payload.isLoading
+      }
+
     case 'SET_AUTH_STATUS':
       return {
         ...state,
-        status: action.payload.status,
-        showAppDrawer: false
+        authStatus: action.payload.authStatus,
+        showDrawer: false
       }
 
     case 'TOGGLE_APP_DRAWER':
       return {
         ...state,
-        showAppDrawer: action.payload.showAppDrawer
-      }
-
-    case 'TOGGLE_APP_LOADER':
-      return {
-        ...state,
-        isLoading: action.payload.isLoading
+        showDrawer: action.payload.showDrawer
       }
 
     default:

@@ -1,12 +1,12 @@
-export const initFrame = (dimension, tiles, hiddenTileCoords, imgNumbers, imgIndex) => {
+export const initFrame = (dimension, imgNumbers, imgIndex, tiles, hiddenTileCoords) => {
   return {
     type: 'INIT_FRAME',
     payload: {
       dimension: dimension,
-      tiles: tiles,
-      hiddenTileCoords: hiddenTileCoords,
       imgNumbers: imgNumbers,
-      imgIndex: imgIndex
+      imgIndex: imgIndex,
+      tiles: tiles,
+      hiddenTileCoords: hiddenTileCoords
     }
   }
 }

@@ -4,7 +4,7 @@ import { Button, Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
 import { BossPuzzleSettings } from 'js/components';
-import { toggleGameLoader } from 'js/actions';
+import { startGame } from 'js/actions';
 import games from './GamesList.games';
 import './GamesList.css';
 
@@ -45,7 +45,7 @@ class GamesList extends Component {
 
   onChoose(id) {
 
-    this.props.dispatch(toggleGameLoader(true, id));
+    this.props.dispatch(startGame(id));
   }
 }
 
