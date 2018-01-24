@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Drawer, List } from 'material-ui';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import PlayCircleOutlineIcon from 'material-ui-icons/PlayCircleOutline';
+import ContentPasteIcon from 'material-ui-icons/ContentPaste';
 import PowerSettingsNewIcon from 'material-ui-icons/PowerSettingsNew';
 
 import { toggleAppDrawer } from 'js/actions';
@@ -51,13 +53,15 @@ class AppDrawer extends Component {
           <div className='AppDrawer-content'>
             <List>
               <ListItem button>
-                <ListItemText primary='Page1' />
+                <ListItemIcon><PlayCircleOutlineIcon/></ListItemIcon>
+                <ListItemText primary='Play' />
               </ListItem>
               <ListItem button>
-                <ListItemText primary='Page2' />
+                <ListItemIcon><ContentPasteIcon/></ListItemIcon>
+                <ListItemText primary='Results' />
               </ListItem>
               {app.authStatus === 'connected' && <ListItem button onClick={onLogout}>
-                <ListItemIcon><PowerSettingsNewIcon /></ListItemIcon>
+                <ListItemIcon><PowerSettingsNewIcon/></ListItemIcon>
                 <ListItemText primary='Logout' />
               </ListItem>}
             </List>
