@@ -12,12 +12,12 @@ export function onDoneTryLogin(res) {
         if (!me.error) {
           this.props.dispatch(getUser(`fb.id=${me.id}`)).then(() => {
             if (this.props.api.user.status === 200) {
-              if (this.props.api.user.status === 404) {
-                this.props.dispatch(postUser({ fb: me })).then(() => {
-                  if (this.props.api.user.status === 200) { resolve('connected'); } else { reject('error'); }
-                });
-              } else { resolve('connected'); }
-            } else { reject('error'); }
+              resolve('connected');
+            } else {
+              this.props.dispatch(postUser({ fb: me })).then(() => {
+                if (this.props.api.user.status === 200) { resolve('connected'); } else { reject('error'); }
+              });
+            }
           });
         } else { reject('error'); }
       });

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
-import { BossPuzzleSettings } from 'js/components';
+import { BossPuzzleOptions } from 'js/components';
 import { startGame } from 'js/actions';
 import './GamesList.css';
 
@@ -31,8 +31,9 @@ class GamesList extends Component {
                 <Typography component='p'>{gameApiData[key].description}</Typography>
                 <div className='GamesList-settings'>
                   {gameApiData[key].id === 'BOSS_PUZZLE' &&
-                  <BossPuzzleSettings
+                  <BossPuzzleOptions
                     dimension={bossPuzzle.dimension}
+                    style={bossPuzzle.style}
                     dispatch={this.props.dispatch}
                   />}
                 </div>

@@ -1,6 +1,6 @@
 const appIds = {
-  development: '2091909884383863',
-  production: '143196443031298'
+  development: '1192012110930306',
+  production: '273943403136618'
 }
 
 export const fbLoginConfig = {

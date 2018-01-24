@@ -1,0 +1,5 @@
+.BossPuzzleOptions {
+  display: flex;
+  flex-flow: row wrap; }
+  .BossPuzzleOptions > div {
+    margin: 10px; }

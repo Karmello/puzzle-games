@@ -7,7 +7,7 @@ export { default as GameMenu } from './game/GameMenu/GameMenu';
 export { default as GamesList } from './game/GamesList/GamesList';
 
 export { default as BossPuzzle } from './games/BossPuzzle/BossPuzzle';
-export { default as BossPuzzleSettings } from './games/BossPuzzle/BossPuzzleSettings';
+export { default as BossPuzzleOptions } from './games/BossPuzzleOptions/BossPuzzleOptions';
 
 export { default as FbBtn } from './other/FbBtn/FbBtn';
 export { default as Loader } from './other/Loader/Loader';

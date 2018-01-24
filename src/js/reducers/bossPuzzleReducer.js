@@ -1,5 +1,6 @@
 const initialState = {
   dimension: 3,
+  style: 'IMG',
   imgNumbers: [],
   imgIndex: undefined,
   tiles: [],
