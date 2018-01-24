@@ -11,8 +11,8 @@ class Game extends Component {
 
   render() {
     
-    const { games, game, gameApiData } = this.props;
-    const currentGame = games[game.id];
+    const { engines, game, gameApiData } = this.props;
+    const currentGame = engines[game.id];
 
     return (
       <Loader isShown={game.isLoading}>
@@ -47,6 +47,6 @@ class Game extends Component {
 
 export default connect(store => ({
   game: store.game,
-  games: store.games,
+  engines: store.engines,
   gameApiData: store.api.games.data
 }))(Game);

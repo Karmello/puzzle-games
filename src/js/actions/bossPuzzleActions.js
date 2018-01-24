@@ -1,21 +1,11 @@
-export const initFrame = (dimension, imgNumbers, imgIndex, tiles, hiddenTileCoords) => {
+export const initFrame = (imgNumbers, imgIndex, tiles, hiddenTileCoords) => {
   return {
     type: 'INIT_FRAME',
     payload: {
-      dimension: dimension,
       imgNumbers: imgNumbers,
       imgIndex: imgIndex,
       tiles: tiles,
       hiddenTileCoords: hiddenTileCoords
-    }
-  }
-}
-
-export const setDimension = (dimension) => {
-  return {
-    type: 'SET_DIMENSION',
-    payload: {
-      dimension: dimension
     }
   }
 }

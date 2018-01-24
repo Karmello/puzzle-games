@@ -19,7 +19,7 @@ class AppDrawer extends Component {
 
     if (nextProps.user.data) {
       window.FB.api(`/${nextProps.user.data.fb.id}/picture`, 'GET', {}, res => {
-        if (!res.data.is_silhouette) {
+        if (res.data && !res.data.is_silhouette) {
           this.setState({ avatar: res.data });
         }
       });
@@ -28,13 +28,13 @@ class AppDrawer extends Component {
 
   render() {
 
-    const { user, showDrawer, onLogout } = this.props;
+    const { app, user, onLogout } = this.props;
     const avatar = this.state.avatar;
 
     return (
       <Drawer
         className='AppDrawer'
-        open={showDrawer}
+        open={app.showDrawer}
         onClose={this.closeDrawer.bind(this)}
       >
         {user.data && avatar &&
@@ -56,10 +56,10 @@ class AppDrawer extends Component {
               <ListItem button>
                 <ListItemText primary='Page2' />
               </ListItem>
-              <ListItem button onClick={onLogout}>
+              {app.authStatus === 'connected' && <ListItem button onClick={onLogout}>
                 <ListItemIcon><PowerSettingsNewIcon /></ListItemIcon>
                 <ListItemText primary='Logout' />
-              </ListItem>
+              </ListItem>}
             </List>
           </div>
         </div>
@@ -74,6 +74,6 @@ class AppDrawer extends Component {
 }
 
 export default connect(store => ({
-  showDrawer: store.app.showDrawer,
+  app: store.app,
   user: store.api.user
 }))(AppDrawer);

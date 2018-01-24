@@ -4,15 +4,21 @@ import { InputLabel } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
 import { MenuItem } from 'material-ui/Menu';
 
-import { setDimension } from 'js/actions';
 import './BossPuzzleOptions.css';
 
 
 export default class BossPuzzleOptions extends Component {
   
+  state = { dimension: undefined, style: undefined }
+
+  componentWillMount() {
+
+    this.setState({ ...this.props.options });
+  }
+
   render() {
 
-    const { dimension, style } = this.props;
+    const { dimension, style } = this.state;
 
     return (
       <div className='BossPuzzleOptions'>
@@ -22,7 +28,7 @@ export default class BossPuzzleOptions extends Component {
             <Select
               value={dimension}
               input={<Input name='dimension' id='dimension' />}
-              onChange={this.onDimensionChange.bind(this)}
+              onChange={e => this.onValueChange('dimension', e.target.value)}
             >
               <MenuItem value={3}>3 x 3</MenuItem>
               <MenuItem value={4}>4 x 4</MenuItem>
@@ -36,7 +42,7 @@ export default class BossPuzzleOptions extends Component {
             <Select
               value={style}
               input={<Input name='style' id='style' />}
-              onChange={this.onStyleChange.bind(this)}
+              onChange={e => this.onValueChange('style', e.target.value)}
             >
               <MenuItem value='IMG'>Images</MenuItem>
               <MenuItem value='NUM'>Numbers</MenuItem>
@@ -47,13 +53,9 @@ export default class BossPuzzleOptions extends Component {
     );
   }
 
-  onDimensionChange(e) {
+  onValueChange(key, value) {
 
-    const { dimension, dispatch } = this.props;
-    if (e.target.value !== dimension) { dispatch(setDimension(e.target.value)); }
-  }
-
-  onStyleChange(e) {
-
+    this.setState({ [key]: value });
+    setTimeout(() => { this.props.onValueChangeCb(this.state); });
   }
 }

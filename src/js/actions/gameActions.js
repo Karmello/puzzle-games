@@ -1,8 +1,9 @@
-export const startGame = (id) => {
+export const startGame = (id, options) => {
   return {
     type: 'START_GAME',
     payload: {
-      id: id
+      id: id,
+      options: options
     }
   }
 }

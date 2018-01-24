@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
-import { AppBar, AppDrawer, FbBtn, Game, GamesList, Loader } from 'js/components';
+import { AppBar, AppDrawer, AppSnackBar, FbBtn, Game, GameList, Loader } from 'js/components';
 import { endGame, getGames, setAuthStatus, toggleAppLoader } from 'js/actions';
 import { onDoneTryLogin, onLogout } from './App.methods.js';
 import { fbLoginConfig, loadFbScript } from './App.fb.js';
@@ -18,6 +18,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+    this.state = { snackBarMessage: '' };
     this.onDoneTryLogin = onDoneTryLogin;
     this.onLogout = onLogout;
   }
@@ -32,12 +33,16 @@ class App extends Component {
       app.authStatus === 'connected' && ['unknown', 'error'].indexOf(nextProps.app.authStatus) > -1
     ];
 
-    const isAnyTrue = conditions.some(bool => bool);
+    let trueIndex;
+    const isAnyTrue = conditions.some((bool, i) => { trueIndex = i; return bool });
 
     if (isAnyTrue) {
       if (!app.isLoading) { dispatch(toggleAppLoader(true)); }
       if (game.id) { dispatch(endGame()); }
-      setTimeout(() => { dispatch(toggleAppLoader(false)); }, App.minLoadTime);
+      setTimeout(() => {
+        dispatch(toggleAppLoader(false));
+        if ([0, 2].indexOf(trueIndex) > -1) { this.setState({ snackBarMessage: 'Could not login.' }); }
+      }, App.minLoadTime);
     }
   }
 
@@ -74,14 +79,14 @@ class App extends Component {
                 <div>{this.props.app.name}</div>
                 <div><FbBtn {...this.props} onDoneTryLogin={this.onDoneTryLogin.bind(this)} /></div>
               </div>}
-              {app.authStatus === 'connected' &&
+              {['connected', 'error'].indexOf(app.authStatus) > -1 &&
               <div>
                 <AppDrawer onLogout={this.onLogout.bind(this)} />
                 <AppBar/>
-                {!game.id && <GamesList/>}
+                {!game.id && <GameList/>}
                 {game.id && <Game/>}
               </div>}
-              {app.authStatus === 'error' && <div className='App-error'><p>Something went wrong, please try again later.</p></div>}
+              <AppSnackBar message={this.state.snackBarMessage} onCloseCb={() => { this.setState({ snackBarMessage: '' }) }} />
             </Loader>
           )}/>
           <Redirect from='*' to='/' />

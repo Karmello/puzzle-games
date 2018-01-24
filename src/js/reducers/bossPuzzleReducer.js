@@ -1,6 +1,4 @@
 const initialState = {
-  dimension: 3,
-  style: 'IMG',
   imgNumbers: [],
   imgIndex: undefined,
   tiles: [],
@@ -15,18 +13,11 @@ const bossPuzzleReducer = (state = initialState, action) => {
     case 'INIT_FRAME':
       return {
         ...state,
-        dimension: action.payload.dimension,
         imgNumbers: action.payload.imgNumbers,
         imgIndex: action.payload.imgIndex,
         tiles: action.payload.tiles,
         hiddenTileCoords: action.payload.hiddenTileCoords,
         moves: 0
-      }
-
-    case 'SET_DIMENSION':
-      return {
-        ...state,
-        dimension: action.payload.dimension
       }
 
     case 'SWITCH_TILES':
@@ -50,7 +41,6 @@ const bossPuzzleReducer = (state = initialState, action) => {
 
     case 'RESET_FRAME':
       return {
-        ...state,
         imgNumbers: [],
         imgIndex: undefined,
         tiles: [],

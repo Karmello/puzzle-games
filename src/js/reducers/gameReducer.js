@@ -1,7 +1,11 @@
 const initialState = {
   id: undefined,
   isSolved: false,
-  isLoading: false
+  isLoading: false,
+  options: {
+    dimension: undefined,
+    style: undefined
+  }
 };
 
 const gameReducer = (state = initialState, action) => {
@@ -12,7 +16,10 @@ const gameReducer = (state = initialState, action) => {
       return {
         id: action.payload.id,
         isSolved: false,
-        isLoading: true
+        isLoading: true,
+        options: {
+          ...(action.payload.options || state.options)
+        }
       }
   
     case 'STOP_GAME_LOADER':
@@ -31,7 +38,11 @@ const gameReducer = (state = initialState, action) => {
       return {
         ...state,
         id: undefined,
-        isSolved: false
+        isSolved: false,
+        options: {
+          dimension: undefined,
+          style: undefined
+        }
       }
 
     default:

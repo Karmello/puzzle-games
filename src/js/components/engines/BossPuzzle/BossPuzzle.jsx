@@ -35,14 +35,14 @@ class BossPuzzle extends Component {
 
   componentDidUpdate(prevProps, prevState) {
 
-    const { bossPuzzle, onBeenSolved, dispatch } = this.props;
+    const { bossPuzzleEngine, onBeenSolved, dispatch } = this.props;
 
     // if move was made
-    if (bossPuzzle.moves === prevProps.bossPuzzle.moves + 1) {
+    if (bossPuzzleEngine.moves === prevProps.bossPuzzleEngine.moves + 1) {
       
       // checking if solved
-      for (let i = 0; i < bossPuzzle.tiles.length; i++) {
-        if (i + 1 !== bossPuzzle.tiles[i]) {
+      for (let i = 0; i < bossPuzzleEngine.tiles.length; i++) {
+        if (i + 1 !== bossPuzzleEngine.tiles[i]) {
           return;
         }
       }
@@ -61,26 +61,27 @@ class BossPuzzle extends Component {
   render() {
 
     const { imgSrc } = this.state;
-    const { game, bossPuzzle } = this.props;
+    const { game, bossPuzzleEngine } = this.props;
     
-    if (imgSrc) {
+    if ((game.options.style === 'IMG' && imgSrc) || game.options.style === 'NUM') {
       return (
         <div
-          className={'BossPuzzle-' + bossPuzzle.dimension}
+          className={'BossPuzzle-' + game.options.dimension}
           style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}
-        > {
-        Array.from({ length: bossPuzzle.dimension }, (v, k) => k).map((i) => (
+        >
+          {Array.from({ length: game.options.dimension }, (v, k) => k).map((i) => (
           <Row key={i} className='BossPuzzle-row'> {
-          Array.from({ length: bossPuzzle.dimension }, (v, k) => k).map((j) => (
+            Array.from({ length: game.options.dimension }, (v, k) => k).map((j) => (
             <Col key={j} className='BossPuzzle-col'>
               <SquareTile
-                bossPuzzle={bossPuzzle}
+                options={game.options}
+                hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
+                tiles={bossPuzzleEngine.tiles}
                 imgSrc={imgSrc}
                 row={Number(i)}
                 col={Number(j)}
                 isSolved={game.isSolved}
                 onMoveMade={this.onMoveMade.bind(this)}
-                showLabel={false}
               />
             </Col>
           ))}</Row>
@@ -93,8 +94,8 @@ class BossPuzzle extends Component {
 
   startNew() {
 
-    const { bossPuzzle, dispatch, onFinishInit } = this.props;
-    const { dimension, imgIndex, imgNumbers } = bossPuzzle;
+    const { game, bossPuzzleEngine, dispatch, onFinishInit } = this.props;
+    const { imgIndex, imgNumbers } = bossPuzzleEngine;
 
     let nextImgIndex, nextImgNumbers;
 
@@ -106,17 +107,18 @@ class BossPuzzle extends Component {
       nextImgIndex = 0;
       nextImgNumbers = getNewImgNumbers(imgNumbers)
     }
-        
+
     const newHiddenTileCoords = {
-      x: Math.floor(Math.random() * dimension),
-      y: Math.floor(Math.random() * dimension)
+      x: Math.floor(Math.random() * game.options.dimension),
+      y: Math.floor(Math.random() * game.options.dimension)
     }
     
-    const task1 = this.loadImg(nextImgNumbers[nextImgIndex]);
-    const task2 = initData({ dimension, hiddenTileCoords: newHiddenTileCoords });
+    const tasks = [];
+    tasks.push(initData({ dimension: game.options.dimension, hiddenTileCoords: newHiddenTileCoords }));
+    if (game.options.style === 'IMG') { tasks.push(this.loadImg(nextImgNumbers[nextImgIndex])); }
 
-    return Promise.all([task1, task2]).then((data) => {
-      dispatch(initFrame(dimension, nextImgNumbers, nextImgIndex, data[1].tiles, data[1].hiddenTileCoords));
+    return Promise.all(tasks).then((data) => {
+      dispatch(initFrame(nextImgNumbers, nextImgIndex, data[0].tiles, data[0].hiddenTileCoords));
       onFinishInit();
     });
   }
@@ -145,5 +147,5 @@ class BossPuzzle extends Component {
 
 export default connect(store => ({
   game: store.game,
-  bossPuzzle: store.games.BOSS_PUZZLE
+  bossPuzzleEngine: store.engines.BOSS_PUZZLE
 }))(BossPuzzle);
