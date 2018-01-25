@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'react-flexbox-grid';
 
 import SquareTile from './SquareTile';
-import { clearHiddenTileCoords, initFrame, switchTiles, resetFrame } from 'js/actions';
+import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from 'js/actions';
 import { getNewImgNumbers, initData } from './BossPuzzle.static';
 import './BossPuzzle.css';
 
@@ -11,7 +11,7 @@ import './BossPuzzle.css';
 class BossPuzzle extends Component {
 
   static tilesSizes = { 3: 150, 4: 125, 5: 100 };
-  static numOfImgs = 15;
+  static numOfImgs = 20;
   
   constructor(props) {
     super(props);
@@ -20,16 +20,15 @@ class BossPuzzle extends Component {
 
   componentWillMount() {
 
-    this.startNew();
+    this.setState({ imgSrc: null });
+    setTimeout(() => { this.startNew(); });
   }
 
   componentWillUpdate(nextProps, nextState) {
 
-    // Game loader started
     if (!this.props.game.isLoading && nextProps.game.isLoading) {
-
       this.setState({ imgSrc: null });
-      this.startNew();
+      setTimeout(() => { this.startNew(); });
     }
   }
 
@@ -128,7 +127,7 @@ class BossPuzzle extends Component {
     return new Promise((resolve, reject) => {
 
       const img = new Image();
-      img.src = `${process.env.REACT_APP_S3_BUCKET}/BOSS_PUZZLE/img${imgNumber}.jpg`;
+      img.src = `${process.env.REACT_APP_S3_BUCKET}/BossPuzzle/img${imgNumber}.jpg`;
         
       img.onload = () => {
         this.setState({ imgSrc: img.src });
@@ -147,5 +146,6 @@ class BossPuzzle extends Component {
 
 export default connect(store => ({
   game: store.game,
-  bossPuzzleEngine: store.engines.BOSS_PUZZLE
+  bossPuzzleEngine: store.engines['BossPuzzle'],
+  gameList: store.gameList
 }))(BossPuzzle);

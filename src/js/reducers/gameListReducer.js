@@ -1,5 +1,5 @@
 const initialState = {
-  BOSS_PUZZLE: {
+  'BossPuzzle': {
     options: { dimension: 3, style: 'IMG' }
   }
 };

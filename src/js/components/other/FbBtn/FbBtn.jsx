@@ -17,7 +17,7 @@ export default class FbBtn extends Component {
 
   getLabel() {
 
-    switch (this.props.app.authStatus) {
+    switch (this.props.authStatus) {
       case 'unknown': return 'Login with Facebook';
       case 'not_authorized': return 'Continue with Facebook';
       default: return '';
@@ -26,9 +26,9 @@ export default class FbBtn extends Component {
 
   onClick() {
 
-    const { app, onDoneTryLogin } = this.props;
+    const { authStatus, onDoneTryLogin } = this.props;
 
-    if (app.authStatus !== 'connected') {
+    if (authStatus !== 'connected') {
       window.FB.login(res => onDoneTryLogin(res), { scope: 'public_profile' });
     }
   }

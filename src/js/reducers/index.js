@@ -16,7 +16,7 @@ const reducers = combineReducers({
   game: gameReducer,
   gameList: gameListReducer,
   engines: combineReducers({
-    BOSS_PUZZLE: bossPuzzleReducer
+    'BossPuzzle': bossPuzzleReducer
   })
 });
 

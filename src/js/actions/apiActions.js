@@ -34,6 +34,7 @@ export const getGames = () => {
       res.data = data;
 
       dispatch(apiRequestSuccess('GET', 'GAMES', res));
+      
     }, err => {
       dispatch(apiRequestFailure('GET', 'GAMES', err));
     });

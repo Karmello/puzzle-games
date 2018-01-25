@@ -1,0 +1,8 @@
+.GamePage {
+  display: flex;
+  flex-flow: column wrap; }
+  .GamePage .GamePage-engine {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    justify-content: center; }

@@ -4,7 +4,7 @@ import { AppBar as MaterialAppBar, IconButton, Toolbar, Typography } from 'mater
 import MenuIcon from 'material-ui-icons/Menu';
 
 import { GameMenu } from 'js/components';
-import { endGame, toggleAppDrawer, startGame } from 'js/actions';
+import { toggleAppDrawer, startGame } from 'js/actions';
 import './AppBar.css';
 
 
@@ -49,10 +49,6 @@ class AppBar extends Component {
 
       case 'NEW':
         dispatch(startGame(game.id));
-        break;
-
-      case 'END':
-        dispatch(endGame());
         break;
 
       default:

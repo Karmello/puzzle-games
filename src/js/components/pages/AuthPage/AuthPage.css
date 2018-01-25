@@ -1,0 +1,10 @@
+.AuthPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .AuthPage > * {
+    padding: 15px; }
+    .AuthPage > * img {
+      max-width: 100%; }
+  .AuthPage .AuthPage-welcomeImgContainer {
+    margin-bottom: 25px; }

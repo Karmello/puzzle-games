@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Menu } from 'material-ui';
 import { MenuItem } from 'material-ui/Menu';
 
@@ -30,8 +31,16 @@ export default class GameMenu extends Component {
           open={Boolean(btnElem)}
           onClose={() => { this.setup() }}
         >
-          <MenuItem style={this.getItemStyle()} onClick={() => { this.onItemClick('NEW') }}>New</MenuItem>
-          <MenuItem style={this.getItemStyle()} onClick={() => { this.onItemClick('END') }}>End</MenuItem>
+          <MenuItem
+            style={this.getItemStyle()}
+            onClick={() => { this.onItemClick('NEW') }}
+          >New</MenuItem>
+          <MenuItem
+            style={this.getItemStyle()}
+            component={Link}
+            to='/games'
+            onClick={() => { this.onItemClick() }}
+          >End</MenuItem>
         </Menu>
       </div>
     );
@@ -53,6 +62,6 @@ export default class GameMenu extends Component {
   onItemClick(itemId) {
 
     this.setup();
-    this.props.onItemClick(itemId);
+    if (itemId) { this.props.onItemClick(itemId); }
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Drawer, List } from 'material-ui';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import PlayCircleOutlineIcon from 'material-ui-icons/PlayCircleOutline';
@@ -52,11 +53,11 @@ class AppDrawer extends Component {
         >
           <div className='AppDrawer-content'>
             <List>
-              <ListItem button>
+              <ListItem component={Link} to='/games' button>
                 <ListItemIcon><PlayCircleOutlineIcon/></ListItemIcon>
-                <ListItemText primary='Play' />
+                <ListItemText primary='Games' />
               </ListItem>
-              <ListItem button>
+              <ListItem component={Link} to='/results' button>
                 <ListItemIcon><ContentPasteIcon/></ListItemIcon>
                 <ListItemText primary='Results' />
               </ListItem>

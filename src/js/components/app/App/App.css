@@ -1,12 +1,2 @@
 .App {
   margin-bottom: 50px; }
-  .App .App-auth {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    .App .App-auth > * {
-      padding: 15px; }
-      .App .App-auth > * img {
-        max-width: 100%; }
-    .App .App-auth .App-auth-welcomeImgContainer {
-      margin-bottom: 25px; }
