@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
-import { GamePage, GameCard } from 'js/components';
+import { GamePage, GameCard, Loader } from 'js/components';
 import { getGames, changeGameOptions } from 'js/actions';
 
 
@@ -17,7 +17,7 @@ class GamesPage extends Component {
 
     const { apiGames, gameList } = this.props;
 
-    if (!this.didFetchGames()) { return null; }
+    if (!this.didFetchGames()) { return <Loader isShown />; }
 
     return (
       <Switch>
@@ -33,9 +33,7 @@ class GamesPage extends Component {
           </div>
         )}/>
         <Route exact path='/games/:id' render={props => {
-          if (Object.keys(apiGames.data).indexOf(props.match.params.id) === -1) {
-            return <Redirect to='/games' />;
-          }
+          if (Object.keys(apiGames.data).indexOf(props.match.params.id) === -1) { return <Redirect to='/games' />; }
           return <GamePage/>;
         }} />
       </Switch>
@@ -56,5 +54,6 @@ class GamesPage extends Component {
 
 export default withRouter(connect(store => ({
   apiGames: store.api.games,
-  gameList: store.gameList
+  gameList: store.gameList,
+  page: store.page
 }))(GamesPage));

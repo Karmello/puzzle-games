@@ -49,34 +49,31 @@ class App extends Component {
 
   render() {
 
-    const { app, location } = this.props;
-
-    if (app.isLoading) {
-      if (location.pathname !== '/auth' && ['unknown', 'not_authorized'].indexOf(app.authStatus) > -1) {
-        return <Redirect to={{ pathname: '/auth' }}/>;
-      } else if (!location.pathname.startsWith('/games') && ['connected', 'error'].indexOf(app.authStatus) > -1) {
-        return <Redirect to={{ pathname: '/games' }}/>;
-      }
-    }
+    const { app } = this.props;
 
     return (
       <div className='App'>
         <Loader isShown={app.isLoading}>
           {app.authStatus && <Switch>
-            <Route exact path='/auth' render={props => (
-              <AuthPage authStatus={app.authStatus} onDoneTryLogin={this.onDoneTryLogin} />
-            )}/>
-            <Route path='/' render={props => (
-              <div>
-                <AppBar/>
-                <AppDrawer onLogout={this.onLogout.bind(this)} />
-                <AppSnackBar message={this.state.snackBarMessage} onCloseCb={() => { this.setState({ snackBarMessage: '' }) }} />
-                <Switch>
-                  <Route path='/games' component={GamesPage} />
-                  <Route exact path='/results' component={ResultsPage} />
-                </Switch>
-              </div>
-            )}/>
+            <Route exact path='/auth' render={props => {
+              if (app.authStatus === 'connected' || app.authStatus === 'error') { return <Redirect to='/games' />; }
+              return <AuthPage authStatus={app.authStatus} onDoneTryLogin={this.onDoneTryLogin} />;
+            }}/>
+            <Route path='/' render={props => {
+              if (app.authStatus === 'unknown' || app.authStatus === 'not_authorized') { return <Redirect to='/auth' />; }
+              return (
+                <div>
+                  <AppBar/>
+                  <AppDrawer onLogout={this.onLogout.bind(this)} />
+                  <AppSnackBar message={this.state.snackBarMessage} onCloseCb={() => { this.setState({ snackBarMessage: '' }) }} />
+                  <Switch>
+                    <Route path='/games' component={GamesPage} />
+                    <Route exact path='/results' component={ResultsPage} />
+                    <Redirect from='*' to='/games' />
+                  </Switch>
+                </div>
+              );
+            }}/>
           </Switch>}
         </Loader>
       </div>

@@ -1,7 +1,7 @@
 const initialState = {
   id: undefined,
   isSolved: false,
-  isLoading: false,
+  isLoading: true,
   options: {
     dimension: undefined,
     style: undefined
