@@ -35,7 +35,7 @@ class GamesPage extends Component {
         <Route exact path='/games/:id' render={props => {
           if (Object.keys(apiGames.data).indexOf(props.match.params.id) === -1) { return <Redirect to='/games' />; }
           return <GamePage/>;
-        }} />
+        }}/>
       </Switch>
     );
   }
@@ -54,6 +54,5 @@ class GamesPage extends Component {
 
 export default withRouter(connect(store => ({
   apiGames: store.api.games,
-  gameList: store.gameList,
-  page: store.page
+  gameList: store.gameList
 }))(GamesPage));

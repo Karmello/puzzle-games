@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AuthPage, GamesPage, ResultsPage, AppBar, AppDrawer, AppSnackBar, Loader } from 'js/components';
-import { toggleAppLoader } from 'js/actions';
+import { startGame, toggleAppLoader, toggleAppDrawer } from 'js/actions';
 import { onDoneTryLogin, onLogout } from './App.methods.js';
 import { fbLoginConfig, loadFbScript } from './App.fb.js';
 import './App.css';
@@ -49,7 +49,7 @@ class App extends Component {
 
   render() {
 
-    const { app } = this.props;
+    const { app, api, game, dispatch } = this.props;
 
     return (
       <div className='App'>
@@ -57,15 +57,29 @@ class App extends Component {
           {app.authStatus && <Switch>
             <Route exact path='/auth' render={props => {
               if (app.authStatus === 'connected' || app.authStatus === 'error') { return <Redirect to='/games' />; }
-              return <AuthPage authStatus={app.authStatus} onDoneTryLogin={this.onDoneTryLogin} />;
+              return <AuthPage authStatus={app.authStatus} onDoneTryLogin={this.onDoneTryLogin.bind(this)} />;
             }}/>
             <Route path='/' render={props => {
               if (app.authStatus === 'unknown' || app.authStatus === 'not_authorized') { return <Redirect to='/auth' />; }
               return (
                 <div>
-                  <AppBar/>
-                  <AppDrawer onLogout={this.onLogout.bind(this)} />
-                  <AppSnackBar message={this.state.snackBarMessage} onCloseCb={() => { this.setState({ snackBarMessage: '' }) }} />
+                  <AppBar
+                    appName={app.name}
+                    gameId={game.id}
+                    onDrawerIconClick={() => { dispatch(toggleAppDrawer(!app.showDrawer)); }}
+                    onGameMenuItemClick={this.onGameMenuItemClick.bind(this)}
+                  />
+                  <AppDrawer
+                    authStatus={app.authStatus}
+                    showDrawer={app.showDrawer}
+                    userData={api.user.data}
+                    onDrawerClose={() => { dispatch(toggleAppDrawer(false)); }}
+                    onLogout={this.onLogout.bind(this)}
+                  />
+                  <AppSnackBar
+                    message={this.state.snackBarMessage}
+                    onClose={() => { this.setState({ snackBarMessage: '' }) }}
+                  />
                   <Switch>
                     <Route path='/games' component={GamesPage} />
                     <Route exact path='/results' component={ResultsPage} />
@@ -79,9 +93,18 @@ class App extends Component {
       </div>
     );
   }
+
+  onGameMenuItemClick(itemId) {
+
+    if (itemId === 'NEW') {
+      const { dispatch, game } = this.props;
+      dispatch(startGame(game.id));
+    }
+  }
 }
 
 export default withRouter(connect(store => ({
   app: store.app,
-  api: store.api
+  api: store.api,
+  game: store.game
 }))(App));

@@ -29,6 +29,6 @@ export default class AppSnackBar extends Component {
   onClose() {
 
     this.setState({ open: false });
-    this.props.onCloseCb();
+    this.props.onClose();
   }
 }
