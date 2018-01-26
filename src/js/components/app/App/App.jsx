@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AuthPage, GamesPage, ResultsPage, AppBar, AppDrawer, AppSnackBar, Loader } from 'js/components';
-import { startGame, toggleAppLoader, toggleAppDrawer } from 'js/actions';
-import { onDoneTryLogin, onLogout } from './App.methods.js';
-import { fbLoginConfig, loadFbScript } from './App.fb.js';
+import { startGame, toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/actions';
+import { apiRequestClear } from 'js/actionCreators';
 import './App.css';
 
 
@@ -16,35 +15,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { snackBarMessage: '' };
-    this.onDoneTryLogin = onDoneTryLogin;
-    this.onLogout = onLogout;
   }
-  
-  componentDidUpdate(prevProps, prevState) {
 
-    const { app, dispatch } = this.props;
-
-    const conditions = [
-      !prevProps.app.authStatus && ['unknown', 'not_authorized', 'error'].indexOf(app.authStatus) > -1,
-      prevProps.app.authStatus !== 'connected' && app.authStatus === 'connected',
-      prevProps.app.authStatus === 'connected' && ['unknown', 'error'].indexOf(app.authStatus) > -1
-    ];
-
-    if (conditions.some(bool => bool)) {
-      if (!prevProps.app.isLoading) { dispatch(toggleAppLoader(true)); }
-      setTimeout(() => {
-        dispatch(toggleAppLoader(false));
-        if (app.authStatus === 'error') { this.setState({ snackBarMessage: 'Could not login.' }); }
-      }, App.minLoadTime);
+  componentWillReceiveProps(nextProps) {
+    
+    if (this.props.app.authStatus !== 'error' && nextProps.app.authStatus === 'error') {
+      this.setState({ snackBarMessage: 'Could not login.' });
     }
-  }
-
-  componentDidMount() {
-
-    loadFbScript(() => {
-      window.FB.init(fbLoginConfig);
-      window.FB.getLoginStatus(res => { this.onDoneTryLogin(res); });
-    });
   }
 
   render() {
@@ -54,13 +31,13 @@ class App extends Component {
     return (
       <div className='App'>
         <Loader isShown={app.isLoading}>
-          {app.authStatus && <Switch>
+          <Switch>
             <Route exact path='/auth' render={props => {
               if (app.authStatus === 'connected' || app.authStatus === 'error') { return <Redirect to='/games' />; }
-              return <AuthPage authStatus={app.authStatus} onDoneTryLogin={this.onDoneTryLogin.bind(this)} />;
+              return <AuthPage authStatus={app.authStatus} />;
             }}/>
             <Route path='/' render={props => {
-              if (app.authStatus === 'unknown' || app.authStatus === 'not_authorized') { return <Redirect to='/auth' />; }
+              if (app.authStatus !== 'connected' && app.authStatus !== 'error') { return <Redirect to='/auth' />; }
               return (
                 <div>
                   <AppBar
@@ -88,7 +65,7 @@ class App extends Component {
                 </div>
               );
             }}/>
-          </Switch>}
+          </Switch>
         </Loader>
       </div>
     );
@@ -100,6 +77,19 @@ class App extends Component {
       const { dispatch, game } = this.props;
       dispatch(startGame(game.id));
     }
+  }
+
+  onLogout() {
+
+    const { dispatch } = this.props;
+    
+    dispatch(toggleAppLoader(true));
+    
+    window.FB.logout(res => {
+      dispatch(apiRequestClear('USER'));
+      dispatch(setAuthStatus(res.status));
+      dispatch(toggleAppLoader(false));
+    });
   }
 }
 
