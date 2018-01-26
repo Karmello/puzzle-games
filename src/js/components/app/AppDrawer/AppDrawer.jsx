@@ -16,15 +16,17 @@ export default class AppDrawer extends Component {
     this.state = { avatar: undefined };
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  componentDidUpdate(prevProps, prevState) {
 
-    if (nextProps.userData) {
-      window.FB.api(`/${nextProps.userData.fb.id}/picture`, 'GET', {}, res => {
+    const { userData } = this.props;
+
+    if (userData) {
+      window.FB.api(`/${userData.fb.id}/picture`, 'GET', {}, res => {
         if (res.data && !res.data.is_silhouette) {
           this.setState({ avatar: res.data });
         }
       });
-    }
+    } 
   }
 
   render() {

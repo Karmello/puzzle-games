@@ -8,7 +8,7 @@ import { getGames, changeGameOptions } from 'js/actions';
 
 class GamesPage extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
 
     if (!this.didFetchGames()) { this.props.dispatch(getGames()); }
   }

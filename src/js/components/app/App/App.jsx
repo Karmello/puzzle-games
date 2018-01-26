@@ -19,22 +19,22 @@ class App extends Component {
     this.onDoneTryLogin = onDoneTryLogin;
     this.onLogout = onLogout;
   }
-
-  componentWillUpdate(nextProps, nextState) {
   
+  componentDidUpdate(prevProps, prevState) {
+
     const { app, dispatch } = this.props;
 
     const conditions = [
-      !app.authStatus && ['unknown', 'not_authorized', 'error'].indexOf(nextProps.app.authStatus) > -1,
-      app.authStatus !== 'connected' && nextProps.app.authStatus === 'connected',
-      app.authStatus === 'connected' && ['unknown', 'error'].indexOf(nextProps.app.authStatus) > -1
+      !prevProps.app.authStatus && ['unknown', 'not_authorized', 'error'].indexOf(app.authStatus) > -1,
+      prevProps.app.authStatus !== 'connected' && app.authStatus === 'connected',
+      prevProps.app.authStatus === 'connected' && ['unknown', 'error'].indexOf(app.authStatus) > -1
     ];
 
     if (conditions.some(bool => bool)) {
-      if (!app.isLoading) { dispatch(toggleAppLoader(true)); }
+      if (!prevProps.app.isLoading) { dispatch(toggleAppLoader(true)); }
       setTimeout(() => {
         dispatch(toggleAppLoader(false));
-        if (nextProps.app.authStatus === 'error') { this.setState({ snackBarMessage: 'Could not login.' }); }
+        if (app.authStatus === 'error') { this.setState({ snackBarMessage: 'Could not login.' }); }
       }, App.minLoadTime);
     }
   }
