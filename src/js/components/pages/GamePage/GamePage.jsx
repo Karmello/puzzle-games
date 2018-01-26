@@ -11,9 +11,9 @@ class GamePage extends Component {
 
   componentWillMount() {
 
-    const { match, dispatch, gameList } = this.props;
+    const { match, dispatch, gameOptions } = this.props;
     const id = match.params.id;
-    dispatch(startGame(id, gameList[id].options));
+    dispatch(startGame(id, gameOptions[id]));
   }
 
   componentWillUnmount() {
@@ -61,5 +61,5 @@ export default withRouter(connect(store => ({
   apiGames: store.api.games,
   engines: store.engines,
   game: store.game,
-  gameList: store.gameList
+  gameOptions: store.gameOptions
 }))(GamePage));

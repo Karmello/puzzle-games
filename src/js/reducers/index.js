@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import appReducer from 'js/reducers/appReducer';
 import getApiRequestReducer from 'js/reducers/apiRequestReducer';
-import gameListReducer from 'js/reducers/gameListReducer';
+import gameOptionsReducer from 'js/reducers/gameOptionsReducer';
 import gameReducer from 'js/reducers/gameReducer';
 import bossPuzzleReducer from 'js/reducers/bossPuzzleReducer';
 
@@ -13,8 +13,8 @@ const reducers = combineReducers({
     games: getApiRequestReducer('GAMES')
   }),
   app: appReducer,
+  gameOptions: gameOptionsReducer,
   game: gameReducer,
-  gameList: gameListReducer,
   engines: combineReducers({
     'BossPuzzle': bossPuzzleReducer
   })

@@ -15,7 +15,7 @@ class GamesPage extends Component {
 
   render() {
 
-    const { apiGames, gameList } = this.props;
+    const { apiGames, gameOptions } = this.props;
 
     if (!this.didFetchGames()) { return <Loader isShown />; }
 
@@ -27,7 +27,7 @@ class GamesPage extends Component {
             <GameCard
               key={gameId}
               gameData={apiGames.data[gameId]}
-              gameOptions={gameList[gameId].options}
+              gameOptions={gameOptions[gameId]}
               onGameOptionsChange={this.onGameOptionsChange.bind(this)}
             />))}
           </div>
@@ -54,5 +54,5 @@ class GamesPage extends Component {
 
 export default withRouter(connect(store => ({
   apiGames: store.api.games,
-  gameList: store.gameList
+  gameOptions: store.gameOptions
 }))(GamesPage));
