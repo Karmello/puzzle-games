@@ -1,35 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button } from 'material-ui';
 
 
-export default class FbBtn extends Component {
+export default (props) => {
 
-  render() {
+  const getLabel = () => {
 
-    return (
-      <Button
-        raised
-        color='primary'
-        onClick={this.onClick.bind(this)}
-      >{this.getLabel()}</Button>
-    );
-  }
-
-  getLabel() {
-
-    switch (this.props.authStatus) {
+    switch (props.authStatus) {
       case 'unknown': return 'Login with Facebook';
       case 'not_authorized': return 'Continue with Facebook';
       default: return '';
     }
   }
 
-  onClick() {
+  const onClick = () => {
 
-    const { authStatus, onDoneTryLogin } = this.props;
-
-    if (authStatus !== 'connected') {
-      window.FB.login(res => onDoneTryLogin(res), { scope: 'public_profile' });
+    if (props.authStatus !== 'connected') {
+      window.FB.login(res => props.onDoneTryLogin(res), { scope: 'public_profile' });
     }
   }
-}
+
+  return (<Button raised color='primary' onClick={onClick}>{getLabel()}</Button>);
+};
