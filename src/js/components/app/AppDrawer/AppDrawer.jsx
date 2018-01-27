@@ -34,7 +34,7 @@ class AppDrawer extends Component {
 
   render() {
 
-    const { authStatus, showDrawer, user, onLogout } = this.props;
+    const { authStatus, showDrawer, user } = this.props;
     const avatar = this.state.avatar;
 
     return (
@@ -64,7 +64,7 @@ class AppDrawer extends Component {
                 <ListItemIcon><ContentPasteIcon/></ListItemIcon>
                 <ListItemText primary='Results' />
               </ListItem>
-              {authStatus === 'connected' && <ListItem button onClick={onLogout}>
+              {authStatus === 'connected' && <ListItem button onClick={this.onLogout.bind(this)}>
                 <ListItemIcon><PowerSettingsNewIcon/></ListItemIcon>
                 <ListItemText primary='Logout' />
               </ListItem>}

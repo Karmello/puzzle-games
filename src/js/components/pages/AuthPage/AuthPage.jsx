@@ -40,9 +40,11 @@ class AuthPage extends Component {
 
   onDoneTryLogin(res) {
 
-    const { dispatch } = this.props;
+    const { dispatch, isAppLoading } = this.props;
 
     new Promise((resolve) => {
+
+      if (!isAppLoading) { dispatch(toggleAppLoader(true)); }
 
       if (res.status === 'connected') {
         window.FB.api('/me', me => {
@@ -70,5 +72,6 @@ class AuthPage extends Component {
 
 export default connect(store => ({
   appName: store.app.name,
+  isAppLoading: store.app.isLoading,
   apiUser: store.api.user
 }))(AuthPage);
