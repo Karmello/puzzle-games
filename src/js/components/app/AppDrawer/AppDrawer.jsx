@@ -19,12 +19,12 @@ class AppDrawer extends Component {
     this.state = { avatar: undefined };
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidMount() {
 
-    const { userData } = this.props;
+    const { user } = this.props;
 
-    if (userData) {
-      window.FB.api(`/${userData.fb.id}/picture`, 'GET', {}, res => {
+    if (user.data) {
+      window.FB.api(`/${user.data.fb.id}/picture`, 'GET', {}, res => {
         if (res.data && !res.data.is_silhouette) {
           this.setState({ avatar: res.data });
         }
