@@ -33,11 +33,18 @@ class App extends Component {
         <Loader isShown={app.isLoading}>
           <Switch>
             <Route exact path='/auth' render={props => {
-              if (app.authStatus === 'connected' || app.authStatus === 'error') { return <Redirect to='/games' />; }
+              if (app.authStatus === 'connected' || app.authStatus === 'error') {
+                const state = props.location.state;
+                let pathname;
+                if (!state || state.from.pathname === '/') { pathname = '/games'; } else { pathname = state.from.pathname; }
+                return <Redirect to={pathname} />;
+              }
               return <AuthPage authStatus={app.authStatus} />;
             }}/>
             <Route path='/' render={props => {
-              if (app.authStatus !== 'connected' && app.authStatus !== 'error') { return <Redirect to='/auth' />; }
+              if (app.authStatus !== 'connected' && app.authStatus !== 'error') {
+                return <Redirect to={{ pathname: '/auth', state: { from: props.location } }} />;
+              }
               return (
                 <div>
                   <AppBar/>

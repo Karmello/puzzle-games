@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { App } from 'js/components/app';
 import { FbBtn } from 'js/components/other';
 import { toggleAppLoader, setAuthStatus } from 'js/actions/app';
 import { getUser, postUser } from 'js/actions/api';
@@ -65,7 +66,7 @@ class AuthPage extends Component {
     }).then(status => {
       
       dispatch(setAuthStatus(status));
-      dispatch(toggleAppLoader(false));
+      setTimeout(() => dispatch(toggleAppLoader(false)), App.minLoadTime);
     });
   }
 }
