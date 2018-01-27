@@ -13,10 +13,7 @@ class BossPuzzle extends Component {
   static tilesSizes = { 3: 150, 4: 125, 5: 100 };
   static numOfImgs = 20;
   
-  constructor(props) {
-    super(props);
-    this.state = { imgSrc: null };
-  }
+  state = { imgSrc: null }
 
   componentDidMount() {
 
@@ -68,9 +65,9 @@ class BossPuzzle extends Component {
           className={'BossPuzzle-' + game.options.dimension}
           style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}
         >
-          {Array.from({ length: game.options.dimension }, (v, k) => k).map((i) => (
+          {Array.from({ length: game.options.dimension }, (v, k) => k).map(i => (
           <Row key={i} className='BossPuzzle-row'> {
-            Array.from({ length: game.options.dimension }, (v, k) => k).map((j) => (
+            Array.from({ length: game.options.dimension }, (v, k) => k).map(j => (
             <Col key={j} className='BossPuzzle-col'>
               <SquareTile
                 options={game.options}
@@ -146,6 +143,6 @@ class BossPuzzle extends Component {
 
 export default connect(store => ({
   game: store.game,
-  bossPuzzleEngine: store.engines['BossPuzzle'],
-  gameOptions: store.gameOptions
+  gameOptions: store.gameOptions,
+  bossPuzzleEngine: store.engines.BossPuzzle
 }))(BossPuzzle);

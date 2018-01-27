@@ -8,16 +8,19 @@ import { coordsToIndex, findAllMovementCoords, indexToCoords } from './BossPuzzl
 export default class SquareTile extends Component {
 
   constructor(props) {
+    
     super(props);
     this.index = props.row * props.options.dimension + props.col;
   }
 
   componentWillUpdate(nextProps, nextState) {
+
     const { hiddenTileCoords, row, col } = nextProps;
     this.isHidden = (row === hiddenTileCoords.x && col === hiddenTileCoords.y);
   }
 
   render() {
+    
     return (
       <Button
         raised
