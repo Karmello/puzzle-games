@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { App, GameDashboard, Loader } from 'js/components';
-import { startGame, setAsSolved, endGame, stopGameLoader } from 'js/actions';
+import { App } from 'js/components/app';
+import { GameDashboard } from 'js/components/game';
+import { Loader } from 'js/components/other';
+import { startGame, setAsSolved, endGame, stopGameLoader } from 'js/actions/game';
 import './GamePage.css';
 
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'react-flexbox-grid';
 
 import SquareTile from './SquareTile';
-import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from 'js/actions';
+import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from 'js/actions/bossPuzzle';
 import { getNewImgNumbers, initData } from './BossPuzzle.static';
 import './BossPuzzle.css';
 

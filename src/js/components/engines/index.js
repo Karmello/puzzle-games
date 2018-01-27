@@ -1,0 +1,1 @@
+export { default as BossPuzzle } from './BossPuzzle/BossPuzzle';

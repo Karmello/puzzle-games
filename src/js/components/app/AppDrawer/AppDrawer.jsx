@@ -7,7 +7,7 @@ import PlayCircleOutlineIcon from 'material-ui-icons/PlayCircleOutline';
 import ContentPasteIcon from 'material-ui-icons/ContentPaste';
 import PowerSettingsNewIcon from 'material-ui-icons/PowerSettingsNew';
 
-import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/actions';
+import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/actions/app';
 import { apiRequestClear } from 'js/actionCreators';
 import './AppDrawer.css';
 

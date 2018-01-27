@@ -1,4 +1,4 @@
-import { BossPuzzle } from 'js/components';
+import { BossPuzzle } from 'js/components/engines';
 import { shuffleIntArray } from 'js/helpers';
 
 

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
-import { AuthPage, GamesPage, ResultsPage, AppBar, AppDrawer, AppSnackBar, Loader } from 'js/components';
+import { AppBar, AppDrawer, AppSnackBar } from 'js/components/app';
+import { AuthPage, GamesPage, ResultsPage } from 'js/components/pages';
+import { Loader } from 'js/components/other';
 import './App.css';
 
 

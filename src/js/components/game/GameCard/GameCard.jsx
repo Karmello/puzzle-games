@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
-import { BossPuzzleOptions } from 'js/components';
+import { BossPuzzleOptions } from 'js/components/game';
 import './GameCard.css';
 
 

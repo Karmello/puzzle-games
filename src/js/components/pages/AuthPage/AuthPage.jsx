@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { FbBtn } from 'js/components';
-import { getUser, postUser, setAuthStatus, toggleAppLoader } from 'js/actions';
+import { FbBtn } from 'js/components/other';
+import { toggleAppLoader, setAuthStatus } from 'js/actions/app';
+import { getUser, postUser } from 'js/actions/api';
 import { fbLoginConfig, loadFbScript } from './AuthPage.fb.js';
 import './AuthPage.css';
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'material-ui';
 
-import { BossPuzzle } from 'js/components';
+import { BossPuzzle } from 'js/components/engines';
 import { coordsToIndex, findAllMovementCoords, indexToCoords } from './BossPuzzle.static';
 
 

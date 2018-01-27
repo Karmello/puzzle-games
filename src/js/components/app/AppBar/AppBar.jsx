@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { AppBar as MaterialAppBar, IconButton, Toolbar, Typography } from 'material-ui';
 import MenuIcon from 'material-ui-icons/Menu';
 
-import { GameMenu } from 'js/components';
-import { toggleAppDrawer, startGame } from 'js/actions';
+import { GameMenu } from 'js/components/game';
+import { toggleAppDrawer } from 'js/actions/app';
+import { startGame } from 'js/actions/game';
 import './AppBar.css';
 
 

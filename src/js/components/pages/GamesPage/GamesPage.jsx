@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
-import { GamePage, GameCard, Loader } from 'js/components';
-import { getGames, changeGameOptions } from 'js/actions';
+import { GamePage } from 'js/components/pages';
+import { GameCard } from 'js/components/game';
+import { Loader } from 'js/components/other';
+import { getGames } from 'js/actions/api';
+import { changeGameOptions } from 'js/actions/gameOptions';
 
 
 class GamesPage extends Component {

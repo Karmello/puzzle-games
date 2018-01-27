@@ -1,7 +1,7 @@
 import React from 'react';
 import { Chip } from 'material-ui';
 
-import { Timer } from 'js/components';
+import { Timer } from 'js/components/other';
 import './GameDashboard.css';
 
 
