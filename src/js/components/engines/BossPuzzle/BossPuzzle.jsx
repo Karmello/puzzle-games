@@ -23,9 +23,18 @@ class BossPuzzle extends Component {
     this.startNew();
   }
 
+  componentWillReceiveProps(nextProps) {
+    
+    // restarting game
+    if (!this.props.game.isLoading && nextProps.game.isLoading) {
+      this.setState({ imgSrc: null });
+      this.startNew();
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
 
-    const { game, bossPuzzleEngine, onBeenSolved, dispatch } = this.props;
+    const { bossPuzzleEngine, onBeenSolved, dispatch } = this.props;
 
     // if move was made
     if (bossPuzzleEngine.moves === prevProps.bossPuzzleEngine.moves + 1) {
@@ -40,11 +49,6 @@ class BossPuzzle extends Component {
       // if been solved
       dispatch(clearHiddenTileCoords());
       onBeenSolved();
-
-    // restarting game
-    } else if (!prevProps.game.isLoading && game.isLoading) {
-      this.setState({ imgSrc: null });
-      this.startNew();
     }
   }
 
