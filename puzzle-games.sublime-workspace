@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"set",
+				"setAuthStatus"
+			],
+			[
+				"com",
+				"componentDidUpdate\t(BossPuzzle.jsx)"
+			],
+			[
 				"not",
 				"not_authorized"
 			],
@@ -46,10 +54,6 @@
 			[
 				"react",
 				"react-router-dom\t(App.jsx)"
-			],
-			[
-				"com",
-				"componentWillUpdate"
 			],
 			[
 				"co",
@@ -356,10 +360,6 @@
 				"initFrame"
 			],
 			[
-				"set",
-				"setDimension"
-			],
-			[
 				"t",
 				"target"
 			],
@@ -519,6 +519,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/js/components/app/App/App.jsx",
+			"settings":
+			{
+				"buffer_size": 3125,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/components/pages/AuthPage/AuthPage.jsx",
+			"settings":
+			{
+				"buffer_size": 1957,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/components/pages/GamesPage/GamesPage.jsx",
+			"settings":
+			{
+				"buffer_size": 1551,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -608,18 +634,25 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Workspace/puzzle-games"
+		"/C/Workspace/puzzle-games/src/js/components",
+		"/C/Workspace/puzzle-games/src/js/components/pages",
+		"/C/Workspace/puzzle-games/src/js/components/pages/AuthPage"
 	],
 	"file_history":
 	[
+		"/C/Workspace/puzzle-games/src/js/components/pages/AuthPage/AuthPage.fb.js",
+		"/C/Workspace/puzzle-games/src/js/actions/appActions.js",
+		"/C/Workspace/puzzle-games/src/js/components/app/App/App.methods.js",
+		"/C/Workspace/puzzle-games/src/js/actions/apiActions.js",
+		"/C/Workspace/puzzle-games/src/js/actionCreators/apiRequestCreator.js",
+		"/C/Workspace/puzzle-games/src/js/components/pages/GamePage/GamePage.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/SquareTile.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/pages/GamesPage/GamesPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/game/GameCard/GameCard.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.static.js",
 		"/C/Workspace/puzzle-games/src/js/components/other/Loader/Loader.scss",
-		"/C/Workspace/puzzle-games/src/js/components/pages/GamePage/GamePage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/pages/GamesPage/GamesPage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/app/App/App.methods.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/App/App.jsx",
-		"/C/Workspace/puzzle-games/src/js/actions/apiActions.js",
 		"/C/Workspace/puzzle-games/src/js/reducers/index.js",
 		"/C/Workspace/puzzle-games/src/js/actions/index.js",
 		"/C/Workspace/puzzle-games/src/js/reducers/pageReducer.js",
@@ -640,7 +673,6 @@
 		"/C/Workspace/puzzle-games/src/js/components/app/App/App.scss",
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/GamesPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/GamePage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/game/GameMenu/GameMenu.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/AuthPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/other/FbBtn/FbBtn.jsx",
@@ -675,7 +707,6 @@
 		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/BossPuzzleSettings.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/app/AppDrawer/AppDrawer.scss",
 		"/C/Workspace/puzzle-games/src/js/components/app/App/App.auth.js",
-		"/C/Workspace/puzzle-games/src/js/actionCreators/apiRequestCreator.js",
 		"/C/Workspace/puzzle-games/src/js/actionCreators/index.js",
 		"/C/Workspace/puzzle-games/.env",
 		"/C/Workspace/puzzle-games/.env.development",
@@ -684,7 +715,6 @@
 		"/C/Workspace/puzzle-games/package.json",
 		"/C/Workspace/puzzle-games/src/js/actions/userActions.js",
 		"/C/Workspace/puzzle-games/src/js/components/game/GamesList/GamesList.games.js",
-		"/C/Workspace/puzzle-games/src/js/actions/appActions.js",
 		"/C/Workspace/puzzle-games/src/js/components/games/GamesList/GamesList.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/SquareTile.css",
 		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/SquareTile.scss",
@@ -737,19 +767,19 @@
 		"/C/Workspace/puzzle-games/Procfile",
 		"/C/Workspace/puzzle-games/src/js/helpers.js",
 		"/C/Workspace/boss-puzzle/src/js/server/server.js",
-		"/C/Workspace/boss-puzzle/Procfile",
-		"/C/Workspace/boss-puzzle/src/js/server/schemas/User.js",
-		"/C/Workspace/boss-puzzle/src/js/server/models.js"
+		"/C/Workspace/boss-puzzle/Procfile"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
 		"height": 169.0,
 		"where_history":
 		[
+			"C:\\Workspace\\puzzle-games\\src",
+			""
 		]
 	},
 	"find_state":
@@ -757,6 +787,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"onLogout",
+			"onDoneTryLogin",
+			"AuthPage.fb.js",
+			"onDoneTryLogin",
+			"app.methods",
+			"dispatch(toggleAppLoader",
+			"onDoneTryLogin"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -774,8 +811,633 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/js/components/app/App/App.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2969,
+								2969
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1500,
+										1501
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1492,
+										1493
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3003,
+										3004
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2873,
+										2874
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/js/components/pages/AuthPage/AuthPage.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1957,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								544,
+								544
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1924,
+										1925
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1131,
+										1132
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										619,
+										620
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										506,
+										507
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 144.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/js/components/pages/GamesPage/GamesPage.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1551,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1012,
+								1012
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1128,
+										1129
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1093,
+										1094
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1168,
+										1169
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1011,
+										1012
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -836,12 +1498,20 @@
 		"selected_items":
 		[
 			[
-				"apia",
-				"actions\\apiActions.js"
+				"gamesp",
+				"components\\pages\\GamesPage\\GamesPage.jsx"
 			],
 			[
 				"app.jsx",
 				"components\\app\\App\\App.jsx"
+			],
+			[
+				"gamepage.jsx",
+				"components\\pages\\GamePage\\GamePage.jsx"
+			],
+			[
+				"apia",
+				"actions\\apiActions.js"
 			],
 			[
 				"loader.s",
@@ -862,10 +1532,6 @@
 			[
 				"appbar",
 				"components\\app\\AppBar\\AppBar.jsx"
-			],
-			[
-				"gamesp",
-				"components\\pages\\GamesPage\\GamesPage.jsx"
 			],
 			[
 				"gamem",
@@ -1263,7 +1929,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 329.0,
 	"status_bar_visible": true,
 	"template_settings":
