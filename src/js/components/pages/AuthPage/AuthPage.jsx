@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { App } from 'js/components/app';
 import { FbBtn } from 'js/components/other';
 import { toggleAppLoader, setAuthStatus } from 'js/actions/app';
-import { getUser, postUser } from 'js/actions/api';
+import { fetchClientUser, createClientUser } from 'js/actions/api';
 import { fbLoginConfig, loadFbScript } from './AuthPage.fb.js';
 import './AuthPage.css';
 
@@ -50,12 +50,12 @@ class AuthPage extends Component {
       if (res.status === 'connected') {
         window.FB.api('/me', me => {
           if (!me.error) {     
-            dispatch(getUser(`fb.id=${me.id}`)).then(() => {  
-              if (this.props.apiUser.status === 200) {
+            dispatch(fetchClientUser(`${me.id}`)).then(() => {  
+              if (this.props.fetchedClientUser.status === 200) {
                 resolve('connected');
               } else {
-                dispatch(postUser({ fb: me })).then(() => {
-                  if (this.props.apiUser.status === 200) { resolve('connected'); } else { resolve('error'); }
+                dispatch(createClientUser({ fb: me })).then(() => {
+                  if (this.props.createdClientUser.status === 200) { resolve('connected'); } else { resolve('error'); }
                 });
               }
             });
@@ -74,5 +74,6 @@ class AuthPage extends Component {
 export default connect(store => ({
   appName: store.app.name,
   isAppLoading: store.app.isLoading,
-  apiUser: store.api.user
+  createdClientUser: store.api.createdClientUser,
+  fetchedClientUser: store.api.fetchedClientUser
 }))(AuthPage);

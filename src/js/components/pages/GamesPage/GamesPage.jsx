@@ -5,7 +5,7 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { GamePage } from 'js/components/pages';
 import { GameCard } from 'js/components/game';
 import { Loader } from 'js/components/other';
-import { getGames } from 'js/actions/api';
+import { fetchAllGames } from 'js/actions/api';
 import { changeGameOptions } from 'js/actions/gameOptions';
 
 
@@ -13,12 +13,12 @@ class GamesPage extends Component {
 
   componentDidMount() {
 
-    if (!this.didFetchGames()) { this.props.dispatch(getGames()); }
+    if (!this.didFetchGames()) { this.props.dispatch(fetchAllGames()); }
   }
 
   render() {
 
-    const { apiGames, gameOptions } = this.props;
+    const { allGames, gameOptions } = this.props;
 
     if (!this.didFetchGames()) { return <Loader isShown />; }
 
@@ -26,18 +26,19 @@ class GamesPage extends Component {
       <Switch>
         <Route exact path='/games' render={props => (
           <div>
-            {Object.keys(apiGames.data).map(gameId => (
+            {allGames.data.map(gameData => (
             <GameCard
-              key={gameId}
-              gameData={apiGames.data[gameId]}
-              gameOptions={gameOptions[gameId]}
+              key={gameData.id}
+              gameData={gameData}
+              gameOptions={gameOptions[gameData.id]}
               onGameOptionsChange={this.onGameOptionsChange.bind(this)}
             />))}
           </div>
         )}/>
         <Route exact path='/games/:id' render={props => {
-          if (Object.keys(apiGames.data).indexOf(props.match.params.id) === -1) { return <Redirect to='/games' />; }
-          return <GamePage/>;
+          const gameData = allGames.data.find(elem => elem.id === props.match.params.id);
+          if (!gameData) { return <Redirect to='/games' />; }
+          return <GamePage gameData={gameData} />;
         }}/>
       </Switch>
     );
@@ -45,8 +46,8 @@ class GamesPage extends Component {
 
   didFetchGames() {
 
-    const { apiGames } = this.props;
-    return apiGames.status === 200 && apiGames.data;
+    const { allGames } = this.props;
+    return allGames.status === 200 && allGames.data;
   }
 
   onGameOptionsChange(gameId, options) {
@@ -56,6 +57,6 @@ class GamesPage extends Component {
 }
 
 export default withRouter(connect(store => ({
-  apiGames: store.api.games,
+  allGames: store.api.allGames,
   gameOptions: store.gameOptions
 }))(GamesPage));

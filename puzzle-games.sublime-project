@@ -11,6 +11,9 @@
 			"path": "src\\js\\reducers"
 		},
 		{
+			"path": "src\\js\\actionCreators"
+		},
+		{
 			"path": "src\\js\\actions"
 		},
 		{

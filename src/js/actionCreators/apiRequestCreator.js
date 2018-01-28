@@ -1,8 +1,9 @@
-export const apiRequestSuccess = (verb, subject, res) => {
+export const apiRequestSuccess = (actionType, res) => {
   return {
-    type: `${verb}_${subject}_SUCCESS`,
-
+    type: `${actionType}_SUCCESS`,
     payload: {
+      method: res.config.method,
+      url: res.config.url,
       status: res.status, 
       statusText: res.statusText,
       data: res.data
@@ -10,18 +11,20 @@ export const apiRequestSuccess = (verb, subject, res) => {
   }
 }
 
-export const apiRequestFailure = (verb, subject, err) => {
+export const apiRequestFailure = (actionType, err) => {
   return {
-    type: `${verb}_${subject}_FAILURE`,
+    type: `${actionType}_FAILURE`,
     payload: {
+      method: err.config.method,
+      url: err.config.url,
       status: err.response.status,
       statusText: err.response.statusText
     }
   }
 }
 
-export const apiRequestClear = (subject) => {
+export const apiRequestClear = (actionType) => {
   return {
-    type: `${subject}_CLEAR`
+    type: `${actionType}_CLEAR`
   }
 }

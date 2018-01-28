@@ -6,7 +6,7 @@ import { App } from 'js/components/app';
 import { GameDashboard } from 'js/components/game';
 import { Loader } from 'js/components/other';
 import { startGame, setAsSolved, endGame, stopGameLoader } from 'js/actions/game';
-import { postResult } from 'js/actions/api';
+import { saveNewResult } from 'js/actions/api';
 import './GamePage.css';
 
 
@@ -26,7 +26,7 @@ class GamePage extends Component {
 
   render() {
 
-    const { match, apiGames, engines, game } = this.props;
+    const { match, gameData, engines, game } = this.props;
     const id = match.params.id;
     const Engine = require(`js/components/engines/${id}/${id}`).default;
 
@@ -34,7 +34,7 @@ class GamePage extends Component {
       <Loader isShown={game.isLoading}>
         <div className='GamePage'>
           <GameDashboard
-            apiData={apiGames.data[id]}
+            apiData={gameData}
             engine={engines[id]}
             game={game}
             ref={ref => this.gameDashBoardRef = ref}
@@ -57,14 +57,14 @@ class GamePage extends Component {
   
   onBeenSolved() {
 
-    const { authStatus, apiUser, apiGames, game, engines, dispatch } = this.props;
+    const { authStatus, fetchedClientUser, gameData, game, engines, dispatch } = this.props;
     
     dispatch(setAsSolved());
     
     if (authStatus === 'connected') {
-      dispatch(postResult({
-        userId: apiUser.data._id,
-        gameId: apiGames.data[game.id]._id,
+      dispatch(saveNewResult({
+        userId: fetchedClientUser.data._id,
+        gameId: gameData._id,
         details: {
           moves: engines[game.id].moves,
           seconds: this.gameDashBoardRef.timerRef.state.seconds
@@ -76,8 +76,7 @@ class GamePage extends Component {
 
 export default withRouter(connect(store => ({
   authStatus: store.app.authStatus,
-  apiGames: store.api.games,
-  apiUser: store.api.user,
+  fetchedClientUser: store.api.fetchedClientUser,
   engines: store.engines,
   game: store.game,
   gameOptions: store.gameOptions

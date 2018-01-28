@@ -6,7 +6,7 @@ import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import { find } from 'lodash';
 
 import { Loader } from 'js/components/other';
-import { getResults, getGames } from 'js/actions/api';
+import { fetchAllResults, fetchAllGames, fetchAllUsers } from 'js/actions/api';
 import './ResultsPage.css';
 
 
@@ -14,15 +14,16 @@ class ResultsPage extends Component {
 
   componentDidMount() {
 
-    const { dispatch, apiGames } = this.props;
-    dispatch(getResults());
-    if (apiGames.status !== 200) { dispatch(getGames()); }
+    const { dispatch, allGames } = this.props;
+    dispatch(fetchAllResults());
+    dispatch(fetchAllUsers());
+    if (allGames.status !== 200) { dispatch(fetchAllGames()); }
   }
 
   render() {
 
-    const { apiResults, apiGames } = this.props;
-    if (apiResults.status !== 200 || apiGames.status !== 200) { return <Loader isShown />; }
+    const { allResults, allGames, allUsers } = this.props;
+    if (allResults.status !== 200 || allGames.status !== 200 || allUsers.status !== 200) { return <Loader isShown />; }
 
     return (
       <div className='ResultsPage'>
@@ -31,19 +32,19 @@ class ResultsPage extends Component {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Date</TableCell>
-                <TableCell>UserId</TableCell>
+                <TableCell>Player</TableCell>
                 <TableCell>Game</TableCell>
+                <TableCell>Date</TableCell>
                 <TableCell numeric>Moves</TableCell>
                 <TableCell>Time</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {apiResults.data.map(result => (
+              {allResults.data.map(result => (
                 <TableRow key={result._id}>
+                  <TableCell>{find(allUsers.data, elem => elem._id === result.userId).fb.name}</TableCell>
+                  <TableCell>{find(allGames.data, elem => elem._id === result.gameId).name}</TableCell>
                   <TableCell>{moment(result.date).format('MMMM Do YYYY, h:mm:ss a')}</TableCell>
-                  <TableCell>{result.userId}</TableCell>
-                  <TableCell>{find(apiGames.data, elem => { return elem._id === result.gameId }).name}</TableCell>
                   <TableCell numeric>{result.details.moves}</TableCell>
                   <TableCell>{moment.utc(result.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
                 </TableRow>
@@ -57,6 +58,7 @@ class ResultsPage extends Component {
 }
 
 export default connect(store => ({
-  apiResults: store.api.results,
-  apiGames: store.api.games
+  allResults: store.api.allResults,
+  allGames: store.api.allGames,
+  allUsers: store.api.allUsers
 }))(ResultsPage);

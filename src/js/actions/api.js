@@ -4,61 +4,62 @@ import { apiRequestSuccess, apiRequestFailure } from 'js/actionCreators';
 
 const api = axios.create({ baseURL: process.env.REACT_APP_API_URI });
 
-export const postUser = (user) => {
+export const createClientUser = (user) => {
   return (dispatch) => {
-    return api.post('/user', user).then(res => {
-      dispatch(apiRequestSuccess('POST', 'USER', res));
+    return api.post('/users', user).then(res => {
+      dispatch(apiRequestSuccess('CREATE_CLIENT_USER', res));
     }, err => {
-      dispatch(apiRequestFailure('POST', 'USER', err));
+      dispatch(apiRequestFailure('CREATE_CLIENT_USER', err));
     });
   }
 }
 
-export const getUser = (query) => {
+export const fetchClientUser = (fbId) => {
   return (dispatch) => {
-    return api.get(`/user?${query}`).then(res => {
-      dispatch(apiRequestSuccess('GET', 'USER', res));
+    return api.get(`/users/${fbId}`).then(res => {
+      dispatch(apiRequestSuccess('FETCH_CLIENT_USER', res));
     }, err => {
-      dispatch(apiRequestFailure('GET', 'USER', err));
+      dispatch(apiRequestFailure('FETCH_CLIENT_USER', err));
     });
   }
 }
 
-export const getGames = () => {
+export const fetchAllGames = () => {
   return (dispatch) => {
     return api.get('/games').then(res => {
-
-      // interception
-      const data = {};
-      for (const obj of res.data) { data[obj.id] = obj; }
-      res.data = data;
-
-      dispatch(apiRequestSuccess('GET', 'GAMES', res));
-      
+      dispatch(apiRequestSuccess('FETCH_ALL_GAMES', res));
     }, err => {
-      dispatch(apiRequestFailure('GET', 'GAMES', err));
+      dispatch(apiRequestFailure('FETCH_ALL_GAMES', err));
     });
   }
 }
 
-export const getResults = () => {
+export const fetchAllResults = () => {
   return (dispatch) => {
-
     return api.get('/results').then(res => {
-      dispatch(apiRequestSuccess('GET', 'RESULTS', res));
-  
+      dispatch(apiRequestSuccess('FETCH_ALL_RESULTS', res));
     }, err => {
-      dispatch(apiRequestFailure('GET', 'RESULTS', err));
+      dispatch(apiRequestFailure('FETCH_ALL_RESULTS', err));
     });
   }
 }
 
-export const postResult = (result) => {
+export const fetchAllUsers = () => {
+  return (dispatch) => {
+    return api.get('/users').then(res => {
+      dispatch(apiRequestSuccess('FETCH_ALL_USERS', res));
+    }, err => {
+      dispatch(apiRequestFailure('FETCH_ALL_USERS', err));
+    });
+  }
+}
+
+export const saveNewResult = (result) => {
   return (dispatch) => {
     return api.post('/results', result).then(res => {
-      dispatch(apiRequestSuccess('POST', 'RESULT', res));
+      dispatch(apiRequestSuccess('SAVE_NEW_RESULT', res));
     }, err => {
-      dispatch(apiRequestFailure('POST', 'RESULT', err));
+      dispatch(apiRequestFailure('SAVE_NEW_RESULT', err));
     });
   }
 }

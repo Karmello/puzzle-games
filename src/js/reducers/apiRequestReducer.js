@@ -1,33 +1,18 @@
-const getApiRequestReducer = (subject) => {
-  
+const getApiRequestReducer = (actionType) => {
+    
   return (state = {}, action) => {
 
-    if (action.type.indexOf(subject + '_SUCCESS') > -1) {
+    switch (action.type) {
 
-      return {
-        status: action.payload.status,
-        statusText: action.payload.statusText,
-        data: action.payload.data
-      }
+      case actionType + '_SUCCESS':
+      case actionType + '_FAILURE':
+        return { ...action.payload }
 
-    } else if (action.type.indexOf(subject + '_FAILURE') > -1) {
-      
-      return {
-        status: action.payload.status,
-        statusText: action.payload.statusText,
-        data: undefined
-      }
-    
-    } else if (action.type.indexOf(subject + '_CLEAR') > -1) {
+      case actionType + '_CLEAR':
+        return {}
 
-      return {
-        status: undefined,
-        statusText: undefined,
-        data: undefined
-      }
-
-    } else {
-      return state;
+      default:
+        return state;
     }
   }
 }

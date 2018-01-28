@@ -14,28 +14,36 @@ import './AppDrawer.css';
 
 class AppDrawer extends Component {
   
-  constructor(props) {
-    super(props);
-    this.state = { avatar: undefined };
+  state = {
+    clientUser: undefined,
+    avatar: undefined
+  }
+
+  componentWillMount() {
+
+    const { fetchedClientUser, createdClientUser } = this.props;
+
+    if (fetchedClientUser.status === 200) {
+      this.setState({ clientUser: fetchedClientUser });
+    
+    } else if (createdClientUser.status === 200) {
+      this.setState({ clientUser: createdClientUser });
+    }
   }
 
   componentDidMount() {
-
-    const { user } = this.props;
-
-    if (user.data) {
-      window.FB.api(`/${user.data.fb.id}/picture`, 'GET', {}, res => {
-        if (res.data && !res.data.is_silhouette) {
-          this.setState({ avatar: res.data });
-        }
-      });
-    } 
+    
+    window.FB.api(`/${this.state.clientUser.data.fb.id}/picture`, 'GET', {}, res => {
+      if (res.data && !res.data.is_silhouette) {
+        this.setState({ avatar: res.data });
+      }
+    });
   }
 
   render() {
 
-    const { authStatus, showDrawer, user } = this.props;
-    const avatar = this.state.avatar;
+    const { clientUser, avatar } = this.state;
+    const { authStatus, showDrawer } = this.props;
 
     return (
       <Drawer
@@ -43,10 +51,10 @@ class AppDrawer extends Component {
         open={showDrawer}
         onClose={this.onDrawerClose.bind(this)}
       >
-        {user.data && avatar &&
+        {avatar &&
         <div className='AppDrawer-user'>
-          <div>{avatar && <img src={avatar.url} alt='' title={user.data.fb.name} />}</div>
-          <div>{user.data.fb.name}</div>
+          <div>{avatar && <img src={avatar.url} alt='' title={clientUser.data.fb.name} />}</div>
+          <div>{clientUser.data.fb.name}</div>
         </div>}
         <div
           tabIndex={0}
@@ -87,7 +95,8 @@ class AppDrawer extends Component {
     dispatch(toggleAppLoader(true));
     
     window.FB.logout(res => {
-      dispatch(apiRequestClear('USER'));
+      dispatch(apiRequestClear('CREATE_CLIENT_USER'));
+      dispatch(apiRequestClear('FETCH_CLIENT_USER'));
       dispatch(setAuthStatus(res.status));
       dispatch(toggleAppLoader(false));
     });
@@ -97,5 +106,6 @@ class AppDrawer extends Component {
 export default connect(store => ({
   authStatus: store.app.authStatus,
   showDrawer: store.app.showDrawer,
-  user: store.api.user
+  fetchedClientUser:  store.api.fetchedClientUser,
+  createdClientUser: store.api.createdClientUser
 }))(AppDrawer);
