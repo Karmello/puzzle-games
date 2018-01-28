@@ -40,3 +40,25 @@ export const getGames = () => {
     });
   }
 }
+
+export const getResults = () => {
+  return (dispatch) => {
+
+    return api.get('/results').then(res => {
+      dispatch(apiRequestSuccess('GET', 'RESULTS', res));
+  
+    }, err => {
+      dispatch(apiRequestFailure('GET', 'RESULTS', err));
+    });
+  }
+}
+
+export const postResult = (result) => {
+  return (dispatch) => {
+    return api.post('/results', result).then(res => {
+      dispatch(apiRequestSuccess('POST', 'RESULT', res));
+    }, err => {
+      dispatch(apiRequestFailure('POST', 'RESULT', err));
+    });
+  }
+}

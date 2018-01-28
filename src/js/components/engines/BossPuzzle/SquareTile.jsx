@@ -13,8 +13,7 @@ export default class SquareTile extends Component {
     this.index = props.row * props.options.dimension + props.col;
   }
 
-  componentWillUpdate(nextProps, nextState) {
-
+  componentWillReceiveProps(nextProps) {
     const { hiddenTileCoords, row, col } = nextProps;
     this.isHidden = (row === hiddenTileCoords.x && col === hiddenTileCoords.y);
   }
@@ -24,6 +23,7 @@ export default class SquareTile extends Component {
     return (
       <Button
         raised
+        disableRipple
         className='SquareTile'
         style={this.getStyle()}
         color={this.getLabelColor()}

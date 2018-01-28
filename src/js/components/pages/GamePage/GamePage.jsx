@@ -6,6 +6,7 @@ import { App } from 'js/components/app';
 import { GameDashboard } from 'js/components/game';
 import { Loader } from 'js/components/other';
 import { startGame, setAsSolved, endGame, stopGameLoader } from 'js/actions/game';
+import { postResult } from 'js/actions/api';
 import './GamePage.css';
 
 
@@ -36,6 +37,7 @@ class GamePage extends Component {
             apiData={apiGames.data[id]}
             engine={engines[id]}
             game={game}
+            ref={ref => this.gameDashBoardRef = ref}
           />
           <div className='GamePage-engine'>
             <Engine
@@ -55,12 +57,27 @@ class GamePage extends Component {
   
   onBeenSolved() {
 
-    this.props.dispatch(setAsSolved());
+    const { authStatus, apiUser, apiGames, game, engines, dispatch } = this.props;
+    
+    dispatch(setAsSolved());
+    
+    if (authStatus === 'connected') {
+      dispatch(postResult({
+        userId: apiUser.data._id,
+        gameId: apiGames.data[game.id]._id,
+        details: {
+          moves: engines[game.id].moves,
+          seconds: this.gameDashBoardRef.timerRef.state.seconds
+        }
+      }));
+    }
   }
 }
 
 export default withRouter(connect(store => ({
+  authStatus: store.app.authStatus,
   apiGames: store.api.games,
+  apiUser: store.api.user,
   engines: store.engines,
   game: store.game,
   gameOptions: store.gameOptions
