@@ -5,7 +5,7 @@ export const changeResultsFilter = (gameId, options) => {
     type: CHANGE_RESULTS_FILTER,
     payload: {
       gameId: gameId,
-      ...options
+      options: options
     }
   }
 }

@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { apiRequestSuccess, apiRequestFailure } from 'js/actionCreators';
+import { apiRequest, apiRequestSuccess, apiRequestFailure } from 'js/actionCreators';
 
 
 export const FETCH_OR_CREATE_CLIENT_USER = 'FETCH_OR_CREATE_CLIENT_USER';
 export const FETCH_ALL_GAMES = 'FETCH_ALL_GAMES';
-export const FETCH_ALL_RESULTS = 'FETCH_ALL_RESULTS';
+export const FETCH_RESULTS = 'FETCH_RESULTS';
 export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
 export const SAVE_NEW_RESULT = 'SAVE_NEW_RESULT';
 
@@ -40,22 +40,23 @@ export const fetchAllGames = () => {
   }
 }
 
-export const fetchAllResults = () => {
-  return (dispatch) => {
-    return api.get('/results').then(res => {
-      dispatch(apiRequestSuccess(FETCH_ALL_RESULTS, res));
-    }, err => {
-      dispatch(apiRequestFailure(FETCH_ALL_RESULTS, err));
-    });
-  }
-}
-
 export const fetchAllUsers = () => {
   return (dispatch) => {
     return api.get('/users').then(res => {
       dispatch(apiRequestSuccess(FETCH_ALL_USERS, res));
     }, err => {
       dispatch(apiRequestFailure(FETCH_ALL_USERS, err));
+    });
+  }
+}
+
+export const fetchResults = (gameId, query, delay) => {
+  return (dispatch) => {
+    dispatch(apiRequest(FETCH_RESULTS));
+    return api.get(`/results/${gameId}`, { params: query }).then(res => {
+      setTimeout(() => dispatch(apiRequestSuccess(FETCH_RESULTS, res)), delay);
+    }, err => {
+      setTimeout(() => dispatch(apiRequestFailure(FETCH_RESULTS, err)), delay);
     });
   }
 }

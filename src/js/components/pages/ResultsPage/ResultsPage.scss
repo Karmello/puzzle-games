@@ -1,5 +1,8 @@
 .ResultsPage {
 
+  max-width: 800px;
+  margin: 0 auto;
+
   padding-left: 15px;
   padding-right: 15px;
 
@@ -8,14 +11,12 @@
     margin-bottom: 50px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
     align-items: center;
   }
 
   .ResultsTable {
     margin: 0 auto;
     overflow-x: auto;
-    max-width: 800px;
 
     .ResultsTable-title {
       margin: 20px 0 0 20px;

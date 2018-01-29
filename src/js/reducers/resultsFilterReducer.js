@@ -2,8 +2,7 @@ import { CHANGE_RESULTS_FILTER } from 'js/actions/resultsFilter';
 
 const initialState = {
   gameId: 'BossPuzzle',
-  dimension: 3,
-  style: 'IMG'
+  options: { dimension: 3, style: 'IMG' }
 };
 
 const resultsReducer = (state = initialState, action) => {

@@ -1,4 +1,6 @@
 .ResultsPage {
+  max-width: 800px;
+  margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px; }
   .ResultsPage .ResultsFilter {
@@ -6,11 +8,9 @@
     margin-bottom: 50px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
     align-items: center; }
   .ResultsPage .ResultsTable {
     margin: 0 auto;
-    overflow-x: auto;
-    max-width: 800px; }
+    overflow-x: auto; }
     .ResultsPage .ResultsTable .ResultsTable-title {
       margin: 20px 0 0 20px; }

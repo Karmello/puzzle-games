@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Loader } from 'js/components/other';
-import { fetchAllResults, fetchAllGames, fetchAllUsers } from 'js/actions/api';
+import { App } from 'js/components/app';
+import { fetchResults, fetchAllUsers } from 'js/actions/api';
 import { changeResultsFilter } from 'js/actions/resultsFilter';
 import ResultsFilter from './ResultsFilter';
 import ResultsTable from './ResultsTable';
@@ -13,29 +13,32 @@ class ResultsPage extends Component {
 
   componentDidMount() {
 
-    const { dispatch, allGames } = this.props;
-    dispatch(fetchAllResults());
-    dispatch(fetchAllUsers());
-    if (allGames.status !== 200) { dispatch(fetchAllGames()); }
+    this.fetchApiData(this.props.resultsFilter);
+  }
+  
+  componentWillReceiveProps(nextProps) {
+
+    const optionKeys = Object.keys(nextProps.resultsFilter.options);
+    const anyOptionChanged = optionKeys.some(key => nextProps.resultsFilter.options[key] !== this.props.resultsFilter.options[key]);
+
+    if (anyOptionChanged || nextProps.resultsFilter.gameId !== this.props.resultsFilter.gameId) {
+      this.fetchApiData(nextProps.resultsFilter);
+    }
   }
 
   render() {
 
-    const { allResults, allGames, allUsers, resultsFilter } = this.props;
-    if (allResults.status !== 200 || allGames.status !== 200 || allUsers.status !== 200) { return <Loader isShown />; }
+    const { results, allUsers, gameOptions, resultsFilter } = this.props;
 
     return (
       <div className='ResultsPage'>
         <ResultsFilter
-          allGames={allGames}
+          results={results}
+          gameOptions={gameOptions}
           resultsFilter={resultsFilter}
           onChange={this.onResultsFilterChange.bind(this)}
         />
-        <ResultsTable
-          allGames={allGames}
-          allResults={allResults}
-          allUsers={allUsers}
-        />
+        <ResultsTable allUsers={allUsers} results={results}/>
       </div>
     );
   }
@@ -45,12 +48,21 @@ class ResultsPage extends Component {
     const { gameOptions, dispatch } = this.props;
     dispatch(changeResultsFilter(gameId, options || gameOptions[gameId]));
   }
+
+  fetchApiData(resultsFilter) {
+
+    const { dispatch, allGames } = this.props;
+
+    dispatch(fetchAllUsers()).then(() => {
+      dispatch(fetchResults(allGames.data.find(elem => elem.id === resultsFilter.gameId)._id, resultsFilter.options, App.minLoadTime));
+    });
+  }
 }
 
 export default connect(store => ({
-  allResults: store.api.allResults,
-  allGames: store.api.allGames,
   allUsers: store.api.allUsers,
+  allGames: store.api.allGames,
+  results: store.api.results,
   gameOptions: store.gameOptions,
   resultsFilter: store.resultsFilter
 }))(ResultsPage);

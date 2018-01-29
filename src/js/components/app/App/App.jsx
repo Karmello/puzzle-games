@@ -5,6 +5,7 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { AppBar, AppDrawer, AppSnackBar } from 'js/components/app';
 import { AuthPage, GamesPage, ResultsPage } from 'js/components/pages';
 import { Loader } from 'js/components/other';
+import { fetchAllGames } from 'js/actions/api';
 import './App.css';
 
 
@@ -24,9 +25,13 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.dispatch(fetchAllGames());
+  }
+
   render() {
 
-    const { app, clientUser } = this.props;
+    const { app, clientUser, allGames } = this.props;
 
     return (
       <div className='App'>
@@ -53,11 +58,11 @@ class App extends Component {
                     message={this.state.snackBarMessage}
                     onClose={() => { this.setState({ snackBarMessage: '' }) }}
                   />
-                  <Switch>
+                  {allGames && <Switch>
                     <Route path='/games' component={GamesPage} />
                     <Route exact path='/results' component={ResultsPage} />
                     <Redirect from='*' to='/games' />
-                  </Switch>
+                  </Switch>}
                 </div>
               );
             }}/>
@@ -71,5 +76,6 @@ class App extends Component {
 export default withRouter(connect(store => ({
   app: store.app,
   game: store.game,
-  clientUser:  store.api.clientUser
+  clientUser:  store.api.clientUser,
+  allGames: store.api.allGames
 }))(App));

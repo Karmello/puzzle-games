@@ -19,6 +19,7 @@ export default class BossPuzzleOptions extends Component {
   render() {
 
     const { dimension, style } = this.state;
+    const { disabled } = this.props;
 
     return (
       <div className='BossPuzzleOptions'>
@@ -29,6 +30,7 @@ export default class BossPuzzleOptions extends Component {
               value={dimension}
               input={<Input name='dimension' id='dimension' />}
               onChange={e => this.onValueChange('dimension', e.target.value)}
+              disabled={disabled}
             >
               <MenuItem value={3}>3 x 3</MenuItem>
               <MenuItem value={4}>4 x 4</MenuItem>
@@ -43,6 +45,7 @@ export default class BossPuzzleOptions extends Component {
               value={style}
               input={<Input name='style' id='style' />}
               onChange={e => this.onValueChange('style', e.target.value)}
+              disabled={disabled}
             >
               <MenuItem value='IMG'>Images</MenuItem>
               <MenuItem value='NUM'>Numbers</MenuItem>

@@ -5,12 +5,22 @@ import { Table } from 'material-ui';
 import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import { find } from 'lodash';
 
+import { Loader } from 'js/components/other';
+
 
 export default class ResultsTable extends Component {
 
   render() {
 
-    const { allResults, allUsers } = this.props;
+    const { results, allUsers } = this.props;
+
+    if (results.isFetching) {
+      return <Loader isShown />;
+
+    } else if (results.status !== 200) {
+      return null;
+
+    } else if (results.data.length === 0) { return <div>No results</div>; }
 
     return (
       <Paper className='ResultsTable'>
@@ -25,7 +35,7 @@ export default class ResultsTable extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {allResults.data.map(result => (
+            {results.data.map(result => (
               <TableRow key={result._id}>
                 <TableCell>{moment(result.date).format('MMMM Do YYYY, h:mm:ss a')}</TableCell>
                 <TableCell>{find(allUsers.data, elem => elem._id === result.userId).fb.name}</TableCell>

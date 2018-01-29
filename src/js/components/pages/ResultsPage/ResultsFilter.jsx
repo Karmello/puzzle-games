@@ -18,7 +18,7 @@ export default class ResultsFilter extends Component {
 
   render() {
   
-    const { allGames, resultsFilter } = this.props;
+    const { gameOptions, resultsFilter } = this.props;
     const { Options } = this.state;
 
     return (
@@ -30,15 +30,17 @@ export default class ResultsFilter extends Component {
               value={resultsFilter.gameId}
               input={<Input name='game' id='game' />}
               onChange={e => this.onChange(e.target.value)}
+              disabled={this.shouldBeDisabled()}
             >
-              {allGames.data.map(elem => (<MenuItem key={elem.id} value={elem.id}>{elem.name}</MenuItem>))}
+              {Object.keys(gameOptions).map(gameId => (<MenuItem key={gameId} value={gameId}>{gameId}</MenuItem>))}
             </Select>
           </FormControl>
         </div>
         <div>
           {Options && <Options
-            options={resultsFilter}
+            options={resultsFilter.options}
             onValueChangeCb={options => this.onChange(resultsFilter.gameId, options)}
+            disabled={this.shouldBeDisabled()}
           />}
         </div>
       </div>
@@ -60,5 +62,10 @@ export default class ResultsFilter extends Component {
       console.log(ex);
       this.setState({ Options: undefined });
     }
+  }
+
+  shouldBeDisabled() {
+    const { results } = this.props;
+    return results.status !== 200 || results.isFetching;
   }
 }
