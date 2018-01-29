@@ -1,3 +1,5 @@
+import { INIT_FRAME, SWITCH_TILES, CLEAR_HIDDEN_TILE_COORDS, RESET_FRAME } from 'js/actions/bossPuzzle';
+
 const initialState = {
   imgNumbers: [],
   imgIndex: undefined,
@@ -10,7 +12,7 @@ const bossPuzzleReducer = (state = initialState, action) => {
   
   switch (action.type) {
 
-    case 'INIT_FRAME':
+    case INIT_FRAME:
       return {
         ...state,
         imgNumbers: action.payload.imgNumbers,
@@ -20,7 +22,7 @@ const bossPuzzleReducer = (state = initialState, action) => {
         moves: 0
       }
 
-    case 'SWITCH_TILES':
+    case SWITCH_TILES:
 
       const newState = {
         ...state,
@@ -33,13 +35,13 @@ const bossPuzzleReducer = (state = initialState, action) => {
       newState.tiles[action.meta.index2] = temp;
       return newState;
 
-    case 'CLEAR_HIDDEN_TILE_COORDS':
+    case CLEAR_HIDDEN_TILE_COORDS:
       return {
         ...state,
         hiddenTileCoords: {}
       }
 
-    case 'RESET_FRAME':
+    case RESET_FRAME:
       return {
         imgNumbers: [],
         imgIndex: undefined,

@@ -5,16 +5,19 @@
 			"path": "."
 		},
 		{
-			"path": "src\\js"
+			"path": "src"
 		},
 		{
-			"path": "src\\js\\reducers"
+			"path": "src\\js"
 		},
 		{
 			"path": "src\\js\\actionCreators"
 		},
 		{
 			"path": "src\\js\\actions"
+		},
+		{
+			"path": "src\\js\\reducers"
 		},
 		{
 			"path": "src\\js\\components"
