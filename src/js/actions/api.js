@@ -2,12 +2,12 @@ import axios from 'axios';
 import { apiRequestSuccess, apiRequestFailure } from 'js/actionCreators';
 
 
-const CREATE_CLIENT_USER = 'CREATE_CLIENT_USER';
-const FETCH_CLIENT_USER = 'FETCH_CLIENT_USER';
-const FETCH_ALL_GAMES = 'FETCH_ALL_GAMES';
-const FETCH_ALL_RESULTS = 'FETCH_ALL_RESULTS';
-const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
-const SAVE_NEW_RESULT = 'SAVE_NEW_RESULT';
+export const CREATE_CLIENT_USER = 'CREATE_CLIENT_USER';
+export const FETCH_CLIENT_USER = 'FETCH_CLIENT_USER';
+export const FETCH_ALL_GAMES = 'FETCH_ALL_GAMES';
+export const FETCH_ALL_RESULTS = 'FETCH_ALL_RESULTS';
+export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
+export const SAVE_NEW_RESULT = 'SAVE_NEW_RESULT';
 
 const api = axios.create({ baseURL: process.env.REACT_APP_API_URI });
 
