@@ -15,25 +15,12 @@ import './AppDrawer.css';
 class AppDrawer extends Component {
   
   state = {
-    clientUser: undefined,
     avatar: undefined
-  }
-
-  componentWillMount() {
-
-    const { fetchedClientUser, createdClientUser } = this.props;
-
-    if (fetchedClientUser.status === 200) {
-      this.setState({ clientUser: fetchedClientUser });
-    
-    } else if (createdClientUser.status === 200) {
-      this.setState({ clientUser: createdClientUser });
-    }
   }
 
   componentDidMount() {
     
-    window.FB.api(`/${this.state.clientUser.data.fb.id}/picture`, 'GET', {}, res => {
+    window.FB.api(`/${this.props.clientUser.data.fb.id}/picture`, 'GET', {}, res => {
       if (res.data && !res.data.is_silhouette) {
         this.setState({ avatar: res.data });
       }
@@ -42,8 +29,8 @@ class AppDrawer extends Component {
 
   render() {
 
-    const { clientUser, avatar } = this.state;
-    const { authStatus, showDrawer } = this.props;
+    const { avatar } = this.state;
+    const { authStatus, showDrawer, clientUser } = this.props;
 
     return (
       <Drawer
@@ -106,6 +93,5 @@ class AppDrawer extends Component {
 export default connect(store => ({
   authStatus: store.app.authStatus,
   showDrawer: store.app.showDrawer,
-  fetchedClientUser:  store.api.fetchedClientUser,
-  createdClientUser: store.api.createdClientUser
+  clientUser:  store.api.clientUser
 }))(AppDrawer);

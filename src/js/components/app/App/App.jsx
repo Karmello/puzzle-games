@@ -26,7 +26,7 @@ class App extends Component {
 
   render() {
 
-    const { app, fetchedClientUser, createdClientUser } = this.props;
+    const { app, clientUser } = this.props;
 
     return (
       <div className='App'>
@@ -48,7 +48,7 @@ class App extends Component {
               return (
                 <div>
                   <AppBar/>
-                  {(fetchedClientUser.status === 200 || createdClientUser.status === 200) && <AppDrawer/>}
+                  {clientUser.status === 200 && <AppDrawer/>}
                   <AppSnackBar
                     message={this.state.snackBarMessage}
                     onClose={() => { this.setState({ snackBarMessage: '' }) }}
@@ -71,6 +71,5 @@ class App extends Component {
 export default withRouter(connect(store => ({
   app: store.app,
   game: store.game,
-  fetchedClientUser:  store.api.fetchedClientUser,
-  createdClientUser: store.api.createdClientUser
+  clientUser:  store.api.clientUser
 }))(App));

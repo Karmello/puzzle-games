@@ -57,13 +57,13 @@ class GamePage extends Component {
   
   onBeenSolved() {
 
-    const { authStatus, fetchedClientUser, gameData, game, engines, dispatch } = this.props;
+    const { authStatus, clientUser, gameData, game, engines, dispatch } = this.props;
     
     dispatch(setAsSolved());
     
     if (authStatus === 'connected') {
       dispatch(saveNewResult({
-        userId: fetchedClientUser.data._id,
+        userId: clientUser.data._id,
         gameId: gameData._id,
         details: {
           moves: engines[game.id].moves,
@@ -76,7 +76,7 @@ class GamePage extends Component {
 
 export default withRouter(connect(store => ({
   authStatus: store.app.authStatus,
-  fetchedClientUser: store.api.fetchedClientUser,
+  clientUser: store.api.clientUser,
   engines: store.engines,
   game: store.game,
   gameOptions: store.gameOptions
