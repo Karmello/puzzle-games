@@ -1,8 +1,7 @@
 import { CHANGE_GAME_OPTIONS } from 'js/actions/gameOptions';
 
 const initialState = {
-  'BossPuzzle': { dimension: 3, style: 'IMG' },
-  'AnotherGame': { option1: 'value1', option2: 'value2' }
+  'BossPuzzle': { dimension: 3, style: 'IMG' }
 };
 
 const gameOptionsReducer = (state = initialState, action) => {
