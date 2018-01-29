@@ -56,6 +56,9 @@ export default class BossPuzzleOptions extends Component {
   onValueChange(key, value) {
 
     this.setState({ [key]: value });
-    setTimeout(() => { this.props.onValueChangeCb(this.state); });
+    
+    if (this.props.onValueChangeCb) {
+      setTimeout(() => { this.props.onValueChangeCb(this.state); });
+    }
   }
 }

@@ -7,6 +7,7 @@ import { GameCard } from 'js/components/game';
 import { Loader } from 'js/components/other';
 import { fetchAllGames } from 'js/actions/api';
 import { changeGameOptions } from 'js/actions/gameOptions';
+import './GamesPage.css';
 
 
 class GamesPage extends Component {
@@ -25,7 +26,7 @@ class GamesPage extends Component {
     return (
       <Switch>
         <Route exact path='/games' render={props => (
-          <div>
+          <div className='GamesPage-games'>
             {allGames.data.map(gameData => (
             <GameCard
               key={gameData.id}

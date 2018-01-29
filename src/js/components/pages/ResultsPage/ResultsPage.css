@@ -1,9 +1,16 @@
 .ResultsPage {
-  margin-top: 50px;
   padding-left: 15px;
   padding-right: 15px; }
-  .ResultsPage .ResultsPage-table {
+  .ResultsPage .ResultsFilter {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center; }
+  .ResultsPage .ResultsTable {
     margin: 0 auto;
-    overflow-x: auto; }
-    .ResultsPage .ResultsPage-table .ResultsPage-tableTitle {
+    overflow-x: auto;
+    max-width: 800px; }
+    .ResultsPage .ResultsTable .ResultsTable-title {
       margin: 20px 0 0 20px; }

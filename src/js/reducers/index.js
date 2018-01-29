@@ -5,6 +5,7 @@ import getApiRequestReducer from 'js/reducers/apiRequestReducer';
 import gameOptionsReducer from 'js/reducers/gameOptionsReducer';
 import gameReducer from 'js/reducers/gameReducer';
 import bossPuzzleReducer from 'js/reducers/bossPuzzleReducer';
+import resultsFilterReducer from 'js/reducers/resultsFilterReducer';
 
 import { FETCH_OR_CREATE_CLIENT_USER, FETCH_ALL_USERS, FETCH_ALL_GAMES, FETCH_ALL_RESULTS, SAVE_NEW_RESULT } from 'js/actions/api';
 
@@ -22,7 +23,8 @@ const reducers = combineReducers({
   game: gameReducer,
   engines: combineReducers({
     BossPuzzle: bossPuzzleReducer
-  })
+  }),
+  resultsFilter: resultsFilterReducer
 });
 
 export default reducers;

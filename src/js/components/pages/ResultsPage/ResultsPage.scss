@@ -1,14 +1,23 @@
 .ResultsPage {
 
-  margin-top: 50px;
   padding-left: 15px;
   padding-right: 15px;
 
-  .ResultsPage-table {
+  .ResultsFilter {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ResultsTable {
     margin: 0 auto;
     overflow-x: auto;
+    max-width: 800px;
 
-    .ResultsPage-tableTitle {
+    .ResultsTable-title {
       margin: 20px 0 0 20px;
     }
   }
