@@ -35,6 +35,8 @@ class ResultsPage extends Component {
                 <TableCell>Player</TableCell>
                 <TableCell>Game</TableCell>
                 <TableCell>Date</TableCell>
+                <TableCell>Dimension</TableCell>
+                <TableCell>Style</TableCell>
                 <TableCell numeric>Moves</TableCell>
                 <TableCell>Time</TableCell>
               </TableRow>
@@ -45,6 +47,8 @@ class ResultsPage extends Component {
                   <TableCell>{find(allUsers.data, elem => elem._id === result.userId).fb.name}</TableCell>
                   <TableCell>{find(allGames.data, elem => elem._id === result.gameId).name}</TableCell>
                   <TableCell>{moment(result.date).format('MMMM Do YYYY, h:mm:ss a')}</TableCell>
+                  <TableCell numeric>{result.options.dimension}</TableCell>
+                  <TableCell numeric>{result.options.style}</TableCell>
                   <TableCell numeric>{result.details.moves}</TableCell>
                   <TableCell>{moment.utc(result.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
                 </TableRow>

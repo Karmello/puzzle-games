@@ -57,7 +57,7 @@ class GamePage extends Component {
   
   onBeenSolved() {
 
-    const { authStatus, clientUser, gameData, game, engines, dispatch } = this.props;
+    const { authStatus, clientUser, gameData, game, gameOptions, engines, dispatch } = this.props;
     
     dispatch(setAsSolved());
     
@@ -65,6 +65,7 @@ class GamePage extends Component {
       dispatch(saveNewResult({
         userId: clientUser.data._id,
         gameId: gameData._id,
+        options: { ...gameOptions[game.id] },
         details: {
           moves: engines[game.id].moves,
           seconds: this.gameDashBoardRef.timerRef.state.seconds
