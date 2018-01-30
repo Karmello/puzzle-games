@@ -5,7 +5,6 @@ import getApiRequestReducer from 'js/reducers/apiRequestReducer';
 import gamesPageReducer from 'js/reducers/gamesPageReducer';
 import gameReducer from 'js/reducers/gameReducer';
 import bossPuzzleReducer from 'js/reducers/bossPuzzleReducer';
-import gameOptionsReducer from 'js/reducers/gameOptionsReducer';
 import resultsFilterReducer from 'js/reducers/resultsFilterReducer';
 
 import {
@@ -35,7 +34,6 @@ const reducers = combineReducers({
   engines: combineReducers({
     BossPuzzle: bossPuzzleReducer
   }),
-  gameOptions: gameOptionsReducer,
   resultsFilter: resultsFilterReducer
 });
 

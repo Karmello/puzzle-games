@@ -5,8 +5,7 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { GamePage } from 'js/components/pages';
 import { GameCategories, GameCard } from 'js/components/game';
 import { Loader } from 'js/components/other';
-import { switchGameCategoryTab } from 'js/actions/gamesPage';
-import { changeGameOptions } from 'js/actions/gameOptions';
+import { switchGameCategoryTab, changeGameOptions } from 'js/actions/gamesPage';
 import './GamesPage.css';
 
 
@@ -14,7 +13,7 @@ class GamesPage extends Component {
 
   render() {
 
-    const { gamesPage, allGames, gameCategories, gameOptions } = this.props;
+    const { gamesPage, allGames, gameCategories } = this.props;
 
     if (!this.didFetchGames()) { return <Loader isShown />; }
 
@@ -34,7 +33,7 @@ class GamesPage extends Component {
                     <GameCard
                       key={gameData.id}
                       gameData={gameData}
-                      gameOptions={gameOptions[gameData.id]}
+                      gameOptions={gamesPage.options[gameData.id]}
                       onGameOptionsChange={this.onGameOptionsChange.bind(this)}
                     />
                   );
@@ -73,6 +72,5 @@ class GamesPage extends Component {
 export default withRouter(connect(store => ({
   gamesPage: store.pages.gamesPage,
   allGames: store.api.allGames,
-  gameCategories: store.api.gameCategories,
-  gameOptions: store.gameOptions
+  gameCategories: store.api.gameCategories
 }))(GamesPage));

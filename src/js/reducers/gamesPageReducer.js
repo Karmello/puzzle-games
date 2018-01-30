@@ -1,7 +1,10 @@
-import { SWITCH_GAME_CATEGORY_TAB } from 'js/actions/gamesPage';
+import { SWITCH_GAME_CATEGORY_TAB, CHANGE_GAME_OPTIONS } from 'js/actions/gamesPage';
 
 const initialState = {
-  category: 'sliding'
+  category: 'sliding',
+  options: {
+    'BossPuzzle': { dimension: 3, style: 'IMG' }
+  }
 };
 
 const gamesPageReducer = (state = initialState, action) => {
@@ -12,6 +15,17 @@ const gamesPageReducer = (state = initialState, action) => {
       return {
         ...state,
         category: action.payload.category
+      }
+
+    case CHANGE_GAME_OPTIONS:
+      return {
+        ...state,
+        options: {
+          ...state,
+          [action.meta.id]: {
+            ...action.payload.options
+          }
+        }
       }
 
     default:

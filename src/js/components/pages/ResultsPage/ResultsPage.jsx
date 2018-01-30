@@ -68,6 +68,6 @@ export default connect(store => ({
   allUsers: store.api.allUsers,
   allGames: store.api.allGames,
   results: store.api.results,
-  gameOptions: store.gameOptions,
+  gameOptions: store.pages.gamesPage.options,
   resultsFilter: store.resultsFilter
 }))(ResultsPage);

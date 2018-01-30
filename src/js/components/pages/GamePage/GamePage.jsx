@@ -80,5 +80,5 @@ export default withRouter(connect(store => ({
   clientUser: store.api.clientUser,
   engines: store.engines,
   game: store.game,
-  gameOptions: store.gameOptions
+  gameOptions: store.pages.gamesPage.options
 }))(GamePage));

@@ -143,6 +143,5 @@ class BossPuzzle extends Component {
 
 export default connect(store => ({
   game: store.game,
-  gameOptions: store.gameOptions,
   bossPuzzleEngine: store.engines.BossPuzzle
 }))(BossPuzzle);
