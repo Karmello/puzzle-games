@@ -28,8 +28,7 @@ class AppBar extends Component {
             type='title'
             color='inherit'
           >{appName}</Typography>
-          {gameId &&
-          <GameMenu onItemClick={(itemId) => { this.onGameMenuItemClick(itemId); }} />}
+          {gameId && <GameMenu onItemClick={(itemId) => { this.onGameMenuItemClick(itemId); }} />}
         </Toolbar>
       </MaterialAppBar>
     );

@@ -48,7 +48,7 @@ export default class GameMenu extends Component {
   
   getItemStyle() {
     return {
-      width: '100px'
+      width: '65px'
     }
   }
 
