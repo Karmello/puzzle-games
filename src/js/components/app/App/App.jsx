@@ -20,7 +20,7 @@ class App extends Component {
 
   componentWillReceiveProps(nextProps) {
     
-    if (this.props.app.authStatus !== 'error' && nextProps.app.authStatus === 'error') {
+    if (this.props.authStatus !== 'error' && nextProps.authStatus === 'error') {
       this.setState({ snackBarMessage: 'Could not login.' });
     }
   }
@@ -32,24 +32,24 @@ class App extends Component {
 
   render() {
 
-    const { app, api, gameCategory } = this.props;
+    const { authStatus, isLoading, gameCategory, api } = this.props;
     const defaultPath = `/games/${gameCategory}`;
 
     return (
       <div className='App'>
-        <Loader isShown={app.isLoading}>
+        <Loader isShown={isLoading}>
           <Switch>
             <Route exact path='/auth' render={props => {
-              if (app.authStatus === 'connected' || app.authStatus === 'error') {
+              if (authStatus === 'connected' || authStatus === 'error') {
                 const state = props.location.state;
                 let pathname;
                 if (!state || state.from.pathname === '/') { pathname = defaultPath; } else { pathname = state.from.pathname; }
                 return <Redirect to={pathname} />;
               }
-              return <AuthPage authStatus={app.authStatus} />;
+              return <AuthPage authStatus={authStatus} />;
             }}/>
             <Route path='/' render={props => {
-              if (app.authStatus !== 'connected' && app.authStatus !== 'error') {
+              if (authStatus !== 'connected' && authStatus !== 'error') {
                 return <Redirect to={{ pathname: '/auth', state: { from: props.location } }} />;
               }
               return (
@@ -60,18 +60,18 @@ class App extends Component {
                     message={this.state.snackBarMessage}
                     onClose={() => { this.setState({ snackBarMessage: '' }) }}
                   />
-                  {api.allGames.status === 200 && api.gameCategories.status === 200 &&
+                  {api.games.status === 200 && api.gameCategories.status === 200 &&
                   <Switch>
                     <Route exact path='/games/:category' render={props => {
                       if (api.gameCategories.data.some(obj => obj.id === props.match.params.category)) {
-                        return <GamesPage category={props.match.params.category} />;
+                        return <GamesPage gameCategoryToSet={props.match.params.category} />;
                       } else {
                         return <Redirect to={defaultPath} />;
                       }
                     }}/>
                     <Route exact path='/games/:category/:id' render={props => {
                       const categoryData = api.gameCategories.data.find(obj => obj.id === props.match.params.category);
-                      const gameData = api.allGames.data.find(obj => obj.id === props.match.params.id);
+                      const gameData = api.games.data.find(obj => obj.id === props.match.params.id);
                       if (categoryData && gameData && gameData.categoryId === categoryData.id) {
                         return <GamePage gameData={gameData} />
                       } else {
@@ -92,7 +92,8 @@ class App extends Component {
 }
 
 export default withRouter(connect(store => ({
-  app: store.app,
-  api: store.api,
-  gameCategory: store.pages.gamesPage.category
+  authStatus: store.app.authStatus,
+  isLoading: store.app.isLoading,
+  gameCategory: store.pages.gamesPage.category,
+  api: store.api
 }))(App));

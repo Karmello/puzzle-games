@@ -25,8 +25,8 @@ import {
 const reducers = combineReducers({
   api: combineReducers({
     clientUser: getApiRequestReducer(FETCH_OR_CREATE_CLIENT_USER),
-    allUsers: getApiRequestReducer(FETCH_ALL_USERS),
-    allGames: getApiRequestReducer(FETCH_ALL_GAMES),
+    users: getApiRequestReducer(FETCH_ALL_USERS),
+    games: getApiRequestReducer(FETCH_ALL_GAMES),
     gameCategories: getApiRequestReducer(FETCH_GAME_CATEGORIES),
     results: getApiRequestReducer(FETCH_RESULTS),
     newResult: getApiRequestReducer(SAVE_NEW_RESULT)

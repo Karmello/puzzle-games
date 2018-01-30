@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { GameCategories, GameCard } from 'js/components/game';
-import { Loader } from 'js/components/other';
 import { switchGameCategoryTab, changeGameOptions } from 'js/actions/gamesPage';
 import './GamesPage.css';
 
@@ -12,33 +11,31 @@ class GamesPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     
-    const { category, gamesPage, dispatch } = nextProps;
+    const { currentGameCategory, gameCategoryToSet, dispatch } = nextProps;
 
-    if (category !== gamesPage.category) {
-      dispatch(switchGameCategoryTab(category));
+    if (currentGameCategory !== gameCategoryToSet) {
+      dispatch(switchGameCategoryTab(gameCategoryToSet));
     }
   } 
 
   render() {
 
-    const { gamesPage, allGames, gameCategories } = this.props;
-
-    if (!this.didFetchGames()) { return <Loader isShown />; }
+    const { currentGameCategory, gameOptions, api } = this.props;
 
     return (
       <div>
         <GameCategories
-          category={gamesPage.category}
-          gameCategories={gameCategories}
+          category={currentGameCategory}
+          gameCategories={api.gameCategories}
         />
         <div className='GamesPage-games'>
-          {allGames.data.map(gameData => {
-            if (gameData.categoryId === gamesPage.category) {
+          {api.games.data.map(gameData => {
+            if (gameData.categoryId === currentGameCategory) {
               return (
                 <GameCard
                   key={gameData.id}
                   gameData={gameData}
-                  gameOptions={gamesPage.options[gameData.id]}
+                  gameOptions={gameOptions[gameData.id]}
                   onGameOptionsChange={this.onGameOptionsChange.bind(this)}
                 />
               );
@@ -50,12 +47,6 @@ class GamesPage extends Component {
     );
   }
 
-  didFetchGames() {
-
-    const { allGames } = this.props;
-    return allGames.status === 200 && !allGames.isFetching;
-  }
-
   onGameOptionsChange(gameId, options) {
 
     this.props.dispatch(changeGameOptions(gameId, options));
@@ -63,7 +54,7 @@ class GamesPage extends Component {
 }
 
 export default withRouter(connect(store => ({
-  gamesPage: store.pages.gamesPage,
-  allGames: store.api.allGames,
-  gameCategories: store.api.gameCategories
+  currentGameCategory: store.pages.gamesPage.category,
+  gameOptions: store.pages.gamesPage.options,
+  api: store.api
 }))(GamesPage));

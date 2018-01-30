@@ -18,6 +18,7 @@ class ResultsPage extends Component {
   }
   
   componentWillUnmount() {
+    
     this.props.dispatch(apiRequestClear(FETCH_RESULTS));
   }
 
@@ -33,17 +34,16 @@ class ResultsPage extends Component {
 
   render() {
 
-    const { results, allGames, allUsers, resultsFilter } = this.props;
+    const { resultsFilter, api } = this.props;
 
     return (
       <div className='ResultsPage'>
         <ResultsFilter
-          allGames={allGames}
-          results={results}
+          api={api}
           resultsFilter={resultsFilter}
           onChange={this.onResultsFilterChange.bind(this)}
         />
-        <ResultsTable allUsers={allUsers} results={results}/>
+        <ResultsTable api={api} />
       </div>
     );
   }
@@ -56,18 +56,17 @@ class ResultsPage extends Component {
 
   fetchApiData(resultsFilter) {
 
-    const { dispatch, allGames } = this.props;
+    const { api, dispatch } = this.props;
 
     dispatch(fetchAllUsers()).then(() => {
-      dispatch(fetchResults(allGames.data.find(elem => elem.id === resultsFilter.gameId)._id, resultsFilter.options, App.minLoadTime));
+      const gameId = api.games.data.find(elem => elem.id === resultsFilter.gameId)._id;
+      dispatch(fetchResults(gameId, resultsFilter.options, App.minLoadTime));
     });
   }
 }
 
 export default connect(store => ({
-  allUsers: store.api.allUsers,
-  allGames: store.api.allGames,
-  results: store.api.results,
   gameOptions: store.pages.gamesPage.options,
-  resultsFilter: store.pages.resultsPage.filter
+  resultsFilter: store.pages.resultsPage.filter,
+  api: store.api
 }))(ResultsPage);

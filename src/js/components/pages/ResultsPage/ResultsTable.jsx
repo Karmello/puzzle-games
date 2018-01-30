@@ -12,15 +12,15 @@ export default class ResultsTable extends Component {
 
   render() {
 
-    const { results, allUsers } = this.props;
+    const { api } = this.props;
 
-    if (results.isFetching) {
+    if (api.results.isFetching) {
       return <Loader isShown />;
 
-    } else if (results.status !== 200) {
+    } else if (api.results.status !== 200) {
       return null;
 
-    } else if (results.data.length === 0) { return <div>No results</div>; }
+    } else if (api.results.data.length === 0) { return <div>No results</div>; }
 
     return (
       <Paper className='ResultsTable'>
@@ -35,10 +35,10 @@ export default class ResultsTable extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {results.data.map(result => (
+            {api.results.data.map(result => (
               <TableRow key={result._id}>
                 <TableCell>{moment(result.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
-                <TableCell>{find(allUsers.data, elem => elem._id === result.userId).fb.name}</TableCell>
+                <TableCell>{find(api.users.data, elem => elem._id === result.userId).fb.name}</TableCell>
                 <TableCell numeric>{result.details.moves}</TableCell>
                 <TableCell>{moment.utc(result.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
               </TableRow>

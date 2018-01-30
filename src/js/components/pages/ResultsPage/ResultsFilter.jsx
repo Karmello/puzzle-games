@@ -18,7 +18,7 @@ export default class ResultsFilter extends Component {
 
   render() {
   
-    const { allGames, resultsFilter } = this.props;
+    const { api, resultsFilter } = this.props;
     const { Options } = this.state;
 
     return (
@@ -32,7 +32,7 @@ export default class ResultsFilter extends Component {
               onChange={e => this.onChange(e.target.value)}
               disabled={this.shouldBeDisabled()}
             >
-              {allGames.data.map(obj => (<MenuItem key={obj.id} value={obj.id}>{obj.name}</MenuItem>))}
+              {api.games.data.map(obj => (<MenuItem key={obj.id} value={obj.id}>{obj.name}</MenuItem>))}
             </Select>
           </FormControl>
         </div>
@@ -65,7 +65,7 @@ export default class ResultsFilter extends Component {
   }
 
   shouldBeDisabled() {
-    const { results } = this.props;
-    return results.status !== 200 || results.isFetching;
+    const { api } = this.props;
+    return api.results.status !== 200 || api.results.isFetching;
   }
 }
