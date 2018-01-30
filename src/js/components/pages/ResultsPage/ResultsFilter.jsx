@@ -18,7 +18,7 @@ export default class ResultsFilter extends Component {
 
   render() {
   
-    const { gameOptions, resultsFilter } = this.props;
+    const { allGames, resultsFilter } = this.props;
     const { Options } = this.state;
 
     return (
@@ -32,7 +32,7 @@ export default class ResultsFilter extends Component {
               onChange={e => this.onChange(e.target.value)}
               disabled={this.shouldBeDisabled()}
             >
-              {Object.keys(gameOptions).map(gameId => (<MenuItem key={gameId} value={gameId}>{gameId}</MenuItem>))}
+              {allGames.data.map(obj => (<MenuItem key={obj.id} value={obj.id}>{obj.name}</MenuItem>))}
             </Select>
           </FormControl>
         </div>

@@ -4,8 +4,48 @@
 		"selected_items":
 		[
 			[
+				"fetchA",
+				"fetchApiData"
+			],
+			[
 				"res",
 				"resultsFilter"
+			],
+			[
+				"Re",
+				"ResultsPage"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"is",
+				"isFetching"
+			],
+			[
+				"dis",
+				"disabled\t(ResultsFilter.jsx)"
+			],
+			[
+				"resu",
+				"results"
+			],
+			[
+				"api",
+				"apiRequest"
+			],
+			[
+				"all",
+				"allUsers"
+			],
+			[
+				"FE",
+				"FETCH_RESULTS"
+			],
+			[
+				"apiR",
+				"apiRequest\t(apiRequestCreator.js)"
 			],
 			[
 				"Game",
@@ -32,20 +72,12 @@
 				"ResultsTable.jsx"
 			],
 			[
-				"all",
-				"allGames"
-			],
-			[
 				"game",
 				"gameOptions"
 			],
 			[
 				"FET",
 				"FETCH_OR_CREATE_CLIENT_USER\t(index.js)"
-			],
-			[
-				"FE",
-				"FETCH_OR_CREATE_CLIENT_USER"
 			],
 			[
 				"S",
@@ -66,10 +98,6 @@
 			[
 				"FETCH",
 				"FETCH_ALL_RESULTS"
-			],
-			[
-				"apiR",
-				"apiRequestFailure"
 			],
 			[
 				"cwm",
@@ -108,10 +136,6 @@
 				"actionType"
 			],
 			[
-				"api",
-				"apiGames"
-			],
-			[
 				"ex",
 				"extends\t(ResultsPage.jsx)"
 			],
@@ -130,10 +154,6 @@
 			[
 				"scu",
 				"scud\tshouldComponentUpdate(object nextProps, object nextState)"
-			],
-			[
-				"is",
-				"isHidden"
 			],
 			[
 				"co",
@@ -254,10 +274,6 @@
 			[
 				"aut",
 				"autoHideDuration"
-			],
-			[
-				"Re",
-				"React\t(App.jsx)"
 			],
 			[
 				"Boss",
@@ -498,22 +514,6 @@
 			[
 				"til",
 				"tilesSizes"
-			],
-			[
-				"tar",
-				"targetCoords"
-			],
-			[
-				"hide",
-				"hiddenTileCoords"
-			],
-			[
-				"compon",
-				"componentWillMount"
-			],
-			[
-				"SET_G",
-				"SET_GAME_STATUS\t(gameReducer.js)"
 			]
 		]
 	},
@@ -523,25 +523,8 @@
 			"file": "src/js/components/pages/ResultsPage/ResultsPage.jsx",
 			"settings":
 			{
-				"buffer_size": 1885,
+				"buffer_size": 1979,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/reducers/resultsFilterReducer.js",
-			"settings":
-			{
-				"buffer_size": 384,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/actions/api.js",
-			"settings":
-			{
-				"buffer_size": 2075,
 				"line_ending": "Windows"
 			}
 		}
@@ -638,39 +621,44 @@
 		"/C/Workspace/puzzle-games/src/js/actions",
 		"/C/Workspace/puzzle-games/src/js/reducers",
 		"/C/Workspace/puzzle-games/src/js/components",
-		"/C/Workspace/puzzle-games/src/js/components/pages"
+		"/C/Workspace/puzzle-games/src/js/components/game",
+		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions",
+		"/C/Workspace/puzzle-games/src/js/components/pages",
+		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage"
 	],
 	"file_history":
 	[
-		"/C/Workspace/puzzle-games/src/js/reducers/apiRequestReducer.js",
-		"/C/Workspace/puzzle-games/src/js/actionCreators/apiRequestCreator.js",
-		"/C/Workspace/puzzle-games/src/js/actions/api.js",
-		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsFilter.jsx",
-		"/C/Workspace/puzzle-games/src/js/actions/resultsFilter.js",
-		"/C/Workspace/puzzle-games/src/js/reducers/resultsFilterReducer.js",
-		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsPage.jsx",
+		"/C/Workspace/puzzle-games/src/js/reducers/gameOptionsReducer.js",
+		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions/AnotherGameOptions/AnotherGameOptions.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsTable.jsx",
+		"/C/Workspace/puzzle-games/src/js/actions/api.js",
+		"/C/Workspace/puzzle-games/src/js/components/app/App/App.jsx",
+		"/C/Workspace/puzzle-games/src/js/reducers/resultsFilterReducer.js",
+		"/C/Workspace/puzzle-games/src/js/components/pages/GamesPage/GamesPage.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsFilter.jsx",
+		"/C/Workspace/puzzle-games/src/js/actionCreators/apiRequestCreator.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/apiRequestReducer.js",
+		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsPage.scss",
+		"/C/Workspace/puzzle-games/src/js/components/game/GameCard/GameCard.scss",
+		"/C/Workspace/puzzle-games/src/js/components/other/Loader/Loader.scss",
+		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions/BossPuzzleOptions/BossPuzzleOptions.jsx",
+		"/C/Workspace/puzzle-games/src/js/actions/resultsFilter.js",
+		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/reducers/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/game/GameCard/GameCard.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.static.js",
-		"/C/Workspace/puzzle-games/src/js/components/pages/GamesPage/GamesPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/pages/GamesPage/GamesPage.scss",
-		"/C/Workspace/puzzle-games/src/js/components/game/GameCard/GameCard.scss",
-		"/C/Workspace/puzzle-games/src/js/reducers/gameOptionsReducer.js",
 		"/C/Workspace/puzzle-games/src/js/actions/gameOptions.js",
-		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions/BossPuzzleOptions/BossPuzzleOptions.jsx",
 		"/C/Workspace/puzzle-games/src/js/reducers/bossPuzzleReducer.js",
 		"/C/Workspace/puzzle-games/src/js/actions/game.js",
 		"/C/Workspace/puzzle-games/src/js/actions/bossPuzzle.js",
 		"/C/Workspace/puzzle-games/src/js/reducers/gameReducer.js",
-		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsPage.scss",
 		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions/BossPuzzleOptions/BossPuzzleOptions.scss",
 		"/C/Workspace/puzzle-games/src/index.scss",
 		"/C/Workspace/puzzle-games/src/js/components/pages/GamePage/GamePage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/pages/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/AppDrawer/AppDrawer.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/pages/AuthPage/AuthPage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/app/App/App.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.jsx",
 		"/C/Workspace/puzzle-games/src/js/store.js",
 		"/C/Workspace/puzzle-games/src/js/helpers.js",
@@ -701,7 +689,6 @@
 		"/C/Workspace/puzzle-games/src/js/components/other/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/App/App.methods.js",
 		"/C/Workspace/puzzle-games/src/js/actions/apiActions.js",
-		"/C/Workspace/puzzle-games/src/js/components/other/Loader/Loader.scss",
 		"/C/Workspace/puzzle-games/src/js/reducers/pageReducer.js",
 		"/C/Workspace/puzzle-games/src/js/actions/pageActions.js",
 		"/C/Workspace/puzzle-games/src/js/actions/gameActions.js",
@@ -768,8 +755,7 @@
 		"/C/Workspace/puzzle-games/src/js/containers/GamesList/BossPuzzleSettings.jsx",
 		"/C/Workspace/puzzle-games/src/js/containers/BossPuzzle/BossPuzzle.static.js",
 		"/C/Workspace/puzzle-games/src/js/containers/Game/Game.methods.js",
-		"/C/Workspace/puzzle-games/src/js/components/Loader/Loader.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/GamesList/GamesList.games.js"
+		"/C/Workspace/puzzle-games/src/js/components/Loader/Loader.jsx"
 	],
 	"find":
 	{
@@ -789,6 +775,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"AnotherGame",
+			"isApiRequestReady",
+			"dispatch(fetchAllGames",
+			"apiDataReady",
+			"import { App } from",
+			"dispatch(fetchResults",
 			"resultsFilter",
 			"changeResultsFilter",
 			"fetchResults",
@@ -874,7 +866,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -883,15 +875,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1885,
+						"buffer_size": 1979,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								904,
-								904
+								405,
+								405
 							]
 						],
 						"settings":
@@ -904,8 +896,8 @@
 								{
 									"1":
 									[
-										1780,
-										1781
+										1246,
+										1247
 									]
 								},
 								"icon":
@@ -920,8 +912,8 @@
 								{
 									"1":
 									[
-										1508,
-										1509
+										1212,
+										1213
 									]
 								},
 								"unmatched":
@@ -935,36 +927,46 @@
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -974,17 +976,7 @@
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
+								"bh_angle_content"
 							],
 							"bracket_highlighter.locations":
 							{
@@ -992,8 +984,8 @@
 								{
 									"1":
 									[
-										903,
-										904
+										1759,
+										1760
 									]
 								},
 								"icon":
@@ -1008,8 +1000,8 @@
 								{
 									"1":
 									[
-										637,
-										638
+										403,
+										404
 									]
 								},
 								"unmatched":
@@ -1023,36 +1015,46 @@
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -1062,411 +1064,17 @@
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
+								"bh_angle_content"
 							],
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 648.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/js/reducers/resultsFilterReducer.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 384,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								152,
-								152
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										152,
-										153
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/single_quote.png",
-										"region.greenish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										148,
-										149
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/js/actions/api.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2075,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1651,
-								1651
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1652,
-										1653
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1636,
-										1637
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 648.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1529,8 +1137,24 @@
 		"selected_items":
 		[
 			[
+				"resultsf",
+				"reducers\\resultsFilterReducer.js"
+			],
+			[
+				"app.jsx",
+				"components\\app\\App\\App.jsx"
+			],
+			[
+				"api.",
+				"actions\\api.js"
+			],
+			[
 				"gamec",
-				"components\\game\\GameCard\\GameCard.jsx"
+				"components\\game\\GameCard\\GameCard.scss"
+			],
+			[
+				"loader.s",
+				"components\\other\\Loader\\Loader.scss"
 			],
 			[
 				"bosspuzzleo",
@@ -1567,10 +1191,6 @@
 			[
 				"app.scss",
 				"components\\app\\App\\App.scss"
-			],
-			[
-				"app.jsx",
-				"components\\app\\App\\App.jsx"
 			],
 			[
 				"appd",
@@ -1623,10 +1243,6 @@
 			[
 				"apia",
 				"actions\\apiActions.js"
-			],
-			[
-				"loader.s",
-				"components\\other\\Loader\\Loader.scss"
 			],
 			[
 				"gamea",
@@ -1996,7 +1612,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 329.0,
 	"status_bar_visible": true,
 	"template_settings":

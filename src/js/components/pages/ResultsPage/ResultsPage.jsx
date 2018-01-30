@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { App } from 'js/components/app';
-import { fetchResults, fetchAllUsers } from 'js/actions/api';
+import { apiRequestClear } from 'js/actionCreators';
+import { fetchResults, fetchAllUsers, FETCH_RESULTS } from 'js/actions/api';
 import { changeResultsFilter } from 'js/actions/resultsFilter';
 import ResultsFilter from './ResultsFilter';
 import ResultsTable from './ResultsTable';
@@ -16,6 +17,10 @@ class ResultsPage extends Component {
     this.fetchApiData(this.props.resultsFilter);
   }
   
+  componentWillUnmount() {
+    this.props.dispatch(apiRequestClear(FETCH_RESULTS));
+  }
+
   componentWillReceiveProps(nextProps) {
 
     const optionKeys = Object.keys(nextProps.resultsFilter.options);
@@ -28,13 +33,13 @@ class ResultsPage extends Component {
 
   render() {
 
-    const { results, allUsers, gameOptions, resultsFilter } = this.props;
+    const { results, allGames, allUsers, resultsFilter } = this.props;
 
     return (
       <div className='ResultsPage'>
         <ResultsFilter
+          allGames={allGames}
           results={results}
-          gameOptions={gameOptions}
           resultsFilter={resultsFilter}
           onChange={this.onResultsFilterChange.bind(this)}
         />

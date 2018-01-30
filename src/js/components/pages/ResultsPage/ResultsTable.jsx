@@ -37,7 +37,7 @@ export default class ResultsTable extends Component {
           <TableBody>
             {results.data.map(result => (
               <TableRow key={result._id}>
-                <TableCell>{moment(result.date).format('MMMM Do YYYY, h:mm:ss a')}</TableCell>
+                <TableCell>{moment(result.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
                 <TableCell>{find(allUsers.data, elem => elem._id === result.userId).fb.name}</TableCell>
                 <TableCell numeric>{result.details.moves}</TableCell>
                 <TableCell>{moment.utc(result.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
