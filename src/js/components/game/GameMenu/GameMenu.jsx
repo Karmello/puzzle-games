@@ -15,6 +15,7 @@ export default class GameMenu extends Component {
   render() {
 
     const { btnElem } = this.state;
+    const { gameCategory } = this.props;
 
     return (
       <div className='GameMenu'>
@@ -38,7 +39,7 @@ export default class GameMenu extends Component {
           <MenuItem
             style={this.getItemStyle()}
             component={Link}
-            to='/games'
+            to={`/games/${gameCategory}`}
             onClick={() => { this.onItemClick() }}
           >End</MenuItem>
         </Menu>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AppBar, AppDrawer, AppSnackBar } from 'js/components/app';
-import { AuthPage, GamesPage, ResultsPage } from 'js/components/pages';
+import { AuthPage, GamesPage, GamePage, ResultsPage } from 'js/components/pages';
 import { Loader } from 'js/components/other';
 import { fetchAllGames, fetchGameCategories } from 'js/actions/api';
 import './App.css';
@@ -32,7 +32,8 @@ class App extends Component {
 
   render() {
 
-    const { app, clientUser, allGames } = this.props;
+    const { app, api, gameCategory } = this.props;
+    const defaultPath = `/games/${gameCategory}`;
 
     return (
       <div className='App'>
@@ -42,7 +43,7 @@ class App extends Component {
               if (app.authStatus === 'connected' || app.authStatus === 'error') {
                 const state = props.location.state;
                 let pathname;
-                if (!state || state.from.pathname === '/') { pathname = '/games'; } else { pathname = state.from.pathname; }
+                if (!state || state.from.pathname === '/') { pathname = defaultPath; } else { pathname = state.from.pathname; }
                 return <Redirect to={pathname} />;
               }
               return <AuthPage authStatus={app.authStatus} />;
@@ -54,15 +55,31 @@ class App extends Component {
               return (
                 <div>
                   <AppBar/>
-                  {clientUser.status === 200 && <AppDrawer/>}
+                  {api.clientUser.status === 200 && <AppDrawer/>}
                   <AppSnackBar
                     message={this.state.snackBarMessage}
                     onClose={() => { this.setState({ snackBarMessage: '' }) }}
                   />
-                  {allGames.status === 200 && <Switch>
-                    <Route path='/games' component={GamesPage} />
+                  {api.allGames.status === 200 && api.gameCategories.status === 200 &&
+                  <Switch>
+                    <Route exact path='/games/:category' render={props => {
+                      if (api.gameCategories.data.some(obj => obj.id === props.match.params.category)) {
+                        return <GamesPage category={props.match.params.category} />;
+                      } else {
+                        return <Redirect to={defaultPath} />;
+                      }
+                    }}/>
+                    <Route exact path='/games/:category/:id' render={props => {
+                      const categoryData = api.gameCategories.data.find(obj => obj.id === props.match.params.category);
+                      const gameData = api.allGames.data.find(obj => obj.id === props.match.params.id);
+                      if (categoryData && gameData && gameData.categoryId === categoryData.id) {
+                        return <GamePage gameData={gameData} />
+                      } else {
+                        return <Redirect to={defaultPath} />;
+                      }
+                    }}/>
                     <Route exact path='/results' component={ResultsPage} />
-                    <Redirect from='*' to='/games' />
+                    <Redirect from='*' to={defaultPath} />
                   </Switch>}
                 </div>
               );
@@ -76,7 +93,6 @@ class App extends Component {
 
 export default withRouter(connect(store => ({
   app: store.app,
-  game: store.game,
-  clientUser:  store.api.clientUser,
-  allGames: store.api.allGames
+  api: store.api,
+  gameCategory: store.pages.gamesPage.category
 }))(App));

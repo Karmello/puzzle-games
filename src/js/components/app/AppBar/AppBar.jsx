@@ -13,7 +13,7 @@ class AppBar extends Component {
 
   render() {
 
-    const { appName, gameId } = this.props;
+    const { appName, gameId, gameCategory } = this.props;
 
     return (
       <MaterialAppBar className='AppBar' position='static' color='primary'>
@@ -28,7 +28,7 @@ class AppBar extends Component {
             type='title'
             color='inherit'
           >{appName}</Typography>
-          {gameId && <GameMenu onItemClick={(itemId) => { this.onGameMenuItemClick(itemId); }} />}
+          {gameId && <GameMenu gameCategory={gameCategory} onItemClick={(itemId) => { this.onGameMenuItemClick(itemId); }} />}
         </Toolbar>
       </MaterialAppBar>
     );
@@ -52,5 +52,6 @@ class AppBar extends Component {
 export default connect(store => ({
   appName: store.app.name,
   showDrawer: store.app.showDrawer,
-  gameId: store.game.id
+  gameId: store.game.id,
+  gameCategory: store.pages.gamesPage.category
 }))(AppBar);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Tabs } from 'material-ui';
 import { Tab } from 'material-ui/Tabs';
 
@@ -9,7 +10,7 @@ export default class GameCategories extends Component {
 
   render() {
 
-    const { category, gameCategories, onSwitchTab } = this.props;
+    const { category, gameCategories } = this.props;
 
     if (gameCategories.isFetching || gameCategories.status !== 200) { return null; }
 
@@ -17,11 +18,19 @@ export default class GameCategories extends Component {
       <div className='GameCategories'>
         <Tabs
           value={category}
-          onChange={(e, value) => onSwitchTab(e, value)}
           indicatorColor='primary'
           textColor='primary'
         >
-          {gameCategories.data.map(obj => <Tab className='GameCategories-item' key={obj.id} value={obj.id} label={obj.name} />)}
+          {gameCategories.data.map(obj =>
+            <Tab
+              className='GameCategories-item'
+              key={obj.id}
+              value={obj.id}
+              label={obj.name}
+              component={Link}
+              to={`/games/${obj.id}`}
+            />
+          )}
         </Tabs>
       </div>
     );

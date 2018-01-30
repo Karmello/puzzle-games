@@ -42,7 +42,7 @@ export default class GameCard extends Component {
               <Button
                 color='primary'
                 component={Link}
-                to={`/games/${gameData.id}`}
+                to={`/games/${gameData.categoryId}/${gameData.id}`}
               >Play</Button>
             </div>
           </CardActions>
