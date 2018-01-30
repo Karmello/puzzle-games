@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { App } from 'js/components/app';
 import { apiRequestClear } from 'js/actionCreators';
 import { fetchResults, fetchAllUsers, FETCH_RESULTS } from 'js/actions/api';
-import { changeResultsFilter } from 'js/actions/resultsFilter';
+import { changeResultsFilter } from 'js/actions/resultsPage';
 import ResultsFilter from './ResultsFilter';
 import ResultsTable from './ResultsTable';
 import './ResultsPage.css';
@@ -69,5 +69,5 @@ export default connect(store => ({
   allGames: store.api.allGames,
   results: store.api.results,
   gameOptions: store.pages.gamesPage.options,
-  resultsFilter: store.resultsFilter
+  resultsFilter: store.pages.resultsPage.filter
 }))(ResultsPage);
