@@ -4,6 +4,7 @@ import { apiRequest, apiRequestSuccess, apiRequestFailure } from 'js/actionCreat
 
 export const FETCH_OR_CREATE_CLIENT_USER = 'FETCH_OR_CREATE_CLIENT_USER';
 export const FETCH_ALL_GAMES = 'FETCH_ALL_GAMES';
+export const FETCH_GAME_CATEGORIES = 'FETCH_GAME_CATEGORIES';
 export const FETCH_RESULTS = 'FETCH_RESULTS';
 export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
 export const SAVE_NEW_RESULT = 'SAVE_NEW_RESULT';
@@ -67,6 +68,16 @@ export const saveNewResult = (result) => {
       dispatch(apiRequestSuccess(SAVE_NEW_RESULT, res));
     }, err => {
       dispatch(apiRequestFailure(SAVE_NEW_RESULT, err));
+    });
+  }
+}
+
+export const fetchGameCategories = () => {
+  return (dispatch) => {
+    return api.get('/game-categories').then(res => {
+      dispatch(apiRequestSuccess(FETCH_GAME_CATEGORIES, res));
+    }, err => {
+      dispatch(apiRequestFailure(FETCH_GAME_CATEGORIES, err));
     });
   }
 }
