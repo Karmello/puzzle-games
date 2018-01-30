@@ -17,35 +17,40 @@ export default class ResultsTable extends Component {
     if (api.results.isFetching) {
       return <Loader isShown />;
 
-    } else if (api.results.status !== 200) {
-      return null;
+    } else if (api.results.data) {
 
-    } else if (api.results.data.length === 0) { return <div>No results</div>; }
+      if (api.results.data.length === 0) {
+        return <div>No results</div>;
 
-    return (
-      <Paper className='ResultsTable'>
-        <Typography className='ResultsTable-title' type='title'>Results</Typography>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Date</TableCell>
-              <TableCell>Player</TableCell>
-              <TableCell numeric>Moves</TableCell>
-              <TableCell>Time</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {api.results.data.map(result => (
-              <TableRow key={result._id}>
-                <TableCell>{moment(result.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
-                <TableCell>{find(api.users.data, elem => elem._id === result.userId).fb.name}</TableCell>
-                <TableCell numeric>{result.details.moves}</TableCell>
-                <TableCell>{moment.utc(result.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Paper>
-    );
+      } else {
+        return (
+          <Paper className='ResultsTable'>
+            <Typography className='ResultsTable-title' type='title'>Results</Typography>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Date</TableCell>
+                  <TableCell>Player</TableCell>
+                  <TableCell numeric>Moves</TableCell>
+                  <TableCell>Time</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {api.results.data.map(result => (
+                  <TableRow key={result._id}>
+                    <TableCell>{moment(result.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
+                    <TableCell>{find(api.users.data, elem => elem._id === result.userId).fb.name}</TableCell>
+                    <TableCell numeric>{result.details.moves}</TableCell>
+                    <TableCell>{moment.utc(result.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Paper>
+        );
+      }
+    }
+
+    return null;
   }
 }

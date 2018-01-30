@@ -34,7 +34,7 @@ class GamePage extends Component {
       <Loader isShown={game.isLoading}>
         <div className='GamePage'>
           <GameDashboard
-            apiData={gameData}
+            gameData={gameData}
             engine={engines[id]}
             game={game}
             ref={ref => this.gameDashBoardRef = ref}
