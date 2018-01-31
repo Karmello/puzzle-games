@@ -10,6 +10,8 @@
     display: flex;
     flex-flow: row wrap;
     align-items: center; }
+    .ResultsPage .ResultsFilter > div:first-child > * {
+      margin: 10px; }
   .ResultsPage .ResultsTable {
     margin: 0 auto;
     overflow-x: auto; }

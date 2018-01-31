@@ -24,11 +24,14 @@ class ResultsPage extends Component {
 
   componentWillReceiveProps(nextProps) {
 
-    const optionKeys = Object.keys(nextProps.resultsFilter.options);
-    const anyOptionChanged = optionKeys.some(key => nextProps.resultsFilter.options[key] !== this.props.resultsFilter.options[key]);
+    if (nextProps.resultsFilter.options) {
 
-    if (anyOptionChanged || nextProps.resultsFilter.gameId !== this.props.resultsFilter.gameId) {
-      this.fetchApiData(nextProps.resultsFilter);
+      const optionKeys = Object.keys(nextProps.resultsFilter.options);
+      const anyOptionChanged = optionKeys.some(key => nextProps.resultsFilter.options[key] !== this.props.resultsFilter.options[key]);
+
+      if (anyOptionChanged || nextProps.resultsFilter.game.id !== this.props.resultsFilter.game.id) {
+        this.fetchApiData(nextProps.resultsFilter);
+      }
     }
   }
 
@@ -48,10 +51,10 @@ class ResultsPage extends Component {
     );
   }
 
-  onResultsFilterChange(gameId, options) {
+  onResultsFilterChange(game, options) {
 
     const { gameOptions, dispatch } = this.props;
-    dispatch(changeResultsFilter(gameId, options || gameOptions[gameId]));
+    dispatch(changeResultsFilter(game, options || gameOptions[game.id]));
   }
 
   fetchApiData(resultsFilter) {
@@ -59,7 +62,7 @@ class ResultsPage extends Component {
     const { api, dispatch } = this.props;
 
     dispatch(fetchAllUsers()).then(() => {
-      const gameId = api.games.data.find(elem => elem.id === resultsFilter.gameId)._id;
+      const gameId = api.games.data.find(elem => elem.id === resultsFilter.game.id)._id;
       dispatch(fetchResults(gameId, resultsFilter.options, App.minLoadTime));
     });
   }

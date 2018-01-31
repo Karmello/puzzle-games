@@ -1,11 +1,11 @@
 export const CHANGE_RESULTS_FILTER = 'CHANGE_RESULTS_FILTER';
 
-export const changeResultsFilter = (gameId, options) => {
+export const changeResultsFilter = (game, options) => {
   return {
     type: CHANGE_RESULTS_FILTER,
     payload: {
       filter: {
-        gameId: gameId,
+        game: game,
         options: options
       }
     }
