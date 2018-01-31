@@ -11,6 +11,7 @@ import resultsPageReducer from 'js/reducers/resultsPageReducer';
 // games
 import gameReducer from 'js/reducers/gameReducer';
 import bossPuzzleReducer from 'js/reducers/bossPuzzleReducer';
+import eightQueensReducer from 'js/reducers/eightQueensReducer';
 
 import {
   FETCH_OR_CREATE_CLIENT_USER,
@@ -38,7 +39,8 @@ const reducers = combineReducers({
   }),
   game: gameReducer,
   engines: combineReducers({
-    BossPuzzle: bossPuzzleReducer
+    BossPuzzle: bossPuzzleReducer,
+    EightQueens: eightQueensReducer
   })
 });
 
