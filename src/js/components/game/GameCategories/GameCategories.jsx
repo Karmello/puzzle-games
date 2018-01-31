@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { Tabs } from 'material-ui';
 import { Tab } from 'material-ui/Tabs';
 
-import './GameCategories.css';
-
 
 export default class GameCategories extends Component {
 
@@ -15,7 +13,7 @@ export default class GameCategories extends Component {
     if (gameCategories.isFetching || gameCategories.status !== 200) { return null; }
 
     return (
-      <div className='GameCategories'>
+      <div>
         <Tabs
           value={category}
           indicatorColor='primary'
@@ -23,7 +21,6 @@ export default class GameCategories extends Component {
         >
           {gameCategories.data.map(obj =>
             <Tab
-              className='GameCategories-item'
               key={obj.id}
               value={obj.id}
               label={obj.name}
