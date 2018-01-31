@@ -42,13 +42,7 @@ const bossPuzzleReducer = (state = initialState, action) => {
       }
 
     case RESET_FRAME:
-      return {
-        imgNumbers: [],
-        imgIndex: undefined,
-        tiles: [],
-        hiddenTileCoords: {},
-        moves: 0
-      }
+      return initialState;
 
     default:
       return state;

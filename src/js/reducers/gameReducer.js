@@ -38,13 +38,8 @@ const gameReducer = (state = initialState, action) => {
 
     case END_GAME:
       return {
-        ...state,
-        id: undefined,
-        isSolved: false,
-        options: {
-          dimension: undefined,
-          style: undefined
-        }
+        ...initialState,
+        isLoading: false
       }
 
     default:
