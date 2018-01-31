@@ -51,10 +51,10 @@ class ResultsPage extends Component {
     );
   }
 
-  onResultsFilterChange(game, options) {
+  onResultsFilterChange(gameFilter, optionsFilter) {
 
     const { gameOptions, dispatch } = this.props;
-    dispatch(changeResultsFilter(game, options || gameOptions[game.id]));
+    dispatch(changeResultsFilter(gameFilter, optionsFilter || gameOptions[gameFilter.id]));
   }
 
   fetchApiData(resultsFilter) {

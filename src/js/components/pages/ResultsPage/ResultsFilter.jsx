@@ -55,7 +55,7 @@ export default class ResultsFilter extends Component {
         <div>
           {Options && <Options
             options={resultsFilter.options}
-            onValueChangeCb={options => this.onChange(resultsFilter.game, options)}
+            onValueChangeCb={options => this.onChange(undefined, options)}
             disabled={this.shouldBeDisabled()}
           />}
         </div>
@@ -63,19 +63,20 @@ export default class ResultsFilter extends Component {
     );
   }
 
-  onChange(game, options) {
+  onChange(gameFilter, optionsFilter) {
 
-    const { api } = this.props;
+    const { api, resultsFilter } = this.props;
     
-    if (!game.id) {
-      game.id = api.games.data.find(obj => obj.categoryId === game.category).id;
-    
-    } else if (!game.category) {
-      game.category = api.games.data.find(obj => obj.id === game.id).categoryId;
+    if (gameFilter) {
+      if (!gameFilter.id) {
+        gameFilter.id = api.games.data.find(obj => obj.categoryId === gameFilter.category).id;
+      } else if (!gameFilter.category) {
+        gameFilter.category = api.games.data.find(obj => obj.id === gameFilter.id).categoryId;
+      }
     }
 
-    if (!options) { this.setupOptionsComponent(game.id); }
-    this.props.onChange(game, options);
+    if (!optionsFilter) { this.setupOptionsComponent(gameFilter ? gameFilter.id : resultsFilter.game.id); }
+    this.props.onChange(gameFilter || resultsFilter.game, optionsFilter);
   }
 
   setupOptionsComponent(gameId) {
