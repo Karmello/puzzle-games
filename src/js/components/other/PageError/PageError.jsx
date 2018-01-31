@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Button } from 'material-ui';
 
-import './ErrorPage.css';
+import './PageError.css';
 
 
-export default class ErrorPage extends Component {
+export default class PageError extends Component {
 
   render() {
     return (
-      <div className='ErrorPage'>
+      <div className='PageError'>
         <div>Something went wrong</div>
         <div>
           <Button

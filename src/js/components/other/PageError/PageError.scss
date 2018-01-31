@@ -1,8 +1,13 @@
-.ErrorPage {
+.PageError {
+
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 50px; }
-  .ErrorPage > div {
-    padding: 10px; }
+
+  margin-top: 50px;
+
+  > div {
+    padding: 10px;
+  }
+}
