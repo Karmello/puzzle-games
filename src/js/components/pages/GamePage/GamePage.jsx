@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { App } from 'js/components/app';
 import { GameDashboard } from 'js/components/game';
 import { Loader } from 'js/components/other';
-import { startGame, setAsSolved, endGame, stopGameLoader } from 'js/actions/game';
+import { startGame, setAsSolved, makeMove, endGame, stopGameLoader } from 'js/actions/game';
 import { saveNewResult } from 'js/actions/api';
 import './GamePage.css';
 
@@ -42,6 +42,7 @@ class GamePage extends Component {
           <div className='GamePage-engine'>
             <Engine
               onFinishInit={this.onFinishInit.bind(this)}
+              onMakeMove={this.onMakeMove.bind(this)}
               onBeenSolved={this.onBeenSolved.bind(this)}
             />
           </div>
@@ -55,9 +56,14 @@ class GamePage extends Component {
     setTimeout(() => { this.props.dispatch(stopGameLoader()); }, App.minLoadTime);
   }
   
+  onMakeMove() {
+
+    this.props.dispatch(makeMove());
+  }
+
   onBeenSolved() {
 
-    const { authStatus, clientUser, gameData, game, gameOptions, engines, dispatch } = this.props;
+    const { authStatus, clientUser, gameData, game, gameOptions, dispatch } = this.props;
     
     dispatch(setAsSolved());
     
@@ -67,7 +73,7 @@ class GamePage extends Component {
         gameId: gameData._id,
         options: { ...gameOptions[game.id] },
         details: {
-          moves: engines[game.id].moves,
+          moves: game.moves,
           seconds: this.gameDashBoardRef.timerRef.state.seconds
         }
       }));

@@ -4,8 +4,7 @@ const initialState = {
   imgNumbers: [],
   imgIndex: undefined,
   tiles: [],
-  hiddenTileCoords: {},
-  moves: 0
+  hiddenTileCoords: {}
 };
 
 const bossPuzzleReducer = (state = initialState, action) => {
@@ -18,16 +17,14 @@ const bossPuzzleReducer = (state = initialState, action) => {
         imgNumbers: action.payload.imgNumbers,
         imgIndex: action.payload.imgIndex,
         tiles: action.payload.tiles,
-        hiddenTileCoords: action.payload.hiddenTileCoords,
-        moves: 0
+        hiddenTileCoords: action.payload.hiddenTileCoords
       }
 
     case SWITCH_TILES:
 
       const newState = {
         ...state,
-        hiddenTileCoords: action.payload.hiddenTileCoords,
-        moves: state.moves + 1
+        hiddenTileCoords: action.payload.hiddenTileCoords
       };
 
       const temp = newState.tiles[action.meta.index1];

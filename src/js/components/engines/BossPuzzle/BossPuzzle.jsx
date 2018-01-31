@@ -31,10 +31,10 @@ class BossPuzzle extends Component {
 
   componentDidUpdate(prevProps, prevState) {
 
-    const { bossPuzzleEngine, onBeenSolved, dispatch } = this.props;
+    const { bossPuzzleEngine, game, onBeenSolved, dispatch } = this.props;
 
     // if move was made
-    if (bossPuzzleEngine.moves === prevProps.bossPuzzleEngine.moves + 1) {
+    if (game.moves === prevProps.game.moves + 1) {
       
       // checking if solved
       for (let i = 0; i < bossPuzzleEngine.tiles.length; i++) {
@@ -137,7 +137,9 @@ class BossPuzzle extends Component {
 
   onMoveMade(index1, index2, targetCoords) {
 
-    this.props.dispatch(switchTiles(index1, index2, targetCoords));
+    const { dispatch, onMakeMove } = this.props;
+    dispatch(switchTiles(index1, index2, targetCoords));
+    onMakeMove();
   }
 };
 
