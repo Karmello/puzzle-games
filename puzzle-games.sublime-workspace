@@ -4,12 +4,104 @@
 		"selected_items":
 		[
 			[
-				"fetchA",
-				"fetchApiData"
+				"Eig",
+				"EightQueens"
+			],
+			[
+				"games",
+				"gamesPage"
+			],
+			[
+				"game",
+				"gameOptions"
+			],
+			[
+				"ga",
+				"gamesPage"
+			],
+			[
+				"gameC",
+				"gameCategory"
+			],
+			[
+				"cate",
+				"categoryData"
+			],
+			[
+				"cat",
+				"categoryData"
+			],
+			[
+				"Ga",
+				"GamePage\t(GamesPage.jsx)"
+			],
+			[
+				"ca",
+				"categoryId"
+			],
+			[
+				"next",
+				"nextProps"
+			],
+			[
+				"ove",
+				"overflow-y\t(App.scss)"
 			],
 			[
 				"res",
-				"resultsFilter"
+				"resultsPage\t(index.js)"
+			],
+			[
+				"gam",
+				"gameData"
+			],
+			[
+				"swi",
+				"switchGameCategoryTab\t(gamesPage.js)"
+			],
+			[
+				"acti",
+				"activeTab"
+			],
+			[
+				"new",
+				"newTabIndex"
+			],
+			[
+				"act",
+				"activeTab"
+			],
+			[
+				"gamesP",
+				"gamesPageReducer"
+			],
+			[
+				"resu",
+				"resultsFilter\t(resultsFilterReducer.js)"
+			],
+			[
+				"is",
+				"isFetching\t(GamesPage.jsx)"
+			],
+			[
+				"api",
+				"apiRequestFailure"
+			],
+			[
+				"FETCH",
+				"FETCH_GAME_CATEGORIES"
+			],
+			[
+				"Game",
+				"GameCategories\t(GameCategories.jsx)"
+			],
+			[
+				"GameC",
+				"GameCategories\t(GameCategories.jsx)"
+			],
+			[
+				"fetchA",
+				"fetchApiData"
 			],
 			[
 				"Re",
@@ -20,20 +112,8 @@
 				"text-align"
 			],
 			[
-				"is",
-				"isFetching"
-			],
-			[
 				"dis",
 				"disabled\t(ResultsFilter.jsx)"
-			],
-			[
-				"resu",
-				"results"
-			],
-			[
-				"api",
-				"apiRequest"
 			],
 			[
 				"all",
@@ -46,10 +126,6 @@
 			[
 				"apiR",
 				"apiRequest\t(apiRequestCreator.js)"
-			],
-			[
-				"Game",
-				"GamesPage"
 			],
 			[
 				"set",
@@ -72,10 +148,6 @@
 				"ResultsTable.jsx"
 			],
 			[
-				"game",
-				"gameOptions"
-			],
-			[
 				"FET",
 				"FETCH_OR_CREATE_CLIENT_USER\t(index.js)"
 			],
@@ -94,10 +166,6 @@
 			[
 				"TOGG",
 				"TOGGLE_APP_LOADER"
-			],
-			[
-				"FETCH",
-				"FETCH_ALL_RESULTS"
 			],
 			[
 				"cwm",
@@ -214,10 +282,6 @@
 			[
 				"seT",
 				"setTimeout\t(App.jsx)"
-			],
-			[
-				"gam",
-				"gameList"
 			],
 			[
 				"star",
@@ -340,10 +404,6 @@
 				"imgNumbers"
 			],
 			[
-				"next",
-				"nextImgNumbers"
-			],
-			[
 				"Bo",
 				"BossPuzzleSettings\t(GamesList.jsx)"
 			],
@@ -362,10 +422,6 @@
 			[
 				"task",
 				"task2"
-			],
-			[
-				"new",
-				"newImgNumbers\t(BossPuzzle.methods.js)"
 			],
 			[
 				"newI",
@@ -458,76 +514,11 @@
 			[
 				"cont",
 				"containers\t(Game.jsx)"
-			],
-			[
-				"ini",
-				"initFrame"
-			],
-			[
-				"t",
-				"target"
-			],
-			[
-				"d",
-				"dimension"
-			],
-			[
-				"Ne",
-				"NewGameSetup-modes"
-			],
-			[
-				"onNE",
-				"onNewGameChoose\t(Game.jsx)"
-			],
-			[
-				"rese",
-				"resetFrame"
-			],
-			[
-				"hid",
-				"hiddenTileCoords\t(Game.jsx)"
-			],
-			[
-				"se",
-				"setAuthStatus\t(App.jsx)"
-			],
-			[
-				"hidd",
-				"hiddenTileCoords"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
-				"temp",
-				"tempHiddenTileCoords"
-			],
-			[
-				"newG",
-				"newGameConfig"
-			],
-			[
-				"tile",
-				"tilesSizes"
-			],
-			[
-				"til",
-				"tilesSizes"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "src/js/components/pages/ResultsPage/ResultsPage.jsx",
-			"settings":
-			{
-				"buffer_size": 1979,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -617,59 +608,75 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Workspace/puzzle-games/src/js/actionCreators",
-		"/C/Workspace/puzzle-games/src/js/actions",
-		"/C/Workspace/puzzle-games/src/js/reducers",
 		"/C/Workspace/puzzle-games/src/js/components",
-		"/C/Workspace/puzzle-games/src/js/components/game",
-		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions",
 		"/C/Workspace/puzzle-games/src/js/components/pages",
 		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage"
 	],
 	"file_history":
 	[
-		"/C/Workspace/puzzle-games/src/js/reducers/gameOptionsReducer.js",
-		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions/AnotherGameOptions/AnotherGameOptions.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsTable.jsx",
-		"/C/Workspace/puzzle-games/src/js/actions/api.js",
-		"/C/Workspace/puzzle-games/src/js/components/app/App/App.jsx",
-		"/C/Workspace/puzzle-games/src/js/reducers/resultsFilterReducer.js",
-		"/C/Workspace/puzzle-games/src/js/components/pages/GamesPage/GamesPage.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsFilter.jsx",
-		"/C/Workspace/puzzle-games/src/js/actionCreators/apiRequestCreator.js",
-		"/C/Workspace/puzzle-games/src/js/reducers/apiRequestReducer.js",
+		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsTable.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsPage.scss",
+		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsPage.css",
+		"/C/Workspace/puzzle-games/src/js/components/engines/index.js",
+		"/C/Workspace/puzzle-games/src/js/components/pages/GamePage/GamePage.jsx",
+		"/C/Workspace/puzzle-games/src/js/reducers/index.js",
+		"/C/Workspace/puzzle-games/src/js/components/game/GameDashboard/GameDashboard.jsx",
+		"/C/Workspace/puzzle-games/src/js/reducers/bossPuzzleReducer.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/gamesPageReducer.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/gameReducer.js",
+		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions/EightQueensOptions/EightQueensOptions.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/engines/EightQueens/EightQueens.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/engines/EightQueens/EightQueens.scss",
+		"/C/Workspace/puzzle-games/src/js/components/engines/EightQueens",
+		"/C/Workspace/puzzle-games/src/js/components/pages/GamesPage/GamesPage.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/app/App/App.jsx",
+		"/C/Workspace/puzzle-games/src/js/actions/api.js",
+		"/C/Workspace/puzzle-games/src/js/components/pages/AuthPage/AuthPage.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/app/AppDrawer/AppDrawer.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/other/Loader/Loader.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/game/GameCategories/GameCategories.scss",
+		"/C/Workspace/puzzle-games/src/js/components/game/GameCategories/GameCategories.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/game/GameMenu/GameMenu.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/app/AppBar/AppBar.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/game/GameCard/GameCard.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/game/GameCard/GameCard.scss",
+		"/C/Workspace/puzzle-games/src/index.scss",
+		"/C/Workspace/puzzle-games/src/index.js",
+		"/C/Workspace/puzzle-games/src/js/components/app/App/App.scss",
+		"/C/Workspace/puzzle-games/src/js/components/game/GameMenu/GameMenu.scss",
+		"/C/Workspace/puzzle-games/src/js/components/app/AppBar/AppBar.scss",
+		"/C/Workspace/puzzle-games/src/js/components/pages/GamesPage/GamesPage.scss",
+		"/C/Workspace/puzzle-games/src/js/components/pages/GamePage/GamePage.scss",
+		"/C/Workspace/puzzle-games/src/js/reducers/resultsPageReducer.js",
+		"/C/Workspace/puzzle-games/src/js/actions/resultsPage.js",
+		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.jsx",
+		"/C/Workspace/puzzle-games/src/js/actions/gamesPage.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/gameOptionsReducer.js",
+		"/C/Workspace/puzzle-games/src/js/actions/gameOptions.js",
+		"/C/Workspace/puzzle-games/src/js/actions/app.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/gameCategoriesReducer.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/resultsFilterReducer.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/pageReducer.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/apiRequestReducer.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/appReducer.js",
+		"/C/Workspace/puzzle-games/src/js/components/game/index.js",
+		"/C/Workspace/puzzle-games/src/js/actionCreators/apiRequestCreator.js",
+		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions/AnotherGameOptions/AnotherGameOptions.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/other/Loader/Loader.scss",
 		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions/BossPuzzleOptions/BossPuzzleOptions.jsx",
 		"/C/Workspace/puzzle-games/src/js/actions/resultsFilter.js",
-		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsPage.jsx",
-		"/C/Workspace/puzzle-games/src/js/reducers/index.js",
-		"/C/Workspace/puzzle-games/src/js/components/game/GameCard/GameCard.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.static.js",
-		"/C/Workspace/puzzle-games/src/js/components/pages/GamesPage/GamesPage.scss",
-		"/C/Workspace/puzzle-games/src/js/actions/gameOptions.js",
-		"/C/Workspace/puzzle-games/src/js/reducers/bossPuzzleReducer.js",
 		"/C/Workspace/puzzle-games/src/js/actions/game.js",
 		"/C/Workspace/puzzle-games/src/js/actions/bossPuzzle.js",
-		"/C/Workspace/puzzle-games/src/js/reducers/gameReducer.js",
 		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions/BossPuzzleOptions/BossPuzzleOptions.scss",
-		"/C/Workspace/puzzle-games/src/index.scss",
-		"/C/Workspace/puzzle-games/src/js/components/pages/GamePage/GamePage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/pages/index.js",
-		"/C/Workspace/puzzle-games/src/js/components/app/AppDrawer/AppDrawer.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/pages/AuthPage/AuthPage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.jsx",
 		"/C/Workspace/puzzle-games/src/js/store.js",
 		"/C/Workspace/puzzle-games/src/js/helpers.js",
-		"/C/Workspace/puzzle-games/src/index.js",
-		"/C/Workspace/puzzle-games/src/js/reducers/appReducer.js",
-		"/C/Workspace/puzzle-games/src/js/actions/app.js",
 		"/C/Workspace/puzzle-games/src/js/actionCreators/index.js",
-		"/C/Workspace/puzzle-games/src/js/components/app/App/App.scss",
 		"/C/Workspace/puzzle-games/package.json",
 		"/C/Workspace/puzzle-games/src/js/components/other/Timer/Timer.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/game/GameDashboard/GameDashboard.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/SquareTile.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.scss",
 		"/C/Workspace/puzzle-games/src/js/components/pages/AuthPage/AuthPage.fb.js",
@@ -679,27 +686,21 @@
 		"/C/Workspace/puzzle-games/scripts/build.js",
 		"/C/Workspace/puzzle-games/config/webpackDevServer.config.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/AppDrawer/AppDrawer.scss",
-		"/C/Workspace/puzzle-games/src/js/components/app/AppBar/AppBar.jsx",
 		"/C/Workspace/puzzle-games/src/js/actions/index.js",
 		"/C/Workspace/puzzle-games/src/js/actions/appActions.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/index.js",
-		"/C/Workspace/puzzle-games/src/js/components/game/index.js",
-		"/C/Workspace/puzzle-games/src/js/components/engines/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/other/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/App/App.methods.js",
 		"/C/Workspace/puzzle-games/src/js/actions/apiActions.js",
-		"/C/Workspace/puzzle-games/src/js/reducers/pageReducer.js",
 		"/C/Workspace/puzzle-games/src/js/actions/pageActions.js",
 		"/C/Workspace/puzzle-games/src/js/actions/gameActions.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/App/App.fb.js",
-		"/C/Workspace/puzzle-games/src/js/components/pages/GamePage/GamePage.scss",
 		"/C/Workspace/puzzle-games/src/js/components/game/GameDashboard/GameDashboard.scss",
 		"/C/Workspace/puzzle-games/src/js/components/pages/AuthPage/AuthPage.scss",
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/AuthPage.scss",
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/GamesPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/GamePage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/game/GameMenu/GameMenu.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/AuthPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/other/FbBtn/FbBtn.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/game/Game/Game.scss",
@@ -740,22 +741,7 @@
 		"/C/Workspace/puzzle-games/src/js/containers/index.js",
 		"/C/Workspace/puzzle-games/src/js/containers/GamesList/GamesList.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/app",
-		"/C/Workspace/puzzle-games/src/js/containers/BossPuzzle/BossPuzzle.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/BossPuzzleSettings/BossPuzzleSettings.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/GameMenu/GameMenu.jsx",
-		"/C/Workspace/puzzle-games/src/js/containers/App/App.jsx",
-		"/C/Workspace/puzzle-games/src/js/containers/Game/Game.jsx",
-		"/C/Workspace/puzzle-games/src/js/containers/AppDrawer/AppDrawer.jsx",
-		"/C/Workspace/puzzle-games/src/js/containers/AppBar/AppBar.jsx",
-		"/C/Workspace/puzzle-games/src/js/containers/App/App.auth.js",
-		"/C/Workspace/puzzle-games/src/js/containers/GamesList/GamesList.games.js",
-		"/C/Workspace/puzzle-games/src/js/components/SquareTile/SquareTile.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/GameMenu/GameMenu.scss",
-		"/C/Workspace/puzzle-games/src/js/containers/Game/Game.scss",
-		"/C/Workspace/puzzle-games/src/js/containers/GamesList/BossPuzzleSettings.jsx",
-		"/C/Workspace/puzzle-games/src/js/containers/BossPuzzle/BossPuzzle.static.js",
-		"/C/Workspace/puzzle-games/src/js/containers/Game/Game.methods.js",
-		"/C/Workspace/puzzle-games/src/js/components/Loader/Loader.jsx"
+		"/C/Workspace/puzzle-games/src/js/containers/BossPuzzle/BossPuzzle.jsx"
 	],
 	"find":
 	{
@@ -775,6 +761,30 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"users",
+			"results",
+			"games",
+			"allGames",
+			"allUsers",
+			"gamesCategory",
+			"gameCategory",
+			"app",
+			"game",
+			"Redirect",
+			"import { Link }",
+			"path=",
+			"Redirect",
+			"props.match",
+			"/games",
+			"games",
+			"width: 100",
+			"width:",
+			"/resultsFilter",
+			"resultsFilter",
+			"resultFilter",
+			"gameOptions",
+			"apiRequest",
+			"gameOptions",
 			"AnotherGame",
 			"isApiRequestReady",
 			"dispatch(fetchAllGames",
@@ -866,217 +876,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/js/components/pages/ResultsPage/ResultsPage.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1979,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								405,
-								405
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1246,
-										1247
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1212,
-										1213
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1759,
-										1760
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										403,
-										404
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
-							],
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1137,20 +938,96 @@
 		"selected_items":
 		[
 			[
-				"resultsf",
-				"reducers\\resultsFilterReducer.js"
+				"gamep",
+				"components\\pages\\GamePage\\GamePage.jsx"
+			],
+			[
+				"gamed",
+				"components\\game\\GameDashboard\\GameDashboard.jsx"
+			],
+			[
+				"api.js",
+				"actions\\api.js"
 			],
 			[
 				"app.jsx",
 				"components\\app\\App\\App.jsx"
 			],
 			[
-				"api.",
-				"actions\\api.js"
+				"appd",
+				"components\\app\\AppDrawer\\AppDrawer.jsx"
+			],
+			[
+				"loader.js",
+				"components\\other\\Loader\\Loader.jsx"
+			],
+			[
+				"appb",
+				"components\\app\\AppBar\\AppBar.jsx"
+			],
+			[
+				"appbar",
+				"components\\app\\AppBar\\AppBar.jsx"
+			],
+			[
+				"gamem",
+				"components\\game\\GameMenu\\GameMenu.jsx"
 			],
 			[
 				"gamec",
 				"components\\game\\GameCard\\GameCard.scss"
+			],
+			[
+				"gamepage.jsx",
+				"components\\pages\\GamePage\\GamePage.jsx"
+			],
+			[
+				"game.jsx",
+				"components\\game\\GameCard\\GameCard.jsx"
+			],
+			[
+				"index.js",
+				"src\\index.js"
+			],
+			[
+				"app",
+				"components\\app\\AppBar\\AppBar.jsx"
+			],
+			[
+				"index.scs",
+				"src\\index.scss"
+			],
+			[
+				"appbar.scs",
+				"components\\app\\AppBar\\AppBar.scss"
+			],
+			[
+				"app.scss",
+				"components\\app\\App\\App.scss"
+			],
+			[
+				"index.scss",
+				"src\\index.scss"
+			],
+			[
+				"gamesp",
+				"components\\pages\\GamesPage\\GamesPage.jsx"
+			],
+			[
+				"gamepa",
+				"components\\pages\\GamePage\\GamePage.jsx"
+			],
+			[
+				"apire",
+				"actionCreators\\apiRequestCreator.js"
+			],
+			[
+				"resultsf",
+				"reducers\\resultsFilterReducer.js"
+			],
+			[
+				"api.",
+				"actions\\api.js"
 			],
 			[
 				"loader.s",
@@ -1165,36 +1042,12 @@
 				"components\\game\\gameOptions\\BossPuzzleOptions\\BossPuzzleOptions.jsx"
 			],
 			[
-				"gamesp",
-				"components\\pages\\GamesPage\\GamesPage.jsx"
-			],
-			[
 				"bossp",
 				"reducers\\bossPuzzleReducer.js"
 			],
 			[
-				"index.scs",
-				"src\\index.scss"
-			],
-			[
-				"gamep",
-				"components\\pages\\GamePage\\GamePage.jsx"
-			],
-			[
 				"authp",
 				"components\\pages\\AuthPage\\AuthPage.jsx"
-			],
-			[
-				"index.js",
-				"reducers\\index.js"
-			],
-			[
-				"app.scss",
-				"components\\app\\App\\App.scss"
-			],
-			[
-				"appd",
-				"components\\app\\AppDrawer\\AppDrawer.jsx"
 			],
 			[
 				"resu",
@@ -1207,10 +1060,6 @@
 			[
 				"timer",
 				"components\\other\\Timer\\Timer.jsx"
-			],
-			[
-				"gamed",
-				"components\\game\\GameDashboard\\GameDashboard.jsx"
 			],
 			[
 				"timer.jsx",
@@ -1233,14 +1082,6 @@
 				"actions\\app.js"
 			],
 			[
-				"appb",
-				"components\\app\\AppBar\\AppBar.jsx"
-			],
-			[
-				"gamepage.jsx",
-				"components\\pages\\GamePage\\GamePage.jsx"
-			],
-			[
 				"apia",
 				"actions\\apiActions.js"
 			],
@@ -1257,14 +1098,6 @@
 				"components\\pages\\ResultsPage\\ResultsPage.jsx"
 			],
 			[
-				"appbar",
-				"components\\app\\AppBar\\AppBar.jsx"
-			],
-			[
-				"gamem",
-				"components\\game\\GameMenu\\GameMenu.jsx"
-			],
-			[
 				"boss",
 				"components\\engines\\BossPuzzle\\BossPuzzle.jsx"
 			],
@@ -1279,10 +1112,6 @@
 			[
 				"gamelist",
 				"components\\game\\GameList\\GameList.jsx"
-			],
-			[
-				"game.jsx",
-				"src\\js\\components\\game\\Game\\Game.jsx"
 			],
 			[
 				"gamel",
@@ -1331,10 +1160,6 @@
 			[
 				"server",
 				"js\\server\\server.js"
-			],
-			[
-				"app",
-				"js\\containers\\App\\App.jsx"
 			],
 			[
 				"fbbtn",
@@ -1415,10 +1240,6 @@
 			[
 				"positionseditpa",
 				"Positions\\pages\\Edit\\PositionEditPage.jsx"
-			],
-			[
-				"apire",
-				"App\\apiReq.js"
 			],
 			[
 				"estim",
@@ -1613,7 +1434,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 329.0,
+	"side_bar_width": 331.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

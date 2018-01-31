@@ -40,7 +40,7 @@ class AppDrawer extends Component {
       >
         {avatar &&
         <div className='AppDrawer-user'>
-          <div>{avatar && <img src={avatar.url} alt='' title={clientUser.data.fb.name} />}</div>
+          <div><img src={avatar.url} alt='' title={clientUser.data.fb.name} /></div>
           <div>{clientUser.data.fb.name}</div>
         </div>}
         <div

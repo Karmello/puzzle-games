@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AppBar, AppDrawer, AppSnackBar } from 'js/components/app';
-import { AuthPage, GamesPage, GamePage, ResultsPage } from 'js/components/pages';
+import { AuthPage, GamesPage, GamePage, ResultsPage, ErrorPage } from 'js/components/pages';
 import { Loader } from 'js/components/other';
 import { fetchAllGames, fetchGameCategories } from 'js/actions/api';
 import './App.css';
@@ -60,7 +60,7 @@ class App extends Component {
                     message={this.state.snackBarMessage}
                     onClose={() => { this.setState({ snackBarMessage: '' }) }}
                   />
-                  {api.games.status === 200 && api.gameCategories.status === 200 &&
+                  {api.gameCategories.status === 200 && api.games.status === 200 &&
                   <Switch>
                     <Route exact path='/games/:category' render={props => {
                       if (api.gameCategories.data.some(obj => obj.id === props.match.params.category)) {
@@ -81,6 +81,7 @@ class App extends Component {
                     <Route exact path='/results' component={ResultsPage} />
                     <Redirect from='*' to={defaultPath} />
                   </Switch>}
+                  {(api.gameCategories.status !== 200 || api.games.status !== 200) && <ErrorPage/> }
                 </div>
               );
             }}/>
