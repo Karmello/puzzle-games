@@ -5,7 +5,7 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { AppBar, AppDrawer } from 'js/components/app';
 import { AuthPage, GamesPage, GamePage, ResultsPage } from 'js/components/pages';
 import { Loader, MySnackBar, PageError } from 'js/components/other';
-import { fetchAllGames, fetchGameCategories } from 'js/actions/api';
+import { fetchGames, fetchGameCategories } from 'js/actions/api';
 import './App.css';
 
 
@@ -28,7 +28,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchAllGames());
+
+    this.props.dispatch(fetchGames());
     this.props.dispatch(fetchGameCategories());
   }
 
@@ -72,6 +73,7 @@ class App extends Component {
                       }
                     }}/>
                     <Route exact path='/games/:category/:id' render={props => {
+                      console.log(props);
                       const categoryData = api.gameCategories.data.find(obj => obj.id === props.match.params.category);
                       const gameData = api.games.data.find(obj => obj.id === props.match.params.id);
                       if (categoryData && gameData && gameData.categoryId === categoryData.id) {

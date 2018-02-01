@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { App } from 'js/components/app';
 import { apiRequestClear } from 'js/actionCreators';
-import { fetchResults, fetchAllUsers, FETCH_RESULTS } from 'js/actions/api';
+import { fetchResults, fetchUsers, FETCH_RESULTS } from 'js/actions/api';
 import { changeResultsFilter } from 'js/actions/resultsPage';
 import ResultsFilter from './ResultsFilter';
 import ResultsTable from './ResultsTable';
@@ -49,7 +49,7 @@ class ResultsPage extends Component {
 
     const { api, resultsFilter, dispatch } = this.props;
 
-    dispatch(fetchAllUsers()).then(() => {
+    dispatch(fetchUsers()).then(() => {
       const gameId = api.games.data.find(elem => elem.id === resultsFilter.game.id)._id;
       dispatch(fetchResults(gameId, resultsFilter.options, App.minLoadTime));
     });

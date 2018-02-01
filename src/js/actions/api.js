@@ -3,10 +3,10 @@ import { apiRequest, apiRequestSuccess, apiRequestFailure } from 'js/actionCreat
 
 
 export const FETCH_OR_CREATE_CLIENT_USER = 'FETCH_OR_CREATE_CLIENT_USER';
-export const FETCH_ALL_GAMES = 'FETCH_ALL_GAMES';
+export const FETCH_GAMES = 'FETCH_GAMES';
 export const FETCH_GAME_CATEGORIES = 'FETCH_GAME_CATEGORIES';
 export const FETCH_RESULTS = 'FETCH_RESULTS';
-export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
+export const FETCH_USERS = 'FETCH_USERS';
 export const SAVE_NEW_RESULT = 'SAVE_NEW_RESULT';
 
 const api = axios.create({ baseURL: process.env.REACT_APP_API_URI });
@@ -33,24 +33,24 @@ export const fetchClientUser = (fbId) => {
   }
 }
 
-export const fetchAllGames = () => {
+export const fetchGames = () => {
   return (dispatch) => {
-    dispatch(apiRequest(FETCH_ALL_GAMES));
+    dispatch(apiRequest(FETCH_GAMES));
     return api.get('/games').then(res => {
-      dispatch(apiRequestSuccess(FETCH_ALL_GAMES, res));
+      dispatch(apiRequestSuccess(FETCH_GAMES, res));
     }, err => {
-      dispatch(apiRequestFailure(FETCH_ALL_GAMES, err));
+      dispatch(apiRequestFailure(FETCH_GAMES, err));
     });
   }
 }
 
-export const fetchAllUsers = () => {
+export const fetchUsers = () => {
   return (dispatch) => {
-    dispatch(apiRequest(FETCH_ALL_USERS));
+    dispatch(apiRequest(FETCH_USERS));
     return api.get('/users').then(res => {
-      dispatch(apiRequestSuccess(FETCH_ALL_USERS, res));
+      dispatch(apiRequestSuccess(FETCH_USERS, res));
     }, err => {
-      dispatch(apiRequestFailure(FETCH_ALL_USERS, err));
+      dispatch(apiRequestFailure(FETCH_USERS, err));
     });
   }
 }
