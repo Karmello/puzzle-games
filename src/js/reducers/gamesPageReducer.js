@@ -3,7 +3,7 @@ import { SWITCH_GAME_CATEGORY_TAB, CHANGE_GAME_OPTIONS } from 'js/actions/gamesP
 const initialState = {
   category: 'sliding',
   options: {
-    BossPuzzle: { dimension: 3, style: 'IMG' },
+    BossPuzzle: { dimension: '3', style: 'IMG' },
     EightQueens: {}
   }
 };

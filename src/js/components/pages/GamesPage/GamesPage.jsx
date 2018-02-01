@@ -26,27 +26,27 @@ class GamesPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     
-    const { currentGameCategory, gameCategoryToSet, dispatch } = nextProps;
+    const { gamesPage, gameCategoryToSet, dispatch } = nextProps;
 
-    if (currentGameCategory !== gameCategoryToSet) {
+    if (gamesPage.category !== gameCategoryToSet) {
       dispatch(switchGameCategoryTab(gameCategoryToSet));
     }
   } 
 
   render() {
 
-    const { currentGameCategory, gameOptions, api } = this.props;
+    const { gamesPage, api } = this.props;
 
     return (
       <div className='GamesPage'>
         <GameCategories
-          category={currentGameCategory}
+          category={gamesPage.category}
           gameCategories={api.gameCategories}
         />
         <SwipeableViews
           className='GamesPage-games'
           axis={'x-reverse'}
-          index={this.state.categoryIds.indexOf(currentGameCategory)}
+          index={this.state.categoryIds.indexOf(gamesPage.category)}
         >
           {api.gameCategories.data.map(categoryData => (
             <div key={categoryData.id}>
@@ -56,7 +56,7 @@ class GamesPage extends Component {
                     <GameCard
                       key={gameData.id}
                       gameData={gameData}
-                      gameOptions={gameOptions[gameData.id]}
+                      gameOptions={gamesPage.options[gameData.id]}
                       onGameOptionsChange={this.onGameOptionsChange.bind(this)}
                     />
                   );
@@ -77,7 +77,6 @@ class GamesPage extends Component {
 }
 
 export default withRouter(connect(store => ({
-  currentGameCategory: store.pages.gamesPage.category,
-  gameOptions: store.pages.gamesPage.options,
+  gamesPage: store.pages.gamesPage,
   api: store.api
 }))(GamesPage));

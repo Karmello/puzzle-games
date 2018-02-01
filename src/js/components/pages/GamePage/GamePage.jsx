@@ -14,9 +14,10 @@ class GamePage extends Component {
 
   componentWillMount() {
 
-    const { match, dispatch, gameOptions } = this.props;
+    const { queryParams, match, dispatch } = this.props;
     const id = match.params.id;
-    dispatch(startGame(id, gameOptions[id]));
+
+    dispatch(startGame(id, queryParams));
   }
 
   componentWillUnmount() {

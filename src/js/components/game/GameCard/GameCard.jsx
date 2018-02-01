@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import * as qs from 'query-string';
 import { Button, Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
@@ -42,7 +43,10 @@ export default class GameCard extends Component {
               <Button
                 color='primary'
                 component={Link}
-                to={`/games/${gameData.categoryId}/${gameData.id}`}
+                to={{
+                  pathname: `/games/${gameData.categoryId}/${gameData.id}`,
+                  search: qs.stringify(gameOptions)
+                }}
               >Play</Button>
             </div>
           </CardActions>

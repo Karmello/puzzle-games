@@ -8,6 +8,7 @@ import ContentPasteIcon from 'material-ui-icons/ContentPaste';
 import PowerSettingsNewIcon from 'material-ui-icons/PowerSettingsNew';
 
 import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/actions/app';
+import { FETCH_OR_CREATE_CLIENT_USER } from 'js/actions/api';
 import { apiRequestClear } from 'js/actionCreators';
 import './AppDrawer.css';
 
@@ -82,9 +83,8 @@ class AppDrawer extends Component {
     dispatch(toggleAppLoader(true));
     
     window.FB.logout(res => {
-      dispatch(apiRequestClear('CREATE_CLIENT_USER'));
-      dispatch(apiRequestClear('FETCH_CLIENT_USER'));
       dispatch(setAuthStatus(res.status));
+      dispatch(apiRequestClear(FETCH_OR_CREATE_CLIENT_USER));
       dispatch(toggleAppLoader(false));
     });
   }
