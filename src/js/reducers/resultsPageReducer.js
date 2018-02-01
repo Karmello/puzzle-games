@@ -12,9 +12,17 @@ const resultsReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case CHANGE_RESULTS_FILTER:
+  
+      const { category, id, options } = action.payload;
+      const newFilter = { ...state.filter };
+
+      if (category) { newFilter.game.category = category; }
+      if (id) { newFilter.game.id = id; }
+      if (options) { newFilter.options = { ...options }; }
+
       return {
         ...state,
-        filter: { ...action.payload.filter }
+        filter: newFilter
       }
 
     default:

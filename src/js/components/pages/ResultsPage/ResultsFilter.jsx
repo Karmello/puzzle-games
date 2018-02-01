@@ -29,7 +29,7 @@ export default class ResultsFilter extends Component {
             <Select
               value={resultsFilter.game.category}
               input={<Input name='category' id='category' />}
-              onChange={e => this.onChange({ category: e.target.value })}
+              onChange={e => this.onChange('CATEGORY', e.target.value)}
               disabled={this.shouldBeDisabled()}
             >
               {api.gameCategories.data.map(obj => (<MenuItem key={obj.id} value={obj.id}>{obj.name}</MenuItem>))}
@@ -40,7 +40,7 @@ export default class ResultsFilter extends Component {
             <Select
               value={resultsFilter.game.id}
               input={<Input name='game' id='game' />}
-              onChange={e => this.onChange({ id: e.target.value })}
+              onChange={e => this.onChange('GAME', e.target.value)}
               disabled={this.shouldBeDisabled()}
             >
               {api.games.data.map(obj => {
@@ -55,7 +55,7 @@ export default class ResultsFilter extends Component {
         <div>
           {Options && <Options
             options={resultsFilter.options}
-            onValueChangeCb={options => this.onChange(undefined, options)}
+            onValueChangeCb={options => this.onChange('OPTIONS', options)}
             disabled={this.shouldBeDisabled()}
           />}
         </div>
@@ -63,20 +63,32 @@ export default class ResultsFilter extends Component {
     );
   }
 
-  onChange(gameFilter, optionsFilter) {
+  onChange(subject, value) {
 
-    const { api, resultsFilter } = this.props;
-    
-    if (gameFilter) {
-      if (!gameFilter.id) {
-        gameFilter.id = api.games.data.find(obj => obj.categoryId === gameFilter.category).id;
-      } else if (!gameFilter.category) {
-        gameFilter.category = api.games.data.find(obj => obj.id === gameFilter.id).categoryId;
-      }
+    const { api, gameOptions, resultsFilter, onChange } = this.props;
+
+    switch (subject) {
+
+       case 'CATEGORY':
+        const gameId = api.games.data.find(obj => obj.categoryId === value).id;
+        onChange(value, gameId, gameOptions[gameId]);
+        this.setupOptionsComponent(gameId);
+        break;
+
+      case 'GAME':
+        const options = resultsFilter.game.id !== value ? gameOptions[value] : resultsFilter.options;
+        onChange(undefined, value, options);
+        this.setupOptionsComponent(value);
+        break;
+
+      case 'OPTIONS':
+        onChange(undefined, undefined, value);
+        this.setupOptionsComponent(resultsFilter.game.id);
+        break;
+
+      default:
+        return;
     }
-
-    if (!optionsFilter) { this.setupOptionsComponent(gameFilter ? gameFilter.id : resultsFilter.game.id); }
-    this.props.onChange(gameFilter || resultsFilter.game, optionsFilter);
   }
 
   setupOptionsComponent(gameId) {

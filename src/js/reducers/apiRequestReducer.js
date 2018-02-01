@@ -1,6 +1,16 @@
 const getApiRequestReducer = (actionType) => {
-    
-  return (state = {}, action) => {
+  
+  const initialState = {
+    isFetching: false,
+    method: '',
+    params: {},
+    url: '',
+    status: undefined,
+    statusText: '',
+    data: []
+  }
+
+  return (state = initialState, action) => {
 
     switch (action.type) {
   
@@ -15,7 +25,7 @@ const getApiRequestReducer = (actionType) => {
         return { ...action.payload }
 
       case actionType + '_CLEAR':
-        return {}
+        return initialState;
 
       default:
         return state;

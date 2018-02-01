@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
-import { AppBar, AppDrawer, AppSnackBar } from 'js/components/app';
+import { AppBar, AppDrawer } from 'js/components/app';
 import { AuthPage, GamesPage, GamePage, ResultsPage } from 'js/components/pages';
-import { Loader, PageError } from 'js/components/other';
+import { Loader, MySnackBar, PageError } from 'js/components/other';
 import { fetchAllGames, fetchGameCategories } from 'js/actions/api';
 import './App.css';
 
@@ -13,15 +13,17 @@ class App extends Component {
 
   static minLoadTime = 300;
 
-  constructor(props) {
-    super(props);
-    this.state = { snackBarMessage: '' };
-  }
+  state = { snackBarMessage: '' }
 
   componentWillReceiveProps(nextProps) {
     
-    if (this.props.authStatus !== 'error' && nextProps.authStatus === 'error') {
+    const { authStatus, api } = this.props;
+
+    if (authStatus !== 'error' && nextProps.authStatus === 'error') {
       this.setState({ snackBarMessage: 'Could not login.' });
+    
+    } else if (api.newResult.isFetching && !nextProps.api.newResult.isFetching && nextProps.api.newResult.status === 200) {
+      this.setState({ snackBarMessage: 'Your score has been saved.' });
     }
   }
 
@@ -56,7 +58,7 @@ class App extends Component {
                 <div>
                   <AppBar/>
                   {api.clientUser.status === 200 && <AppDrawer/>}
-                  <AppSnackBar
+                  <MySnackBar
                     message={this.state.snackBarMessage}
                     onClose={() => { this.setState({ snackBarMessage: '' }) }}
                   />

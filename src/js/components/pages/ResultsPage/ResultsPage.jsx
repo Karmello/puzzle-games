@@ -14,7 +14,7 @@ class ResultsPage extends Component {
 
   componentDidMount() {
 
-    this.fetchApiData(this.props.resultsFilter);
+    this.fetchApiData();
   }
   
   componentWillUnmount() {
@@ -22,27 +22,15 @@ class ResultsPage extends Component {
     this.props.dispatch(apiRequestClear(FETCH_RESULTS));
   }
 
-  componentWillReceiveProps(nextProps) {
-
-    if (nextProps.resultsFilter.options) {
-
-      const optionKeys = Object.keys(nextProps.resultsFilter.options);
-      const anyOptionChanged = optionKeys.some(key => nextProps.resultsFilter.options[key] !== this.props.resultsFilter.options[key]);
-
-      if (anyOptionChanged || nextProps.resultsFilter.game.id !== this.props.resultsFilter.game.id) {
-        this.fetchApiData(nextProps.resultsFilter);
-      }
-    }
-  }
-
   render() {
 
-    const { resultsFilter, api } = this.props;
+    const { gameOptions, resultsFilter, api } = this.props;
 
     return (
       <div className='ResultsPage'>
         <ResultsFilter
           api={api}
+          gameOptions={gameOptions}
           resultsFilter={resultsFilter}
           onChange={this.onResultsFilterChange.bind(this)}
         />
@@ -51,15 +39,15 @@ class ResultsPage extends Component {
     );
   }
 
-  onResultsFilterChange(gameFilter, optionsFilter) {
+  onResultsFilterChange(categoryId, gameId, gameOptions) {
 
-    const { gameOptions, dispatch } = this.props;
-    dispatch(changeResultsFilter(gameFilter, optionsFilter || gameOptions[gameFilter.id]));
+    this.props.dispatch(changeResultsFilter(categoryId, gameId, gameOptions));
+    setTimeout(() => this.fetchApiData());
   }
 
-  fetchApiData(resultsFilter) {
+  fetchApiData() {
 
-    const { api, dispatch } = this.props;
+    const { api, resultsFilter, dispatch } = this.props;
 
     dispatch(fetchAllUsers()).then(() => {
       const gameId = api.games.data.find(elem => elem.id === resultsFilter.game.id)._id;

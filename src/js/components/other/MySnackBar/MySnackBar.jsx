@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Snackbar } from 'material-ui';
 
 
 const autoHideDuration = 5000;
 
-export default class AppSnackBar extends Component {
+class MySnackBar extends Component {
 
   state = { open: false }
 
@@ -32,3 +33,10 @@ export default class AppSnackBar extends Component {
     this.props.onClose();
   }
 }
+
+MySnackBar.propTypes = {
+  message: PropTypes.string,
+  onClose: PropTypes.func
+}
+
+export default MySnackBar;
