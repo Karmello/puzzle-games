@@ -1,7 +1,7 @@
 const getApiRequestReducer = (actionType) => {
   
   const initialState = {
-    isFetching: false,
+    isAwaiting: false,
     method: '',
     params: {},
     url: '',
@@ -17,7 +17,7 @@ const getApiRequestReducer = (actionType) => {
       case actionType:
         return {
           ...state,
-          isFetching: action.payload.isFetching
+          isAwaiting: action.payload.isAwaiting
         }
 
       case actionType + '_SUCCESS':

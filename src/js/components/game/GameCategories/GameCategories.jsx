@@ -10,7 +10,7 @@ export default class GameCategories extends Component {
 
     const { category, gameCategories } = this.props;
 
-    if (gameCategories.isFetching || gameCategories.status !== 200) { return null; }
+    if (gameCategories.isAwaiting || gameCategories.status !== 200) { return null; }
 
     return (
       <div>

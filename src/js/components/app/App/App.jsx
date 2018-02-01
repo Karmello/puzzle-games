@@ -28,7 +28,7 @@ class App extends Component {
     if (authStatus !== 'error' && nextProps.authStatus === 'error') {
       this.setState({ snackBarMessage: 'Could not login.' });
     
-    } else if (api.newResult.isFetching && !nextProps.api.newResult.isFetching && nextProps.api.newResult.status === 200) {
+    } else if (api.newResult.isAwaiting && !nextProps.api.newResult.isAwaiting && nextProps.api.newResult.status === 200) {
       this.setState({ snackBarMessage: 'Your score has been saved.' });
     }
   }

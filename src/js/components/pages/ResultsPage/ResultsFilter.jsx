@@ -104,6 +104,6 @@ export default class ResultsFilter extends Component {
 
   shouldBeDisabled() {
     const { api } = this.props;
-    return api.results.status !== 200 || api.results.isFetching;
+    return api.results.status !== 200 || api.results.isAwaiting;
   }
 }

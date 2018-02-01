@@ -14,7 +14,7 @@ export default class ResultsTable extends Component {
 
     const { api } = this.props;
 
-    if (api.results.isFetching) {
+    if (api.results.isAwaiting) {
       return <Loader isShown />;
 
     } else if (api.results.data) {

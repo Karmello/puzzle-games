@@ -2,7 +2,7 @@ export const apiRequest = (actionType) => {
   return {
     type: actionType,
     payload: {
-      isFetching: true
+      isAwaiting: true
     }
   }
 }
@@ -11,7 +11,7 @@ export const apiRequestSuccess = (actionType, res) => {
   return {
     type: `${actionType}_SUCCESS`,
     payload: {
-      isFetching: false,
+      isAwaiting: false,
       method: res.config.method,
       url: res.config.url,
       params: res.config.params,
@@ -26,7 +26,7 @@ export const apiRequestFailure = (actionType, err) => {
   return {
     type: `${actionType}_FAILURE`,
     payload: {
-      isFetching: false,
+      isAwaiting: false,
       method: err.config.method,
       url: err.config.url,
       params: err.config.params,
