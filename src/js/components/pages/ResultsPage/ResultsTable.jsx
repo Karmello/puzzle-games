@@ -10,19 +10,38 @@ import { Loader } from 'js/components/other';
 
 export default class ResultsTable extends Component {
 
+  state = { status: undefined };
+
+  componentWillReceiveProps(nextProps) {
+    
+    const { api } = nextProps;
+    const results = api.results;
+
+    if (results.isAwaiting) {
+      this.setState({ status: 'LOADING' });
+
+    } else if (results.status === 200 && results.data) {
+      this.setState({ status: results.data.length === 0 ? 'NO_DATA' : 'DATA_READY' });
+    
+    } else {
+      this.setState({ status: undefined });
+    }
+  }
+
   render() {
 
     const { api } = this.props;
+    const { status } = this.state;
 
-    if (api.results.isAwaiting) {
-      return <Loader isShown />;
+    switch (status) {
 
-    } else if (api.results.data) {
+      case 'LOADING':
+        return <Loader isShown />;
 
-      if (api.results.data.length === 0) {
+      case 'NO_DATA':
         return <div>No results</div>;
 
-      } else {
+      case 'DATA_READY':
         return (
           <Paper className='ResultsTable'>
             <Typography className='ResultsTable-title' type='title'>Results</Typography>
@@ -48,9 +67,9 @@ export default class ResultsTable extends Component {
             </Table>
           </Paper>
         );
-      }
-    }
 
-    return null;
+      default:
+        return null;
+    }
   }
 }

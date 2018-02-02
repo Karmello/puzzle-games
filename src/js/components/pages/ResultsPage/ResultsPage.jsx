@@ -18,7 +18,7 @@ class ResultsPage extends Component {
     const { game, options } = filterToSet;
     
     dispatch(changeResultsFilter(game.category, game.id, options));
-    this.fetchApiData(filterToSet)
+    this.fetchApiData(filterToSet);
   }
   
   componentWillReceiveProps(nextProps) {
@@ -32,7 +32,7 @@ class ResultsPage extends Component {
 
     if (game.category !== nextFilterToSet.game.category || game.id !== nextFilterToSet.game.id || anyOptionChanged) {
       dispatch(changeResultsFilter(nextFilterToSet.game.category, nextFilterToSet.game.id, nextFilterToSet.options));
-      this.fetchApiData(nextFilterToSet)
+      this.fetchApiData(nextFilterToSet);
     }
   }
 

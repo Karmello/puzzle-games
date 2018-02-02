@@ -44,6 +44,16 @@ export default class GameCard extends Component {
                 color='primary'
                 component={Link}
                 to={{
+                  pathname: '/results',
+                  search: `?category=${gameData.categoryId}&id=${gameData.id}&` + qs.stringify(gameOptions)
+                }}
+              >See results</Button>
+            </div>
+            <div>
+              <Button
+                color='primary'
+                component={Link}
+                to={{
                   pathname: `/games/${gameData.categoryId}/${gameData.id}`,
                   search: qs.stringify(gameOptions)
                 }}
