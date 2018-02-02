@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Input, Select } from 'material-ui';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
@@ -37,7 +38,14 @@ export default class ResultsFilter extends Component {
               onChange={e => this.onChange('CATEGORY', e.target.value)}
               disabled={this.shouldBeDisabled()}
             >
-              {api.gameCategories.data.map(obj => (<MenuItem key={obj.id} value={obj.id}>{obj.name}</MenuItem>))}
+              {api.gameCategories.data.map(obj => (
+                <MenuItem
+                  key={obj.id}
+                  value={obj.id}
+                  component={Link}
+                  to={this.getMenuItemLink(obj.id)}
+                >{obj.name}</MenuItem>
+              ))}
             </Select>
           </FormControl>
           <FormControl>
@@ -50,7 +58,15 @@ export default class ResultsFilter extends Component {
             >
               {api.games.data.map(obj => {
                 if (obj.categoryId === resultsFilter.game.category) {
-                  return <MenuItem key={obj.id} value={obj.id}>{obj.name}</MenuItem>;
+                  return (
+                    <MenuItem
+                      key={obj.id}
+                      value={obj.id}
+                      component={Link}
+                      to={this.getMenuItemLink(obj.categoryId, obj.id)}
+                    >{obj.name}
+                    </MenuItem>
+                  );
                 }
                 return null;
               })}
@@ -66,6 +82,19 @@ export default class ResultsFilter extends Component {
         </div>
       </div>
     );
+  }
+
+  getMenuItemLink(category, id) {
+
+    const { api } = this.props;
+
+    if (!id) {
+      id = api.games.data.find(obj => obj.categoryId === category).id;
+    }
+
+    let url = `/results?category=${category}&id=${id}`;
+
+    return url;
   }
 
   onChange(subject, value) {
