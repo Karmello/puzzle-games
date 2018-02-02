@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"res",
+				"resultsFilter"
+			],
+			[
 				"cate",
 				"categoryId"
 			],
@@ -162,10 +166,6 @@
 			[
 				"ove",
 				"overflow-y\t(App.scss)"
-			],
-			[
-				"res",
-				"resultsPage\t(index.js)"
 			],
 			[
 				"gam",
@@ -520,27 +520,11 @@
 	"buffers":
 	[
 		{
-			"file": "src/js/components/pages/ResultsPage/ResultsPage.jsx",
+			"file": "src/js/components/app/App/App.jsx",
 			"settings":
 			{
-				"buffer_size": 1644,
+				"buffer_size": 4800,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/components/pages/ResultsPage/ResultsFilter.jsx",
-			"settings":
-			{
-				"buffer_size": 3188,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/components/game/gameOptions/BossPuzzleOptions/BossPuzzleOptions.jsx",
-			"settings":
-			{
-				"buffer_size": 1882,
 				"line_ending": "Windows"
 			}
 		}
@@ -643,12 +627,14 @@
 	"file_history":
 	[
 		"/C/Workspace/puzzle-games/src/js/components/app/AppDrawer/AppDrawer.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/app/App/App.jsx",
-		"/C/Workspace/puzzle-games/src/js/reducers/resultsPageReducer.js",
-		"/C/Workspace/puzzle-games/src/js/actions/resultsPage.js",
+		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsFilter.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsTable.jsx",
+		"/C/Workspace/puzzle-games/src/js/actions/resultsPage.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/resultsPageReducer.js",
+		"/C/Workspace/puzzle-games/src/js/reducers/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/game/gameOptions/BossPuzzleOptions/BossPuzzleOptions.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/app/App/App.jsx",
+		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsTable.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/pages/GamePage/GamePage.jsx",
 		"/C/Workspace/puzzle-games/src/js/actionCreators/apiRequestCreator.js",
 		"/C/Workspace/puzzle-games/src/js/components/game/GameCategories/GameCategories.jsx",
@@ -664,8 +650,6 @@
 		"/C/Workspace/puzzle-games/src/js/actions/gamesPage.js",
 		"/C/Workspace/puzzle-games/src/js/actions/bossPuzzle.js",
 		"/C/Workspace/puzzle-games/src/js/actions/game.js",
-		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsPage.jsx",
-		"/C/Workspace/puzzle-games/src/js/reducers/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/other/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/AppSnackBar/AppSnackBar.jsx",
@@ -789,6 +773,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"filter.options",
+			"filter.game",
+			".game",
+			"filter.options",
+			"filter.game",
 			"console",
 			"onChange",
 			"fetching",
@@ -911,8 +900,7 @@
 			"AuthPage.fb.js",
 			"onDoneTryLogin",
 			"app.methods",
-			"dispatch(toggleAppLoader",
-			"onDoneTryLogin"
+			"dispatch(toggleAppLoader"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -941,24 +929,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/js/components/pages/ResultsPage/ResultsPage.jsx",
+					"file": "src/js/components/app/App/App.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1644,
+						"buffer_size": 4800,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1174,
-								1174
+								4584,
+								4584
 							]
 						],
 						"settings":
@@ -971,8 +959,8 @@
 								{
 									"1":
 									[
-										1477,
-										1478
+										2750,
+										2751
 									]
 								},
 								"icon":
@@ -987,8 +975,8 @@
 								{
 									"1":
 									[
-										466,
-										467
+										2251,
+										2252
 									]
 								},
 								"unmatched":
@@ -1059,128 +1047,8 @@
 								{
 									"1":
 									[
-										1177,
-										1178
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1050,
-										1051
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 576.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/js/components/pages/ResultsPage/ResultsFilter.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3188,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2194,
-								2194
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2018,
-										2019
+										4584,
+										4585
 									]
 								},
 								"icon":
@@ -1195,96 +1063,8 @@
 								{
 									"1":
 									[
-										538,
-										539
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2773,
-										2774
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										2148,
-										2149
+										4562,
+										4563
 									]
 								},
 								"unmatched":
@@ -1354,215 +1134,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1534.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/js/components/game/gameOptions/BossPuzzleOptions/BossPuzzleOptions.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1882,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								323,
-								323
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1133,
-										1134
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1077,
-										1078
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1881,
-										1882
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										322,
-										323
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2940.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1632,16 +1204,16 @@
 				"components\\app\\App\\App.jsx"
 			],
 			[
+				"appd",
+				"components\\app\\AppDrawer\\AppDrawer.jsx"
+			],
+			[
 				"resultsf",
 				"js\\components\\pages\\ResultsPage\\ResultsFilter.jsx"
 			],
 			[
 				"bosspuzzleo",
 				"components\\game\\gameOptions\\BossPuzzleOptions\\BossPuzzleOptions.jsx"
-			],
-			[
-				"appd",
-				"components\\app\\AppDrawer\\AppDrawer.jsx"
 			],
 			[
 				"gamep",

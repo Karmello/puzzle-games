@@ -14,9 +14,29 @@ class ResultsPage extends Component {
 
   componentDidMount() {
 
-    this.fetchApiData();
+    const { filterToSet, dispatch } = this.props;
+    const { game, options } = filterToSet;
+    
+    dispatch(changeResultsFilter(game.category, game.id, options));
+    setTimeout(() => this.fetchApiData());
   }
   
+  componentWillReceiveProps(nextProps) {
+    
+    // const { filterToSet, dispatch } = this.props;
+    // const { game, options } = filterToSet;
+    // const nextFilterToSet = nextProps.filterToSet;
+
+    // if (game.category !== nextFilterToSet.game.category || game.id !== nextFilterToSet.game.id) {
+
+    //   const keys = Object.keys(nextFilterToSet.options);
+
+    //   if (keys.some(key => nextFilterToSet.options[key] !== options[key])) {
+    //     dispatch(changeResultsFilter(nextFilterToSet.game.category, nextFilterToSet.game.id, nextFilterToSet.options));
+    //   }
+    // }
+  }
+
   componentWillUnmount() {
     
     this.props.dispatch(apiRequestClear(FETCH_RESULTS));

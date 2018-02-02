@@ -7,7 +7,7 @@ import { AppBar, AppDrawer } from 'js/components/app';
 import { AuthPage, GamesPage, GamePage, ResultsPage } from 'js/components/pages';
 import { Loader, MySnackBar, PageError } from 'js/components/other';
 import { fetchGames, fetchGameCategories } from 'js/actions/api';
-import { validateGameRouteParams } from 'js/components/app/App/App.queryparams';
+import { validateParams } from 'js/components/app/App/App.queryparams';
 import './App.css';
 
 
@@ -19,6 +19,7 @@ class App extends Component {
     super(props);
     this.defaultPath = `/games/${props.gamesPage.category}`;
     this.state = { snackBarMessage: '' };
+    this.validateParams = validateParams.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -67,7 +68,7 @@ class App extends Component {
                   <Switch>
                     <Route exact path='/games/:category' render={props => this.gamesRouteLogic(props)} />
                     <Route exact path='/games/:category/:id' render={props => this.gameRouteLogic(props)} />
-                    <Route exact path='/results' component={ResultsPage} />
+                    <Route exact path='/results' render={props => this.resultsRouteLogic(props)} />
                     <Redirect from='*' to={this.defaultPath} />
                   </Switch>}
                   {(api.gameCategories.status !== 200 || api.games.status !== 200) && <PageError/> }
@@ -115,23 +116,34 @@ class App extends Component {
 
   gameRouteLogic(props) {
 
-    const { api } = this.props;
+    const { areValid, validParams, gameData } = this.validateParams(props.match.params, qs.parse(props.location.search));
     
-    const categoryData = api.gameCategories.data.find(obj => obj.id === props.match.params.category);
-    const gameData = api.games.data.find(obj => obj.id === props.match.params.id);
-    
-    if (categoryData && gameData && gameData.categoryId === categoryData.id) {
-
-      const { areValid, validParams } = validateGameRouteParams(gameData.options, qs.parse(props.location.search));
+    if (!areValid) {
       
-      if (!areValid) {
+      if (validParams) {
         return <Redirect to={{ pathname: props.location.pathname, search: qs.stringify(validParams) }}/>;
+      
       } else {
-        return <GamePage gameData={gameData} queryParams={validParams} />
+        return <Redirect to={this.defaultPath} />;
       }
-    
+
     } else {
-      return <Redirect to={this.defaultPath} />;
+      return <GamePage gameData={gameData} queryParams={validParams} />
+    }
+  }
+
+  resultsRouteLogic(props) {
+
+    const params = qs.parse(props.location.search);
+    const { category, id } = params;
+    
+    delete params.category;
+    delete params.id;
+
+    const { areValid, validParams } = this.validateParams({ category, id }, params);
+
+    if (areValid) {
+      return <ResultsPage filterToSet={{ game: { category: category, id: id }, options: validParams }} />;
     }
   }
 }

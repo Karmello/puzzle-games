@@ -1,20 +1,32 @@
-export const validateGameRouteParams = (validOptions, actualParams) => {
-
+export function validateParams(gameParams, optionParams) {
+  
   let areValid = true;
   const validParams = {};
 
-  for (const key in validOptions) {
+  const { api } = this.props;
     
-    if (actualParams[key] !== undefined && validOptions[key].indexOf(actualParams[key]) > -1) {
-      validParams[key] = actualParams[key];
+  const categoryData = api.gameCategories.data.find(obj => obj.id === gameParams.category);
+  const gameData = api.games.data.find(obj => obj.id === gameParams.id);
+  
+  if (categoryData && gameData && gameData.categoryId === categoryData.id) {
+
+    for (const key in gameData.options) {
     
-    } else {
-      validParams[key] = validOptions[key][0];
-      areValid = false;
+      if (optionParams[key] !== undefined && gameData.options[key].indexOf(optionParams[key]) > -1) {
+        validParams[key] = optionParams[key];
+      
+      } else {
+        validParams[key] = gameData.options[key][0];
+        areValid = false;
+      }
     }
+
+    if (Object.keys(optionParams).length !== Object.keys(validParams).length) { areValid = false; }
+
+    return { areValid, validParams, gameData }; 
+  
+  } else {
+
+    return { areValid: false };
   }
-
-  if (Object.keys(actualParams).length !== Object.keys(validParams).length) { areValid = false; }
-
-  return { areValid, validParams };
 }

@@ -16,6 +16,15 @@ export default class BossPuzzleOptions extends Component {
     this.setState({ ...this.props.options });
   }
 
+  componentWillReceiveProps(nextProps) {
+    
+    const { dimension, style } = this.state;
+
+    if (dimension !== nextProps.options.dimension || style !== nextProps.options.style) {
+      this.setState({ ...this.props.options });
+    }
+  } 
+
   render() {
 
     const { dimension, style } = this.state;

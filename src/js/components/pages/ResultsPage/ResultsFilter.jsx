@@ -16,10 +16,15 @@ export default class ResultsFilter extends Component {
     this.setupOptionsComponent(this.props.resultsFilter.game.id);
   }
 
+  componentWillReceiveProps(nextProps) {
+    
+    this.setupOptionsComponent(nextProps.resultsFilter.game.id);
+  }
+
   render() {
   
-    const { api, resultsFilter } = this.props;
     const { Options } = this.state;
+    const { api, resultsFilter } = this.props;
 
     return (
       <div className='ResultsFilter'>
@@ -65,30 +70,30 @@ export default class ResultsFilter extends Component {
 
   onChange(subject, value) {
 
-    const { api, gameOptions, resultsFilter, onChange } = this.props;
+    // const { api, gameOptions, resultsFilter, onChange } = this.props;
 
-    switch (subject) {
+    // switch (subject) {
 
-       case 'CATEGORY':
-        const gameId = api.games.data.find(obj => obj.categoryId === value).id;
-        onChange(value, gameId, gameOptions[gameId]);
-        this.setupOptionsComponent(gameId);
-        break;
+    //    case 'CATEGORY':
+    //     const gameId = api.games.data.find(obj => obj.categoryId === value).id;
+    //     onChange(value, gameId, gameOptions[gameId]);
+    //     this.setupOptionsComponent(gameId);
+    //     break;
 
-      case 'GAME':
-        const options = resultsFilter.game.id !== value ? gameOptions[value] : resultsFilter.options;
-        onChange(undefined, value, options);
-        this.setupOptionsComponent(value);
-        break;
+    //   case 'GAME':
+    //     const options = resultsFilter.game.id !== value ? gameOptions[value] : resultsFilter.options;
+    //     onChange(undefined, value, options);
+    //     this.setupOptionsComponent(value);
+    //     break;
 
-      case 'OPTIONS':
-        onChange(undefined, undefined, value);
-        this.setupOptionsComponent(resultsFilter.game.id);
-        break;
+    //   case 'OPTIONS':
+    //     onChange(undefined, undefined, value);
+    //     this.setupOptionsComponent(resultsFilter.game.id);
+    //     break;
 
-      default:
-        return;
-    }
+    //   default:
+    //     return;
+    // }
   }
 
   setupOptionsComponent(gameId) {
