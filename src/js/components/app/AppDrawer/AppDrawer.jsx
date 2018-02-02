@@ -31,7 +31,7 @@ class AppDrawer extends Component {
   render() {
 
     const { avatar } = this.state;
-    const { authStatus, showDrawer, clientUser } = this.props;
+    const { authStatus, showDrawer, clientUser, gameCategory } = this.props;
 
     return (
       <Drawer
@@ -52,11 +52,11 @@ class AppDrawer extends Component {
         >
           <div className='AppDrawer-content'>
             <List>
-              <ListItem component={Link} to='/games' button>
+              <ListItem button component={Link} to={`/games/${gameCategory}`}>
                 <ListItemIcon><PlayCircleOutlineIcon/></ListItemIcon>
                 <ListItemText primary='Games' />
               </ListItem>
-              <ListItem component={Link} to='/results' button>
+              <ListItem button component={Link} to='/results'>
                 <ListItemIcon><ContentPasteIcon/></ListItemIcon>
                 <ListItemText primary='Results' />
               </ListItem>
@@ -93,5 +93,6 @@ class AppDrawer extends Component {
 export default connect(store => ({
   authStatus: store.app.authStatus,
   showDrawer: store.app.showDrawer,
+  gameCategory: store.pages.gamesPage.category,
   clientUser:  store.api.clientUser
 }))(AppDrawer);
