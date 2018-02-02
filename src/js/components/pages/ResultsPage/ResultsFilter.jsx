@@ -87,11 +87,13 @@ export default class ResultsFilter extends Component {
 
   getMenuItemLink(category, id) {
 
-    const { gameOptions, api } = this.props;
+    const { gameOptions, resultsFilter, api } = this.props;
+    let options;
 
     if (!id) { id = api.games.data.find(obj => obj.categoryId === category).id; }
     let url = `/results?category=${category}&id=${id}`;
-    for (const key in gameOptions[id]) { url += `&${key}=${gameOptions[id][key]}`; }
+    if (id !== resultsFilter.game.id) { options = gameOptions[id]; } else { options = resultsFilter.options; }
+    for (const key in options) { url += `&${key}=${options[key]}`; }
     return url;
   }
 
