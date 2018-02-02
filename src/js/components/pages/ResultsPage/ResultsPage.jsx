@@ -47,21 +47,10 @@ class ResultsPage extends Component {
 
     return (
       <div className='ResultsPage'>
-        <ResultsFilter
-          api={api}
-          gameOptions={gameOptions}
-          resultsFilter={resultsFilter}
-          onChange={this.onResultsFilterChange.bind(this)}
-        />
+        <ResultsFilter api={api} gameOptions={gameOptions} resultsFilter={resultsFilter} />
         <ResultsTable api={api} />
       </div>
     );
-  }
-
-  onResultsFilterChange(categoryId, gameId, gameOptions) {
-
-    //this.props.dispatch(changeResultsFilter(categoryId, gameId, gameOptions));
-    //setTimeout(() => this.fetchApiData());
   }
 
   fetchApiData(resultsFilter) {

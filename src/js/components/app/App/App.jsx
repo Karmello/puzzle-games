@@ -118,17 +118,14 @@ class App extends Component {
 
     const { areValid, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search));
     
-    if (!areValid) {
-      
-      if (validParams) {
-        return <Redirect to={{ pathname: props.location.pathname, search: qs.stringify(validParams) }}/>;
-      
-      } else {
-        return <Redirect to={this.defaultPath} />;
-      }
+    if (areValid) {
+      return <GamePage gameData={gameData} queryParams={validParams} />
+    
+    } else if (validParams) {
+      return <Redirect to={{ pathname: props.location.pathname, search: qs.stringify(validParams) }} />;
 
     } else {
-      return <GamePage gameData={gameData} queryParams={validParams} />
+      return <Redirect to={this.defaultPath} />;
     }
   }
 
@@ -144,6 +141,14 @@ class App extends Component {
 
     if (areValid) {
       return <ResultsPage filterToSet={{ game: { category: category, id: id }, options: validParams }} />;
+    
+    } else if (validParams) {
+      validParams.category = category;
+      validParams.id = id;
+      return <Redirect to={{ pathname: props.location.pathname, search: qs.stringify(validParams) }}/>;
+    
+    } else {
+      return <Redirect to={this.defaultPath} />;
     }
   }
 }
