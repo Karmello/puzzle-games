@@ -56,7 +56,7 @@ class AppDrawer extends Component {
                 <ListItemIcon><PlayCircleOutlineIcon/></ListItemIcon>
                 <ListItemText primary='Games' />
               </ListItem>
-              <ListItem button component={Link} to='/results'>
+              <ListItem button component={Link} to={this.getResultsPageUrl()}>
                 <ListItemIcon><ContentPasteIcon/></ListItemIcon>
                 <ListItemText primary='Results' />
               </ListItem>
@@ -69,6 +69,12 @@ class AppDrawer extends Component {
         </div>
       </Drawer>
     );
+  }
+
+  getResultsPageUrl() {
+
+    let url = '/results';
+    return url;
   }
 
   onDrawerClose() {
