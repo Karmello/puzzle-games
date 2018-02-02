@@ -73,7 +73,10 @@ class AppDrawer extends Component {
 
   getResultsPageUrl() {
 
-    let url = '/results';
+    const { resultsFilter } = this.props;
+
+    let url = `/results?category=${resultsFilter.game.category}&id=${resultsFilter.game.id}`;
+    for (const key in resultsFilter.options) { url += `&${key}=${resultsFilter.options[key]}`; }
     return url;
   }
 
@@ -100,5 +103,6 @@ export default connect(store => ({
   authStatus: store.app.authStatus,
   showDrawer: store.app.showDrawer,
   gameCategory: store.pages.gamesPage.category,
+  resultsFilter: store.pages.resultsPage.filter,
   clientUser:  store.api.clientUser
 }))(AppDrawer);
