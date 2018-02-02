@@ -9,6 +9,7 @@ import { InputLabel } from 'material-ui/Input';
 export default class ResultsFilter extends Component {
 
   state = {
+    gameId: undefined,
     Options: undefined
   }
 
@@ -18,8 +19,10 @@ export default class ResultsFilter extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    
-    this.setupOptionsComponent(nextProps.resultsFilter.game.id);
+
+    if (nextProps.resultsFilter.game.id !== this.state.gameId) {
+      this.setupOptionsComponent(nextProps.resultsFilter.game.id);
+    }
   }
 
   render() {
@@ -73,14 +76,14 @@ export default class ResultsFilter extends Component {
             </Select>
           </FormControl>
         </div>
-        {/*<div>
+        <div>
           {Options && <Options
             options={resultsFilter.options}
             path={`/results?category=${resultsFilter.game.category}&id=${resultsFilter.game.id}`}
             onValueChangeCb={options => this.onChange('OPTIONS', options)}
             disabled={this.shouldBeDisabled()}
           />}
-        </div>*/}
+        </div>
       </div>
     );
   }
@@ -127,10 +130,10 @@ export default class ResultsFilter extends Component {
 
     try {
       const Options = require(`js/components/game/gameOptions/${gameId}Options/${gameId}Options`).default;
-      this.setState({ Options });
+      this.setState({ gameId, Options });
     } catch(ex) {
       console.log(ex);
-      this.setState({ Options: undefined });
+      this.setState({ gameId: undefined, Options: undefined });
     }
   }
 

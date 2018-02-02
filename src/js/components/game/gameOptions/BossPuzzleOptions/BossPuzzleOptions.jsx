@@ -33,7 +33,7 @@ export default class BossPuzzleOptions extends Component {
 
     return (
       <div className='BossPuzzleOptions'>
-        <div>
+        {dimension && <div>
           <FormControl>
             <InputLabel htmlFor='dimension'>Dimension</InputLabel>
             <Select
@@ -47,8 +47,8 @@ export default class BossPuzzleOptions extends Component {
               <MenuItem value='5' component={path ? Link: undefined} to={`${path}&dimension=5&style=${style}`}>5 x 5</MenuItem>
             </Select>
           </FormControl>
-        </div>
-        <div>
+        </div>}
+        {style && <div>
           <FormControl>
             <InputLabel htmlFor='style'>Style</InputLabel>
             <Select
@@ -61,7 +61,7 @@ export default class BossPuzzleOptions extends Component {
               <MenuItem value='NUM' component={path ? Link: undefined} to={`${path}&dimension=${dimension}&style=NUM`}>Numbers</MenuItem>
             </Select>
           </FormControl>
-        </div>
+        </div>}
       </div>
     );
   }
