@@ -7,7 +7,7 @@ import { AppBar, AppDrawer } from 'js/components/app';
 import { AuthPage, GamesPage, GamePage, ResultsPage } from 'js/components/pages';
 import { Loader, MySnackBar, PageError } from 'js/components/other';
 import { fetchGames, fetchGameCategories } from 'js/actions/api';
-import { validateParams } from 'js/components/app/App/App.queryparams';
+import { validateGameParams } from 'js/components/game/methods';
 import './App.css';
 
 
@@ -19,7 +19,7 @@ class App extends Component {
     super(props);
     this.defaultPath = `/games/${props.gamesPage.category}`;
     this.state = { snackBarMessage: '' };
-    this.validateParams = validateParams.bind(this);
+    this.validateGameParams = validateGameParams.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -116,7 +116,7 @@ class App extends Component {
 
   gameRouteLogic(props) {
 
-    const { areValid, validParams, gameData } = this.validateParams(props.match.params, qs.parse(props.location.search));
+    const { areValid, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search));
     
     if (!areValid) {
       
@@ -140,7 +140,7 @@ class App extends Component {
     delete params.category;
     delete params.id;
 
-    const { areValid, validParams } = this.validateParams({ category, id }, params);
+    const { areValid, validParams } = this.validateGameParams({ category, id }, params);
 
     if (areValid) {
       return <ResultsPage filterToSet={{ game: { category: category, id: id }, options: validParams }} />;

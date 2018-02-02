@@ -1,4 +1,4 @@
-export function validateParams(gameParams, optionParams) {
+export function validateGameParams(gameParams, optionParams) {
   
   let areValid = true;
   const validParams = {};
