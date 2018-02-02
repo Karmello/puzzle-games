@@ -116,9 +116,9 @@ class App extends Component {
 
   gameRouteLogic(props) {
 
-    const { areValid, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search));
+    const { shouldRedirect, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search));
     
-    if (areValid) {
+    if (!shouldRedirect) {
       return <GamePage gameData={gameData} queryParams={validParams} />
     
     } else if (validParams) {
@@ -137,9 +137,9 @@ class App extends Component {
     delete params.category;
     delete params.id;
 
-    const { areValid, validParams } = this.validateGameParams({ category, id }, params);
+    const { shouldRedirect, validParams } = this.validateGameParams({ category, id }, params);
 
-    if (areValid) {
+    if (!shouldRedirect) {
       return <ResultsPage filterToSet={{ game: { category: category, id: id }, options: validParams }} />;
     
     } else if (validParams) {

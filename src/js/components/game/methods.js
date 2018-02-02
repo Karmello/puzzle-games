@@ -1,32 +1,32 @@
-export function validateGameParams(gameParams, optionParams) {
+export function validateGameParams(params, options) {
   
-  let areValid = true;
-  const validParams = {};
-
   const { api } = this.props;
+
+  let shouldRedirect = false;
+  const validParams = {};
     
-  const categoryData = api.gameCategories.data.find(obj => obj.id === gameParams.category);
-  const gameData = api.games.data.find(obj => obj.id === gameParams.id);
+  const categoryData = api.gameCategories.data.find(obj => obj.id === params.category);
+  const gameData = api.games.data.find(obj => obj.id === params.id);
   
   if (categoryData && gameData && gameData.categoryId === categoryData.id) {
 
     for (const key in gameData.options) {
     
-      if (optionParams[key] !== undefined && gameData.options[key].indexOf(optionParams[key]) > -1) {
-        validParams[key] = optionParams[key];
+      if (options[key] !== undefined && gameData.options[key].indexOf(options[key]) > -1) {
+        validParams[key] = options[key];
       
       } else {
         validParams[key] = gameData.options[key][0];
-        areValid = false;
+        shouldRedirect = true;
       }
     }
 
-    if (Object.keys(optionParams).length !== Object.keys(validParams).length) { areValid = false; }
+    if (Object.keys(options).length !== Object.keys(validParams).length) { shouldRedirect = true; }
 
-    return { areValid, validParams, gameData }; 
+    return { shouldRedirect, validParams, gameData };
   
   } else {
 
-    return { areValid: false };
+    return { shouldRedirect: true };
   }
 }
