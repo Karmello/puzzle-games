@@ -73,27 +73,25 @@ export default class ResultsFilter extends Component {
             </Select>
           </FormControl>
         </div>
-        <div>
+        {/*<div>
           {Options && <Options
             options={resultsFilter.options}
+            path={`/results?category=${resultsFilter.game.category}&id=${resultsFilter.game.id}`}
             onValueChangeCb={options => this.onChange('OPTIONS', options)}
             disabled={this.shouldBeDisabled()}
           />}
-        </div>
+        </div>*/}
       </div>
     );
   }
 
   getMenuItemLink(category, id) {
 
-    const { api } = this.props;
+    const { gameOptions, api } = this.props;
 
-    if (!id) {
-      id = api.games.data.find(obj => obj.categoryId === category).id;
-    }
-
+    if (!id) { id = api.games.data.find(obj => obj.categoryId === category).id; }
     let url = `/results?category=${category}&id=${id}`;
-
+    for (const key in gameOptions[id]) { url += `&${key}=${gameOptions[id][key]}`; }
     return url;
   }
 

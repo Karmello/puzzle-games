@@ -18,23 +18,22 @@ class ResultsPage extends Component {
     const { game, options } = filterToSet;
     
     dispatch(changeResultsFilter(game.category, game.id, options));
-    setTimeout(() => this.fetchApiData());
+    this.fetchApiData(filterToSet)
   }
   
   componentWillReceiveProps(nextProps) {
-    
-    // const { filterToSet, dispatch } = this.props;
-    // const { game, options } = filterToSet;
-    // const nextFilterToSet = nextProps.filterToSet;
 
-    // if (game.category !== nextFilterToSet.game.category || game.id !== nextFilterToSet.game.id) {
+    const { filterToSet, dispatch } = this.props;
+    const { game, options } = filterToSet;
+    const nextFilterToSet = nextProps.filterToSet;
 
-    //   const keys = Object.keys(nextFilterToSet.options);
+    const keys = Object.keys(nextFilterToSet.options);
+    const anyOptionChanged = keys.some(key => nextFilterToSet.options[key] !== options[key]);
 
-    //   if (keys.some(key => nextFilterToSet.options[key] !== options[key])) {
-    //     dispatch(changeResultsFilter(nextFilterToSet.game.category, nextFilterToSet.game.id, nextFilterToSet.options));
-    //   }
-    // }
+    if (game.category !== nextFilterToSet.game.category || game.id !== nextFilterToSet.game.id || anyOptionChanged) {
+      dispatch(changeResultsFilter(nextFilterToSet.game.category, nextFilterToSet.game.id, nextFilterToSet.options));
+      this.fetchApiData(nextFilterToSet)
+    }
   }
 
   componentWillUnmount() {
@@ -61,13 +60,13 @@ class ResultsPage extends Component {
 
   onResultsFilterChange(categoryId, gameId, gameOptions) {
 
-    this.props.dispatch(changeResultsFilter(categoryId, gameId, gameOptions));
-    setTimeout(() => this.fetchApiData());
+    //this.props.dispatch(changeResultsFilter(categoryId, gameId, gameOptions));
+    //setTimeout(() => this.fetchApiData());
   }
 
-  fetchApiData() {
+  fetchApiData(resultsFilter) {
 
-    const { api, resultsFilter, dispatch } = this.props;
+    const { api, dispatch } = this.props;
 
     dispatch(fetchUsers()).then(() => {
       const gameId = api.games.data.find(elem => elem.id === resultsFilter.game.id)._id;
