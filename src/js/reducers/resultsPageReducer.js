@@ -3,7 +3,7 @@ import { CHANGE_RESULTS_FILTER } from 'js/actions/resultsPage';
 const initialState = {
   filter: {
     game: { category: 'sliding', id: 'BossPuzzle' },
-    options: { mode: 'IMG', dimension: '3' }
+    options: { mode: 'NUM', dimension: '3' }
   }
 };
 

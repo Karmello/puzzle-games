@@ -39,6 +39,7 @@ export default class ResultsFilter extends Component {
               value={resultsFilter.game.category}
               input={<Input name='category' id='category' />}
               disabled={this.shouldBeDisabled()}
+              style={{ width: '90px' }}
             >
               {api.gameCategories.data.map(obj => (
                 <MenuItem
@@ -56,6 +57,7 @@ export default class ResultsFilter extends Component {
               value={resultsFilter.game.id}
               input={<Input name='game' id='game' />}
               disabled={this.shouldBeDisabled()}
+              style={{ width: '130px' }}
             >
               {api.games.data.map(obj => {
                 if (obj.categoryId === resultsFilter.game.category) {

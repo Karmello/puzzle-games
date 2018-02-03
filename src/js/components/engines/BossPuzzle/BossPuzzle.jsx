@@ -59,7 +59,7 @@ class BossPuzzle extends Component {
     const { imgSrc } = this.state;
     const { game, bossPuzzleEngine } = this.props;
     
-    if ((game.options.mode === 'IMG' && imgSrc) || game.options.mode === 'NUM') {
+    if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
       return (
         <div
           className={'BossPuzzle-' + game.options.dimension}
