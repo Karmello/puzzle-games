@@ -10,24 +10,9 @@ import './GameCard.css';
 
 export default class GameCard extends Component {
 
-  state = { imgSrc: undefined }
-
-  componentWillMount() {
-    
-    const img = new Image();
-    img.src = `${process.env.REACT_APP_S3_BUCKET}/${this.props.gameData.id}/logo.jpg`;
-    img.onload = () => { this.setState({ imgSrc: img.src }); }
-  }
-
-  componentWillUnmount() {
-    
-    this.setState({ imgSrc: undefined });
-  }
-
   render() {
 
     const { gameData, gameOptions, onGameOptionsChange } = this.props;
-    const { imgSrc } = this.state;
     let Options;
 
     try {
@@ -39,7 +24,11 @@ export default class GameCard extends Component {
     return (
       <div className='GameCard'>
         <Card>
-          <CardMedia style={{ height: '250px' }} image={imgSrc} title={gameData.name} />
+          <CardMedia
+            style={{ height: '250px' }}
+            image={`${process.env.REACT_APP_S3_BUCKET}/${gameData.id}/logo.jpg`}
+            title={gameData.name}
+          />
           <CardContent>
             <Typography type='headline' component='h2'>{gameData.name}</Typography>
             <Typography component='p'>{gameData.description}</Typography>
