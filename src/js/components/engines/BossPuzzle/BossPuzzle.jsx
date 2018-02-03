@@ -59,7 +59,7 @@ class BossPuzzle extends Component {
     const { imgSrc } = this.state;
     const { game, bossPuzzleEngine } = this.props;
     
-    if ((game.options.style === 'IMG' && imgSrc) || game.options.style === 'NUM') {
+    if ((game.options.mode === 'IMG' && imgSrc) || game.options.mode === 'NUM') {
       return (
         <div
           className={'BossPuzzle-' + game.options.dimension}
@@ -111,7 +111,7 @@ class BossPuzzle extends Component {
     
     const tasks = [];
     tasks.push(initData({ dimension: game.options.dimension, hiddenTileCoords: newHiddenTileCoords }));
-    if (game.options.style === 'IMG') { tasks.push(this.loadImg(nextImgNumbers[nextImgIndex])); }
+    if (game.options.mode === 'IMG') { tasks.push(this.loadImg(nextImgNumbers[nextImgIndex])); }
 
     return Promise.all(tasks).then((data) => {
       dispatch(initFrame(nextImgNumbers, nextImgIndex, data[0].tiles, data[0].hiddenTileCoords));

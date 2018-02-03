@@ -28,7 +28,7 @@ export default class SquareTile extends Component {
         style={this.getStyle()}
         color={this.getLabelColor()}
         onClick={this.onClick.bind(this)}
-      >{this.props.options.style === 'NUM' ? this.getLabel() : ''}</Button>
+      >{this.props.options.mode === 'NUM' ? this.getLabel() : ''}</Button>
     );
   }
 
@@ -38,7 +38,7 @@ export default class SquareTile extends Component {
 
     if (!this.isHidden) {
 
-      if (options.style === 'IMG' && imgSrc) {
+      if (options.mode === 'IMG' && imgSrc) {
 
         const imgCoords = indexToCoords(this.getLabel() - 1, options.dimension);
         const imgSize = BossPuzzle.tilesSizes[options.dimension];
@@ -58,7 +58,7 @@ export default class SquareTile extends Component {
 
   getLabelColor() {
 
-    if (this.props.options.style === 'NUM') {
+    if (this.props.options.mode === 'NUM') {
       return this.isInProperPlace() ? 'default' : 'contrast'
     
     } else {

@@ -10,7 +10,7 @@ import './BossPuzzleOptions.css';
 
 export default class BossPuzzleOptions extends Component {
   
-  state = { dimension: undefined, style: undefined }
+  state = { dimension: undefined, mode: undefined }
 
   componentWillMount() {
 
@@ -19,16 +19,16 @@ export default class BossPuzzleOptions extends Component {
 
   componentWillReceiveProps(nextProps) {
     
-    const { dimension, style } = this.state;
+    const { dimension, mode } = this.state;
 
-    if (dimension !== nextProps.options.dimension || style !== nextProps.options.style) {
+    if (dimension !== nextProps.options.dimension || mode !== nextProps.options.mode) {
       this.setState({ ...this.props.options });
     }
   } 
 
   render() {
 
-    const { dimension, style } = this.state;
+    const { dimension, mode } = this.state;
     const { path, disabled } = this.props;
 
     return (
@@ -42,23 +42,23 @@ export default class BossPuzzleOptions extends Component {
               onChange={e => this.onValueChange('dimension', e.target.value)}
               disabled={disabled}
             >
-              <MenuItem value='3' component={path ? Link: undefined} to={`${path}&dimension=3&style=${style}`}>3 x 3</MenuItem>
-              <MenuItem value='4' component={path ? Link: undefined} to={`${path}&dimension=4&style=${style}`}>4 x 4</MenuItem>
-              <MenuItem value='5' component={path ? Link: undefined} to={`${path}&dimension=5&style=${style}`}>5 x 5</MenuItem>
+              <MenuItem value='3' component={path ? Link: undefined} to={`${path}&dimension=3&mode=${mode}`}>3 x 3</MenuItem>
+              <MenuItem value='4' component={path ? Link: undefined} to={`${path}&dimension=4&mode=${mode}`}>4 x 4</MenuItem>
+              <MenuItem value='5' component={path ? Link: undefined} to={`${path}&dimension=5&mode=${mode}`}>5 x 5</MenuItem>
             </Select>
           </FormControl>
         </div>}
-        {style && <div>
+        {mode && <div>
           <FormControl>
-            <InputLabel htmlFor='style'>Style</InputLabel>
+            <InputLabel htmlFor='mode'>Mode</InputLabel>
             <Select
-              value={style}
-              input={<Input name='style' id='style' />}
-              onChange={e => this.onValueChange('style', e.target.value)}
+              value={mode}
+              input={<Input name='mode' id='mode' />}
+              onChange={e => this.onValueChange('mode', e.target.value)}
               disabled={disabled}
             >
-              <MenuItem value='IMG' component={path ? Link: undefined} to={`${path}&dimension=${dimension}&style=IMG`}>Images</MenuItem>
-              <MenuItem value='NUM' component={path ? Link: undefined} to={`${path}&dimension=${dimension}&style=NUM`}>Numbers</MenuItem>
+              <MenuItem value='IMG' component={path ? Link: undefined} to={`${path}&dimension=${dimension}&mode=IMG`}>Image</MenuItem>
+              <MenuItem value='NUM' component={path ? Link: undefined} to={`${path}&dimension=${dimension}&mode=NUM`}>Number</MenuItem>
             </Select>
           </FormControl>
         </div>}

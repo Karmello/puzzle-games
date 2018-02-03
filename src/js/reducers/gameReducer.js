@@ -7,7 +7,7 @@ const initialState = {
   isLoading: true,
   options: {
     dimension: undefined,
-    style: undefined
+    mode: undefined
   }
 };
 
