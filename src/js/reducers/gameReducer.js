@@ -6,8 +6,8 @@ const initialState = {
   isSolved: false,
   isLoading: true,
   options: {
-    dimension: undefined,
-    mode: undefined
+    mode: undefined,
+    dimension: undefined
   }
 };
 
