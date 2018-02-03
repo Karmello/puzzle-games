@@ -4,6 +4,7 @@ import * as qs from 'query-string';
 import { Button, Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
+import { PlayBtn } from 'js/components/game';
 import './GameCard.css';
 
 
@@ -50,14 +51,11 @@ export default class GameCard extends Component {
               >See results</Button>
             </div>
             <div>
-              <Button
-                color='primary'
-                component={Link}
-                to={{
-                  pathname: `/games/${gameData.categoryId}/${gameData.id}`,
-                  search: qs.stringify(gameOptions)
-                }}
-              >Play</Button>
+              <PlayBtn
+                gameCategory={gameData.categoryId}
+                gameId={gameData.id}
+                gameOptions={gameOptions}
+              />
             </div>
           </CardActions>
         </Card>

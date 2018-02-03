@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { App } from 'js/components/app';
+import { PlayBtn } from 'js/components/game';
 import { apiRequestClear } from 'js/actionCreators';
 import { fetchResults, fetchUsers, FETCH_RESULTS } from 'js/actions/api';
 import { changeResultsFilter } from 'js/actions/resultsPage';
@@ -47,8 +48,19 @@ class ResultsPage extends Component {
 
     return (
       <div className='ResultsPage'>
-        <ResultsFilter api={api} gameOptions={gameOptions} resultsFilter={resultsFilter} />
-        <ResultsTable api={api} />
+        <div>
+          <ResultsFilter api={api} gameOptions={gameOptions} resultsFilter={resultsFilter} />
+        </div>
+        <div className='ResultsPage-actionBtns'>
+          <PlayBtn
+            gameCategory={resultsFilter.game.category}
+            gameId={resultsFilter.game.id}
+            gameOptions={resultsFilter.options}
+          />
+        </div>
+        <div>
+          <ResultsTable api={api} />
+        </div>
       </div>
     );
   }

@@ -1,19 +1,23 @@
 .ResultsPage {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 40px;
   padding-left: 15px;
   padding-right: 15px; }
-  .ResultsPage .ResultsFilter {
-    min-height: 75px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+  .ResultsPage > div {
+    margin: 15px 0 15px 0; }
+    .ResultsPage > div .ResultsFilter {
+      min-height: 75px;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center; }
+      .ResultsPage > div .ResultsFilter > div:first-child > * {
+        margin: 10px; }
+    .ResultsPage > div .ResultsTable {
+      margin: 0 auto;
+      overflow-x: auto; }
+      .ResultsPage > div .ResultsTable .ResultsTable-title {
+        margin: 20px 0 0 20px; }
+  .ResultsPage > div.ResultsPage-actionBtns {
     display: flex;
-    flex-flow: row wrap;
-    align-items: center; }
-    .ResultsPage .ResultsFilter > div:first-child > * {
-      margin: 10px; }
-  .ResultsPage .ResultsTable {
-    margin: 0 auto;
-    overflow-x: auto; }
-    .ResultsPage .ResultsTable .ResultsTable-title {
-      margin: 20px 0 0 20px; }
+    justify-content: flex-end; }

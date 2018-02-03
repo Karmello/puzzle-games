@@ -2,29 +2,38 @@
 
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 40px;
 
   padding-left: 15px;
   padding-right: 15px;
 
-  .ResultsFilter {
-    min-height: 75px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
+  > div {
 
-    > div:first-child {
-      > * { margin: 10px; }
+    margin: 15px 0 15px 0;
+
+    .ResultsFilter {
+      min-height: 75px;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+
+      > div:first-child {
+        > * { margin: 10px; }
+      }
+    }
+
+    .ResultsTable {
+      margin: 0 auto;
+      overflow-x: auto;
+
+      .ResultsTable-title {
+        margin: 20px 0 0 20px;
+      }
     }
   }
 
-  .ResultsTable {
-    margin: 0 auto;
-    overflow-x: auto;
-
-    .ResultsTable-title {
-      margin: 20px 0 0 20px;
-    }
+  > div.ResultsPage-actionBtns {
+    display: flex;
+    justify-content: flex-end;
   }
 }
