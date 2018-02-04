@@ -39,6 +39,6 @@ class AppBar extends Component {
 }
 
 export default connect(store => ({
-  appName: store.app.name,
+  appName: store.app.title,
   showDrawer: store.app.showDrawer
 }))(AppBar);

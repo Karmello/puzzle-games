@@ -6,6 +6,7 @@ import { App } from 'js/components/app';
 import GameDashboard from './GameDashboard';
 import { Loader } from 'js/components/other';
 import { startGame, setAsSolved, makeMove, endGame, stopGameLoader } from 'js/actions/game';
+import { setAppTitle } from 'js/actions/app';
 import { saveNewResult } from 'js/actions/api';
 import './GamePage.css';
 
@@ -16,16 +17,20 @@ class GamePage extends Component {
 
   componentWillMount() {
 
-    const { queryParams, match, dispatch } = this.props;
+    const { queryParams, match, gameData, dispatch } = this.props;
     const id = match.params.id;
 
+    dispatch(setAppTitle(gameData.name));
     dispatch(startGame(id, queryParams));
   }
 
   componentWillUnmount() {
 
+    const { dispatch } = this.props;
+
     this.setState({ restarting: false });
-    this.props.dispatch(endGame());
+    dispatch(endGame());
+    dispatch(setAppTitle('Puzzle Games'));
   }
 
   render() {

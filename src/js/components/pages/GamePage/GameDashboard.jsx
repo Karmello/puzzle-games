@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Paper, Chip } from 'material-ui';
+import { Chip } from 'material-ui';
 
 import { Timer } from 'js/components/other';
 import GameMenu from './GameMenu';
@@ -11,11 +11,8 @@ export default class GameDashboard extends Component {
     const { gameData, game, mode, onMenuItemClick } = this.props;
 
     return (
-      <Paper className='GamePage-dashboard'>
+      <div className='GamePage-dashboard'>
         <div>
-          <div>
-            <Chip label={gameData.name} />
-          </div>
           <div>
             <Timer
               on={!game.isLoading && !game.isSolved}
@@ -24,9 +21,8 @@ export default class GameDashboard extends Component {
             />
           </div>
           <div>
-            <Chip label={`Moves: ${game.moves}`} />
+            <Chip label={`Moves: ${game.moves}`} style={{ 'minWidth': '90px' }} />
           </div>
-          {game.isSolved && <div><Chip label='SOLVED' /></div>}
         </div>
         <div>
           <GameMenu
@@ -35,7 +31,7 @@ export default class GameDashboard extends Component {
             showRestartBtn={gameData.id === 'BossPuzzle' && mode ==='IMG'}
           />
         </div>
-      </Paper>
+      </div>
     );
   }
 }

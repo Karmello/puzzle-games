@@ -72,7 +72,7 @@ class AuthPage extends Component {
 }
 
 export default connect(store => ({
-  appName: store.app.name,
+  appName: store.app.title,
   isAppLoading: store.app.isLoading,
   clientUser: store.api.clientUser
 }))(AuthPage);

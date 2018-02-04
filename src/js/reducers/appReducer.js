@@ -1,7 +1,7 @@
-import { TOGGLE_APP_LOADER, SET_AUTH_STATUS, TOGGLE_APP_DRAWER } from 'js/actions/app';
+import { TOGGLE_APP_LOADER, SET_AUTH_STATUS, SET_APP_TITLE, TOGGLE_APP_DRAWER } from 'js/actions/app';
 
 const initialState = {
-  name: 'Puzzle Games',
+  title: 'Puzzle Games',
   authStatus: '',
   showDrawer: false,
   isLoading: true
@@ -22,6 +22,12 @@ const appReducer = (state = initialState, action) => {
         ...state,
         authStatus: action.payload.authStatus,
         showDrawer: false
+      }
+
+    case SET_APP_TITLE:
+      return {
+        ...state,
+        title: action.payload.title
       }
 
     case TOGGLE_APP_DRAWER:
