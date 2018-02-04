@@ -25,6 +25,10 @@
 		{
 			"follow_symlinks": true,
 			"path": "C:\\Workspace\\puzzle-games\\src\\js\\components\\pages"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\Workspace\\puzzle-games\\src\\js\\components\\pages\\GamePage\\engines\\BossPuzzle"
 		}
 	]
 }

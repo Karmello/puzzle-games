@@ -6,6 +6,7 @@ import { Paper } from 'material-ui';
 import { App } from 'js/components/app';
 import { Loader } from 'js/components/other';
 import { startGame, setAsSolved, makeMove, endGame, stopGameLoader } from 'js/actions/game';
+import { changeGameOptions } from 'js/actions/gamesPage';
 import { setAppTitle } from 'js/actions/app';
 import { saveNewResult } from 'js/actions/api';
 import GameDashboard from './GameDashboard/GameDashboard';
@@ -22,6 +23,7 @@ class GamePage extends Component {
     const id = match.params.id;
 
     dispatch(setAppTitle(gameData.name));
+    dispatch(changeGameOptions(id, queryParams));
     dispatch(startGame(id, queryParams));
   }
 

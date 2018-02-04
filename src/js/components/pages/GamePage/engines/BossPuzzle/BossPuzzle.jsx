@@ -96,20 +96,20 @@ class BossPuzzle extends Component {
 
     let nextImgIndex, nextImgNumbers;
 
-    if (!doRestart) {
-
-      if (imgIndex === undefined || imgIndex === imgNumbers.length - 1) {
-        nextImgIndex = 0;
-        nextImgNumbers = getNewImgNumbers(imgNumbers)      
-
+    if (game.options.mode === 'IMG') {
+      
+      if (!doRestart) {
+        if (imgIndex === undefined || imgIndex === imgNumbers.length - 1) {
+          nextImgIndex = 0;
+          nextImgNumbers = getNewImgNumbers(imgNumbers)      
+        } else {
+          nextImgIndex = imgIndex + 1;
+          nextImgNumbers = imgNumbers;
+        } 
       } else {
-        nextImgIndex = imgIndex + 1;
+        nextImgIndex = imgIndex;
         nextImgNumbers = imgNumbers;
       }
-
-    } else {
-      nextImgIndex = imgIndex;
-      nextImgNumbers = imgNumbers;
     }
 
     const newHiddenTileCoords = {
