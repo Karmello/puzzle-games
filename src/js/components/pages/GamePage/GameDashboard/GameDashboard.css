@@ -6,7 +6,7 @@
   padding: 5px; }
   .GameDashboard > div {
     display: flex;
-    margin: 5px 15px 5px 15px; }
+    margin: 0 15px 0 15px; }
   .GameDashboard > div:first-child {
     flex-flow: row wrap;
     justify-content: center;

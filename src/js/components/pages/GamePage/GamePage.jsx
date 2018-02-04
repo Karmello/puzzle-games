@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Paper } from 'material-ui';
 
 import { App } from 'js/components/app';
 import { Loader } from 'js/components/other';
@@ -41,13 +42,15 @@ class GamePage extends Component {
 
     return (
       <div className='GamePage'>
-        <GameDashboard
-          gameData={gameData}
-          game={game}
-          mode={queryParams.mode}
-          onMenuItemClick={this.onMenuItemClick.bind(this)}
-          ref={ref => this.gameDashBoardRef = ref}
-        />
+        <Paper>
+          <GameDashboard
+            gameData={gameData}
+            game={game}
+            mode={queryParams.mode}
+            onMenuItemClick={this.onMenuItemClick.bind(this)}
+            ref={ref => this.gameDashBoardRef = ref}
+          />
+        </Paper>
         <Loader isShown={game.isLoading}>
           <div className='GamePage-engine'>
             <div>

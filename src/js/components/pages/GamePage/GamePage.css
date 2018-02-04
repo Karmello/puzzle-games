@@ -1,8 +1,6 @@
-.GamePage {
-  padding: 5px; }
-  .GamePage .GamePage-engine {
-    overflow-x: auto !important;
-    margin-top: 35px; }
-    .GamePage .GamePage-engine > div {
-      display: table;
-      margin: 0 auto; }
+.GamePage .GamePage-engine {
+  overflow-x: auto !important;
+  margin-top: 50px; }
+  .GamePage .GamePage-engine > div {
+    display: table;
+    margin: 0 auto; }
