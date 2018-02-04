@@ -6,12 +6,12 @@
   padding: 5px; }
   .GameDashboard > div {
     display: flex;
-    margin: 0 15px 0 15px; }
+    margin: 5px; }
   .GameDashboard > div:first-child {
     flex-flow: row wrap;
-    justify-content: center;
-    padding: 5px; }
+    justify-content: center; }
     .GameDashboard > div:first-child > div {
-      margin: 3px 5px 3px 5px; }
+      margin-left: 5px;
+      margin-right: 5px; }
   .GameDashboard > div:last-child {
     justify-content: flex-end; }

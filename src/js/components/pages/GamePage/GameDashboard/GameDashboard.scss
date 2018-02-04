@@ -7,16 +7,17 @@
 
   > div {
     display: flex;
-    margin: 0 15px 0 15px;
+    margin: 5px;
   }
   
   > div:first-child {
     flex-flow: row wrap;
     justify-content: center;
-    padding: 5px;
+    //padding: 5px;
 
     > div {
-      margin: 3px 5px 3px 5px;
+      margin-left: 5px;
+      margin-right: 5px;
     }
   }
 

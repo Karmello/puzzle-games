@@ -1,9 +1,13 @@
-export const apiRequest = (actionType) => {
+export const apiRequest = (actionType, req) => {
+  const payload = { isAwaiting: true };
+  if (req) {
+    payload.params = req.params;
+    payload.query = req.query;
+    payload.body = req.body;
+  }
   return {
     type: actionType,
-    payload: {
-      isAwaiting: true
-    }
+    payload
   }
 }
 

@@ -3,4 +3,5 @@
   margin-top: 50px; }
   .GamePage .GamePage-engine > div {
     display: table;
-    margin: 0 auto; }
+    margin: 0 auto;
+    border: 15px solid #F5F5F5; }

@@ -1,6 +1,5 @@
 .BossPuzzle-3 {
   min-width: 450px;
-  margin: 10px;
   background-color: #F5F5F5; }
   .BossPuzzle-3 .SquareTile {
     font-size: 50px; }
@@ -11,7 +10,6 @@
 
 .BossPuzzle-4 {
   min-width: 500px;
-  margin: 10px;
   background-color: #F5F5F5; }
   .BossPuzzle-4 .SquareTile {
     font-size: 40px; }
@@ -22,7 +20,6 @@
 
 .BossPuzzle-5 {
   min-width: 500px;
-  margin: 10px;
   background-color: #F5F5F5; }
   .BossPuzzle-5 .SquareTile {
     font-size: 30px; }

@@ -98,23 +98,23 @@ class GamePage extends Component {
 
   onMenuItemClick(itemId) {
 
-    const { dispatch, gameId } = this.props;
+    const { dispatch, game } = this.props;
 
     switch (itemId) {
       
       case 'NEW':
         this.setState({ restarting: false });
-        dispatch(startGame(gameId));
         break;
 
       case 'RESTART':
         this.setState({ restarting: true });
-        dispatch(startGame(gameId));
         break;
   
       default:
         break;
     }
+
+    dispatch(startGame(game.id));
   }
 }
 

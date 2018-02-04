@@ -13,7 +13,7 @@ const api = axios.create({ baseURL: process.env.REACT_APP_API_URI });
 
 export const createClientUser = (user) => {
   return (dispatch) => {
-    dispatch(apiRequest(FETCH_OR_CREATE_CLIENT_USER));
+    dispatch(apiRequest(FETCH_OR_CREATE_CLIENT_USER, { body: user }));
     return api.post('/users', user).then(res => {
       dispatch(apiRequestSuccess(FETCH_OR_CREATE_CLIENT_USER, res));
     }, err => {
@@ -24,7 +24,7 @@ export const createClientUser = (user) => {
 
 export const fetchClientUser = (fbId) => {
   return (dispatch) => {
-    dispatch(apiRequest(FETCH_OR_CREATE_CLIENT_USER));
+    dispatch(apiRequest(FETCH_OR_CREATE_CLIENT_USER, { params: { fbId } }));
     return api.get(`/users/${fbId}`).then(res => {
       dispatch(apiRequestSuccess(FETCH_OR_CREATE_CLIENT_USER, res));
     }, err => {
@@ -57,7 +57,7 @@ export const fetchUsers = () => {
 
 export const fetchResults = (gameId, query, delay) => {
   return (dispatch) => {
-    dispatch(apiRequest(FETCH_RESULTS));
+    dispatch(apiRequest(FETCH_RESULTS, { params: { gameId }, query }));
     return api.get(`/results/${gameId}`, { params: query }).then(res => {
       setTimeout(() => dispatch(apiRequestSuccess(FETCH_RESULTS, res)), delay);
     }, err => {
@@ -68,7 +68,7 @@ export const fetchResults = (gameId, query, delay) => {
 
 export const saveNewResult = (result) => {
   return (dispatch) => {
-    dispatch(apiRequest(SAVE_NEW_RESULT));
+    dispatch(apiRequest(SAVE_NEW_RESULT, { body: result }));
     return api.post('/results', result).then(res => {
       dispatch(apiRequestSuccess(SAVE_NEW_RESULT, res));
     }, err => {

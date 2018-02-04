@@ -10,7 +10,7 @@
 
 @mixin BossPuzzle($dimension, $btnSize) {
   min-width: $dimension * ($btnSize + 2 * $tileMargin);
-  margin: 10px;
+  //margin: 10px;
   background-color: #F5F5F5;
   @include SquareTile($btnSize, $tileMargin);
 }
