@@ -9,26 +9,6 @@
 		},
 		{
 			"path": "src\\js"
-		},
-		{
-			"path": "src\\js\\actionCreators"
-		},
-		{
-			"path": "src\\js\\actions"
-		},
-		{
-			"path": "src\\js\\reducers"
-		},
-		{
-			"path": "src\\js\\components"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "C:\\Workspace\\puzzle-games\\src\\js\\components\\pages"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "C:\\Workspace\\puzzle-games\\src\\js\\components\\pages\\GamePage\\engines\\BossPuzzle"
 		}
 	]
 }
