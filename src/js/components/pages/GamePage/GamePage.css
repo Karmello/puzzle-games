@@ -1,8 +1,25 @@
 .GamePage {
-  display: flex;
-  flex-flow: column wrap; }
-  .GamePage .GamePage-engine {
+  padding: 5px; }
+  .GamePage > div {
+    margin: 5px; }
+  .GamePage .GamePage-dashboard {
     display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    justify-content: center; }
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding: 5px; }
+    .GamePage .GamePage-dashboard > div:first-child {
+      flex: 1;
+      display: flex;
+      flex-flow: row wrap; }
+      .GamePage .GamePage-dashboard > div:first-child > div {
+        margin: 3px 5px 3px 5px; }
+    .GamePage .GamePage-dashboard > div:last-child {
+      margin-left: 25px; }
+  .GamePage .GamePage-engine {
+    overflow-x: auto !important;
+    margin-top: 50px; }
+    .GamePage .GamePage-engine > div {
+      display: table;
+      margin: 0 auto; }

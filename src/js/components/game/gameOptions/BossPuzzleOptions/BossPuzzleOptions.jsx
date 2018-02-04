@@ -41,9 +41,9 @@ export default class BossPuzzleOptions extends Component {
               input={<Input name='mode' id='mode' />}
               onChange={e => this.onValueChange('mode', e.target.value)}
               disabled={disabled}
-              style={{ width: '90px' }}
+              style={{ width: '100px' }}
             >
-              <MenuItem value='NUM' component={path ? Link: undefined} to={`${path}&mode=NUM&dimension=${dimension}`}>Number</MenuItem>
+              <MenuItem value='NUM' component={path ? Link: undefined} to={`${path}&mode=NUM&dimension=${dimension}`}>Numbers</MenuItem>
               <MenuItem value='IMG' component={path ? Link: undefined} to={`${path}&mode=IMG&dimension=${dimension}`}>Image</MenuItem>
             </Select>
           </FormControl>

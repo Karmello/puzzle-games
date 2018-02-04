@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { Button, Menu } from 'material-ui';
 import { MenuItem } from 'material-ui/Menu';
 
-import './GameMenu.css';
-
 
 export default class GameMenu extends Component {
   
@@ -15,7 +13,7 @@ export default class GameMenu extends Component {
   render() {
 
     const { btnElem } = this.state;
-    const { gameCategory } = this.props;
+    const { gameCategory, showRestartBtn } = this.props;
 
     return (
       <div className='GameMenu'>
@@ -36,6 +34,10 @@ export default class GameMenu extends Component {
             style={this.getItemStyle()}
             onClick={() => { this.onItemClick('NEW') }}
           >New</MenuItem>
+          {showRestartBtn && <MenuItem
+            style={this.getItemStyle()}
+            onClick={() => { this.onItemClick('RESTART') }}
+          >Restart</MenuItem>}
           <MenuItem
             style={this.getItemStyle()}
             component={Link}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-flexbox-grid';
+import { Paper } from 'material-ui';
 
 import SquareTile from './SquareTile';
 import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from 'js/actions/bossPuzzle';
@@ -25,7 +26,7 @@ class BossPuzzle extends Component {
     // restarting game
     if (!this.props.game.isLoading && nextProps.game.isLoading) {
       this.setState({ imgSrc: null });
-      this.startNew();
+      this.startNew(nextProps.restarting);
     }
   }
 
@@ -61,7 +62,7 @@ class BossPuzzle extends Component {
     
     if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
       return (
-        <div
+        <Paper
           className={'BossPuzzle-' + game.options.dimension}
           style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}
         >
@@ -81,27 +82,34 @@ class BossPuzzle extends Component {
               />
             </Col>
           ))}</Row>
-        ))}</div>
+        ))}</Paper>
       );
     }
 
     return null;
   }
 
-  startNew() {
+  startNew(doRestart) {
 
     const { game, bossPuzzleEngine, dispatch, onFinishInit } = this.props;
     const { imgIndex, imgNumbers } = bossPuzzleEngine;
 
     let nextImgIndex, nextImgNumbers;
 
-    if (imgIndex !== undefined && imgIndex < imgNumbers.length - 1) {
-      nextImgIndex = imgIndex + 1;
-      nextImgNumbers = imgNumbers;
+    if (!doRestart) {
+
+      if (imgIndex === undefined || imgIndex === imgNumbers.length - 1) {
+        nextImgIndex = 0;
+        nextImgNumbers = getNewImgNumbers(imgNumbers)      
+
+      } else {
+        nextImgIndex = imgIndex + 1;
+        nextImgNumbers = imgNumbers;
+      }
 
     } else {
-      nextImgIndex = 0;
-      nextImgNumbers = getNewImgNumbers(imgNumbers)
+      nextImgIndex = imgIndex;
+      nextImgNumbers = imgNumbers;
     }
 
     const newHiddenTileCoords = {

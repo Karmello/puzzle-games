@@ -1,12 +1,43 @@
 .GamePage {
 
-  display: flex;
-  flex-flow: column wrap;
+  padding: 5px;
+
+  > div {
+    margin: 5px;
+  }
+
+  .GamePage-dashboard {
+
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding: 5px;
+
+    > div:first-child {
+      flex: 1;
+      display: flex;
+      flex-flow: row wrap;
+
+      > div {
+        margin: 3px 5px 3px 5px;
+      }
+    }
+
+    > div:last-child {
+      margin-left: 25px;
+    }
+  }
 
   .GamePage-engine {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    justify-content: center;
+    
+    overflow-x: auto !important;
+    margin-top: 50px;
+
+    > div {
+      display: table;
+      margin: 0 auto;
+    }
   }
 }

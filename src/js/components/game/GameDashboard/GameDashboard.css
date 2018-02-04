@@ -1,9 +1,0 @@
-.GameDashboard {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  padding: 5px;
-  margin-top: 5px;
-  margin-bottom: 15px; }
-  .GameDashboard > div {
-    margin: 3px 5px 3px 5px; }

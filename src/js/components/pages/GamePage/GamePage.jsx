@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { App } from 'js/components/app';
-import { GameDashboard } from 'js/components/game';
+import GameDashboard from './GameDashboard';
 import { Loader } from 'js/components/other';
 import { startGame, setAsSolved, makeMove, endGame, stopGameLoader } from 'js/actions/game';
 import { saveNewResult } from 'js/actions/api';
@@ -11,6 +11,8 @@ import './GamePage.css';
 
 
 class GamePage extends Component {
+
+  state = { restarting: false }
 
   componentWillMount() {
 
@@ -22,33 +24,38 @@ class GamePage extends Component {
 
   componentWillUnmount() {
 
+    this.setState({ restarting: false });
     this.props.dispatch(endGame());
   }
 
   render() {
 
-    const { match, gameData, engines, game } = this.props;
+    const { match, game, gameData, queryParams } = this.props;
     const id = match.params.id;
     const Engine = require(`js/components/engines/${id}/${id}`).default;
 
     return (
-      <Loader isShown={game.isLoading}>
-        <div className='GamePage'>
-          <GameDashboard
-            gameData={gameData}
-            engine={engines[id]}
-            game={game}
-            ref={ref => this.gameDashBoardRef = ref}
-          />
+      <div className='GamePage'>
+        <GameDashboard
+          gameData={gameData}
+          game={game}
+          mode={queryParams.mode}
+          onMenuItemClick={this.onMenuItemClick.bind(this)}
+          ref={ref => this.gameDashBoardRef = ref}
+        />
+        <Loader isShown={game.isLoading}>
           <div className='GamePage-engine'>
-            <Engine
-              onFinishInit={this.onFinishInit.bind(this)}
-              onMakeMove={this.onMakeMove.bind(this)}
-              onBeenSolved={this.onBeenSolved.bind(this)}
-            />
+            <div>
+              <Engine
+                onFinishInit={this.onFinishInit.bind(this)}
+                onMakeMove={this.onMakeMove.bind(this)}
+                onBeenSolved={this.onBeenSolved.bind(this)}
+                restarting={this.state.restarting}
+              />
+            </div>
           </div>
-        </div>
-      </Loader>
+        </Loader>
+      </div>
     );
   }
 
@@ -78,6 +85,27 @@ class GamePage extends Component {
           seconds: this.gameDashBoardRef.timerRef.state.seconds
         }
       }));
+    }
+  }
+
+  onMenuItemClick(itemId) {
+
+    const { dispatch, gameId } = this.props;
+
+    switch (itemId) {
+      
+      case 'NEW':
+        this.setState({ restarting: false });
+        dispatch(startGame(gameId));
+        break;
+
+      case 'RESTART':
+        this.setState({ restarting: true });
+        dispatch(startGame(gameId));
+        break;
+  
+      default:
+        break;
     }
   }
 }
