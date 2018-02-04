@@ -5,6 +5,8 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import { InputLabel } from 'material-ui/Input';
 
+import './ResultsFilter.css';
+
 
 export default class ResultsFilter extends Component {
 

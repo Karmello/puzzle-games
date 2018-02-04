@@ -6,18 +6,6 @@
   padding-right: 15px; }
   .ResultsPage > div {
     margin: 15px 0 15px 0; }
-    .ResultsPage > div .ResultsFilter {
-      min-height: 75px;
-      display: flex;
-      flex-flow: row wrap;
-      align-items: center; }
-      .ResultsPage > div .ResultsFilter > div:first-child > * {
-        margin: 10px; }
-    .ResultsPage > div .ResultsTable {
-      margin: 0 auto;
-      overflow-x: auto; }
-      .ResultsPage > div .ResultsTable .ResultsTable-title {
-        margin: 20px 0 0 20px; }
   .ResultsPage > div.ResultsPage-actionBtns {
     display: flex;
     justify-content: flex-end; }

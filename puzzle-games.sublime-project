@@ -21,6 +21,10 @@
 		},
 		{
 			"path": "src\\js\\components"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\Workspace\\puzzle-games\\src\\js\\components\\pages"
 		}
 	]
 }

@@ -6,8 +6,8 @@ import { PlayBtn } from 'js/components/game';
 import { apiRequestClear } from 'js/actionCreators';
 import { fetchResults, fetchUsers, FETCH_RESULTS } from 'js/actions/api';
 import { changeResultsFilter } from 'js/actions/resultsPage';
-import ResultsFilter from './ResultsFilter';
-import ResultsTable from './ResultsTable';
+import ResultsFilter from './ResultsFilter/ResultsFilter';
+import ResultsTable from './ResultsTable/ResultsTable';
 import './ResultsPage.css';
 
 

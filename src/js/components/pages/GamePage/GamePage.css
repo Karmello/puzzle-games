@@ -1,22 +1,5 @@
 .GamePage {
   padding: 5px; }
-  .GamePage .GamePage-dashboard {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 5px; }
-    .GamePage .GamePage-dashboard > div {
-      display: flex;
-      margin: 5px 15px 5px 15px; }
-    .GamePage .GamePage-dashboard > div:first-child {
-      flex-flow: row wrap;
-      justify-content: center;
-      padding: 5px; }
-      .GamePage .GamePage-dashboard > div:first-child > div {
-        margin: 3px 5px 3px 5px; }
-    .GamePage .GamePage-dashboard > div:last-child {
-      justify-content: flex-end; }
   .GamePage .GamePage-engine {
     overflow-x: auto !important;
     margin-top: 35px; }

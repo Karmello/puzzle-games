@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SwipeableViews from 'react-swipeable-views';
 
-import { GameCategories, GameCard } from 'js/components/game';
 import { switchGameCategoryTab, changeGameOptions } from 'js/actions/gamesPage';
+import GameCategories from './GameCategories/GameCategories';
+import GameCard from './GameCard/GameCard';
 import './GamesPage.css';
 
 

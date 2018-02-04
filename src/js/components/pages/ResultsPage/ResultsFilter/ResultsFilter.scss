@@ -1,0 +1,11 @@
+.ResultsFilter {
+  
+  min-height: 75px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  > div:first-child {
+    > * { margin: 10px; }
+  }
+}

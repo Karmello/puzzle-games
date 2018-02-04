@@ -2,33 +2,6 @@
 
   padding: 5px;
 
-  .GamePage-dashboard {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-
-    > div {
-      display: flex;
-      margin: 5px 15px 5px 15px;
-    }
-    
-    > div:first-child {
-      flex-flow: row wrap;
-      justify-content: center;
-      padding: 5px;
-
-      > div {
-        margin: 3px 5px 3px 5px;
-      }
-    }
-
-    > div:last-child {
-      justify-content: flex-end;
-    }
-  }
-
   .GamePage-engine {
     
     overflow-x: auto !important;

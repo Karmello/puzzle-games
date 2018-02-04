@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Chip } from 'material-ui';
 
 import { Timer } from 'js/components/other';
-import GameMenu from './GameMenu';
+import GameMenu from './GameMenu/GameMenu';
+import './GameDashboard.css';
+
 
 export default class GameDashboard extends Component {
 
@@ -11,7 +13,7 @@ export default class GameDashboard extends Component {
     const { gameData, game, mode, onMenuItemClick } = this.props;
 
     return (
-      <div className='GamePage-dashboard'>
+      <div className='GameDashboard'>
         <div>
           <div>
             <Timer

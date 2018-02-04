@@ -1,0 +1,5 @@
+.ResultsTable {
+  margin: 0 auto;
+  overflow-x: auto; }
+  .ResultsTable .ResultsTable-title {
+    margin: 20px 0 0 20px; }

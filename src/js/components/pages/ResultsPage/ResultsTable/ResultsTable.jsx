@@ -6,6 +6,7 @@ import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import { find } from 'lodash';
 
 import { Loader } from 'js/components/other';
+import './ResultsTable.css';
 
 
 export default class ResultsTable extends Component {

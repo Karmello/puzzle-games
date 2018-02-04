@@ -1,0 +1,17 @@
+.GameDashboard {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5px; }
+  .GameDashboard > div {
+    display: flex;
+    margin: 5px 15px 5px 15px; }
+  .GameDashboard > div:first-child {
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 5px; }
+    .GameDashboard > div:first-child > div {
+      margin: 3px 5px 3px 5px; }
+  .GameDashboard > div:last-child {
+    justify-content: flex-end; }

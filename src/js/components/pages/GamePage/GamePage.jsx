@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { App } from 'js/components/app';
-import GameDashboard from './GameDashboard';
 import { Loader } from 'js/components/other';
 import { startGame, setAsSolved, makeMove, endGame, stopGameLoader } from 'js/actions/game';
 import { setAppTitle } from 'js/actions/app';
 import { saveNewResult } from 'js/actions/api';
+import GameDashboard from './GameDashboard/GameDashboard';
 import './GamePage.css';
 
 
@@ -37,7 +37,7 @@ class GamePage extends Component {
 
     const { match, game, gameData, queryParams } = this.props;
     const id = match.params.id;
-    const Engine = require(`js/components/engines/${id}/${id}`).default;
+    const Engine = require(`./engines/${id}/${id}`).default;
 
     return (
       <div className='GamePage'>
