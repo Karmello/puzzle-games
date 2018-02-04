@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Paper, Typography } from 'material-ui';
 import moment from 'moment';
 import { Table } from 'material-ui';
-import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import { TableBody, TableCell, TableHead, TableRow, TableSortLabel } from 'material-ui/Table';
 import { find } from 'lodash';
 
 import { Loader } from 'js/components/other';
@@ -11,7 +11,7 @@ import './ResultsTable.css';
 
 export default class ResultsTable extends Component {
 
-  state = { status: undefined };
+  state = { dataStatus: undefined };
 
   componentWillReceiveProps(nextProps) {
     
@@ -19,22 +19,22 @@ export default class ResultsTable extends Component {
     const results = api.results;
 
     if (results.isAwaiting) {
-      this.setState({ status: 'LOADING' });
+      this.setState({ dataStatus: 'LOADING' });
 
     } else if (results.status === 200 && results.data) {
-      this.setState({ status: results.data.length === 0 ? 'NO_DATA' : 'DATA_READY' });
+      this.setState({ dataStatus: results.data.length === 0 ? 'NO_DATA' : 'DATA_READY' });
     
     } else {
-      this.setState({ status: undefined });
+      this.setState({ dataStatus: undefined });
     }
   }
 
   render() {
 
-    const { api } = this.props;
-    const { status } = this.state;
+    const { dataStatus } = this.state;
+    const { api, table, onSortChange } = this.props;
 
-    switch (status) {
+    switch (dataStatus) {
 
       case 'LOADING':
         return <Loader isShown />;
@@ -49,10 +49,15 @@ export default class ResultsTable extends Component {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Date</TableCell>
-                  <TableCell>Player</TableCell>
-                  <TableCell numeric>Moves</TableCell>
-                  <TableCell>Time</TableCell>
+                  {table.columns.map((column, i) => (
+                  <TableCell key={i} numeric={column.isNumeric}>
+                    <TableSortLabel
+                      active={i === table.activeColumnIndex}
+                      direction={column.isInAscOrder ? 'asc' : 'desc'}
+                      onClick={() => onSortChange(i)}
+                    >{column.label}</TableSortLabel>
+                  </TableCell>
+                  ))}
                 </TableRow>
               </TableHead>
               <TableBody>

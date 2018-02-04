@@ -5,7 +5,7 @@ import { App } from 'js/components/app';
 import { PlayBtn } from 'js/components/game';
 import { apiRequestClear } from 'js/actionCreators';
 import { fetchResults, fetchUsers, FETCH_RESULTS } from 'js/actions/api';
-import { changeResultsFilter } from 'js/actions/resultsPage';
+import { changeResultsFilter, setActiveColumn, toggleColumnSortDirection } from 'js/actions/resultsPage';
 import ResultsFilter from './ResultsFilter/ResultsFilter';
 import ResultsTable from './ResultsTable/ResultsTable';
 import './ResultsPage.css';
@@ -44,22 +44,22 @@ class ResultsPage extends Component {
 
   render() {
 
-    const { gameOptions, resultsFilter, api } = this.props;
+    const { gameOptions, resultsPage, api } = this.props;
 
     return (
       <div className='ResultsPage'>
         <div>
-          <ResultsFilter api={api} gameOptions={gameOptions} resultsFilter={resultsFilter} />
+          <ResultsFilter api={api} gameOptions={gameOptions} resultsFilter={resultsPage.filter} />
         </div>
         <div className='ResultsPage-actionBtns'>
           <PlayBtn
-            gameCategory={resultsFilter.game.category}
-            gameId={resultsFilter.game.id}
-            gameOptions={resultsFilter.options}
+            gameCategory={resultsPage.filter.game.category}
+            gameId={resultsPage.filter.game.id}
+            gameOptions={resultsPage.filter.options}
           />
         </div>
         <div>
-          <ResultsTable api={api} />
+          <ResultsTable api={api} table={resultsPage.table} onSortChange={this.onSortChange.bind(this)} />
         </div>
       </div>
     );
@@ -74,10 +74,22 @@ class ResultsPage extends Component {
       dispatch(fetchResults(gameId, resultsFilter.options, App.minLoadTime));
     });
   }
+
+  onSortChange(columnIndex) {
+
+    const { resultsPage, dispatch } = this.props;
+
+    if (resultsPage.table.activeColumnIndex === columnIndex) {
+      dispatch(toggleColumnSortDirection(columnIndex));
+      
+    } else {
+      dispatch(setActiveColumn(columnIndex));
+    }
+  }
 }
 
 export default connect(store => ({
   gameOptions: store.pages.gamesPage.options,
-  resultsFilter: store.pages.resultsPage.filter,
+  resultsPage: store.pages.resultsPage,
   api: store.api
 }))(ResultsPage);
