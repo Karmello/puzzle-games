@@ -1,4 +1,4 @@
-import { SET_ACTIVE_COLUMN, TOGGLE_COLUMN_SORT_DIRECTION } from './../resultsPage.actions';
+import { SET_ACTIVE_COLUMN, TOGGLE_COLUMN_SORT_DIRECTION } from './../highscoresPage.actions';
 
 const initialState = {
   activeColumnIndex: 0,
@@ -10,7 +10,7 @@ const initialState = {
   ]
 };
 
-const resultsTableReducer = (state = initialState, action) => {
+const highscoresTableReducer = (state = initialState, action) => {
 
   switch (action.type) {
 
@@ -36,4 +36,4 @@ const resultsTableReducer = (state = initialState, action) => {
   }
 }
 
-export default resultsTableReducer;
+export default highscoresTableReducer;

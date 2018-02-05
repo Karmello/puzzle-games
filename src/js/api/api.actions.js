@@ -7,9 +7,9 @@ const api = axios.create({ baseURL: process.env.REACT_APP_API_URI });
 export const FETCH_OR_CREATE_CLIENT_USER = 'FETCH_OR_CREATE_CLIENT_USER';
 export const FETCH_GAMES = 'FETCH_GAMES';
 export const FETCH_GAME_CATEGORIES = 'FETCH_GAME_CATEGORIES';
-export const FETCH_RESULTS = 'FETCH_RESULTS';
+export const FETCH_HIGHSCORES = 'FETCH_HIGHSCORES';
 export const FETCH_USERS = 'FETCH_USERS';
-export const SAVE_NEW_RESULT = 'SAVE_NEW_RESULT';
+export const SAVE_NEW_HIGHSCORE = 'SAVE_NEW_HIGHSCORE';
 
 export const createClientUser = (user) => {
   return (dispatch) => {
@@ -55,24 +55,24 @@ export const fetchUsers = () => {
   }
 }
 
-export const fetchResults = (gameId, query, delay) => {
+export const fetchHighscores = (gameId, query, delay) => {
   return (dispatch) => {
-    dispatch(apiRequest(FETCH_RESULTS, { params: { gameId }, query }));
-    return api.get(`/results/${gameId}`, { params: query }).then(res => {
-      setTimeout(() => dispatch(apiRequestSuccess(FETCH_RESULTS, res)), delay);
+    dispatch(apiRequest(FETCH_HIGHSCORES, { params: { gameId }, query }));
+    return api.get(`/highscores/${gameId}`, { params: query }).then(res => {
+      setTimeout(() => dispatch(apiRequestSuccess(FETCH_HIGHSCORES, res)), delay);
     }, err => {
-      setTimeout(() => dispatch(apiRequestFailure(FETCH_RESULTS, err)), delay);
+      setTimeout(() => dispatch(apiRequestFailure(FETCH_HIGHSCORES, err)), delay);
     });
   }
 }
 
-export const saveNewResult = (result) => {
+export const saveNewHighscore = (highscore) => {
   return (dispatch) => {
-    dispatch(apiRequest(SAVE_NEW_RESULT, { body: result }));
-    return api.post('/results', result).then(res => {
-      dispatch(apiRequestSuccess(SAVE_NEW_RESULT, res));
+    dispatch(apiRequest(SAVE_NEW_HIGHSCORE, { body: highscore }));
+    return api.post('/highscores', highscore).then(res => {
+      dispatch(apiRequestSuccess(SAVE_NEW_HIGHSCORE, res));
     }, err => {
-      dispatch(apiRequestFailure(SAVE_NEW_RESULT, err));
+      dispatch(apiRequestFailure(SAVE_NEW_HIGHSCORE, err));
     });
   }
 }

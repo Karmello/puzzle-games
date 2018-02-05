@@ -1,7 +1,7 @@
-.ResultsFilter {
+.HighscoresFilter {
   min-height: 75px;
   display: flex;
   flex-flow: row wrap;
   align-items: center; }
-  .ResultsFilter > div:first-child > * {
+  .HighscoresFilter > div:first-child > * {
     margin: 10px; }

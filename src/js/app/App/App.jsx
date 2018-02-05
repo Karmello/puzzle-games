@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import * as qs from 'query-string';
 
-import { AuthPage, GamesPage, GamePage, ResultsPage } from 'js/pages';
+import { AuthPage, GamesPage, GamePage, HighscoresPage } from 'js/pages';
 import { Loader, MySnackBar, PageError } from 'js/other';
 import { fetchGames, fetchGameCategories } from 'js/api/api.actions';
 import { validateGameParams } from 'js/pages/page.methods';
@@ -30,7 +30,7 @@ class App extends Component {
     if (authStatus !== 'error' && nextProps.authStatus === 'error') {
       this.setState({ snackBarMessage: 'Could not login.' });
     
-    } else if (api.newResult.isAwaiting && !nextProps.api.newResult.isAwaiting && nextProps.api.newResult.status === 200) {
+    } else if (api.newHighscore.isAwaiting && !nextProps.api.newHighscore.isAwaiting && nextProps.api.newHighscore.status === 200) {
       this.setState({ snackBarMessage: 'Your score has been saved.' });
     }
   }
@@ -69,7 +69,7 @@ class App extends Component {
                   <Switch>
                     <Route exact path='/games/:category' render={props => this.gamesRouteLogic(props)} />
                     <Route exact path='/games/:category/:id' render={props => this.gameRouteLogic(props)} />
-                    <Route exact path='/results' render={props => this.resultsRouteLogic(props)} />
+                    <Route exact path='/highscores' render={props => this.highscoresRouteLogic(props)} />
                     <Redirect from='*' to={this.defaultPath} />
                   </Switch>}
                   {(api.gameCategories.status !== 200 || api.games.status !== 200) && <PageError/> }
@@ -130,7 +130,7 @@ class App extends Component {
     }
   }
 
-  resultsRouteLogic(props) {
+  highscoresRouteLogic(props) {
 
     const params = qs.parse(props.location.search);
     const { category, id } = params;
@@ -141,7 +141,7 @@ class App extends Component {
     const { shouldRedirect, validParams } = this.validateGameParams({ category, id }, params);
 
     if (!shouldRedirect) {
-      return <ResultsPage filterToSet={{ game: { category: category, id: id }, options: validParams }} />;
+      return <HighscoresPage filterToSet={{ game: { category: category, id: id }, options: validParams }} />;
     
     } else if (validParams) {
       validParams.category = category;

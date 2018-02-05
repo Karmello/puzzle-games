@@ -54,9 +54,9 @@ class AppDrawer extends Component {
                 <ListItemIcon><PlayCircleOutline/></ListItemIcon>
                 <ListItemText primary='Games' />
               </ListItem>
-              <ListItem button component={Link} to={this.getResultsPageUrl()}>
+              <ListItem button component={Link} to={this.getHighscoresPageUrl()}>
                 <ListItemIcon><ContentPaste/></ListItemIcon>
-                <ListItemText primary='Results' />
+                <ListItemText primary='Highscores' />
               </ListItem>
               {authStatus === 'connected' && <ListItem button onClick={this.onLogout.bind(this)}>
                 <ListItemIcon><PowerSettingsNew/></ListItemIcon>
@@ -69,12 +69,12 @@ class AppDrawer extends Component {
     );
   }
 
-  getResultsPageUrl() {
+  getHighscoresPageUrl() {
 
-    const { resultsFilter } = this.props;
+    const { highscoresFilter } = this.props;
 
-    let url = `/results?category=${resultsFilter.game.category}&id=${resultsFilter.game.id}`;
-    for (const key in resultsFilter.options) { url += `&${key}=${resultsFilter.options[key]}`; }
+    let url = `/highscores?category=${highscoresFilter.game.category}&id=${highscoresFilter.game.id}`;
+    for (const key in highscoresFilter.options) { url += `&${key}=${highscoresFilter.options[key]}`; }
     return url;
   }
 
@@ -101,6 +101,6 @@ export default connect(store => ({
   authStatus: store.app.authStatus,
   showDrawer: store.app.showDrawer,
   gameCategory: store.pages.gamesPage.category,
-  resultsFilter: store.pages.resultsPage.filter,
+  highscoresFilter: store.pages.highscoresPage.filter,
   clientUser:  store.api.clientUser
 }))(AppDrawer);

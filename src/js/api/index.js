@@ -7,8 +7,8 @@ import {
   FETCH_USERS,
   FETCH_GAMES,
   FETCH_GAME_CATEGORIES,
-  FETCH_RESULTS,
-  SAVE_NEW_RESULT
+  FETCH_HIGHSCORES,
+  SAVE_NEW_HIGHSCORE
 } from './api.actions';
 
 
@@ -17,6 +17,6 @@ export const apiReducers = combineReducers({
   users: getApiRequestReducer(FETCH_USERS),
   games: getApiRequestReducer(FETCH_GAMES),
   gameCategories: getApiRequestReducer(FETCH_GAME_CATEGORIES),
-  results: getApiRequestReducer(FETCH_RESULTS),
-  newResult: getApiRequestReducer(SAVE_NEW_RESULT)
+  highscores: getApiRequestReducer(FETCH_HIGHSCORES),
+  newHighscore: getApiRequestReducer(SAVE_NEW_HIGHSCORE)
 });

@@ -6,28 +6,28 @@ import { TableBody, TableCell, TableHead, TableRow, TableSortLabel } from 'mater
 import { find } from 'lodash';
 
 import { Loader } from 'js/other';
-import './ResultsTable.css';
+import './HighscoresTable.css';
 
 
-export default class ResultsTable extends Component {
+export default class HighscoresTable extends Component {
 
   state = { dataStatus: undefined, sortedData: undefined };
 
   componentWillReceiveProps(nextProps) {
     
     const { api, table } = nextProps;
-    const results = api.results;
+    const highscores = api.highscores;
 
-    if (results.isAwaiting) {
+    if (highscores.isAwaiting) {
       this.setState({ dataStatus: 'LOADING' });
 
-    } else if (results.status === 200 && results.data) {
+    } else if (highscores.status === 200 && highscores.data) {
 
-      if (results.data.length === 0) {
+      if (highscores.data.length === 0) {
         this.setState({ dataStatus: 'NO_DATA' });
       
       } else {
-        this.setState({ dataStatus: 'DATA_READY', sortedData: this.getSortedData(table, results.data) });
+        this.setState({ dataStatus: 'DATA_READY', sortedData: this.getSortedData(table, highscores.data) });
       }
     
     } else {
@@ -46,12 +46,12 @@ export default class ResultsTable extends Component {
         return <Loader isShown />;
 
       case 'NO_DATA':
-        return <div>No results</div>;
+        return <div>Nothing to show</div>;
 
       case 'DATA_READY':
         return (
-          <Paper className='ResultsTable'>
-            <Typography className='ResultsTable-title' type='title'>Results</Typography>
+          <Paper className='HighscoresTable'>
+            <Typography className='HighscoresTable-title' type='title'>Highscores</Typography>
             <Table>
               <TableHead>
                 <TableRow>
@@ -68,12 +68,12 @@ export default class ResultsTable extends Component {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {sortedData.map(result => (
-                  <TableRow key={result._id}>
-                    <TableCell>{moment(result.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
-                    <TableCell>{find(api.users.data, elem => elem._id === result.userId).fb.name}</TableCell>
-                    <TableCell numeric>{result.details.moves}</TableCell>
-                    <TableCell>{moment.utc(result.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
+                {sortedData.map(highscore => (
+                  <TableRow key={highscore._id}>
+                    <TableCell>{moment(highscore.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
+                    <TableCell>{find(api.users.data, elem => elem._id === highscore.userId).fb.name}</TableCell>
+                    <TableCell numeric>{highscore.details.moves}</TableCell>
+                    <TableCell>{moment.utc(highscore.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

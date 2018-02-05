@@ -7,7 +7,7 @@ import { App } from 'js/app';
 import { Loader } from 'js/other';
 import { changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
 import { setAppTitle } from 'js/app/app.actions';
-import { saveNewResult } from 'js/api/api.actions';
+import { saveNewHighscore } from 'js/api/api.actions';
 import { startGame, setAsSolved, makeMove, endGame, stopGameLoader } from './gamePage.actions';
 import GameDashboard from './GameDashboard/GameDashboard';
 import './GamePage.css';
@@ -86,7 +86,7 @@ class GamePage extends Component {
     dispatch(setAsSolved());
     
     if (authStatus === 'connected') {
-      dispatch(saveNewResult({
+      dispatch(saveNewHighscore({
         userId: clientUser.data._id,
         gameId: gameData._id,
         options: { ...gameOptions[game.id] },

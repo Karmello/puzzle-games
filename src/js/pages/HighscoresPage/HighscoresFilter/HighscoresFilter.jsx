@@ -5,10 +5,10 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import { InputLabel } from 'material-ui/Input';
 
-import './ResultsFilter.css';
+import './HighscoresFilter.css';
 
 
-export default class ResultsFilter extends Component {
+export default class HighscoresFilter extends Component {
 
   state = {
     gameId: undefined,
@@ -17,28 +17,28 @@ export default class ResultsFilter extends Component {
 
   componentWillMount() {
     
-    this.setupOptionsComponent(this.props.resultsFilter.game.id);
+    this.setupOptionsComponent(this.props.highscoresFilter.game.id);
   }
 
   componentWillReceiveProps(nextProps) {
 
-    if (nextProps.resultsFilter.game.id !== this.state.gameId) {
-      this.setupOptionsComponent(nextProps.resultsFilter.game.id);
+    if (nextProps.highscoresFilter.game.id !== this.state.gameId) {
+      this.setupOptionsComponent(nextProps.highscoresFilter.game.id);
     }
   }
 
   render() {
   
     const { Options } = this.state;
-    const { api, resultsFilter } = this.props;
+    const { api, highscoresFilter } = this.props;
 
     return (
-      <div className='ResultsFilter'>
+      <div className='HighscoresFilter'>
         <div>
           <FormControl>
             <InputLabel htmlFor='game'>Category</InputLabel>
             <Select
-              value={resultsFilter.game.category}
+              value={highscoresFilter.game.category}
               input={<Input name='category' id='category' />}
               disabled={this.shouldBeDisabled()}
               style={{ width: '90px' }}
@@ -56,13 +56,13 @@ export default class ResultsFilter extends Component {
           <FormControl>
             <InputLabel htmlFor='game'>Game</InputLabel>
             <Select
-              value={resultsFilter.game.id}
+              value={highscoresFilter.game.id}
               input={<Input name='game' id='game' />}
               disabled={this.shouldBeDisabled()}
               style={{ width: '130px' }}
             >
               {api.games.data.map(obj => {
-                if (obj.categoryId === resultsFilter.game.category) {
+                if (obj.categoryId === highscoresFilter.game.category) {
                   return (
                     <MenuItem
                       key={obj.id}
@@ -80,8 +80,8 @@ export default class ResultsFilter extends Component {
         </div>
         <div>
           {Options && <Options
-            options={resultsFilter.options}
-            path={`/results?category=${resultsFilter.game.category}&id=${resultsFilter.game.id}`}
+            options={highscoresFilter.options}
+            path={`/highscores?category=${highscoresFilter.game.category}&id=${highscoresFilter.game.id}`}
             disabled={this.shouldBeDisabled()}
           />}
         </div>
@@ -91,12 +91,12 @@ export default class ResultsFilter extends Component {
 
   getMenuItemLink(category, id) {
 
-    const { gameOptions, resultsFilter, api } = this.props;
+    const { gameOptions, highscoresFilter, api } = this.props;
     let options;
 
     if (!id) { id = api.games.data.find(obj => obj.categoryId === category).id; }
-    let url = `/results?category=${category}&id=${id}`;
-    if (id !== resultsFilter.game.id) { options = gameOptions[id]; } else { options = resultsFilter.options; }
+    let url = `/highscores?category=${category}&id=${id}`;
+    if (id !== highscoresFilter.game.id) { options = gameOptions[id]; } else { options = highscoresFilter.options; }
     for (const key in options) { url += `&${key}=${options[key]}`; }
     return url;
   }
@@ -114,6 +114,6 @@ export default class ResultsFilter extends Component {
 
   shouldBeDisabled() {
     const { api } = this.props;
-    return api.results.status !== 200 || api.results.isAwaiting;
+    return api.highscores.status !== 200 || api.highscores.isAwaiting;
   }
 }

@@ -1,11 +1,11 @@
-.ResultsPage {
+.HighscoresPage {
   max-width: 800px;
   margin: 0 auto;
   margin-top: 40px;
   padding-left: 15px;
   padding-right: 15px; }
-  .ResultsPage > div {
+  .HighscoresPage > div {
     margin: 15px 0 15px 0; }
-  .ResultsPage > div.ResultsPage-actionBtns {
+  .HighscoresPage > div.HighscoresPage-actionBtns {
     display: flex;
     justify-content: flex-end; }

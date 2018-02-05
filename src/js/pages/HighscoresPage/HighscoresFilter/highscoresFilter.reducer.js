@@ -1,15 +1,15 @@
-import { CHANGE_RESULTS_FILTER } from './../resultsPage.actions';
+import { CHANGE_HIGHSCORES_FILTER } from './../highscoresPage.actions';
 
 const initialState = {
   game: { category: 'sliding', id: 'BossPuzzle' },
   options: { mode: 'NUM', dimension: '3' }
 };
 
-const resultsFilterReducer = (state = initialState, action) => {
+const highscoresFilterReducer = (state = initialState, action) => {
 
   switch (action.type) {
 
-    case CHANGE_RESULTS_FILTER:
+    case CHANGE_HIGHSCORES_FILTER:
   
       const { category, id, options } = action.payload;
       const newState = { ...state };
@@ -25,4 +25,4 @@ const resultsFilterReducer = (state = initialState, action) => {
   }
 }
 
-export default resultsFilterReducer;
+export default highscoresFilterReducer;
