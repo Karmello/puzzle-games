@@ -4,7 +4,7 @@ import * as qs from 'query-string';
 import { Button, Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
-import { PlayBtn } from 'js/game';
+import { PlayBtn } from 'js/other';
 import './GameCard.css';
 
 
@@ -16,7 +16,7 @@ export default class GameCard extends Component {
     let Options;
 
     try {
-      Options = require(`js/game/gameOptions/${gameData.id}Options/${gameData.id}Options`).default;
+      Options = require(`js/gameOptions/${gameData.id}Options/${gameData.id}Options`).default;
     } catch(ex) {
       console.log(ex);
     }

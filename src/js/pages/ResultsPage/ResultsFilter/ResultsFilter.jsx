@@ -104,7 +104,7 @@ export default class ResultsFilter extends Component {
   setupOptionsComponent(gameId) {
 
     try {
-      const Options = require(`js/game/gameOptions/${gameId}Options/${gameId}Options`).default;
+      const Options = require(`js/gameOptions/${gameId}Options/${gameId}Options`).default;
       this.setState({ gameId, Options });
     } catch(ex) {
       console.log(ex);

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'react-flexbox-grid';
 import { Paper } from 'material-ui';
 
-import SquareTile from './SquareTile';
+import SquareTile from './SquareTile/SquareTile';
 import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from './bossPuzzle.actions';
 import { getNewImgNumbers, initData } from './BossPuzzle.static';
 import './BossPuzzle.css';
@@ -152,6 +152,6 @@ class BossPuzzle extends Component {
 };
 
 export default connect(store => ({
-  game: store.game,
+  game: store.pages.gamePage,
   bossPuzzleEngine: store.engines.BossPuzzle
 }))(BossPuzzle);

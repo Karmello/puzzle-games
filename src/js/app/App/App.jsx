@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import * as qs from 'query-string';
 
-import { AppBar, AppDrawer } from 'js/app';
 import { AuthPage, GamesPage, GamePage, ResultsPage } from 'js/pages';
 import { Loader, MySnackBar, PageError } from 'js/other';
 import { fetchGames, fetchGameCategories } from 'js/api/api.actions';
-import { validateGameParams } from 'js/game/methods';
+import { validateGameParams } from 'js/pages/page.methods';
+import AppBar from './AppBar/AppBar';
+import AppDrawer from './AppDrawer/AppDrawer';
 import './App.css';
 
 

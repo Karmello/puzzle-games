@@ -1,4 +1,4 @@
-import { START_GAME, STOP_GAME_LOADER, MAKE_MOVE, SET_AS_SOLVED, END_GAME } from './game.actions';
+import { START_GAME, STOP_GAME_LOADER, MAKE_MOVE, SET_AS_SOLVED, END_GAME } from './gamePage.actions';
 
 const initialState = {
   id: undefined,
@@ -21,9 +21,7 @@ const gameReducer = (state = initialState, action) => {
         moves: 0,
         isSolved: false,
         isLoading: true,
-        options: {
-          ...(action.payload.options || state.options)
-        }
+        options: action.payload.options || state.options
       }
   
     case STOP_GAME_LOADER:

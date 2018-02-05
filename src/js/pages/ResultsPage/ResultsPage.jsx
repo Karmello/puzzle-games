@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { App } from 'js/app';
-import { PlayBtn } from 'js/game';
+import { PlayBtn } from 'js/other';
 import { apiRequestClear } from 'js/api/api.actionCreators';
 import { fetchResults, fetchUsers, FETCH_RESULTS } from 'js/api/api.actions';
 import { changeResultsFilter, setActiveColumn, toggleColumnSortDirection } from './resultsPage.actions';

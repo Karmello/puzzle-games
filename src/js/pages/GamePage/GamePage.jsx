@@ -5,10 +5,10 @@ import { Paper } from 'material-ui';
 
 import { App } from 'js/app';
 import { Loader } from 'js/other';
-import { startGame, setAsSolved, makeMove, endGame, stopGameLoader } from 'js/pages/GamePage/game.actions';
 import { changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
 import { setAppTitle } from 'js/app/app.actions';
 import { saveNewResult } from 'js/api/api.actions';
+import { startGame, setAsSolved, makeMove, endGame, stopGameLoader } from './gamePage.actions';
 import GameDashboard from './GameDashboard/GameDashboard';
 import './GamePage.css';
 
@@ -124,6 +124,6 @@ export default withRouter(connect(store => ({
   authStatus: store.app.authStatus,
   clientUser: store.api.clientUser,
   engines: store.engines,
-  game: store.game,
+  game: store.pages.gamePage,
   gameOptions: store.pages.gamesPage.options
 }))(GamePage));

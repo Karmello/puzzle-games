@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Drawer, List } from 'material-ui';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import PlayCircleOutlineIcon from 'material-ui-icons/PlayCircleOutline';
-import ContentPasteIcon from 'material-ui-icons/ContentPaste';
-import PowerSettingsNewIcon from 'material-ui-icons/PowerSettingsNew';
+import { PlayCircleOutline, ContentPaste, PowerSettingsNew } from 'material-ui-icons';
 
 import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
 import { FETCH_OR_CREATE_CLIENT_USER } from 'js/api/api.actions';
@@ -53,15 +51,15 @@ class AppDrawer extends Component {
           <div className='AppDrawer-content'>
             <List>
               <ListItem button component={Link} to={`/games/${gameCategory}`}>
-                <ListItemIcon><PlayCircleOutlineIcon/></ListItemIcon>
+                <ListItemIcon><PlayCircleOutline/></ListItemIcon>
                 <ListItemText primary='Games' />
               </ListItem>
               <ListItem button component={Link} to={this.getResultsPageUrl()}>
-                <ListItemIcon><ContentPasteIcon/></ListItemIcon>
+                <ListItemIcon><ContentPaste/></ListItemIcon>
                 <ListItemText primary='Results' />
               </ListItem>
               {authStatus === 'connected' && <ListItem button onClick={this.onLogout.bind(this)}>
-                <ListItemIcon><PowerSettingsNewIcon/></ListItemIcon>
+                <ListItemIcon><PowerSettingsNew/></ListItemIcon>
                 <ListItemText primary='Logout' />
               </ListItem>}
             </List>
