@@ -40,7 +40,7 @@ class GamePage extends Component {
 
     const { match, game, gameData, queryParams } = this.props;
     const id = match.params.id;
-    const Engine = require(`./engines/${id}/${id}`).default;
+    const Engine = require(`js/engines/${id}/${id}`).default;
 
     return (
       <div className='GamePage'>

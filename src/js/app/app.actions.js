@@ -1,13 +1,13 @@
-export const TOGGLE_APP_LOADER = 'TOGGLE_APP_LOADER';
-export const SET_AUTH_STATUS = 'SET_AUTH_STATUS';
 export const SET_APP_TITLE = 'SET_APP_TITLE';
+export const SET_AUTH_STATUS = 'SET_AUTH_STATUS';
+export const TOGGLE_APP_LOADER = 'TOGGLE_APP_LOADER';
 export const TOGGLE_APP_DRAWER = 'TOGGLE_APP_DRAWER';
 
-export const toggleAppLoader = (show) => {
+export const setAppTitle = (title) => {
   return {
-    type: TOGGLE_APP_LOADER,
+    type: SET_APP_TITLE,
     payload: {
-      isLoading: show
+      title: title
     }
   }
 }
@@ -21,11 +21,11 @@ export const setAuthStatus = (status) => {
   }
 }
 
-export const setAppTitle = (title) => {
+export const toggleAppLoader = (show) => {
   return {
-    type: SET_APP_TITLE,
+    type: TOGGLE_APP_LOADER,
     payload: {
-      title: title
+      isLoading: show
     }
   }
 }

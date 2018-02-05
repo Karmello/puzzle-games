@@ -11,10 +11,10 @@ const appReducer = (state = initialState, action) => {
   
   switch (action.type) {
 
-     case TOGGLE_APP_LOADER:
+    case SET_APP_TITLE:
       return {
         ...state,
-        isLoading: action.payload.isLoading
+        title: action.payload.title
       }
 
     case SET_AUTH_STATUS:
@@ -24,10 +24,10 @@ const appReducer = (state = initialState, action) => {
         showDrawer: false
       }
 
-    case SET_APP_TITLE:
+    case TOGGLE_APP_LOADER:
       return {
         ...state,
-        title: action.payload.title
+        isLoading: action.payload.isLoading
       }
 
     case TOGGLE_APP_DRAWER:
