@@ -11,18 +11,24 @@ import './ResultsTable.css';
 
 export default class ResultsTable extends Component {
 
-  state = { dataStatus: undefined };
+  state = { dataStatus: undefined, sortedData: undefined };
 
   componentWillReceiveProps(nextProps) {
     
-    const { api } = nextProps;
+    const { api, table } = nextProps;
     const results = api.results;
 
     if (results.isAwaiting) {
       this.setState({ dataStatus: 'LOADING' });
 
     } else if (results.status === 200 && results.data) {
-      this.setState({ dataStatus: results.data.length === 0 ? 'NO_DATA' : 'DATA_READY' });
+
+      if (results.data.length === 0) {
+        this.setState({ dataStatus: 'NO_DATA' });
+      
+      } else {
+        this.setState({ dataStatus: 'DATA_READY', sortedData: this.getSortedData(table, results.data) });
+      }
     
     } else {
       this.setState({ dataStatus: undefined });
@@ -31,7 +37,7 @@ export default class ResultsTable extends Component {
 
   render() {
 
-    const { dataStatus } = this.state;
+    const { dataStatus, sortedData } = this.state;
     const { api, table, onSortChange } = this.props;
 
     switch (dataStatus) {
@@ -51,17 +57,18 @@ export default class ResultsTable extends Component {
                 <TableRow>
                   {table.columns.map((column, i) => (
                   <TableCell key={i} numeric={column.isNumeric}>
-                    <TableSortLabel
+                    {column.id && <TableSortLabel
                       active={i === table.activeColumnIndex}
-                      direction={column.isInAscOrder ? 'asc' : 'desc'}
+                      direction={column.isInAscOrder ? 'desc' : 'asc'}
                       onClick={() => onSortChange(i)}
-                    >{column.label}</TableSortLabel>
+                    >{column.label}</TableSortLabel>}
+                    {!column.id && column.label}
                   </TableCell>
                   ))}
                 </TableRow>
               </TableHead>
               <TableBody>
-                {api.results.data.map(result => (
+                {sortedData.map(result => (
                   <TableRow key={result._id}>
                     <TableCell>{moment(result.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
                     <TableCell>{find(api.users.data, elem => elem._id === result.userId).fb.name}</TableCell>
@@ -77,5 +84,32 @@ export default class ResultsTable extends Component {
       default:
         return null;
     }
+  }
+
+  getSortedData(table, data) {
+
+    const dataCopy = data.slice();
+    const orderBy = table.columns[table.activeColumnIndex].id.split('.');
+
+    if (table.columns[table.activeColumnIndex].isInAscOrder) {
+      dataCopy.sort((obj1, obj2) => {
+        if (orderBy.length === 1) {
+          return obj1[orderBy] < obj2[orderBy] ? -1 : 1;
+        } else {
+          return obj1[orderBy[0]][orderBy[1]] < obj2[orderBy[0]][orderBy[1]] ? -1 : 1;
+        }
+      });
+
+    } else {
+      dataCopy.sort((obj1, obj2) => {
+        if (orderBy.length === 1) {
+          return obj2[orderBy] < obj1[orderBy] ? -1 : 1;
+        } else {
+          return obj2[orderBy[0]][orderBy[1]] < obj1[orderBy[0]][orderBy[1]] ? -1 : 1;
+        }
+      });
+    }
+
+    return dataCopy;
   }
 }

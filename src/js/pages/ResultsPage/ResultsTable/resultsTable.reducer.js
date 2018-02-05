@@ -3,10 +3,10 @@ import { SET_ACTIVE_COLUMN, TOGGLE_COLUMN_SORT_DIRECTION } from './../resultsPag
 const initialState = {
   activeColumnIndex: 0,
   columns: [
-    { label: 'Date', isInAscOrder: true },
-    { label: 'Player', isInAscOrder: true },
-    { label: 'Moves', isInAscOrder: true, isNumeric: true },
-    { label: 'Time', isInAscOrder: true }
+    { id: 'date', label: 'Date', isInAscOrder: false },
+    { label: 'Player' },
+    { id: 'details.moves', label: 'Moves', isInAscOrder: false, isNumeric: true },
+    { id: 'details.seconds', label: 'Time', isInAscOrder: false, isNumeric: true }
   ]
 };
 
