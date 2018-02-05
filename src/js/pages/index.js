@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 
 import gamesPageReducer from './GamesPage/gamesPage.reducer';
 import gamePageReducer from './GamePage/gamePage.reducer';
-import resultsPageReducer from './ResultsPage/resultsPage.reducer';
+import resultsFilterReducer from './ResultsPage/ResultsFilter/resultsFilter.reducer';
+import resultsTableReducer from './ResultsPage/ResultsTable/resultsTable.reducer';
 
 
 export { default as AuthPage } from './AuthPage/AuthPage';
@@ -13,5 +14,8 @@ export { default as ResultsPage } from './ResultsPage/ResultsPage';
 export const pageReducers = combineReducers({
   gamesPage: gamesPageReducer,
   gamePage: gamePageReducer,
-  resultsPage: resultsPageReducer
-})
+  resultsPage: combineReducers({
+    filter: resultsFilterReducer,
+    table: resultsTableReducer
+  })
+});
