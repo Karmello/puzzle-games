@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Paper, Typography } from 'material-ui';
 import moment from 'moment';
 import { Table } from 'material-ui';
-import { TableBody, TableCell, TableHead, TableRow, TableSortLabel } from 'material-ui/Table';
+import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import { find } from 'lodash';
 
 import { Loader } from 'js/other';
@@ -11,24 +11,17 @@ import './HighscoresTable.css';
 
 export default class HighscoresTable extends Component {
 
-  state = { dataStatus: undefined, sortedData: undefined };
+  state = { dataStatus: undefined };
 
   componentWillReceiveProps(nextProps) {
     
-    const { api, table } = nextProps;
-    const highscores = api.highscores;
+    const { api } = nextProps;
 
-    if (highscores.isAwaiting) {
+    if (api.highscores.isAwaiting) {
       this.setState({ dataStatus: 'LOADING' });
 
-    } else if (highscores.status === 200 && highscores.data) {
-
-      if (highscores.data.length === 0) {
-        this.setState({ dataStatus: 'NO_DATA' });
-      
-      } else {
-        this.setState({ dataStatus: 'DATA_READY', sortedData: this.getSortedData(table, highscores.data) });
-      }
+    } else if (api.highscores.status === 200 && api.highscores.data) {
+      this.setState({ dataStatus: api.highscores.data.length === 0 ? 'NO_DATA' : 'DATA_READY' });
     
     } else {
       this.setState({ dataStatus: undefined });
@@ -37,8 +30,8 @@ export default class HighscoresTable extends Component {
 
   render() {
 
-    const { dataStatus, sortedData } = this.state;
-    const { api, table, onSortChange } = this.props;
+    const { dataStatus } = this.state;
+    const { api, table } = this.props;
 
     switch (dataStatus) {
 
@@ -55,25 +48,19 @@ export default class HighscoresTable extends Component {
             <Table>
               <TableHead>
                 <TableRow>
-                  {table.columns.map((column, i) => (
-                  <TableCell key={i} numeric={column.isNumeric}>
-                    {column.id && <TableSortLabel
-                      active={i === table.activeColumnIndex}
-                      direction={column.isInAscOrder ? 'desc' : 'asc'}
-                      onClick={() => onSortChange(i)}
-                    >{column.label}</TableSortLabel>}
-                    {!column.id && column.label}
-                  </TableCell>
-                  ))}
+                {table.columns.map((column, i) => (
+                  <TableCell key={i} numeric={column.isNumeric}>{column.label}</TableCell>
+                ))}
                 </TableRow>
               </TableHead>
               <TableBody>
-                {sortedData.map(highscore => (
-                  <TableRow key={highscore._id}>
+                {api.highscores.data.map((highscore, i) => (
+                  <TableRow key={highscore._id} style={this.getRowStyle(highscore)}>
+                    <TableCell>{i + 1}</TableCell>
+                    <TableCell>{moment.utc(highscore.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
+                    <TableCell numeric>{highscore.details.moves}</TableCell>
                     <TableCell>{moment(highscore.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
                     <TableCell>{find(api.users.data, elem => elem._id === highscore.userId).fb.name}</TableCell>
-                    <TableCell numeric>{highscore.details.moves}</TableCell>
-                    <TableCell>{moment.utc(highscore.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -86,30 +73,10 @@ export default class HighscoresTable extends Component {
     }
   }
 
-  getSortedData(table, data) {
+  getRowStyle(highscore) {
 
-    const dataCopy = data.slice();
-    const orderBy = table.columns[table.activeColumnIndex].id.split('.');
-
-    if (table.columns[table.activeColumnIndex].isInAscOrder) {
-      dataCopy.sort((obj1, obj2) => {
-        if (orderBy.length === 1) {
-          return obj1[orderBy] < obj2[orderBy] ? -1 : 1;
-        } else {
-          return obj1[orderBy[0]][orderBy[1]] < obj2[orderBy[0]][orderBy[1]] ? -1 : 1;
-        }
-      });
-
-    } else {
-      dataCopy.sort((obj1, obj2) => {
-        if (orderBy.length === 1) {
-          return obj2[orderBy] < obj1[orderBy] ? -1 : 1;
-        } else {
-          return obj2[orderBy[0]][orderBy[1]] < obj1[orderBy[0]][orderBy[1]] ? -1 : 1;
-        }
-      });
+    if (highscore.userId === this.props.api.clientUser.data._id) {
+      return { fontWeight: 'bold' };
     }
-
-    return dataCopy;
   }
 }

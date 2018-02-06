@@ -3,10 +3,11 @@ import { SET_ACTIVE_COLUMN, TOGGLE_COLUMN_SORT_DIRECTION } from './../highscores
 const initialState = {
   activeColumnIndex: 0,
   columns: [
+    { label: 'No.' },
+    { id: 'details.seconds', label: 'Time', isInAscOrder: true, isNumeric: true },
+    { id: 'details.moves', label: 'Moves', isInAscOrder: true, isNumeric: true },
     { id: 'date', label: 'Date', isInAscOrder: false },
-    { label: 'Player' },
-    { id: 'details.moves', label: 'Moves', isInAscOrder: false, isNumeric: true },
-    { id: 'details.seconds', label: 'Time', isInAscOrder: false, isNumeric: true }
+    { label: 'Player' }
   ]
 };
 
