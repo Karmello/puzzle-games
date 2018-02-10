@@ -519,22 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/js/engines/BossPuzzle/BossPuzzle.jsx",
-			"settings":
-			{
-				"buffer_size": 4378,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/pages/index.js",
-			"settings":
-			{
-				"buffer_size": 837,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -624,13 +608,20 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Workspace/puzzle-games/src/js",
-		"/C/Workspace/puzzle-games/src/js/engines",
-		"/C/Workspace/puzzle-games/src/js/engines/EightQueens",
-		"/C/Workspace/puzzle-games/src/js/pages"
+		"/C/Workspace/puzzle-games"
 	],
 	"file_history":
 	[
+		"/C/Workspace/puzzle-games/.env",
+		"/C/Workspace/puzzle-games/.env.development",
+		"/C/Workspace/puzzle-games/.env.production",
+		"/C/Workspace/puzzle-games/Jenkinsfile",
+		"/C/Program Files/Git/etc/ssh/sshd_config",
+		"/C/Program Files/Git/etc/ssh/ssh_config",
+		"/C/Workspace/puzzle-games/src/js/pages/page.methods.js",
+		"/C/Workspace/puzzle-games/src/js/pages/index.js",
+		"/C/Workspace/puzzle-games/src/js/api/api.actions.js",
+		"/C/Workspace/puzzle-games/src/js/engines/BossPuzzle/BossPuzzle.jsx",
 		"/C/Workspace/puzzle-games/src/js/engines/EightQueens/EightQueens.jsx",
 		"/C/Workspace/puzzle-games/src/js/engines/BossPuzzle/bossPuzzle.reducer.js",
 		"/C/Workspace/puzzle-games/src/js/components/pages/ResultsPage/ResultsTable.jsx",
@@ -748,21 +739,11 @@
 		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzleOptions/BossPuzzleOptions.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/BossPuzzle.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/SquareTile.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/BossPuzzle.static.js",
-		"/C/Workspace/puzzle-games/src/js/actions/bossPuzzleActions.js",
-		"/C/Workspace/puzzle-games/src/js/components/game/GamesList/GamesList.scss",
-		"/C/Workspace/puzzle-games/src/js/components/game/GamesList/GamesList.css",
-		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzleOptions/BossPuzzleOptions.scss",
-		"/C/Workspace/puzzle-games/src/js/components/gamesOptions/BossPuzzleOptions.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/game/GamesList/options/BossPuzzleOptions.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/game/GamesList/BossPuzzleOptions.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/BossPuzzleSettings.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/app/App/App.auth.js",
-		"/C/Workspace/puzzle-games/.env"
+		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/BossPuzzle.static.js"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
@@ -778,6 +759,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"KexAlgorithms",
 			"areValid",
 			"optionParams",
 			"gameParams",
@@ -904,8 +886,7 @@
 			"apiUser",
 			"appName",
 			"userData",
-			"js/actions",
-			"Engine"
+			"js/actions"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -934,378 +915,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/js/engines/BossPuzzle/BossPuzzle.jsx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4378,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								445,
-								445
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										4248,
-										4249
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										444,
-										445
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/js/pages/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 837,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								837,
-								837
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
