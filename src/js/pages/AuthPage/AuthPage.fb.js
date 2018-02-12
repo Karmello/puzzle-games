@@ -1,10 +1,8 @@
 const appIds = {
   development: '1192012110930306',
-  staging: '',
+  staging: '395815540841997',
   production: '273943403136618'
 }
-
-console.log(process.env.REACT_APP_NODE_ENV || process.env.NODE_ENV);
 
 export const fbLoginConfig = {
   appId: appIds[process.env.REACT_APP_NODE_ENV || process.env.NODE_ENV],
