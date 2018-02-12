@@ -4,8 +4,6 @@ const appIds = {
   production: '273943403136618'
 }
 
-console.log('process env', process.env);
-
 export const fbLoginConfig = {
   appId: appIds[process.env.REACT_APP_NODE_ENV],
   cookie: true,
