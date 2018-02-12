@@ -5,6 +5,8 @@ export const fbLoginConfig = {
   version: 'v2.11'
 }
 
+console.log(process.env);
+
 export const loadFbScript = (cb) => {
     
   ((d, s, id) => {
