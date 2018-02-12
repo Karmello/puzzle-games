@@ -1,5 +1,8 @@
+import runtimeEnv from '@mars/heroku-js-runtime-env';
+const env = runtimeEnv();
+
 export const fbLoginConfig = {
-  appId: process.env.REACT_APP_FB_APP_ID,
+  appId: env.REACT_APP_FB_APP_ID,
   cookie: true,
   xfbml: true,
   version: 'v2.11'
