@@ -4,11 +4,11 @@ const appIds = {
   production: '273943403136618'
 }
 
-console.log(process.env.NODE_ENV);
 
+console.log(process.env.REACT_APP_NODE_ENV || process.env.NODE_ENV);
 
 export const fbLoginConfig = {
-  appId: appIds[process.env.NODE_ENV],
+  appId: appIds[process.env.REACT_APP_NODE_ENV || process.env.NODE_ENV],
   cookie: true,
   xfbml: true,
   version: 'v2.11'
