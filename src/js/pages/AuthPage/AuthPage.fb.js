@@ -1,5 +1,6 @@
 const appIds = {
   development: '1192012110930306',
+  staging: '',
   production: '273943403136618'
 }
 
