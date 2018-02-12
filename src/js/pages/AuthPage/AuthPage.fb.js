@@ -1,13 +1,17 @@
+import runtimeEnv from '@mars/heroku-js-runtime-env';
+
+const env = runtimeEnv();
+
 const appIds = {
   development: '1192012110930306',
   staging: '',
   production: '273943403136618'
 }
 
-console.log(process.env.NODE_ENV);
+console.log(env.REACT_APP_NODE_ENV);
 
 export const fbLoginConfig = {
-  appId: appIds[process.env.NODE_ENV],
+  appId: appIds[env.REACT_APP_NODE_ENV],
   cookie: true,
   xfbml: true,
   version: 'v2.11'
