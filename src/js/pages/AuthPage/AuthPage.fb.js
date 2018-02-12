@@ -8,7 +8,8 @@ const appIds = {
   production: '273943403136618'
 }
 
-console.log(env.REACT_APP_NODE_ENV);
+console.log('process env', process.env);
+console.log('runtime env', env);
 
 export const fbLoginConfig = {
   appId: appIds[env.REACT_APP_NODE_ENV],
