@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"REAC",
+				"REACT_APP_FB_APP_ID=1192012110930306\t(.env.development)"
+			],
+			[
 				"is",
 				"isAwaiting\t(ResultsFilter.jsx)"
 			],
@@ -510,10 +514,6 @@
 			[
 				"task",
 				"task2"
-			],
-			[
-				"newI",
-				"newImgIndex"
 			]
 		]
 	},
@@ -612,10 +612,22 @@
 	],
 	"file_history":
 	[
-		"/C/Workspace/puzzle-games/.env",
-		"/C/Workspace/puzzle-games/.env.development",
+		"/C/Workspace/puzzle-games/.env.staging",
 		"/C/Workspace/puzzle-games/.env.production",
+		"/C/Workspace/puzzle-games/.env.development",
+		"/C/Workspace/puzzle-games/.env",
+		"/C/Workspace/puzzle-games/src/js/pages/AuthPage/AuthPage.fb.js",
+		"/C/Workspace/puzzle-games/src/js/app/index.js",
+		"/C/Workspace/puzzle-games/src/js/app/app.actions.js",
+		"/C/Workspace/puzzle-games/src/js/app/app.reducer.js",
+		"/C/Workspace/puzzle-games/src/js/pages/AuthPage/AuthPage.jsx",
+		"/C/Workspace/puzzle-games/package.json",
+		"/C/Workspace/puzzle-games/static.json",
 		"/C/Workspace/puzzle-games/Jenkinsfile",
+		"/C/Workspace/puzzle-games/config/env.js",
+		"/C/Workspace/puzzle-games/scripts/start.js",
+		"/C/Workspace/puzzle-games/config/paths.js",
+		"/C/Workspace/puzzle-games/scripts/build.js",
 		"/C/Program Files/Git/etc/ssh/sshd_config",
 		"/C/Program Files/Git/etc/ssh/ssh_config",
 		"/C/Workspace/puzzle-games/src/js/pages/page.methods.js",
@@ -701,14 +713,10 @@
 		"/C/Workspace/puzzle-games/src/js/store.js",
 		"/C/Workspace/puzzle-games/src/js/helpers.js",
 		"/C/Workspace/puzzle-games/src/js/actionCreators/index.js",
-		"/C/Workspace/puzzle-games/package.json",
 		"/C/Workspace/puzzle-games/src/js/components/other/Timer/Timer.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/SquareTile.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.scss",
-		"/C/Workspace/puzzle-games/static.json",
 		"/C/Workspace/puzzle-games/scripts/test.js",
-		"/C/Workspace/puzzle-games/scripts/start.js",
-		"/C/Workspace/puzzle-games/scripts/build.js",
 		"/C/Workspace/puzzle-games/config/webpackDevServer.config.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/AppDrawer/AppDrawer.scss",
 		"/C/Workspace/puzzle-games/src/js/actions/index.js",
@@ -731,15 +739,7 @@
 		"/C/Workspace/puzzle-games/src/js/components/game/GameList/GameCard.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/ResultsPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/game/GameList/GameList.css",
-		"/C/Workspace/puzzle-games/src/js/components/game/GameList/GameList.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/game/GameList/GameList.scss",
-		"/C/Workspace/puzzle-games/src/js/actions/gameListActions.js",
-		"/C/Workspace/puzzle-games/src/js/components/game/GamesList/GamesList.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzleOptions/BossPuzzleOptions.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzleOptions/BossPuzzleOptions.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/BossPuzzle.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/SquareTile.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/games/BossPuzzle/BossPuzzle.static.js"
+		"/C/Workspace/puzzle-games/src/js/components/game/GameList/GameList.jsx"
 	],
 	"find":
 	{
@@ -751,6 +751,9 @@
 		"where_history":
 		[
 			"C:\\Workspace\\puzzle-games\\src",
+			"C:\\Workspace\\puzzle-games\\config",
+			"C:\\Workspace\\puzzle-games\\scripts",
+			"C:\\Workspace\\puzzle-games\\src",
 			""
 		]
 	},
@@ -759,6 +762,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"process.env.REACT_APP_NODE_ENV || process.env.NODE_ENV",
+			"production",
+			"development",
+			"console",
+			"development",
+			"console.lo",
 			"KexAlgorithms",
 			"areValid",
 			"optionParams",
@@ -880,13 +889,7 @@
 			"App",
 			"console.time",
 			"isHidden",
-			"console.time",
-			"timer",
-			"key=",
-			"apiUser",
-			"appName",
-			"userData",
-			"js/actions"
+			"console.time"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -976,6 +979,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"packa",
+				"puzzle-games\\package.json"
+			],
 			[
 				"resultst",
 				"components\\pages\\ResultsPage\\ResultsTable.jsx"
@@ -1119,10 +1126,6 @@
 			[
 				"resu",
 				"components\\pages\\ResultsPage\\ResultsPage.jsx"
-			],
-			[
-				"packa",
-				"puzzle-games\\package.json"
 			],
 			[
 				"timer",
