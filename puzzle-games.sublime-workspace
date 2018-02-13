@@ -612,11 +612,22 @@
 	],
 	"file_history":
 	[
-		"/C/Workspace/puzzle-games/.gitignore",
+		"/C/Workspace/puzzle-games/scripts/test.js",
+		"/C/Workspace/puzzle-games/scripts/start.js",
+		"/C/Workspace/puzzle-games/config/webpackDevServer.config.js",
+		"/C/Workspace/puzzle-games/config/webpack.config.prod.js",
+		"/C/Workspace/puzzle-games/config/env.js",
+		"/C/Workspace/puzzle-games/config/webpack.config.dev.js",
+		"/C/Workspace/puzzle-games/config/polyfills.js",
+		"/C/Workspace/puzzle-games/config/paths.js",
 		"/C/Workspace/puzzle-games/package.json",
+		"/C/Workspace/puzzle-games/src/index.js",
 		"/C/Workspace/puzzle-games/Jenkinsfile",
+		"/C/Workspace/puzzle-games/.gitignore",
 		"/C/Workspace/puzzle-games/.env",
 		"/C/Workspace/puzzle-games/.env.development",
+		"/C/Workspace/puzzle-games/scripts/build.js",
+		"/C/Workspace/puzzle-games/imgs/logo.jpg",
 		"/C/Workspace/puzzle-games/src/js/api/api.actions.js",
 		"/C/Workspace/puzzle-games/src/js/pages/GamePage/GamePage.jsx",
 		"/C/Workspace/puzzle-games/src/js/pages/GamesPage/GameCard/GameCard.jsx",
@@ -633,10 +644,6 @@
 		"/C/Workspace/puzzle-games/src/js/app/app.reducer.js",
 		"/C/Workspace/puzzle-games/src/js/pages/AuthPage/AuthPage.jsx",
 		"/C/Workspace/puzzle-games/static.json",
-		"/C/Workspace/puzzle-games/config/env.js",
-		"/C/Workspace/puzzle-games/scripts/start.js",
-		"/C/Workspace/puzzle-games/config/paths.js",
-		"/C/Workspace/puzzle-games/scripts/build.js",
 		"/C/Program Files/Git/etc/ssh/sshd_config",
 		"/C/Program Files/Git/etc/ssh/ssh_config",
 		"/C/Workspace/puzzle-games/src/js/pages/page.methods.js",
@@ -704,7 +711,6 @@
 		"/C/Workspace/puzzle-games/src/js/components/game/GameMenu/GameMenu.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/game/GameCard/GameCard.scss",
 		"/C/Workspace/puzzle-games/src/index.scss",
-		"/C/Workspace/puzzle-games/src/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/App/App.scss",
 		"/C/Workspace/puzzle-games/src/js/components/game/GameMenu/GameMenu.scss",
 		"/C/Workspace/puzzle-games/src/js/components/app/AppBar/AppBar.scss",
@@ -723,8 +729,6 @@
 		"/C/Workspace/puzzle-games/src/js/components/other/Timer/Timer.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/SquareTile.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/BossPuzzle.scss",
-		"/C/Workspace/puzzle-games/scripts/test.js",
-		"/C/Workspace/puzzle-games/config/webpackDevServer.config.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/AppDrawer/AppDrawer.scss",
 		"/C/Workspace/puzzle-games/src/js/actions/index.js",
 		"/C/Workspace/puzzle-games/src/js/actions/appActions.js",
@@ -735,11 +739,7 @@
 		"/C/Workspace/puzzle-games/src/js/actions/gameActions.js",
 		"/C/Workspace/puzzle-games/src/js/components/app/App/App.fb.js",
 		"/C/Workspace/puzzle-games/src/js/components/game/GameDashboard/GameDashboard.scss",
-		"/C/Workspace/puzzle-games/src/js/components/pages/AuthPage/AuthPage.scss",
-		"/C/Workspace/puzzle-games/src/js/components/app/pages/AuthPage.scss",
-		"/C/Workspace/puzzle-games/src/js/components/app/pages/GamesPage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/app/pages/GamePage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/app/pages/AuthPage.jsx"
+		"/C/Workspace/puzzle-games/src/js/components/pages/AuthPage/AuthPage.scss"
 	],
 	"find":
 	{
@@ -980,12 +980,12 @@
 		"selected_items":
 		[
 			[
-				"gamec",
-				"js\\pages\\GamesPage\\GameCard\\GameCard.jsx"
-			],
-			[
 				"packa",
 				"puzzle-games\\package.json"
+			],
+			[
+				"gamec",
+				"js\\pages\\GamesPage\\GameCard\\GameCard.jsx"
 			],
 			[
 				"resultst",
