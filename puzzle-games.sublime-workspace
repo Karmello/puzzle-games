@@ -612,18 +612,27 @@
 	],
 	"file_history":
 	[
+		"/C/Workspace/puzzle-games/.gitignore",
+		"/C/Workspace/puzzle-games/package.json",
+		"/C/Workspace/puzzle-games/Jenkinsfile",
+		"/C/Workspace/puzzle-games/.env",
+		"/C/Workspace/puzzle-games/.env.development",
+		"/C/Workspace/puzzle-games/src/js/api/api.actions.js",
+		"/C/Workspace/puzzle-games/src/js/pages/GamePage/GamePage.jsx",
+		"/C/Workspace/puzzle-games/src/js/pages/GamesPage/GameCard/GameCard.jsx",
+		"/C/Workspace/puzzle-games/src/js/pages/GamesPage/gamesPage.reducer.js",
+		"/C/Workspace/puzzle-games/src/js/other/PlayBtn/PlayBtn.jsx",
+		"/C/Workspace/puzzle-games/src/js/pages/HighscoresPage/HighscoresFilter/highscoresFilter.reducer.js",
+		"/C/Workspace/puzzle-games/src/js/pages/HighscoresPage/highscoresPage.actions.js",
+		"/C/Workspace/puzzle-games/src/js/pages/AuthPage/AuthPage.fb.js",
+		"/C/Workspace/puzzle-games/src/js/helpers.js",
 		"/C/Workspace/puzzle-games/.env.staging",
 		"/C/Workspace/puzzle-games/.env.production",
-		"/C/Workspace/puzzle-games/.env.development",
-		"/C/Workspace/puzzle-games/.env",
-		"/C/Workspace/puzzle-games/src/js/pages/AuthPage/AuthPage.fb.js",
 		"/C/Workspace/puzzle-games/src/js/app/index.js",
 		"/C/Workspace/puzzle-games/src/js/app/app.actions.js",
 		"/C/Workspace/puzzle-games/src/js/app/app.reducer.js",
 		"/C/Workspace/puzzle-games/src/js/pages/AuthPage/AuthPage.jsx",
-		"/C/Workspace/puzzle-games/package.json",
 		"/C/Workspace/puzzle-games/static.json",
-		"/C/Workspace/puzzle-games/Jenkinsfile",
 		"/C/Workspace/puzzle-games/config/env.js",
 		"/C/Workspace/puzzle-games/scripts/start.js",
 		"/C/Workspace/puzzle-games/config/paths.js",
@@ -632,7 +641,6 @@
 		"/C/Program Files/Git/etc/ssh/ssh_config",
 		"/C/Workspace/puzzle-games/src/js/pages/page.methods.js",
 		"/C/Workspace/puzzle-games/src/js/pages/index.js",
-		"/C/Workspace/puzzle-games/src/js/api/api.actions.js",
 		"/C/Workspace/puzzle-games/src/js/engines/BossPuzzle/BossPuzzle.jsx",
 		"/C/Workspace/puzzle-games/src/js/engines/EightQueens/EightQueens.jsx",
 		"/C/Workspace/puzzle-games/src/js/engines/BossPuzzle/bossPuzzle.reducer.js",
@@ -711,7 +719,6 @@
 		"/C/Workspace/puzzle-games/src/js/components/other/Loader/Loader.scss",
 		"/C/Workspace/puzzle-games/src/js/actions/resultsFilter.js",
 		"/C/Workspace/puzzle-games/src/js/store.js",
-		"/C/Workspace/puzzle-games/src/js/helpers.js",
 		"/C/Workspace/puzzle-games/src/js/actionCreators/index.js",
 		"/C/Workspace/puzzle-games/src/js/components/other/Timer/Timer.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/engines/BossPuzzle/SquareTile.jsx",
@@ -732,18 +739,11 @@
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/AuthPage.scss",
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/GamesPage.jsx",
 		"/C/Workspace/puzzle-games/src/js/components/app/pages/GamePage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/app/pages/AuthPage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/game/Game/Game.scss",
-		"/C/Workspace/puzzle-games/src/js/components/game/Game/Game.jsx",
-		"/C/Workspace/puzzle-games/src/js/reducers/gameListReducer.js",
-		"/C/Workspace/puzzle-games/src/js/components/game/GameList/GameCard.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/app/pages/ResultsPage.jsx",
-		"/C/Workspace/puzzle-games/src/js/components/game/GameList/GameList.css",
-		"/C/Workspace/puzzle-games/src/js/components/game/GameList/GameList.jsx"
+		"/C/Workspace/puzzle-games/src/js/components/app/pages/AuthPage.jsx"
 	],
 	"find":
 	{
-		"height": 43.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -762,6 +762,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"const {",
+			"const P",
 			"process.env.REACT_APP_NODE_ENV || process.env.NODE_ENV",
 			"production",
 			"development",
@@ -887,8 +889,6 @@
 			"Nutrition",
 			"context",
 			"App",
-			"console.time",
-			"isHidden",
 			"console.time"
 		],
 		"highlight": true,
@@ -980,6 +980,10 @@
 		"selected_items":
 		[
 			[
+				"gamec",
+				"js\\pages\\GamesPage\\GameCard\\GameCard.jsx"
+			],
+			[
 				"packa",
 				"puzzle-games\\package.json"
 			],
@@ -1030,10 +1034,6 @@
 			[
 				"fbb",
 				"components\\other\\FbBtn\\FbBtn.jsx"
-			],
-			[
-				"gamec",
-				"components\\game\\GameCard\\GameCard.jsx"
 			],
 			[
 				"gamecategori",
@@ -1500,7 +1500,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 330.0,
+	"side_bar_width": 362.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
