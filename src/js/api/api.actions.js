@@ -14,7 +14,7 @@ export const SAVE_NEW_HIGHSCORE = 'SAVE_NEW_HIGHSCORE';
 export const createClientUser = (user) => {
   return (dispatch) => {
     dispatch(apiRequest(FETCH_OR_CREATE_CLIENT_USER, { body: user }));
-    return api.post('/users', user).then(res => {
+    return api.post('/user', user).then(res => {
       dispatch(apiRequestSuccess(FETCH_OR_CREATE_CLIENT_USER, res));
     }, err => {
       dispatch(apiRequestFailure(FETCH_OR_CREATE_CLIENT_USER, err));
@@ -25,7 +25,7 @@ export const createClientUser = (user) => {
 export const fetchClientUser = (fbId) => {
   return (dispatch) => {
     dispatch(apiRequest(FETCH_OR_CREATE_CLIENT_USER, { params: { fbId } }));
-    return api.get(`/users/${fbId}`).then(res => {
+    return api.get(`/user/${fbId}`).then(res => {
       dispatch(apiRequestSuccess(FETCH_OR_CREATE_CLIENT_USER, res));
     }, err => {
       dispatch(apiRequestFailure(FETCH_OR_CREATE_CLIENT_USER, err));
@@ -69,7 +69,7 @@ export const fetchHighscores = (gameId, query, delay) => {
 export const saveNewHighscore = (highscore) => {
   return (dispatch) => {
     dispatch(apiRequest(SAVE_NEW_HIGHSCORE, { body: highscore }));
-    return api.post('/highscores', highscore).then(res => {
+    return api.post('/highscore', highscore).then(res => {
       dispatch(apiRequestSuccess(SAVE_NEW_HIGHSCORE, res));
     }, err => {
       dispatch(apiRequestFailure(SAVE_NEW_HIGHSCORE, err));
