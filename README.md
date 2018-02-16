@@ -5,5 +5,5 @@
 * `git clone` repo and `npm install` from root
 * `npm run start` & navigate to `localhost:3000`
 ### Remote environments
-* staging - [https://staging-puzzle-games.herokuapp.com](https://staging-puzzle-games.herokuapp.com)
-* production - [https://puzzle-games.herokuapp.com](https://puzzle-games.herokuapp.com)
+* STAGING - [https://staging-puzzle-games.herokuapp.com](https://staging-puzzle-games.herokuapp.com)
+* PRODUCTION - [https://puzzle-games.herokuapp.com](https://puzzle-games.herokuapp.com)
