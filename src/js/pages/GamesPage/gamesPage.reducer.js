@@ -22,7 +22,7 @@ const gamesPageReducer = (state = initialState, action) => {
       return {
         ...state,
         options: {
-          ...state,
+          ...state.options,
           [action.meta.id]: {
             ...action.payload.options
           }

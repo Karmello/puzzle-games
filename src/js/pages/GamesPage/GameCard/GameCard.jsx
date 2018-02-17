@@ -33,7 +33,7 @@ export default class GameCard extends Component {
             <Typography type='headline' component='h2'>{gameData.name}</Typography>
             <Typography component='p'>{gameData.description}</Typography>
             <div className='GameCard-options'>
-              {Options && gameOptions && <Options
+              {Options && <Options
                 options={gameOptions}
                 onValueChangeCb={options => onGameOptionsChange(gameData.id, options)}
               />}
