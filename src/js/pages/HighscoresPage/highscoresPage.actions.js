@@ -1,12 +1,11 @@
 export const CHANGE_HIGHSCORES_FILTER = 'CHANGE_HIGHSCORES_FILTER';
 
-export const changeHighscoresFilter = (categoryId, gameId, gameOptions) => {
+export const changeHighscoresFilter = (gameFilter, optionsFilter) => {
   return {
     type: CHANGE_HIGHSCORES_FILTER,
     payload: {
-      category: categoryId,
-      id: gameId,
-      options: gameOptions
+      gameFilter,
+      optionsFilter
     }
   }
 }

@@ -17,7 +17,7 @@ class HighscoresPage extends Component {
 
     const { gameFilterToSet, optionsFilterToSet, dispatch } = this.props;
     
-    dispatch(changeHighscoresFilter(gameFilterToSet.category, gameFilterToSet.id, optionsFilterToSet));
+    dispatch(changeHighscoresFilter(gameFilterToSet, optionsFilterToSet));
     this.fetchApiData(gameFilterToSet, optionsFilterToSet);
   }
   
@@ -31,7 +31,7 @@ class HighscoresPage extends Component {
     const anyOptionChanged = keys.some(key => nextOptionsFilterToSet[key] !== optionsFilterToSet[key]);
 
     if (gameFilterToSet.category !== nextGameFilterToSet.category || gameFilterToSet.id !== nextGameFilterToSet.id || anyOptionChanged) {
-      dispatch(changeHighscoresFilter(nextGameFilterToSet.category, nextGameFilterToSet.id, nextOptionsFilterToSet));
+      dispatch(changeHighscoresFilter(nextGameFilterToSet, nextOptionsFilterToSet));
       this.fetchApiData(nextGameFilterToSet, nextOptionsFilterToSet);
     }
   }

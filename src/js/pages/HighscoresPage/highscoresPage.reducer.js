@@ -10,15 +10,10 @@ const highscoresPageReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case CHANGE_HIGHSCORES_FILTER:
-  
-      const { category, id, options } = action.payload;
-      const newState = { ...state };
-
-      if (category) { newState.gameFilter.category = category; }
-      if (id) { newState.gameFilter.id = id; }
-      if (options) { newState.optionsFilter = { ...options }; }
-
-      return newState;
+      return {
+        gameFilter: { ...action.payload.gameFilter },
+        optionsFilter: { ...action.payload.optionsFilter }
+      }
 
     default:
       return state;
