@@ -5,7 +5,7 @@ import { App } from 'js/app';
 import { PlayBtn } from 'js/other';
 import { apiRequestClear } from 'js/api/api.actionCreators';
 import { fetchHighscores, fetchUsers, FETCH_HIGHSCORES } from 'js/api/api.actions';
-import { changeHighscoresFilter, setActiveColumn, toggleColumnSortDirection } from './highscoresPage.actions';
+import { changeHighscoresFilter } from './highscoresPage.actions';
 import HighscoresFilter from './HighscoresFilter/HighscoresFilter';
 import HighscoresTable from './HighscoresTable/HighscoresTable';
 import './HighscoresPage.css';
@@ -15,25 +15,24 @@ class HighscoresPage extends Component {
 
   componentDidMount() {
 
-    const { filterToSet, dispatch } = this.props;
-    const { game, options } = filterToSet;
+    const { gameFilterToSet, optionsFilterToSet, dispatch } = this.props;
     
-    dispatch(changeHighscoresFilter(game.category, game.id, options));
-    this.fetchApiData(filterToSet);
+    dispatch(changeHighscoresFilter(gameFilterToSet.category, gameFilterToSet.id, optionsFilterToSet));
+    this.fetchApiData(gameFilterToSet, optionsFilterToSet);
   }
   
   componentWillReceiveProps(nextProps) {
 
-    const { filterToSet, dispatch } = this.props;
-    const { game, options } = filterToSet;
-    const nextFilterToSet = nextProps.filterToSet;
+    const { gameFilterToSet, optionsFilterToSet, dispatch } = this.props;
+    const nextGameFilterToSet = nextProps.gameFilterToSet;
+    const nextOptionsFilterToSet = nextProps.optionsFilterToSet;
 
-    const keys = Object.keys(nextFilterToSet.options);
-    const anyOptionChanged = keys.some(key => nextFilterToSet.options[key] !== options[key]);
+    const keys = Object.keys(nextOptionsFilterToSet);
+    const anyOptionChanged = keys.some(key => nextOptionsFilterToSet[key] !== optionsFilterToSet[key]);
 
-    if (game.category !== nextFilterToSet.game.category || game.id !== nextFilterToSet.game.id || anyOptionChanged) {
-      dispatch(changeHighscoresFilter(nextFilterToSet.game.category, nextFilterToSet.game.id, nextFilterToSet.options));
-      this.fetchApiData(nextFilterToSet);
+    if (gameFilterToSet.category !== nextGameFilterToSet.category || gameFilterToSet.id !== nextGameFilterToSet.id || anyOptionChanged) {
+      dispatch(changeHighscoresFilter(nextGameFilterToSet.category, nextGameFilterToSet.id, nextOptionsFilterToSet));
+      this.fetchApiData(nextGameFilterToSet, nextOptionsFilterToSet);
     }
   }
 
@@ -49,42 +48,35 @@ class HighscoresPage extends Component {
     return (
       <div className='HighscoresPage'>
         <div>
-          <HighscoresFilter api={api} gameOptions={gameOptions} highscoresFilter={highscoresPage.filter} />
+          <HighscoresFilter
+            api={api}
+            gameOptions={gameOptions}
+            gameFilter={highscoresPage.gameFilter}
+            optionsFilter={highscoresPage.optionsFilter}
+          />
         </div>
         <div className='HighscoresPage-actionBtns'>
           <PlayBtn
-            gameCategory={highscoresPage.filter.game.category}
-            gameId={highscoresPage.filter.game.id}
-            gameOptions={highscoresPage.filter.options}
+            gameCategory={highscoresPage.gameFilter.category}
+            gameId={highscoresPage.gameFilter.id}
+            gameOptions={highscoresPage.optionsFilter}
           />
         </div>
         <div>
-          <HighscoresTable api={api} table={highscoresPage.table} onSortChange={this.onSortChange.bind(this)} />
+          <HighscoresTable api={api} />
         </div>
       </div>
     );
   }
 
-  fetchApiData(highscoresFilter) {
+  fetchApiData(gameFilter, optionsFilter) {
 
     const { api, dispatch } = this.props;
 
     dispatch(fetchUsers()).then(() => {
-      const gameId = api.games.data.find(elem => elem.id === highscoresFilter.game.id)._id;
-      dispatch(fetchHighscores(gameId, highscoresFilter.options, App.minLoadTime));
+      const gameId = api.games.data.find(elem => elem.id === gameFilter.id)._id;
+      dispatch(fetchHighscores(gameId, optionsFilter, App.minLoadTime));
     });
-  }
-
-  onSortChange(columnIndex) {
-
-    const { highscoresPage, dispatch } = this.props;
-
-    if (highscoresPage.table.activeColumnIndex === columnIndex) {
-      dispatch(toggleColumnSortDirection(columnIndex));
-      
-    } else {
-      dispatch(setActiveColumn(columnIndex));
-    }
   }
 }
 

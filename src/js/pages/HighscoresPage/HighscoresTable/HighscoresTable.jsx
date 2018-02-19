@@ -9,6 +9,8 @@ import { Loader } from 'js/other';
 import './HighscoresTable.css';
 
 
+const columns = ['No.', 'Time', 'Moves', 'Date', 'Player'];
+
 export default class HighscoresTable extends Component {
 
   state = { dataStatus: undefined };
@@ -31,7 +33,7 @@ export default class HighscoresTable extends Component {
   render() {
 
     const { dataStatus } = this.state;
-    const { api, table } = this.props;
+    const { api } = this.props;
 
     switch (dataStatus) {
 
@@ -48,8 +50,8 @@ export default class HighscoresTable extends Component {
             <Table>
               <TableHead>
                 <TableRow>
-                {table.columns.map((column, i) => (
-                  <TableCell key={i} numeric={column.isNumeric}>{column.label}</TableCell>
+                {columns.map((label, i) => (
+                  <TableCell key={i}>{label}</TableCell>
                 ))}
                 </TableRow>
               </TableHead>

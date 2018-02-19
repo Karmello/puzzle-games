@@ -141,7 +141,7 @@ class App extends Component {
     const { shouldRedirect, validParams } = this.validateGameParams({ category, id }, params);
 
     if (!shouldRedirect) {
-      return <HighscoresPage filterToSet={{ game: { category: category, id: id }, options: validParams }} />;
+      return <HighscoresPage gameFilterToSet={{ category: category, id: id }} optionsFilterToSet={validParams} />;
     
     } else if (validParams) {
       validParams.category = category;

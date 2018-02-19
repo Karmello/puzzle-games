@@ -71,10 +71,10 @@ class AppDrawer extends Component {
 
   getHighscoresPageUrl() {
 
-    const { highscoresFilter } = this.props;
+    const { highscoresPage } = this.props;
 
-    let url = `/highscores?category=${highscoresFilter.game.category}&id=${highscoresFilter.game.id}`;
-    for (const key in highscoresFilter.options) { url += `&${key}=${highscoresFilter.options[key]}`; }
+    let url = `/highscores?category=${highscoresPage.gameFilter.category}&id=${highscoresPage.gameFilter.id}`;
+    for (const key in highscoresPage.optionsFilter) { url += `&${key}=${highscoresPage.optionsFilter[key]}`; }
     return url;
   }
 
@@ -101,6 +101,6 @@ export default connect(store => ({
   authStatus: store.app.authStatus,
   showDrawer: store.app.showDrawer,
   gameCategory: store.pages.gamesPage.category,
-  highscoresFilter: store.pages.highscoresPage.filter,
+  highscoresPage: store.pages.highscoresPage,
   clientUser:  store.api.clientUser
 }))(AppDrawer);
