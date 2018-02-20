@@ -30,7 +30,7 @@ class App extends Component {
     if (authStatus !== 'error' && nextProps.authStatus === 'error') {
       this.setState({ snackBarMessage: 'Could not login.' });
     
-    } else if (api.newHighscore.isAwaiting && !nextProps.api.newHighscore.isAwaiting && nextProps.api.newHighscore.status === 200) {
+    } else if (api.newHighscore.req.isAwaiting && !nextProps.api.newHighscore.req.isAwaiting && nextProps.api.newHighscore.res.status === 200) {
       this.setState({ snackBarMessage: 'Your score has been saved.' });
     }
   }
@@ -54,25 +54,25 @@ class App extends Component {
               if (authStatus !== 'connected' && authStatus !== 'error') {
                 return <Redirect to={{
                   pathname: '/auth',
-                  state: api.clientUser.status === 200 ? undefined : { from: props.location }
+                  state: api.clientUser.res.status === 200 ? undefined : { from: props.location }
                 }}/>;
               }
               return (
                 <div>
                   <AppBar/>
-                  {api.clientUser.status === 200 && <AppDrawer/>}
+                  {api.clientUser.res.status === 200 && <AppDrawer/>}
                   <MySnackBar
                     message={this.state.snackBarMessage}
                     onClose={() => { this.setState({ snackBarMessage: '' }) }}
                   />
-                  {api.gameCategories.status === 200 && api.games.status === 200 &&
+                  {api.gameCategories.res.status === 200 && api.games.res.status === 200 &&
                   <Switch>
                     <Route exact path='/games/:category' render={props => this.gamesRouteLogic(props)} />
                     <Route exact path='/games/:category/:id' render={props => this.gameRouteLogic(props)} />
                     <Route exact path='/highscores' render={props => this.highscoresRouteLogic(props)} />
                     <Redirect from='*' to={this.defaultPath} />
                   </Switch>}
-                  {(api.gameCategories.status !== 200 || api.games.status !== 200) && <PageError/> }
+                  {(api.gameCategories.res.status !== 200 || api.games.res.status !== 200) && <PageError/> }
                 </div>
               );
             }}/>
@@ -107,7 +107,7 @@ class App extends Component {
 
     const { api } = this.props;
 
-    if (api.gameCategories.data.some(obj => obj.id === props.match.params.category)) {
+    if (api.gameCategories.res.data.some(obj => obj.id === props.match.params.category)) {
       return <GamesPage gameCategoryToSet={props.match.params.category} />;
     
     } else {

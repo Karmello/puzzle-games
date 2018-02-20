@@ -19,7 +19,7 @@ class AppDrawer extends Component {
 
   componentDidMount() {
     
-    window.FB.api(`/${this.props.clientUser.data.fb.id}/picture`, 'GET', {}, res => {
+    window.FB.api(`/${this.props.clientUser.res.data.fb.id}/picture`, 'GET', {}, res => {
       if (res.data && !res.data.is_silhouette) {
         this.setState({ avatar: res.data });
       }
@@ -39,8 +39,8 @@ class AppDrawer extends Component {
       >
         {avatar &&
         <div className='AppDrawer-user'>
-          <div><img src={avatar.url} alt='' title={clientUser.data.fb.name} /></div>
-          <div>{clientUser.data.fb.name}</div>
+          <div><img src={avatar.url} alt='' title={clientUser.res.data.fb.name} /></div>
+          <div>{clientUser.res.data.fb.name}</div>
         </div>}
         <div
           tabIndex={0}

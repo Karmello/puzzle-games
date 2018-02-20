@@ -87,7 +87,7 @@ class GamePage extends Component {
     
     if (authStatus === 'connected') {
       dispatch(saveNewHighscore({
-        userId: clientUser.data._id,
+        userId: clientUser.res.data._id,
         gameId: gameData._id,
         options: { ...gameOptions[game.id] },
         details: {

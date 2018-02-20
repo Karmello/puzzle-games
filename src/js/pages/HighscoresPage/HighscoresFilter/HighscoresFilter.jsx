@@ -43,7 +43,7 @@ export default class HighscoresFilter extends Component {
               disabled={this.shouldBeDisabled()}
               style={{ width: '90px' }}
             >
-              {api.gameCategories.data.map(obj => (
+              {api.gameCategories.res.data.map(obj => (
                 <MenuItem
                   key={obj.id}
                   value={obj.id}
@@ -61,7 +61,7 @@ export default class HighscoresFilter extends Component {
               disabled={this.shouldBeDisabled()}
               style={{ width: '130px' }}
             >
-              {api.games.data.map(obj => {
+              {api.games.res.data.map(obj => {
                 if (obj.categoryId === gameFilter.category) {
                   return (
                     <MenuItem
@@ -94,7 +94,7 @@ export default class HighscoresFilter extends Component {
     const { gameOptions, gameFilter, optionsFilter, api } = this.props;
     let options;
 
-    if (!id) { id = api.games.data.find(obj => obj.categoryId === category).id; }
+    if (!id) { id = api.games.res.data.find(obj => obj.categoryId === category).id; }
     let url = `/highscores?category=${category}&id=${id}`;
     if (id !== gameFilter.id) { options = gameOptions[id]; } else { options = optionsFilter; }
     for (const key in options) { url += `&${key}=${options[key]}`; }
@@ -114,6 +114,6 @@ export default class HighscoresFilter extends Component {
 
   shouldBeDisabled() {
     const { api } = this.props;
-    return api.highscores.status !== 200 || api.highscores.isAwaiting;
+    return api.highscores.res.status !== 200 || api.highscores.req.isAwaiting;
   }
 }
