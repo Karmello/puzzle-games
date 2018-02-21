@@ -15,12 +15,14 @@ const getApiRequestReducer = (actionType) => {
   
       case actionType:
         return {
-          ...state,
           req: {
             params: action.payload.params,
             query: action.payload.query,
             body: action.payload.body,
             isAwaiting: true
+          },
+          res: {
+            data: []
           }
         };
 
