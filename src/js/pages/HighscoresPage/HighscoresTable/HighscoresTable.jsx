@@ -50,9 +50,9 @@ export default class HighscoresTable extends Component {
             <Table>
               <TableHead>
                 <TableRow>
-                {columns.map((label, i) => (
-                  <TableCell key={i}>{label}</TableCell>
-                ))}
+                  {columns.map((label, i) => (
+                    <TableCell key={i}>{label}</TableCell>
+                  ))}
                 </TableRow>
               </TableHead>
               <TableBody>

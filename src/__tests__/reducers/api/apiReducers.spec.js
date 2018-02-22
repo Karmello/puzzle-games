@@ -31,8 +31,8 @@ describe('apiReducers', () => {
 
     const state = {
       req: {
-        params: { id: '1234' },
-        query: { sort: 1 },
+        params: { id: '9876' },
+        query: { sort: -1 },
         body: { firstname: 'Alan', lastname: 'Watts' },
         method: 'POST',
         url: '/url',
@@ -51,7 +51,11 @@ describe('apiReducers', () => {
         query: { sort: 1 },
         isAwaiting: true
       },
-      res: { data: [] }
+      res: {
+        status: 200,
+        statusText: 'OK',
+        data: [{ id: 1 }, { id: 2 }, { id: 3 }]
+      }
     });
   });
 

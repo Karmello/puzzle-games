@@ -8,7 +8,6 @@ import { coordsToIndex, findAllMovementCoords, indexToCoords } from './../BossPu
 export default class SquareTile extends Component {
 
   constructor(props) {
-    
     super(props);
     this.index = props.row * props.options.dimension + props.col;
   }
