@@ -10,7 +10,7 @@ export default class GameCategories extends Component {
 
     const { category, gameCategories } = this.props;
 
-    if (gameCategories.isAwaiting || gameCategories.status !== 200) { return null; }
+    if (gameCategories.req.isAwaiting || gameCategories.res.status !== 200) { return null; }
 
     return (
       <div>
@@ -19,7 +19,7 @@ export default class GameCategories extends Component {
           indicatorColor='primary'
           textColor='primary'
         >
-          {gameCategories.data.map(obj =>
+          {gameCategories.res.data.map(obj =>
             <Tab
               key={obj.id}
               value={obj.id}

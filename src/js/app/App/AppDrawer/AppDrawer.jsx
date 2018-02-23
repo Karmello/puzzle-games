@@ -19,7 +19,7 @@ class AppDrawer extends Component {
 
   componentDidMount() {
     
-    window.FB.api(`/${this.props.clientUser.data.fb.id}/picture`, 'GET', {}, res => {
+    window.FB.api(`/${this.props.clientUser.res.data.fb.id}/picture`, 'GET', {}, res => {
       if (res.data && !res.data.is_silhouette) {
         this.setState({ avatar: res.data });
       }
@@ -39,8 +39,8 @@ class AppDrawer extends Component {
       >
         {avatar &&
         <div className='AppDrawer-user'>
-          <div><img src={avatar.url} alt='' title={clientUser.data.fb.name} /></div>
-          <div>{clientUser.data.fb.name}</div>
+          <div><img src={avatar.url} alt='' title={clientUser.res.data.fb.name} /></div>
+          <div>{clientUser.res.data.fb.name}</div>
         </div>}
         <div
           tabIndex={0}
@@ -71,10 +71,10 @@ class AppDrawer extends Component {
 
   getHighscoresPageUrl() {
 
-    const { highscoresFilter } = this.props;
+    const { highscoresPage } = this.props;
 
-    let url = `/highscores?category=${highscoresFilter.game.category}&id=${highscoresFilter.game.id}`;
-    for (const key in highscoresFilter.options) { url += `&${key}=${highscoresFilter.options[key]}`; }
+    let url = `/highscores?category=${highscoresPage.gameFilter.category}&id=${highscoresPage.gameFilter.id}`;
+    for (const key in highscoresPage.optionsFilter) { url += `&${key}=${highscoresPage.optionsFilter[key]}`; }
     return url;
   }
 
@@ -101,6 +101,6 @@ export default connect(store => ({
   authStatus: store.app.authStatus,
   showDrawer: store.app.showDrawer,
   gameCategory: store.pages.gamesPage.category,
-  highscoresFilter: store.pages.highscoresPage.filter,
+  highscoresPage: store.pages.highscoresPage,
   clientUser:  store.api.clientUser
 }))(AppDrawer);
