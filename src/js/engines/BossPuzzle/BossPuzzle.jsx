@@ -30,7 +30,7 @@ class BossPuzzle extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
 
     const { bossPuzzleEngine, game, onBeenSolved, dispatch } = this.props;
 
@@ -67,22 +67,22 @@ class BossPuzzle extends Component {
           style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}
         >
           {Array.from({ length: game.options.dimension }, (v, k) => k).map(i => (
-          <Row key={i} className='BossPuzzle-row'> {
-            Array.from({ length: game.options.dimension }, (v, k) => k).map(j => (
-            <Col key={j} className='BossPuzzle-col'>
-              <SquareTile
-                options={game.options}
-                hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
-                tiles={bossPuzzleEngine.tiles}
-                imgSrc={imgSrc}
-                row={Number(i)}
-                col={Number(j)}
-                isSolved={game.isSolved}
-                onMoveMade={this.onMoveMade.bind(this)}
-              />
-            </Col>
-          ))}</Row>
-        ))}</Paper>
+            <Row key={i} className='BossPuzzle-row'> {
+              Array.from({ length: game.options.dimension }, (v, k) => k).map(j => (
+                <Col key={j} className='BossPuzzle-col'>
+                  <SquareTile
+                    options={game.options}
+                    hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
+                    tiles={bossPuzzleEngine.tiles}
+                    imgSrc={imgSrc}
+                    row={Number(i)}
+                    col={Number(j)}
+                    isSolved={game.isSolved}
+                    onMoveMade={this.onMoveMade.bind(this)}
+                  />
+                </Col>
+              ))}</Row>
+          ))}</Paper>
       );
     }
 
@@ -149,7 +149,7 @@ class BossPuzzle extends Component {
     dispatch(switchTiles(index1, index2, targetCoords));
     onMakeMove();
   }
-};
+}
 
 export default connect(store => ({
   game: store.pages.gamePage,

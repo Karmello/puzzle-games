@@ -21,7 +21,7 @@ class GamesPage extends Component {
     const { api } = this.props;
     const categoryIds = [];
 
-    for (const categoryData of api.gameCategories.data) { categoryIds.push(categoryData.id); }
+    for (const categoryData of api.gameCategories.res.data) { categoryIds.push(categoryData.id); }
     this.setState({ categoryIds });
   }
 
@@ -49,9 +49,9 @@ class GamesPage extends Component {
           axis={'x-reverse'}
           index={this.state.categoryIds.indexOf(gamesPage.category)}
         >
-          {api.gameCategories.data.map(categoryData => (
+          {api.gameCategories.res.data.map(categoryData => (
             <div key={categoryData.id}>
-              {api.games.data.map(gameData => {
+              {api.games.res.data.map(gameData => {
                 if (gameData.categoryId === categoryData.id) {
                   return (
                     <GameCard
