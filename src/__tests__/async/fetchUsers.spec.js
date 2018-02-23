@@ -4,6 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import { fetchUsers, FETCH_USERS } from 'js/api/api.actions';
 
 const mockStore = configureMockStore([thunk]);
+const baseURL = process.env.REACT_APP_API_URI;
 
 
 describe('async fetchUsers', () => {
@@ -34,7 +35,7 @@ describe('async fetchUsers', () => {
         type: FETCH_USERS + '_SUCCESS',
         payload: {
           method: 'get',
-          url: '/users',
+          url: baseURL + '/users',
           status: 200,
           statusText: 'OK',
           data: [{
@@ -71,7 +72,7 @@ describe('async fetchUsers', () => {
         type: FETCH_USERS + '_FAILURE',
         payload: {
           method: 'get',
-          url: '/users',
+          url: baseURL + '/users',
           status: 400,
           statusText: 'BAD_REQUEST'
         }

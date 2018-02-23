@@ -4,6 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import { fetchGameCategories, FETCH_GAME_CATEGORIES } from 'js/api/api.actions';
 
 const mockStore = configureMockStore([thunk]);
+const baseURL = process.env.REACT_APP_API_URI;
 
 
 describe('async fetchGameCategories', () => {
@@ -31,7 +32,7 @@ describe('async fetchGameCategories', () => {
         type: FETCH_GAME_CATEGORIES + '_SUCCESS',
         payload: {
           method: 'get',
-          url: '/game-categories',
+          url: baseURL + '/game-categories',
           status: 200,
           statusText: 'OK',
           data: [{ id: 'sliding' }, { id: 'chess' }]
@@ -65,7 +66,7 @@ describe('async fetchGameCategories', () => {
         type: FETCH_GAME_CATEGORIES + '_FAILURE',
         payload: {
           method: 'get',
-          url: '/game-categories',
+          url: baseURL + '/game-categories',
           status: 400,
           statusText: 'BAD_REQUEST'
         }

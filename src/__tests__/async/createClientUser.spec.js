@@ -4,6 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import { createClientUser, FETCH_OR_CREATE_CLIENT_USER } from 'js/api/api.actions';
 
 const mockStore = configureMockStore([thunk]);
+const baseURL = process.env.REACT_APP_API_URI;
 
 
 describe('async createClientUser', () => {
@@ -38,7 +39,7 @@ describe('async createClientUser', () => {
         type: FETCH_OR_CREATE_CLIENT_USER + '_SUCCESS',
         payload: {
           method: 'post',
-          url: '/user',
+          url: baseURL + '/user',
           status: 200,
           statusText: 'OK',
           data: {
@@ -81,7 +82,7 @@ describe('async createClientUser', () => {
         type: FETCH_OR_CREATE_CLIENT_USER + '_FAILURE',
         payload: {
           method: 'post',
-          url: '/user',
+          url: baseURL + '/user',
           status: 400,
           statusText: 'BAD_REQUEST'
         }
