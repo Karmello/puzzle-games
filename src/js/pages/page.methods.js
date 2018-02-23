@@ -5,8 +5,8 @@ export function validateGameParams(params, options) {
   let shouldRedirect = false;
   const validParams = {};
     
-  const categoryData = api.gameCategories.data.find(obj => obj.id === params.category);
-  const gameData = api.games.data.find(obj => obj.id === params.id);
+  const categoryData = api.gameCategories.res.data.find(obj => obj.id === params.category);
+  const gameData = api.games.res.data.find(obj => obj.id === params.id);
   
   if (categoryData && gameData && gameData.categoryId === categoryData.id) {
 
