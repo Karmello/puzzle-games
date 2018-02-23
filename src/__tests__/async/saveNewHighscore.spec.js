@@ -4,6 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import { saveNewHighscore, SAVE_NEW_HIGHSCORE } from 'js/api/api.actions';
 
 const mockStore = configureMockStore([thunk]);
+const baseURL = process.env.REACT_APP_API_URI;
 
 
 describe('async saveNewHighscore', () => {
@@ -45,7 +46,7 @@ describe('async saveNewHighscore', () => {
         type: SAVE_NEW_HIGHSCORE + '_SUCCESS',
         payload: {
           method: 'post',
-          url: '/highscore',
+          url: baseURL + '/highscore',
           status: 200,
           statusText: 'OK',
           data: {
@@ -100,7 +101,7 @@ describe('async saveNewHighscore', () => {
         type: SAVE_NEW_HIGHSCORE + '_FAILURE',
         payload: {
           method: 'post',
-          url: '/highscore',
+          url: baseURL + '/highscore',
           status: 400,
           statusText: 'BAD_REQUEST'
         }

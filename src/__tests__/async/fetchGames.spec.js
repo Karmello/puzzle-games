@@ -4,6 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import { fetchGames, FETCH_GAMES } from 'js/api/api.actions';
 
 const mockStore = configureMockStore([thunk]);
+const baseURL = process.env.REACT_APP_API_URI;
 
 
 describe('async fetchGames', () => {
@@ -31,7 +32,7 @@ describe('async fetchGames', () => {
         type: FETCH_GAMES + '_SUCCESS',
         payload: {
           method: 'get',
-          url: '/games',
+          url: baseURL + '/games',
           status: 200,
           statusText: 'OK',
           data: [{ id: 'BossPuzzle' }, { id: 'EightQueens' }]
@@ -65,7 +66,7 @@ describe('async fetchGames', () => {
         type: FETCH_GAMES + '_FAILURE',
         payload: {
           method: 'get',
-          url: '/games',
+          url: baseURL + '/games',
           status: 400,
           statusText: 'BAD_REQUEST'
         }

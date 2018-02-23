@@ -4,6 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import { fetchHighscores, FETCH_HIGHSCORES } from 'js/api/api.actions';
 
 const mockStore = configureMockStore([thunk]);
+const baseURL = process.env.REACT_APP_API_URI;
 
 
 describe('async fetchHighscores', () => {
@@ -41,7 +42,7 @@ describe('async fetchHighscores', () => {
         type: FETCH_HIGHSCORES + '_SUCCESS',
         payload: {
           method: 'get',
-          url: '/highscores/5a88b19010216a6875e3163d',
+          url: baseURL + '/highscores/5a88b19010216a6875e3163d',
           status: 200,
           statusText: 'OK',
           data: [{
@@ -88,7 +89,7 @@ describe('async fetchHighscores', () => {
         type: FETCH_HIGHSCORES + '_FAILURE',
         payload: {
           method: 'get',
-          url: '/highscores/5a88b19010216a6875e3163d',
+          url: baseURL + '/highscores/5a88b19010216a6875e3163d',
           status: 400,
           statusText: 'BAD_REQUEST'
         }
