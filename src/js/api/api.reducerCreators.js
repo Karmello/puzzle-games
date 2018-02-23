@@ -1,14 +1,13 @@
 const getApiRequestReducer = (actionType) => {
   
   const initialState = {
-    isAwaiting: false,
-    method: '',
-    params: {},
-    url: '',
-    status: undefined,
-    statusText: '',
-    data: []
-  }
+    req: {
+      isAwaiting: false
+    },
+    res: {
+      data: []
+    }
+  };
 
   return (state = initialState, action) => {
 
@@ -17,12 +16,29 @@ const getApiRequestReducer = (actionType) => {
       case actionType:
         return {
           ...state,
-          isAwaiting: action.payload.isAwaiting
-        }
+          req: {
+            params: action.payload.params,
+            query: action.payload.query,
+            body: action.payload.body,
+            isAwaiting: true
+          }
+        };
 
       case actionType + '_SUCCESS':
       case actionType + '_FAILURE':
-        return { ...action.payload }
+        return {
+          req: {
+            ...state.req,
+            method: action.payload.method,
+            url: action.payload.url,
+            isAwaiting: false
+          },
+          res: {
+            status: action.payload.status,
+            statusText: action.payload.statusText,
+            data: action.payload.data
+          }
+        };
 
       case actionType + '_CLEAR':
         return initialState;

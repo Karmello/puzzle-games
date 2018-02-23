@@ -51,11 +51,11 @@ class AuthPage extends Component {
         window.FB.api('/me', me => {
           if (!me.error) {     
             dispatch(fetchClientUser(`${me.id}`)).then(() => {  
-              if (this.props.clientUser.status === 200) {
+              if (this.props.clientUser.res.status === 200) {
                 resolve('connected');
               } else {
                 dispatch(createClientUser({ fb: me })).then(() => {
-                  if (this.props.clientUser.status === 200) { resolve('connected'); } else { resolve('error'); }
+                  if (this.props.clientUser.res.status === 200) { resolve('connected'); } else { resolve('error'); }
                 });
               }
             });

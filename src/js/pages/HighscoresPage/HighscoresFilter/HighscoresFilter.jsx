@@ -17,20 +17,20 @@ export default class HighscoresFilter extends Component {
 
   componentWillMount() {
     
-    this.setupOptionsComponent(this.props.highscoresFilter.game.id);
+    this.setupOptionsComponent(this.props.gameFilter.id);
   }
 
   componentWillReceiveProps(nextProps) {
 
-    if (nextProps.highscoresFilter.game.id !== this.state.gameId) {
-      this.setupOptionsComponent(nextProps.highscoresFilter.game.id);
+    if (nextProps.gameFilter.id !== this.state.gameId) {
+      this.setupOptionsComponent(nextProps.gameFilter.id);
     }
   }
 
   render() {
   
     const { Options } = this.state;
-    const { api, highscoresFilter } = this.props;
+    const { api, gameFilter, optionsFilter } = this.props;
 
     return (
       <div className='HighscoresFilter'>
@@ -38,12 +38,12 @@ export default class HighscoresFilter extends Component {
           <FormControl>
             <InputLabel htmlFor='game'>Category</InputLabel>
             <Select
-              value={highscoresFilter.game.category}
+              value={gameFilter.category}
               input={<Input name='category' id='category' />}
               disabled={this.shouldBeDisabled()}
               style={{ width: '90px' }}
             >
-              {api.gameCategories.data.map(obj => (
+              {api.gameCategories.res.data.map(obj => (
                 <MenuItem
                   key={obj.id}
                   value={obj.id}
@@ -56,13 +56,13 @@ export default class HighscoresFilter extends Component {
           <FormControl>
             <InputLabel htmlFor='game'>Game</InputLabel>
             <Select
-              value={highscoresFilter.game.id}
+              value={gameFilter.id}
               input={<Input name='game' id='game' />}
               disabled={this.shouldBeDisabled()}
               style={{ width: '130px' }}
             >
-              {api.games.data.map(obj => {
-                if (obj.categoryId === highscoresFilter.game.category) {
+              {api.games.res.data.map(obj => {
+                if (obj.categoryId === gameFilter.category) {
                   return (
                     <MenuItem
                       key={obj.id}
@@ -80,8 +80,8 @@ export default class HighscoresFilter extends Component {
         </div>
         <div>
           {Options && <Options
-            options={highscoresFilter.options}
-            path={`/highscores?category=${highscoresFilter.game.category}&id=${highscoresFilter.game.id}`}
+            options={optionsFilter}
+            path={`/highscores?category=${gameFilter.category}&id=${gameFilter.id}`}
             disabled={this.shouldBeDisabled()}
           />}
         </div>
@@ -91,12 +91,12 @@ export default class HighscoresFilter extends Component {
 
   getMenuItemLink(category, id) {
 
-    const { gameOptions, highscoresFilter, api } = this.props;
+    const { gameOptions, gameFilter, optionsFilter, api } = this.props;
     let options;
 
-    if (!id) { id = api.games.data.find(obj => obj.categoryId === category).id; }
+    if (!id) { id = api.games.res.data.find(obj => obj.categoryId === category).id; }
     let url = `/highscores?category=${category}&id=${id}`;
-    if (id !== highscoresFilter.game.id) { options = gameOptions[id]; } else { options = highscoresFilter.options; }
+    if (id !== gameFilter.id) { options = gameOptions[id]; } else { options = optionsFilter; }
     for (const key in options) { url += `&${key}=${options[key]}`; }
     return url;
   }
@@ -114,6 +114,6 @@ export default class HighscoresFilter extends Component {
 
   shouldBeDisabled() {
     const { api } = this.props;
-    return api.highscores.status !== 200 || api.highscores.isAwaiting;
+    return api.highscores.res.status !== 200 || api.highscores.req.isAwaiting;
   }
 }
