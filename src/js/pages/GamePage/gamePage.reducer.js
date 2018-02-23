@@ -5,10 +5,7 @@ const initialState = {
   moves: 0,
   isSolved: false,
   isLoading: true,
-  options: {
-    mode: undefined,
-    dimension: undefined
-  }
+  options: {}
 };
 
 const gameReducer = (state = initialState, action) => {
