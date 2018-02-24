@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Input, Select } from 'material-ui';
 import { InputLabel } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
@@ -8,7 +9,7 @@ import { MenuItem } from 'material-ui/Menu';
 import './BossPuzzleOptions.css';
 
 
-export default class BossPuzzleOptions extends Component {
+class BossPuzzleOptions extends Component {
   
   state = { mode: undefined, dimension: undefined }
 
@@ -76,3 +77,9 @@ export default class BossPuzzleOptions extends Component {
     }
   }
 }
+
+BossPuzzleOptions.propTypes = {
+  options: PropTypes.object.isRequired
+};
+
+export default BossPuzzleOptions;

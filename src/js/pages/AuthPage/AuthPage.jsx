@@ -24,6 +24,8 @@ class AuthPage extends Component {
 
   render() {
 
+    const { appName, authStatus } = this.props;
+
     return (
       <div className='AuthPage'>
         <div className='AuthPage-welcomeImgContainer'>
@@ -31,9 +33,12 @@ class AuthPage extends Component {
             <img src={logoSrc} alt='' />
           </a>
         </div>
-        <div>{this.props.appName}</div>
+        <div>{appName}</div>
         <div>
-          <FbBtn {...this.props} onDoneTryLogin={this.onDoneTryLogin.bind(this)} />
+          <FbBtn
+            authStatus={authStatus}
+            onDoneTryLogin={this.onDoneTryLogin.bind(this)}
+          />
         </div>
       </div>
     );

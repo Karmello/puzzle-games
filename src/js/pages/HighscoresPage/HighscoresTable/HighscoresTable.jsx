@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Paper, Typography } from 'material-ui';
 import moment from 'moment';
 import { Table } from 'material-ui';
@@ -11,7 +12,7 @@ import './HighscoresTable.css';
 
 const columns = ['No.', 'Time', 'Moves', 'Date', 'Player'];
 
-export default class HighscoresTable extends Component {
+class HighscoresTable extends Component {
 
   state = { dataStatus: undefined };
 
@@ -82,3 +83,9 @@ export default class HighscoresTable extends Component {
     }
   }
 }
+
+HighscoresTable.propTypes = {
+  api: PropTypes.object.isRequired
+};
+
+export default HighscoresTable;

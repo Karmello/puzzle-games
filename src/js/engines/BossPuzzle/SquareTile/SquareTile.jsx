@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
 import BossPuzzle from './../BossPuzzle';
 import { coordsToIndex, findAllMovementCoords, indexToCoords } from './../BossPuzzle.static';
 
 
-export default class SquareTile extends Component {
+class SquareTile extends Component {
 
   constructor(props) {
     super(props);
@@ -99,3 +100,16 @@ export default class SquareTile extends Component {
     }
   }
 }
+
+SquareTile.propTypes = {
+  options: PropTypes.object.isRequired,
+  hiddenTileCoords: PropTypes.object.isRequired,
+  tiles: PropTypes.array.isRequired,
+  imgSrc: PropTypes.string.isRequired,
+  row: PropTypes.string.isRequired,
+  col: PropTypes.string.isRequired,
+  isSolved: PropTypes.bool.isRequired,
+  onMoveMade: PropTypes.func.isRequired
+};
+
+export default SquareTile;
