@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as qs from 'query-string';
 import { Button, Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
@@ -8,7 +9,7 @@ import { PlayBtn } from 'js/other';
 import './GameCard.css';
 
 
-export default class GameCard extends Component {
+class GameCard extends Component {
 
   render() {
 
@@ -63,3 +64,11 @@ export default class GameCard extends Component {
     );
   }
 }
+
+GameCard.propTypes = {
+  gameData: PropTypes.object.isRequired,
+  gameOptions: PropTypes.object.isRequired,
+  onGameOptionsChange: PropTypes.func.isRequired
+};
+
+export default GameCard;

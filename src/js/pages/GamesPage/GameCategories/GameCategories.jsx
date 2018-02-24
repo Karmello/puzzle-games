@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Tabs } from 'material-ui';
 import { Tab } from 'material-ui/Tabs';
 
 
-export default class GameCategories extends Component {
+class GameCategories extends Component {
 
   render() {
 
@@ -33,3 +34,10 @@ export default class GameCategories extends Component {
     );
   }
 }
+
+GameCategories.propTypes = {
+  category: PropTypes.string.isRequired,
+  gameCategories: PropTypes.object.isRequired
+};
+
+export default GameCategories;

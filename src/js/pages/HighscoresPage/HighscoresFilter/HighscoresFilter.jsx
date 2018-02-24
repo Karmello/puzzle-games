@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Input, Select } from 'material-ui';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
@@ -8,7 +9,7 @@ import { InputLabel } from 'material-ui/Input';
 import './HighscoresFilter.css';
 
 
-export default class HighscoresFilter extends Component {
+class HighscoresFilter extends Component {
 
   state = {
     gameId: undefined,
@@ -117,3 +118,12 @@ export default class HighscoresFilter extends Component {
     return api.highscores.res.status !== 200 || api.highscores.req.isAwaiting;
   }
 }
+
+HighscoresFilter.propTypes = {
+  api: PropTypes.object.isRequired,
+  gameOptions: PropTypes.object.isRequired,
+  gameFilter: PropTypes.object.isRequired,
+  optionsFilter: PropTypes.object.isRequired
+};
+
+export default HighscoresFilter;

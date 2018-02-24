@@ -1,9 +1,16 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 
-export default class EightQueensOptions extends Component {
+class EightQueensOptions extends Component {
 
   render() {
     return null;
   }
 }
+
+EightQueensOptions.propTypes = {
+  options: PropTypes.object.isRequired
+}
+
+export default EightQueensOptions;

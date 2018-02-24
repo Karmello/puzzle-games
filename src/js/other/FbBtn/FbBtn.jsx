@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
 
-export default (props) => {
+const FbBtn = props => {
 
   const getLabel = () => {
 
@@ -22,3 +23,10 @@ export default (props) => {
 
   return (<Button raised color='primary' onClick={onClick}>{getLabel()}</Button>);
 };
+
+FbBtn.propTypes = {
+  authStatus: PropTypes.string.isRequired,
+  onDoneTryLogin: PropTypes.func.isRequired
+};
+
+export default FbBtn;
