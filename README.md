@@ -3,6 +3,8 @@
 * API needs to be run first
 * `git clone` repo and `npm install` from root
 * `npm run start` will automagically navigate to `localhost:3000`
+* `npm test` to run tests
+* `npm run storybook` to see stories
 ### Remote links
 * STAGING - [https://staging-puzzle-games.herokuapp.com](https://staging-puzzle-games.herokuapp.com)
 * TEST - [https://test-puzzle-games.herokuapp.com](https://test-puzzle-games.herokuapp.com)

@@ -14,19 +14,22 @@ const FbBtn = props => {
     }
   }
 
-  const onClick = () => {
-
-    if (props.authStatus !== 'connected') {
-      window.FB.login(res => props.onDoneTryLogin(res), { scope: 'public_profile' });
-    }
+  if (props.authStatus !== 'connected') {
+    return (
+      <Button
+        raised
+        color='primary'
+        onClick={props.onClick}
+      >{getLabel()}</Button>
+    );
   }
 
-  return (<Button raised color='primary' onClick={onClick}>{getLabel()}</Button>);
+  return null;
 };
 
 FbBtn.propTypes = {
   authStatus: PropTypes.string.isRequired,
-  onDoneTryLogin: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired
 };
 
 export default FbBtn;
