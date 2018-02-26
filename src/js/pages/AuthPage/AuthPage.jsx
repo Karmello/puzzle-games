@@ -18,7 +18,7 @@ class AuthPage extends Component {
     
     loadFbScript(() => {
       window.FB.init(fbLoginConfig);
-      window.FB.getLoginStatus(res => { this.onDoneTryLogin(res); });
+      window.FB.getLoginStatus(res => { this.login(res); });
     });
   }
 
@@ -37,42 +37,46 @@ class AuthPage extends Component {
         <div>
           <FbBtn
             authStatus={authStatus}
-            onDoneTryLogin={this.onDoneTryLogin.bind(this)}
+            onClick={this.login.bind(this)}
           />
         </div>
       </div>
     );
   }
 
-  onDoneTryLogin(res) {
+  login() {
 
     const { dispatch, isAppLoading } = this.props;
 
-    new Promise((resolve) => {
+    window.FB.login(res => {
 
-      if (!isAppLoading) { dispatch(toggleAppLoader(true)); }
+      new Promise((resolve) => {
 
-      if (res.status === 'connected') {
-        window.FB.api('/me', me => {
-          if (!me.error) {     
-            dispatch(fetchClientUser(`${me.id}`)).then(() => {  
-              if (this.props.clientUser.res.status === 200) {
-                resolve('connected');
-              } else {
-                dispatch(createClientUser({ fb: me })).then(() => {
-                  if (this.props.clientUser.res.status === 200) { resolve('connected'); } else { resolve('error'); }
-                });
-              }
-            });
-          } else { resolve('error'); }
-        });
-      } else { resolve(res.status); }
+        if (!isAppLoading) { dispatch(toggleAppLoader(true)); }
 
-    }).then(status => {
-      
-      dispatch(setAuthStatus(status));
-      setTimeout(() => dispatch(toggleAppLoader(false)), App.minLoadTime);
-    });
+        if (res.status === 'connected') {
+          window.FB.api('/me', me => {
+            if (!me.error) {     
+              dispatch(fetchClientUser(`${me.id}`)).then(() => {  
+                if (this.props.clientUser.res.status === 200) {
+                  resolve('connected');
+                } else {
+                  dispatch(createClientUser({ fb: me })).then(() => {
+                    if (this.props.clientUser.res.status === 200) { resolve('connected'); } else { resolve('error'); }
+                  });
+                }
+              });
+            } else { resolve('error'); }
+          });
+        } else { resolve(res.status); }
+
+      }).then(status => {
+        
+        dispatch(setAuthStatus(status));
+        setTimeout(() => dispatch(toggleAppLoader(false)), App.minLoadTime);
+      });
+
+    }, { scope: 'public_profile' });
   }
 }
 
