@@ -80,7 +80,8 @@
   "devDependencies": {
     "@storybook/react": "^3.3.14",
     "npm-run-all": "^4.1.1",
-    "redux-devtools-extension": "^2.13.2"
+    "redux-devtools-extension": "^2.13.2",
+    "webpack-bundle-analyzer": "^2.11.0"
   },
   "jest": {
     "collectCoverageFrom": [
