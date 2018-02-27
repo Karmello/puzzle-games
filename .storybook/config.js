@@ -1,8 +1,10 @@
 import { configure } from '@storybook/react';
 
+
+const req = require.context('./../stories', true, /\.story\.js$/)
+
 function loadStories() {
-  require('../stories/FbBtn.story.js');
-  require('../stories/Loader.story.js');
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);

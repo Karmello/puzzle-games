@@ -105,9 +105,9 @@ SquareTile.propTypes = {
   options: PropTypes.object.isRequired,
   hiddenTileCoords: PropTypes.object.isRequired,
   tiles: PropTypes.array.isRequired,
-  imgSrc: PropTypes.string.isRequired,
-  row: PropTypes.string.isRequired,
-  col: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string,
+  row: PropTypes.number.isRequired,
+  col: PropTypes.number.isRequired,
   isSolved: PropTypes.bool.isRequired,
   onMoveMade: PropTypes.func.isRequired
 };

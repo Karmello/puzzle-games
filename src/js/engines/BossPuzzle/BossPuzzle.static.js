@@ -5,7 +5,7 @@ import { shuffleIntArray } from 'js/helpers';
 const initDataLoopRuns = 1000;
 
 export const initData = (args) => {
-
+  
   const run = () => {
 
     let { dimension, hiddenTileCoords } = args;
