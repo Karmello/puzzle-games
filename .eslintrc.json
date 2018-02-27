@@ -15,7 +15,8 @@
     },
     "parser": "babel-eslint",
     "globals": {
-        "process": true
+        "process": true,
+        "__dirname": true
     },
     "plugins": [
         "react", "jasmine"
