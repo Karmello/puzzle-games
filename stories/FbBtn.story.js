@@ -1,24 +1,24 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { FbBtn } from './../src/js/other';
+import { FbBtn } from 'js/other';
 
 
-storiesOf('FbBtn', module).add('unknown', () => (
+storiesOf('other/FbBtn', module).add('unknown', () => (
   <FbBtn
     authStatus='unknown'
     onClick={action('onClick')}
   ></FbBtn>
 ));
 
-storiesOf('FbBtn', module).add('not_authorized', () => (
+storiesOf('other/FbBtn', module).add('not_authorized', () => (
   <FbBtn
     authStatus='not_authorized'
     onClick={action('onClick')}
   ></FbBtn>
 ));
 
-storiesOf('FbBtn', module).add('connected', () => (
+storiesOf('other/FbBtn', module).add('connected', () => (
   <FbBtn
     authStatus='connected'
     onClick={action('onClick')}

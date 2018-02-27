@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Loader } from './../src/js/other';
+import { Loader } from 'js/other';
 
 
 const style = {
@@ -17,7 +17,7 @@ const style2 = {
 }
 
 
-storiesOf('Loader', module).add('on', () => (
+storiesOf('other/Loader', module).add('on', () => (
   <div style={style}>
     <Loader isShown={true}>
       <div style={style2}>some content</div>
@@ -25,7 +25,7 @@ storiesOf('Loader', module).add('on', () => (
   </div>
 ));
 
-storiesOf('Loader', module).add('off', () => (
+storiesOf('other/Loader', module).add('off', () => (
   <div style={style}>
     <Loader isShown={false}>
       <div style={style2}>some content</div>

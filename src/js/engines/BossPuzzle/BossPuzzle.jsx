@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Row, Col } from 'react-flexbox-grid';
 import { Paper } from 'material-ui';
 
@@ -150,6 +151,13 @@ class BossPuzzle extends Component {
     onMakeMove();
   }
 }
+
+BossPuzzle.propTypes = {
+  onFinishInit: PropTypes.func.isRequired,
+  onMakeMove: PropTypes.func.isRequired,
+  onBeenSolved: PropTypes.func.isRequired,
+  restarting: PropTypes.bool.isRequired
+};
 
 export default connect(store => ({
   game: store.pages.gamePage,
