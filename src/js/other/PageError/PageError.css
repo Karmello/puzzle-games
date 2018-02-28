@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
-  margin-top: 50px; }
+  align-items: center; }
   .PageError > div {
     padding: 10px; }

@@ -86,7 +86,7 @@ class App extends Component {
 
     const { authStatus } = this.props;
 
-    if (authStatus === 'connected' || authStatus === 'error') {
+    if (authStatus === 'connected') {
       
       const state = props.location.state;
       let pathname;
