@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { App } from 'js/app';
-import { FbBtn } from 'js/other';
+import { FbBtn, PageError } from 'js/other';
 import { toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
 import { fetchClientUser, createClientUser } from 'js/api/api.actions';
 import { fbLoginConfig, loadFbScript } from './AuthPage.fb.js';
@@ -35,34 +35,40 @@ class AuthPage extends Component {
         </div>
         <div>{appName}</div>
         <div>
+          {authStatus !== 'error' &&
           <FbBtn
             authStatus={authStatus}
-            onClick={this.login.bind(this)}
-          />
+            onClick={() => { window.FB.login(res => this.login(res), { scope: 'public_profile' }) }}
+          />}
+          {authStatus === 'error' && <PageError/>}
         </div>
       </div>
     );
   }
 
-  login() {
+  login(res) {
 
-    const { dispatch, isAppLoading } = this.props;
+    const { dispatch, isAppLoading, authStatus } = this.props;
 
-    window.FB.login(res => {
+    if (res.status !== authStatus) {
 
-      new Promise((resolve) => {
-
+      new Promise(resolve => {
         if (!isAppLoading) { dispatch(toggleAppLoader(true)); }
 
         if (res.status === 'connected') {
           window.FB.api('/me', me => {
-            if (!me.error) {     
-              dispatch(fetchClientUser(`${me.id}`)).then(() => {  
+            if (!me.error) {
+              dispatch(fetchClientUser(`${me.id}`)).then(() => {
                 if (this.props.clientUser.res.status === 200) {
                   resolve('connected');
                 } else {
-                  dispatch(createClientUser({ fb: me })).then(() => {
-                    if (this.props.clientUser.res.status === 200) { resolve('connected'); } else { resolve('error'); }
+                  window.FB.api('/me/picture', picture => {
+                    if (!picture.error) {
+                      me.avatarUrl = picture.data.url;
+                      dispatch(createClientUser({ fb: me })).then(() => {
+                        if (this.props.clientUser.res.status === 200) { resolve('connected'); } else { resolve('error'); }
+                      });
+                    } else { resolve('error'); }
                   });
                 }
               });
@@ -71,12 +77,10 @@ class AuthPage extends Component {
         } else { resolve(res.status); }
 
       }).then(status => {
-        
         dispatch(setAuthStatus(status));
         setTimeout(() => dispatch(toggleAppLoader(false)), App.minLoadTime);
       });
-
-    }, { scope: 'public_profile' });
+    }
   }
 }
 

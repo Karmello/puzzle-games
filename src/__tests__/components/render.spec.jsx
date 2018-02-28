@@ -48,7 +48,15 @@ describe('should render', () => {
   describe('engine components', () => {
     
     it('BossPuzzle', () => {
-      shallow(<BossPuzzle store={store} />);
+      shallow(
+        <BossPuzzle
+          store={store}
+          onFinishInit={() => {}}
+          onMakeMove={() => {}}
+          onBeenSolved={() => {}}
+          restarting={false}
+        />
+      );
     });
 
     it('SquareTile', () => {
@@ -58,8 +66,8 @@ describe('should render', () => {
           hiddenTileCoords={{ x: 0, y: 0 }}
           tiles={[2, 4, 6, 3, 1, 5, 7, 9, 8]}
           imgSrc={'img.png'}
-          row={'0'}
-          col={'0'}
+          row={0}
+          col={0}
           isSolved={false}
           onMoveMade={() => {}}
         />

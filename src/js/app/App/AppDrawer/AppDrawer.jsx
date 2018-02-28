@@ -12,23 +12,9 @@ import './AppDrawer.css';
 
 
 class AppDrawer extends Component {
-  
-  state = {
-    avatar: undefined
-  }
-
-  componentDidMount() {
-    
-    window.FB.api(`/${this.props.clientUser.res.data.fb.id}/picture`, 'GET', {}, res => {
-      if (res.data && !res.data.is_silhouette) {
-        this.setState({ avatar: res.data });
-      }
-    });
-  }
 
   render() {
 
-    const { avatar } = this.state;
     const { authStatus, showDrawer, clientUser, gameCategory } = this.props;
 
     return (
@@ -37,9 +23,9 @@ class AppDrawer extends Component {
         open={showDrawer}
         onClose={this.onDrawerClose.bind(this)}
       >
-        {avatar &&
+        {clientUser.res.status === 200 &&
         <div className='AppDrawer-user'>
-          <div><img src={avatar.url} alt='' title={clientUser.res.data.fb.name} /></div>
+          <div><img src={clientUser.res.data.fb.avatarUrl} alt='' title={clientUser.res.data.fb.name} /></div>
           <div>{clientUser.res.data.fb.name}</div>
         </div>}
         <div
