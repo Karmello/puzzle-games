@@ -51,11 +51,15 @@ class App extends Component {
           <Switch>
             <Route exact path='/auth' render={props => this.authRouteLogic(props)}/>
             <Route path='/' render={props => {
-              if (authStatus !== 'connected' && authStatus !== 'error') {
-                return <Redirect to={{
-                  pathname: '/auth',
-                  state: api.clientUser.res.status === 200 ? undefined : { from: props.location }
-                }}/>;
+              if (authStatus !== 'connected') {
+                return (
+                  <div pathname='/auth'>
+                    <Redirect to={{
+                      pathname: '/auth',
+                      state: api.clientUser.res.status === 200 ? undefined : { from: props.location }
+                    }}/>
+                  </div>
+                );
               }
               return (
                 <div>
@@ -97,7 +101,11 @@ class App extends Component {
         pathname = state.from.pathname + state.from.search;
       }
 
-      return <Redirect to={pathname} />;
+      return (
+        <div pathname={pathname}>
+          <Redirect to={pathname} />
+        </div>
+      );
     }
 
     return <AuthPage authStatus={authStatus} />;
@@ -111,7 +119,11 @@ class App extends Component {
       return <GamesPage gameCategoryToSet={props.match.params.category} />;
     
     } else {
-      return <Redirect to={this.defaultPath} />;
+      return (
+        <div pathname={this.defaultPath}>
+          <Redirect to={this.defaultPath} />
+        </div>
+      );
     }
   }
 
@@ -123,10 +135,19 @@ class App extends Component {
       return <GamePage gameData={gameData} queryParams={validParams} />
     
     } else if (validParams) {
-      return <Redirect to={{ pathname: props.location.pathname, search: qs.stringify(validParams) }} />;
+      const search = qs.stringify(validParams);
+      return (
+        <div pathname={props.location.pathname} search={search}>
+          <Redirect to={{ pathname: props.location.pathname, search: search }} />;
+        </div>
+      );
 
     } else {
-      return <Redirect to={this.defaultPath} />;
+      return (
+        <div pathname={this.defaultPath}>
+          <Redirect to={this.defaultPath} />
+        </div>
+      );
     }
   }
 
@@ -149,7 +170,19 @@ class App extends Component {
       return <Redirect to={{ pathname: props.location.pathname, search: qs.stringify(validParams) }}/>;
     
     } else {
-      return <Redirect to={this.defaultPath} />;
+
+      const { highscoresPage } = this.props;
+      let search = `category=${highscoresPage.gameFilter.category}&id=${highscoresPage.gameFilter.id}`;
+
+      for (const key in highscoresPage.optionsFilter) {
+        search += `&${key}=${highscoresPage.optionsFilter[key]}`;
+      }
+
+      return (
+        <div pathname='/highscores' search={search}>
+          <Redirect to={{ pathname: '/highscores', search: search }} />
+        </div>
+      );
     }
   }
 }
@@ -158,5 +191,6 @@ export default withRouter(connect(store => ({
   authStatus: store.app.authStatus,
   isLoading: store.app.isLoading,
   gamesPage: store.pages.gamesPage,
+  highscoresPage: store.pages.highscoresPage,
   api: store.api
 }))(App));

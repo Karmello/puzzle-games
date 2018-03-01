@@ -1,19 +1,16 @@
-.AppDrawer {
+.AppDrawer-user {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 13px;
+  padding: 10px;
 
-  .AppDrawer-user {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 13px;
-    padding: 10px;
-
-    > div {
-      margin: 2px;
-      img { border-radius: 50%; }
-    }
+  > div {
+    margin: 2px;
+    img { border-radius: 50%; }
   }
+}
 
-  .AppDrawer-content {
-    width: 200px;
-  }
+.AppDrawer-content {
+  width: 200px;
 }

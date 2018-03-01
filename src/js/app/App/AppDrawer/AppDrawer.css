@@ -1,13 +1,13 @@
-.AppDrawer .AppDrawer-user {
+.AppDrawer-user {
   display: flex;
   flex-direction: column;
   text-align: center;
   font-size: 13px;
   padding: 10px; }
-  .AppDrawer .AppDrawer-user > div {
+  .AppDrawer-user > div {
     margin: 2px; }
-    .AppDrawer .AppDrawer-user > div img {
+    .AppDrawer-user > div img {
       border-radius: 50%; }
 
-.AppDrawer .AppDrawer-content {
+.AppDrawer-content {
   width: 200px; }
