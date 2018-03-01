@@ -18,40 +18,49 @@ class AppDrawer extends Component {
     const { authStatus, showDrawer, clientUser, gameCategory } = this.props;
 
     return (
-      <Drawer
-        className='AppDrawer'
-        open={showDrawer}
-        onClose={this.onDrawerClose.bind(this)}
-      >
-        {clientUser.res.status === 200 &&
-        <div className='AppDrawer-user'>
-          <div><img src={clientUser.res.data.fb.avatarUrl} alt='' title={clientUser.res.data.fb.name} /></div>
-          <div>{clientUser.res.data.fb.name}</div>
-        </div>}
-        <div
-          tabIndex={0}
-          role='button'
-          onClick={this.onDrawerClose.bind(this)}
-          onKeyDown={this.onDrawerClose.bind(this)}
+      <div className='AppDrawer'>
+        <Drawer
+          open={showDrawer}
+          onClose={this.onDrawerClose.bind(this)}
         >
-          <div className='AppDrawer-content'>
-            <List>
-              <ListItem button component={Link} to={`/games/${gameCategory}`}>
-                <ListItemIcon><PlayCircleOutline/></ListItemIcon>
-                <ListItemText primary='Games' />
-              </ListItem>
-              <ListItem button component={Link} to={this.getHighscoresPageUrl()}>
-                <ListItemIcon><ContentPaste/></ListItemIcon>
-                <ListItemText primary='Highscores' />
-              </ListItem>
-              {authStatus === 'connected' && <ListItem button onClick={this.onLogout.bind(this)}>
-                <ListItemIcon><PowerSettingsNew/></ListItemIcon>
-                <ListItemText primary='Logout' />
-              </ListItem>}
-            </List>
+          {clientUser.res.status === 200 &&
+          <div className='AppDrawer-user'>
+            <div>Logged in as</div>
+            {clientUser.res.data.fb.avatarUrl &&
+            <div>
+              <img
+                src={clientUser.res.data.fb.avatarUrl}
+                title={clientUser.res.data.fb.name}
+                alt=''
+              />
+            </div>}
+            <div>{clientUser.res.data.fb.name}</div>
+          </div>}
+          <div
+            tabIndex={0}
+            role='button'
+            onClick={this.onDrawerClose.bind(this)}
+            onKeyDown={this.onDrawerClose.bind(this)}
+          >
+            <div className='AppDrawer-content'>
+              <List>
+                <ListItem button component={Link} to={`/games/${gameCategory}`}>
+                  <ListItemIcon><PlayCircleOutline/></ListItemIcon>
+                  <ListItemText primary='Games' />
+                </ListItem>
+                <ListItem button component={Link} to={this.getHighscoresPageUrl()}>
+                  <ListItemIcon><ContentPaste/></ListItemIcon>
+                  <ListItemText primary='Highscores' />
+                </ListItem>
+                {authStatus === 'connected' && <ListItem button onClick={this.onLogout.bind(this)}>
+                  <ListItemIcon><PowerSettingsNew/></ListItemIcon>
+                  <ListItemText primary='Logout' />
+                </ListItem>}
+              </List>
+            </div>
           </div>
-        </div>
-      </Drawer>
+        </Drawer>
+      </div>
     );
   }
 

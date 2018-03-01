@@ -16,14 +16,16 @@ class MySnackBar extends Component {
 
   render() {
     return (
-      <Snackbar
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        open={this.state.open}
-        autoHideDuration={autoHideDuration}
-        onClose={this.onClose.bind(this)}
-        SnackbarContentProps={{ 'aria-describedby': 'message-id' }}
-        message={<span id='message-id'>{this.props.message}</span>}
-      />
+      <div className='MySnackBar'>
+        <Snackbar
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          open={this.state.open}
+          autoHideDuration={autoHideDuration}
+          onClose={this.onClose.bind(this)}
+          SnackbarContentProps={{ 'aria-describedby': 'message-id' }}
+          message={<span id='message-id'>{this.props.message}</span>}
+        />
+      </div>
     );
   }
 

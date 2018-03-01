@@ -8,7 +8,7 @@ import reducers from 'js/reducers';
 
 let store;
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'development') {
   store = createStore( reducers, applyMiddleware(thunkMiddleware));
 
 } else {

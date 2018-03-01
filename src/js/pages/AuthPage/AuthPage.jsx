@@ -63,12 +63,10 @@ class AuthPage extends Component {
                   resolve('connected');
                 } else {
                   window.FB.api('/me/picture', picture => {
-                    if (!picture.error) {
-                      me.avatarUrl = picture.data.url;
-                      dispatch(createClientUser({ fb: me })).then(() => {
-                        if (this.props.clientUser.res.status === 200) { resolve('connected'); } else { resolve('error'); }
-                      });
-                    } else { resolve('error'); }
+                    if (!picture.error) { me.avatarUrl = picture.data.url; }
+                    dispatch(createClientUser({ fb: me })).then(() => {
+                      if (this.props.clientUser.res.status === 200) { resolve('connected'); } else { resolve('error'); }
+                    });
                   });
                 }
               });

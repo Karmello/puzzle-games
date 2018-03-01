@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
-import * as qs from 'query-string';
 
-import { AuthPage, GamesPage, GamePage, HighscoresPage } from 'js/pages';
 import { Loader, MySnackBar, PageError } from 'js/other';
 import { fetchGames, fetchGameCategories } from 'js/api/api.actions';
+import * as appMethods from 'js/app/App/App.methods';
 import { validateGameParams } from 'js/pages/page.methods';
 import AppBar from './AppBar/AppBar';
 import AppDrawer from './AppDrawer/AppDrawer';
@@ -21,6 +20,7 @@ class App extends Component {
     this.defaultPath = `/games/${props.gamesPage.category}`;
     this.state = { snackBarMessage: '' };
     this.validateGameParams = validateGameParams.bind(this);
+    for (const key in appMethods) { this[key] = appMethods[key].bind(this); }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -51,16 +51,20 @@ class App extends Component {
           <Switch>
             <Route exact path='/auth' render={props => this.authRouteLogic(props)}/>
             <Route path='/' render={props => {
-              if (authStatus !== 'connected' && authStatus !== 'error') {
-                return <Redirect to={{
-                  pathname: '/auth',
-                  state: api.clientUser.res.status === 200 ? undefined : { from: props.location }
-                }}/>;
+              if (authStatus !== 'connected') {
+                return (
+                  <div pathname='/auth'>
+                    <Redirect to={{
+                      pathname: '/auth',
+                      state: api.clientUser.res.status === 200 ? undefined : { from: props.location }
+                    }}/>
+                  </div>
+                );
               }
               return (
                 <div>
                   <AppBar/>
-                  {api.clientUser.res.status === 200 && <AppDrawer/>}
+                  <AppDrawer/>
                   <MySnackBar
                     message={this.state.snackBarMessage}
                     onClose={() => { this.setState({ snackBarMessage: '' }) }}
@@ -72,7 +76,8 @@ class App extends Component {
                     <Route exact path='/highscores' render={props => this.highscoresRouteLogic(props)} />
                     <Redirect from='*' to={this.defaultPath} />
                   </Switch>}
-                  {(api.gameCategories.res.status !== 200 || api.games.res.status !== 200) && <PageError/> }
+                  {(api.gameCategories.res.status !== 200 || api.games.res.status !== 200) &&
+                  <div style={{ marginTop: '50px' }}><PageError/></div>}
                 </div>
               );
             }}/>
@@ -81,82 +86,12 @@ class App extends Component {
       </div>
     );
   }
-
-  authRouteLogic(props) {
-
-    const { authStatus } = this.props;
-
-    if (authStatus === 'connected') {
-      
-      const state = props.location.state;
-      let pathname;
-      
-      if (!state || state.from.pathname === '/') {
-        pathname = this.defaultPath;
-      } else {
-        pathname = state.from.pathname + state.from.search;
-      }
-
-      return <Redirect to={pathname} />;
-    }
-
-    return <AuthPage authStatus={authStatus} />;
-  }
-
-  gamesRouteLogic(props) {
-
-    const { api } = this.props;
-
-    if (api.gameCategories.res.data.some(obj => obj.id === props.match.params.category)) {
-      return <GamesPage gameCategoryToSet={props.match.params.category} />;
-    
-    } else {
-      return <Redirect to={this.defaultPath} />;
-    }
-  }
-
-  gameRouteLogic(props) {
-
-    const { shouldRedirect, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search));
-    
-    if (!shouldRedirect) {
-      return <GamePage gameData={gameData} queryParams={validParams} />
-    
-    } else if (validParams) {
-      return <Redirect to={{ pathname: props.location.pathname, search: qs.stringify(validParams) }} />;
-
-    } else {
-      return <Redirect to={this.defaultPath} />;
-    }
-  }
-
-  highscoresRouteLogic(props) {
-
-    const params = qs.parse(props.location.search);
-    const { category, id } = params;
-    
-    delete params.category;
-    delete params.id;
-
-    const { shouldRedirect, validParams } = this.validateGameParams({ category, id }, params);
-
-    if (!shouldRedirect) {
-      return <HighscoresPage gameFilterToSet={{ category: category, id: id }} optionsFilterToSet={validParams} />;
-    
-    } else if (validParams) {
-      validParams.category = category;
-      validParams.id = id;
-      return <Redirect to={{ pathname: props.location.pathname, search: qs.stringify(validParams) }}/>;
-    
-    } else {
-      return <Redirect to={this.defaultPath} />;
-    }
-  }
 }
 
 export default withRouter(connect(store => ({
   authStatus: store.app.authStatus,
   isLoading: store.app.isLoading,
   gamesPage: store.pages.gamesPage,
+  highscoresPage: store.pages.highscoresPage,
   api: store.api
 }))(App));
