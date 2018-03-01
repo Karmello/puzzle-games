@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
-import * as qs from 'query-string';
 
-import { AuthPage, GamesPage, GamePage, HighscoresPage } from 'js/pages';
 import { Loader, MySnackBar, PageError } from 'js/other';
 import { fetchGames, fetchGameCategories } from 'js/api/api.actions';
+import * as appMethods from 'js/app/App/App.methods';
 import { validateGameParams } from 'js/pages/page.methods';
 import AppBar from './AppBar/AppBar';
 import AppDrawer from './AppDrawer/AppDrawer';
@@ -21,6 +20,7 @@ class App extends Component {
     this.defaultPath = `/games/${props.gamesPage.category}`;
     this.state = { snackBarMessage: '' };
     this.validateGameParams = validateGameParams.bind(this);
+    for (const key in appMethods) { this[key] = appMethods[key].bind(this); }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -64,7 +64,7 @@ class App extends Component {
               return (
                 <div>
                   <AppBar/>
-                  {api.clientUser.res.status === 200 && <AppDrawer/>}
+                  <AppDrawer/>
                   <MySnackBar
                     message={this.state.snackBarMessage}
                     onClose={() => { this.setState({ snackBarMessage: '' }) }}
@@ -76,7 +76,8 @@ class App extends Component {
                     <Route exact path='/highscores' render={props => this.highscoresRouteLogic(props)} />
                     <Redirect from='*' to={this.defaultPath} />
                   </Switch>}
-                  {(api.gameCategories.res.status !== 200 || api.games.res.status !== 200) && <PageError/> }
+                  {(api.gameCategories.res.status !== 200 || api.games.res.status !== 200) &&
+                  <div style={{ marginTop: '50px' }}><PageError/></div>}
                 </div>
               );
             }}/>
@@ -84,106 +85,6 @@ class App extends Component {
         </Loader>
       </div>
     );
-  }
-
-  authRouteLogic(props) {
-
-    const { authStatus } = this.props;
-
-    if (authStatus === 'connected') {
-      
-      const state = props.location.state;
-      let pathname;
-      
-      if (!state || state.from.pathname === '/') {
-        pathname = this.defaultPath;
-      } else {
-        pathname = state.from.pathname + state.from.search;
-      }
-
-      return (
-        <div pathname={pathname}>
-          <Redirect to={pathname} />
-        </div>
-      );
-    }
-
-    return <AuthPage authStatus={authStatus} />;
-  }
-
-  gamesRouteLogic(props) {
-
-    const { api } = this.props;
-
-    if (api.gameCategories.res.data.some(obj => obj.id === props.match.params.category)) {
-      return <GamesPage gameCategoryToSet={props.match.params.category} />;
-    
-    } else {
-      return (
-        <div pathname={this.defaultPath}>
-          <Redirect to={this.defaultPath} />
-        </div>
-      );
-    }
-  }
-
-  gameRouteLogic(props) {
-
-    const { shouldRedirect, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search));
-    
-    if (!shouldRedirect) {
-      return <GamePage gameData={gameData} queryParams={validParams} />
-    
-    } else if (validParams) {
-      const search = qs.stringify(validParams);
-      return (
-        <div pathname={props.location.pathname} search={search}>
-          <Redirect to={{ pathname: props.location.pathname, search: search }} />;
-        </div>
-      );
-
-    } else {
-      return (
-        <div pathname={this.defaultPath}>
-          <Redirect to={this.defaultPath} />
-        </div>
-      );
-    }
-  }
-
-  highscoresRouteLogic(props) {
-
-    const params = qs.parse(props.location.search);
-    const { category, id } = params;
-    
-    delete params.category;
-    delete params.id;
-
-    const { shouldRedirect, validParams } = this.validateGameParams({ category, id }, params);
-
-    if (!shouldRedirect) {
-      return <HighscoresPage gameFilterToSet={{ category: category, id: id }} optionsFilterToSet={validParams} />;
-    
-    } else if (validParams) {
-      validParams.category = category;
-      validParams.id = id;
-      return <Redirect to={{ pathname: props.location.pathname, search: qs.stringify(validParams) }}/>;
-    
-    } else {
-
-      const { highscoresPage } = this.props;
-      let search = `category=${highscoresPage.gameFilter.category}&id=${highscoresPage.gameFilter.id}`;
-
-      for (const key in highscoresPage.optionsFilter) {
-        search += `&${key}=${highscoresPage.optionsFilter[key]}`;
-      }
-
-      return (
-        <div pathname='/highscores' search={search}>
-          <Redirect to={{ pathname: '/highscores', search: search }} />
-        </div>
-      );
-    }
   }
 }
 

@@ -34,8 +34,8 @@ export const apiRequestFailure = (actionType, err) => {
     payload: {
       method: err.config.method,
       url: err.config.url,
-      status: err.response.status,
-      statusText: err.response.statusText
+      status: err.response ? err.response.status : 400,
+      statusText: err.response ? err.response.statusText : 'BAD_REQUEST'
     }
   }
 }

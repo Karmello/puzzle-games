@@ -29,6 +29,20 @@ describe('/highscores', () => {
     expect(wrapper.find('[search="category=sliding&id=BossPuzzle&mode=NUM&dimension=3"]').length).toBe(1);
   });
 
+  it('should redirect', () => {
+
+    state.app.authStatus = 'connected';
+    
+    const wrapper = renderWrapper([{
+      pathname: '/highscores',
+      search: 'category=sliding&id=BossPuzzle'
+    }], 0);
+    
+    expect(wrapper.find('.HighscoresPage').length).toBe(0);
+    expect(wrapper.find('[pathname="/highscores"]').length).toBe(1);
+    expect(wrapper.find('[search="category=sliding&id=BossPuzzle&mode=NUM&dimension=3"]').length).toBe(1);
+  });
+
   it('should render HighscoresPage', () => {
     
     state.app.authStatus = 'connected';

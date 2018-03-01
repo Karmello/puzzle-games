@@ -35,6 +35,16 @@ describe('/', () => {
     expect(wrapper.find('[pathname="/auth"]').length).toBe(1);
   });
 
+  it('should render PageError', () => {
+    state.api.gameCategories.res = {};
+    state.app.authStatus = 'connected';
+    const wrapper = renderWrapper(['/'], 0);
+    expect(wrapper.find('.AppBar').length).toBe(1);
+    expect(wrapper.find('.AppDrawer').length).toBe(1);
+    expect(wrapper.find('.MySnackBar').length).toBe(1);
+    expect(wrapper.find('.PageError').length).toBe(1);
+  });
+
   it('should render root components', () => {
     state.app.authStatus = 'connected';
     const wrapper = renderWrapper(['/'], 0);
