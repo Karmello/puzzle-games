@@ -148,7 +148,7 @@ class BossPuzzle extends Component {
   onMoveMade(index1, index2, targetCoords) {
 
     const { dispatch, onMakeMove } = this.props;
-    dispatch(switchTiles(index2, index1, targetCoords));
+    dispatch(switchTiles(index1, index2, targetCoords));
     onMakeMove();
   }
 }
