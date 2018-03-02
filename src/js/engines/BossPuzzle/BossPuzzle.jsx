@@ -10,10 +10,11 @@ import { getNewImgNumbers, initData } from './BossPuzzle.static';
 import './BossPuzzle.css';
 
 
+const numOfImgs = 20;
+
 class BossPuzzle extends Component {
 
   static tilesSizes = { 3: 150, 4: 125, 5: 100 };
-  static numOfImgs = 20;
   
   state = { imgSrc: null }
 
@@ -102,7 +103,7 @@ class BossPuzzle extends Component {
       if (!doRestart) {
         if (imgIndex === undefined || imgIndex === imgNumbers.length - 1) {
           nextImgIndex = 0;
-          nextImgNumbers = getNewImgNumbers(imgNumbers)      
+          nextImgNumbers = getNewImgNumbers(imgNumbers, numOfImgs)
         } else {
           nextImgIndex = imgIndex + 1;
           nextImgNumbers = imgNumbers;
