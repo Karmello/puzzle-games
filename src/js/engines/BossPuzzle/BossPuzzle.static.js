@@ -1,11 +1,12 @@
-import BossPuzzle from './BossPuzzle';
 import { shuffleIntArray } from 'js/helpers';
 
 
 const initDataLoopRuns = 1000;
 
-export const initData = (args) => {
+export const initData = args => {
   
+  if (args.dimension < 2) { throw new Error('Dimension must be greater than or equal 2'); }
+
   const run = () => {
 
     let { dimension, hiddenTileCoords } = args;
@@ -50,11 +51,13 @@ export const initData = (args) => {
 
 export const findAllMovementCoords = (targetCoords, dimension) => {
 
+  if (dimension < 2) { throw new Error('Dimension must be greater than or equal 2'); }
+
   const possibleDestinationCoords = [
-    { x: targetCoords.x - 1, y : targetCoords.y },
-    { x: targetCoords.x + 1, y : targetCoords.y },
     { x: targetCoords.x, y : targetCoords.y - 1 },
-    { x: targetCoords.x, y : targetCoords.y + 1 }
+    { x: targetCoords.x + 1, y : targetCoords.y },
+    { x: targetCoords.x, y : targetCoords.y + 1 },
+    { x: targetCoords.x - 1, y : targetCoords.y }
   ];
 
   const realDestinationCoords = [];
@@ -70,21 +73,21 @@ export const findAllMovementCoords = (targetCoords, dimension) => {
 
 export const coordsToIndex = (coords, dimension) => {
 
-  return coords.x * dimension + coords.y;
+  return coords.y * dimension + coords.x;
 }
 
 export const indexToCoords = (index, dimension) => {
 
   return {
-    x: Math.floor(index/dimension),
-    y: index % dimension
+    x: index % dimension,
+    y: Math.floor(index/dimension)
   }
 }
 
-export function getNewImgNumbers(currentNumbers) {
+export const getNewImgNumbers = (currentNumbers, numOfImgs) => {
 
   const run = () => {
-    const newImgNumbers = shuffleIntArray(Array.from({ length: BossPuzzle.numOfImgs }, (v, k) => k + 1));
+    const newImgNumbers = shuffleIntArray(Array.from({ length: numOfImgs }, (v, k) => k + 1));
     if (currentNumbers[currentNumbers.length - 1] === newImgNumbers[0]) {
       return run();
     } else {

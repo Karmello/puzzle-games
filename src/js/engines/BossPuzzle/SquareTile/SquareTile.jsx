@@ -10,12 +10,12 @@ class SquareTile extends Component {
 
   constructor(props) {
     super(props);
-    this.index = props.row * props.options.dimension + props.col;
+    this.index = coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
   }
 
   componentWillReceiveProps(nextProps) {
     const { hiddenTileCoords, row, col } = nextProps;
-    this.isHidden = (row === hiddenTileCoords.x && col === hiddenTileCoords.y);
+    this.isHidden = (col === hiddenTileCoords.x && row === hiddenTileCoords.y);
   }
 
   render() {
@@ -46,7 +46,7 @@ class SquareTile extends Component {
         return {
           backgroundImage: `url(${imgSrc})`,
           backgroundSize: `${options.dimension * imgSize}px ${options.dimension * imgSize}px`,
-          backgroundPosition: `-${imgCoords.y * imgSize}px -${imgCoords.x * imgSize}px`
+          backgroundPosition: `-${imgCoords.x * imgSize}px -${imgCoords.y * imgSize}px`
         }
       
       }
@@ -75,7 +75,7 @@ class SquareTile extends Component {
   isInProperPlace() {
 
     const { options, row, col } = this.props;
-    return row * options.dimension + col + 1 === this.getLabel();
+    return coordsToIndex({ x: col, y: row }, options.dimension) + 1 === this.getLabel();
   }
 
   onClick() {
@@ -84,7 +84,7 @@ class SquareTile extends Component {
 
     if (!isSolved) {
       
-      const targetCoords = { x: row, y: col };
+      const targetCoords = { x: col, y: row };
       const allMovementCoords = findAllMovementCoords(targetCoords, options.dimension);
 
       for (let coords of allMovementCoords) {
