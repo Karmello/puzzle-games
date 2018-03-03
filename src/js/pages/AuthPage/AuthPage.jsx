@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Paper } from 'material-ui';
 
 import { App } from 'js/app';
-import { AuthForm, FbBtn, PageError } from 'js/other';
+import { AuthForm } from 'js/other';
 import { toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
 import { fetchClientUser, createClientUser } from 'js/api/api.actions';
 import { fbLoginConfig, loadFbScript } from './AuthPage.fb.js';
@@ -25,7 +25,7 @@ class AuthPage extends Component {
 
   render() {
 
-    const { authStatus, appName } = this.props;
+    const { appName } = this.props;
 
     return (
       <div className='AuthPage'>
@@ -39,14 +39,14 @@ class AuthPage extends Component {
                 </a>
               </Paper>
               <Paper>
-                <div>
+                {/*<div>
                   {authStatus !== 'error' &&
                   <FbBtn
                     authStatus={authStatus}
                     onClick={() => { window.FB.login(res => this.login(res), { scope: 'public_profile' }) }}
                   />}
                   {authStatus === 'error' && <PageError/>}
-                </div>
+                </div>*/}
                 <AuthForm/>
               </Paper>
             </div>
