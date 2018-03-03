@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Paper } from 'material-ui';
 
 import { App } from 'js/app';
 import { FbBtn, PageError } from 'js/other';
@@ -24,23 +25,31 @@ class AuthPage extends Component {
 
   render() {
 
-    const { appName, authStatus } = this.props;
+    const { authStatus, appName } = this.props;
 
     return (
       <div className='AuthPage'>
-        <div className='AuthPage-welcomeImgContainer'>
-          <a href={logoHref} target='new'>
-            <img src={logoSrc} alt='' />
-          </a>
-        </div>
-        <div>{appName}</div>
         <div>
-          {authStatus !== 'error' &&
-          <FbBtn
-            authStatus={authStatus}
-            onClick={() => { window.FB.login(res => this.login(res), { scope: 'public_profile' }) }}
-          />}
-          {authStatus === 'error' && <PageError/>}
+          <div className='AuthPage-content'>
+            <p>{appName}</p>
+            <div>
+              <Paper>
+                <a href={logoHref} target='new'>
+                  <img src={logoSrc} alt='' />
+                </a>
+              </Paper>
+              <Paper>
+                <div>
+                  {authStatus !== 'error' &&
+                  <FbBtn
+                    authStatus={authStatus}
+                    onClick={() => { window.FB.login(res => this.login(res), { scope: 'public_profile' }) }}
+                  />}
+                  {authStatus === 'error' && <PageError/>}
+                </div>
+              </Paper>
+            </div>
+          </div>
         </div>
       </div>
     );
