@@ -22,11 +22,10 @@ class SquareTile extends Component {
     
     return (
       <Button
-        raised
         disableRipple
         className='SquareTile'
         style={this.getStyle()}
-        color={this.getLabelColor()}
+        variant='raised'
         onClick={this.onClick.bind(this)}
       >{this.props.options.mode === 'NUM' ? this.getLabel() : ''}</Button>
     );
@@ -53,16 +52,6 @@ class SquareTile extends Component {
 
     } else {
       return { 'visibility': 'hidden' };
-    }
-  }
-
-  getLabelColor() {
-
-    if (this.props.options.mode === 'NUM') {
-      return this.isInProperPlace() ? 'default' : 'contrast'
-    
-    } else {
-      return 'default';
     }
   }
 

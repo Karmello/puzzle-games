@@ -31,7 +31,7 @@ class GameCard extends Component {
             title={gameData.name}
           />
           <CardContent>
-            <Typography type='headline' component='h2'>{gameData.name}</Typography>
+            <Typography variant='headline' component='h2'>{gameData.name}</Typography>
             <Typography component='p'>{gameData.description}</Typography>
             <div className='GameCard-options'>
               {Options && <Options

@@ -12,7 +12,6 @@ export default class PageError extends Component {
         <div>Something went wrong</div>
         <div>
           <Button
-            raised
             onClick={this.onReloadClick.bind(this)}
           >Reload</Button>
         </div>

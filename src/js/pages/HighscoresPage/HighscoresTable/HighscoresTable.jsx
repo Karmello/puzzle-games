@@ -47,7 +47,7 @@ class HighscoresTable extends Component {
       case 'DATA_READY':
         return (
           <Paper className='HighscoresTable'>
-            <Typography className='HighscoresTable-title' type='title'>Highscores</Typography>
+            <Typography className='HighscoresTable-title' variant='title'>Highscores</Typography>
             <Table>
               <TableHead>
                 <TableRow>

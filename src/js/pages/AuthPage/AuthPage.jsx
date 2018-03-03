@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Paper } from 'material-ui';
 
 import { App } from 'js/app';
-import { FbBtn, PageError } from 'js/other';
+import { AuthForm, FbBtn, PageError } from 'js/other';
 import { toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
 import { fetchClientUser, createClientUser } from 'js/api/api.actions';
 import { fbLoginConfig, loadFbScript } from './AuthPage.fb.js';
@@ -11,7 +11,7 @@ import './AuthPage.css';
 
 
 const logoSrc = `${process.env.REACT_APP_S3_BUCKET}/logo.jpg`;
-const logoHref = 'https://en.wikipedia.org/wiki/15_puzzle';
+const logoHref = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Great_presidential_puzzle2.jpg/1280px-Great_presidential_puzzle2.jpg';
 
 class AuthPage extends Component {
   
@@ -47,6 +47,7 @@ class AuthPage extends Component {
                   />}
                   {authStatus === 'error' && <PageError/>}
                 </div>
+                <AuthForm/>
               </Paper>
             </div>
           </div>

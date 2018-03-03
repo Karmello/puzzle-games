@@ -7,7 +7,7 @@ import { Button } from 'material-ui';
 
 const PlayBtn = props => (
   <Button
-    raised
+    variant='raised'
     color='primary'
     component={Link}
     to={{

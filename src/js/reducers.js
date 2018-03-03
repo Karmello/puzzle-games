@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
 import { apiReducers } from 'js/api';
 import { appReducer } from 'js/app';
@@ -10,5 +11,6 @@ export default combineReducers({
   api: apiReducers,
   app: appReducer,
   pages: pageReducers,
-  engines: engineReducers
+  engines: engineReducers,
+  form: formReducer
 });

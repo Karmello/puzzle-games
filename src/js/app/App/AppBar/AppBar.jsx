@@ -17,13 +17,13 @@ class AppBar extends Component {
       <MaterialAppBar className='AppBar' position='static' color='primary'>
         <Toolbar>
           <IconButton
-            color='contrast'
+            color='inherit'
             aria-label='Menu'
             onClick={this.onDrawerIconClick.bind(this)}
           ><MenuIcon/></IconButton>
           <Typography
             className='AppBar-typography'
-            type='title'
+            variant='title'
             color='inherit'
           >{appName}</Typography>
         </Toolbar>

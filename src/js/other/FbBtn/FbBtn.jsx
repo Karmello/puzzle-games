@@ -17,7 +17,7 @@ const FbBtn = props => {
   if (props.authStatus !== 'connected') {
     return (
       <Button
-        raised
+        variant='raised'
         color='primary'
         onClick={props.onClick}
       >{getLabel()}</Button>
