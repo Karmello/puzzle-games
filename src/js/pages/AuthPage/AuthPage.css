@@ -8,10 +8,10 @@
     vertical-align: middle; }
     .AuthPage > div .AuthPage-content > p {
       text-align: center;
-      font-size: 35px;
+      font-size: 32px;
       font-weight: bold;
       font-style: italic;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       padding: 0;
       margin: 15px; }
     .AuthPage > div .AuthPage-content > div {
@@ -21,6 +21,8 @@
       .AuthPage > div .AuthPage-content > div > * {
         margin: 5px;
         padding: 5px; }
-        @media screen and (max-width: 650px) {
-          .AuthPage > div .AuthPage-content > div > * img {
-            max-width: 100%; } }
+        .AuthPage > div .AuthPage-content > div > * img {
+          width: 500px; }
+          @media screen and (max-width: 650px) {
+            .AuthPage > div .AuthPage-content > div > * img {
+              max-width: 100%; } }

@@ -10,9 +10,6 @@ import { fbLoginConfig, loadFbScript } from './AuthPage.fb.js';
 import './AuthPage.css';
 
 
-const logoSrc = `${process.env.REACT_APP_S3_BUCKET}/logo.jpg`;
-const logoHref = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Great_presidential_puzzle2.jpg/1280px-Great_presidential_puzzle2.jpg';
-
 class AuthPage extends Component {
   
   componentDidMount() {
@@ -34,26 +31,18 @@ class AuthPage extends Component {
             <p>{appName}</p>
             <div>
               <Paper>
-                <a href={logoHref} target='new'>
-                  <img src={logoSrc} alt='' />
-                </a>
-              </Paper>
-              <Paper>
-                {/*<div>
-                  {authStatus !== 'error' &&
-                  <FbBtn
-                    authStatus={authStatus}
-                    onClick={() => { window.FB.login(res => this.login(res), { scope: 'public_profile' }) }}
-                  />}
-                  {authStatus === 'error' && <PageError/>}
-                </div>*/}
-                <AuthForm/>
+                <AuthForm onSubmit={this.onAuthFormSubmit} />
               </Paper>
             </div>
           </div>
         </div>
       </div>
     );
+  }
+
+  onAuthFormSubmit(actionId, values) {
+
+    console.log(actionId, values);
   }
 
   login(res) {

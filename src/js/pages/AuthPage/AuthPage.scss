@@ -12,10 +12,10 @@
 
       > p {
         text-align: center;
-        font-size: 35px;
+        font-size: 32px;
         font-weight: bold;
         font-style: italic;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         padding: 0;
         margin: 15px;
       }
@@ -31,6 +31,7 @@
           padding: 5px;
 
           img {
+            width: 500px;
             @media screen and (max-width: 650px) { max-width: 100%; }
           }
         }

@@ -8,10 +8,10 @@ import './AuthForm.css';
 
 let AuthForm = props => {
 
-  const { handleSubmit, reset, pristine, submitting } = props;
-  
+  const { handleSubmit, onSubmit, reset, pristine, submitting } = props;
+
   return (
-    <form className='AuthForm' onSubmit={handleSubmit}>
+    <form className='AuthForm'>
       <div>
         <Field
           name='username'
@@ -31,9 +31,24 @@ let AuthForm = props => {
         />
       </div>
       <div>
-        <Button color='primary' type='submit' disabled={pristine || submitting}>Login</Button>
-        <Button color='primary' type='submit' disabled={pristine || submitting}>Register</Button>
-        <Button type='button' disabled={pristine || submitting} onClick={reset}>Clear</Button>
+        <Button
+          variant='raised'
+          color='primary'
+          disabled={pristine || submitting}
+          onClick={handleSubmit(values => onSubmit('LOGIN', { ...values }))}
+        >Login</Button>
+        <Button
+          variant='raised'
+          color='primary'
+          disabled={pristine || submitting}
+          onClick={handleSubmit(values => onSubmit('REGISTER', { ...values }))}
+        >Register</Button>
+        <Button
+          variant='raised'
+          color='inherit'
+          disabled={pristine || submitting}
+          onClick={reset}
+        >Clear</Button>
       </div>
     </form>
   );
