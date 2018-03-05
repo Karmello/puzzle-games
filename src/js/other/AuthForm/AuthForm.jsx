@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import PropTypes from 'prop-types';
 import { Button, TextField } from 'material-ui';
+import ErrorIcon from 'material-ui-icons/Error';
 
 import { Loader } from 'js/other';
 import './AuthForm.css';
@@ -9,8 +10,12 @@ import './AuthForm.css';
 
 const MyTextField = ({ input, meta: { touched, error }, ...custom }) => (
   <div>
-    <TextField {...input} {...custom} error={error} />
-    {touched && error && <div className='error'>{error}</div>}
+    <TextField {...input} {...custom} error={Boolean(error)} />
+    {touched && error &&
+    <div className='error'>
+      <span><ErrorIcon style={{ width: '20px' }} /></span>
+      <span>{error}</span>
+    </div>}
   </div>
 );
 
@@ -54,7 +59,8 @@ let AuthForm = props => {
                 handleSubmit(values => onSubmit('register', { ...values }).then(errors => {
                   if (errors) {
                     throw new SubmissionError({
-                      username: errors.username ? errors.username.message : undefined
+                      username: errors.username ? errors.username.message : undefined,
+                      password: errors.password ? errors.password.message : undefined
                     });
                   }
                 }))

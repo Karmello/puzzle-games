@@ -8,9 +8,14 @@
     .AuthForm .actionBtns > div {
       flex: 1; }
   .AuthForm .error {
-    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    margin-top: 1px;
     font-size: 13px;
+    font-weight: bold;
     color: #f44336; }
+    .AuthForm .error > span:last-child {
+      padding-left: 5px; }
   .AuthForm .Loader {
     width: 40px;
     height: 40px; }

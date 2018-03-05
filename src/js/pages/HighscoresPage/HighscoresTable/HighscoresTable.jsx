@@ -63,7 +63,7 @@ class HighscoresTable extends Component {
                     <TableCell>{moment.utc(highscore.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
                     <TableCell numeric>{highscore.details.moves}</TableCell>
                     <TableCell>{moment(highscore.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
-                    <TableCell>{find(api.users.res.data, elem => elem._id === highscore.userId).fb.name}</TableCell>
+                    <TableCell>{find(api.users.res.data, elem => elem._id === highscore.userId).username}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
