@@ -26,8 +26,8 @@ class AppDrawer extends Component {
         >
           {clientUser.res.status === 200 &&
           <div className='AppDrawer-user'>
-            <div>Logged in as</div>
-            <div>{clientUser.res.data.username}</div>
+            <span>Logged in as</span>
+            <span><b>{clientUser.res.data.username}</b></span>
           </div>}
           <div
             tabIndex={0}
@@ -80,6 +80,7 @@ class AppDrawer extends Component {
       dispatch(toggleAppLoader(true));
 
       setTimeout(() => {
+        localStorage.removeItem('token');
         dispatch(setAuthStatus('logged_out'));
         dispatch(apiRequestClear(REGISTER_OR_LOGIN_USER));
         dispatch(toggleAppLoader(false));

@@ -17,9 +17,24 @@ class AuthPage extends Component {
   }
 
   componentDidMount() {
-    
-    // token not found in local storage
-    setTimeout(() => this.props.dispatch(toggleAppLoader(false)), App.minLoadTime);
+
+    const { authStatus, dispatch } = this.props;
+    const  token = localStorage.getItem('token');
+
+    if (!authStatus && token) {
+      setTimeout(() => {
+        dispatch(loginUser({ token })).then(() => {
+          if (this.props.clientUser.res.status === 200) {
+            dispatch(setAuthStatus('logged_in'));
+            dispatch(toggleAppLoader(false));
+          } else {
+            dispatch(toggleAppLoader(false));
+          }
+        });
+      }, App.minLoadTime);
+    } else {
+      dispatch(toggleAppLoader(false));
+    }
   }
 
   render() {
@@ -63,5 +78,6 @@ class AuthPage extends Component {
 
 export default connect(store => ({
   appName: store.app.title,
+  authStatus: store.app.authStatus,
   clientUser: store.api.clientUser
 }))(AuthPage);

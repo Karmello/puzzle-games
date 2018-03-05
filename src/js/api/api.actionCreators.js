@@ -3,6 +3,7 @@ export const apiRequest = (actionType, req) => {
     return {
       type: actionType,
       payload: {
+        headers: req.headers,
         params: req.params,
         query: req.query,
         body: req.body
