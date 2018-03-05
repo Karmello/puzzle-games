@@ -14,10 +14,10 @@ const FbBtn = props => {
     }
   }
 
-  if (props.authStatus !== 'connected') {
+  if (props.authStatus !== 'logged_in') {
     return (
       <Button
-        raised
+        variant='raised'
         color='primary'
         onClick={props.onClick}
       >{getLabel()}</Button>

@@ -1,4 +1,3 @@
-![Logo](https://s3.eu-central-1.amazonaws.com/puzzle-games/logo.jpg)\
 ### Local setup
 * API needs to be run first
 * `git clone` repo and `npm install` from root

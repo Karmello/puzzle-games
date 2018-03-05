@@ -6,7 +6,7 @@ import './Loader.css';
 
 
 const Loader = props => (
-  <div className='Loader'>
+  <div className={props.centered ? 'Loader-centered' : 'Loader'}>
     <div style={{ display: props.isShown ? 'none' : 'initial' }}>{props.children}</div>
     {props.isShown && <div className='Spinner'><CircularProgress/></div>}
   </div>

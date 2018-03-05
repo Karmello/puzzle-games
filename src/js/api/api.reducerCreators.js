@@ -17,6 +17,7 @@ const getApiRequestReducer = (actionType) => {
         return {
           ...state,
           req: {
+            headers: action.payload.headers,
             params: action.payload.params,
             query: action.payload.query,
             body: action.payload.body,
@@ -36,7 +37,7 @@ const getApiRequestReducer = (actionType) => {
           res: {
             status: action.payload.status,
             statusText: action.payload.statusText,
-            data: action.payload.data
+            data: action.payload.data,
           }
         };
 

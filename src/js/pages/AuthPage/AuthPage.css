@@ -1,10 +1,28 @@
 .AuthPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  .AuthPage > * {
-    padding: 15px; }
-    .AuthPage > * img {
-      max-width: 100%; }
-  .AuthPage .AuthPage-welcomeImgContainer {
-    margin-bottom: 25px; }
+  display: table;
+  position: absolute;
+  width: 100%;
+  height: 100vh; }
+  .AuthPage > div {
+    display: table-cell;
+    vertical-align: middle; }
+    .AuthPage > div .AuthPage-content > p {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      font-style: italic;
+      letter-spacing: 1px;
+      padding: 0;
+      margin: 15px; }
+    .AuthPage > div .AuthPage-content > div {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center; }
+      .AuthPage > div .AuthPage-content > div > * {
+        margin: 5px;
+        padding: 5px; }
+        .AuthPage > div .AuthPage-content > div > * img {
+          width: 500px; }
+          @media screen and (max-width: 650px) {
+            .AuthPage > div .AuthPage-content > div > * img {
+              max-width: 100%; } }

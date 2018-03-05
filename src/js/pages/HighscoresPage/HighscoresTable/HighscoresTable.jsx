@@ -10,7 +10,7 @@ import { Loader } from 'js/other';
 import './HighscoresTable.css';
 
 
-const columns = ['No.', 'Time', 'Moves', 'Date', 'Player'];
+const columns = ['No.', 'Player', 'Time', 'Moves', 'Date'];
 
 class HighscoresTable extends Component {
 
@@ -47,7 +47,7 @@ class HighscoresTable extends Component {
       case 'DATA_READY':
         return (
           <Paper className='HighscoresTable'>
-            <Typography className='HighscoresTable-title' type='title'>Highscores</Typography>
+            <Typography className='HighscoresTable-title' variant='title'>Highscores</Typography>
             <Table>
               <TableHead>
                 <TableRow>
@@ -60,10 +60,10 @@ class HighscoresTable extends Component {
                 {api.highscores.res.data.map((highscore, i) => (
                   <TableRow key={highscore._id} style={this.getRowStyle(highscore)}>
                     <TableCell>{i + 1}</TableCell>
+                    <TableCell>{find(api.users.res.data, elem => elem._id === highscore.userId).username}</TableCell>
                     <TableCell>{moment.utc(highscore.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
                     <TableCell numeric>{highscore.details.moves}</TableCell>
                     <TableCell>{moment(highscore.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
-                    <TableCell>{find(api.users.res.data, elem => elem._id === highscore.userId).fb.name}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

@@ -1,16 +1,41 @@
 .AuthPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: table;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
 
-  > * {
-    padding: 15px;
-    img {
-      max-width: 100%;
+  > div {
+    display: table-cell;
+    vertical-align: middle;
+
+    .AuthPage-content {
+
+      > p {
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        font-style: italic;
+        letter-spacing: 1px;
+        padding: 0;
+        margin: 15px;
+      }
+
+      > div {
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+
+        > * {
+          margin: 5px;
+          padding: 5px;
+
+          img {
+            width: 500px;
+            @media screen and (max-width: 650px) { max-width: 100%; }
+          }
+        }
+      }
     }
-  }
-
-  .AuthPage-welcomeImgContainer {
-    margin-bottom: 25px;
   }
 }

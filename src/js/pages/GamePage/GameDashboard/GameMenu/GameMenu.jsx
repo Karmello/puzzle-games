@@ -18,7 +18,7 @@ export default class GameMenu extends Component {
     return (
       <div className='GameMenu'>
         <Button
-          raised
+          variant='raised'
           color='primary'
           aria-owns={btnElem ? 'gameMenu' : null}
           aria-haspopup='true'

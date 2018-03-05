@@ -9,7 +9,7 @@ import reducers from 'js/reducers';
 let store;
 
 if (process.env.NODE_ENV !== 'development') {
-  store = createStore( reducers, applyMiddleware(thunkMiddleware));
+  store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 } else {
   store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger())));

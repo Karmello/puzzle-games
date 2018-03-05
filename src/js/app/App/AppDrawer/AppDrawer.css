@@ -2,12 +2,10 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
   padding: 10px; }
-  .AppDrawer-user > div {
-    margin: 2px; }
-    .AppDrawer-user > div img {
-      border-radius: 50%; }
+  .AppDrawer-user > span {
+    padding: 2px; }
 
 .AppDrawer-content {
   width: 200px; }

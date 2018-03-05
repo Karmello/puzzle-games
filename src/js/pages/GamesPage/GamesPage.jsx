@@ -16,7 +16,7 @@ class GamesPage extends Component {
     this.state = { categoryIds: [] };
   }
 
-  componentWillMount() {
+  componentDidMount() {
 
     const { api } = this.props;
     const categoryIds = [];
@@ -47,7 +47,7 @@ class GamesPage extends Component {
         <SwipeableViews
           className='GamesPage-games'
           axis={'x-reverse'}
-          index={this.state.categoryIds.indexOf(gamesPage.category)}
+          index={this.state.categoryIds.length > 0 ? this.state.categoryIds.indexOf(gamesPage.category) : 2}
         >
           {api.gameCategories.res.data.map(categoryData => (
             <div key={categoryData.id}>

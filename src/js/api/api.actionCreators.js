@@ -3,6 +3,7 @@ export const apiRequest = (actionType, req) => {
     return {
       type: actionType,
       payload: {
+        headers: req.headers,
         params: req.params,
         query: req.query,
         body: req.body
@@ -35,7 +36,8 @@ export const apiRequestFailure = (actionType, err) => {
       method: err.config.method,
       url: err.config.url,
       status: err.response ? err.response.status : 400,
-      statusText: err.response ? err.response.statusText : 'BAD_REQUEST'
+      statusText: err.response ? err.response.statusText : 'BAD_REQUEST',
+      data: err.response ? err.response.data : undefined
     }
   }
 }
