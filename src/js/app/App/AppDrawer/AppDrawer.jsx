@@ -5,8 +5,9 @@ import { Drawer, List } from 'material-ui';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import { PlayCircleOutline, ContentPaste, PowerSettingsNew } from 'material-ui-icons';
 
+import { App } from 'js/app';
 import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
-import { FETCH_OR_CREATE_CLIENT_USER } from 'js/api/api.actions';
+import { REGISTER_OR_LOGIN_USER } from 'js/api/api.actions';
 import { apiRequestClear } from 'js/api/api.actionCreators';
 import './AppDrawer.css';
 
@@ -26,15 +27,7 @@ class AppDrawer extends Component {
           {clientUser.res.status === 200 &&
           <div className='AppDrawer-user'>
             <div>Logged in as</div>
-            {clientUser.res.data.fb.avatarUrl &&
-            <div>
-              <img
-                src={clientUser.res.data.fb.avatarUrl}
-                title={clientUser.res.data.fb.name}
-                alt=''
-              />
-            </div>}
-            <div>{clientUser.res.data.fb.name}</div>
+            <div>{clientUser.res.data.username}</div>
           </div>}
           <div
             tabIndex={0}
@@ -52,7 +45,7 @@ class AppDrawer extends Component {
                   <ListItemIcon><ContentPaste/></ListItemIcon>
                   <ListItemText primary='Highscores' />
                 </ListItem>
-                {authStatus === 'connected' && <ListItem button onClick={this.onLogout.bind(this)}>
+                {authStatus === 'logged_in' && <ListItem button onClick={this.onLogout.bind(this)}>
                   <ListItemIcon><PowerSettingsNew/></ListItemIcon>
                   <ListItemText primary='Logout' />
                 </ListItem>}
@@ -81,14 +74,17 @@ class AppDrawer extends Component {
   onLogout() {
 
     const { dispatch } = this.props;
-    
-    dispatch(toggleAppLoader(true));
-    
-    window.FB.logout(res => {
-      dispatch(setAuthStatus(res.status));
-      dispatch(apiRequestClear(FETCH_OR_CREATE_CLIENT_USER));
-      dispatch(toggleAppLoader(false));
-    });
+
+    setTimeout(() => {
+
+      dispatch(toggleAppLoader(true));
+
+      setTimeout(() => {
+        dispatch(setAuthStatus('logged_out'));
+        dispatch(apiRequestClear(REGISTER_OR_LOGIN_USER));
+        dispatch(toggleAppLoader(false));
+      }, App.minLoadTime);
+    }, App.minLoadTime / 2);
   }
 }
 

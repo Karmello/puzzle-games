@@ -14,7 +14,7 @@ const FbBtn = props => {
     }
   }
 
-  if (props.authStatus !== 'connected') {
+  if (props.authStatus !== 'logged_in') {
     return (
       <Button
         variant='raised'

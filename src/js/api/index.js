@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import getApiRequestReducer from './api.reducerCreators';
 
 import {
-  FETCH_OR_CREATE_CLIENT_USER,
+  REGISTER_OR_LOGIN_USER,
   FETCH_USERS,
   FETCH_GAMES,
   FETCH_GAME_CATEGORIES,
@@ -13,7 +13,7 @@ import {
 
 
 export const apiReducers = combineReducers({
-  clientUser: getApiRequestReducer(FETCH_OR_CREATE_CLIENT_USER),
+  clientUser: getApiRequestReducer(REGISTER_OR_LOGIN_USER),
   users: getApiRequestReducer(FETCH_USERS),
   games: getApiRequestReducer(FETCH_GAMES),
   gameCategories: getApiRequestReducer(FETCH_GAME_CATEGORIES),

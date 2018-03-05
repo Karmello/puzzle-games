@@ -1,10 +1,7 @@
-.Loader {
-  position: relative; }
-  .Loader .Spinner {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    margin-top: 50px; }
+.Loader-centered {
+  height: 100vh; }
+  .Loader-centered .Spinner {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center; }

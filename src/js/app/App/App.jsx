@@ -13,7 +13,7 @@ import './App.css';
 
 class App extends Component {
 
-  static minLoadTime = 300;
+  static minLoadTime = 500;
 
   constructor(props) {
     super(props);
@@ -27,7 +27,7 @@ class App extends Component {
     
     const { authStatus, api } = this.props;
 
-    if (authStatus !== 'error' && nextProps.authStatus === 'error') {
+    if (authStatus === '' && nextProps.authStatus === 'logged_out') {
       this.setState({ snackBarMessage: 'Could not login.' });
     
     } else if (api.newHighscore.req.isAwaiting && !nextProps.api.newHighscore.req.isAwaiting && nextProps.api.newHighscore.res.status === 200) {
@@ -47,11 +47,11 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <Loader isShown={isLoading}>
+        <Loader centered={true} isShown={isLoading}>
           <Switch>
             <Route exact path='/auth' render={props => this.authRouteLogic(props)}/>
             <Route path='/' render={props => {
-              if (authStatus !== 'connected') {
+              if (authStatus !== 'logged_in') {
                 return (
                   <div pathname='/auth'>
                     <Redirect to={{

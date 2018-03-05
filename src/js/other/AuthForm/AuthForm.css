@@ -1,2 +1,16 @@
-.AuthForm > div {
-  padding: 5px; }
+.AuthForm {
+  min-width: 300px; }
+  .AuthForm > div {
+    padding: 5px; }
+  .AuthForm .actionBtns {
+    display: flex;
+    margin-top: 15px; }
+    .AuthForm .actionBtns > div {
+      flex: 1; }
+  .AuthForm .error {
+    margin-top: 5px;
+    font-size: 13px;
+    color: #f44336; }
+  .AuthForm .Loader {
+    width: 40px;
+    height: 40px; }

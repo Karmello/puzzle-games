@@ -9,7 +9,7 @@ export const authRouteLogic = function(props) {
 
   const { authStatus } = this.props;
 
-  if (authStatus === 'connected') {
+  if (authStatus === 'logged_in') {
     
     const state = props.location.state;
     let pathname;
