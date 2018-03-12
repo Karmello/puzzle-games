@@ -22,14 +22,14 @@ describe('/', () => {
   });
 
   it('should redirect', () => {
-    state.app.authStatus = 'unknown';
+    state.app.authStatus = 'logged_out';
     const wrapper = renderWrapper(['/'], 0);
     expect(wrapper.find('.AppBar').length).toBe(0);
     expect(wrapper.find('[pathname="/auth"]').length).toBe(1);
   });
 
   it('should redirect', () => {
-    state.app.authStatus = 'not_authorized';
+    state.app.authStatus = 'logged_out';
     const wrapper = renderWrapper(['/'], 0);
     expect(wrapper.find('.AppBar').length).toBe(0);
     expect(wrapper.find('[pathname="/auth"]').length).toBe(1);
@@ -37,7 +37,7 @@ describe('/', () => {
 
   it('should render PageError', () => {
     state.api.gameCategories.res = {};
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/'], 0);
     expect(wrapper.find('.AppBar').length).toBe(1);
     expect(wrapper.find('.AppDrawer').length).toBe(1);
@@ -46,7 +46,7 @@ describe('/', () => {
   });
 
   it('should render root components', () => {
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/'], 0);
     expect(wrapper.find('.AppBar').length).toBe(1);
     expect(wrapper.find('.AppDrawer').length).toBe(1);

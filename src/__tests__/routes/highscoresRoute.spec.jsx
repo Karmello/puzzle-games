@@ -22,7 +22,7 @@ describe('/highscores', () => {
   });
 
   it('should redirect', () => {
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/highscores'], 0);
     expect(wrapper.find('.HighscoresPage').length).toBe(0);
     expect(wrapper.find('[pathname="/highscores"]').length).toBe(1);
@@ -31,7 +31,7 @@ describe('/highscores', () => {
 
   it('should redirect', () => {
 
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     
     const wrapper = renderWrapper([{
       pathname: '/highscores',
@@ -45,7 +45,7 @@ describe('/highscores', () => {
 
   it('should render HighscoresPage', () => {
     
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     
     const wrapper = renderWrapper([{
       pathname: '/highscores',

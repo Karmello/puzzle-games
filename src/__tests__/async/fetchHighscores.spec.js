@@ -9,6 +9,10 @@ const baseURL = process.env.REACT_APP_API_URI;
 
 describe('async fetchHighscores', () => {
   
+  beforeAll(() => {
+    localStorage.setItem('token', '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*');
+  });
+
   beforeEach(() => moxios.install());
   afterEach(() => moxios.uninstall());
   
@@ -35,7 +39,10 @@ describe('async fetchHighscores', () => {
         type: FETCH_HIGHSCORES,
         payload: {
           params: { gameId: '5a88b19010216a6875e3163d' },
-          query: { mode: 'NUM', dimension: '3' }
+          query: { mode: 'NUM', dimension: '3' },
+          headers: {
+            'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
+          }
         }
       },
       {
@@ -58,12 +65,10 @@ describe('async fetchHighscores', () => {
     ];
     
     const store = mockStore({});
-    const action = fetchHighscores('5a88b19010216a6875e3163d', { mode: 'NUM', dimension: '3' }, 50);
+    const action = fetchHighscores('5a88b19010216a6875e3163d', { mode: 'NUM', dimension: '3' });
 
     return store.dispatch(action).then(() => {
-      setTimeout(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      }, 50);
+      expect(store.getActions()).toEqual(expectedActions);
     });
   });
 
@@ -82,7 +87,10 @@ describe('async fetchHighscores', () => {
         type: FETCH_HIGHSCORES,
         payload: {
           params: { gameId: '5a88b19010216a6875e3163d' },
-          query: { mode: 'NUM', dimension: '3' }
+          query: { mode: 'NUM', dimension: '3' },
+          headers: {
+            'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
+          }
         }
       },
       {
@@ -97,12 +105,10 @@ describe('async fetchHighscores', () => {
     ];
     
     const store = mockStore({});
-    const action = fetchHighscores('5a88b19010216a6875e3163d', { mode: 'NUM', dimension: '3' }, 50);
+    const action = fetchHighscores('5a88b19010216a6875e3163d', { mode: 'NUM', dimension: '3' });
 
     return store.dispatch(action).then(() => {
-      setTimeout(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      }, 50);
+      expect(store.getActions()).toEqual(expectedActions);
     });
   });
 });

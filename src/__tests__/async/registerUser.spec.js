@@ -1,13 +1,13 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { createClientUser, FETCH_OR_CREATE_CLIENT_USER } from 'js/api/api.actions';
+import { registerUser, REGISTER_OR_LOGIN_USER } from 'js/api/api.actions';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;
 
 
-describe('async createClientUser', () => {
+describe('async registerUser', () => {
   
   beforeEach(() => moxios.install());
   afterEach(() => moxios.uninstall());
@@ -20,31 +20,35 @@ describe('async createClientUser', () => {
         status: 200,
         statusText: 'OK',
         response: {
-          _id: '000000000000000000000000',
-          fb: { id: '1234567890', name: 'Alan Watts' }
+          token: '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*',
+          user: {
+            _id: '000000000000000000000000',
+            username: 'AlanWatts'
+          }
         }
       });
     });
     
     const expectedActions = [
       {
-        type: FETCH_OR_CREATE_CLIENT_USER,
+        type: REGISTER_OR_LOGIN_USER,
         payload: {
           body: {
-            fb: { id: '1234567890', name: 'Alan Watts' }
+            username: 'AlanWatts',
+            password: '********'
           }
         }
       },
       {
-        type: FETCH_OR_CREATE_CLIENT_USER + '_SUCCESS',
+        type: REGISTER_OR_LOGIN_USER + '_SUCCESS',
         payload: {
           method: 'post',
-          url: baseURL + '/user',
+          url: baseURL + '/user/register',
           status: 200,
           statusText: 'OK',
           data: {
             _id: '000000000000000000000000',
-            fb: { id: '1234567890', name: 'Alan Watts' }
+            username: 'AlanWatts'
           }
         }
       }
@@ -52,9 +56,7 @@ describe('async createClientUser', () => {
     
     const store = mockStore({});
 
-    return store.dispatch(createClientUser({
-      fb: { id: '1234567890', name: 'Alan Watts' }
-    })).then(() => {
+    return store.dispatch(registerUser({ username: 'AlanWatts', password: 'password' })).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -71,18 +73,19 @@ describe('async createClientUser', () => {
     
     const expectedActions = [
       {
-        type: FETCH_OR_CREATE_CLIENT_USER,
+        type: REGISTER_OR_LOGIN_USER,
         payload: {
           body: {
-            fb: { id: '1234567890', name: 'Alan Watts' }
+            username: 'AlanWatts',
+            password: '********'
           }
         }
       },
       {
-        type: FETCH_OR_CREATE_CLIENT_USER + '_FAILURE',
+        type: REGISTER_OR_LOGIN_USER + '_FAILURE',
         payload: {
           method: 'post',
-          url: baseURL + '/user',
+          url: baseURL + '/user/register',
           status: 400,
           statusText: 'BAD_REQUEST'
         }
@@ -91,9 +94,7 @@ describe('async createClientUser', () => {
     
     const store = mockStore({});
 
-    return store.dispatch(createClientUser({
-      fb: { id: '1234567890', name: 'Alan Watts' }
-    })).then(() => {
+    return store.dispatch(registerUser({ username: 'AlanWatts', password: 'password' })).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

@@ -18,13 +18,13 @@ describe('appReducer', () => {
     expect(appReducer({
       NODE_ENV: 'test',
       title: 'Puzzle Games',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: false,
       isLoading: true
     }, setAppTitle('Eight Queens'))).toEqual({
       NODE_ENV: 'test',
       title: 'Eight Queens',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: false,
       isLoading: true
     });
@@ -37,10 +37,10 @@ describe('appReducer', () => {
       authStatus: '',
       showDrawer: true,
       isLoading: false
-    }, setAuthStatus('connected'))).toEqual({
+    }, setAuthStatus('logged_in'))).toEqual({
       NODE_ENV: 'test',
       title: 'Eight Queens',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: false,
       isLoading: false
     });
@@ -51,13 +51,13 @@ describe('appReducer', () => {
     expect(appReducer({
       NODE_ENV: 'test',
       title: 'Eight Queens',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: false,
       isLoading: false
     }, toggleAppLoader(true))).toEqual({
       NODE_ENV: 'test',
       title: 'Eight Queens',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: false,
       isLoading: true
     });
@@ -65,13 +65,13 @@ describe('appReducer', () => {
     expect(appReducer({
       NODE_ENV: 'test',
       title: 'Eight Queens',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: false,
       isLoading: true
     }, toggleAppLoader(false))).toEqual({
       NODE_ENV: 'test',
       title: 'Eight Queens',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: false,
       isLoading: false
     });
@@ -82,13 +82,13 @@ describe('appReducer', () => {
     expect(appReducer({
       NODE_ENV: 'test',
       title: 'Eight Queens',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: false,
       isLoading: false
     }, toggleAppDrawer(true))).toEqual({
       NODE_ENV: 'test',
       title: 'Eight Queens',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: true,
       isLoading: false
     });
@@ -96,13 +96,13 @@ describe('appReducer', () => {
     expect(appReducer({
       NODE_ENV: 'test',
       title: 'Eight Queens',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: true,
       isLoading: false
     }, toggleAppDrawer(false))).toEqual({
       NODE_ENV: 'test',
       title: 'Eight Queens',
-      authStatus: 'connected',
+      authStatus: 'logged_in',
       showDrawer: false,
       isLoading: false
     });

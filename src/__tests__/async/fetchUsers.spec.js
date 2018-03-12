@@ -9,6 +9,10 @@ const baseURL = process.env.REACT_APP_API_URI;
 
 describe('async fetchUsers', () => {
   
+  beforeAll(() => {
+    localStorage.setItem('token', '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*');
+  });
+
   beforeEach(() => moxios.install());
   afterEach(() => moxios.uninstall());
   
@@ -21,7 +25,7 @@ describe('async fetchUsers', () => {
         statusText: 'OK',
         response: [{
           _id: '000000000000000000000000',
-          fb: { id: '1234567890', name: 'Alan Watts' }
+          username: 'AlanWatts'
         }]
       });
     });
@@ -29,7 +33,11 @@ describe('async fetchUsers', () => {
     const expectedActions = [
       {
         type: FETCH_USERS,
-        payload: {}
+        payload: {
+          headers: {
+            'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
+          }
+        }
       },
       {
         type: FETCH_USERS + '_SUCCESS',
@@ -40,7 +48,7 @@ describe('async fetchUsers', () => {
           statusText: 'OK',
           data: [{
             _id: '000000000000000000000000',
-            fb: { id: '1234567890', name: 'Alan Watts' }
+            username: 'AlanWatts'
           }]
         }
       }
@@ -66,7 +74,11 @@ describe('async fetchUsers', () => {
     const expectedActions = [
       {
         type: FETCH_USERS,
-        payload: {}
+        payload: {
+          headers: {
+            'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
+          }
+        }
       },
       {
         type: FETCH_USERS + '_FAILURE',

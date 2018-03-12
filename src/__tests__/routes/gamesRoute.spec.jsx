@@ -22,45 +22,45 @@ describe('/games', () => {
   });
 
   it('should redirect', () => {
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/games/wrong_category'], 0);
     expect(wrapper.find('[pathname="/games/sliding"]').length).toBe(1);
   });
 
   it('should render GamesPage', () => {
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/games/sliding'], 0);
     expect(wrapper.find('.GamesPage').length).toBe(1);
   });
 
   it('should redirect', () => {
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/games/sliding/wrong_game_id'], 0);
     expect(wrapper.find('[pathname="/games/sliding"]').length).toBe(1);
   });
 
   it('should redirect', () => {
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/games/sliding/BossPuzzle'], 0);
     expect(wrapper.find('[pathname="/games/sliding/BossPuzzle"]').length).toBe(1);
     expect(wrapper.find('[search="dimension=3&mode=NUM"]').length).toBe(1);
   });
 
   it('should redirect', () => {
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/games/sliding/BossPuzzle?mode=ABC&dimension=-1'], 0);
     expect(wrapper.find('[pathname="/games/sliding/BossPuzzle"]').length).toBe(1);
     expect(wrapper.find('[search="dimension=3&mode=NUM"]').length).toBe(1);
   });
 
   it('should render GamePage', () => {
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/games/sliding/BossPuzzle?mode=NUM&dimension=3'], 0);
     expect(wrapper.find('.GamePage').length).toBe(1);
   });
 
   it('should render GamePage', () => {
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/games/sliding/BossPuzzle?mode=IMG&dimension=5'], 0);
     expect(wrapper.find('.GamePage').length).toBe(1);
   });
