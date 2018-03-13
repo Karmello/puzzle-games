@@ -28,7 +28,7 @@ export const registerUser = user => {
   }
 }
 
-export const loginUser = (credentials) => {
+export const loginUser = credentials => {
   
   const api = axios.create({ baseURL });
   api.interceptors.response.use(res => ({ ...res, token: res.data.token, data: res.data.user }));
@@ -92,9 +92,17 @@ export const fetchHighscores = (gameId, query, delay) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     dispatch(apiRequest(FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
     return api.get(`/highscores/${gameId}`, { headers, params: query }).then(res => {
-      setTimeout(() => dispatch(apiRequestSuccess(FETCH_HIGHSCORES, res)), delay);
+      if (delay) {
+        setTimeout(() => dispatch(apiRequestSuccess(FETCH_HIGHSCORES, res)), delay);
+      } else {
+        dispatch(apiRequestSuccess(FETCH_HIGHSCORES, res));
+      }
     }, err => {
-      setTimeout(() => dispatch(apiRequestFailure(FETCH_HIGHSCORES, err)), delay);
+      if (delay) {
+        setTimeout(() => dispatch(apiRequestFailure(FETCH_HIGHSCORES, err)), delay);
+      } else {
+        dispatch(apiRequestFailure(FETCH_HIGHSCORES, err));
+      }
     });
   }
 }

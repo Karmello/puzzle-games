@@ -21,19 +21,19 @@ describe('/auth', () => {
   });
 
   it('should render AuthPage', () => {
-    state.app.authStatus = 'unknown';
+    state.app.authStatus = 'logged_out';
     const wrapper = renderWrapper(['/auth'], 0);
     expect(wrapper.find('.AuthPage').length).toBe(1);
   });
 
   it('should render AuthPage', () => {
-    state.app.authStatus = 'not_authorized';
+    state.app.authStatus = 'logged_out';
     const wrapper = renderWrapper(['/auth'], 0);
     expect(wrapper.find('.AuthPage').length).toBe(1);
   });
 
   it('should redirect', () => {
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/auth'], 0);
     expect(wrapper.find('.AuthPage').length).toBe(0);
     expect(wrapper.find('[pathname="/games/sliding"]').length).toBe(1);
@@ -41,7 +41,7 @@ describe('/auth', () => {
 
   it('should redirect', () => {
     
-    state.app.authStatus = 'connected';
+    state.app.authStatus = 'logged_in';
     
     const wrapper = renderWrapper([{
       pathname: '/auth',

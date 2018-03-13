@@ -9,6 +9,10 @@ const baseURL = process.env.REACT_APP_API_URI;
 
 describe('async saveNewHighscore', () => {
   
+  beforeAll(() => {
+    localStorage.setItem('token', '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*');
+  });
+
   beforeEach(() => moxios.install());
   afterEach(() => moxios.uninstall());
   
@@ -39,6 +43,9 @@ describe('async saveNewHighscore', () => {
             userId : '5a88b1a22399f3011129d37c',
             gameId : '5a88b19010216a6875e3163d',
             options : { mode : 'NUM', dimension : '3' }
+          },
+          headers: {
+            'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
           }
         }
       },
@@ -94,6 +101,9 @@ describe('async saveNewHighscore', () => {
             userId : '5a88b1a22399f3011129d37c',
             gameId : '5a88b19010216a6875e3163d',
             options : { mode : 'NUM', dimension : '3' }
+          },
+          headers: {
+            'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
           }
         }
       },
