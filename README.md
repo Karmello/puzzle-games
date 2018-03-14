@@ -18,3 +18,13 @@
 ### Other links
 * Jira - [https://puzzle-games.atlassian.net](https://puzzle-games.atlassian.net)
 * Jenkins - [http://ec2-35-158-121-12.eu-central-1.compute.amazonaws.com](http://ec2-35-158-121-12.eu-central-1.compute.amazonaws.com)
+
+### Basic workflow (FE & BE)
+* `setup` project locally
+* create `new task`
+* checkout the development branch with `git checkout staging`
+* create separate branch with `git checkout -b <task_id-description-of-the-task>`
+* push new branch to remote with `git push -u origin <task_id-description-of-the-task>`
+* `git commit` & `git push` while working on an implementation
+* when done implementing and tested locally, create `pull request` from feature to development branch, this will trigger automatic `Jenkins build`
+* `merge` pull request if build was successful
