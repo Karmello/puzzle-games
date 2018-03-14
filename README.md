@@ -11,14 +11,6 @@
 * `npm run start` will automagically navigate to `localhost:3000`
 * `npm test` to run tests
 * `npm run storybook` to see stories
-### Remote environments
-* STAGING - [https://staging-puzzle-games.herokuapp.com](https://staging-puzzle-games.herokuapp.com)
-* TEST - [https://test-puzzle-games.herokuapp.com](https://test-puzzle-games.herokuapp.com)
-* PRODUCTION - [https://puzzle-games.herokuapp.com](https://puzzle-games.herokuapp.com)
-### Other links
-* Jira - [https://puzzle-games.atlassian.net](https://puzzle-games.atlassian.net)
-* Jenkins - [http://ec2-35-158-121-12.eu-central-1.compute.amazonaws.com](http://ec2-35-158-121-12.eu-central-1.compute.amazonaws.com)
-
 ### Basic workflow (FE & BE)
 * `setup` project locally
 * create `new task`
@@ -28,3 +20,10 @@
 * `git commit` & `git push` while working on an implementation
 * when done implementing and tested locally, create `pull request` from feature to development branch, this will trigger automatic `Jenkins build`
 * `merge` pull request if build was successful
+### Remote environments
+* STAGING - [https://staging-puzzle-games.herokuapp.com](https://staging-puzzle-games.herokuapp.com)
+* TEST - [https://test-puzzle-games.herokuapp.com](https://test-puzzle-games.herokuapp.com)
+* PRODUCTION - [https://puzzle-games.herokuapp.com](https://puzzle-games.herokuapp.com)
+### Other links
+* Jira - [https://puzzle-games.atlassian.net](https://puzzle-games.atlassian.net)
+* Jenkins - [http://ec2-35-158-121-12.eu-central-1.compute.amazonaws.com](http://ec2-35-158-121-12.eu-central-1.compute.amazonaws.com)
