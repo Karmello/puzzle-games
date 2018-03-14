@@ -15,9 +15,9 @@
 * `setup` project locally
 * create `new task`
 * checkout the development branch with `git checkout staging`
-* create separate branch with `git checkout -b <[task_id]-description-of-the-task>`
-* push new branch to remote with `git push -u origin <[task_id]-description-of-the-task>`
-* `git commit -m "[task_id]: message"` & `git push` while working on an implementation
+* create separate branch with `git checkout -b [task_id]-description-of-the-task`
+* push new branch to remote with `git push -u origin [task_id]-description-of-the-task`
+* `git commit -m "[task_id]: message content"` & `git push` while working on an implementation
 * when done implementing and tested locally, create `pull request` from feature to development branch, this will trigger automatic `Jenkins build`
 * if build is successful, `merge` pull request
 ### Remote environments
