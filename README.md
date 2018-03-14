@@ -19,7 +19,7 @@
 * push new branch to remote with `git push -u origin <task_id-description-of-the-task>`
 * `git commit` & `git push` while working on an implementation
 * when done implementing and tested locally, create `pull request` from feature to development branch, this will trigger automatic `Jenkins build`
-* `merge` pull request if build was successful
+* if build is successful, `merge` pull request
 ### Remote environments
 * STAGING - [https://staging-puzzle-games.herokuapp.com](https://staging-puzzle-games.herokuapp.com)
 * TEST - [https://test-puzzle-games.herokuapp.com](https://test-puzzle-games.herokuapp.com)
