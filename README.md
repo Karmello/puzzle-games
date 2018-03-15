@@ -1,10 +1,8 @@
 ## Technologies
-* [create-react-app](https://github.com/facebook/create-react-app) |
-[React](https://reactjs.org) | [React Router](https://reacttraining.com/react-router) |
-[Redux](https://redux.js.org) | [Redux Form](https://redux-form.com/7.3.0) |
-[Material-UI](https://material-ui-next.com) |
-[axios](https://github.com/axios/axios) | [moxios](https://github.com/axios/moxios) |
-[Jest](https://facebook.github.io/jest) | [Storybook](https://storybook.js.org)
+* [create-react-app](https://github.com/facebook/create-react-app) | [React](https://reactjs.org) | [React Router](https://reacttraining.com/react-router)
+* [Redux](https://redux.js.org) | [Redux Form](https://redux-form.com/7.3.0)
+* [Material-UI](https://material-ui-next.com)
+* [axios](https://github.com/axios/axios) | [moxios](https://github.com/axios/moxios) | [Jest](https://facebook.github.io/jest) | [Storybook](https://storybook.js.org)
 <br /><br />
 ## Local setup
 * API needs to be run first
