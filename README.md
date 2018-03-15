@@ -14,7 +14,7 @@
 ### Basic workflow (FE & BE)
 * `setup` project locally
 * create `new task`
-* checkout the development branch with `git checkout staging`
+* check out the development branch with `git checkout staging`
 * create separate branch with `git checkout -b task_id-description-of-the-task`
 * push new branch to remote with `git push -u origin task_id-description-of-the-task`
 * `git commit -m "task_id: message content"` & `git push` while working on an implementation
