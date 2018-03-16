@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { GameEngine } from 'js/engines';
 import { GridGameBoard } from 'js/other';
 import SquareTile from './SquareTile/SquareTile';
 import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from './bossPuzzle.actions';
@@ -10,7 +11,7 @@ import { getNewImgNumbers, initData } from './BossPuzzle.static';
 
 const numOfImgs = 20;
 
-class BossPuzzle extends Component {
+class BossPuzzle extends GameEngine {
 
   static tilesSizes = { 3: 150, 4: 125, 5: 100 };
   

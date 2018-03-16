@@ -1,3 +1,4 @@
+import { GameEngine } from 'js/engines';
 import * as methods from 'js/engines/BossPuzzle/BossPuzzle.static.js';
 
 
@@ -60,17 +61,17 @@ describe('BossPuzzle static methods', () => {
 
   describe('coordsToIndex', () => {
     it('should convert to index', () => {
-      expect(methods.coordsToIndex({ x: 0, y: 0 }, 3)).toEqual(0);
-      expect(methods.coordsToIndex({ x: 1, y: 2 }, 4)).toEqual(9);
-      expect(methods.coordsToIndex({ x: 4, y: 4 }, 5)).toEqual(24);
+      expect(GameEngine.coordsToIndex({ x: 0, y: 0 }, 3)).toEqual(0);
+      expect(GameEngine.coordsToIndex({ x: 1, y: 2 }, 4)).toEqual(9);
+      expect(GameEngine.coordsToIndex({ x: 4, y: 4 }, 5)).toEqual(24);
     });
   });
 
   describe('indexToCoords', () => {
     it('should convert to coords', () => {
-      expect(methods.indexToCoords(0, 3)).toEqual({ x: 0, y: 0 });
-      expect(methods.indexToCoords(9, 4)).toEqual({ x: 1, y: 2 });
-      expect(methods.indexToCoords(24, 5)).toEqual({ x: 4, y: 4 });
+      expect(GameEngine.indexToCoords(0, 3)).toEqual({ x: 0, y: 0 });
+      expect(GameEngine.indexToCoords(9, 4)).toEqual({ x: 1, y: 2 });
+      expect(GameEngine.indexToCoords(24, 5)).toEqual({ x: 4, y: 4 });
     });
   });
 

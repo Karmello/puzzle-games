@@ -1,12 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
+import { GameEngine } from 'js/engines';
 import { GridGameBoard } from 'js/other';
 
 
-class EightQueens extends Component {
+const squareSize = 75;
+const colors = { 0: '#dbbe92', 1: '#52220b' };
+
+class EightQueens extends GameEngine {
+
+  componentWillReceiveProps(nextProps) {
+    
+    // restarting game
+    if (!this.props.game.isLoading && nextProps.game.isLoading) {
+      this.props.onFinishInit();
+    }
+  }
 
   componentDidMount() {
     this.props.onFinishInit();
@@ -16,8 +28,19 @@ class EightQueens extends Component {
     return (
       <GridGameBoard
         dimension={8}
-        squareSize={75}
-        Square={() => <Button style={{ minWidth: '75px', height: '75px' }}>hi</Button>}
+        squareSize={squareSize}
+        Square={props => {
+          return (
+            <Button
+              style={{
+                borderRadius: 0,
+                minWidth: `${squareSize}px`,
+                height: `${squareSize}px`,
+                backgroundColor: colors[(props.col + props.row) % 2]
+              }}
+            > </Button>
+          );
+        }}
       />
     );
   }

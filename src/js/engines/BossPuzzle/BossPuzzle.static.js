@@ -1,5 +1,5 @@
 import { shuffleIntArray } from 'js/helpers';
-
+import { GameEngine } from 'js/engines';
 
 const initDataLoopRuns = 1000;
 
@@ -19,8 +19,8 @@ export const initData = args => {
       const allMovementCoords = findAllMovementCoords(hiddenTileCoords, dimension);
       const coordsToSwitchWith = allMovementCoords[Math.floor(Math.random() * allMovementCoords.length)];
 
-      const index1 = coordsToIndex(hiddenTileCoords, dimension);
-      const index2 = coordsToIndex(coordsToSwitchWith, dimension);
+      const index1 = GameEngine.coordsToIndex(hiddenTileCoords, dimension);
+      const index2 = GameEngine.coordsToIndex(coordsToSwitchWith, dimension);
 
       const temp = tiles[index1];
       tiles[index1] = tiles[index2];
@@ -69,19 +69,6 @@ export const findAllMovementCoords = (targetCoords, dimension) => {
   }
 
   return realDestinationCoords;
-}
-
-export const coordsToIndex = (coords, dimension) => {
-
-  return coords.y * dimension + coords.x;
-}
-
-export const indexToCoords = (index, dimension) => {
-
-  return {
-    x: index % dimension,
-    y: Math.floor(index/dimension)
-  }
 }
 
 export const getNewImgNumbers = (currentNumbers, numOfImgs) => {

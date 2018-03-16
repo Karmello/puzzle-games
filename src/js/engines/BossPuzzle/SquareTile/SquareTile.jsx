@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
-import BossPuzzle from './../BossPuzzle';
-import { coordsToIndex, findAllMovementCoords, indexToCoords } from './../BossPuzzle.static';
+import { GameEngine, BossPuzzle } from 'js/engines';
+import { findAllMovementCoords } from 'js/engines/BossPuzzle/BossPuzzle.static';
 
 
 const fontSizes = { 3: 40, 4: 30, 5: 22 };
@@ -12,7 +12,7 @@ class SquareTile extends Component {
 
   constructor(props) {
     super(props);
-    this.index = coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
+    this.index = GameEngine.coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
   }
 
   componentWillMount() {
@@ -46,7 +46,7 @@ class SquareTile extends Component {
     if (!this.isHidden) {
 
       if (options.mode === 'IMG' && imgSrc) {
-        const imgCoords = indexToCoords(this.getLabel() - 1, options.dimension);
+        const imgCoords = GameEngine.indexToCoords(this.getLabel() - 1, options.dimension);
         const imgSize = BossPuzzle.tilesSizes[options.dimension];
         style.backgroundImage = `url(${imgSrc})`;
         style.backgroundSize = `${options.dimension * imgSize}px ${options.dimension * imgSize}px`;
@@ -69,7 +69,7 @@ class SquareTile extends Component {
   isInProperPlace() {
 
     const { options, row, col } = this.props;
-    return coordsToIndex({ x: col, y: row }, options.dimension) + 1 === this.getLabel();
+    return GameEngine.coordsToIndex({ x: col, y: row }, options.dimension) + 1 === this.getLabel();
   }
 
   onClick() {
@@ -86,8 +86,8 @@ class SquareTile extends Component {
         // If hidden tile found
         if (coords.x === hiddenTileCoords.x && coords.y === hiddenTileCoords.y) {
 
-          const index1 = coordsToIndex(targetCoords, options.dimension);
-          const index2 = coordsToIndex(coords, options.dimension);
+          const index1 = GameEngine.coordsToIndex(targetCoords, options.dimension);
+          const index2 = GameEngine.coordsToIndex(coords, options.dimension);
           return onMoveMade(index1, index2, targetCoords);
         }
       }
