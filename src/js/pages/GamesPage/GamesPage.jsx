@@ -10,20 +10,6 @@ import './GamesPage.css';
 
 
 class GamesPage extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = { categoryIds: [] };
-  }
-
-  componentDidMount() {
-
-    const { api } = this.props;
-    const categoryIds = [];
-
-    for (const categoryData of api.gameCategories.res.data) { categoryIds.push(categoryData.id); }
-    this.setState({ categoryIds });
-  }
 
   componentWillReceiveProps(nextProps) {
     
@@ -36,18 +22,18 @@ class GamesPage extends Component {
 
   render() {
 
-    const { gamesPage, api } = this.props;
+    const { gamesPage, gameCategoryToSet, api } = this.props;
 
     return (
       <div className='GamesPage'>
         <GameCategories
-          category={gamesPage.category}
+          category={gameCategoryToSet}
           gameCategories={api.gameCategories}
         />
         <SwipeableViews
           className='GamesPage-games'
-          axis={'x-reverse'}
-          index={this.state.categoryIds.length > 0 ? this.state.categoryIds.indexOf(gamesPage.category) : 2}
+          axis={'x'}
+          index={api.gameCategories.res.data.findIndex(elem => elem.id === gameCategoryToSet)}
         >
           {api.gameCategories.res.data.map(categoryData => (
             <div key={categoryData.id}>
