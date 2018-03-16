@@ -1,1 +1,22 @@
-.EightQueens {}
+$dimension: 8;
+$squareSize: 75px;
+$tileMargin: 0;
+
+.EightQueens {
+
+  min-width: $dimension * ($squareSize + 2 * $tileMargin);
+
+  .EightQueens-row {
+    padding: 0;
+    margin: 0;
+  }
+
+  .EightQueens-col {
+    padding: 0;
+  }
+
+  .EightQueens-square {
+    width: $squareSize;
+    height: $squareSize;
+  }
+}

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Button } from 'material-ui';
 
-import './EightQueens.css';
+import { GridGameBoard } from 'js/other';
 
 
 class EightQueens extends Component {
@@ -13,7 +14,11 @@ class EightQueens extends Component {
 
   render() {
     return (
-      <div className='EightQueens'>Eight Queens</div>
+      <GridGameBoard
+        dimension={8}
+        squareSize={75}
+        square={<Button style={{ minWidth: '75px', height: '75px' }}>hi</Button>}
+      />
     );
   }
 }

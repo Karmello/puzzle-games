@@ -1,0 +1,10 @@
+.EightQueens {
+  min-width: 600px; }
+  .EightQueens .EightQueens-row {
+    padding: 0;
+    margin: 0; }
+  .EightQueens .EightQueens-col {
+    padding: 0; }
+  .EightQueens .EightQueens-square {
+    width: 75px;
+    height: 75px; }

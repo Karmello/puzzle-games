@@ -1,4 +1,7 @@
-@import '_vars';
+$smallTile: 100px;
+$mediumTile: 125px;
+$bigTile: 150px;
+$tileMargin: 0;
 
 @mixin SquareTile($btnSize, $tileMargin) {
   .SquareTile {
