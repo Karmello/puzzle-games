@@ -75,7 +75,13 @@ describe('should render', () => {
     });
 
     it('EightQueens', () => {
-      shallow(<EightQueens />);
+      shallow(<EightQueens
+        store={store}
+        onFinishInit={() => {}}
+        onMakeMove={() => {}}
+        onBeenSolved={() => {}}
+        restarting={false}
+      />);
     });
   });
 
@@ -94,6 +100,14 @@ describe('should render', () => {
     
     it('FbBtn', () => {
       shallow(<other.FbBtn authStatus={'unknown'} onClick={() => {}} />);
+    });
+
+    it('GridGameBoard', () => {
+      shallow(<other.GridGameBoard
+        dimension={3}
+        squareSize={50}
+        Square={() => <div>square</div>}
+      />);
     });
 
     it('Loader', () => {
