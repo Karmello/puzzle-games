@@ -1,6 +1,5 @@
 export { default as AuthForm } from './AuthForm/AuthForm';
 export { default as FbBtn } from './FbBtn/FbBtn';
-export { default as GridGameBoard } from './GridGameBoard/GridGameBoard';
 export { default as Loader } from './Loader/Loader';
 export { default as MySnackBar } from './MySnackBar/MySnackBar';
 export { default as PageError } from './PageError/PageError';

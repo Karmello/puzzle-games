@@ -1,4 +1,4 @@
-import { START_GAME, STOP_GAME_LOADER, MAKE_MOVE, SET_AS_SOLVED, END_GAME } from './gamePage.actions';
+import { START_GAME, STOP_GAME_LOADER, MAKE_MOVE, SET_AS_SOLVED, END_GAME } from './game.actions';
 
 const initialState = {
   id: undefined,

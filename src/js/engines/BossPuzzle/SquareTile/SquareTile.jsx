@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
-import { GameEngine, BossPuzzle } from 'js/engines';
-import { findAllMovementCoords } from 'js/engines/BossPuzzle/BossPuzzle.static';
+import { Game } from 'js/game';
+import { BossPuzzle } from 'js/engines';
 
 
 const fontSizes = { 3: 40, 4: 30, 5: 22 };
@@ -12,7 +12,7 @@ class SquareTile extends Component {
 
   constructor(props) {
     super(props);
-    this.index = GameEngine.coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
+    this.index = Game.coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
   }
 
   componentWillMount() {
@@ -46,7 +46,7 @@ class SquareTile extends Component {
     if (!this.isHidden) {
 
       if (options.mode === 'IMG' && imgSrc) {
-        const imgCoords = GameEngine.indexToCoords(this.getLabel() - 1, options.dimension);
+        const imgCoords = Game.indexToCoords(this.getLabel() - 1, options.dimension);
         const imgSize = BossPuzzle.tilesSizes[options.dimension];
         style.backgroundImage = `url(${imgSrc})`;
         style.backgroundSize = `${options.dimension * imgSize}px ${options.dimension * imgSize}px`;
@@ -69,7 +69,7 @@ class SquareTile extends Component {
   isInProperPlace() {
 
     const { options, row, col } = this.props;
-    return GameEngine.coordsToIndex({ x: col, y: row }, options.dimension) + 1 === this.getLabel();
+    return Game.coordsToIndex({ x: col, y: row }, options.dimension) + 1 === this.getLabel();
   }
 
   onClick() {
@@ -79,15 +79,15 @@ class SquareTile extends Component {
     if (!isSolved) {
       
       const targetCoords = { x: col, y: row };
-      const allMovementCoords = findAllMovementCoords(targetCoords, options.dimension);
+      const allMovementCoords = Game.findAllMovementCoords(targetCoords, options.dimension);
 
       for (let coords of allMovementCoords) {
 
         // If hidden tile found
         if (coords.x === hiddenTileCoords.x && coords.y === hiddenTileCoords.y) {
 
-          const index1 = GameEngine.coordsToIndex(targetCoords, options.dimension);
-          const index2 = GameEngine.coordsToIndex(coords, options.dimension);
+          const index1 = Game.coordsToIndex(targetCoords, options.dimension);
+          const index2 = Game.coordsToIndex(coords, options.dimension);
           return onMoveMade(index1, index2, targetCoords);
         }
       }

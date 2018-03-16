@@ -3,26 +3,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
-import { GameEngine } from 'js/engines';
-import { GridGameBoard } from 'js/other';
+import { Game, GridGameBoard } from 'js/game';
 
 
 const squareSize = 75;
 const colors = { 0: '#dbbe92', 1: '#52220b' };
 
-class EightQueens extends GameEngine {
-
-  componentWillReceiveProps(nextProps) {
-    
-    // restarting game
-    if (!this.props.game.isLoading && nextProps.game.isLoading) {
-      this.props.onFinishInit();
-    }
-  }
-
-  componentDidMount() {
-    this.props.onFinishInit();
-  }
+class EightQueens extends Game {
 
   render() {
     return (
@@ -32,6 +19,9 @@ class EightQueens extends GameEngine {
         Square={props => {
           return (
             <Button
+              disableRipple
+              disabled
+              variant='flat'
               style={{
                 borderRadius: 0,
                 minWidth: `${squareSize}px`,
@@ -44,16 +34,24 @@ class EightQueens extends GameEngine {
       />
     );
   }
+
+  startNew(doRestart) {
+    return new Promise(resolve => resolve());
+  }
+
+  checkIfSolved() {
+    return new Promise(resolve => resolve(false));
+  }
 }
 
 EightQueens.propTypes = {
-  onFinishInit: PropTypes.func.isRequired,
-  onMakeMove: PropTypes.func.isRequired,
-  onBeenSolved: PropTypes.func.isRequired,
-  restarting: PropTypes.bool.isRequired
+  restarting: PropTypes.bool.isRequired,
+  readTimer: PropTypes.func.isRequired
 };
 
 export default connect(store => ({
-  game: store.pages.gamePage,
+  clientUser: store.api.clientUser,
+  gameApiData: store.api.games.res.data.find(elem => elem.id === 'EightQueens'),
+  game: store.game,
   eightQueensEngine: store.engines.EightQueens
 }))(EightQueens);
