@@ -17,7 +17,7 @@ class EightQueens extends Component {
       <GridGameBoard
         dimension={8}
         squareSize={75}
-        square={<Button style={{ minWidth: '75px', height: '75px' }}>hi</Button>}
+        Square={() => <Button style={{ minWidth: '75px', height: '75px' }}>hi</Button>}
       />
     );
   }

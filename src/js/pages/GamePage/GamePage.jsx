@@ -55,7 +55,7 @@ class GamePage extends Component {
         </Paper>
         <Loader isShown={game.isLoading}>
           <div className='GamePage-engine'>
-            <div>
+            <div style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}>
               <Engine
                 onFinishInit={this.onFinishInit.bind(this)}
                 onMakeMove={this.onMakeMove.bind(this)}

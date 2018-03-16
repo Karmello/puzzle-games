@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Row, Col } from 'react-flexbox-grid';
-import { Paper } from 'material-ui';
 
+import { GridGameBoard } from 'js/other';
 import SquareTile from './SquareTile/SquareTile';
 import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from './bossPuzzle.actions';
 import { getNewImgNumbers, initData } from './BossPuzzle.static';
-import './BossPuzzle.css';
 
 
 const numOfImgs = 20;
@@ -64,27 +62,22 @@ class BossPuzzle extends Component {
     
     if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
       return (
-        <Paper
+        <GridGameBoard
           className={'BossPuzzle-' + game.options.dimension}
-          style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}
-        >
-          {Array.from({ length: game.options.dimension }, (v, k) => k).map(i => (
-            <Row key={i} className='BossPuzzle-row'> {
-              Array.from({ length: game.options.dimension }, (v, k) => k).map(j => (
-                <Col key={j} className='BossPuzzle-col'>
-                  <SquareTile
-                    options={game.options}
-                    hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
-                    tiles={bossPuzzleEngine.tiles}
-                    imgSrc={imgSrc}
-                    row={Number(i)}
-                    col={Number(j)}
-                    isSolved={game.isSolved}
-                    onMoveMade={this.onMoveMade.bind(this)}
-                  />
-                </Col>
-              ))}</Row>
-          ))}</Paper>
+          dimension={Number(game.options.dimension)}
+          squareSize={BossPuzzle.tilesSizes[game.options.dimension]}
+          Square={props => (
+            <SquareTile
+              options={game.options}
+              hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
+              tiles={bossPuzzleEngine.tiles}
+              imgSrc={imgSrc}
+              isSolved={game.isSolved}
+              onMoveMade={this.onMoveMade.bind(this)}
+              {...props}
+            />
+          )}
+        />
       );
     }
 

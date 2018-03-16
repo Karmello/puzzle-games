@@ -18,13 +18,18 @@ const styles = {
 };
 
 const GridGameBoard = props => {
-  const { dimension, squareSize, squareMargin, square } = props;
+  const { dimension, squareSize, squareMargin, Square } = props;
   return (
     <Paper style={styles.board(dimension, squareSize, squareMargin)}>{
       Array.from({ length: dimension }, (v, k) => k).map(i => (
         <Row key={i} style={styles.row}>{
           Array.from({ length: dimension }, (v, k) => k).map(j => (
-            <Col key={j} style={styles.col(squareMargin)}>{square}</Col>
+            <Col key={j} style={styles.col(squareMargin)}>
+              <Square
+                row={Number(i)}
+                col={Number(j)}
+              />
+            </Col>
           ))
         }</Row>
       ))
@@ -36,7 +41,7 @@ GridGameBoard.propTypes = {
   dimension: PropTypes.number.isRequired,
   squareSize: PropTypes.number.isRequired,
   squareMargin: PropTypes.number,
-  square: PropTypes.element.isRequired
+  Square: PropTypes.func.isRequired
 };
 
 export default GridGameBoard;

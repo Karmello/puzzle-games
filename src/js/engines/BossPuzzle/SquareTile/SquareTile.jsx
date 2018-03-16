@@ -6,6 +6,8 @@ import BossPuzzle from './../BossPuzzle';
 import { coordsToIndex, findAllMovementCoords, indexToCoords } from './../BossPuzzle.static';
 
 
+const fontSizes = { 3: 40, 4: 30, 5: 22 };
+
 class SquareTile extends Component {
 
   constructor(props) {
@@ -13,19 +15,17 @@ class SquareTile extends Component {
     this.index = coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { hiddenTileCoords, row, col } = nextProps;
+  componentWillMount() {
+    const { hiddenTileCoords, row, col } = this.props;
     this.isHidden = (col === hiddenTileCoords.x && row === hiddenTileCoords.y);
   }
 
   render() {
-    
     return (
       <Button
         disableRipple
-        className='SquareTile'
-        style={this.getStyle()}
         variant='raised'
+        style={this.getStyle()}
         onClick={this.onClick.bind(this)}
       >{this.props.options.mode === 'NUM' ? this.getLabel() : ''}</Button>
     );
@@ -34,25 +34,30 @@ class SquareTile extends Component {
   getStyle() {
     
     const { options, imgSrc } = this.props;
+    const tileSize = BossPuzzle.tilesSizes[options.dimension];
+
+    const style = {
+      minWidth: `${tileSize}px`,
+      width: `${tileSize}px`,
+      height: `${tileSize}px`,
+      fontSize: `${fontSizes[options.dimension]}px`
+    };
 
     if (!this.isHidden) {
 
       if (options.mode === 'IMG' && imgSrc) {
-
         const imgCoords = indexToCoords(this.getLabel() - 1, options.dimension);
         const imgSize = BossPuzzle.tilesSizes[options.dimension];
-
-        return {
-          backgroundImage: `url(${imgSrc})`,
-          backgroundSize: `${options.dimension * imgSize}px ${options.dimension * imgSize}px`,
-          backgroundPosition: `-${imgCoords.x * imgSize}px -${imgCoords.y * imgSize}px`
-        }
-      
+        style.backgroundImage = `url(${imgSrc})`;
+        style.backgroundSize = `${options.dimension * imgSize}px ${options.dimension * imgSize}px`;
+        style.backgroundPosition = `-${imgCoords.x * imgSize}px -${imgCoords.y * imgSize}px`;
       }
 
     } else {
-      return { 'visibility': 'hidden' };
+      style.visibility = 'hidden';
     }
+
+    return style;
   }
 
   getLabel() {
