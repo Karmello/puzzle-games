@@ -1,4 +1,4 @@
-import { Game } from 'js/engines';
+import { coordsToIndex, indexToCoords, findAllMovementCoords } from 'js/game/Game/Game.logic';
 import * as methods from 'js/engines/BossPuzzle/BossPuzzle.factory.js';
 
 
@@ -48,30 +48,30 @@ describe('BossPuzzle static methods', () => {
   describe('findAllMovementCoords', () => {
 
     it('should throw an error', () => {
-      expect(() => Game.findAllMovementCoords({ x: 0, y: 0 }, '1')).toThrow(new Error('Dimension must be greater than or equal 2'));
+      expect(() => findAllMovementCoords({ x: 0, y: 0 }, '1')).toThrow(new Error('Dimension must be greater than or equal 2'));
     });
 
     it('should find coords', () => {
-      expect(Game.findAllMovementCoords({ x: 0, y: 0 }, '2')).toEqual([{ x: 1, y: 0 }, { x: 0, y: 1 }]);
-      expect(Game.findAllMovementCoords({ x: 0, y: 0 }, '3')).toEqual([{ x: 1, y: 0 }, { x: 0, y: 1 }]);
-      expect(Game.findAllMovementCoords({ x: 2, y: 0 }, '4')).toEqual([{ x: 3, y: 0 }, { x: 2, y: 1 }, { x: 1, y: 0 }]);
-      expect(Game.findAllMovementCoords({ x: 1, y: 1 }, '5')).toEqual([{ x: 1, y: 0 }, { x: 2, y: 1 }, { x: 1, y: 2 }, { x: 0, y: 1 }]);
+      expect(findAllMovementCoords({ x: 0, y: 0 }, '2')).toEqual([{ x: 1, y: 0 }, { x: 0, y: 1 }]);
+      expect(findAllMovementCoords({ x: 0, y: 0 }, '3')).toEqual([{ x: 1, y: 0 }, { x: 0, y: 1 }]);
+      expect(findAllMovementCoords({ x: 2, y: 0 }, '4')).toEqual([{ x: 3, y: 0 }, { x: 2, y: 1 }, { x: 1, y: 0 }]);
+      expect(findAllMovementCoords({ x: 1, y: 1 }, '5')).toEqual([{ x: 1, y: 0 }, { x: 2, y: 1 }, { x: 1, y: 2 }, { x: 0, y: 1 }]);
     });
   });
 
   describe('coordsToIndex', () => {
     it('should convert to index', () => {
-      expect(Game.coordsToIndex({ x: 0, y: 0 }, 3)).toEqual(0);
-      expect(Game.coordsToIndex({ x: 1, y: 2 }, 4)).toEqual(9);
-      expect(Game.coordsToIndex({ x: 4, y: 4 }, 5)).toEqual(24);
+      expect(coordsToIndex({ x: 0, y: 0 }, 3)).toEqual(0);
+      expect(coordsToIndex({ x: 1, y: 2 }, 4)).toEqual(9);
+      expect(coordsToIndex({ x: 4, y: 4 }, 5)).toEqual(24);
     });
   });
 
   describe('indexToCoords', () => {
     it('should convert to coords', () => {
-      expect(Game.indexToCoords(0, 3)).toEqual({ x: 0, y: 0 });
-      expect(Game.indexToCoords(9, 4)).toEqual({ x: 1, y: 2 });
-      expect(Game.indexToCoords(24, 5)).toEqual({ x: 4, y: 4 });
+      expect(indexToCoords(0, 3)).toEqual({ x: 0, y: 0 });
+      expect(indexToCoords(9, 4)).toEqual({ x: 1, y: 2 });
+      expect(indexToCoords(24, 5)).toEqual({ x: 4, y: 4 });
     });
   });
 

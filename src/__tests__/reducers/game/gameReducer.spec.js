@@ -1,11 +1,11 @@
-import gamePageReducer from 'js/pages/GamePage/gamePage.reducer';
-import { startGame, stopGameLoader, makeMove, setAsSolved, endGame } from 'js/pages/GamePage/gamePage.actions';
+import gameReducer from 'js/game/game.reducer';
+import { startGame, stopGameLoader, makeMove, setAsSolved, endGame } from 'js/game/game.actions';
 
 
-describe('gamePageReducer', () => {
+describe('gameReducer', () => {
 
   it('should return the initial state', () => {
-    expect(gamePageReducer(undefined, {})).toEqual({
+    expect(gameReducer(undefined, {})).toEqual({
       id: undefined,
       moves: 0,
       isSolved: false,
@@ -15,7 +15,7 @@ describe('gamePageReducer', () => {
   });
 
   it('should handle START_GAME', () => {
-    expect(gamePageReducer({
+    expect(gameReducer({
       id: undefined,
       moves: 0,
       isSolved: false,
@@ -31,7 +31,7 @@ describe('gamePageReducer', () => {
   });
 
   it('should handle STOP_GAME_LOADER', () => {
-    expect(gamePageReducer({
+    expect(gameReducer({
       id: 'BossPuzzle',
       moves: 0,
       isSolved: false,
@@ -47,7 +47,7 @@ describe('gamePageReducer', () => {
   });
 
   it('should handle MAKE_MOVE', () => {
-    expect(gamePageReducer({
+    expect(gameReducer({
       id: 'BossPuzzle',
       moves: 99,
       isSolved: false,
@@ -63,7 +63,7 @@ describe('gamePageReducer', () => {
   });
 
   it('should handle SET_AS_SOLVED', () => {
-    expect(gamePageReducer({
+    expect(gameReducer({
       id: 'BossPuzzle',
       moves: 50,
       isSolved: false,
@@ -79,7 +79,7 @@ describe('gamePageReducer', () => {
   });
 
   it('should handle END_GAME', () => {
-    expect(gamePageReducer({
+    expect(gameReducer({
       id: 'BossPuzzle',
       moves: 50,
       isSolved: true,

@@ -49,7 +49,7 @@ class BossPuzzle extends Game {
   }
 
   startNew(doRestart) {
-
+    
     return new Promise(resolve => {
 
       const { game, bossPuzzleEngine, dispatch } = this.props;

@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 import store from 'js/store';
 import { App, AppBar, AppDrawer } from 'js/app';
 import { AuthPage, GamePage, GamesPage, HighscoresPage } from 'js/pages';
+import { GridGameBoard } from 'js/game';
 import { BossPuzzle, SquareTile, EightQueens } from 'js/engines';
 import * as gameOptions from 'js/gameOptions';
 import * as other from 'js/other';
@@ -45,16 +46,25 @@ describe('should render', () => {
     });
   });
 
+  describe('game', () => {
+
+    it('GridGameBoard', () => {
+      shallow(<GridGameBoard
+        dimension={3}
+        squareSize={50}
+        Square={() => <div>square</div>}
+      />);
+    });
+  });
+
   describe('engine components', () => {
     
     it('BossPuzzle', () => {
       shallow(
         <BossPuzzle
           store={store}
-          onFinishInit={() => {}}
-          onMakeMove={() => {}}
-          onBeenSolved={() => {}}
           restarting={false}
+          readTimer={() => {}}
         />
       );
     });
@@ -77,10 +87,8 @@ describe('should render', () => {
     it('EightQueens', () => {
       shallow(<EightQueens
         store={store}
-        onFinishInit={() => {}}
-        onMakeMove={() => {}}
-        onBeenSolved={() => {}}
         restarting={false}
+        readTimer={() => {}}
       />);
     });
   });
@@ -100,14 +108,6 @@ describe('should render', () => {
     
     it('FbBtn', () => {
       shallow(<other.FbBtn authStatus={'unknown'} onClick={() => {}} />);
-    });
-
-    it('GridGameBoard', () => {
-      shallow(<other.GridGameBoard
-        dimension={3}
-        squareSize={50}
-        Square={() => <div>square</div>}
-      />);
     });
 
     it('Loader', () => {
