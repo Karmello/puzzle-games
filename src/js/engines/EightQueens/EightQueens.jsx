@@ -10,14 +10,19 @@ const squareSize = 75;
 const colors = { 0: '#dbbe92', 1: '#52220b' };
 
 const styles = {
-  btn: (squareSize, col, row) => ({
-    borderRadius: 0,
-    minWidth: `${squareSize}px`,
-    height: `${squareSize}px`,
-    backgroundColor: colors[(col + row) % 2],
-    backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET}/EightQueens/queen.png)`,
-    backgroundSize: `${squareSize}px ${squareSize}px`
-  })
+  btn: (squareSize, col, row) => {
+    const style = {
+      borderRadius: 0,
+      minWidth: `${squareSize}px`,
+      height: `${squareSize}px`,
+      backgroundColor: colors[(col + row) % 2]
+    };
+    if (col === 0 && row === 0) {
+      style.backgroundImage = `url(${process.env.REACT_APP_S3_BUCKET}/EightQueens/queen.png)`;
+      style.backgroundSize = `${squareSize}px ${squareSize}px`;
+    }
+    return style;
+  }
 };
 
 class EightQueens extends Game {
@@ -40,7 +45,8 @@ class EightQueens extends Game {
   }
 
   startNew(doRestart) {
-    return new Promise(resolve => resolve());
+
+    return this.loadImg('EightQueens/queen.png');
   }
 
   checkIfSolved() {

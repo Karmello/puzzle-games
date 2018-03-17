@@ -1,4 +1,8 @@
-const eightQueensReducer = (state = {}, action) => {
+const initialState = {
+  queens: []
+};
+
+const eightQueensReducer = (state = initialState, action) => {
   
   switch (action.type) {
 

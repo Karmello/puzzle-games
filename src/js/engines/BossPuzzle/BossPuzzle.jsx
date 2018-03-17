@@ -13,7 +13,6 @@ const numOfImgs = 20;
 class BossPuzzle extends Game {
 
   static tilesSizes = { 3: 150, 4: 125, 5: 100 };
-  state = { imgSrc: null }
 
   componentWillUnmount() {
     this.props.dispatch(resetFrame());
@@ -80,28 +79,12 @@ class BossPuzzle extends Game {
       
       const tasks = [];
       tasks.push(factory.initData({ dimension: game.options.dimension, hiddenTileCoords: newHiddenTileCoords }));
-      if (game.options.mode === 'IMG') { tasks.push(this.loadImg(nextImgNumbers[nextImgIndex])); }
+      if (game.options.mode === 'IMG') { tasks.push(this.loadImg(`BossPuzzle/img${nextImgNumbers[nextImgIndex]}.jpg`)); }
 
       return Promise.all(tasks).then((data) => {
         dispatch(initFrame(nextImgNumbers, nextImgIndex, data[0].tiles, data[0].hiddenTileCoords));
         resolve();
       });
-    });
-  }
-
-  loadImg(imgNumber) {
-
-    return new Promise((resolve, reject) => {
-
-      const img = new Image();
-      img.src = `${process.env.REACT_APP_S3_BUCKET}/BossPuzzle/img${imgNumber}.jpg`;
-        
-      img.onload = () => {
-        this.setState({ imgSrc: img.src });
-        resolve();
-      }
-
-      img.onerror = (err) => { reject(err); }
     });
   }
 

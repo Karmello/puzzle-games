@@ -12,6 +12,8 @@ export default class Game extends Component {
   static indexToCoords = indexToCoords;
   static findAllMovementCoords = findAllMovementCoords;
 
+  state = { imgSrc: null }
+
   componentDidMount() {
     this.startNew().then(() => this.onFinishInit());
   }
@@ -53,5 +55,21 @@ export default class Game extends Component {
 
   onMakeMove() {
     this.props.dispatch(makeMove());
+  }
+
+  loadImg(imgPath) {
+
+    return new Promise((resolve, reject) => {
+
+      const img = new Image();
+      img.src = `${process.env.REACT_APP_S3_BUCKET}/${imgPath}`;
+        
+      img.onload = () => {
+        this.setState({ imgSrc: img.src });
+        resolve();
+      }
+
+      img.onerror = (err) => { reject(err); }
+    });
   }
 }
