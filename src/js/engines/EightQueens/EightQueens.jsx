@@ -1,52 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Button } from 'material-ui';
+
 import { Game, GridGameBoard } from 'js/game';
+import { initFrame, resetFrame } from 'js/engines/EightQueens/eightQueens.actions';
+import EightQueensSquare from './EightQueensSquare';
 
-
-const dimension = 8;
-const squareSize = 75;
-const colors = { 0: '#dbbe92', 1: '#52220b' };
-
-const styles = {
-  btn: (squareSize, col, row) => {
-    const style = {
-      borderRadius: 0,
-      minWidth: `${squareSize}px`,
-      height: `${squareSize}px`,
-      backgroundColor: colors[(col + row) % 2]
-    };
-    if (col === 0 && row === 0) {
-      style.backgroundImage = `url(${process.env.REACT_APP_S3_BUCKET}/EightQueens/queen.png)`;
-      style.backgroundSize = `${squareSize}px ${squareSize}px`;
-    }
-    return style;
-  }
-};
 
 class EightQueens extends Game {
 
+  static dimension = 8;
+
+  componentWillUnmount() {
+    this.props.dispatch(resetFrame());
+  }
+
   render() {
+    const { eightQueensEngine } = this.props;
     return (
       <GridGameBoard
-        dimension={dimension}
-        squareSize={squareSize}
-        Square={props => (
-          <Button
-            disableRipple
-            disabled
-            variant='flat'
-            style={styles.btn(squareSize, props.col, props.row)}
-          > </Button>
-        )}
+        dimension={EightQueens.dimension}
+        squareSize={EightQueensSquare.size}
+        Square={props => <EightQueensSquare {...props} engine={eightQueensEngine} />}
       />
     );
   }
 
-  startNew(doRestart) {
-
-    return this.loadImg('EightQueens/queen.png');
+  startNew() {
+    return new Promise(resolve => {
+      this.loadImg('EightQueens/queen.png').then(() => {
+        const queens = Array.from({ length: EightQueens.dimension ** 2 }, (v, k) => {
+          const coords = Game.indexToCoords(k, EightQueens.dimension);
+          return coords.x === coords.y;
+        });
+        this.props.dispatch(initFrame(queens));
+        resolve();
+      });
+    });
   }
 
   checkIfSolved() {
