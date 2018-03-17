@@ -3,13 +3,14 @@ import { Component } from 'react';
 import { App } from 'js/app';
 import { saveNewHighscore } from 'js/api/api.actions';
 import { stopGameLoader, makeMove, setAsSolved } from 'js/game/game.actions';
-import { coordsToIndex, indexToCoords, findAllMovementCoords } from 'js/game/Game/Game.logic';
+import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords } from 'js/game/Game/Game.logic';
 
 
 export default class Game extends Component {
   
   static coordsToIndex = coordsToIndex;
   static indexToCoords = indexToCoords;
+  static offsetToIndex = offsetToIndex;
   static findAllMovementCoords = findAllMovementCoords;
 
   state = { imgSrc: null }

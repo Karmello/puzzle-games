@@ -9,6 +9,15 @@ export const indexToCoords = (index, dimension) => {
   }
 }
 
+export const offsetToIndex = (offset, squareSize, dimension) => {
+  const coords = { x: Math.round(offset.x / squareSize), y: Math.round(offset.y / squareSize) };
+  if (coords.x >= 0 && coords.x < dimension && coords.y >= 0 && coords.y < dimension) {
+    return Math.abs(coordsToIndex(coords, dimension));
+  } else {
+    return -1;
+  }
+}
+
 export const findAllMovementCoords = (targetCoords, dimension) => {
 
   if (dimension < 2) { throw new Error('Dimension must be greater than or equal 2'); }
