@@ -1,11 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/game';
 import { initFrame, resetFrame } from 'js/engines/EightQueens/eightQueens.actions';
-import EightQueensSquare from './EightQueensSquare';
 
+
+const queenImgUrl = `${process.env.REACT_APP_S3_BUCKET}/EightQueens/queen.png`;
+const squareSize = 75;
+
+const getBtnStyle = () => ({
+  minWidth: `${squareSize}px`,
+  height: `${squareSize}px`,
+  borderRadius: '50px',
+  backgroundImage: `url(${queenImgUrl})`,
+  backgroundSize: `${squareSize}px ${squareSize}px`
+});
 
 class EightQueens extends Game {
 
@@ -20,8 +31,10 @@ class EightQueens extends Game {
     return (
       <GridGameBoard
         dimension={EightQueens.dimension}
-        squareSize={EightQueensSquare.size}
-        Square={props => <EightQueensSquare {...props} engine={eightQueensEngine} />}
+        squareSize={squareSize}
+        Square={() => <Button style={getBtnStyle()}> </Button>}
+        draggable={true}
+        gridData={eightQueensEngine.queens}
       />
     );
   }
