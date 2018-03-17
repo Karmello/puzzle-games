@@ -21,7 +21,7 @@ export default class Game extends Component {
     const { game } = this.props;
     const nextGame = nextProps.game;
 
-    // on initial loading
+    // on restarting
     if (!game.isLoading && nextGame.isLoading) {
       this.setState({ imgSrc: null });
       this.startNew(nextProps.restarting).then(() => this.onFinishInit());
