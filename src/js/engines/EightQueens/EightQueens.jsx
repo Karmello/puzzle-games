@@ -23,7 +23,7 @@ class EightQueens extends Game {
       <GridGameBoard
         dimension={EightQueens.dimension}
         squareSize={squareSize}
-        Square={() => <Button style={this.getBtnStyle()}> </Button>}
+        Square={() => <Button disableRipple style={this.getBtnStyle()}> </Button>}
         draggable={true}
         gridData={eightQueensEngine.queens}
         onDragMade={this.onMoveMade.bind(this)}
@@ -46,6 +46,7 @@ class EightQueens extends Game {
 
   onMoveMade(fromIndex, toIndex) {
     this.props.dispatch(moveQueen(fromIndex, toIndex));
+    this.onMakeMove();
   }
 
   checkIfSolved() {
@@ -56,9 +57,11 @@ class EightQueens extends Game {
     return  {
       minWidth: `${squareSize}px`,
       height: `${squareSize}px`,
-      borderRadius: '50px',
+      border: '2px solid',
+      borderRadius: '0px',
       backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET}/EightQueens/queen.png)`,
-      backgroundSize: `${squareSize}px ${squareSize}px`
+      backgroundSize: `${squareSize-4}px ${squareSize-4}px`,
+      backgroundColor: 'white'
     }
   }
 }
