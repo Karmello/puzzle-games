@@ -1,9 +1,7 @@
 .GamePage {
 
   .Loader {
-
     position: relative;
-
     .Spinner {
       width: 100%;
       margin-top: 150px;
@@ -11,15 +9,23 @@
     }
   }
 
-  .GamePage-engine {
-
-    overflow-x: auto !important;
+  .GamePage-main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     margin-top: 50px;
-    
+
     > div {
-      display: table;
-      margin: 0 auto;
-      border: 15px solid #F5F5F5;
+      margin: 10px;
+    }
+
+    .GamePage-engine {
+      overflow-x: auto !important;
+      > div {
+        display: table;
+        margin: 0 auto;
+        border: 15px solid #F5F5F5;
+      }
     }
   }
 }

@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Paper } from 'material-ui';
 
-import { Loader } from 'js/other';
 import GameDashboard from './GameDashboard/GameDashboard';
+import GamePageInfo from './GamePageInfo/GamePageInfo';
+import { Loader } from 'js/other';
 import { setAppTitle } from 'js/app/app.actions';
 import { startGame, endGame } from 'js/game/game.actions';
 import { changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
@@ -52,12 +53,17 @@ class GamePage extends Component {
           />
         </Paper>
         <Loader isShown={game.isLoading}>
-          <div className='GamePage-engine'>
-            <div style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}>
-              <Engine
-                restarting={this.state.restarting}
-                readTimer={() => this.gameDashBoardRef.timerRef.state}
-              />
+          <div className='GamePage-main'>
+            <div className='GamePage-engine'>
+              <div style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}>
+                <Engine
+                  restarting={this.state.restarting}
+                  readTimer={() => this.gameDashBoardRef.timerRef.state}
+                />
+              </div>
+            </div>
+            <div>
+              <GamePageInfo />
             </div>
           </div>
         </Loader>

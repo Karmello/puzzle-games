@@ -5,10 +5,16 @@
     margin-top: 150px;
     position: absolute; }
 
-.GamePage .GamePage-engine {
-  overflow-x: auto !important;
+.GamePage .GamePage-main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   margin-top: 50px; }
-  .GamePage .GamePage-engine > div {
-    display: table;
-    margin: 0 auto;
-    border: 15px solid #F5F5F5; }
+  .GamePage .GamePage-main > div {
+    margin: 10px; }
+  .GamePage .GamePage-main .GamePage-engine {
+    overflow-x: auto !important; }
+    .GamePage .GamePage-main .GamePage-engine > div {
+      display: table;
+      margin: 0 auto;
+      border: 15px solid #F5F5F5; }
