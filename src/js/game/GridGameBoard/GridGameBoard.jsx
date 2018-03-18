@@ -26,8 +26,8 @@ class GridGameBoard extends Component {
           <Row key={i} style={this.getStyles('row')}>{
             Array.from({ length: dimension }, (v, k) => k).map(j => {
               
-              const col = Number(i);
-              const row = Number(j);
+              const row = Number(i);
+              const col = Number(j);
               const index = GridGameBoard.coordsToIndex({ x: col, y: row }, dimension);
               const position = { x: 0, y: 0 };
               
@@ -62,7 +62,7 @@ class GridGameBoard extends Component {
 
   onDragStop(e, data, col, row, position) {
 
-    const { dimension, squareSize, gridData } = this.props;
+    const { dimension, squareSize, gridData, onDragMade } = this.props;
 
     const index = GridGameBoard.offsetToIndex({
       x: data.x + col * squareSize,
@@ -74,6 +74,7 @@ class GridGameBoard extends Component {
       const newCoords = GridGameBoard.indexToCoords(index, dimension);
       position.x = newCoords.x * squareSize - col * squareSize;
       position.y = newCoords.y * squareSize - row * squareSize;
+      setTimeout(() => onDragMade(this.state.lastDraggedIndex, index));
     }
   }
 
@@ -115,8 +116,10 @@ class GridGameBoard extends Component {
 GridGameBoard.propTypes = {
   dimension: PropTypes.number.isRequired,
   squareSize: PropTypes.number.isRequired,
+  Square: PropTypes.func.isRequired,
   draggable: PropTypes.bool,
-  Square: PropTypes.func.isRequired
+  gridData: PropTypes.array,
+  onDragMade: PropTypes.func
 };
 
 export default GridGameBoard;

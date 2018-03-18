@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/game';
-import { initFrame, resetFrame } from 'js/engines/EightQueens/eightQueens.actions';
+import { initFrame, moveQueen, resetFrame } from 'js/engines/EightQueens/eightQueens.actions';
 
 
 const squareSize = 75;
@@ -26,6 +26,7 @@ class EightQueens extends Game {
         Square={() => <Button style={this.getBtnStyle()}> </Button>}
         draggable={true}
         gridData={eightQueensEngine.queens}
+        onDragMade={this.onMoveMade.bind(this)}
       />
     );
   }
@@ -41,6 +42,10 @@ class EightQueens extends Game {
         resolve();
       });
     });
+  }
+
+  onMoveMade(fromIndex, toIndex) {
+    this.props.dispatch(moveQueen(fromIndex, toIndex));
   }
 
   checkIfSolved() {
