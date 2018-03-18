@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Paper } from 'material-ui';
 
-import { App } from 'js/app';
 import { Loader } from 'js/other';
-import { changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
-import { setAppTitle } from 'js/app/app.actions';
-import { saveNewHighscore } from 'js/api/api.actions';
-import { startGame, setAsSolved, makeMove, endGame, stopGameLoader } from './gamePage.actions';
 import GameDashboard from './GameDashboard/GameDashboard';
+import { setAppTitle } from 'js/app/app.actions';
+import { startGame, endGame } from 'js/game/game.actions';
+import { changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
 import './GamePage.css';
 
 
@@ -55,47 +53,16 @@ class GamePage extends Component {
         </Paper>
         <Loader isShown={game.isLoading}>
           <div className='GamePage-engine'>
-            <div>
+            <div style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}>
               <Engine
-                onFinishInit={this.onFinishInit.bind(this)}
-                onMakeMove={this.onMakeMove.bind(this)}
-                onBeenSolved={this.onBeenSolved.bind(this)}
                 restarting={this.state.restarting}
+                readTimer={() => this.gameDashBoardRef.timerRef.state}
               />
             </div>
           </div>
         </Loader>
       </div>
     );
-  }
-
-  onFinishInit() {
-
-    setTimeout(() => { this.props.dispatch(stopGameLoader()); }, App.minLoadTime);
-  }
-  
-  onMakeMove() {
-
-    this.props.dispatch(makeMove());
-  }
-
-  onBeenSolved() {
-
-    const { authStatus, clientUser, gameData, game, gameOptions, dispatch } = this.props;
-    
-    dispatch(setAsSolved());
-    
-    if (authStatus === 'logged_in') {
-      dispatch(saveNewHighscore({
-        userId: clientUser.res.data._id,
-        gameId: gameData._id,
-        options: { ...gameOptions[game.id] },
-        details: {
-          moves: game.moves,
-          seconds: this.gameDashBoardRef.timerRef.state.seconds
-        }
-      }));
-    }
   }
 
   onMenuItemClick(itemId) {
@@ -121,9 +88,6 @@ class GamePage extends Component {
 }
 
 export default withRouter(connect(store => ({
-  authStatus: store.app.authStatus,
-  clientUser: store.api.clientUser,
   engines: store.engines,
-  game: store.pages.gamePage,
-  gameOptions: store.pages.gamesPage.options
+  game: store.game
 }))(GamePage));

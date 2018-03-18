@@ -5,16 +5,16 @@ import { action } from '@storybook/addon-actions';
 
 import store from 'js/store';
 import { startGame } from 'js/game/game.actions';
-import { BossPuzzle } from 'js/engines';
+import { EightQueens } from 'js/engines';
 
 
-store.dispatch(startGame('BossPuzzle', { mode: 'NUM', dimension: '3' }));
+store.dispatch(startGame('EightQueens', {}));
 
-storiesOf('engines/BossPuzzle', module)
+storiesOf('engines/EightQueens', module)
   .addDecorator(story => <Provider store={store}>{story()}</Provider>)
   .add('default', () => (
-    <BossPuzzle
+    <EightQueens
       restarting={false}
       readTimer={action('readTimer')}
-    ></BossPuzzle>
+    ></EightQueens>
   ));

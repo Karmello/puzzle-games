@@ -1,4 +1,5 @@
 import { shuffleIntArray } from 'js/helpers';
+import { GridGameBoard } from 'js/game';
 
 
 const initDataLoopRuns = 1000;
@@ -16,11 +17,11 @@ export const initData = args => {
   
     for (let i = 0; i < initDataLoopRuns; i++) {
 
-      const allMovementCoords = findAllMovementCoords(hiddenTileCoords, dimension);
+      const allMovementCoords = GridGameBoard.findAllMovementCoords(hiddenTileCoords, dimension);
       const coordsToSwitchWith = allMovementCoords[Math.floor(Math.random() * allMovementCoords.length)];
 
-      const index1 = coordsToIndex(hiddenTileCoords, dimension);
-      const index2 = coordsToIndex(coordsToSwitchWith, dimension);
+      const index1 = GridGameBoard.coordsToIndex(hiddenTileCoords, dimension);
+      const index2 = GridGameBoard.coordsToIndex(coordsToSwitchWith, dimension);
 
       const temp = tiles[index1];
       tiles[index1] = tiles[index2];
@@ -47,41 +48,6 @@ export const initData = args => {
       reject(ex);
     }
   });
-}
-
-export const findAllMovementCoords = (targetCoords, dimension) => {
-
-  if (dimension < 2) { throw new Error('Dimension must be greater than or equal 2'); }
-
-  const possibleDestinationCoords = [
-    { x: targetCoords.x, y : targetCoords.y - 1 },
-    { x: targetCoords.x + 1, y : targetCoords.y },
-    { x: targetCoords.x, y : targetCoords.y + 1 },
-    { x: targetCoords.x - 1, y : targetCoords.y }
-  ];
-
-  const realDestinationCoords = [];
-
-  for (let coords of possibleDestinationCoords) {
-    if (coords.x >= 0 && coords.x <= dimension - 1 && coords.y >= 0 && coords.y <= dimension - 1) {
-      realDestinationCoords.push(coords);
-    }
-  }
-
-  return realDestinationCoords;
-}
-
-export const coordsToIndex = (coords, dimension) => {
-
-  return coords.y * dimension + coords.x;
-}
-
-export const indexToCoords = (index, dimension) => {
-
-  return {
-    x: index % dimension,
-    y: Math.floor(index/dimension)
-  }
 }
 
 export const getNewImgNumbers = (currentNumbers, numOfImgs) => {
