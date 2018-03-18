@@ -52,10 +52,10 @@ class EightQueens extends Game {
   }
 
   checkIfSolved() {
-    
+
     return new Promise(resolve => {
 
-      const { coordsToIndex, indexToCoords } = GridGameBoard;
+      const { indexToCoords } = GridGameBoard;
       const dimension = this.dimension;
       const { eightQueensEngine } = this.props;
       const queens = eightQueensEngine.queens;
@@ -71,32 +71,24 @@ class EightQueens extends Game {
         
         const qCrds = indexToCoords(q, dimension);
         
-        for (let x = 0; x < dimension; x++) {
-          if (x !== qCrds.x && queens[coordsToIndex({ x, y: qCrds.y }, dimension)]) {
-            return resolve(false);
-          }
-        }
-        
-        for (let y = 0; y < dimension; y++) {
-          if (y !== qCrds.y && queens[coordsToIndex({ x: qCrds.x, y }, dimension)]) {
-            return resolve(false);
-          }
-        }
-        
-        for (let z1 = 0; z1 < dimension - Math.abs(qCrds.x - qCrds.y); z1++) {
-          const { x, y } = qCrds;
-          const i = (((y - Math.min(x, y)) + z1) * dimension) + (x - Math.min(x, y) + z1);
-          if (i !== q && queens[i]) {
-            return resolve(false);
-          }
+        // x axis
+        if (!GridGameBoard.isAloneOnAxis('x', qCrds, dimension, queens)) {
+          return resolve(false);
         }
 
-        for (let z2 = 0; z2 < dimension - Math.abs(dimension - qCrds.x - qCrds.y - 1); z2++) {
-          const { x, y } = qCrds;
-          const i = (((y + Math.min(dimension - 1 - y, x)) - z2) * dimension) + (x - Math.min(dimension - 1 - y, x) + z2);
-          if (i !== q && queens[i]) {
-            return resolve(false);
-          }
+        // y axis
+        if (!GridGameBoard.isAloneOnAxis('y', qCrds, dimension, queens)) {
+          return resolve(false);
+        }
+        
+        // first diagonal (\)
+        if (!GridGameBoard.isAloneOnAxis('d1', qCrds, dimension, queens)) {
+          return resolve(false);
+        }
+
+        // second diagonal (/)
+        if (!GridGameBoard.isAloneOnAxis('d2', qCrds, dimension, queens)) {
+          return resolve(false);
         }
       }
 

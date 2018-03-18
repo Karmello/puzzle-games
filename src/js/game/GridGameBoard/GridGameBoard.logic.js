@@ -39,3 +39,62 @@ export const findAllMovementCoords = (targetCoords, dimension) => {
 
   return realDestinationCoords;
 }
+
+export const isAloneOnAxis = (axis, targetCoords, dimension, gridData) => {
+
+  let upperBound;
+  let shouldTerminate;
+
+  switch (axis) {
+    
+    case 'x':
+      upperBound = dimension;
+      shouldTerminate = i => i !== targetCoords.x && gridData[coordsToIndex({ x: i, y: targetCoords.y }, dimension)];
+      break;
+
+    case 'y':
+      upperBound = dimension;
+      shouldTerminate = i => i !== targetCoords.y && gridData[coordsToIndex({ x: targetCoords.x, y: i }, dimension)];
+      break;
+
+    // '\'
+    case 'd1':
+    case 'd2':
+
+      if (axis === 'd1') {
+        upperBound = dimension - Math.abs(targetCoords.x - targetCoords.y);
+      } else if (axis === 'd2') {
+        upperBound = dimension - Math.abs(dimension - targetCoords.x - targetCoords.y - 1);
+      }
+      
+      shouldTerminate = i => {
+        
+        const { x, y } = targetCoords;
+        let j;
+
+        if (axis === 'd1') {
+          j = (((y - Math.min(x, y)) + i) * dimension) + (x - Math.min(x, y) + i);
+        } else if (axis === 'd2') {
+          j = (((y + Math.min(dimension - 1 - y, x)) - i) * dimension) + (x - Math.min(dimension - 1 - y, x) + i);
+        }
+
+        const q = coordsToIndex(targetCoords, dimension);
+        if (j !== q && gridData[j]) {
+          return false;
+        }
+      }
+
+      break;
+
+    default:
+      return false;
+  }
+
+  for (let i = 0; i < upperBound; i++) {
+    if (shouldTerminate(i)) {
+      return false;
+    }
+  }
+
+  return true;
+}
