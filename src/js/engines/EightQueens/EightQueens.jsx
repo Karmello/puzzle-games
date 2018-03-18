@@ -34,7 +34,7 @@ class EightQueens extends Game {
     return new Promise(resolve => {
       this.loadImg('EightQueens/queen.png').then(() => {
         const queens = Array.from({ length: EightQueens.dimension ** 2 }, (v, k) => {
-          const coords = Game.indexToCoords(k, EightQueens.dimension);
+          const coords = GridGameBoard.indexToCoords(k, EightQueens.dimension);
           return coords.x === coords.y;
         });
         this.props.dispatch(initFrame(queens));

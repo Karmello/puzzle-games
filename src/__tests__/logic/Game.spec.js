@@ -1,4 +1,4 @@
-import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords } from 'js/game/Game/Game.logic';
+import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords } from 'js/game/GridGameBoard/GridGameBoard.logic';
 
 
 describe('Game logic methods', () => {

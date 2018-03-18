@@ -4,10 +4,15 @@ import { Paper } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
 import Draggable from 'react-draggable';
 
-import { Game } from 'js/game';
+import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords } from 'js/game/GridGameBoard/GridGameBoard.logic';
 
 
 class GridGameBoard extends Component {
+
+  static coordsToIndex = coordsToIndex;
+  static indexToCoords = indexToCoords;
+  static offsetToIndex = offsetToIndex;
+  static findAllMovementCoords = findAllMovementCoords;
 
   state = { lastDraggedIndex: null };
 
@@ -23,7 +28,7 @@ class GridGameBoard extends Component {
               
               const col = Number(i);
               const row = Number(j);
-              const index = Game.coordsToIndex({ x: col, y: row }, dimension);
+              const index = GridGameBoard.coordsToIndex({ x: col, y: row }, dimension);
               const position = { x: 0, y: 0 };
               
               return (
@@ -59,14 +64,14 @@ class GridGameBoard extends Component {
 
     const { dimension, squareSize, gridData } = this.props;
 
-    const index = Game.offsetToIndex({
+    const index = GridGameBoard.offsetToIndex({
       x: data.x + col * squareSize,
       y: data.y + row * squareSize
     }, squareSize, dimension);
 
 
     if (index > -1 && !gridData[index]) {
-      const newCoords = Game.indexToCoords(index, dimension);
+      const newCoords = GridGameBoard.indexToCoords(index, dimension);
       position.x = newCoords.x * squareSize - col * squareSize;
       position.y = newCoords.y * squareSize - row * squareSize;
     }

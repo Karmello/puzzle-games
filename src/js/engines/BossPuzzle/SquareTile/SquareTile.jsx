@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
-import { Game } from 'js/game';
+import { GridGameBoard } from 'js/game';
 import { BossPuzzle } from 'js/engines';
 
 
@@ -12,7 +12,7 @@ class SquareTile extends Component {
 
   constructor(props) {
     super(props);
-    this.index = Game.coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
+    this.index = GridGameBoard.coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
   }
 
   componentWillMount() {
@@ -46,7 +46,7 @@ class SquareTile extends Component {
     if (!this.isHidden) {
 
       if (options.mode === 'IMG' && imgSrc) {
-        const imgCoords = Game.indexToCoords(this.getLabel() - 1, options.dimension);
+        const imgCoords = GridGameBoard.indexToCoords(this.getLabel() - 1, options.dimension);
         const imgSize = BossPuzzle.tilesSizes[options.dimension];
         style.backgroundImage = `url(${imgSrc})`;
         style.backgroundSize = `${options.dimension * imgSize}px ${options.dimension * imgSize}px`;
@@ -69,7 +69,7 @@ class SquareTile extends Component {
   isInProperPlace() {
 
     const { options, row, col } = this.props;
-    return Game.coordsToIndex({ x: col, y: row }, options.dimension) + 1 === this.getLabel();
+    return GridGameBoard.coordsToIndex({ x: col, y: row }, options.dimension) + 1 === this.getLabel();
   }
 
   onClick() {
@@ -79,15 +79,15 @@ class SquareTile extends Component {
     if (!isSolved) {
       
       const targetCoords = { x: col, y: row };
-      const allMovementCoords = Game.findAllMovementCoords(targetCoords, options.dimension);
+      const allMovementCoords = GridGameBoard.findAllMovementCoords(targetCoords, options.dimension);
 
       for (let coords of allMovementCoords) {
 
         // If hidden tile found
         if (coords.x === hiddenTileCoords.x && coords.y === hiddenTileCoords.y) {
 
-          const index1 = Game.coordsToIndex(targetCoords, options.dimension);
-          const index2 = Game.coordsToIndex(coords, options.dimension);
+          const index1 = GridGameBoard.coordsToIndex(targetCoords, options.dimension);
+          const index2 = GridGameBoard.coordsToIndex(coords, options.dimension);
           return onMoveMade(index1, index2, targetCoords);
         }
       }

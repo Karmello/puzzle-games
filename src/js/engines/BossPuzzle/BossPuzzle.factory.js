@@ -1,5 +1,5 @@
 import { shuffleIntArray } from 'js/helpers';
-import { Game } from 'js/game';
+import { GridGameBoard } from 'js/game';
 
 
 const initDataLoopRuns = 1000;
@@ -17,11 +17,11 @@ export const initData = args => {
   
     for (let i = 0; i < initDataLoopRuns; i++) {
 
-      const allMovementCoords = Game.findAllMovementCoords(hiddenTileCoords, dimension);
+      const allMovementCoords = GridGameBoard.findAllMovementCoords(hiddenTileCoords, dimension);
       const coordsToSwitchWith = allMovementCoords[Math.floor(Math.random() * allMovementCoords.length)];
 
-      const index1 = Game.coordsToIndex(hiddenTileCoords, dimension);
-      const index2 = Game.coordsToIndex(coordsToSwitchWith, dimension);
+      const index1 = GridGameBoard.coordsToIndex(hiddenTileCoords, dimension);
+      const index2 = GridGameBoard.coordsToIndex(coordsToSwitchWith, dimension);
 
       const temp = tiles[index1];
       tiles[index1] = tiles[index2];
