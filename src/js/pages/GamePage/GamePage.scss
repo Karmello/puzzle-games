@@ -19,11 +19,26 @@
     }
 
     .GamePage-engine {
+      
+      position: relative;
       overflow-x: auto !important;
-      > div {
+      
+      > div:first-child {
         display: table;
         margin: 0 auto;
         border: 15px solid #F5F5F5;
+      }
+
+      .GamePage-solved {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        color: white;
+        font-family: Impact;
+        font-size: 65px;
+        letter-spacing: 2px;
+        text-shadow: 5px 5px 5px black;
       }
     }
   }

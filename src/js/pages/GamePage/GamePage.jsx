@@ -50,9 +50,10 @@ class GamePage extends Component {
         <Loader isShown={game.isLoading}>
           <div className='GamePage-main'>
             <div className='GamePage-engine'>
-              <div style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}>
+              <div style={this.getEngineContainerStyle(game.isSolved)}>
                 <Engine readTimer={() => this.gameDashBoardRef.timerRef.state} />
               </div>
+              {game.isSolved && <div className='GamePage-solved'>SOLVED !</div>}
             </div>
             <div>
               <GamePageInfo />
@@ -61,6 +62,20 @@ class GamePage extends Component {
         </Loader>
       </div>
     );
+  }
+
+  getEngineContainerStyle(isSolved) {
+    if (isSolved) {
+      return {
+        opacity: 0.5,
+        pointerEvents: 'none'
+      }
+    } else {
+      return {
+        opacity: 1,
+        pointerEvents: 'initial'
+      }
+    }
   }
 }
 
