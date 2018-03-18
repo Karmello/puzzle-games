@@ -21,7 +21,7 @@ export default class Game extends Component {
     // on restarting
     if (!game.isLoading && nextGame.isLoading) {
       this.setState({ imgSrc: null });
-      this.startNew(nextProps.restarting).then(() => this.onFinishInit());
+      this.startNew(nextProps.game.doRestart).then(() => this.onFinishInit());
     
     // on move made
     } else if (nextGame.moves > 0 && nextGame.moves - game.moves === 1) {
@@ -39,7 +39,7 @@ export default class Game extends Component {
       });
     }
   }
-
+  
   render() {
     return super.render();
   }

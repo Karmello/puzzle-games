@@ -14,8 +14,6 @@ import './GamePage.css';
 
 class GamePage extends Component {
 
-  state = { restarting: false }
-
   componentWillMount() {
 
     const { queryParams, match, gameData, dispatch } = this.props;
@@ -23,21 +21,20 @@ class GamePage extends Component {
 
     dispatch(setAppTitle(gameData.name));
     dispatch(changeGameOptions(id, queryParams));
-    dispatch(startGame(id, queryParams));
+    dispatch(startGame(id, queryParams, false));
   }
 
   componentWillUnmount() {
 
     const { dispatch } = this.props;
 
-    this.setState({ restarting: false });
     dispatch(endGame());
     dispatch(setAppTitle('Puzzle Games'));
   }
 
   render() {
 
-    const { match, game, gameData, queryParams } = this.props;
+    const { match, game, clientUser } = this.props;
     const id = match.params.id;
     const Engine = require(`js/engines/${id}/${id}`).default;
 
@@ -45,10 +42,8 @@ class GamePage extends Component {
       <div className='GamePage'>
         <Paper>
           <GameDashboard
-            gameData={gameData}
+            clientUserData={clientUser.res.data}
             game={game}
-            mode={queryParams.mode}
-            onMenuItemClick={this.onMenuItemClick.bind(this)}
             ref={ref => this.gameDashBoardRef = ref}
           />
         </Paper>
@@ -56,10 +51,7 @@ class GamePage extends Component {
           <div className='GamePage-main'>
             <div className='GamePage-engine'>
               <div style={{ pointerEvents: game.isSolved ? 'none' : 'initial' }}>
-                <Engine
-                  restarting={this.state.restarting}
-                  readTimer={() => this.gameDashBoardRef.timerRef.state}
-                />
+                <Engine readTimer={() => this.gameDashBoardRef.timerRef.state} />
               </div>
             </div>
             <div>
@@ -70,30 +62,10 @@ class GamePage extends Component {
       </div>
     );
   }
-
-  onMenuItemClick(itemId) {
-
-    const { dispatch, game } = this.props;
-
-    switch (itemId) {
-      
-      case 'NEW':
-        this.setState({ restarting: false });
-        break;
-
-      case 'RESTART':
-        this.setState({ restarting: true });
-        break;
-  
-      default:
-        break;
-    }
-
-    dispatch(startGame(game.id));
-  }
 }
 
 export default withRouter(connect(store => ({
+  clientUser: store.api.clientUser,
   engines: store.engines,
   game: store.game
 }))(GamePage));

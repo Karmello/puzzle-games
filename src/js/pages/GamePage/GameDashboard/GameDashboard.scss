@@ -6,21 +6,6 @@
   padding: 5px;
 
   > div {
-    display: flex;
-    margin: 5px;
-  }
-  
-  > div:first-child {
-    flex-flow: row wrap;
-    justify-content: center;
-
-    > div {
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-  }
-
-  > div:last-child {
-    justify-content: flex-end;
+    margin: 3px;
   }
 }

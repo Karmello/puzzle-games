@@ -4,12 +4,13 @@ export const MAKE_MOVE = 'MAKE_MOVE';
 export const SET_AS_SOLVED = 'SET_AS_SOLVED';
 export const END_GAME = 'END_GAME';
 
-export const startGame = (id, options) => {
+export const startGame = (id, options, doRestart) => {
   return {
     type: START_GAME,
     payload: {
       id: id,
-      options: options
+      options: options,
+      doRestart: doRestart
     }
   }
 }

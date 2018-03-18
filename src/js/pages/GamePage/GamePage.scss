@@ -13,10 +13,9 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin-top: 50px;
 
     > div {
-      margin: 10px;
+      margin: 50px 10px 10px 10px;
     }
 
     .GamePage-engine {

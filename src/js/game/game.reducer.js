@@ -5,6 +5,7 @@ const initialState = {
   moves: 0,
   isSolved: false,
   isLoading: true,
+  doRestart: false,
   options: {}
 };
 
@@ -18,12 +19,14 @@ const gameReducer = (state = initialState, action) => {
         moves: 0,
         isSolved: false,
         isLoading: true,
+        doRestart: action.payload.doRestart,
         options: action.payload.options || state.options
       }
   
     case STOP_GAME_LOADER:
       return {
         ...state,
+        doRestart: false,
         isLoading: false
       }
 

@@ -8,10 +8,9 @@
 .GamePage .GamePage-main {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  margin-top: 50px; }
+  justify-content: center; }
   .GamePage .GamePage-main > div {
-    margin: 10px; }
+    margin: 50px 10px 10px 10px; }
   .GamePage .GamePage-main .GamePage-engine {
     overflow-x: auto !important; }
     .GamePage .GamePage-main .GamePage-engine > div {

@@ -63,7 +63,6 @@ describe('should render', () => {
       shallow(
         <BossPuzzle
           store={store}
-          restarting={false}
           readTimer={() => {}}
         />
       );
@@ -87,7 +86,6 @@ describe('should render', () => {
     it('EightQueens', () => {
       shallow(<EightQueens
         store={store}
-        restarting={false}
         readTimer={() => {}}
       />);
     });
