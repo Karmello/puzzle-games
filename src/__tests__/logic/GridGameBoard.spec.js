@@ -1,7 +1,13 @@
-import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords } from 'js/game/GridGameBoard/GridGameBoard.logic';
+import {
+  coordsToIndex,
+  indexToCoords,
+  offsetToIndex,
+  findAllMovementCoords,
+  isAloneOnAxis
+} from 'js/game/GridGameBoard/GridGameBoard.logic';
 
 
-describe('Game logic methods', () => {
+describe('GridGameBoard logic methods', () => {
 
   describe('coordsToIndex', () => {
     it('should convert to index', () => {
@@ -55,6 +61,23 @@ describe('Game logic methods', () => {
       expect(findAllMovementCoords({ x: 0, y: 0 }, '3')).toEqual([{ x: 1, y: 0 }, { x: 0, y: 1 }]);
       expect(findAllMovementCoords({ x: 2, y: 0 }, '4')).toEqual([{ x: 3, y: 0 }, { x: 2, y: 1 }, { x: 1, y: 0 }]);
       expect(findAllMovementCoords({ x: 1, y: 1 }, '5')).toEqual([{ x: 1, y: 0 }, { x: 2, y: 1 }, { x: 1, y: 2 }, { x: 0, y: 1 }]);
+    });
+  });
+
+  describe('isAloneOnAxis', () => {
+    
+    it('should return true', () => {
+      expect(isAloneOnAxis('x', { x: 0, y: 0 }, 3, [1, 0, 0, 1, 1, 1, 1, 1, 1])).toEqual(true);
+      expect(isAloneOnAxis('y', { x: 1, y: 1 }, 3, [1, 0, 1, 1, 1, 1, 1, 0, 1])).toEqual(true);
+      expect(isAloneOnAxis('d1', { x: 2, y: 2 }, 3, [0, 1, 1, 1, 0, 1, 1, 1, 1])).toEqual(true);
+      expect(isAloneOnAxis('d2', { x: 0, y: 2 }, 3, [1, 1, 0, 1, 0, 1, 1, 1, 1])).toEqual(true);
+    });
+
+    it('should return false', () => {
+      expect(isAloneOnAxis('x', { x: 0, y: 0 }, 3, [1, 1, 0, 0, 0, 0, 0, 0, 0])).toEqual(false);
+      expect(isAloneOnAxis('y', { x: 2, y: 0 }, 3, [0, 0, 1, 0, 0, 1, 0, 0, 0])).toEqual(false);
+      expect(isAloneOnAxis('d1', { x: 1, y: 1 }, 3, [1, 0, 0, 0, 1, 0, 0, 0, 0])).toEqual(false);
+      expect(isAloneOnAxis('d2', { x: 2, y: 1 }, 3, [0, 0, 0, 0, 0, 1, 0, 1, 0])).toEqual(false);
     });
   });
 });

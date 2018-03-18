@@ -57,7 +57,6 @@ export const isAloneOnAxis = (axis, targetCoords, dimension, gridData) => {
       shouldTerminate = i => i !== targetCoords.y && gridData[coordsToIndex({ x: targetCoords.x, y: i }, dimension)];
       break;
 
-    // '\'
     case 'd1':
     case 'd2':
 
@@ -66,7 +65,7 @@ export const isAloneOnAxis = (axis, targetCoords, dimension, gridData) => {
       } else if (axis === 'd2') {
         upperBound = dimension - Math.abs(dimension - targetCoords.x - targetCoords.y - 1);
       }
-      
+
       shouldTerminate = i => {
         
         const { x, y } = targetCoords;
@@ -79,9 +78,12 @@ export const isAloneOnAxis = (axis, targetCoords, dimension, gridData) => {
         }
 
         const q = coordsToIndex(targetCoords, dimension);
+
         if (j !== q && gridData[j]) {
-          return false;
+          return true;
         }
+
+        return false;
       }
 
       break;
