@@ -7,16 +7,7 @@ import { Game, GridGameBoard } from 'js/game';
 import { initFrame, resetFrame } from 'js/engines/EightQueens/eightQueens.actions';
 
 
-const queenImgUrl = `${process.env.REACT_APP_S3_BUCKET}/EightQueens/queen.png`;
 const squareSize = 75;
-
-const getBtnStyle = () => ({
-  minWidth: `${squareSize}px`,
-  height: `${squareSize}px`,
-  borderRadius: '50px',
-  backgroundImage: `url(${queenImgUrl})`,
-  backgroundSize: `${squareSize}px ${squareSize}px`
-});
 
 class EightQueens extends Game {
 
@@ -32,7 +23,7 @@ class EightQueens extends Game {
       <GridGameBoard
         dimension={EightQueens.dimension}
         squareSize={squareSize}
-        Square={() => <Button style={getBtnStyle()}> </Button>}
+        Square={() => <Button style={this.getBtnStyle()}> </Button>}
         draggable={true}
         gridData={eightQueensEngine.queens}
       />
@@ -54,6 +45,16 @@ class EightQueens extends Game {
 
   checkIfSolved() {
     return new Promise(resolve => resolve(false));
+  }
+
+  getBtnStyle() {
+    return  {
+      minWidth: `${squareSize}px`,
+      height: `${squareSize}px`,
+      borderRadius: '50px',
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET}/EightQueens/queen.png)`,
+      backgroundSize: `${squareSize}px ${squareSize}px`
+    }
   }
 }
 

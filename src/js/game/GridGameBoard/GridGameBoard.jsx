@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Paper } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
@@ -7,91 +7,109 @@ import Draggable from 'react-draggable';
 import { Game } from 'js/game';
 
 
-const squareBgColors = ['#dbbe92', '#52220b'];
+class GridGameBoard extends Component {
 
-const styles = {
-  board: (dimension, squareSize, squareMargin = 0) => ({
-    'minWidth': dimension * (squareSize + 2 * squareMargin) + 'px'
-  }),
-  row: {
-    padding: 0,
-    margin: 0
-  },
-  col: (squareMargin = 0) => ({
-    padding: `${squareMargin}px`
-  }),
-  draggableContainer: (squareSize, col, row) => ({
-    minWidth: `${squareSize}px`,
-    height: `${squareSize}px`,
-    backgroundColor: squareBgColors[(col + row) % 2]
-  })
-};
+  state = { lastDraggedIndex: null };
 
-const GridGameBoard = props => {
-  
-  const { dimension, squareSize, squareMargin, draggable, Square, gridData } = props;
+  render() {
 
-  const onDragStart = (e, data, config) => {
-    //config.zIndex += 1;
+    const { dimension, draggable, Square, gridData } = this.props;
+
+    return (
+      <Paper style={this.getStyles('board')}>{
+        Array.from({ length: dimension }, (v, k) => k).map(i => (
+          <Row key={i} style={this.getStyles('row')}>{
+            Array.from({ length: dimension }, (v, k) => k).map(j => {
+              
+              const col = Number(i);
+              const row = Number(j);
+              const index = Game.coordsToIndex({ x: col, y: row }, dimension);
+              const position = { x: 0, y: 0 };
+              
+              return (
+                <Col key={j} style={this.getStyles('col')}>
+                  {draggable &&
+                  <div style={this.getStyles('draggableContainer', { col, row })}>
+                    {gridData[index] &&
+                    <Draggable
+                      position={position}
+                      onStart={(e, data) => this.onDragStart(e, data, index)}
+                      onStop={(e, data) => this.onDragStop(e, data, col, row, position)}
+                    >
+                      <div style={this.getStyles('draggableChild', { index })}>
+                        <Square col={col} row={row} />
+                      </div>
+                    </Draggable>}
+                  </div>}
+                  {!draggable && <Square col={col} row={row} />}
+                </Col>
+              );
+            })
+          }</Row>
+        ))
+      }</Paper>
+    );
   }
 
-  const onDragStop = (e, data, config) => {
-    
-    //config.zIndex -= 1;
+  onDragStart(e, data, index) {
+    this.setState({ lastDraggedIndex: index });
+  }
+
+  onDragStop(e, data, col, row, position) {
+
+    const { dimension, squareSize, gridData } = this.props;
 
     const index = Game.offsetToIndex({
-      x: data.x + config.col * squareSize,
-      y: data.y + config.row * squareSize
+      x: data.x + col * squareSize,
+      y: data.y + row * squareSize
     }, squareSize, dimension);
+
 
     if (index > -1 && !gridData[index]) {
       const newCoords = Game.indexToCoords(index, dimension);
-      config.position.x = newCoords.x * squareSize - config.col * squareSize;
-      config.position.y = newCoords.y * squareSize - config.row * squareSize;
+      position.x = newCoords.x * squareSize - col * squareSize;
+      position.y = newCoords.y * squareSize - row * squareSize;
     }
   }
 
-  return (
-    <Paper style={styles.board(dimension, squareSize, squareMargin)}>{
-      Array.from({ length: dimension }, (v, k) => k).map(i => (
-        <Row key={i} style={styles.row}>{
-          Array.from({ length: dimension }, (v, k) => k).map(j => {
-            
-            const config = {
-              col: Number(i),
-              row: Number(j),
-              position: { x: 0, y: 0 }
-            };
-            
-            return (
-              <Col key={j} style={styles.col(squareMargin)}>
-                {draggable &&
-                <div style={styles.draggableContainer(squareSize, config.col, config.row)}>
-                  {gridData[Game.coordsToIndex({ x: config.col, y: config.row }, dimension)] &&
-                  <Draggable
-                    position={config.position}
-                    onStart={(e, data) => onDragStart(e, data, config)}
-                    onStop={(e, data) => onDragStop(e, data, config)}
-                  >
-                    <div>
-                      <Square col={config.col} row={config.row} />
-                    </div>
-                  </Draggable>}
-                </div>}
-                {!draggable && <Square col={config.col} row={config.row} />}
-              </Col>
-            );
-          })
-        }</Row>
-      ))
-    }</Paper>
-  );
-};
+  getStyles(subject, args) {
+  
+    const squareBgColors = ['#dbbe92', '#52220b'];
+    const { dimension, squareSize } = this.props;
+
+    switch (subject) {
+
+      case 'board':
+        return { minWidth: dimension * squareSize + 'px' }
+
+      case 'row':
+        return { padding: 0, margin: 0 }
+
+      case 'col':
+        return { padding: 0 }
+
+      case 'draggableContainer':
+        return {
+          minWidth: `${squareSize}px`,
+          height: `${squareSize}px`,
+          backgroundColor: squareBgColors[(args.col + args.row) % 2]
+        }
+
+      case 'draggableChild':
+        return {
+          position: 'relative',
+          zIndex: args.index === this.state.lastDraggedIndex ? 100: 99
+        }
+
+      default:
+        return null;
+    }
+  }
+}
 
 GridGameBoard.propTypes = {
   dimension: PropTypes.number.isRequired,
   squareSize: PropTypes.number.isRequired,
-  squareMargin: PropTypes.number,
   draggable: PropTypes.bool,
   Square: PropTypes.func.isRequired
 };
