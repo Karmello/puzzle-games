@@ -60,7 +60,7 @@ class HighscoresTable extends Component {
                 {api.highscores.res.data.map((highscore, i) => (
                   <TableRow key={highscore._id} style={this.getRowStyle(highscore)}>
                     <TableCell>{i + 1}</TableCell>
-                    <TableCell>{find(api.users.res.data, elem => elem._id === highscore.userId).username}</TableCell>
+                    <TableCell>{highscore.username}</TableCell>
                     <TableCell>{moment.utc(highscore.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
                     <TableCell numeric>{highscore.details.moves}</TableCell>
                     <TableCell>{moment(highscore.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
@@ -78,7 +78,7 @@ class HighscoresTable extends Component {
 
   getRowStyle(highscore) {
 
-    if (highscore.userId === this.props.api.clientUser.res.data._id) {
+    if (highscore.username === this.props.api.clientUser.res.data.username) {
       return { fontWeight: 'bold' };
     }
   }

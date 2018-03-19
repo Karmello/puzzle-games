@@ -71,12 +71,7 @@ class HighscoresPage extends Component {
 
   fetchApiData(gameFilter, optionsFilter) {
 
-    const { api, dispatch } = this.props;
-
-    dispatch(fetchUsers()).then(() => {
-      const gameId = api.games.res.data.find(elem => elem.id === gameFilter.id)._id;
-      dispatch(fetchHighscores(gameId, optionsFilter, App.minLoadTime));
-    });
+    this.props.dispatch(fetchHighscores(gameFilter.id, optionsFilter, App.minLoadTime));
   }
 }
 

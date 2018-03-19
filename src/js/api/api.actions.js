@@ -90,8 +90,9 @@ export const fetchHighscores = (gameId, query, delay) => {
   const api = axios.create({ baseURL });
   return dispatch => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
+    const url = `/highscores/${gameId}?mode=${query.mode}&dimension=${query.dimension}`;
     dispatch(apiRequest(FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
-    return api.get(`/highscores/${gameId}`, { headers, params: query }).then(res => {
+    return api.get(url, { headers }).then(res => {
       if (delay) {
         setTimeout(() => dispatch(apiRequestSuccess(FETCH_HIGHSCORES, res)), delay);
       } else {

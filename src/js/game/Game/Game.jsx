@@ -30,10 +30,10 @@ export default class Game extends Component {
           const { clientUser, gameApiData, readTimer, dispatch } = this.props;
           dispatch(setAsSolved());
           dispatch(saveNewHighscore({
-            userId: clientUser.res.data._id,
-            gameId: gameApiData._id,
+            username: clientUser.res.data.username,
+            gameId: gameApiData.id,
             options: game.options,
-            details: { moves: game.moves, seconds: readTimer().seconds }
+            details: { moves: nextGame.moves, seconds: readTimer().seconds }
           }));
         }
       });
