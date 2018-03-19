@@ -40,7 +40,9 @@ class SquareTile extends Component {
       minWidth: `${tileSize}px`,
       width: `${tileSize}px`,
       height: `${tileSize}px`,
-      fontSize: `${fontSizes[options.dimension]}px`
+      fontSize: `${fontSizes[options.dimension]}px`,
+      color: '#001f3f',
+      backgroundColor: '#3D9970'
     };
 
     if (!this.isHidden) {
