@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import { App } from 'js/app';
-import { saveNewHighscore } from 'js/api/api.actions';
+import { fetchHighscore, saveNewHighscore } from 'js/api/api.actions';
 import { stopGameLoader, makeMove, setAsSolved } from 'js/game/game.actions';
 
 
@@ -45,7 +45,10 @@ export default class Game extends Component {
   }
 
   onFinishInit() {
-    setTimeout(() => { this.props.dispatch(stopGameLoader()); }, App.minLoadTime);
+    setTimeout(() => {
+      const { dispatch, game } = this.props;
+      dispatch(fetchHighscore(game.id, game.options)).then(() => dispatch(stopGameLoader()));
+    }, App.minLoadTime);
   }
 
   onMakeMove() {

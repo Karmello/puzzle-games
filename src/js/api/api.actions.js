@@ -8,6 +8,7 @@ export const REGISTER_OR_LOGIN_USER = 'REGISTER_OR_LOGIN_USER';
 export const FETCH_GAMES = 'FETCH_GAMES';
 export const FETCH_GAME_CATEGORIES = 'FETCH_GAME_CATEGORIES';
 export const FETCH_HIGHSCORES = 'FETCH_HIGHSCORES';
+export const FETCH_HIGHSCORE = 'FETCH_HIGHSCORE';
 export const FETCH_USERS = 'FETCH_USERS';
 export const SAVE_NEW_HIGHSCORE = 'SAVE_NEW_HIGHSCORE';
 
@@ -22,9 +23,7 @@ export const registerUser = user => {
     return api.post('/user/register', user).then(res => {
       localStorage.setItem('token', res.token);
       dispatch(apiRequestSuccess(REGISTER_OR_LOGIN_USER, res));
-    }, err => {
-      dispatch(apiRequestFailure(REGISTER_OR_LOGIN_USER, err));
-    });
+    }, err => dispatch(apiRequestFailure(REGISTER_OR_LOGIN_USER, err)));
   }
 }
 
@@ -43,9 +42,7 @@ export const loginUser = credentials => {
     return api.post('/user/login', credentials).then(res => {
       if (res.token) { localStorage.setItem('token', res.token); }
       dispatch(apiRequestSuccess(REGISTER_OR_LOGIN_USER, res));
-    }, err => {
-      dispatch(apiRequestFailure(REGISTER_OR_LOGIN_USER, err));
-    });
+    }, err => dispatch(apiRequestFailure(REGISTER_OR_LOGIN_USER, err)));
   }
 }
 
@@ -54,11 +51,10 @@ export const fetchUsers = () => {
   return dispatch => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     dispatch(apiRequest(FETCH_USERS, { headers }));
-    return api.get('/users', { headers }).then(res => {
-      dispatch(apiRequestSuccess(FETCH_USERS, res));
-    }, err => {
-      dispatch(apiRequestFailure(FETCH_USERS, err));
-    });
+    return api.get('/users', { headers }).then(
+      res => dispatch(apiRequestSuccess(FETCH_USERS, res)),
+      err => dispatch(apiRequestFailure(FETCH_USERS, err))
+    );
   }
 }
 
@@ -66,11 +62,10 @@ export const fetchGames = () => {
   const api = axios.create({ baseURL });
   return dispatch => {
     dispatch(apiRequest(FETCH_GAMES));
-    return api.get('/games').then(res => {
-      dispatch(apiRequestSuccess(FETCH_GAMES, res));
-    }, err => {
-      dispatch(apiRequestFailure(FETCH_GAMES, err));
-    });
+    return api.get('/games').then(
+      res => dispatch(apiRequestSuccess(FETCH_GAMES, res)),
+      err => dispatch(apiRequestFailure(FETCH_GAMES, err))
+    );
   }
 }
 
@@ -78,11 +73,10 @@ export const fetchGameCategories = () => {
   const api = axios.create({ baseURL });
   return dispatch => {
     dispatch(apiRequest(FETCH_GAME_CATEGORIES));
-    return api.get('/game-categories').then(res => {
-      dispatch(apiRequestSuccess(FETCH_GAME_CATEGORIES, res));
-    }, err => {
-      dispatch(apiRequestFailure(FETCH_GAME_CATEGORIES, err));
-    });
+    return api.get('/game-categories').then(
+      res => dispatch(apiRequestSuccess(FETCH_GAME_CATEGORIES, res)),
+      err => dispatch(apiRequestFailure(FETCH_GAME_CATEGORIES, err))
+    );
   }
 }
 
@@ -108,15 +102,27 @@ export const fetchHighscores = (gameId, query, delay) => {
   }
 }
 
+export const fetchHighscore = (gameId, query) => {
+  const api = axios.create({ baseURL });
+  return dispatch => {
+    const headers = { 'x-access-token': localStorage.getItem('token') };
+    const url = `/highscore/${gameId}?mode=${query.mode}&dimension=${query.dimension}`;
+    dispatch(apiRequest(FETCH_HIGHSCORE, { headers, params: { gameId }, query }));
+    return api.get(url, { headers }).then(
+      res => dispatch(apiRequestSuccess(FETCH_HIGHSCORE, res)),
+      err => dispatch(apiRequestFailure(FETCH_HIGHSCORES, err))
+    );
+  }
+}
+
 export const saveNewHighscore = highscore => {
   const api = axios.create({ baseURL });
   return dispatch => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     dispatch(apiRequest(SAVE_NEW_HIGHSCORE, { headers, body: highscore }));
-    return api.post('/highscore', highscore, { headers }).then(res => {
-      dispatch(apiRequestSuccess(SAVE_NEW_HIGHSCORE, res));
-    }, err => {
-      dispatch(apiRequestFailure(SAVE_NEW_HIGHSCORE, err));
-    });
+    return api.post('/highscore', highscore, { headers }).then(
+      res => dispatch(apiRequestSuccess(SAVE_NEW_HIGHSCORE, res)),
+      err => dispatch(apiRequestFailure(SAVE_NEW_HIGHSCORE, err))
+    );
   }
 }

@@ -4,7 +4,6 @@ import { Paper, Typography } from 'material-ui';
 import moment from 'moment';
 import { Table } from 'material-ui';
 import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
-import { find } from 'lodash';
 
 import { Loader } from 'js/other';
 import './HighscoresTable.css';

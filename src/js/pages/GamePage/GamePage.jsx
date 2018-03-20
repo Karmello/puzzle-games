@@ -34,7 +34,7 @@ class GamePage extends Component {
 
   render() {
 
-    const { match, game, clientUser } = this.props;
+    const { match, game, clientUser, bestHighscore } = this.props;
     const id = match.params.id;
     const Engine = require(`js/engines/${id}/${id}`).default;
 
@@ -56,7 +56,7 @@ class GamePage extends Component {
               {game.isSolved && <div className='GamePage-solved'>SOLVED !</div>}
             </div>
             <div>
-              <GamePageInfo />
+              <GamePageInfo bestHighscore={bestHighscore} />
             </div>
           </div>
         </Loader>
@@ -81,6 +81,7 @@ class GamePage extends Component {
 
 export default withRouter(connect(store => ({
   clientUser: store.api.clientUser,
+  bestHighscore: store.api.bestHighscore,
   engines: store.engines,
   game: store.game
 }))(GamePage));

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { App } from 'js/app';
 import { PlayBtn } from 'js/other';
 import { apiRequestClear } from 'js/api/api.actionCreators';
-import { fetchHighscores, fetchUsers, FETCH_HIGHSCORES } from 'js/api/api.actions';
+import { fetchHighscores, FETCH_HIGHSCORES } from 'js/api/api.actions';
 import { changeHighscoresFilter } from './highscoresPage.actions';
 import HighscoresFilter from './HighscoresFilter/HighscoresFilter';
 import HighscoresTable from './HighscoresTable/HighscoresTable';
