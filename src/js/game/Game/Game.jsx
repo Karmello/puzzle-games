@@ -34,7 +34,11 @@ export default class Game extends Component {
             gameId: gameApiData.id,
             options: game.options,
             details: { moves: nextGame.moves, seconds: readTimer().seconds }
-          }));
+          })).then(action => {
+            if (action.payload.status === 200) {
+              dispatch(fetchHighscore(nextGame.id, nextGame.options))
+            }
+          });
         }
       });
     }
