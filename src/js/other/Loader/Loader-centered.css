@@ -1,9 +1,0 @@
-.Loader-centered {
-  display: table;
-  position: absolute;
-  width: 100%;
-  height: 100vh; }
-  .Loader-centered .Spinner {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center; }
