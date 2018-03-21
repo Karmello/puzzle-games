@@ -2,11 +2,11 @@ import { START_GAME, STOP_GAME_LOADER, MAKE_MOVE, SET_AS_SOLVED, END_GAME } from
 
 const initialState = {
   id: undefined,
+  options: {},
   moves: 0,
   isSolved: false,
   isLoading: true,
-  doRestart: false,
-  options: {}
+  doRestart: false
 };
 
 const gameReducer = (state = initialState, action) => {
@@ -16,11 +16,11 @@ const gameReducer = (state = initialState, action) => {
     case START_GAME:
       return {
         id: action.payload.id,
+        options: action.payload.options,
         moves: 0,
         isSolved: false,
         isLoading: true,
-        doRestart: action.payload.doRestart,
-        options: action.payload.options || state.options
+        doRestart: action.payload.doRestart
       }
   
     case STOP_GAME_LOADER:

@@ -3,8 +3,7 @@ import { SWITCH_GAME_CATEGORY_TAB, CHANGE_GAME_OPTIONS } from './gamesPage.actio
 const initialState = {
   category: 'sliding',
   options: {
-    BossPuzzle: { mode: 'NUM', dimension: '3' },
-    EightQueens: {}
+    BossPuzzle: { mode: 'NUM', dimension: '3' }
   }
 };
 

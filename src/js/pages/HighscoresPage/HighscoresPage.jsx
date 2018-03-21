@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { App } from 'js/app';
-import { PlayBtn } from 'js/other';
+import { GameBtn } from 'js/game';
 import { apiRequestClear } from 'js/api/api.actionCreators';
 import { fetchHighscores, FETCH_HIGHSCORES } from 'js/api/api.actions';
 import { changeHighscoresFilter } from './highscoresPage.actions';
@@ -27,8 +27,12 @@ class HighscoresPage extends Component {
     const nextGameFilterToSet = nextProps.gameFilterToSet;
     const nextOptionsFilterToSet = nextProps.optionsFilterToSet;
 
-    const keys = Object.keys(nextOptionsFilterToSet);
-    const anyOptionChanged = keys.some(key => nextOptionsFilterToSet[key] !== optionsFilterToSet[key]);
+    let anyOptionChanged;
+
+    if (nextOptionsFilterToSet && optionsFilterToSet) {
+      const keys = Object.keys(nextOptionsFilterToSet);
+      anyOptionChanged = keys.some(key => nextOptionsFilterToSet[key] !== optionsFilterToSet[key]);
+    }
 
     if (gameFilterToSet.category !== nextGameFilterToSet.category || gameFilterToSet.id !== nextGameFilterToSet.id || anyOptionChanged) {
       dispatch(changeHighscoresFilter(nextGameFilterToSet, nextOptionsFilterToSet));
@@ -56,7 +60,9 @@ class HighscoresPage extends Component {
           />
         </div>
         <div className='HighscoresPage-actionBtns'>
-          <PlayBtn
+          <GameBtn
+            name='play'
+            label='Play'
             gameCategory={highscoresPage.gameFilter.category}
             gameId={highscoresPage.gameFilter.id}
             gameOptions={highscoresPage.optionsFilter}
@@ -71,7 +77,9 @@ class HighscoresPage extends Component {
 
   fetchApiData(gameFilter, optionsFilter) {
 
-    this.props.dispatch(fetchHighscores(gameFilter.id, optionsFilter, App.minLoadTime));
+    setTimeout(() => {
+      this.props.dispatch(fetchHighscores(gameFilter.id, optionsFilter, App.minLoadTime));
+    });
   }
 }
 

@@ -104,13 +104,13 @@ class HighscoresFilter extends Component {
 
   setupOptionsComponent(gameId) {
 
-    try {
-      const Options = require(`js/gameOptions/${gameId}Options/${gameId}Options`).default;
-      this.setState({ gameId, Options });
-    } catch(ex) {
-      console.log(ex);
-      this.setState({ gameId: undefined, Options: undefined });
+    let Options;
+
+    if (this.props.gameOptions[gameId]) {
+      Options = require(`js/gameOptions/${gameId}Options/${gameId}Options`).default;
     }
+
+    this.setState({ gameId, Options });
   }
 
   shouldBeDisabled() {
@@ -121,7 +121,7 @@ class HighscoresFilter extends Component {
 
 HighscoresFilter.propTypes = {
   api: PropTypes.object.isRequired,
-  gameOptions: PropTypes.object.isRequired,
+  gameOptions: PropTypes.object,
   gameFilter: PropTypes.object.isRequired,
   optionsFilter: PropTypes.object.isRequired
 };

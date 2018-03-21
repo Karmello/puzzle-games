@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { isEmpty } from 'lodash';
 import { apiRequest, apiRequestSuccess, apiRequestFailure } from './api.actionCreators';
 
 const baseURL = process.env.REACT_APP_API_URI;
@@ -61,8 +62,9 @@ export const fetchUsers = () => {
 export const fetchGames = () => {
   const api = axios.create({ baseURL });
   return dispatch => {
-    dispatch(apiRequest(FETCH_GAMES));
-    return api.get('/games').then(
+    const headers = { 'x-access-token': localStorage.getItem('token') };
+    dispatch(apiRequest(FETCH_GAMES, { headers }));
+    return api.get('/games', { headers }).then(
       res => dispatch(apiRequestSuccess(FETCH_GAMES, res)),
       err => dispatch(apiRequestFailure(FETCH_GAMES, err))
     );
@@ -72,8 +74,9 @@ export const fetchGames = () => {
 export const fetchGameCategories = () => {
   const api = axios.create({ baseURL });
   return dispatch => {
-    dispatch(apiRequest(FETCH_GAME_CATEGORIES));
-    return api.get('/game-categories').then(
+    const headers = { 'x-access-token': localStorage.getItem('token') };
+    dispatch(apiRequest(FETCH_GAME_CATEGORIES, { headers }));
+    return api.get('/game-categories', { headers }).then(
       res => dispatch(apiRequestSuccess(FETCH_GAME_CATEGORIES, res)),
       err => dispatch(apiRequestFailure(FETCH_GAME_CATEGORIES, err))
     );
@@ -84,7 +87,8 @@ export const fetchHighscores = (gameId, query, delay) => {
   const api = axios.create({ baseURL });
   return dispatch => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
-    const url = `/highscores/${gameId}?mode=${query.mode}&dimension=${query.dimension}`;
+    let url = `/highscores/${gameId}`;
+    if (query && !isEmpty(query)) { url += `?mode=${query.mode}&dimension=${query.dimension}`; }
     dispatch(apiRequest(FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(res => {
       if (delay) {
@@ -106,7 +110,8 @@ export const fetchHighscore = (gameId, query) => {
   const api = axios.create({ baseURL });
   return dispatch => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
-    const url = `/highscore/${gameId}?mode=${query.mode}&dimension=${query.dimension}`;
+    let url = `/highscore/${gameId}`;
+    if (query && !isEmpty(query)) { url += `?mode=${query.mode}&dimension=${query.dimension}`; }
     dispatch(apiRequest(FETCH_HIGHSCORE, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(
       res => dispatch(apiRequestSuccess(FETCH_HIGHSCORE, res)),

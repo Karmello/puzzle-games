@@ -7,11 +7,7 @@ export const END_GAME = 'END_GAME';
 export const startGame = (id, options, doRestart) => {
   return {
     type: START_GAME,
-    payload: {
-      id: id,
-      options: options,
-      doRestart: doRestart
-    }
+    payload: { id, options, doRestart }
   }
 }
 

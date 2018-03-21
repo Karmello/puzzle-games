@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { isEmpty } from 'lodash';
 import { Paper } from 'material-ui';
 
 import GameDashboard from './GameDashboard/GameDashboard';
@@ -16,11 +17,11 @@ class GamePage extends Component {
 
   componentWillMount() {
 
-    const { queryParams, match, gameData, dispatch } = this.props;
+    const { match, queryParams, gameData, dispatch } = this.props;
     const id = match.params.id;
-
+  
     dispatch(setAppTitle(gameData.name));
-    dispatch(changeGameOptions(id, queryParams));
+    if (!isEmpty(queryParams)) { dispatch(changeGameOptions(id, queryParams)); }
     dispatch(startGame(id, queryParams, false));
   }
 
@@ -34,9 +35,11 @@ class GamePage extends Component {
 
   render() {
 
-    const { match, game, clientUser, bestHighscore } = this.props;
+    const { match, game, gameData, clientUser, bestHighscore } = this.props;
     const id = match.params.id;
     const Engine = require(`js/engines/${id}/${id}`).default;
+
+    if (!game.id) { return null; }
 
     return (
       <div className='GamePage'>
@@ -49,14 +52,14 @@ class GamePage extends Component {
         </Paper>
         <Loader isShown={game.isLoading}>
           <div className='GamePage-main'>
+            <div>
+              <GamePageInfo game={game} gameData={gameData} bestHighscore={bestHighscore} />
+            </div>
             <div className='GamePage-engine'>
               <div style={this.getEngineContainerStyle(game.isSolved)}>
                 <Engine readTimer={() => this.gameDashBoardRef.timerRef.state} />
               </div>
               {game.isSolved && <div className='GamePage-solved'>SOLVED !</div>}
-            </div>
-            <div>
-              <GamePageInfo bestHighscore={bestHighscore} />
             </div>
           </div>
         </Loader>

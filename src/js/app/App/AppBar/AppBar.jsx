@@ -43,7 +43,7 @@ class AppBar extends Component {
 
   onMenuItemClick(itemId) {
     const { dispatch, game } = this.props;
-    dispatch(startGame(game.id, undefined, itemId === 'RESTART'));
+    dispatch(startGame(game.id, game.options, itemId === 'RESTART'));
   }
 }
 

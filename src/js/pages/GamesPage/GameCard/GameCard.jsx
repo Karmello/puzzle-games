@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import * as qs from 'query-string';
-import { Button, Card, Typography } from 'material-ui';
+import { isEmpty } from 'lodash';
+import { Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
-import { PlayBtn } from 'js/other';
+import { GameBtn } from 'js/game';
 import './GameCard.css';
 
 
@@ -16,10 +15,8 @@ class GameCard extends Component {
     const { gameData, gameOptions, onGameOptionsChange } = this.props;
     let Options;
 
-    try {
+    if (!isEmpty(gameOptions)) {
       Options = require(`js/gameOptions/${gameData.id}Options/${gameData.id}Options`).default;
-    } catch(ex) {
-      console.log(ex);
     }
 
     return (
@@ -42,17 +39,18 @@ class GameCard extends Component {
           </CardContent>
           <CardActions className='GameCard-actions'>
             <div>
-              <Button
-                color='primary'
-                component={Link}
-                to={{
-                  pathname: '/highscores',
-                  search: `?category=${gameData.categoryId}&id=${gameData.id}&` + qs.stringify(gameOptions)
-                }}
-              >Highscores</Button>
+              <GameBtn
+                name='highscores'
+                label='Highscores'
+                gameCategory={gameData.categoryId}
+                gameId={gameData.id}
+                gameOptions={gameOptions}
+              />
             </div>
             <div>
-              <PlayBtn
+              <GameBtn
+                name='play'
+                label='Play'
                 gameCategory={gameData.categoryId}
                 gameId={gameData.id}
                 gameOptions={gameOptions}
@@ -67,8 +65,8 @@ class GameCard extends Component {
 
 GameCard.propTypes = {
   gameData: PropTypes.object.isRequired,
-  gameOptions: PropTypes.object.isRequired,
-  onGameOptionsChange: PropTypes.func.isRequired
+  gameOptions: PropTypes.object,
+  onGameOptionsChange: PropTypes.func
 };
 
 export default GameCard;
