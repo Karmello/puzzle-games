@@ -9,6 +9,10 @@ const baseURL = process.env.REACT_APP_API_URI;
 
 describe('async fetchGames', () => {
   
+  beforeAll(() => {
+    localStorage.setItem('token', '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*');
+  });
+
   beforeEach(() => moxios.install());
   afterEach(() => moxios.uninstall());
   
@@ -26,7 +30,11 @@ describe('async fetchGames', () => {
     const expectedActions = [
       {
         type: FETCH_GAMES,
-        payload: {}
+        payload: {
+          headers: {
+            'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
+          }
+        }
       },
       {
         type: FETCH_GAMES + '_SUCCESS',
@@ -60,7 +68,11 @@ describe('async fetchGames', () => {
     const expectedActions = [
       {
         type: FETCH_GAMES,
-        payload: {}
+        payload: {
+          headers: {
+            'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
+          }
+        }
       },
       {
         type: FETCH_GAMES + '_FAILURE',

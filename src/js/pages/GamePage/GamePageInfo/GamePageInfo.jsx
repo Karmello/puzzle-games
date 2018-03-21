@@ -58,13 +58,13 @@ const renderBestHighscore = props => {
           </Typography>
           <br/>
           <div style={{ textAlign: 'right' }}>
-            <GameBtn
+            {game.id && <GameBtn
               name='highscores'
               label='See all highscores'
               gameCategory={gameData.categoryId}
               gameId={game.id}
               gameOptions={game.options}
-            />
+            />}
           </div>
         </div>}
         {props.bestHighscore.res.status === 204 && <Typography>Nothing to show</Typography>}

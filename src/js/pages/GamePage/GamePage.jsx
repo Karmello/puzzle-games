@@ -39,8 +39,6 @@ class GamePage extends Component {
     const id = match.params.id;
     const Engine = require(`js/engines/${id}/${id}`).default;
 
-    if (!game.id) { return null; }
-
     return (
       <div className='GamePage'>
         <Paper>

@@ -8,8 +8,7 @@ describe('gamesPageReducer', () => {
     expect(gamesPageReducer(undefined, {})).toEqual({
       category: 'sliding',
       options: {
-        BossPuzzle: { mode: 'NUM', dimension: '3' },
-        EightQueens: {}
+        BossPuzzle: { mode: 'NUM', dimension: '3' }
       }
     });
   });
@@ -18,14 +17,12 @@ describe('gamesPageReducer', () => {
     expect(gamesPageReducer({
       category: 'sliding',
       options: {
-        BossPuzzle: { mode: 'NUM', dimension: '3' },
-        EightQueens: {}
+        BossPuzzle: { mode: 'NUM', dimension: '3' }
       }
     }, switchGameCategoryTab('chess'))).toEqual({
       category: 'chess',
       options: {
-        BossPuzzle: { mode: 'NUM', dimension: '3' },
-        EightQueens: {}
+        BossPuzzle: { mode: 'NUM', dimension: '3' }
       }
     });
   });
@@ -35,28 +32,24 @@ describe('gamesPageReducer', () => {
     expect(gamesPageReducer({
       category: 'sliding',
       options: {
-        BossPuzzle: { mode: 'NUM', dimension: '3' },
-        EightQueens: {}
+        BossPuzzle: { mode: 'NUM', dimension: '3' }
       }
     }, changeGameOptions('BossPuzzle', { mode: 'IMG' }))).toEqual({
       category: 'sliding',
       options: {
-        BossPuzzle: { mode: 'IMG', dimension: '3' },
-        EightQueens: {}
+        BossPuzzle: { mode: 'IMG', dimension: '3' }
       }
     });
 
     expect(gamesPageReducer({
       category: 'sliding',
       options: {
-        BossPuzzle: { mode: 'NUM', dimension: '3' },
-        EightQueens: {}
+        BossPuzzle: { mode: 'NUM', dimension: '3' }
       }
     }, changeGameOptions('BossPuzzle', { mode: 'IMG', dimension: '5' }))).toEqual({
       category: 'sliding',
       options: {
-        BossPuzzle: { mode: 'IMG', dimension: '5' },
-        EightQueens: {}
+        BossPuzzle: { mode: 'IMG', dimension: '5' }
       }
     });
   });

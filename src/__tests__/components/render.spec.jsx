@@ -96,10 +96,6 @@ describe('should render', () => {
     it('BossPuzzleOptions', () => {
       shallow(<gameOptions.BossPuzzleOptions options={{}} />);
     });
-
-    it('EightQueensOptions', () => {
-      shallow(<gameOptions.EightQueensOptions options={{}} />);
-    });
   });
 
   describe('other components', () => {
@@ -118,10 +114,6 @@ describe('should render', () => {
 
     it('PageError', () => {
       shallow(<other.PageError />);
-    });
-
-    it('PlayBtn', () => {
-      shallow(<other.PlayBtn gameCategory={''} gameId={''} gameOptions={{}} />);
     });
 
     it('Timer', () => {

@@ -3,11 +3,8 @@ export const clientUserRes = {
   statusText: 'OK',
   data: {
     _id: '5a968945e38de90c58cec77e',
-    fb: {
-      name: 'Kamil Karol Noga',
-      id: '10211785274969732',
-      avatarUrl: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p80x80/22154378_10210964618893843_9020869981138769508_n.jpg?oh=54b0f346b7bfbdbda768f3b19809b9d8&oe=5B44549F'
-    }
+    username: 'Karmello',
+    registeredAt: Date.now()
   }
 };
 
@@ -28,15 +25,24 @@ export const gamesRes = {
   statusText: 'OK',
   data: [
     {
-      _id: '5a87561232ea8fc22a2d7a37',
-      id: 'BossPuzzle',
-      categoryId: 'sliding',
-      name: 'Boss Puzzle',
-      description: 'This is a sliding puzzle that consists of a frame of square tiles in random order with one tile missing. Also called Gem Puzzle or Mystic Square.',
-      options: {
-        mode: ['NUM', 'IMG'],
-        dimension: ['3', '4', '5']
-      }
+      '_id' : '5a99f26993f76ce0991cb87e',
+      'id' : 'BossPuzzle',
+      'categoryId' : 'sliding',
+      'name' : 'Boss Puzzle',
+      'description' : 'This is a sliding puzzle that consists of a frame of square tiles in random order with one tile missing. Also called Gem Puzzle or Mystic Square.',
+      'options' : {
+        'mode' : [ 
+          'NUM', 
+          'IMG'
+        ],
+        'dimension' : [ 
+          '3', 
+          '4', 
+          '5'
+        ]
+      },
+      'info' : 'The aim of the game is to get all square tiles back in order, either so that the picture is restored or so that the numbers are in numerical order from left to right, top to bottom with the space at the bottom right.',
+      'link' : 'https://en.wikipedia.org/wiki/15_puzzle'
     }
   ]
 };
