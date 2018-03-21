@@ -110,7 +110,6 @@ class EightQueens extends Game {
 }
 
 EightQueens.propTypes = {
-  restarting: PropTypes.bool.isRequired,
   readTimer: PropTypes.func.isRequired
 };
 

@@ -5,6 +5,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import Draggable from 'react-draggable';
 
 import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from 'js/game/GridGameBoard/GridGameBoard.logic';
+import './GridGameBoard.css';
 
 
 class GridGameBoard extends Component {
@@ -22,7 +23,7 @@ class GridGameBoard extends Component {
     const { dimension, draggable, Square, gridData } = this.props;
 
     return (
-      <Paper style={this.getStyles('board')}>{
+      <Paper className='GridGameBoard' style={this.getStyles('board')}>{
         Array.from({ length: dimension }, (v, k) => k).map(i => (
           <Row key={i} style={this.getStyles('row')}>{
             Array.from({ length: dimension }, (v, k) => k).map(j => {

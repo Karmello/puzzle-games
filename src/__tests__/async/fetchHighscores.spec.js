@@ -27,8 +27,8 @@ describe('async fetchHighscores', () => {
           '_id' : '5a88b1a32399f3011129d37d',
           'date' : '2018-02-17T22:50:11.066Z',
           'details' : { 'moves' : 120, 'seconds' : 30 },
-          'userId' : '5a88b1a22399f3011129d37c',
-          'gameId' : '5a88b19010216a6875e3163d',
+          'username' : 'Karmello',
+          'gameId' : 'BossPuzzle',
           'options' : { 'mode' : 'NUM', 'dimension' : '3' }
         }]
       });
@@ -49,15 +49,15 @@ describe('async fetchHighscores', () => {
         type: FETCH_HIGHSCORES + '_SUCCESS',
         payload: {
           method: 'get',
-          url: baseURL + '/highscores/5a88b19010216a6875e3163d',
+          url: baseURL + '/highscores/5a88b19010216a6875e3163d?mode=NUM&dimension=3',
           status: 200,
           statusText: 'OK',
           data: [{
             '_id' : '5a88b1a32399f3011129d37d',
             'date' : '2018-02-17T22:50:11.066Z',
             'details' : { 'moves' : 120, 'seconds' : 30 },
-            'userId' : '5a88b1a22399f3011129d37c',
-            'gameId' : '5a88b19010216a6875e3163d',
+            'username' : 'Karmello',
+            'gameId' : 'BossPuzzle',
             'options' : { 'mode' : 'NUM', 'dimension' : '3' }
           }]
         }
@@ -97,7 +97,7 @@ describe('async fetchHighscores', () => {
         type: FETCH_HIGHSCORES + '_FAILURE',
         payload: {
           method: 'get',
-          url: baseURL + '/highscores/5a88b19010216a6875e3163d',
+          url: baseURL + '/highscores/5a88b19010216a6875e3163d?mode=NUM&dimension=3',
           status: 400,
           statusText: 'BAD_REQUEST'
         }

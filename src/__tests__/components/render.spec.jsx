@@ -63,7 +63,6 @@ describe('should render', () => {
       shallow(
         <BossPuzzle
           store={store}
-          restarting={false}
           readTimer={() => {}}
         />
       );
@@ -87,7 +86,6 @@ describe('should render', () => {
     it('EightQueens', () => {
       shallow(<EightQueens
         store={store}
-        restarting={false}
         readTimer={() => {}}
       />);
     });
@@ -97,10 +95,6 @@ describe('should render', () => {
     
     it('BossPuzzleOptions', () => {
       shallow(<gameOptions.BossPuzzleOptions options={{}} />);
-    });
-
-    it('EightQueensOptions', () => {
-      shallow(<gameOptions.EightQueensOptions options={{}} />);
     });
   });
 
@@ -120,10 +114,6 @@ describe('should render', () => {
 
     it('PageError', () => {
       shallow(<other.PageError />);
-    });
-
-    it('PlayBtn', () => {
-      shallow(<other.PlayBtn gameCategory={''} gameId={''} gameOptions={{}} />);
     });
 
     it('Timer', () => {

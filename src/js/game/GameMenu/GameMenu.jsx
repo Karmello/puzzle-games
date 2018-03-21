@@ -56,14 +56,12 @@ export default class GameMenu extends Component {
   }
 
   setup(e) {
-
     this.setState({
       btnElem: e ? e.currentTarget : null
     });
   }
 
   onItemClick(itemId) {
-
     this.setup();
     if (itemId) { this.props.onItemClick(itemId); }
   }

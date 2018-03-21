@@ -1,0 +1,19 @@
+.GamePageInfo {
+  max-width: 800px; }
+  .GamePageInfo > div {
+    margin: 3px; }
+  @media screen and (min-width: 750px) {
+    .GamePageInfo {
+      display: flex;
+      flex-flow: row wrap; }
+      .GamePageInfo > div {
+        flex: 1;
+        flex-basis: 49%; } }
+  @media screen and (min-width: 1050px) {
+    .GamePageInfo {
+      flex-flow: column nowrap;
+      max-width: 350px; } }
+  .GamePageInfo a {
+    text-decoration: none; }
+  .GamePageInfo .GamePageInfo-panel-content {
+    width: 100%; }

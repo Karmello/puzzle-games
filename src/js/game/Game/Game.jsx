@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import { App } from 'js/app';
-import { saveNewHighscore } from 'js/api/api.actions';
+import { fetchHighscore, saveNewHighscore } from 'js/api/api.actions';
 import { stopGameLoader, makeMove, setAsSolved } from 'js/game/game.actions';
 
 
@@ -21,7 +21,7 @@ export default class Game extends Component {
     // on restarting
     if (!game.isLoading && nextGame.isLoading) {
       this.setState({ imgSrc: null });
-      this.startNew(nextProps.restarting).then(() => this.onFinishInit());
+      this.startNew(nextProps.game.doRestart).then(() => this.onFinishInit());
     
     // on move made
     } else if (nextGame.moves > 0 && nextGame.moves - game.moves === 1) {
@@ -30,22 +30,29 @@ export default class Game extends Component {
           const { clientUser, gameApiData, readTimer, dispatch } = this.props;
           dispatch(setAsSolved());
           dispatch(saveNewHighscore({
-            userId: clientUser.res.data._id,
-            gameId: gameApiData._id,
+            username: clientUser.res.data.username,
+            gameId: gameApiData.id,
             options: game.options,
-            details: { moves: game.moves, seconds: readTimer().seconds }
-          }));
+            details: { moves: nextGame.moves, seconds: readTimer().seconds }
+          })).then(action => {
+            if (action.payload.status === 200) {
+              dispatch(fetchHighscore(nextGame.id, nextGame.options))
+            }
+          });
         }
       });
     }
   }
-
+  
   render() {
     return super.render();
   }
 
   onFinishInit() {
-    setTimeout(() => { this.props.dispatch(stopGameLoader()); }, App.minLoadTime);
+    setTimeout(() => {
+      const { dispatch, game } = this.props;
+      dispatch(fetchHighscore(game.id, game.options)).then(() => dispatch(stopGameLoader()));
+    }, App.minLoadTime);
   }
 
   onMakeMove() {

@@ -10,6 +10,7 @@ describe('gameReducer', () => {
       moves: 0,
       isSolved: false,
       isLoading: true,
+      doRestart: false,
       options: {}
     });
   });
@@ -20,12 +21,14 @@ describe('gameReducer', () => {
       moves: 0,
       isSolved: false,
       isLoading: true,
+      doRestart: false,
       options: {}
-    }, startGame('BossPuzzle', { mode: 'NUM', dimension: '3' }))).toEqual({
+    }, startGame('BossPuzzle', { mode: 'NUM', dimension: '3' }, true))).toEqual({
       id: 'BossPuzzle',
       moves: 0,
       isSolved: false,
       isLoading: true,
+      doRestart: true,
       options: { mode: 'NUM', dimension: '3' }
     });
   });
@@ -36,12 +39,14 @@ describe('gameReducer', () => {
       moves: 0,
       isSolved: false,
       isLoading: true,
+      doRestart: true,
       options: { mode: 'NUM', dimension: '3' }
     }, stopGameLoader())).toEqual({
       id: 'BossPuzzle',
       moves: 0,
       isSolved: false,
       isLoading: false,
+      doRestart: false,
       options: { mode: 'NUM', dimension: '3' }
     });
   });
@@ -52,12 +57,14 @@ describe('gameReducer', () => {
       moves: 99,
       isSolved: false,
       isLoading: false,
+      doRestart: false,
       options: { mode: 'NUM', dimension: '3' }
     }, makeMove())).toEqual({
       id: 'BossPuzzle',
       moves: 100,
       isSolved: false,
       isLoading: false,
+      doRestart: false,
       options: { mode: 'NUM', dimension: '3' }
     });
   });
@@ -68,12 +75,14 @@ describe('gameReducer', () => {
       moves: 50,
       isSolved: false,
       isLoading: false,
+      doRestart: false,
       options: { mode: 'NUM', dimension: '3' }
     }, setAsSolved())).toEqual({
       id: 'BossPuzzle',
       moves: 50,
       isSolved: true,
       isLoading: false,
+      doRestart: false,
       options: { mode: 'NUM', dimension: '3' }
     });
   });
@@ -84,12 +93,14 @@ describe('gameReducer', () => {
       moves: 50,
       isSolved: true,
       isLoading: false,
+      doRestart: false,
       options: { mode: 'NUM', dimension: '3' }
     }, endGame())).toEqual({
       id: undefined,
       moves: 0,
       isSolved: false,
       isLoading: false,
+      doRestart: false,
       options: {}
     });
   });

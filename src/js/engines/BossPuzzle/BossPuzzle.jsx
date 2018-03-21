@@ -114,7 +114,6 @@ class BossPuzzle extends Game {
 }
 
 BossPuzzle.propTypes = {
-  restarting: PropTypes.bool.isRequired,
   readTimer: PropTypes.func.isRequired
 };
 
