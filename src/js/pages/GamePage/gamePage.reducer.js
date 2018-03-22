@@ -1,4 +1,4 @@
-import { TOGGLE_EXPANSION_PANEL } from 'js/pages/GamePage/gamePage.actions';
+import { TOGGLE_EXPANSION_PANEL, GAME_PAGE_CLEAR } from 'js/pages/GamePage/gamePage.actions';
 
 const initialState = {
   infoExpanded: false,
@@ -14,6 +14,9 @@ const gamePageReducer = (state = initialState, action) => {
         ...state,
         [action.meta.name + 'Expanded']: action.payload.expanded
       }
+
+    case GAME_PAGE_CLEAR:
+      return initialState;
 
     default:
       return state;

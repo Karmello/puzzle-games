@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 import { App } from 'js/app';
 import { GameBtn } from 'js/game';
-import { apiRequestClear } from 'js/api/api.actionCreators';
-import { fetchHighscores, FETCH_HIGHSCORES } from 'js/api/api.actions';
+import { fetchHighscores } from 'js/api/api.actions';
 import { changeHighscoresFilter } from './highscoresPage.actions';
 import HighscoresFilter from './HighscoresFilter/HighscoresFilter';
 import HighscoresTable from './HighscoresTable/HighscoresTable';
@@ -40,11 +39,6 @@ class HighscoresPage extends Component {
     }
   }
 
-  componentWillUnmount() {
-    
-    this.props.dispatch(apiRequestClear(FETCH_HIGHSCORES));
-  }
-
   render() {
 
     const { gameOptions, highscoresPage, api } = this.props;
@@ -76,7 +70,6 @@ class HighscoresPage extends Component {
   }
 
   fetchApiData(gameFilter, optionsFilter) {
-
     setTimeout(() => {
       this.props.dispatch(fetchHighscores(gameFilter.id, optionsFilter, App.minLoadTime));
     });

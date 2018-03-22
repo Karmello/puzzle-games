@@ -7,8 +7,6 @@ import { PlayCircleOutline, ContentPaste, PowerSettingsNew } from 'material-ui-i
 
 import { App } from 'js/app';
 import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
-import { CLIENT_USER_ACTION } from 'js/api/api.actions';
-import { apiRequestClear } from 'js/api/api.actionCreators';
 import './AppDrawer.css';
 
 
@@ -58,31 +56,23 @@ class AppDrawer extends Component {
   }
 
   getHighscoresPageUrl() {
-
     const { highscoresPage } = this.props.pages;
-
     let url = `/highscores?category=${highscoresPage.gameFilter.category}&id=${highscoresPage.gameFilter.id}`;
     for (const key in highscoresPage.optionsFilter) { url += `&${key}=${highscoresPage.optionsFilter[key]}`; }
     return url;
   }
 
   onDrawerClose() {
-
     this.props.dispatch(toggleAppDrawer(false));
   }
 
   onLogout() {
-
     const { dispatch } = this.props;
-
     setTimeout(() => {
-
       dispatch(toggleAppLoader(true));
-
       setTimeout(() => {
         localStorage.removeItem('token');
         dispatch(setAuthStatus('logged_out'));
-        dispatch(apiRequestClear(CLIENT_USER_ACTION));
         dispatch(toggleAppLoader(false));
       }, App.minLoadTime);
     }, App.minLoadTime / 2);

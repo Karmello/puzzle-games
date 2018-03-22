@@ -1,4 +1,4 @@
-import { SWITCH_GAME_CATEGORY_TAB, CHANGE_GAME_OPTIONS } from './gamesPage.actions';
+import { SWITCH_GAME_CATEGORY_TAB, CHANGE_GAME_OPTIONS, GAMES_PAGE_CLEAR } from './gamesPage.actions';
 
 const initialState = {
   category: '',
@@ -26,6 +26,9 @@ const gamesPageReducer = (state = initialState, action) => {
           }
         }
       }
+
+    case GAMES_PAGE_CLEAR:
+      return initialState;
 
     default:
       return state;

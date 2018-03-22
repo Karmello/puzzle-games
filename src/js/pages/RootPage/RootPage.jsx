@@ -4,9 +4,13 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AppBar, AppDrawer } from 'js/app';
 import { PageError } from 'js/other';
-import { fetchGames, fetchGameCategories, FETCH_GAMES, FETCH_GAME_CATEGORIES, FETCH_HIGHSCORE, SAVE_NEW_HIGHSCORE } from 'js/api/api.actions';
+import {
+  CLIENT_USER_ACTION, FETCH_GAMES, FETCH_GAME_CATEGORIES, FETCH_HIGHSCORES, FETCH_HIGHSCORE, SAVE_NEW_HIGHSCORE,
+  FETCH_USERS, fetchGames, fetchGameCategories
+} from 'js/api/api.actions';
 import { apiRequestClear } from 'js/api/api.actionCreators';
 import { toggleAppLoader } from 'js/app/app.actions';
+import { clearPageConfig } from 'js/pages/page.actionCreators';
 import { switchGameCategoryTab, changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
 import { getUiConfig } from 'js/localStorage';
@@ -39,7 +43,6 @@ class RootPage extends Component {
           dispatch(switchGameCategoryTab(ui[username].gamesPage.category));
           for (const gameId in ui[username].gamesPage.options) {
             dispatch(changeGameOptions(gameId, ui[username].gamesPage.options[gameId]));
-            console.log(gameId);
           }
           dispatch(toggleExpansionPanel('info', ui[username].gamePage.infoExpanded));
           dispatch(toggleExpansionPanel('bestScore', ui[username].gamePage.bestScoreExpanded));
@@ -49,16 +52,24 @@ class RootPage extends Component {
   }
 
   componentWillUnmount() {
+
     const { dispatch } = this.props;
+    
+    dispatch(apiRequestClear(CLIENT_USER_ACTION));
     dispatch(apiRequestClear(FETCH_GAMES));
     dispatch(apiRequestClear(FETCH_GAME_CATEGORIES));
+    dispatch(apiRequestClear(FETCH_HIGHSCORES));
     dispatch(apiRequestClear(FETCH_HIGHSCORE));
+    dispatch(apiRequestClear(FETCH_USERS));
     dispatch(apiRequestClear(SAVE_NEW_HIGHSCORE));
+
+    dispatch(clearPageConfig('GAMES'));
+    dispatch(clearPageConfig('GAME'));
   }
 
   render() {
 
-    const { api, app, location } = this.props;
+    const { api, app, pages, location } = this.props;
 
     if (app.authStatus !== 'logged_in') {
       return (
@@ -80,7 +91,7 @@ class RootPage extends Component {
           <Route exact path='/games/:category' render={props => this.gamesRouteLogic(props)} />
           <Route exact path='/games/:category/:id' render={props => this.gameRouteLogic(props)} />
           <Route exact path='/highscores' render={props => this.highscoresRouteLogic(props)} />
-          <Redirect from='*' to={this.getDefaultPath()} />
+          {pages.gamesPage.category && <Redirect from='*' to={this.getDefaultPath()} />}
         </Switch>}
         {this.shouldRenderPageError() &&
         <div style={{ marginTop: '50px' }}><PageError/></div>}

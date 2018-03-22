@@ -87,14 +87,11 @@ class GamePage extends Component {
   }
 
   onToggleExpansionPanel(name, expanded) {
-    
     const { dispatch, api } = this.props;
-
-    dispatch(toggleExpansionPanel(name, expanded));
-    
     const ui = JSON.parse(localStorage.getItem('ui'));
     ui[api.clientUser.res.data.username].gamePage[`${name}Expanded`] = expanded;
     localStorage.setItem('ui', JSON.stringify(ui));
+    dispatch(toggleExpansionPanel(name, expanded));
   }
 }
 
