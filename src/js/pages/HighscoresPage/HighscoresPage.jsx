@@ -12,7 +12,7 @@ import './HighscoresPage.css';
 
 class HighscoresPage extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
 
     const { gameFilterToSet, optionsFilterToSet, dispatch } = this.props;
     
@@ -70,9 +70,7 @@ class HighscoresPage extends Component {
   }
 
   fetchApiData(gameFilter, optionsFilter) {
-    setTimeout(() => {
-      this.props.dispatch(fetchHighscores(gameFilter.id, optionsFilter, App.minLoadTime));
-    });
+    this.props.dispatch(fetchHighscores(gameFilter.id, optionsFilter, App.minLoadTime));
   }
 }
 
