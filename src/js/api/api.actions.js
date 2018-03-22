@@ -5,7 +5,7 @@ import { apiRequest, apiRequestSuccess, apiRequestFailure } from './api.actionCr
 const baseURL = process.env.REACT_APP_API_URI;
 
 
-export const REGISTER_OR_LOGIN_USER = 'REGISTER_OR_LOGIN_USER';
+export const CLIENT_USER_ACTION = 'CLIENT_USER_ACTION';
 export const FETCH_GAMES = 'FETCH_GAMES';
 export const FETCH_GAME_CATEGORIES = 'FETCH_GAME_CATEGORIES';
 export const FETCH_HIGHSCORES = 'FETCH_HIGHSCORES';
@@ -20,11 +20,11 @@ export const registerUser = user => {
   api.interceptors.response.use(res => ({ ...res, token: res.data.token, data: res.data.user }));
 
   return dispatch => {
-    dispatch(apiRequest(REGISTER_OR_LOGIN_USER, { body: { ...user, password: user.password.replace(/./g, '*') } }));
+    dispatch(apiRequest(CLIENT_USER_ACTION, { body: { ...user, password: user.password.replace(/./g, '*') } }));
     return api.post('/user/register', user).then(res => {
       localStorage.setItem('token', res.token);
-      dispatch(apiRequestSuccess(REGISTER_OR_LOGIN_USER, res));
-    }, err => dispatch(apiRequestFailure(REGISTER_OR_LOGIN_USER, err)));
+      dispatch(apiRequestSuccess(CLIENT_USER_ACTION, res));
+    }, err => dispatch(apiRequestFailure(CLIENT_USER_ACTION, err)));
   }
 }
 
@@ -34,7 +34,7 @@ export const loginUser = credentials => {
   api.interceptors.response.use(res => ({ ...res, token: res.data.token, data: res.data.user }));
 
   return dispatch => {
-    dispatch(apiRequest(REGISTER_OR_LOGIN_USER, {
+    dispatch(apiRequest(CLIENT_USER_ACTION, {
       body: {
         ...credentials,
         password: credentials.password ? credentials.password.replace(/./g, '*') : undefined
@@ -42,8 +42,22 @@ export const loginUser = credentials => {
     }));
     return api.post('/user/login', credentials).then(res => {
       if (res.token) { localStorage.setItem('token', res.token); }
-      dispatch(apiRequestSuccess(REGISTER_OR_LOGIN_USER, res));
-    }, err => dispatch(apiRequestFailure(REGISTER_OR_LOGIN_USER, err)));
+      dispatch(apiRequestSuccess(CLIENT_USER_ACTION, res));
+    }, err => dispatch(apiRequestFailure(CLIENT_USER_ACTION, err)));
+  }
+}
+
+export const updateUser = (username, updateQuery) => {
+
+  const api = axios.create({ baseURL });
+
+  return dispatch => {
+    const headers = { 'x-access-token': localStorage.getItem('token') };
+    dispatch(apiRequest(CLIENT_USER_ACTION, { headers, body: updateQuery }));
+    return api.post(`user/${username}`, updateQuery, { headers }).then(
+      res => dispatch(apiRequestSuccess(CLIENT_USER_ACTION, res)),
+      err => dispatch(apiRequestFailure(CLIENT_USER_ACTION, err))
+    );
   }
 }
 

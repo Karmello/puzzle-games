@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SwipeableViews from 'react-swipeable-views';
 
+import { updateUser } from 'js/api/api.actions';
 import { switchGameCategoryTab, changeGameOptions } from './gamesPage.actions';
 import GameCategories from './GameCategories/GameCategories';
 import GameCard from './GameCard/GameCard';
@@ -13,12 +14,13 @@ class GamesPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     
-    const { gamesPage, gameCategoryToSet, dispatch } = nextProps;
+    const { api, gamesPage, gameCategoryToSet, dispatch } = nextProps;
 
     if (gamesPage.category !== gameCategoryToSet) {
       dispatch(switchGameCategoryTab(gameCategoryToSet));
+      dispatch(updateUser(api.clientUser.res.data.username, { 'uiState.gamesPage.category': gameCategoryToSet }));
     }
-  } 
+  }
 
   render() {
 

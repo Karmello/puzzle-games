@@ -10,7 +10,6 @@ class MySnackBar extends Component {
   state = { open: false }
 
   componentWillReceiveProps(nextProps) {
-    
     this.setState({ open: Boolean(nextProps.message) });
   }
 

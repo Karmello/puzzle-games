@@ -7,7 +7,7 @@ import { AuthPage, GamesPage, GamePage, HighscoresPage } from 'js/pages';
 
 export const authRouteLogic = function(props) {
 
-  const { authStatus } = this.props;
+  const { authStatus } = this.props.app;
 
   if (authStatus === 'logged_in') {
     
@@ -15,7 +15,7 @@ export const authRouteLogic = function(props) {
     let pathname;
     
     if (!state || state.from.pathname === '/') {
-      pathname = this.defaultPath;
+      pathname = this.getDefaultPath();
     } else {
       pathname = state.from.pathname + state.from.search;
     }
@@ -39,8 +39,8 @@ export const gamesRouteLogic = function(props) {
   
   } else {
     return (
-      <div pathname={this.defaultPath}>
-        <Redirect to={this.defaultPath} />
+      <div pathname={this.getDefaultPath()}>
+        <Redirect to={this.getDefaultPath()} />
       </div>
     );
   }
@@ -63,8 +63,8 @@ export const gameRouteLogic = function(props) {
 
   } else {
     return (
-      <div pathname={this.defaultPath}>
-        <Redirect to={this.defaultPath} />
+      <div pathname={this.getDefaultPath()}>
+        <Redirect to={this.getDefaultPath()} />
       </div>
     );
   }
@@ -96,7 +96,7 @@ export const highscoresRouteLogic = function(props) {
   
   } else {
 
-    const { highscoresPage } = this.props;
+    const { highscoresPage } = this.props.pages;
     let search = `category=${highscoresPage.gameFilter.category}&id=${highscoresPage.gameFilter.id}`;
     for (const key in highscoresPage.optionsFilter) { search += `&${key}=${highscoresPage.optionsFilter[key]}`; }
 

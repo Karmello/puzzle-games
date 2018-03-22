@@ -7,7 +7,7 @@ import { PlayCircleOutline, ContentPaste, PowerSettingsNew } from 'material-ui-i
 
 import { App } from 'js/app';
 import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
-import { REGISTER_OR_LOGIN_USER } from 'js/api/api.actions';
+import { CLIENT_USER_ACTION } from 'js/api/api.actions';
 import { apiRequestClear } from 'js/api/api.actionCreators';
 import './AppDrawer.css';
 
@@ -16,12 +16,12 @@ class AppDrawer extends Component {
 
   render() {
 
-    const { authStatus, showDrawer, clientUser, gameCategory } = this.props;
+    const { app, clientUser, pages } = this.props;
 
     return (
       <div className='AppDrawer'>
         <Drawer
-          open={showDrawer}
+          open={app.showDrawer}
           onClose={this.onDrawerClose.bind(this)}
         >
           {clientUser.res.status === 200 &&
@@ -37,7 +37,7 @@ class AppDrawer extends Component {
           >
             <div className='AppDrawer-content'>
               <List>
-                <ListItem button component={Link} to={`/games/${gameCategory}`}>
+                <ListItem button component={Link} to={`/games/${pages.gamesPage.category}`}>
                   <ListItemIcon><PlayCircleOutline/></ListItemIcon>
                   <ListItemText primary='Games' />
                 </ListItem>
@@ -45,7 +45,7 @@ class AppDrawer extends Component {
                   <ListItemIcon><ContentPaste/></ListItemIcon>
                   <ListItemText primary='Highscores' />
                 </ListItem>
-                {authStatus === 'logged_in' && <ListItem button onClick={this.onLogout.bind(this)}>
+                {app.authStatus === 'logged_in' && <ListItem button onClick={this.onLogout.bind(this)}>
                   <ListItemIcon><PowerSettingsNew/></ListItemIcon>
                   <ListItemText primary='Logout' />
                 </ListItem>}
@@ -59,7 +59,7 @@ class AppDrawer extends Component {
 
   getHighscoresPageUrl() {
 
-    const { highscoresPage } = this.props;
+    const { highscoresPage } = this.props.pages;
 
     let url = `/highscores?category=${highscoresPage.gameFilter.category}&id=${highscoresPage.gameFilter.id}`;
     for (const key in highscoresPage.optionsFilter) { url += `&${key}=${highscoresPage.optionsFilter[key]}`; }
@@ -82,7 +82,7 @@ class AppDrawer extends Component {
       setTimeout(() => {
         localStorage.removeItem('token');
         dispatch(setAuthStatus('logged_out'));
-        dispatch(apiRequestClear(REGISTER_OR_LOGIN_USER));
+        dispatch(apiRequestClear(CLIENT_USER_ACTION));
         dispatch(toggleAppLoader(false));
       }, App.minLoadTime);
     }, App.minLoadTime / 2);
@@ -90,9 +90,7 @@ class AppDrawer extends Component {
 }
 
 export default connect(store => ({
-  authStatus: store.app.authStatus,
-  showDrawer: store.app.showDrawer,
-  gameCategory: store.pages.gamesPage.category,
-  highscoresPage: store.pages.highscoresPage,
-  clientUser:  store.api.clientUser
+  clientUser:  store.api.clientUser,
+  app: store.app,
+  pages: store.pages
 }))(AppDrawer);

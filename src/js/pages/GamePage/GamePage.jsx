@@ -8,6 +8,7 @@ import GameDashboard from './GameDashboard/GameDashboard';
 import GamePageInfo from './GamePageInfo/GamePageInfo';
 import { Loader } from 'js/other';
 import { setAppTitle } from 'js/app/app.actions';
+import { updateUser } from 'js/api/api.actions';
 import { startGame, endGame } from 'js/game/game.actions';
 import { changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
@@ -27,16 +28,16 @@ class GamePage extends Component {
   }
 
   componentWillUnmount() {
-
     const { dispatch } = this.props;
-
     dispatch(endGame());
     dispatch(setAppTitle('Puzzle Games'));
   }
 
   render() {
 
-    const { match, game, clientUser, gameData, gamePage, bestHighscore } = this.props;
+    const { match, game, gameData, gamePage } = this.props;
+    const { clientUser, bestHighscore } = this.props.api;
+
     const id = match.params.id;
     const Engine = require(`js/engines/${id}/${id}`).default;
 
@@ -87,13 +88,14 @@ class GamePage extends Component {
   }
 
   onToggleExpansionPanel(name, expanded) {
-    this.props.dispatch(toggleExpansionPanel(name, expanded));
+    const { dispatch, api } = this.props;
+    dispatch(toggleExpansionPanel(name, expanded));
+    dispatch(updateUser(api.clientUser.res.data.username, { [`uiState.gamePage.${name}Expanded`]: expanded }));
   }
 }
 
 export default withRouter(connect(store => ({
-  clientUser: store.api.clientUser,
-  bestHighscore: store.api.bestHighscore,
+  api: store.api,
   engines: store.engines,
   game: store.game,
   gamePage: store.pages.gamePage

@@ -6,7 +6,6 @@ import { App } from 'js/app';
 import { AuthForm } from 'js/other';
 import { toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
 import { registerUser, loginUser } from 'js/api/api.actions';
-import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
 import './AuthPage.css';
 
 
@@ -22,22 +21,21 @@ class AuthPage extends Component {
     const { authStatus, dispatch } = this.props;
     const  token = localStorage.getItem('token');
 
-    if (!authStatus && token) {
-      setTimeout(() => {
+    setTimeout(() => {
+      if (authStatus !== 'logged_in' && token) {
         dispatch(loginUser({ token })).then(() => {
-          const res = this.props.clientUser.res;
-          if (res.status === 200) {
-            this.setUserUiState(res.data.uiState);
+          if (this.props.clientUser.res.status === 200) {
             dispatch(setAuthStatus('logged_in'));
             dispatch(toggleAppLoader(false));
           } else {
             dispatch(toggleAppLoader(false));
           }
         });
-      }, App.minLoadTime);
-    } else {
-      dispatch(toggleAppLoader(false));
-    }
+      } else {
+        dispatch(setAuthStatus('logged_out'));
+        dispatch(toggleAppLoader(false));
+      }
+    }, App.minLoadTime);
   }
 
   render() {
@@ -58,12 +56,6 @@ class AuthPage extends Component {
         </div>
       </div>
     );
-  }
-
-  setUserUiState(uiState) {
-    const { dispatch } = this.props;
-    dispatch(toggleExpansionPanel('info', uiState.gamePage.infoExpanded));
-    dispatch(toggleExpansionPanel('bestScore', uiState.gamePage.bestScoreExpanded));
   }
 
   onAuthFormSubmit(actionName, values) {

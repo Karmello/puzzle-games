@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { registerUser, REGISTER_OR_LOGIN_USER } from 'js/api/api.actions';
+import { registerUser, CLIENT_USER_ACTION } from 'js/api/api.actions';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;
@@ -31,7 +31,7 @@ describe('async registerUser', () => {
     
     const expectedActions = [
       {
-        type: REGISTER_OR_LOGIN_USER,
+        type: CLIENT_USER_ACTION,
         payload: {
           body: {
             username: 'AlanWatts',
@@ -40,7 +40,7 @@ describe('async registerUser', () => {
         }
       },
       {
-        type: REGISTER_OR_LOGIN_USER + '_SUCCESS',
+        type: CLIENT_USER_ACTION + '_SUCCESS',
         payload: {
           method: 'post',
           url: baseURL + '/user/register',
@@ -73,7 +73,7 @@ describe('async registerUser', () => {
     
     const expectedActions = [
       {
-        type: REGISTER_OR_LOGIN_USER,
+        type: CLIENT_USER_ACTION,
         payload: {
           body: {
             username: 'AlanWatts',
@@ -82,7 +82,7 @@ describe('async registerUser', () => {
         }
       },
       {
-        type: REGISTER_OR_LOGIN_USER + '_FAILURE',
+        type: CLIENT_USER_ACTION + '_FAILURE',
         payload: {
           method: 'post',
           url: baseURL + '/user/register',
