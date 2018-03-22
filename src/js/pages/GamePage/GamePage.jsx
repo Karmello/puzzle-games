@@ -8,7 +8,6 @@ import GameDashboard from './GameDashboard/GameDashboard';
 import GamePageInfo from './GamePageInfo/GamePageInfo';
 import { Loader } from 'js/other';
 import { setAppTitle } from 'js/app/app.actions';
-import { updateUser } from 'js/api/api.actions';
 import { startGame, endGame } from 'js/game/game.actions';
 import { changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
@@ -88,9 +87,14 @@ class GamePage extends Component {
   }
 
   onToggleExpansionPanel(name, expanded) {
+    
     const { dispatch, api } = this.props;
+
     dispatch(toggleExpansionPanel(name, expanded));
-    dispatch(updateUser(api.clientUser.res.data.username, { [`uiState.gamePage.${name}Expanded`]: expanded }));
+    
+    const ui = JSON.parse(localStorage.getItem('ui'));
+    ui[api.clientUser.res.data.username].gamePage[`${name}Expanded`] = expanded;
+    localStorage.setItem('ui', JSON.stringify(ui));
   }
 }
 

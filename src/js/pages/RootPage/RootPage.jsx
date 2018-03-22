@@ -4,6 +4,12 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AppBar, AppDrawer } from 'js/app';
 import { PageError } from 'js/other';
+import { fetchGames, fetchGameCategories, FETCH_GAMES, FETCH_GAME_CATEGORIES, FETCH_HIGHSCORE, SAVE_NEW_HIGHSCORE } from 'js/api/api.actions';
+import { apiRequestClear } from 'js/api/api.actionCreators';
+import { toggleAppLoader } from 'js/app/app.actions';
+import { switchGameCategoryTab, changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
+import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
+import { getUiConfig } from 'js/localStorage';
 import { validateGameParams } from 'js/pages/page.methods';
 import * as rootPageMethods from 'js/pages/RootPage/RootPage.methods';
 
@@ -14,6 +20,40 @@ class RootPage extends Component {
     super(props);
     this.validateGameParams = validateGameParams.bind(this);
     for (const key in rootPageMethods) { this[key] = rootPageMethods[key].bind(this); }
+  }
+
+  componentDidMount() {
+    
+    const { dispatch, api, app } = this.props;
+
+    if (app.authStatus === 'logged_in') {
+
+      const username = api.clientUser.res.data.username;
+
+      Promise.all([
+        dispatch(fetchGames()),
+        dispatch(fetchGameCategories())
+      ]).then(() => {
+        getUiConfig(username, ui => {
+          dispatch(toggleAppLoader(false));
+          dispatch(switchGameCategoryTab(ui[username].gamesPage.category));
+          for (const gameId in ui[username].gamesPage.options) {
+            dispatch(changeGameOptions(gameId, ui[username].gamesPage.options[gameId]));
+            console.log(gameId);
+          }
+          dispatch(toggleExpansionPanel('info', ui[username].gamePage.infoExpanded));
+          dispatch(toggleExpansionPanel('bestScore', ui[username].gamePage.bestScoreExpanded));
+        });
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    const { dispatch } = this.props;
+    dispatch(apiRequestClear(FETCH_GAMES));
+    dispatch(apiRequestClear(FETCH_GAME_CATEGORIES));
+    dispatch(apiRequestClear(FETCH_HIGHSCORE));
+    dispatch(apiRequestClear(SAVE_NEW_HIGHSCORE));
   }
 
   render() {
@@ -30,6 +70,7 @@ class RootPage extends Component {
         </div>
       );
     }
+
     return (
       <div className='App-root'>
         <AppBar/>
@@ -41,7 +82,7 @@ class RootPage extends Component {
           <Route exact path='/highscores' render={props => this.highscoresRouteLogic(props)} />
           <Redirect from='*' to={this.getDefaultPath()} />
         </Switch>}
-        {(api.gameCategories.res.status !== 200 || api.games.res.status !== 200) &&
+        {this.shouldRenderPageError() &&
         <div style={{ marginTop: '50px' }}><PageError/></div>}
       </div>
     );
@@ -49,6 +90,14 @@ class RootPage extends Component {
 
   getDefaultPath() {
     return `/games/${this.props.pages.gamesPage.category}`;
+  }
+
+  shouldRenderPageError() {
+    const { api } = this.props;
+    return (
+      (!api.gameCategories.req.isAwaiting && api.gameCategories.res.status !== 200) ||
+      (!api.games.req.isAwaiting && api.games.res.status !== 200)
+    );
   }
 }
 

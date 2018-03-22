@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect, withRouter } from 'react-router-dom';
 import { Paper } from 'material-ui';
 
 import { App } from 'js/app';
@@ -18,15 +19,14 @@ class AuthPage extends Component {
 
   componentDidMount() {
 
-    const { authStatus, dispatch } = this.props;
+    const { dispatch, app } = this.props;
     const  token = localStorage.getItem('token');
 
     setTimeout(() => {
-      if (authStatus !== 'logged_in' && token) {
+      if (app.authStatus !== 'logged_in' && token) {
         dispatch(loginUser({ token })).then(() => {
           if (this.props.clientUser.res.status === 200) {
             dispatch(setAuthStatus('logged_in'));
-            dispatch(toggleAppLoader(false));
           } else {
             dispatch(toggleAppLoader(false));
           }
@@ -40,13 +40,31 @@ class AuthPage extends Component {
 
   render() {
 
-    const { appName } = this.props;
+    const { app, pages, location } = this.props;
+
+    if (app.authStatus === 'logged_in') {
+      
+      const state = location.state;
+      let pathname;
+      
+      if (!state || state.from.pathname === '/') {
+        pathname = pages.gamesPage.category;
+      } else {
+        pathname = state.from.pathname + state.from.search;
+      }
+
+      return (
+        <div pathname={pathname}>
+          <Redirect to={pathname} />
+        </div>
+      );
+    }
 
     return (
       <div className='AuthPage'>
         <div>
           <div className='AuthPage-content'>
-            <p>{appName}</p>
+            <p>{app.title}</p>
             <div>
               <Paper>
                 <AuthForm onSubmit={this.onAuthFormSubmit} />
@@ -77,8 +95,8 @@ class AuthPage extends Component {
   }
 }
 
-export default connect(store => ({
-  appName: store.app.title,
-  authStatus: store.app.authStatus,
-  clientUser: store.api.clientUser
-}))(AuthPage);
+export default withRouter(connect(store => ({
+  clientUser: store.api.clientUser,
+  app: store.app,
+  pages: store.pages
+}))(AuthPage));

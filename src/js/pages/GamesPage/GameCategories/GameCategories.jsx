@@ -11,8 +11,6 @@ class GameCategories extends Component {
 
     const { category, gameCategories } = this.props;
 
-    if (gameCategories.req.isAwaiting || gameCategories.res.status !== 200) { return null; }
-
     return (
       <div>
         <Tabs

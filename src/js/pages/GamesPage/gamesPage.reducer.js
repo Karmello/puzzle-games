@@ -1,10 +1,8 @@
 import { SWITCH_GAME_CATEGORY_TAB, CHANGE_GAME_OPTIONS } from './gamesPage.actions';
 
 const initialState = {
-  category: 'sliding',
-  options: {
-    BossPuzzle: { mode: 'NUM', dimension: '3' }
-  }
+  category: '',
+  options: {}
 };
 
 const gamesPageReducer = (state = initialState, action) => {
