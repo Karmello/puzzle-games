@@ -1,49 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import ExpansionPanel, { ExpansionPanelSummary, ExpansionPanelDetails } from 'material-ui/ExpansionPanel';
+import { ExpansionPanel } from 'material-ui';
+import { ExpansionPanelSummary, ExpansionPanelDetails } from 'material-ui/ExpansionPanel';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
 
 import { GameBtn } from 'js/game';
+import { humanizeHighscoreTime } from './GamePageInfo.methods';
 import './GamePageInfo.css';
 
 
-const humanizeHighscoreTime = _seconds => {
-
-  moment.relativeTimeThreshold('s', 60);
-  moment.relativeTimeThreshold('ss', 0);
-  moment.relativeTimeThreshold('m', 60);
-
-  const duration = moment.duration(_seconds, 'seconds');
-
-  let hours = duration.hours();
-  let minutes = duration.minutes();
-  let seconds = duration.seconds();
-
-  if (hours) {
-    hours = moment.duration(hours, 'hours').humanize();
-  }
-
-  if (minutes) {
-    minutes = moment.duration(minutes, 'minutes').humanize();
-  }
-
-  if (seconds) {
-    seconds = moment.duration(seconds, 'seconds').humanize();
-    if (seconds == '1 seconds') { seconds = 'a second'; }
-  }
-
-  return `${hours ? hours : ''} ${minutes ? minutes : ''} ${seconds ? seconds : ''}`;
-}
 
 const renderBestHighscore = props => {
 
   const res = props.bestHighscore.res;
-  const { game, gameData } = props;
+  const { game, gameData, gamePage } = props;
 
   return (
-    <ExpansionPanel>
+    <ExpansionPanel
+      expanded={gamePage.bestScoreExpanded}
+      onChange={(e, expanded) => props.onToggleExpansionPanel('bestScore', expanded)}
+    >
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>Best score</Typography>
       </ExpansionPanelSummary>
@@ -74,10 +52,13 @@ const renderBestHighscore = props => {
 
 const renderInfo = props => {
 
-  const { gameData } = props;
+  const { gameData, gamePage } = props;
   
   return (
-    <ExpansionPanel>
+    <ExpansionPanel
+      expanded={gamePage.infoExpanded}
+      onChange={(e, expanded) => props.onToggleExpansionPanel('info', expanded)}
+    >
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>Info</Typography>
       </ExpansionPanelSummary>
@@ -102,7 +83,9 @@ const GamePageInfo = props => {
 GamePageInfo.propTypes = {
   game: PropTypes.object.isRequired,
   gameData: PropTypes.object.isRequired,
-  bestHighscore: PropTypes.object.isRequired
+  gamePage: PropTypes.object.isRequired,
+  bestHighscore: PropTypes.object.isRequired,
+  onToggleExpansionPanel: PropTypes.func.isRequired
 };
 
 export default GamePageInfo;

@@ -10,6 +10,7 @@ import { Loader } from 'js/other';
 import { setAppTitle } from 'js/app/app.actions';
 import { startGame, endGame } from 'js/game/game.actions';
 import { changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
+import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
 import './GamePage.css';
 
 
@@ -35,7 +36,7 @@ class GamePage extends Component {
 
   render() {
 
-    const { match, game, gameData, clientUser, bestHighscore } = this.props;
+    const { match, game, clientUser, gameData, gamePage, bestHighscore } = this.props;
     const id = match.params.id;
     const Engine = require(`js/engines/${id}/${id}`).default;
 
@@ -51,7 +52,13 @@ class GamePage extends Component {
         <Loader isShown={game.isLoading}>
           <div className='GamePage-main'>
             <div>
-              <GamePageInfo game={game} gameData={gameData} bestHighscore={bestHighscore} />
+              <GamePageInfo
+                game={game}
+                gamePage={gamePage}
+                gameData={gameData}
+                bestHighscore={bestHighscore}
+                onToggleExpansionPanel={this.onToggleExpansionPanel.bind(this)}
+              />
             </div>
             <div className='GamePage-engine'>
               <div style={this.getEngineContainerStyle(game.isSolved)}>
@@ -78,11 +85,16 @@ class GamePage extends Component {
       }
     }
   }
+
+  onToggleExpansionPanel(name, expanded) {
+    this.props.dispatch(toggleExpansionPanel(name, expanded));
+  }
 }
 
 export default withRouter(connect(store => ({
   clientUser: store.api.clientUser,
   bestHighscore: store.api.bestHighscore,
   engines: store.engines,
-  game: store.game
+  game: store.game,
+  gamePage: store.pages.gamePage
 }))(GamePage));
