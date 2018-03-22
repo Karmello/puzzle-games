@@ -2,33 +2,8 @@ import React from 'react';
 import * as qs from 'query-string';
 import { Redirect } from 'react-router-dom';
 
-import { AuthPage, GamesPage, GamePage, HighscoresPage } from 'js/pages';
+import { GamesPage, GamePage, HighscoresPage } from 'js/pages';
 
-
-export const authRouteLogic = function(props) {
-
-  const { authStatus } = this.props.app;
-
-  if (authStatus === 'logged_in') {
-    
-    const state = props.location.state;
-    let pathname;
-    
-    if (!state || state.from.pathname === '/') {
-      pathname = this.getDefaultPath();
-    } else {
-      pathname = state.from.pathname + state.from.search;
-    }
-
-    return (
-      <div pathname={pathname}>
-        <Redirect to={pathname} />
-      </div>
-    );
-  }
-
-  return <AuthPage authStatus={authStatus} />;
-}
 
 export const gamesRouteLogic = function(props) {
 
