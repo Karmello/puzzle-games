@@ -4,7 +4,6 @@ import moment from 'moment';
 import ExpansionPanel, { ExpansionPanelSummary, ExpansionPanelDetails } from 'material-ui/ExpansionPanel';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
-import { Button } from 'material-ui';
 
 import { GameBtn } from 'js/game';
 import './GamePageInfo.css';
@@ -85,10 +84,6 @@ const renderInfo = props => {
       <ExpansionPanelDetails>
         <div className='GamePageInfo-panel-content'>
           <Typography style={{ textAlign: 'justify' }}>{gameData.info}</Typography>
-          <br/>
-          <div style={{ textAlign: 'right' }}>
-            <a href={gameData.link} target='new'><Button color='primary'>Read more</Button></a>
-          </div>
         </div>
       </ExpansionPanelDetails>
     </ExpansionPanel>
