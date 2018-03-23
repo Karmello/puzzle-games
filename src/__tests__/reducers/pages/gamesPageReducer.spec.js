@@ -6,10 +6,8 @@ describe('gamesPageReducer', () => {
 
   it('should return the initial state', () => {
     expect(gamesPageReducer(undefined, {})).toEqual({
-      category: 'sliding',
-      options: {
-        BossPuzzle: { mode: 'NUM', dimension: '3' }
-      }
+      category: '',
+      options: { BossPuzzle: {} }
     });
   });
 

@@ -8,10 +8,26 @@ describe('/highscores', () => {
   let state;
 
   beforeAll(() => {
+    
     state = store.getState();
+    
     state.api.clientUser.res = clientUserRes;
     state.api.gameCategories.res = gameCategoriesRes;
     state.api.games.res = gamesRes;
+    
+    state.pages.highscoresPage = {
+      gameFilter: { id: 'BossPuzzle', category: 'sliding' },
+      optionsFilter: { mode: 'NUM', dimension: '3' }
+    }
+
+    localStorage.setItem('ui', JSON.stringify({
+      [clientUserRes.data.username]: {
+        highscoresPage: {
+          gameFilter: { id: 'BossPuzzle', category: 'sliding' },
+          optionsFilter: { mode: 'NUM', dimension: '3' }
+        }
+      }
+    }));
   });
 
   it('should redirect', () => {

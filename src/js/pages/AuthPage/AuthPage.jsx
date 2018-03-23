@@ -40,7 +40,7 @@ class AuthPage extends Component {
 
   render() {
 
-    const { app, pages, location } = this.props;
+    const { app, location } = this.props;
 
     if (app.authStatus === 'logged_in') {
       
@@ -48,7 +48,8 @@ class AuthPage extends Component {
       let pathname;
       
       if (!state || state.from.pathname === '/') {
-        pathname = pages.gamesPage.category;
+        pathname = '/games';
+
       } else {
         pathname = state.from.pathname + state.from.search;
       }

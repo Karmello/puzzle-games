@@ -6,8 +6,8 @@ describe('highscoresPageReducer', () => {
 
   it('should return the initial state', () => {
     expect(highscoresPageReducer(undefined, {})).toEqual({
-      gameFilter: { category: 'sliding', id: 'BossPuzzle' },
-      optionsFilter: { mode: 'NUM', dimension: '3' }
+      gameFilter: {},
+      optionsFilter: {}
     });
   });
 
