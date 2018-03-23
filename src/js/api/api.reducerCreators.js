@@ -4,9 +4,7 @@ const getApiRequestReducer = (actionType) => {
     req: {
       isAwaiting: false
     },
-    res: {
-      data: []
-    }
+    res: {}
   };
 
   return (state = initialState, action) => {

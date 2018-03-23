@@ -1,5 +1,5 @@
 import getApiRequestReducer from 'js/api/api.reducerCreators';
-import { apiRequest, apiRequestSuccess, apiRequestFailure, apiRequestClear } from 'js/api/api.actionCreators';
+import { apiRequest, apiRequestSuccess, apiRequestFailure } from 'js/api/api.actionCreators';
 
 
 describe('apiReducers', () => {
@@ -9,7 +9,7 @@ describe('apiReducers', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       req: { isAwaiting: false },
-      res: { data: [] }
+      res: {}
     });
   });
 
@@ -26,7 +26,7 @@ describe('apiReducers', () => {
         query: { sort: 1 },
         isAwaiting: true
       },
-      res: { data: [] }
+      res: {}
     });
 
     const state = {

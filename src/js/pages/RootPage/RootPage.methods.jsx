@@ -2,33 +2,8 @@ import React from 'react';
 import * as qs from 'query-string';
 import { Redirect } from 'react-router-dom';
 
-import { AuthPage, GamesPage, GamePage, HighscoresPage } from 'js/pages';
+import { GamesPage, GamePage, HighscoresPage } from 'js/pages';
 
-
-export const authRouteLogic = function(props) {
-
-  const { authStatus } = this.props;
-
-  if (authStatus === 'logged_in') {
-    
-    const state = props.location.state;
-    let pathname;
-    
-    if (!state || state.from.pathname === '/') {
-      pathname = this.defaultPath;
-    } else {
-      pathname = state.from.pathname + state.from.search;
-    }
-
-    return (
-      <div pathname={pathname}>
-        <Redirect to={pathname} />
-      </div>
-    );
-  }
-
-  return <AuthPage authStatus={authStatus} />;
-}
 
 export const gamesRouteLogic = function(props) {
 
@@ -39,17 +14,16 @@ export const gamesRouteLogic = function(props) {
   
   } else {
     return (
-      <div pathname={this.defaultPath}>
-        <Redirect to={this.defaultPath} />
+      <div pathname={this.getDefaultPath()}>
+        <Redirect to={this.getDefaultPath()} />
       </div>
     );
   }
 }
 
 export const gameRouteLogic = function(props) {
-
-  const { shouldRedirect, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search));
-
+    
+  const { shouldRedirect, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search), this.ui.gamesPage.options);
   if (!shouldRedirect) {
     return <GamePage gameData={gameData} queryParams={validParams} />
   
@@ -63,8 +37,8 @@ export const gameRouteLogic = function(props) {
 
   } else {
     return (
-      <div pathname={this.defaultPath}>
-        <Redirect to={this.defaultPath} />
+      <div pathname={this.getDefaultPath()}>
+        <Redirect to={this.getDefaultPath()} />
       </div>
     );
   }
@@ -96,7 +70,7 @@ export const highscoresRouteLogic = function(props) {
   
   } else {
 
-    const { highscoresPage } = this.props;
+    const { highscoresPage } = this.props.pages;
     let search = `category=${highscoresPage.gameFilter.category}&id=${highscoresPage.gameFilter.id}`;
     for (const key in highscoresPage.optionsFilter) { search += `&${key}=${highscoresPage.optionsFilter[key]}`; }
 

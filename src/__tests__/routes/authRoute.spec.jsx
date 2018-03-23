@@ -36,7 +36,7 @@ describe('/auth', () => {
     state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/auth'], 0);
     expect(wrapper.find('.AuthPage').length).toBe(0);
-    expect(wrapper.find('[pathname="/games/sliding"]').length).toBe(1);
+    expect(wrapper.find('[pathname="/games"]').length).toBe(1);
   });
 
   it('should redirect', () => {

@@ -1,4 +1,4 @@
-export function validateGameParams(params, options) {
+export function validateGameParams(params, options, uiGameOptions) {
   
   const { api } = this.props;
 
@@ -16,13 +16,13 @@ export function validateGameParams(params, options) {
         validParams[key] = options[key];
       
       } else {
-        validParams[key] = gameData.options[key][0];
+        validParams[key] = uiGameOptions ? uiGameOptions[gameData.id][key] : gameData.options[key][0];
         shouldRedirect = true;
       }
     }
 
     if (Object.keys(options).length !== Object.keys(validParams).length) { shouldRedirect = true; }
-
+    
     return { shouldRedirect, validParams, gameData };
   
   } else {

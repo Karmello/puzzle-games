@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 import { App } from 'js/app';
 import { GameBtn } from 'js/game';
-import { apiRequestClear } from 'js/api/api.actionCreators';
-import { fetchHighscores, FETCH_HIGHSCORES } from 'js/api/api.actions';
+import { fetchHighscores } from 'js/api/api.actions';
 import { changeHighscoresFilter } from './highscoresPage.actions';
 import HighscoresFilter from './HighscoresFilter/HighscoresFilter';
 import HighscoresTable from './HighscoresTable/HighscoresTable';
@@ -13,17 +12,14 @@ import './HighscoresPage.css';
 
 class HighscoresPage extends Component {
 
-  componentDidMount() {
-
-    const { gameFilterToSet, optionsFilterToSet, dispatch } = this.props;
-    
-    dispatch(changeHighscoresFilter(gameFilterToSet, optionsFilterToSet));
-    this.fetchApiData(gameFilterToSet, optionsFilterToSet);
+  componentWillMount() {
+    const { gameFilterToSet, optionsFilterToSet } = this.props;
+    this.onChange(gameFilterToSet, optionsFilterToSet);
   }
   
   componentWillReceiveProps(nextProps) {
 
-    const { gameFilterToSet, optionsFilterToSet, dispatch } = this.props;
+    const { gameFilterToSet, optionsFilterToSet } = this.props;
     const nextGameFilterToSet = nextProps.gameFilterToSet;
     const nextOptionsFilterToSet = nextProps.optionsFilterToSet;
 
@@ -35,19 +31,17 @@ class HighscoresPage extends Component {
     }
 
     if (gameFilterToSet.category !== nextGameFilterToSet.category || gameFilterToSet.id !== nextGameFilterToSet.id || anyOptionChanged) {
-      dispatch(changeHighscoresFilter(nextGameFilterToSet, nextOptionsFilterToSet));
-      this.fetchApiData(nextGameFilterToSet, nextOptionsFilterToSet);
+      this.onChange(nextGameFilterToSet, nextOptionsFilterToSet);
     }
-  }
-
-  componentWillUnmount() {
-    
-    this.props.dispatch(apiRequestClear(FETCH_HIGHSCORES));
   }
 
   render() {
 
     const { gameOptions, highscoresPage, api } = this.props;
+
+    if (!highscoresPage.gameFilter.category || !highscoresPage.gameFilter.id) {
+      return null;
+    }
 
     return (
       <div className='HighscoresPage'>
@@ -75,11 +69,18 @@ class HighscoresPage extends Component {
     );
   }
 
-  fetchApiData(gameFilter, optionsFilter) {
+  onChange(gameFilterToSet, optionsFilterToSet) {
+    
+    const { dispatch, api } = this.props;
+    const ui = JSON.parse(localStorage.getItem('ui'));
+    const username = api.clientUser.res.data.username;
 
-    setTimeout(() => {
-      this.props.dispatch(fetchHighscores(gameFilter.id, optionsFilter, App.minLoadTime));
-    });
+    ui[username].highscoresPage.gameFilter = gameFilterToSet;
+    ui[username].highscoresPage.optionsFilter = optionsFilterToSet;
+    localStorage.setItem('ui', JSON.stringify(ui));
+    
+    dispatch(changeHighscoresFilter(gameFilterToSet, optionsFilterToSet));
+    dispatch(fetchHighscores(gameFilterToSet.id, optionsFilterToSet, App.minLoadTime));
   }
 }
 

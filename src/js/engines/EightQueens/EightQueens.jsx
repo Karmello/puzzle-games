@@ -115,7 +115,6 @@ EightQueens.propTypes = {
 
 export default connect(store => ({
   clientUser: store.api.clientUser,
-  gameApiData: store.api.games.res.data.find(elem => elem.id === 'EightQueens'),
   game: store.game,
   eightQueensEngine: store.engines.EightQueens
 }))(EightQueens);

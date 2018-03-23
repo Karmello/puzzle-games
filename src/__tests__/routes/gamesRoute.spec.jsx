@@ -12,6 +12,7 @@ describe('/games', () => {
     state.api.clientUser.res = clientUserRes;
     state.api.gameCategories.res = gameCategoriesRes;
     state.api.games.res = gamesRes;
+    state.pages.gamesPage.category = 'sliding';
   });
 
   it('should redirect', () => {
