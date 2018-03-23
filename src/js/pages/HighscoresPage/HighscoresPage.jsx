@@ -13,16 +13,13 @@ import './HighscoresPage.css';
 class HighscoresPage extends Component {
 
   componentWillMount() {
-
-    const { gameFilterToSet, optionsFilterToSet, dispatch } = this.props;
-    
-    dispatch(changeHighscoresFilter(gameFilterToSet, optionsFilterToSet));
-    this.fetchApiData(gameFilterToSet, optionsFilterToSet);
+    const { gameFilterToSet, optionsFilterToSet } = this.props;
+    this.onChange(gameFilterToSet, optionsFilterToSet);
   }
   
   componentWillReceiveProps(nextProps) {
 
-    const { gameFilterToSet, optionsFilterToSet, dispatch } = this.props;
+    const { gameFilterToSet, optionsFilterToSet } = this.props;
     const nextGameFilterToSet = nextProps.gameFilterToSet;
     const nextOptionsFilterToSet = nextProps.optionsFilterToSet;
 
@@ -34,14 +31,17 @@ class HighscoresPage extends Component {
     }
 
     if (gameFilterToSet.category !== nextGameFilterToSet.category || gameFilterToSet.id !== nextGameFilterToSet.id || anyOptionChanged) {
-      dispatch(changeHighscoresFilter(nextGameFilterToSet, nextOptionsFilterToSet));
-      this.fetchApiData(nextGameFilterToSet, nextOptionsFilterToSet);
+      this.onChange(nextGameFilterToSet, nextOptionsFilterToSet);
     }
   }
 
   render() {
 
     const { gameOptions, highscoresPage, api } = this.props;
+
+    if (!highscoresPage.gameFilter.category || !highscoresPage.gameFilter.id) {
+      return null;
+    }
 
     return (
       <div className='HighscoresPage'>
@@ -69,8 +69,18 @@ class HighscoresPage extends Component {
     );
   }
 
-  fetchApiData(gameFilter, optionsFilter) {
-    this.props.dispatch(fetchHighscores(gameFilter.id, optionsFilter, App.minLoadTime));
+  onChange(gameFilterToSet, optionsFilterToSet) {
+    
+    const { dispatch, api } = this.props;
+    const ui = JSON.parse(localStorage.getItem('ui'));
+    const username = api.clientUser.res.data.username;
+
+    ui[username].highscoresPage.gameFilter = gameFilterToSet;
+    ui[username].highscoresPage.optionsFilter = optionsFilterToSet;
+    localStorage.setItem('ui', JSON.stringify(ui));
+    
+    dispatch(changeHighscoresFilter(gameFilterToSet, optionsFilterToSet));
+    dispatch(fetchHighscores(gameFilterToSet.id, optionsFilterToSet, App.minLoadTime));
   }
 }
 

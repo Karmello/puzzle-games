@@ -1,8 +1,8 @@
-import { CHANGE_HIGHSCORES_FILTER } from './highscoresPage.actions';
+import { CHANGE_HIGHSCORES_FILTER, HIGHSCORES_PAGE_CLEAR } from './highscoresPage.actions';
 
 const initialState = {
-  gameFilter: { category: 'sliding', id: 'BossPuzzle' },
-  optionsFilter: { mode: 'NUM', dimension: '3' }
+  gameFilter: {},
+  optionsFilter: {}
 };
 
 const highscoresPageReducer = (state = initialState, action) => {
@@ -14,6 +14,9 @@ const highscoresPageReducer = (state = initialState, action) => {
         gameFilter: { ...action.payload.gameFilter },
         optionsFilter: { ...action.payload.optionsFilter }
       }
+
+    case HIGHSCORES_PAGE_CLEAR:
+      return initialState;
 
     default:
       return state;

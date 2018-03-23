@@ -4,15 +4,11 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AppBar, AppDrawer } from 'js/app';
 import { PageError } from 'js/other';
-import {
-  CLIENT_USER_ACTION, FETCH_GAMES, FETCH_GAME_CATEGORIES, FETCH_HIGHSCORES, FETCH_HIGHSCORE, SAVE_NEW_HIGHSCORE,
-  FETCH_USERS, fetchGames, fetchGameCategories
-} from 'js/api/api.actions';
-import { apiRequestClear } from 'js/api/api.actionCreators';
+import { fetchGames, fetchGameCategories } from 'js/api/api.actions';
 import { toggleAppLoader } from 'js/app/app.actions';
-import { clearPageConfig } from 'js/pages/page.actionCreators';
 import { switchGameCategoryTab, changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
+import { changeHighscoresFilter } from 'js/pages/HighscoresPage/highscoresPage.actions';
 import { getUiConfig } from 'js/localStorage';
 import { validateGameParams } from 'js/pages/page.methods';
 import * as rootPageMethods from 'js/pages/RootPage/RootPage.methods';
@@ -39,32 +35,18 @@ class RootPage extends Component {
         dispatch(fetchGameCategories())
       ]).then(() => {
         getUiConfig(username, ui => {
+          const _ui = ui[username];
           dispatch(toggleAppLoader(false));
-          dispatch(switchGameCategoryTab(ui[username].gamesPage.category));
-          for (const gameId in ui[username].gamesPage.options) {
-            dispatch(changeGameOptions(gameId, ui[username].gamesPage.options[gameId]));
+          dispatch(switchGameCategoryTab(_ui.gamesPage.category));
+          for (const gameId in _ui.gamesPage.options) {
+            dispatch(changeGameOptions(gameId, _ui.gamesPage.options[gameId]));
           }
-          dispatch(toggleExpansionPanel('info', ui[username].gamePage.infoExpanded));
-          dispatch(toggleExpansionPanel('bestScore', ui[username].gamePage.bestScoreExpanded));
+          dispatch(toggleExpansionPanel('info', _ui.gamePage.infoExpanded));
+          dispatch(toggleExpansionPanel('bestScore', _ui.gamePage.bestScoreExpanded));
+          dispatch(changeHighscoresFilter(_ui.highscoresPage.gameFilter, _ui.highscoresPage.optionsFilter));
         });
       });
     }
-  }
-
-  componentWillUnmount() {
-
-    const { dispatch } = this.props;
-    
-    dispatch(apiRequestClear(CLIENT_USER_ACTION));
-    dispatch(apiRequestClear(FETCH_GAMES));
-    dispatch(apiRequestClear(FETCH_GAME_CATEGORIES));
-    dispatch(apiRequestClear(FETCH_HIGHSCORES));
-    dispatch(apiRequestClear(FETCH_HIGHSCORE));
-    dispatch(apiRequestClear(FETCH_USERS));
-    dispatch(apiRequestClear(SAVE_NEW_HIGHSCORE));
-
-    dispatch(clearPageConfig('GAMES'));
-    dispatch(clearPageConfig('GAME'));
   }
 
   render() {

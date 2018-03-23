@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { isEmpty } from 'lodash';
 import { Paper } from 'material-ui';
 
 import GameDashboard from './GameDashboard/GameDashboard';
@@ -9,7 +8,6 @@ import GamePageInfo from './GamePageInfo/GamePageInfo';
 import { Loader } from 'js/other';
 import { setAppTitle } from 'js/app/app.actions';
 import { startGame, endGame } from 'js/game/game.actions';
-import { changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
 import './GamePage.css';
 
@@ -22,7 +20,6 @@ class GamePage extends Component {
     const id = match.params.id;
   
     dispatch(setAppTitle(gameData.name));
-    if (!isEmpty(queryParams)) { dispatch(changeGameOptions(id, queryParams)); }
     dispatch(startGame(id, queryParams, false));
   }
 

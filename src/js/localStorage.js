@@ -8,6 +8,10 @@ const defaultUiConfig = {
   gamePage: {
     infoExpanded: false,
     bestScoreExpanded: false
+  },
+  highscoresPage: {
+    gameFilter: { category: 'sliding', id: 'BossPuzzle' },
+    optionsFilter: { mode: 'NUM', dimension: '3' }
   }
 };
 

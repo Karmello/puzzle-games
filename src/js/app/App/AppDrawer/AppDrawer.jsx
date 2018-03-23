@@ -7,6 +7,9 @@ import { PlayCircleOutline, ContentPaste, PowerSettingsNew } from 'material-ui-i
 
 import { App } from 'js/app';
 import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
+import { CLIENT_USER_ACTION, FETCH_GAMES, FETCH_GAME_CATEGORIES, FETCH_HIGHSCORES, FETCH_HIGHSCORE, SAVE_NEW_HIGHSCORE, FETCH_USERS } from 'js/api/api.actions';
+import { apiRequestClear } from 'js/api/api.actionCreators';
+import { clearPageConfig } from 'js/pages/page.actionCreators';
 import './AppDrawer.css';
 
 
@@ -67,14 +70,28 @@ class AppDrawer extends Component {
   }
 
   onLogout() {
+    
     const { dispatch } = this.props;
+    
     setTimeout(() => {
       dispatch(toggleAppLoader(true));
+      
       setTimeout(() => {
         localStorage.removeItem('token');
+        dispatch(apiRequestClear(CLIENT_USER_ACTION));
+        dispatch(apiRequestClear(FETCH_GAMES));
+        dispatch(apiRequestClear(FETCH_GAME_CATEGORIES));
+        dispatch(apiRequestClear(FETCH_HIGHSCORES));
+        dispatch(apiRequestClear(FETCH_HIGHSCORE));
+        dispatch(apiRequestClear(FETCH_USERS));
+        dispatch(apiRequestClear(SAVE_NEW_HIGHSCORE));
+        dispatch(clearPageConfig('GAMES'));
+        dispatch(clearPageConfig('GAME'));
+        dispatch(clearPageConfig('HIGHSCORES'));
         dispatch(setAuthStatus('logged_out'));
         dispatch(toggleAppLoader(false));
       }, App.minLoadTime);
+
     }, App.minLoadTime / 2);
   }
 }
