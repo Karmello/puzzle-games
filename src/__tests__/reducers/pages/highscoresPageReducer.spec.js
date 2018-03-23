@@ -14,10 +14,10 @@ describe('highscoresPageReducer', () => {
   it('should handle CHANGE_HIGHSCORES_FILTER', () => {
 
     expect(highscoresPageReducer({
-      gameFilter: { category: 'sliding', id: 'BossPuzzle' },
+      gameFilter: { category: 'sliding', id: 'boss-puzzle' },
       optionsFilter: { mode: 'NUM', dimension: '3' }
-    }, changeHighscoresFilter({ category: 'chess', id: 'EightQueens' }, {}))).toEqual({
-      gameFilter: { category: 'chess', id: 'EightQueens' },
+    }, changeHighscoresFilter({ category: 'chess', id: 'eight-queens' }, {}))).toEqual({
+      gameFilter: { category: 'chess', id: 'eight-queens' },
       optionsFilter: {}
     });
   });

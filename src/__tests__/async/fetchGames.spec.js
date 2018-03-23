@@ -23,7 +23,7 @@ describe('async fetchGames', () => {
       request.respondWith({
         status: 200,
         statusText: 'OK',
-        response: [{ id: 'BossPuzzle' }, { id: 'EightQueens' }]
+        response: [{ id: 'boss-puzzle' }, { id: 'eight-queens' }]
       });
     });
     
@@ -43,7 +43,7 @@ describe('async fetchGames', () => {
           url: baseURL + '/games',
           status: 200,
           statusText: 'OK',
-          data: [{ id: 'BossPuzzle' }, { id: 'EightQueens' }]
+          data: [{ id: 'boss-puzzle' }, { id: 'eight-queens' }]
         }
       }
     ];

@@ -16,14 +16,14 @@ describe('/highscores', () => {
     state.api.games.res = gamesRes;
     
     state.pages.highscoresPage = {
-      gameFilter: { id: 'BossPuzzle', category: 'sliding' },
+      gameFilter: { id: 'boss-puzzle', category: 'sliding' },
       optionsFilter: { mode: 'NUM', dimension: '3' }
     }
 
     localStorage.setItem('ui', JSON.stringify({
       [clientUserRes.data.username]: {
         highscoresPage: {
-          gameFilter: { id: 'BossPuzzle', category: 'sliding' },
+          gameFilter: { id: 'boss-puzzle', category: 'sliding' },
           optionsFilter: { mode: 'NUM', dimension: '3' }
         }
       }
@@ -42,7 +42,7 @@ describe('/highscores', () => {
     const wrapper = renderWrapper(['/highscores'], 0);
     expect(wrapper.find('.HighscoresPage').length).toBe(0);
     expect(wrapper.find('[pathname="/highscores"]').length).toBe(1);
-    expect(wrapper.find('[search="category=sliding&id=BossPuzzle&mode=NUM&dimension=3"]').length).toBe(1);
+    expect(wrapper.find('[search="category=sliding&id=boss-puzzle&mode=NUM&dimension=3"]').length).toBe(1);
   });
 
   it('should redirect', () => {
@@ -51,12 +51,12 @@ describe('/highscores', () => {
     
     const wrapper = renderWrapper([{
       pathname: '/highscores',
-      search: 'category=sliding&id=BossPuzzle'
+      search: 'category=sliding&id=boss-puzzle'
     }], 0);
     
     expect(wrapper.find('.HighscoresPage').length).toBe(0);
     expect(wrapper.find('[pathname="/highscores"]').length).toBe(1);
-    expect(wrapper.find('[search="category=sliding&id=BossPuzzle&mode=NUM&dimension=3"]').length).toBe(1);
+    expect(wrapper.find('[search="category=sliding&id=boss-puzzle&mode=NUM&dimension=3"]').length).toBe(1);
   });
 
   it('should render HighscoresPage', () => {
@@ -65,7 +65,7 @@ describe('/highscores', () => {
     
     const wrapper = renderWrapper([{
       pathname: '/highscores',
-      search: 'category=sliding&id=BossPuzzle&mode=NUM&dimension=3'
+      search: 'category=sliding&id=boss-puzzle&mode=NUM&dimension=3'
     }], 0);
     
     expect(wrapper.find('.HighscoresPage').length).toBe(1);

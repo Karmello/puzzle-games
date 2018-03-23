@@ -35,7 +35,7 @@ class EightQueens extends Game {
 
   startNew() {
     return new Promise(resolve => {
-      this.loadImg('EightQueens/queen.png').then(() => {
+      this.loadImg('eight-queens/queen.png').then(() => {
         const queens = Array.from({ length: this.dimension ** 2 }, (v, k) => {
           const coords = GridGameBoard.indexToCoords(k, this.dimension);
           return coords.x === coords.y;
@@ -102,7 +102,7 @@ class EightQueens extends Game {
       height: `${this.squareSize}px`,
       border: '1px solid gray',
       borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET}/EightQueens/queen.png)`,
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET}/eight-queens/queen.png)`,
       backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
       backgroundColor: 'white'
     }
@@ -116,5 +116,5 @@ EightQueens.propTypes = {
 export default connect(store => ({
   clientUser: store.api.clientUser,
   game: store.game,
-  eightQueensEngine: store.engines.EightQueens
+  eightQueensEngine: store.engines['eight-queens']
 }))(EightQueens);

@@ -6,6 +6,7 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import { InputLabel } from 'material-ui/Input';
 
+import { kebabToCamelCase } from 'js/helpers';
 import './HighscoresFilter.css';
 
 
@@ -107,7 +108,8 @@ class HighscoresFilter extends Component {
     let Options;
 
     if (this.props.gameOptions[gameId]) {
-      Options = require(`js/gameOptions/${gameId}Options/${gameId}Options`).default;
+      const id = kebabToCamelCase(gameId);
+      Options = require(`js/gameOptions/${id}Options/${id}Options`).default;
     }
 
     this.setState({ gameId, Options });

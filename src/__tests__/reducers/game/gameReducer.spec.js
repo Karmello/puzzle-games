@@ -23,8 +23,8 @@ describe('gameReducer', () => {
       isLoading: true,
       doRestart: false,
       options: {}
-    }, startGame('BossPuzzle', { mode: 'NUM', dimension: '3' }, true))).toEqual({
-      id: 'BossPuzzle',
+    }, startGame('boss-puzzle', { mode: 'NUM', dimension: '3' }, true))).toEqual({
+      id: 'boss-puzzle',
       moves: 0,
       isSolved: false,
       isLoading: true,
@@ -35,14 +35,14 @@ describe('gameReducer', () => {
 
   it('should handle STOP_GAME_LOADER', () => {
     expect(gameReducer({
-      id: 'BossPuzzle',
+      id: 'boss-puzzle',
       moves: 0,
       isSolved: false,
       isLoading: true,
       doRestart: true,
       options: { mode: 'NUM', dimension: '3' }
     }, stopGameLoader())).toEqual({
-      id: 'BossPuzzle',
+      id: 'boss-puzzle',
       moves: 0,
       isSolved: false,
       isLoading: false,
@@ -53,14 +53,14 @@ describe('gameReducer', () => {
 
   it('should handle MAKE_MOVE', () => {
     expect(gameReducer({
-      id: 'BossPuzzle',
+      id: 'boss-puzzle',
       moves: 99,
       isSolved: false,
       isLoading: false,
       doRestart: false,
       options: { mode: 'NUM', dimension: '3' }
     }, makeMove())).toEqual({
-      id: 'BossPuzzle',
+      id: 'boss-puzzle',
       moves: 100,
       isSolved: false,
       isLoading: false,
@@ -71,14 +71,14 @@ describe('gameReducer', () => {
 
   it('should handle SET_AS_SOLVED', () => {
     expect(gameReducer({
-      id: 'BossPuzzle',
+      id: 'boss-puzzle',
       moves: 50,
       isSolved: false,
       isLoading: false,
       doRestart: false,
       options: { mode: 'NUM', dimension: '3' }
     }, setAsSolved())).toEqual({
-      id: 'BossPuzzle',
+      id: 'boss-puzzle',
       moves: 50,
       isSolved: true,
       isLoading: false,
@@ -89,7 +89,7 @@ describe('gameReducer', () => {
 
   it('should handle END_GAME', () => {
     expect(gameReducer({
-      id: 'BossPuzzle',
+      id: 'boss-puzzle',
       moves: 50,
       isSolved: true,
       isLoading: false,

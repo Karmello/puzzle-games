@@ -15,7 +15,7 @@ describe('page methods', () => {
 
   it('should validate game params', () => {
     
-    const params = { category: 'sliding', id: 'BossPuzzle' };
+    const params = { category: 'sliding', id: 'boss-puzzle' };
     const options = { mode: 'NUM', dimension: '3' };
     const result = methods.validateGameParams.call(context, params, options);
 
@@ -28,7 +28,7 @@ describe('page methods', () => {
 
   it('should validate game params', () => {
     
-    const params = { category: 'sliding', id: 'BossPuzzle' };
+    const params = { category: 'sliding', id: 'boss-puzzle' };
     const options = { mode: 'IMG' };
     const result = methods.validateGameParams.call(context, params, options);
 
@@ -41,7 +41,7 @@ describe('page methods', () => {
 
   it('should validate game params', () => {
     
-    const params = { category: 'sliding', id: 'BossPuzzle' };
+    const params = { category: 'sliding', id: 'boss-puzzle' };
     const options = { mode: 'IMG', dimension: '5', x: 100 };
     const result = methods.validateGameParams.call(context, params, options);
 

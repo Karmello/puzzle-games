@@ -9,6 +9,7 @@ import { Loader } from 'js/other';
 import { setAppTitle } from 'js/app/app.actions';
 import { startGame, endGame } from 'js/game/game.actions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
+import { kebabToCamelCase } from 'js/helpers';
 import './GamePage.css';
 
 
@@ -34,7 +35,7 @@ class GamePage extends Component {
     const { match, game, gameData, gamePage } = this.props;
     const { clientUser, bestHighscore } = this.props.api;
 
-    const id = match.params.id;
+    const id = kebabToCamelCase(match.params.id);
     const Engine = require(`js/engines/${id}/${id}`).default;
 
     return (

@@ -2,7 +2,7 @@ const defaultUiConfig = {
   gamesPage: {
     category: 'sliding',
     options: {
-      BossPuzzle: { mode: 'NUM', dimension: '3' }
+      'boss-puzzle': { mode: 'NUM', dimension: '3' }
     }
   },
   gamePage: {
@@ -10,7 +10,7 @@ const defaultUiConfig = {
     bestScoreExpanded: false
   },
   highscoresPage: {
-    gameFilter: { category: 'sliding', id: 'BossPuzzle' },
+    gameFilter: { category: 'sliding', id: 'boss-puzzle' },
     optionsFilter: { mode: 'NUM', dimension: '3' }
   }
 };
