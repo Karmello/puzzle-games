@@ -31,7 +31,7 @@ class AuthPage extends Component {
             dispatch(toggleAppLoader(false));
           }
         });
-      } else {
+      } else if (app.authStatus === '') {
         dispatch(setAuthStatus('logged_out'));
         dispatch(toggleAppLoader(false));
       }

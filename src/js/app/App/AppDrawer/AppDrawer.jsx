@@ -78,6 +78,7 @@ class AppDrawer extends Component {
       
       setTimeout(() => {
         localStorage.removeItem('token');
+        dispatch(setAuthStatus('logged_out'));
         dispatch(apiRequestClear(CLIENT_USER_ACTION));
         dispatch(apiRequestClear(FETCH_GAMES));
         dispatch(apiRequestClear(FETCH_GAME_CATEGORIES));
@@ -88,7 +89,6 @@ class AppDrawer extends Component {
         dispatch(clearPageConfig('GAMES'));
         dispatch(clearPageConfig('GAME'));
         dispatch(clearPageConfig('HIGHSCORES'));
-        dispatch(setAuthStatus('logged_out'));
         dispatch(toggleAppLoader(false));
       }, App.minLoadTime);
 

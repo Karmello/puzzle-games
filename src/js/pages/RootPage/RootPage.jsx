@@ -21,30 +21,37 @@ class RootPage extends Component {
     this.validateGameParams = validateGameParams.bind(this);
     for (const key in rootPageMethods) { this[key] = rootPageMethods[key].bind(this); }
   }
+  
+  componentWillMount() {
+    const { api, app } = this.props;
+    if (app.authStatus === 'logged_in') {
+      const username = api.clientUser.res.data.username;
+      getUiConfig(username, ui => { this.ui = ui[username]; });
+    }
+  }
 
   componentDidMount() {
     
-    const { dispatch, api, app } = this.props;
+    const { dispatch, app } = this.props;
 
     if (app.authStatus === 'logged_in') {
-
-      const username = api.clientUser.res.data.username;
-
+      
       Promise.all([
         dispatch(fetchGames()),
         dispatch(fetchGameCategories())
       ]).then(() => {
-        getUiConfig(username, ui => {
-          const _ui = ui[username];
-          dispatch(toggleAppLoader(false));
-          dispatch(switchGameCategoryTab(_ui.gamesPage.category));
-          for (const gameId in _ui.gamesPage.options) {
-            dispatch(changeGameOptions(gameId, _ui.gamesPage.options[gameId]));
-          }
-          dispatch(toggleExpansionPanel('info', _ui.gamePage.infoExpanded));
-          dispatch(toggleExpansionPanel('bestScore', _ui.gamePage.bestScoreExpanded));
-          dispatch(changeHighscoresFilter(_ui.highscoresPage.gameFilter, _ui.highscoresPage.optionsFilter));
-        });
+        
+        dispatch(toggleAppLoader(false));
+        
+        const ui = this.ui;
+
+        dispatch(switchGameCategoryTab(ui.gamesPage.category));
+        for (const gameId in ui.gamesPage.options) {
+          dispatch(changeGameOptions(gameId, ui.gamesPage.options[gameId]));
+        }
+        dispatch(toggleExpansionPanel('info', ui.gamePage.infoExpanded));
+        dispatch(toggleExpansionPanel('bestScore', ui.gamePage.bestScoreExpanded));
+        dispatch(changeHighscoresFilter(ui.highscoresPage.gameFilter, ui.highscoresPage.optionsFilter));
       });
     }
   }

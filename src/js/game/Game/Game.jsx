@@ -27,11 +27,11 @@ export default class Game extends Component {
     } else if (nextGame.moves > 0 && nextGame.moves - game.moves === 1) {
       this.checkIfSolved().then(solved => {
         if (solved) {
-          const { clientUser, gameApiData, readTimer, dispatch } = this.props;
+          const { clientUser, readTimer, dispatch } = this.props;
           dispatch(setAsSolved());
           dispatch(saveNewHighscore({
             username: clientUser.res.data.username,
-            gameId: gameApiData.id,
+            gameId: nextGame.id,
             options: game.options,
             details: { moves: nextGame.moves, seconds: readTimer().seconds }
           })).then(action => {

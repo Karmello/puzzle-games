@@ -119,7 +119,6 @@ BossPuzzle.propTypes = {
 
 export default connect(store => ({
   clientUser: store.api.clientUser,
-  gameApiData: store.api.games.res.data.find(elem => elem.id === 'BossPuzzle'),
   game: store.game,
   bossPuzzleEngine: store.engines.BossPuzzle
 }))(BossPuzzle);

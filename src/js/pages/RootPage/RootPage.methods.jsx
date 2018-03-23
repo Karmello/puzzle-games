@@ -22,9 +22,8 @@ export const gamesRouteLogic = function(props) {
 }
 
 export const gameRouteLogic = function(props) {
-
-  const { shouldRedirect, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search));
-
+    
+  const { shouldRedirect, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search), this.ui.gamesPage.options);
   if (!shouldRedirect) {
     return <GamePage gameData={gameData} queryParams={validParams} />
   

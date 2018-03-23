@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== 'development') {
   store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 } else {
-  store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger())));
+  store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))));
 }
 
 export default store;
