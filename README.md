@@ -7,6 +7,7 @@
 ## Tools
 * Jenkins - [http://ec2-35-158-121-12.eu-central-1.compute.amazonaws.com](http://ec2-35-158-121-12.eu-central-1.compute.amazonaws.com)
 * ZenHub - [https://app.zenhub.com/workspace/o/karmello/puzzle-games](https://app.zenhub.com/workspace/o/karmello/puzzle-games)
+<br /><br />
 ## Remote environments
 * STAGING - [https://staging-puzzle-games.herokuapp.com](https://staging-puzzle-games.herokuapp.com)
 * TEST - [https://test-puzzle-games.herokuapp.com](https://test-puzzle-games.herokuapp.com)
