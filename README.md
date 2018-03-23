@@ -12,5 +12,5 @@
 ## Other links
 * Jenkins - [http://ec2-35-158-121-12.eu-central-1.compute.amazonaws.com](http://ec2-35-158-121-12.eu-central-1.compute.amazonaws.com)
 * ZenHub - [https://app.zenhub.com/workspace/o/karmello/puzzle-games](https://app.zenhub.com/workspace/o/karmello/puzzle-games)
-<br><br>
-[Read more](https://github.com/Karmello/puzzle-games/wiki)
+## Read more
+* [Wiki](https://github.com/Karmello/puzzle-games/wiki)
