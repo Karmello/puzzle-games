@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as qs from 'query-string';
+import { isEmpty } from 'lodash';
 import { Button } from 'material-ui';
 
 
@@ -16,10 +17,9 @@ const getToObject = props => {
         search: qs.stringify(gameOptions)
       }
     case 'highscores':
-      return {
-        pathname: '/highscores',
-        search: `?category=${gameCategory}&id=${gameId}&` + qs.stringify(gameOptions)
-      }
+      const to = { pathname: `/highscores/${gameId}` };
+      if (!isEmpty(gameOptions)) { to.search = `?${qs.stringify(gameOptions)}`; }
+      return to;
     default:
       return null;
   }

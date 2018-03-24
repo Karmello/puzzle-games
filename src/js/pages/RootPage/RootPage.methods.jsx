@@ -46,21 +46,20 @@ export const gameRouteLogic = function(props) {
 
 export const highscoresRouteLogic = function(props) {
 
-  const params = qs.parse(props.location.search);
-  const { category, id } = params;
+  const queryParams = qs.parse(props.location.search);
   
-  delete params.category;
-  delete params.id;
+  const id = props.match.params.id;
+  const gameData = this.props.api.games.res.data.find(obj => obj.id === id);
+  const category = gameData ? gameData.categoryId : undefined;
 
-  const { shouldRedirect, validParams } = this.validateGameParams({ category, id }, params);
+  const { shouldRedirect, validParams } = this.validateGameParams({ category, id }, queryParams);
 
   if (!shouldRedirect) {
     return <HighscoresPage gameFilterToSet={{ category: category, id: id }} optionsFilterToSet={validParams} />;
   
   } else if (validParams) {
     
-    let search = `category=${category}&id=${id}`;
-    for (const key in validParams) { search += `&${key}=${validParams[key]}`; }
+    const search = qs.stringify(validParams);
 
     return (
       <div pathname='/highscores' search={search}>
@@ -71,12 +70,12 @@ export const highscoresRouteLogic = function(props) {
   } else {
 
     const { highscoresPage } = this.props.pages;
-    let search = `category=${highscoresPage.gameFilter.category}&id=${highscoresPage.gameFilter.id}`;
-    for (const key in highscoresPage.optionsFilter) { search += `&${key}=${highscoresPage.optionsFilter[key]}`; }
+    const pathname = `/highscores/${highscoresPage.gameFilter.id}`;
+    const search = qs.stringify(highscoresPage.optionsFilter);
 
     return (
-      <div pathname='/highscores' search={search}>
-        <Redirect to={{ pathname: '/highscores', search }} />
+      <div pathname={pathname} search={search}>
+        <Redirect to={{ pathname, search }} />
       </div>
     );
   }

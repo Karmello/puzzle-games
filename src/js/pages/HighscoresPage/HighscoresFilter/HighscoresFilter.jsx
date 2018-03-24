@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import * as qs from 'query-string';
+import { isEmpty } from 'lodash';
 import { Input, Select } from 'material-ui';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
@@ -83,7 +85,7 @@ class HighscoresFilter extends Component {
         <div>
           {Options && <Options
             options={optionsFilter}
-            path={`/highscores?category=${gameFilter.category}&id=${gameFilter.id}`}
+            path={`/highscores/${gameFilter.id}`}
             disabled={this.shouldBeDisabled()}
           />}
         </div>
@@ -97,9 +99,9 @@ class HighscoresFilter extends Component {
     let options;
 
     if (!id) { id = api.games.res.data.find(obj => obj.categoryId === category).id; }
-    let url = `/highscores?category=${category}&id=${id}`;
+    let url = `/highscores/${id}`;
     if (id !== gameFilter.id) { options = gameOptions[id]; } else { options = optionsFilter; }
-    for (const key in options) { url += `&${key}=${options[key]}`; }
+    if (!isEmpty(options)) { url += `?${qs.stringify(options)}`; }
     return url;
   }
 

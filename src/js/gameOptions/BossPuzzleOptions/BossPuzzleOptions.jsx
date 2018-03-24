@@ -44,8 +44,8 @@ class BossPuzzleOptions extends Component {
               disabled={disabled}
               style={{ width: '100px' }}
             >
-              <MenuItem value='NUM' component={path ? Link: undefined} to={`${path}&mode=NUM&dimension=${dimension}`}>Numbers</MenuItem>
-              <MenuItem value='IMG' component={path ? Link: undefined} to={`${path}&mode=IMG&dimension=${dimension}`}>Image</MenuItem>
+              <MenuItem value='NUM' component={path ? Link: undefined} to={`${path}?mode=NUM&dimension=${dimension}`}>Numbers</MenuItem>
+              <MenuItem value='IMG' component={path ? Link: undefined} to={`${path}?mode=IMG&dimension=${dimension}`}>Image</MenuItem>
             </Select>
           </FormControl>
         </div>}
@@ -58,9 +58,9 @@ class BossPuzzleOptions extends Component {
               onChange={e => this.onValueChange('dimension', e.target.value)}
               disabled={disabled}
             >
-              <MenuItem value='3' component={path ? Link: undefined} to={`${path}&mode=${mode}&dimension=3`}>3 x 3</MenuItem>
-              <MenuItem value='4' component={path ? Link: undefined} to={`${path}&mode=${mode}&dimension=4`}>4 x 4</MenuItem>
-              <MenuItem value='5' component={path ? Link: undefined} to={`${path}&mode=${mode}&dimension=5`}>5 x 5</MenuItem>
+              <MenuItem value='3' component={path ? Link: undefined} to={`${path}?mode=${mode}&dimension=3`}>3 x 3</MenuItem>
+              <MenuItem value='4' component={path ? Link: undefined} to={`${path}?mode=${mode}&dimension=4`}>4 x 4</MenuItem>
+              <MenuItem value='5' component={path ? Link: undefined} to={`${path}?mode=${mode}&dimension=5`}>5 x 5</MenuItem>
             </Select>
           </FormControl>
         </div>}
