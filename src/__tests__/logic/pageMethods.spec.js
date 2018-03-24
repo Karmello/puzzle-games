@@ -21,7 +21,7 @@ describe('page methods', () => {
 
     expect(result).toEqual({
       shouldRedirect: false,
-      validParams: { mode: 'NUM', dimension: '3' },
+      validQueryParams: { mode: 'NUM', dimension: '3' },
       gameData: gamesRes.data[0]
     });
   });
@@ -34,7 +34,7 @@ describe('page methods', () => {
 
     expect(result).toEqual({
       shouldRedirect: true,
-      validParams: { mode: 'IMG', dimension: '3' },
+      validQueryParams: { mode: 'IMG', dimension: '3' },
       gameData: gamesRes.data[0]
     });
   });
@@ -47,7 +47,7 @@ describe('page methods', () => {
 
     expect(result).toEqual({
       shouldRedirect: true,
-      validParams: { mode: 'IMG', dimension: '5' },
+      validQueryParams: { mode: 'IMG', dimension: '5' },
       gameData: gamesRes.data[0]
     });
   });

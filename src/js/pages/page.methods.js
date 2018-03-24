@@ -1,29 +1,29 @@
-export function validateGameParams(params, options, uiGameOptions) {
+export function validateGameParams(pathParams, queryParams, savedGameOptions) {
   
   const { api } = this.props;
 
   let shouldRedirect = false;
-  const validParams = {};
+  const validQueryParams = {};
     
-  const categoryData = api.gameCategories.res.data.find(obj => obj.id === params.category);
-  const gameData = api.games.res.data.find(obj => obj.id === params.id);
+  const categoryData = api.gameCategories.res.data.find(obj => obj.id === pathParams.category);
+  const gameData = api.games.res.data.find(obj => obj.id === pathParams.id);
   
   if (categoryData && gameData && gameData.categoryId === categoryData.id) {
 
     for (const key in gameData.options) {
     
-      if (options[key] !== undefined && gameData.options[key].indexOf(options[key]) > -1) {
-        validParams[key] = options[key];
+      if (queryParams[key] !== undefined && gameData.options[key].indexOf(queryParams[key]) > -1) {
+        validQueryParams[key] = queryParams[key];
       
       } else {
-        validParams[key] = uiGameOptions ? uiGameOptions[gameData.id][key] : gameData.options[key][0];
+        validQueryParams[key] = savedGameOptions ? savedGameOptions[key] : gameData.options[key][0];
         shouldRedirect = true;
       }
     }
 
-    if (Object.keys(options).length !== Object.keys(validParams).length) { shouldRedirect = true; }
+    if (Object.keys(queryParams).length !== Object.keys(validQueryParams).length) { shouldRedirect = true; }
     
-    return { shouldRedirect, validParams, gameData };
+    return { shouldRedirect, validQueryParams, gameData };
   
   } else {
 

@@ -23,12 +23,13 @@ export const gamesRouteLogic = function(props) {
 
 export const gameRouteLogic = function(props) {
     
-  const { shouldRedirect, validParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search), this.ui.gamesPage.options);
-  if (!shouldRedirect) {
-    return <GamePage gameData={gameData} queryParams={validParams} />
+  const { shouldRedirect, validQueryParams, gameData } = this.validateGameParams(props.match.params, qs.parse(props.location.search), this.ui.gamesPage.options[props.match.params.id]);
   
-  } else if (validParams) {
-    const search = qs.stringify(validParams);
+  if (!shouldRedirect) {
+    return <GamePage gameData={gameData} queryParams={validQueryParams} />
+  
+  } else if (validQueryParams) {
+    const search = qs.stringify(validQueryParams);
     return (
       <div pathname={props.location.pathname} search={search}>
         <Redirect to={{ pathname: props.location.pathname, search: search }} />;
@@ -51,31 +52,24 @@ export const highscoresRouteLogic = function(props) {
   const id = props.match.params.id;
   const gameData = this.props.api.games.res.data.find(obj => obj.id === id);
   const category = gameData ? gameData.categoryId : undefined;
-
-  const { shouldRedirect, validParams } = this.validateGameParams({ category, id }, queryParams);
+  
+  const { shouldRedirect, validQueryParams } = this.validateGameParams({ category, id }, queryParams, this.ui.highscoresPage.optionsFilter);
 
   if (!shouldRedirect) {
-    return <HighscoresPage gameFilterToSet={{ category: category, id: id }} optionsFilterToSet={validParams} />;
+    return <HighscoresPage gameFilterToSet={{ category: category, id: id }} optionsFilterToSet={validQueryParams} />;
   
-  } else if (validParams) {
-    
-    const search = qs.stringify(validParams);
-
+  } else if (validQueryParams) {
+    const query = qs.stringify(validQueryParams);
     return (
-      <div pathname='/highscores' search={search}>
-        <Redirect to={{ pathname: props.location.pathname, search }}/>
+      <div pathname={props.location.pathname} search={query}>
+        <Redirect to={{ pathname: props.location.pathname, search: query }}/>
       </div>
     );
   
   } else {
-
-    const { highscoresPage } = this.props.pages;
-    const pathname = `/highscores/${highscoresPage.gameFilter.id}`;
-    const search = qs.stringify(highscoresPage.optionsFilter);
-
     return (
-      <div pathname={pathname} search={search}>
-        <Redirect to={{ pathname, search }} />
+      <div pathname={this.getDefaultPath()}>
+        <Redirect to={this.getDefaultPath()} />
       </div>
     );
   }
