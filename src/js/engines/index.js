@@ -5,8 +5,8 @@ import eightQueensReducer from './EightQueens/eightQueens.reducer';
 
 
 export const engineReducers = combineReducers({
-  BossPuzzle: bossPuzzleReducer,
-  EightQueens: eightQueensReducer
+  'boss-puzzle': bossPuzzleReducer,
+  'eight-queens': eightQueensReducer
 });
 
 export { default as BossPuzzle } from './BossPuzzle/BossPuzzle';

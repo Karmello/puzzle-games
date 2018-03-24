@@ -15,39 +15,39 @@ describe('page methods', () => {
 
   it('should validate game params', () => {
     
-    const params = { category: 'sliding', id: 'BossPuzzle' };
+    const params = { category: 'sliding', id: 'boss-puzzle' };
     const options = { mode: 'NUM', dimension: '3' };
     const result = methods.validateGameParams.call(context, params, options);
 
     expect(result).toEqual({
       shouldRedirect: false,
-      validParams: { mode: 'NUM', dimension: '3' },
+      validQueryParams: { mode: 'NUM', dimension: '3' },
       gameData: gamesRes.data[0]
     });
   });
 
   it('should validate game params', () => {
     
-    const params = { category: 'sliding', id: 'BossPuzzle' };
+    const params = { category: 'sliding', id: 'boss-puzzle' };
     const options = { mode: 'IMG' };
     const result = methods.validateGameParams.call(context, params, options);
 
     expect(result).toEqual({
       shouldRedirect: true,
-      validParams: { mode: 'IMG', dimension: '3' },
+      validQueryParams: { mode: 'IMG', dimension: '3' },
       gameData: gamesRes.data[0]
     });
   });
 
   it('should validate game params', () => {
     
-    const params = { category: 'sliding', id: 'BossPuzzle' };
+    const params = { category: 'sliding', id: 'boss-puzzle' };
     const options = { mode: 'IMG', dimension: '5', x: 100 };
     const result = methods.validateGameParams.call(context, params, options);
 
     expect(result).toEqual({
       shouldRedirect: true,
-      validParams: { mode: 'IMG', dimension: '5' },
+      validQueryParams: { mode: 'IMG', dimension: '5' },
       gameData: gamesRes.data[0]
     });
   });

@@ -42,27 +42,27 @@ describe('/games', () => {
 
   it('should redirect', () => {
     state.app.authStatus = 'logged_in';
-    const wrapper = renderWrapper(['/games/sliding/BossPuzzle'], 0);
-    expect(wrapper.find('[pathname="/games/sliding/BossPuzzle"]').length).toBe(1);
+    const wrapper = renderWrapper(['/games/sliding/boss-puzzle'], 0);
+    expect(wrapper.find('[pathname="/games/sliding/boss-puzzle"]').length).toBe(1);
     expect(wrapper.find('[search="dimension=3&mode=NUM"]').length).toBe(1);
   });
 
   it('should redirect', () => {
     state.app.authStatus = 'logged_in';
-    const wrapper = renderWrapper(['/games/sliding/BossPuzzle?mode=ABC&dimension=-1'], 0);
-    expect(wrapper.find('[pathname="/games/sliding/BossPuzzle"]').length).toBe(1);
+    const wrapper = renderWrapper(['/games/sliding/boss-puzzle?mode=ABC&dimension=-1'], 0);
+    expect(wrapper.find('[pathname="/games/sliding/boss-puzzle"]').length).toBe(1);
     expect(wrapper.find('[search="dimension=3&mode=NUM"]').length).toBe(1);
   });
 
   it('should render GamePage', () => {
     state.app.authStatus = 'logged_in';
-    const wrapper = renderWrapper(['/games/sliding/BossPuzzle?mode=NUM&dimension=3'], 0);
+    const wrapper = renderWrapper(['/games/sliding/boss-puzzle?mode=NUM&dimension=3'], 0);
     expect(wrapper.find('.GamePage').length).toBe(1);
   });
 
   it('should render GamePage', () => {
     state.app.authStatus = 'logged_in';
-    const wrapper = renderWrapper(['/games/sliding/BossPuzzle?mode=IMG&dimension=5'], 0);
+    const wrapper = renderWrapper(['/games/sliding/boss-puzzle?mode=IMG&dimension=5'], 0);
     expect(wrapper.find('.GamePage').length).toBe(1);
   });
 });

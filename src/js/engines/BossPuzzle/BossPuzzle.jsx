@@ -79,7 +79,7 @@ class BossPuzzle extends Game {
       
       const tasks = [];
       tasks.push(factory.initData({ dimension: game.options.dimension, hiddenTileCoords: newHiddenTileCoords }));
-      if (game.options.mode === 'IMG') { tasks.push(this.loadImg(`BossPuzzle/img${nextImgNumbers[nextImgIndex]}.jpg`)); }
+      if (game.options.mode === 'IMG') { tasks.push(this.loadImg(`boss-puzzle/img${nextImgNumbers[nextImgIndex]}.jpg`)); }
 
       return Promise.all(tasks).then((data) => {
         dispatch(initFrame(nextImgNumbers, nextImgIndex, data[0].tiles, data[0].hiddenTileCoords));
@@ -120,5 +120,5 @@ BossPuzzle.propTypes = {
 export default connect(store => ({
   clientUser: store.api.clientUser,
   game: store.game,
-  bossPuzzleEngine: store.engines.BossPuzzle
+  bossPuzzleEngine: store.engines['boss-puzzle']
 }))(BossPuzzle);

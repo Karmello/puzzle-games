@@ -79,7 +79,7 @@ class RootPage extends Component {
         <Switch>
           <Route exact path='/games/:category' render={props => this.gamesRouteLogic(props)} />
           <Route exact path='/games/:category/:id' render={props => this.gameRouteLogic(props)} />
-          <Route exact path='/highscores' render={props => this.highscoresRouteLogic(props)} />
+          <Route exact path='/highscores/:gameId' render={props => this.highscoresRouteLogic(props)} />
           {pages.gamesPage.category && <Redirect from='*' to={this.getDefaultPath()} />}
         </Switch>}
         {this.shouldRenderPageError() &&

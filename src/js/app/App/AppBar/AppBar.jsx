@@ -29,7 +29,7 @@ class AppBar extends Component {
           {game.id && <GameMenu
             gameCategory={apiGames.res.data.find(elem => elem.id === game.id).categoryId}
             onItemClick={itemId => { this.onMenuItemClick(itemId); }}
-            showRestartBtn={game.id === 'BossPuzzle' && game.options.mode ==='IMG'}
+            showRestartBtn={game.id === 'boss-puzzle' && game.options.mode ==='IMG'}
           />}
         </Toolbar>
       </MaterialAppBar>

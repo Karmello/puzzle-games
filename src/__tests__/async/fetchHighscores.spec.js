@@ -28,7 +28,7 @@ describe('async fetchHighscores', () => {
           'date' : '2018-02-17T22:50:11.066Z',
           'details' : { 'moves' : 120, 'seconds' : 30 },
           'username' : 'Karmello',
-          'gameId' : 'BossPuzzle',
+          'gameId' : 'boss-puzzle',
           'options' : { 'mode' : 'NUM', 'dimension' : '3' }
         }]
       });
@@ -57,7 +57,7 @@ describe('async fetchHighscores', () => {
             'date' : '2018-02-17T22:50:11.066Z',
             'details' : { 'moves' : 120, 'seconds' : 30 },
             'username' : 'Karmello',
-            'gameId' : 'BossPuzzle',
+            'gameId' : 'boss-puzzle',
             'options' : { 'mode' : 'NUM', 'dimension' : '3' }
           }]
         }

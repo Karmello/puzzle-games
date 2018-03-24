@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { Drawer, List } from 'material-ui';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import { PlayCircleOutline, ContentPaste, PowerSettingsNew } from 'material-ui-icons';
+import * as qs from 'query-string';
+import { isEmpty } from 'lodash';
 
 import { App } from 'js/app';
 import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
@@ -60,8 +62,8 @@ class AppDrawer extends Component {
 
   getHighscoresPageUrl() {
     const { highscoresPage } = this.props.pages;
-    let url = `/highscores?category=${highscoresPage.gameFilter.category}&id=${highscoresPage.gameFilter.id}`;
-    for (const key in highscoresPage.optionsFilter) { url += `&${key}=${highscoresPage.optionsFilter[key]}`; }
+    let url = `/highscores/${highscoresPage.gameFilter.id}`;
+    if (!isEmpty(highscoresPage.optionsFilter)) { url += `?${qs.stringify(highscoresPage.optionsFilter)}`; }
     return url;
   }
 
