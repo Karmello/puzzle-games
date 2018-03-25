@@ -85,15 +85,15 @@ class AuthPage extends Component {
     return new Promise(resolve => {
       setTimeout(() => {
         dispatch(apiActions[actionName + 'User'](values)).then(() => {
-          dispatch(toggleAppLoader(true));
-          setTimeout(() => {
-            if (this.props.clientUser.res.status === 200) {
+          if (this.props.clientUser.res.status === 200) {
+            dispatch(toggleAppLoader(true));
+            setTimeout(() => {
               dispatch(setAuthStatus('logged_in'));
               resolve();
-            } else {
-              resolve(this.props.clientUser.res.data.errors);
-            }
-          }, App.minLoadTime);
+            }, App.minLoadTime);
+          } else {
+            resolve(this.props.clientUser.res.data.errors);
+          }
         });
       }, App.minLoadTime);
     });
