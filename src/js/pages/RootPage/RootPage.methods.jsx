@@ -32,13 +32,13 @@ export const gameRouteLogic = function(props) {
   const { shouldRedirect, validQueryParams, gameData } = this.validateGameParams(pathParams, queryParams, gameOptions);
   
   if (!shouldRedirect) {
-    return <GamePage queryParams={queryParams} gameData={gameData} />
+    return <GamePage queryParams={queryParams} gameData={gameData} />;
   
   } else if (validQueryParams) {
     const query = qs.stringify(validQueryParams);
     return (
       <div pathname={pathname} search={query}>
-        <Redirect to={{ pathname, search: query }} />;
+        <Redirect to={{ pathname, search: query }} />
       </div>
     );
 

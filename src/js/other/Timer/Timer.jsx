@@ -27,7 +27,7 @@ class Timer extends Component {
 
   render() {
     return (
-      <Chip label={'Timer: ' + this.formatTime()} />
+      <Chip label={'Time: ' + this.formatTime()} />
     );
   }
 
