@@ -18,7 +18,7 @@ node {
             }
 
             stage('Test on STAGING') {
-               sh('heroku run "npm test 2>&1 | grep fail -i" -a staging-puzzle-games')
+               sh('heroku run "npm test" -a staging-puzzle-games')
             }
 
             if (env.ghprbSourceBranch == 'staging') {
