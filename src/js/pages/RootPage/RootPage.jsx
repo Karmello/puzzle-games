@@ -71,19 +71,21 @@ class RootPage extends Component {
       );
     }
 
+    // if (api.gameCategories.res.status !== 200 || api.games.res.status !== 200) {
+    //   return null;
+    // }
+
     return (
       <div className='App-root'>
         <AppBar/>
         <AppDrawer/>
-        {api.gameCategories.res.status === 200 && api.games.res.status === 200 &&
         <Switch>
           <Route exact path='/games/:category' render={props => this.gamesRouteLogic(props)} />
           <Route exact path='/games/:category/:id' render={props => this.gameRouteLogic(props)} />
           <Route exact path='/highscores/:gameId' render={props => this.highscoresRouteLogic(props)} />
           {pages.gamesPage.category && <Redirect from='*' to={this.getDefaultPath()} />}
-        </Switch>}
-        {this.shouldRenderPageError() &&
-        <div style={{ marginTop: '50px' }}><PageError/></div>}
+        </Switch>
+        {this.shouldRenderPageError() && <div style={{ marginTop: '50px' }}><PageError/></div>}
       </div>
     );
   }

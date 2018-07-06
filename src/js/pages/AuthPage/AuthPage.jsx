@@ -79,14 +79,18 @@ class AuthPage extends Component {
 
   onAuthFormSubmit(actionName, values) {
 
+    const { dispatch } = this.props;
     const apiActions = { registerUser, loginUser };
 
     return new Promise(resolve => {
       setTimeout(() => {
-        this.props.dispatch(apiActions[actionName + 'User'](values)).then(() => {
+        dispatch(apiActions[actionName + 'User'](values)).then(() => {
           if (this.props.clientUser.res.status === 200) {
-            this.props.dispatch(setAuthStatus('logged_in'));
-            resolve();
+            dispatch(toggleAppLoader(true));
+            setTimeout(() => {
+              dispatch(setAuthStatus('logged_in'));
+              resolve();
+            }, App.minLoadTime);
           } else {
             resolve(this.props.clientUser.res.data.errors);
           }

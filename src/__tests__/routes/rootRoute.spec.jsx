@@ -36,7 +36,8 @@ describe('/', () => {
   });
 
   it('should render PageError', () => {
-    state.api.gameCategories.res = {};
+    state.api.gameCategories.res.status = 400;
+    state.api.gameCategories.res.isAwaiting = false;
     state.app.authStatus = 'logged_in';
     const wrapper = renderWrapper(['/'], 0);
     expect(wrapper.find('.AppBar').length).toBe(1);
