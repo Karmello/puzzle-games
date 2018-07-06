@@ -122,7 +122,8 @@
     ],
     "modulePaths": [
       "<rootDir>/src/"
-    ]
+    ],
+    "reporters": ["jest-junit"]
   },
   "babel": {
     "presets": [
