@@ -6,7 +6,6 @@
 <br /><br />
 ## Remote environments
 * STAGING - [staging-puzzle-games.herokuapp.com](https://staging-puzzle-games.herokuapp.com)
-* TEST - [test-puzzle-games.herokuapp.com](https://test-puzzle-games.herokuapp.com)
 * PRODUCTION - [puzzle-games.herokuapp.com](https://puzzle-games.herokuapp.com)
 <br /><br />
 ## Other tools
