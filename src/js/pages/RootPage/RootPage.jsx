@@ -71,9 +71,9 @@ class RootPage extends Component {
       );
     }
 
-    if (api.gameCategories.res.status !== 200 || api.games.res.status !== 200) {
-      return null;
-    }
+    // if (api.gameCategories.res.status !== 200 || api.games.res.status !== 200) {
+    //   return null;
+    // }
 
     return (
       <div className='App-root'>
