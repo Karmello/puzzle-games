@@ -18,7 +18,11 @@ node {
             }
 
             stage('Test on STAGING') {
-               sh('heroku run "npm test" -a staging-puzzle-games')
+               withEnv(['JEST_JUNIT_OUTPUT=./jest-test-results.xml']) {
+                  sh('heroku run "npm test -- --ci --testResultsProcessor=jest-junit" -a staging-puzzle-games')
+                  sh 'npm test '
+               }
+               junit 'jest-test-results.xml'
             }
 
             if (env.ghprbSourceBranch == 'staging') {
