@@ -71,23 +71,32 @@ class RootPage extends Component {
       );
     }
 
-    // if (api.gameCategories.res.status !== 200 || api.games.res.status !== 200) {
-    //   return null;
-    // }
+    if (this.shouldRenderPageError()) {
+      return (
+        <div className='App-root'>
+          <AppBar/>
+          <AppDrawer/>
+          <div style={{ marginTop: '50px' }}><PageError/></div>
+        </div>
+      );
+    }
+  
+    if (api.gameCategories.res.status === 200 && api.games.res.status === 200) {
+      return (
+        <div className='App-root'>
+          <AppBar/>
+          <AppDrawer/>
+          <Switch>
+            <Route exact path='/games/:category' render={props => this.gamesRouteLogic(props)} />
+            <Route exact path='/games/:category/:id' render={props => this.gameRouteLogic(props)} />
+            <Route exact path='/highscores/:gameId' render={props => this.highscoresRouteLogic(props)} />
+            {pages.gamesPage.category && <Redirect from='*' to={this.getDefaultPath()} />}
+          </Switch>
+        </div>
+      );
+    }
 
-    return (
-      <div className='App-root'>
-        <AppBar/>
-        <AppDrawer/>
-        <Switch>
-          <Route exact path='/games/:category' render={props => this.gamesRouteLogic(props)} />
-          <Route exact path='/games/:category/:id' render={props => this.gameRouteLogic(props)} />
-          <Route exact path='/highscores/:gameId' render={props => this.highscoresRouteLogic(props)} />
-          {pages.gamesPage.category && <Redirect from='*' to={this.getDefaultPath()} />}
-        </Switch>
-        {this.shouldRenderPageError() && <div style={{ marginTop: '50px' }}><PageError/></div>}
-      </div>
-    );
+    return null;
   }
 
   getDefaultPath() {
@@ -106,5 +115,5 @@ class RootPage extends Component {
 export default withRouter(connect(store => ({
   api: store.api,
   app: store.app,
-  pages: store.pages,
+  pages: store.pages
 }))(RootPage));
