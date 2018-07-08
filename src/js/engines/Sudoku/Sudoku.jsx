@@ -11,7 +11,7 @@ class Sudoku extends Game {
   constructor(props) {
     super(props);
     this.dimension = 9;
-    this.squareSize = 75;
+    this.squareSize = 65;
   }
 
   render() {
@@ -19,7 +19,7 @@ class Sudoku extends Game {
       <GridGameBoard
         dimension={this.dimension}
         squareSize={this.squareSize}
-        Square={props => <ValueField {...props} size={this.squareSize} />}
+        Square={props => <ValueField {...props} size={this.squareSize} onChange={this.onMoveMade.bind(this)} />}
       />
     );
   }
@@ -27,6 +27,16 @@ class Sudoku extends Game {
   startNew() {
     return new Promise(resolve => {
       resolve();
+    });
+  }
+
+  onMoveMade() {
+    this.onMakeMove();
+  }
+
+  checkIfSolved() {
+    return new Promise(resolve => {
+      resolve(false);
     });
   }
 }

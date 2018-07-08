@@ -94,7 +94,7 @@ class GridGameBoard extends Component {
         return { padding: 0, margin: 0 }
 
       case 'col':
-        return { padding: 0 }
+        return { padding: 0, display: 'table' }
 
       case 'draggableContainer':
         return {
