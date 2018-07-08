@@ -1,4 +1,4 @@
-import { INIT_FRAME, CHANGE_VALUE } from './sudoku.actions';
+import { INIT_FRAME, CHANGE_VALUE, RESET_FRAME } from './sudoku.actions';
 
 const initialState = {
   values: []
@@ -19,6 +19,9 @@ const sudokuReducer = (state = initialState, action) => {
       values[action.meta.index] = action.payload.newValue;
       return { ...state, values };
 
+    case RESET_FRAME:
+      return initialState;
+  
     default:
       return state;
   }

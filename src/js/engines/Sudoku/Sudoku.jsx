@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Game, GridGameBoard } from 'js/game';
 import ValueField from './ValueField/ValueField';
-import { initFrame, changeValue } from 'js/engines/Sudoku/sudoku.actions';
+import { initFrame, changeValue, resetFrame } from 'js/engines/Sudoku/sudoku.actions';
 
 
 class Sudoku extends Game {
@@ -16,7 +16,7 @@ class Sudoku extends Game {
   }
 
   componentWillUnmount() {
-    // this.props.dispatch(resetFrame());
+    this.props.dispatch(resetFrame());
   }
 
   render() {
@@ -31,7 +31,7 @@ class Sudoku extends Game {
           return (
             <ValueField
               {...props}
-              value={sudokuEngine.values[index] || ''}
+              value={(sudokuEngine.values && sudokuEngine.values[index]) || ''}
               size={this.squareSize}
               onChange={this.onMoveMade.bind(this)}
             />

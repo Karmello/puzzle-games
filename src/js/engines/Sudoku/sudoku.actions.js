@@ -1,5 +1,6 @@
 export const INIT_FRAME = 'INIT_FRAME';
 export const CHANGE_VALUE = 'CHANGE_VALUE';
+export const RESET_FRAME = 'RESET_FRAME';
 
 export const initFrame = values => ({
   type: INIT_FRAME,
@@ -16,4 +17,8 @@ export const changeValue = (index, newValue) => ({
   payload: {
     newValue
   }
+});
+
+export const resetFrame = () => ({
+  type: RESET_FRAME
 });
