@@ -51,8 +51,10 @@ class ValueField extends Component {
   }
 
   onChange(e) {
-    const { col, row } = this.props;
-    this.props.onChange(col, row, e.target.value);
+    const { col, row, value } = this.props;
+    if (value !== e.target.value) {
+      this.props.onChange(col, row, e.target.value);
+    }
   }
 }
 
