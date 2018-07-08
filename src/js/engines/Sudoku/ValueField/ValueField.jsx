@@ -5,27 +5,29 @@ import './ValueField.css';
 
 class ValueField extends Component {
 
-  state = {
-    currentValue: ''
-  };
-
   constructor(props) {
     super(props);
-    this.values = [''];
+    this.values = [];
     for (let i = 1; i < 10; i++) { this.values.push(i); }
   }
   
   render() {
-    const { currentValue } = this.state;
     return (
       <div style={this.getStyle()}>
         <Select
-          value={currentValue}
+          value={this.props.value}
           onChange={e => this.onChange(e)}
           classes={{ select: 'select', icon: 'icon' }}
+          MenuProps={{
+            transformOrigin: { vertical: 'center', horizontal: 'center' }
+          }}
         >
           {this.values.map(value => (
-            <MenuItem key={value} value={value}>{value}</MenuItem>)
+            <MenuItem
+              key={value}
+              value={value}
+              style={{ display: 'inline', padding: '11px', fontSize: '25px' }}
+            >{value}</MenuItem>)
           )}
         </Select>
       </div>
@@ -49,8 +51,8 @@ class ValueField extends Component {
   }
 
   onChange(e) {
-    this.setState({ currentValue: e.target.value });
-    //this.props.onChange();
+    const { col, row } = this.props;
+    this.props.onChange(col, row, e.target.value);
   }
 }
 
