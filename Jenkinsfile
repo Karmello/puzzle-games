@@ -18,7 +18,8 @@ node {
             }
 
             stage('Test on STAGING') {
-               sh('heroku run "CI=true npm test" -a staging-puzzle-games')
+               def status = sh('heroku run "CI=true npm test" -a staging-puzzle-games')
+               echo status
             }
 
             if (env.ghprbSourceBranch == 'staging') {
