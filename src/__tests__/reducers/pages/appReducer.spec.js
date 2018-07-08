@@ -104,7 +104,7 @@ describe('appReducer', () => {
       title: 'Eight Queens',
       authStatus: 'logged_in',
       showDrawer: false,
-      isLoading: false
+      isLoading: true
     });
   });
 });
