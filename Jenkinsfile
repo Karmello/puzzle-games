@@ -18,7 +18,7 @@ node {
             }
 
             stage('Test on STAGING') {
-               def status = sh('heroku run "CI=true npm test" -a staging-puzzle-games')
+               def status = sh script: 'heroku run "CI=true npm test" -a staging-puzzle-games', returnStatus: true
                echo status
             }
 
