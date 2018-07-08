@@ -18,7 +18,7 @@ node {
             }
 
             stage('Test on STAGING') {
-               sh('heroku run "CI=true npm test" -a staging-puzzle-games')
+               sh('heroku run "CI=true npm test" -a staging-puzzle-games --exit-code')
             }
 
             if (env.ghprbSourceBranch == 'staging') {
@@ -32,7 +32,7 @@ node {
       
          } catch(ex) {
 
-            sh 'exit 1'
+            throw ex
 
          } finally {
 
