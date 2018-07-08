@@ -6,9 +6,9 @@ import { Paper } from 'material-ui';
 import GameDashboard from './GameDashboard/GameDashboard';
 import GamePageInfo from './GamePageInfo/GamePageInfo';
 import { Loader } from 'js/other';
-import { setAppTitle } from 'js/app/app.actions';
-import { startGame, endGame } from 'js/game/game.actions';
-import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
+import { setAppTitle } from 'js/app/App/appActions';
+import { startGame, endGame } from 'js/game/Game/gameActions';
+import { toggleExpansionPanel } from 'js/pages/GamePage/gamePageActions';
 import { kebabToCamelCase } from 'js/helpers';
 import './GamePage.css';
 

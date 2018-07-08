@@ -4,7 +4,7 @@ import { Paper } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
 import Draggable from 'react-draggable';
 
-import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from 'js/game/GridGameBoard/GridGameBoard.logic';
+import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from './gridGameBoardHelpers';
 import './GridGameBoard.css';
 
 

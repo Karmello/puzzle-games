@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
-import bossPuzzleReducer from './BossPuzzle/bossPuzzle.reducer';
-import eightQueensReducer from './EightQueens/eightQueens.reducer';
-import sudokuReducer from './Sudoku/sudoku.reducer';
+import bossPuzzleReducer from './BossPuzzle/bossPuzzleReducer';
+import eightQueensReducer from './EightQueens/eightQueensReducer';
+import sudokuReducer from './Sudoku/sudokuReducer';
 
 
 export const engineReducers = combineReducers({

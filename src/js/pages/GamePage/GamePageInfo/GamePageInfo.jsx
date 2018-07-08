@@ -7,7 +7,7 @@ import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
 
 import { GameBtn } from 'js/game';
-import { humanizeHighscoreTime } from './GamePageInfo.methods';
+import { humanizeHighscoreTime } from './gamePageInfoHelpers';
 import './GamePageInfo.css';
 
 

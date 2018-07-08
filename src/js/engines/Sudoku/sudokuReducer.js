@@ -1,4 +1,4 @@
-import { INIT_FRAME, CHANGE_VALUE, RESET_FRAME } from './sudoku.actions';
+import { INIT_FRAME, CHANGE_VALUE, RESET_FRAME } from './sudokuActions';
 
 const initialState = {
   values: []

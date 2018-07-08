@@ -1,4 +1,4 @@
-import { INIT_FRAME, MOVE_QUEEN, RESET_FRAME } from './eightQueens.actions';
+import { INIT_FRAME, MOVE_QUEEN, RESET_FRAME } from './eightQueensActions';
 
 const initialState = {
   queens: []

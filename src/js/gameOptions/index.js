@@ -1,1 +1,1 @@
-export { default as BossPuzzleOptions } from 'js/gameOptions/BossPuzzleOptions/BossPuzzleOptions';
+export { default as BossPuzzleOptions } from './BossPuzzleOptions/BossPuzzleOptions';

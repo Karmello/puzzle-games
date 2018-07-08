@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SwipeableViews from 'react-swipeable-views';
 
-import { switchGameCategoryTab, changeGameOptions } from './gamesPage.actions';
+import { switchGameCategoryTab, changeGameOptions } from './gamesPageActions';
 import GameCategories from './GameCategories/GameCategories';
 import GameCard from './GameCard/GameCard';
 import './GamesPage.css';

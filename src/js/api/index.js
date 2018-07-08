@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import getApiRequestReducer from './api.reducerCreators';
+import getApiRequestReducer from './apiReducerCreators';
 
 import {
   CLIENT_USER_ACTION,
@@ -10,7 +10,7 @@ import {
   FETCH_HIGHSCORES,
   FETCH_HIGHSCORE,
   SAVE_NEW_HIGHSCORE
-} from './api.actions';
+} from './apiActions';
 
 
 export const apiReducers = combineReducers({

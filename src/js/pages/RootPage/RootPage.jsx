@@ -4,14 +4,14 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AppBar, AppDrawer } from 'js/app';
 import { PageError } from 'js/other';
-import { fetchGames, fetchGameCategories } from 'js/api/api.actions';
-import { toggleAppLoader } from 'js/app/app.actions';
-import { switchGameCategoryTab, changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
-import { toggleExpansionPanel } from 'js/pages/GamePage/gamePage.actions';
-import { changeHighscoresFilter } from 'js/pages/HighscoresPage/highscoresPage.actions';
+import { fetchGames, fetchGameCategories } from 'js/api/apiActions';
+import { toggleAppLoader } from 'js/app/App/appActions';
+import { switchGameCategoryTab, changeGameOptions } from 'js/pages/GamesPage/gamesPageActions';
+import { toggleExpansionPanel } from 'js/pages/GamePage/gamePageActions';
+import { changeHighscoresFilter } from 'js/pages/HighscoresPage/highscoresPageActions';
 import { getUiConfig } from 'js/localStorage';
-import { validateGameParams } from 'js/pages/page.methods';
-import * as rootPageMethods from 'js/pages/RootPage/RootPage.methods';
+import { validateGameParams } from 'js/pages/pagesHelpers';
+import * as rootPageRoutesLogic from 'js/pages/RootPage/rootPageRoutesLogic';
 
 
 class RootPage extends Component {
@@ -19,7 +19,7 @@ class RootPage extends Component {
   constructor(props) {
     super(props);
     this.validateGameParams = validateGameParams.bind(this);
-    for (const key in rootPageMethods) { this[key] = rootPageMethods[key].bind(this); }
+    for (const key in rootPageRoutesLogic) { this[key] = rootPageRoutesLogic[key].bind(this); }
   }
   
   componentWillMount() {

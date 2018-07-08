@@ -1,4 +1,4 @@
-import * as methods from 'js/engines/BossPuzzle/BossPuzzle.logic.js';
+import * as methods from 'js/engines/BossPuzzle/bossPuzzleHelpers.js';
 
 
 describe('BossPuzzle static methods', () => {

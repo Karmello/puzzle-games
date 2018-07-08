@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Game, GridGameBoard } from 'js/game';
 import ValueField from './ValueField/ValueField';
-import { initFrame, changeValue, resetFrame } from 'js/engines/Sudoku/sudoku.actions';
+import { initFrame, changeValue, resetFrame } from './sudokuActions';
 
 
 class Sudoku extends Game {

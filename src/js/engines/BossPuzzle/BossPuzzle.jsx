@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import { Game, GridGameBoard } from 'js/game';
 import SquareTile from './SquareTile/SquareTile';
-import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from './bossPuzzle.actions';
-import * as logic from './BossPuzzle.logic';
+import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from './bossPuzzleActions';
+import * as helpers from './bossPuzzleHelpers';
 
 
 const numOfImgs = 20;
@@ -61,7 +61,7 @@ class BossPuzzle extends Game {
         if (!doRestart) {
           if (imgIndex === undefined || imgIndex === imgNumbers.length - 1) {
             nextImgIndex = 0;
-            nextImgNumbers = logic.getNewImgNumbers(imgNumbers, numOfImgs)
+            nextImgNumbers = helpers.getNewImgNumbers(imgNumbers, numOfImgs)
           } else {
             nextImgIndex = imgIndex + 1;
             nextImgNumbers = imgNumbers;
@@ -78,7 +78,7 @@ class BossPuzzle extends Game {
       }
       
       const tasks = [];
-      tasks.push(logic.initData({ dimension: game.options.dimension, hiddenTileCoords: newHiddenTileCoords }));
+      tasks.push(helpers.initData({ dimension: game.options.dimension, hiddenTileCoords: newHiddenTileCoords }));
       if (game.options.mode === 'IMG') { tasks.push(this.loadImg(`boss-puzzle/img${nextImgNumbers[nextImgIndex]}.jpg`)); }
 
       return Promise.all(tasks).then((data) => {

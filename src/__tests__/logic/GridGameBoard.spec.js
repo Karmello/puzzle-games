@@ -4,7 +4,7 @@ import {
   offsetToIndex,
   findAllMovementCoords,
   isAloneOnAxis
-} from 'js/game/GridGameBoard/GridGameBoard.logic';
+} from 'js/game/GridGameBoard/gridGameBoardHelpers';
 
 
 describe('GridGameBoard logic methods', () => {

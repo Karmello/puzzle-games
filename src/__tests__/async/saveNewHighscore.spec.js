@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { saveNewHighscore, SAVE_NEW_HIGHSCORE } from 'js/api/api.actions';
+import { saveNewHighscore, SAVE_NEW_HIGHSCORE } from 'js/api/apiActions';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;

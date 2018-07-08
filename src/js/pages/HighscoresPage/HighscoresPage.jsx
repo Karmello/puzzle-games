@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import { App } from 'js/app';
 import { GameBtn } from 'js/game';
-import { fetchHighscores } from 'js/api/api.actions';
-import { changeHighscoresFilter } from './highscoresPage.actions';
+import { fetchHighscores } from 'js/api/apiActions';
+import { changeHighscoresFilter } from './highscoresPageActions';
 import HighscoresFilter from './HighscoresFilter/HighscoresFilter';
 import HighscoresTable from './HighscoresTable/HighscoresTable';
 import './HighscoresPage.css';

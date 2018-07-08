@@ -1,4 +1,5 @@
-export { default as appReducer } from './app.reducer';
+export { default as appReducer } from './App/appReducer';
+
 export { default as App } from './App/App';
-export { default as AppBar } from './App/AppBar/AppBar';
-export { default as AppDrawer } from './App/AppDrawer/AppDrawer';
+export { default as AppBar } from './AppBar/AppBar';
+export { default as AppDrawer } from './AppDrawer/AppDrawer';

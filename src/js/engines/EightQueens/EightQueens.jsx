@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/game';
-import { initFrame, moveQueen, resetFrame } from 'js/engines/EightQueens/eightQueens.actions';
+import { initFrame, moveQueen, resetFrame } from './eightQueensActions';
 
 
 class EightQueens extends Game {
