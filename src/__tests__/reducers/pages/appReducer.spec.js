@@ -1,4 +1,4 @@
-import appReducer from 'js/app/appReducer';
+import appReducer from 'js/app/App/appReducer';
 import { setAppTitle, setAuthStatus, toggleAppLoader, toggleAppDrawer } from 'js/app/App/appActions';
 
 
