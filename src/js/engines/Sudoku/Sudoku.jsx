@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import { Game, GridGameBoard } from 'js/game';
 import ValueField from './ValueField/ValueField';
 import { initFrame, changeValue, resetFrame } from './sudokuActions';
+import { startingValues } from './sudokuHelpers';
+import { getWithLinesShuffled } from 'js/game/GridGameBoard/gridGameBoardHelpers';
+// import { shuffleIntArray } from 'js/helpers';
 
 
 class Sudoku extends Game {
@@ -43,8 +46,7 @@ class Sudoku extends Game {
 
   startNew() {
     return new Promise(resolve => {
-      const values = Array.from({ length: this.dimension ** 2 }, () => '');
-      this.props.dispatch(initFrame(values));
+      this.props.dispatch(initFrame(getWithLinesShuffled('V', 3, 5, this.dimension, startingValues)));
       resolve();
     });
   }

@@ -1,4 +1,7 @@
+import { shuffleIntArray } from 'js/helpers';
+
 export const coordsToIndex = (coords, dimension) => {
+
   return coords.y * dimension + coords.x;
 }
 
@@ -99,4 +102,110 @@ export const isAloneOnAxis = (axis, targetCoords, dimension, gridData) => {
   }
 
   return true;
+}
+
+export const areValuesUniqueOnAxis = (axis, axisIndex, dimension, gridData) => {
+
+  const axisValues = [];
+  const coord = axis === 'x' ? 'y' : 'x';
+
+  for (let i = 0; i < gridData.length; i++) {
+
+    const coords = indexToCoords(i, dimension);
+
+    if (coords[coord] === axisIndex && gridData[i] !== undefined && gridData[i] !== '') {
+      axisValues.push(gridData[i]);
+    }
+  }
+
+  return (new Set(axisValues)).size === axisValues.length;
+}
+
+export const getFlipped = (axisDirection, dimension, gridData) => {
+
+  const newGridData = [];
+
+  for (let i = 0; i < gridData.length; i++) {
+    const coords = indexToCoords(i, dimension);
+    let newCoords;
+    switch (axisDirection) {
+      case 'H':
+        newCoords = { x: coords.x, y: Math.abs(dimension - coords.y - 1) };
+        break;
+      case 'V':
+        newCoords = { x: Math.abs(dimension - coords.x - 1), y: coords.y };
+        break;
+      default:
+        return false;
+    }
+    const newIndex = coordsToIndex(newCoords, dimension);
+    newGridData[newIndex] = gridData[i];
+  }
+
+  return newGridData;
+}
+
+export const getRotated = (direction, angle, dimension, gridData) => {
+
+  const possibleAngles = [90, 180, 270, 360];
+
+  if (possibleAngles.indexOf(angle) === -1) {
+    return false;
+  }
+
+  const newGridData = [...gridData];
+
+  for (let a = 0; a < angle; a += 90) {
+    const tempGridData = [...newGridData];
+    for (let i = 0; i < tempGridData.length; i++) {
+      const coords = indexToCoords(i, dimension);
+      let newCoords;
+      switch (direction) {
+        case 'L':
+          newCoords = { x: coords.y, y: Math.abs(dimension - coords.x - 1) };
+          break;
+        case 'R':
+          newCoords = { x: Math.abs(dimension - coords.y - 1), y: coords.x };
+          break;
+        default:
+          return false;
+      }
+      const newIndex = coordsToIndex(newCoords, dimension);
+      newGridData[newIndex] = tempGridData[i];
+    }
+  }
+
+  return newGridData;
+}
+
+export const getWithLinesShuffled = (axisDirection, startIndex, endIndex, dimension, gridData) => {
+
+  const newGridData = [...gridData];
+  const indexes = Array.from({ length: endIndex - startIndex + 1 }, (v, k) => k + startIndex);
+  let newIndexes = [...indexes];
+
+  do { shuffleIntArray(newIndexes); } while (JSON.stringify(indexes) === JSON.stringify(newIndexes));
+
+  for (let i = 0; i < gridData.length; i++) {
+    const coords = indexToCoords(i, dimension);
+    let index;
+    switch(axisDirection) {
+      case 'H':
+        index = indexes.indexOf(coords.y);
+        if (index > -1) {
+          newGridData[coordsToIndex({ x: coords.x, y: newIndexes[index] }, dimension)] = gridData[i];
+        }
+        break;
+      case 'V':
+        index = indexes.indexOf(coords.x);
+        if (index > -1) {
+          newGridData[coordsToIndex({ x: newIndexes[index], y: coords.y }, dimension)] = gridData[i];
+        }
+        break;
+      default:
+        return false;
+    }
+  }
+
+  return newGridData;
 }
