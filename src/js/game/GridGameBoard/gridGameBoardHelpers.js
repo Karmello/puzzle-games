@@ -107,7 +107,7 @@ export const isAloneOnAxis = (axis, targetCoords, dimension, gridData) => {
 export const areValuesUniqueOnAxis = (axis, axisIndex, dimension, gridData) => {
 
   const axisValues = [];
-  const coord = axis === 'x' ? 'y' : 'x';
+  const coord = axis === 'X' ? 'y' : 'x';
 
   for (let i = 0; i < gridData.length; i++) {
 

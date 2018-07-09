@@ -7,7 +7,6 @@ import ValueField from './ValueField/ValueField';
 import { initFrame, changeValue, resetFrame } from './sudokuActions';
 import { startingValues } from './sudokuHelpers';
 import { getWithLinesShuffled } from 'js/game/GridGameBoard/gridGameBoardHelpers';
-// import { shuffleIntArray } from 'js/helpers';
 
 
 class Sudoku extends Game {
