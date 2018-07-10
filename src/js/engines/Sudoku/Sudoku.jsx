@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Game, GridGameBoard } from 'js/game';
 import ValueField from './ValueField/ValueField';
 import { initFrame, changeValue, resetFrame } from './sudokuActions';
-import { startingValues, rotate, shuffleLines, flip } from './sudokuHelpers';
+import { initializeValues } from './sudokuHelpers';
 
 
 class Sudoku extends Game {
@@ -44,12 +44,7 @@ class Sudoku extends Game {
 
   startNew() {
     return new Promise(resolve => {
-      let values = [...startingValues];
-      const jobs = [rotate, shuffleLines, flip];
-      for (let i = 0; i < 100; i++) {
-        values = jobs[Math.floor(Math.random() * jobs.length)](this.dimension, values);
-      }
-      this.props.dispatch(initFrame(values));
+      this.props.dispatch(initFrame(initializeValues(this.dimension)));
       resolve();
     });
   }
