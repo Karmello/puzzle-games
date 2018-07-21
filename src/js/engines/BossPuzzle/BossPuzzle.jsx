@@ -22,6 +22,7 @@ class BossPuzzle extends Game {
 
     const { imgSrc } = this.state;
     const { game, bossPuzzleEngine } = this.props;
+    if (game.isLoading) { return null; }
     
     if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
       return (

@@ -20,7 +20,8 @@ class EightQueens extends Game {
   }
 
   render() {
-    const { eightQueensEngine } = this.props;
+    const { game, eightQueensEngine } = this.props;
+    if (game.isLoading) { return null; }
     return (
       <GridGameBoard
         dimension={this.dimension}

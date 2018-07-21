@@ -25,7 +25,8 @@ class Sudoku extends Game {
   }
 
   render() {
-    const { sudokuEngine } = this.props;
+    const { game, sudokuEngine } = this.props;
+    if (game.isLoading) { return null; }
     return (
       <GridGameBoard
         dimension={this.dimension}
