@@ -10,17 +10,19 @@ class ValueField extends Component {
     this.values = [];
     for (let i = 1; i < 10; i++) { this.values.push(i); }
   }
-  
+
   render() {
+    const { value, disabled } = this.props;
     return (
       <div style={this.getStyle()}>
         <Select
-          value={this.props.value}
+          value={value}
           onChange={e => this.onChange(e)}
           classes={{ select: 'select', icon: 'icon' }}
           MenuProps={{
             transformOrigin: { vertical: 'center', horizontal: 'center' }
           }}
+          disabled={disabled}
         >
           {this.values.map(value => (
             <MenuItem

@@ -10,6 +10,10 @@ import { initializeValues } from './sudokuHelpers';
 
 class Sudoku extends Game {
 
+  state = {
+    disabledIndexes: []
+  }
+
   constructor(props) {
     super(props);
     this.dimension = 9;
@@ -35,6 +39,7 @@ class Sudoku extends Game {
               value={(sudokuEngine.values && sudokuEngine.values[index]) || ''}
               size={this.squareSize}
               onChange={this.onMoveMade.bind(this)}
+              disabled={this.state.disabledIndexes.indexOf(index) > -1}
             />
           );
         }}
@@ -44,7 +49,16 @@ class Sudoku extends Game {
 
   startNew() {
     return new Promise(resolve => {
-      this.props.dispatch(initFrame(initializeValues(this.dimension)));
+
+      const disabledIndexes = [];
+      const newValues = initializeValues(this.dimension);
+      
+      for (let i = 0; i < newValues.length; i++) {
+        if (newValues[i]) { disabledIndexes.push(i); }
+      }
+
+      this.setState({ disabledIndexes });
+      this.props.dispatch(initFrame(newValues));
       resolve();
     });
   }

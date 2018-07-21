@@ -1,4 +1,5 @@
-import { getFlipped, getRotated, getWithLinesShuffled } from 'js/game/GridGameBoard/gridGameBoardHelpers';
+import { getFlipped, getRotated, getWithLinesShuffled, coordsToIndex } from 'js/game/GridGameBoard/gridGameBoardHelpers';
+import { shuffleIntArray } from 'js/helpers';
 
 export const initializeValues = dimension => {
 
@@ -19,7 +20,7 @@ export const initializeValues = dimension => {
   const angles = [90, 180, 270];
   const indexBounds = [[0, 2], [3, 5], [6, 8]];
   
-  const N = 1000;
+  const N = 100;
   let values = [...startingValues];
 
   const jobs = [
@@ -31,8 +32,29 @@ export const initializeValues = dimension => {
     () => getFlipped(axisDirections[Math.floor(Math.random() * axisDirections.length)], dimension, values)
   ];
   
+  // Creating unique values
+
   for (let i = 0; i < N; i++) {
     values = jobs[Math.floor(Math.random() * jobs.length)](this.dimension, values);
+  }
+
+  const numOfVisibleOnARow = shuffleIntArray([3, 3, 3, 3, 3, 3, 4, 4, 4]);
+
+  // Clearing some of the values
+  for (let i = 0; i < dimension; i++) {
+    const visibleIndexes = [];
+    do {
+      const visibleIndex = Math.floor(Math.random() * dimension);
+      if (visibleIndexes.indexOf(visibleIndex) === -1) {
+        visibleIndexes.push(visibleIndex);
+      }
+    } while(visibleIndexes.length < numOfVisibleOnARow[i]);
+    for (let j = 0; j < dimension; j++) {
+      const index = coordsToIndex({ x: j, y: i }, dimension);
+      if (visibleIndexes.indexOf(j) === -1) {
+        values[index] = '';
+      }
+    }
   }
 
   return values;
