@@ -10,7 +10,3 @@ export const engineReducers = combineReducers({
   'eight-queens': eightQueensReducer,
   'sudoku': sudokuReducer
 });
-
-export { default as BossPuzzle } from './BossPuzzle/BossPuzzle';
-export { default as SquareTile } from './BossPuzzle/SquareTile/SquareTile';
-export { default as EightQueens } from './EightQueens/EightQueens';

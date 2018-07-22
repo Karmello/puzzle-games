@@ -6,7 +6,7 @@ import './ValueField.css';
 class ValueField extends Component {
 
   componentWillMount() {
-    this.selectValues = [];
+    this.selectValues = [''];
     for (let i = 1; i < 10; i++) { this.selectValues.push(i); }
   }
   
@@ -44,7 +44,8 @@ class ValueField extends Component {
       boxSizing: 'border-box',
       border: '1px solid',
       width: `${size}px`,
-      height: `${size}px`
+      height: `${size}px`,
+      backgroundColor: '#FFFFF0'
     };
     if (col === 2 || col === 5) { style.borderRight = '3px solid'; }
     if (row === 2 || row === 5) { style.borderBottom = '3px solid'; }

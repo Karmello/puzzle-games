@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
 import { GridGameBoard } from 'js/game';
-import { BossPuzzle } from 'js/engines';
+import BossPuzzle from './../BossPuzzle';
 
 
 const fontSizes = { 3: 40, 4: 30, 5: 22 };
