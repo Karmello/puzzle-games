@@ -104,7 +104,7 @@ export const isAloneOnAxis = (axis, targetCoords, dimension, gridData) => {
   return true;
 }
 
-export const areValuesUniqueOnAxis = (axis, axisIndex, dimension, gridData) => {
+export const areValuesUniqueOnAxis = (axis, axisIndex, dimension, gridData, disallowEmptyValues) => {
 
   const axisValues = [];
   const coord = axis === 'X' ? 'y' : 'x';
@@ -113,8 +113,12 @@ export const areValuesUniqueOnAxis = (axis, axisIndex, dimension, gridData) => {
 
     const coords = indexToCoords(i, dimension);
 
-    if (coords[coord] === axisIndex && gridData[i] !== undefined && gridData[i] !== '') {
-      axisValues.push(gridData[i]);
+    if (coords[coord] === axisIndex) {
+      if (gridData[i] !== undefined && gridData[i] !== '') {
+        axisValues.push(gridData[i]);
+      } else if (disallowEmptyValues) {
+        return false;
+      }
     }
   }
 

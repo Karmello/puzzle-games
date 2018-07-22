@@ -49,7 +49,7 @@ class EightQueens extends Game {
 
   onMoveMade(fromIndex, toIndex) {
     this.props.dispatch(moveQueen(fromIndex, toIndex));
-    this.onMakeMove();
+    super.onMakeMove();
   }
 
   checkIfSolved() {

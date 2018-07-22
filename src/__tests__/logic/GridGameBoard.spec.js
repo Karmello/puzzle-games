@@ -103,6 +103,7 @@ describe('GridGameBoard logic methods', () => {
       expect(areValuesUniqueOnAxis('X', 1, 3, values)).toEqual(false);
       expect(areValuesUniqueOnAxis('Y', 0, 3, values)).toEqual(false);
       expect(areValuesUniqueOnAxis('Y', 1, 3, values)).toEqual(false);
+      expect(areValuesUniqueOnAxis('X', 2, 3, values, true)).toEqual(false);
     });
   });
 

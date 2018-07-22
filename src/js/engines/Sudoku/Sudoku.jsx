@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Game, GridGameBoard } from 'js/game';
 import ValueField from './ValueField/ValueField';
 import { initFrame, changeValue, resetFrame } from './sudokuActions';
-import { initializeValues } from './sudokuHelpers';
+import { initializeValues, checkIfSolved } from './sudokuHelpers';
 
 
 class Sudoku extends Game {
@@ -65,14 +65,13 @@ class Sudoku extends Game {
   }
 
   onMoveMade(col, row, newValue) {
-    this.props.dispatch(changeValue(GridGameBoard.coordsToIndex({ x: col, y: row }, this.dimension), newValue));
-    this.onMakeMove();
+    const { props, dimension } = this;
+    props.dispatch(changeValue(GridGameBoard.coordsToIndex({ x: col, y: row }, dimension), newValue));
+    super.onMakeMove();
   }
 
   checkIfSolved() {
-    return new Promise(resolve => {
-      resolve(false);
-    });
+    return checkIfSolved(this.props.sudokuEngine.values, this.dimension);
   }
 }
 

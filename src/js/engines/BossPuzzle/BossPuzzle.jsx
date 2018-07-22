@@ -91,7 +91,7 @@ class BossPuzzle extends Game {
 
   onMoveMade(index1, index2, targetCoords) {
     this.props.dispatch(switchTiles(index1, index2, targetCoords));
-    this.onMakeMove();
+    super.onMakeMove();
   }
 
   checkIfSolved() {

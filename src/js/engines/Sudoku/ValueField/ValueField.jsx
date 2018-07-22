@@ -5,12 +5,11 @@ import './ValueField.css';
 
 class ValueField extends Component {
 
-  constructor(props) {
-    super(props);
-    this.values = [];
-    for (let i = 1; i < 10; i++) { this.values.push(i); }
+  componentWillMount() {
+    this.selectValues = [];
+    for (let i = 1; i < 10; i++) { this.selectValues.push(i); }
   }
-
+  
   render() {
     const { value, disabled } = this.props;
     return (
@@ -24,12 +23,12 @@ class ValueField extends Component {
           }}
           disabled={disabled}
         >
-          {this.values.map(value => (
+          {this.selectValues.map(selectValue => (
             <MenuItem
-              key={value}
-              value={value}
+              key={selectValue}
+              value={selectValue}
               style={{ display: 'inline', padding: '11px', fontSize: '25px' }}
-            >{value}</MenuItem>)
+            >{selectValue}</MenuItem>)
           )}
         </Select>
       </div>
@@ -53,9 +52,9 @@ class ValueField extends Component {
   }
 
   onChange(e) {
-    const { col, row, value } = this.props;
+    const { col, row, value, onChange } = this.props;
     if (value !== e.target.value) {
-      this.props.onChange(col, row, e.target.value);
+      onChange(col, row, e.target.value);
     }
   }
 }
