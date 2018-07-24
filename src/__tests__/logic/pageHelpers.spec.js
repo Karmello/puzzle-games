@@ -1,8 +1,8 @@
-import * as methods from 'js/pages/page.methods';
+import * as helpers from 'js/pages/pagesHelpers';
 import { gameCategoriesRes, gamesRes } from '__tests__/__mocks__/apiResponses';
 
 
-describe('page methods', () => {
+describe('page helpers', () => {
   
   const context = {
     props: {
@@ -17,7 +17,7 @@ describe('page methods', () => {
     
     const params = { category: 'sliding', id: 'boss-puzzle' };
     const options = { mode: 'NUM', dimension: '3' };
-    const result = methods.validateGameParams.call(context, params, options);
+    const result = helpers.validateGameParams.call(context, params, options);
 
     expect(result).toEqual({
       shouldRedirect: false,
@@ -30,7 +30,7 @@ describe('page methods', () => {
     
     const params = { category: 'sliding', id: 'boss-puzzle' };
     const options = { mode: 'IMG' };
-    const result = methods.validateGameParams.call(context, params, options);
+    const result = helpers.validateGameParams.call(context, params, options);
 
     expect(result).toEqual({
       shouldRedirect: true,
@@ -43,7 +43,7 @@ describe('page methods', () => {
     
     const params = { category: 'sliding', id: 'boss-puzzle' };
     const options = { mode: 'IMG', dimension: '5', x: 100 };
-    const result = methods.validateGameParams.call(context, params, options);
+    const result = helpers.validateGameParams.call(context, params, options);
 
     expect(result).toEqual({
       shouldRedirect: true,
@@ -56,7 +56,7 @@ describe('page methods', () => {
     
     const params = { category: 'abc', id: 'abc' };
     const options = { mode: 'IMG', dimension: '5', x: 100 };
-    const result = methods.validateGameParams.call(context, params, options);
+    const result = helpers.validateGameParams.call(context, params, options);
 
     expect(result).toEqual({
       shouldRedirect: true

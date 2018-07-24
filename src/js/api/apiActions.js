@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { isEmpty } from 'lodash';
-import { apiRequest, apiRequestSuccess, apiRequestFailure } from './api.actionCreators';
+import { apiRequest, apiRequestSuccess, apiRequestFailure } from './apiActionCreators';
 
 const baseURL = process.env.REACT_APP_API_URI;
 

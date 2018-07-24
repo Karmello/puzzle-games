@@ -1,5 +1,5 @@
-import eightQueensReducer from 'js/engines/EightQueens/eightQueens.reducer';
-import { initFrame, moveQueen, resetFrame } from 'js/engines/EightQueens/eightQueens.actions';
+import eightQueensReducer from 'js/engines/EightQueens/eightQueensReducer';
+import { initFrame, moveQueen, resetFrame } from 'js/engines/EightQueens/eightQueensActions';
 
 
 describe('eightQueensReducer', () => {

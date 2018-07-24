@@ -3,8 +3,12 @@ import {
   indexToCoords,
   offsetToIndex,
   findAllMovementCoords,
-  isAloneOnAxis
-} from 'js/game/GridGameBoard/GridGameBoard.logic';
+  isAloneOnAxis,
+  areValuesUniqueOnAxis,
+  getFlipped,
+  getRotated,
+  getWithLinesShuffled
+} from 'js/game/GridGameBoard/gridGameBoardHelpers';
 
 
 describe('GridGameBoard logic methods', () => {
@@ -79,5 +83,83 @@ describe('GridGameBoard logic methods', () => {
       expect(isAloneOnAxis('d1', { x: 1, y: 1 }, 3, [1, 0, 0, 0, 1, 0, 0, 0, 0])).toEqual(false);
       expect(isAloneOnAxis('d2', { x: 2, y: 1 }, 3, [0, 0, 0, 0, 0, 1, 0, 1, 0])).toEqual(false);
     });
+  });
+
+  describe('areValuesUniqueOnAxis', () => {
+
+    const values = [
+      1, 2, 3,
+      1, 1, 1,
+      1, 2, undefined
+    ];
+
+    it('should return true', () => {
+      expect(areValuesUniqueOnAxis('X', 0, 3, values)).toEqual(true);
+      expect(areValuesUniqueOnAxis('X', 2, 3, values)).toEqual(true);
+      expect(areValuesUniqueOnAxis('Y', 2, 3, values)).toEqual(true);
+    });
+
+    it('should return false', () => {
+      expect(areValuesUniqueOnAxis('X', 1, 3, values)).toEqual(false);
+      expect(areValuesUniqueOnAxis('Y', 0, 3, values)).toEqual(false);
+      expect(areValuesUniqueOnAxis('Y', 1, 3, values)).toEqual(false);
+      expect(areValuesUniqueOnAxis('X', 2, 3, values, true)).toEqual(false);
+    });
+  });
+
+  describe('getFlipped', () => {
+
+    const values = [
+      1, 2, 3,
+      4, 5, 6,
+      7, 8, 9
+    ];
+
+    it('should return flipped values', () => {
+      expect(getFlipped('H', 3, values)).toEqual([7, 8, 9, 4, 5, 6, 1, 2, 3]);
+      expect(getFlipped('V', 3, values)).toEqual([3, 2, 1, 6, 5, 4, 9, 8, 7]);
+    });
+
+    it('should return false', () => {
+      expect(getFlipped('', 3, values)).toEqual(false);
+    });
+  });
+
+  describe('getRotated', () => {
+
+    const values = [
+      1, 2, 3,
+      4, 5, 6,
+      7, 8, 9
+    ];
+
+    it('should return rotated values', () => {
+      expect(getRotated('R', 90, 3, values)).toEqual([7, 4, 1, 8, 5, 2, 9, 6, 3]);
+      expect(getRotated('L', 180, 3, values)).toEqual([9, 8, 7, 6, 5, 4, 3, 2, 1]);
+      expect(getRotated('R', 270, 3, values)).toEqual([3, 6, 9, 2, 5, 8, 1, 4, 7]);
+      expect(getRotated('L', 360, 3, values)).toEqual(values);
+    });
+
+    it('should return false', () => {
+      expect(getRotated('', 90, 3, values)).toEqual(false);
+    });
+  });
+
+  describe('getWithLinesShuffled', () => {
+
+    const values = [
+      1, 2, 3,
+      4, 5, 6,
+      7, 8, 9
+    ];
+
+    it('should return values with lines shuffled', () => {
+      expect(getWithLinesShuffled('H', 0, 1, 3, values)).toEqual([4, 5, 6, 1, 2, 3, 7, 8, 9]);
+      expect(getWithLinesShuffled('V', 1, 2, 3, values)).toEqual([1, 3, 2, 4, 6, 5, 7, 9, 8]);
+    });
+
+    it('should return false', () => {
+      expect(getWithLinesShuffled('', 0, 1, 3, values)).toEqual(false);
+    })
   });
 });

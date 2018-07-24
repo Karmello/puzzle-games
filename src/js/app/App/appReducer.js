@@ -1,4 +1,4 @@
-import { TOGGLE_APP_LOADER, SET_AUTH_STATUS, SET_APP_TITLE, TOGGLE_APP_DRAWER } from './app.actions';
+import { TOGGLE_APP_LOADER, SET_AUTH_STATUS, SET_APP_TITLE, TOGGLE_APP_DRAWER } from './appActions';
 
 const initialState = {
   NODE_ENV: process.env.REACT_APP_NODE_ENV || process.env.NODE_ENV,

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
-import gamesPageReducer from './GamesPage/gamesPage.reducer';
-import gamePageReducer from './GamePage/gamePage.reducer';
-import highscoresPageReducer from './HighscoresPage/highscoresPage.reducer';
+import gamesPageReducer from './GamesPage/gamesPageReducer';
+import gamePageReducer from './GamePage/gamePageReducer';
+import highscoresPageReducer from './HighscoresPage/highscoresPageReducer';
 
 
 export const pageReducers = combineReducers({

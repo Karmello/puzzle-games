@@ -1,5 +1,5 @@
-import gamesPageReducer from 'js/pages/GamesPage/gamesPage.reducer';
-import { switchGameCategoryTab, changeGameOptions } from 'js/pages/GamesPage/gamesPage.actions';
+import gamesPageReducer from 'js/pages/GamesPage/gamesPageReducer';
+import { switchGameCategoryTab, changeGameOptions } from 'js/pages/GamesPage/gamesPageActions';
 
 
 describe('gamesPageReducer', () => {

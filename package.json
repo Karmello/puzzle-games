@@ -10,7 +10,8 @@
     "build": "npm run build-css && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "test-win": "set CI=true & npm test",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "lint": "eslint --ext .js --ext .jsx src"
   },
   "dependencies": {
     "@mars/heroku-js-runtime-env": "^3.0.2",
