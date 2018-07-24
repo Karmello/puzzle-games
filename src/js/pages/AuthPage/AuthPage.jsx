@@ -5,8 +5,8 @@ import { Paper } from 'material-ui';
 
 import { App } from 'js/app';
 import { AuthForm } from 'js/other';
-import { toggleAppLoader, setAuthStatus } from 'js/app/app.actions';
-import { registerUser, loginUser } from 'js/api/api.actions';
+import { toggleAppLoader, setAuthStatus } from 'js/app/App/appActions';
+import { registerUser, loginUser } from 'js/api/apiActions';
 import './AuthPage.css';
 
 

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import { Game, GridGameBoard } from 'js/game';
 import SquareTile from './SquareTile/SquareTile';
-import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from './bossPuzzle.actions';
-import * as factory from './BossPuzzle.factory';
+import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from './bossPuzzleActions';
+import * as helpers from './bossPuzzleHelpers';
 
 
 const numOfImgs = 20;
@@ -22,6 +22,7 @@ class BossPuzzle extends Game {
 
     const { imgSrc } = this.state;
     const { game, bossPuzzleEngine } = this.props;
+    if (game.isLoading) { return null; }
     
     if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
       return (
@@ -61,7 +62,7 @@ class BossPuzzle extends Game {
         if (!doRestart) {
           if (imgIndex === undefined || imgIndex === imgNumbers.length - 1) {
             nextImgIndex = 0;
-            nextImgNumbers = factory.getNewImgNumbers(imgNumbers, numOfImgs)
+            nextImgNumbers = helpers.getNewImgNumbers(imgNumbers, numOfImgs)
           } else {
             nextImgIndex = imgIndex + 1;
             nextImgNumbers = imgNumbers;
@@ -78,7 +79,7 @@ class BossPuzzle extends Game {
       }
       
       const tasks = [];
-      tasks.push(factory.initData({ dimension: game.options.dimension, hiddenTileCoords: newHiddenTileCoords }));
+      tasks.push(helpers.initData({ dimension: game.options.dimension, hiddenTileCoords: newHiddenTileCoords }));
       if (game.options.mode === 'IMG') { tasks.push(this.loadImg(`boss-puzzle/img${nextImgNumbers[nextImgIndex]}.jpg`)); }
 
       return Promise.all(tasks).then((data) => {
@@ -90,7 +91,7 @@ class BossPuzzle extends Game {
 
   onMoveMade(index1, index2, targetCoords) {
     this.props.dispatch(switchTiles(index1, index2, targetCoords));
-    this.onMakeMove();
+    super.onMakeMove();
   }
 
   checkIfSolved() {

@@ -1,8 +1,8 @@
 import { Component } from 'react';
 
 import { App } from 'js/app';
-import { fetchHighscore, saveNewHighscore } from 'js/api/api.actions';
-import { stopGameLoader, makeMove, setAsSolved } from 'js/game/game.actions';
+import { fetchHighscore, saveNewHighscore } from 'js/api/apiActions';
+import { stopGameLoader, makeMove, setAsSolved } from './gameActions';
 
 
 export default class Game extends Component {
@@ -56,7 +56,9 @@ export default class Game extends Component {
   }
 
   onMakeMove() {
-    this.props.dispatch(makeMove());
+    setTimeout(() => {
+      this.props.dispatch(makeMove());
+    });
   }
 
   loadImg(imgPath) {

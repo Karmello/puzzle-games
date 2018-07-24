@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/game';
-import { initFrame, moveQueen, resetFrame } from 'js/engines/EightQueens/eightQueens.actions';
+import { initFrame, moveQueen, resetFrame } from './eightQueensActions';
 
 
 class EightQueens extends Game {
@@ -20,7 +20,8 @@ class EightQueens extends Game {
   }
 
   render() {
-    const { eightQueensEngine } = this.props;
+    const { game, eightQueensEngine } = this.props;
+    if (game.isLoading) { return null; }
     return (
       <GridGameBoard
         dimension={this.dimension}
@@ -48,7 +49,7 @@ class EightQueens extends Game {
 
   onMoveMade(fromIndex, toIndex) {
     this.props.dispatch(moveQueen(fromIndex, toIndex));
-    this.onMakeMove();
+    super.onMakeMove();
   }
 
   checkIfSolved() {

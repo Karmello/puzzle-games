@@ -1,4 +1,4 @@
-import { CHANGE_HIGHSCORES_FILTER, HIGHSCORES_PAGE_CLEAR } from './highscoresPage.actions';
+import { CHANGE_HIGHSCORES_FILTER, HIGHSCORES_PAGE_CLEAR } from './highscoresPageActions';
 
 const initialState = {
   gameFilter: {},

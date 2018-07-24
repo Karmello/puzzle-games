@@ -1,4 +1,4 @@
-import { TOGGLE_EXPANSION_PANEL, GAME_PAGE_CLEAR } from 'js/pages/GamePage/gamePage.actions';
+import { TOGGLE_EXPANSION_PANEL, GAME_PAGE_CLEAR } from 'js/pages/GamePage/gamePageActions';
 
 const initialState = {
   infoExpanded: false,
