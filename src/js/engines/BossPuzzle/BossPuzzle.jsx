@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -12,7 +14,7 @@ const numOfImgs = 20;
 
 class BossPuzzle extends Game {
 
-  static tilesSizes = { 3: 150, 4: 125, 5: 100 };
+  static tilesSizes = { '3': 150, '4': 125, '5': 100 };
 
   componentWillUnmount() {
     this.props.dispatch(resetFrame());
@@ -55,13 +57,12 @@ class BossPuzzle extends Game {
       const { game, bossPuzzleEngine, dispatch } = this.props;
       const { imgIndex, imgNumbers } = bossPuzzleEngine;
 
-      let nextImgIndex, nextImgNumbers;
+      let nextImgIndex = 0, nextImgNumbers = [];
 
       if (game.options.mode === 'IMG') {
         
         if (!doRestart) {
           if (imgIndex === undefined || imgIndex === imgNumbers.length - 1) {
-            nextImgIndex = 0;
             nextImgNumbers = helpers.getNewImgNumbers(imgNumbers, numOfImgs)
           } else {
             nextImgIndex = imgIndex + 1;

@@ -1,0 +1,13 @@
+[ignore]
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+emoji=true
+module.name_mapper='^js' ->'<PROJECT_ROOT>/src/js'
+
+[strict]
