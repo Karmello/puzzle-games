@@ -1,26 +1,43 @@
+// @flow
+
 import { Component } from 'react';
 
 import { App } from 'js/app';
 import { fetchHighscore, saveNewHighscore } from 'js/api/apiActions';
 import { stopGameLoader, makeMove, setAsSolved } from './gameActions';
+import type GameType from './GameType';
 
 
-export default class Game extends Component {
+type Props = {
+  clientUser: any,
+  game:GameType,
+  dispatch: Function,
+  readTimer: Function
+};
 
-  state = { imgSrc: null }
+type State = {
+  imgSrc: string
+};
+
+
+export default class Game extends Component<Props, State> {
+
+  state = { imgSrc: '' }
+  startNew:(doRestart?: boolean) => Promise<any>;
+  checkIfSolved:() => Promise<any>;
 
   componentDidMount() {
     this.startNew().then(() => this.onFinishInit());
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     
     const { game } = this.props;
     const nextGame = nextProps.game;
 
     // on restarting
     if (!game.isLoading && nextGame.isLoading) {
-      this.setState({ imgSrc: null });
+      this.setState({ imgSrc: '' });
       this.startNew(nextProps.game.doRestart).then(() => this.onFinishInit());
     
     // on move made
@@ -61,12 +78,12 @@ export default class Game extends Component {
     });
   }
 
-  loadImg(imgPath) {
+  loadImg(imgPath: string) {
 
     return new Promise((resolve, reject) => {
 
       const img = new Image();
-      img.src = `${process.env.REACT_APP_S3_BUCKET}/${imgPath}`;
+      img.src = `${process.env.REACT_APP_S3_BUCKET || ''}/${imgPath}`;
         
       img.onload = () => {
         this.setState({ imgSrc: img.src });

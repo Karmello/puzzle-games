@@ -1,6 +1,7 @@
+// @flow
+
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/game';
@@ -103,16 +104,12 @@ class EightQueens extends Game {
       height: `${this.squareSize}px`,
       border: '1px solid gray',
       borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET}/eight-queens/queen.png)`,
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
       backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
       backgroundColor: 'white'
     }
   }
 }
-
-EightQueens.propTypes = {
-  readTimer: PropTypes.func.isRequired
-};
 
 export default connect(store => ({
   clientUser: store.api.clientUser,

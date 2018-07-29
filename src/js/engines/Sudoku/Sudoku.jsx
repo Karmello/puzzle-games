@@ -1,6 +1,7 @@
+// @flow
+
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { Game, GridGameBoard } from 'js/game';
 import ValueField from './ValueField/ValueField';
@@ -74,10 +75,6 @@ class Sudoku extends Game {
     return checkIfSolved(this.props.sudokuEngine.values, this.dimension);
   }
 }
-
-Sudoku.propTypes = {
-  readTimer: PropTypes.func.isRequired
-};
 
 export default connect(store => ({
   clientUser: store.api.clientUser,

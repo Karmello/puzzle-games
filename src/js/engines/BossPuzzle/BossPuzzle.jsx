@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { Game, GridGameBoard } from 'js/game';
 import SquareTile from './SquareTile/SquareTile';
@@ -114,10 +113,6 @@ class BossPuzzle extends Game {
     });
   }
 }
-
-BossPuzzle.propTypes = {
-  readTimer: PropTypes.func.isRequired
-};
 
 export default connect(store => ({
   clientUser: store.api.clientUser,
