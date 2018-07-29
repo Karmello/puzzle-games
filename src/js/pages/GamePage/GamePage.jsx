@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Paper } from 'material-ui';
 
-import type { ApiState, GameState } from 'types/store';
+import type { ApiStore, GameStore } from 'types/store';
 import type { QueryStringMatch, QueryParams } from 'types/query';
 import type { GameDashBoardRef } from 'types/other';
 import GameDashboard from './GameDashboard/GameDashboard';
@@ -22,10 +22,10 @@ type Props = {
   dispatch: Function,
   match:QueryStringMatch,
   queryParams: QueryParams,
-  api:ApiState,
+  api:ApiStore,
   gameData: { name: string },
   gamePage: any,
-  game:GameState
+  game:GameStore
 };
 
 class GamePage extends Component<Props> {

@@ -1,4 +1,8 @@
-export const apiRequest = (actionType, req) => {
+// @flow
+
+import type { ApiRequest, ApiResponse, ApiError } from 'types/api';
+
+export const apiRequest = (actionType:string, req:ApiRequest) => {
   if (req) {
     return {
       type: actionType,
@@ -16,18 +20,18 @@ export const apiRequest = (actionType, req) => {
   }
 }
 
-export const apiRequestSuccess = (actionType, res) => ({
+export const apiRequestSuccess = (actionType:string, res:ApiResponse) => ({
   type: `${actionType}_SUCCESS`,
   payload: {
-    method: res.config.method,
-    url: res.config.url,
+    method: res.config ? res.config.method : '',
+    url: res.config ? res.config.url: '',
     status: res.status, 
     statusText: res.statusText,
     data: res.data
   }
 });
 
-export const apiRequestFailure = (actionType, err) => ({
+export const apiRequestFailure = (actionType:string, err:ApiError) => ({
   type: `${actionType}_FAILURE`,
   payload: {
     method: err.config.method,
@@ -38,6 +42,6 @@ export const apiRequestFailure = (actionType, err) => ({
   }
 });
 
-export const apiRequestClear = (actionType) => ({
+export const apiRequestClear = (actionType:string) => ({
   type: `${actionType}_CLEAR`
 });

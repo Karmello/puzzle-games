@@ -8,8 +8,16 @@ describe('apiReducers', () => {
 
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
-      req: { isAwaiting: false },
-      res: {}
+      req: {
+        isAwaiting: false,
+        method: '',
+        url: ''
+      },
+      res: {
+        status: 0,
+        statusText: '',
+        data: undefined
+      }
     });
   });
 
@@ -24,9 +32,15 @@ describe('apiReducers', () => {
       req: {
         params: { id: '1234' },
         query: { sort: 1 },
-        isAwaiting: true
+        isAwaiting: true,
+        body: undefined,
+        headers: undefined
       },
-      res: {}
+      res: {
+        data: undefined,
+        status: 0,
+        statusText: ''
+      }
     });
 
     const state = {

@@ -10,12 +10,12 @@ export type Action = {
   }
 };
 
-export type ApiState = {
+export type ApiStore = {
   clientUser:any,
   bestHighscore:any
 };
 
-export type AppState = {
+export type AppStore = {
   NODE_ENV:string|null|typeof undefined,
   title:string,
   authStatus:string,
@@ -23,7 +23,7 @@ export type AppState = {
   isLoading:boolean
 };
 
-export type GameState = {
+export type GameStore = {
   id?:string,
   options:{},
   moves:number,
@@ -32,7 +32,7 @@ export type GameState = {
   doRestart:boolean
 };
 
-export type BossPuzzleState = {
+export type BossPuzzleEngine = {
   imgNumbers:Array<number>,
   imgIndex:number|typeof undefined,
   tiles:Array<number>,
@@ -40,4 +40,12 @@ export type BossPuzzleState = {
     x?:number,
     y?:number
   }
+};
+
+export type EightQueensEngine = {
+  queens:Array<boolean>
+};
+
+export type SudokuEngine = {
+  values:Array<number>
 };

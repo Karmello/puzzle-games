@@ -1,7 +1,7 @@
 // @flow
 
 import { START_GAME, STOP_GAME_LOADER, MAKE_MOVE, SET_AS_SOLVED, END_GAME } from './gameActions';
-import type { Action, GameState } from 'types/store';
+import type { Action, GameStore } from 'types/store';
 
 const initialState = {
   id: undefined,
@@ -12,7 +12,7 @@ const initialState = {
   doRestart: false
 };
 
-const gameReducer = (state:GameState = initialState, action:Action) => {
+const gameReducer = (state:GameStore = initialState, action:Action) => {
   
   switch (action.type) {
   

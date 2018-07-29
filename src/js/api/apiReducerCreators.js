@@ -1,13 +1,24 @@
-const getApiRequestReducer = (actionType) => {
+// @flow
+
+import type { Action } from 'types/store';
+import type { ApiEndPoint } from 'types/api';
+
+const getApiRequestReducer = (actionType:string) => {
   
   const initialState = {
     req: {
-      isAwaiting: false
+      isAwaiting: false,
+      method: '',
+      url: ''
     },
-    res: {}
+    res: {
+      status: 0,
+      statusText: '',
+      data: undefined
+    }
   };
 
-  return (state = initialState, action) => {
+  return (state:ApiEndPoint = initialState, action:Action) => {
 
     switch (action.type) {
   
