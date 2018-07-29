@@ -3,15 +3,18 @@
 import type { Action } from 'types/store';
 import type { ApiEndPoint } from 'types/api';
 
+
 const getApiRequestReducer = (actionType:string) => {
   
   const initialState = {
     req: {
-      isAwaiting: false,
-      method: '',
-      url: ''
+      isAwaiting: false
     },
     res: {
+      config: {
+        method: '',
+        url: ''
+      },
       status: 0,
       statusText: '',
       data: undefined
@@ -26,11 +29,11 @@ const getApiRequestReducer = (actionType:string) => {
         return {
           ...state,
           req: {
+            isAwaiting: true,
             headers: action.payload.headers,
             params: action.payload.params,
             query: action.payload.query,
-            body: action.payload.body,
-            isAwaiting: true
+            body: action.payload.body
           }
         };
 
@@ -39,14 +42,13 @@ const getApiRequestReducer = (actionType:string) => {
         return {
           req: {
             ...state.req,
-            method: action.payload.method,
-            url: action.payload.url,
             isAwaiting: false
           },
           res: {
+            config: action.payload.config,
             status: action.payload.status,
             statusText: action.payload.statusText,
-            data: action.payload.data,
+            data: action.payload.data
           }
         };
 

@@ -39,8 +39,10 @@ describe('async fetchGames', () => {
       {
         type: FETCH_GAMES + '_SUCCESS',
         payload: {
-          method: 'get',
-          url: baseURL + '/games',
+          config: {
+            method: 'get',
+            url: baseURL + '/games',
+          },
           status: 200,
           statusText: 'OK',
           data: [{ id: 'boss-puzzle' }, { id: 'eight-queens' }]
@@ -77,8 +79,10 @@ describe('async fetchGames', () => {
       {
         type: FETCH_GAMES + '_FAILURE',
         payload: {
-          method: 'get',
-          url: baseURL + '/games',
+          config: {
+            method: 'get',
+            url: baseURL + '/games',
+          },
           status: 400,
           statusText: 'BAD_REQUEST'
         }

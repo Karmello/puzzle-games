@@ -2,8 +2,6 @@
 
 export type ApiRequest = {
   isAwaiting:boolean,
-  method:string,
-  url:string,
   headers?:{},
   params?:{},
   query?:{},
@@ -11,9 +9,12 @@ export type ApiRequest = {
 };
 
 export type ApiResponse = {
+  config:{
+    method:string,
+    url:string
+  },
   status:number,
   statusText:string,
-  config?:any,
   data:any
 };
 
