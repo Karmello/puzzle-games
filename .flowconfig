@@ -7,7 +7,9 @@
 [lints]
 
 [options]
+module.ignore_non_literal_requires=true
 emoji=true
-module.name_mapper='^js' ->'<PROJECT_ROOT>/src/js'
+module.name_mapper='^js' -> '<PROJECT_ROOT>/src/js'
+module.name_mapper='^types' -> '<PROJECT_ROOT>/src/types'
 
 [strict]

@@ -5,14 +5,14 @@ import { Component } from 'react';
 import { App } from 'js/app';
 import { fetchHighscore, saveNewHighscore } from 'js/api/apiActions';
 import { stopGameLoader, makeMove, setAsSolved } from './gameActions';
-import type GameType from './GameType';
+import type { GameState } from 'types/store';
 
 
 type Props = {
-  clientUser: any,
-  game:GameType,
   dispatch: Function,
-  readTimer: Function
+  readTimer: Function,
+  clientUser: any,
+  game:GameState,
 };
 
 type State = {

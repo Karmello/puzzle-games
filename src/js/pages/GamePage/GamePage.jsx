@@ -1,8 +1,13 @@
+// @flow
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Paper } from 'material-ui';
 
+import type { ApiState, GameState } from 'types/store';
+import type { QueryStringMatch, QueryParams } from 'types/query';
+import type { GameDashBoardRef } from 'types/other';
 import GameDashboard from './GameDashboard/GameDashboard';
 import GamePageInfo from './GamePageInfo/GamePageInfo';
 import { Loader } from 'js/other';
@@ -13,7 +18,19 @@ import { kebabToCamelCase } from 'js/helpers';
 import './GamePage.css';
 
 
-class GamePage extends Component {
+type Props = {
+  dispatch: Function,
+  match:QueryStringMatch,
+  queryParams: QueryParams,
+  api:ApiState,
+  gameData: { name: string },
+  gamePage: any,
+  game:GameState
+};
+
+class GamePage extends Component<Props> {
+
+  gameDashBoardRef:GameDashBoardRef;
 
   componentWillMount() {
 
@@ -44,7 +61,7 @@ class GamePage extends Component {
           <GameDashboard
             clientUserData={clientUser.res.data}
             game={game}
-            ref={ref => this.gameDashBoardRef = ref}
+            ref={ref => ref ? this.gameDashBoardRef = ref : null}
           />
         </Paper>
         <Loader isShown={game.isLoading}>
@@ -86,16 +103,18 @@ class GamePage extends Component {
 
   onToggleExpansionPanel(name, expanded) {
     const { dispatch, api } = this.props;
-    const ui = JSON.parse(localStorage.getItem('ui'));
-    ui[api.clientUser.res.data.username].gamePage[`${name}Expanded`] = expanded;
-    localStorage.setItem('ui', JSON.stringify(ui));
-    dispatch(toggleExpansionPanel(name, expanded));
+    let ui = localStorage.getItem('ui');
+    if (ui) {
+      ui = JSON.parse(ui);
+      ui[api.clientUser.res.data.username].gamePage[`${name}Expanded`] = expanded;
+      localStorage.setItem('ui', JSON.stringify(ui));
+      dispatch(toggleExpansionPanel(name, expanded));
+    }
   }
 }
 
 export default withRouter(connect(store => ({
   api: store.api,
-  engines: store.engines,
   game: store.game,
   gamePage: store.pages.gamePage
 }))(GamePage));

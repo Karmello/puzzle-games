@@ -1,4 +1,7 @@
+// @flow
+
 import { INIT_FRAME, SWITCH_TILES, CLEAR_HIDDEN_TILE_COORDS, RESET_FRAME } from './bossPuzzleActions';
+import type { Action, BossPuzzleState } from 'types/store';
 
 const initialState = {
   imgNumbers: [],
@@ -7,7 +10,7 @@ const initialState = {
   hiddenTileCoords: {}
 };
 
-const bossPuzzleReducer = (state = initialState, action) => {
+const bossPuzzleReducer = (state:BossPuzzleState = initialState, action:Action) => {
   
   switch (action.type) {
 
