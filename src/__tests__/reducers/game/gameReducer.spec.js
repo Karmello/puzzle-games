@@ -6,7 +6,7 @@ describe('gameReducer', () => {
 
   it('should return the initial state', () => {
     expect(gameReducer(undefined, {})).toEqual({
-      id: undefined,
+      id: '',
       moves: 0,
       isSolved: false,
       isLoading: true,
@@ -17,7 +17,7 @@ describe('gameReducer', () => {
 
   it('should handle START_GAME', () => {
     expect(gameReducer({
-      id: undefined,
+      id: '',
       moves: 0,
       isSolved: false,
       isLoading: true,
@@ -96,7 +96,7 @@ describe('gameReducer', () => {
       doRestart: false,
       options: { mode: 'NUM', dimension: '3' }
     }, endGame())).toEqual({
-      id: undefined,
+      id: '',
       moves: 0,
       isSolved: false,
       isLoading: false,
