@@ -23,9 +23,14 @@ export type AppStore = {
   isLoading:boolean
 };
 
+export type GameOptions = {
+  mode?:string,
+  dimension?:string
+};
+
 export type GameStore = {
-  id?:string,
-  options:{},
+  id:string,
+  options:GameOptions,
   moves:number,
   isSolved:boolean,
   isLoading:boolean,

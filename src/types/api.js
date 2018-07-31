@@ -1,7 +1,7 @@
 // @flow
 
 export type ApiRequest = {
-  isAwaiting:boolean,
+  isAwaiting?:boolean,
   headers?:{},
   params?:{},
   query?:{},

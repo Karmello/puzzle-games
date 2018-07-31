@@ -4,7 +4,7 @@ import { START_GAME, STOP_GAME_LOADER, MAKE_MOVE, SET_AS_SOLVED, END_GAME } from
 import type { Action, GameStore } from 'types/store';
 
 const initialState = {
-  id: undefined,
+  id: '',
   options: {},
   moves: 0,
   isSolved: false,
