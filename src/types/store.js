@@ -1,5 +1,7 @@
 // @flow
 
+import type { Coords } from 'types/other';
+
 export type Action = {
   type:string,
   meta: {
@@ -12,7 +14,8 @@ export type Action = {
 
 export type ApiStore = {
   clientUser:any,
-  bestHighscore:any
+  bestHighscore:any,
+  newHighscore:any
 };
 
 export type AppStore = {
@@ -41,10 +44,7 @@ export type BossPuzzleEngine = {
   imgNumbers:Array<number>,
   imgIndex:number|typeof undefined,
   tiles:Array<number>,
-  hiddenTileCoords:{
-    x?:number,
-    y?:number
-  }
+  hiddenTileCoords:Coords
 };
 
 export type EightQueensEngine = {

@@ -1,13 +1,25 @@
+// @flow
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 import { AuthPage, RootPage } from 'js/pages';
 import { Loader, MySnackBar } from 'js/other';
+import type { AppStore, ApiStore } from 'types/store';
 import './App.css';
 
 
-class App extends Component {
+type Props = {
+  api:ApiStore,
+  app:AppStore
+};
+
+type State = {
+  snackBarMessage:string
+};
+
+class App extends Component<Props, State> {
 
   static minLoadTime = 500;
 
@@ -51,6 +63,5 @@ class App extends Component {
 
 export default withRouter(connect(store => ({
   api: store.api,
-  app: store.app,
-  pages: store.pages
+  app: store.app
 }))(App));

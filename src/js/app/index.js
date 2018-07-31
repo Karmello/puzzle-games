@@ -1,3 +1,5 @@
+// @flow
+
 export { default as appReducer } from './App/appReducer';
 
 export { default as App } from './App/App';

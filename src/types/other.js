@@ -5,3 +5,8 @@ export type GameDashBoardRef = {
     state:{}
   }
 };
+
+export type Coords = {
+   x:number|typeof undefined,
+   y:number|typeof undefined
+};

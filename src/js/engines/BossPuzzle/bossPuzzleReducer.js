@@ -7,7 +7,7 @@ const initialState = {
   imgNumbers: [],
   imgIndex: undefined,
   tiles: [],
-  hiddenTileCoords: {}
+  hiddenTileCoords: { x: undefined, y: undefined }
 };
 
 const bossPuzzleReducer = (state:BossPuzzleEngine = initialState, action:Action) => {

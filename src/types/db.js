@@ -1,3 +1,5 @@
+// @flow
+
 export type User = {
   password:string
 };

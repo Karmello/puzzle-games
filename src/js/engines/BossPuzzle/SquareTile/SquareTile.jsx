@@ -1,16 +1,33 @@
+// @flow
+
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
 import { GridGameBoard } from 'js/game';
 import BossPuzzle from './../BossPuzzle';
+import type { GameOptions } from 'types/store';
+import type { Coords } from 'types/other';
 
 
-const fontSizes = { 3: 40, 4: 30, 5: 22 };
+type Props = {
+  imgSrc:string,
+  col:number,
+  row:number,
+  tiles:Array<number>,
+  hiddenTileCoords:Coords,
+  options:GameOptions,
+  isSolved:boolean,
+  onMoveMade:Function
+};
 
-class SquareTile extends Component {
+const fontSizes = { '3': 40, '4': 30, '5': 22 };
 
-  constructor(props) {
+class SquareTile extends Component<Props> {
+
+  index:number;
+  isHidden:boolean;
+
+  constructor(props:Props) {
     super(props);
     this.index = GridGameBoard.coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
   }
@@ -40,18 +57,24 @@ class SquareTile extends Component {
       minWidth: `${tileSize}px`,
       width: `${tileSize}px`,
       height: `${tileSize}px`,
-      fontSize: `${fontSizes[options.dimension]}px`,
+      fontSize: `${fontSizes[options.dimension || '3']}px`,
       color: '#001f3f',
-      backgroundColor: 'rgba(61, 153, 112, 0.75)'
+      backgroundColor: 'rgba(61, 153, 112, 0.75)',
+      backgroundImage: undefined,
+      backgroundSize: undefined,
+      backgroundPosition: undefined,
+      visibility: undefined
     };
 
     if (!this.isHidden) {
 
-      if (options.mode === 'IMG' && imgSrc) {
-        const imgCoords = GridGameBoard.indexToCoords(this.getLabel() - 1, options.dimension);
+      const label = this.getLabel();
+
+      if (options.mode === 'IMG' && imgSrc && label) {
+        const imgCoords = GridGameBoard.indexToCoords(Number(label) - 1, options.dimension);
         const imgSize = BossPuzzle.tilesSizes[options.dimension];
         style.backgroundImage = `url(${imgSrc})`;
-        style.backgroundSize = `${options.dimension * imgSize}px ${options.dimension * imgSize}px`;
+        style.backgroundSize = `${Number(options.dimension) * imgSize}px ${Number(options.dimension) * imgSize}px`;
         style.backgroundPosition = `-${imgCoords.x * imgSize}px -${imgCoords.y * imgSize}px`;
       }
 
@@ -63,13 +86,11 @@ class SquareTile extends Component {
   }
 
   getLabel() {
-
     const { tiles } = this.props;
     if (tiles.length > 0) { return tiles[this.index]; } else { return ''; }
   }
 
   isInProperPlace() {
-
     const { options, row, col } = this.props;
     return GridGameBoard.coordsToIndex({ x: col, y: row }, options.dimension) + 1 === this.getLabel();
   }
@@ -96,16 +117,5 @@ class SquareTile extends Component {
     }
   }
 }
-
-SquareTile.propTypes = {
-  options: PropTypes.object.isRequired,
-  hiddenTileCoords: PropTypes.object.isRequired,
-  tiles: PropTypes.array.isRequired,
-  imgSrc: PropTypes.string,
-  row: PropTypes.number.isRequired,
-  col: PropTypes.number.isRequired,
-  isSolved: PropTypes.bool.isRequired,
-  onMoveMade: PropTypes.func.isRequired
-};
 
 export default SquareTile;
