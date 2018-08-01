@@ -11,9 +11,8 @@ import { initializeValues, checkIfSolved } from './sudokuHelpers';
 
 class Sudoku extends Game {
 
-  state = {
-    disabledIndexes: []
-  }
+  dimension:number;
+  squareSize:number;
 
   constructor(props) {
     super(props);
@@ -38,7 +37,7 @@ class Sudoku extends Game {
           return (
             <ValueField
               {...props}
-              value={(sudokuEngine.values && sudokuEngine.values[index]) || ''}
+              value={(sudokuEngine.values && sudokuEngine.values[index]) || null}
               size={this.squareSize}
               onChange={this.onMoveMade.bind(this)}
               disabled={this.state.disabledIndexes.indexOf(index) > -1}
@@ -49,7 +48,7 @@ class Sudoku extends Game {
     );
   }
 
-  startNew() {
+  startNew = () => {
     return new Promise(resolve => {
 
       const disabledIndexes = [];
@@ -71,7 +70,7 @@ class Sudoku extends Game {
     super.onMakeMove();
   }
 
-  checkIfSolved() {
+  checkIfSolved = () => {
     return checkIfSolved(this.props.sudokuEngine.values, this.dimension);
   }
 }

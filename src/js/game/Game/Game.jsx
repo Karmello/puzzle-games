@@ -5,26 +5,33 @@ import { Component } from 'react';
 import { App } from 'js/app';
 import { fetchHighscore, saveNewHighscore } from 'js/api/apiActions';
 import { stopGameLoader, makeMove, setAsSolved } from './gameActions';
-import type { GameStore } from 'types/store';
-
+import type { GameStore, BossPuzzleEngine, EightQueensEngine, SudokuEngine } from 'types/store';
 
 type Props = {
   dispatch: Function,
   readTimer: Function,
   clientUser: any,
   game:GameStore,
+  bossPuzzleEngine:BossPuzzleEngine,
+  eightQueensEngine:EightQueensEngine,
+  sudokuEngine:SudokuEngine
 };
 
 type State = {
-  imgSrc: string
+  imgSrc:string,
+  disabledIndexes:Array<number>
 };
 
 
 export default class Game extends Component<Props, State> {
 
-  state = { imgSrc: '' }
   startNew:(doRestart?: boolean) => Promise<any>;
   checkIfSolved:() => Promise<any>;
+
+  state = {
+    imgSrc: '',
+    disabledIndexes: []
+  };
 
   componentDidMount() {
     this.startNew().then(() => this.onFinishInit());
