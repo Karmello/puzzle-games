@@ -1,6 +1,7 @@
+// @flow
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { Input, Select } from 'material-ui';
 import { InputLabel } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
@@ -8,17 +9,30 @@ import { MenuItem } from 'material-ui/Menu';
 
 import './BossPuzzleOptions.css';
 
+import type { GameOptions } from 'types/store';
 
-class BossPuzzleOptions extends Component {
+type Props = {
+  options:GameOptions,
+  path:string,
+  disabled:boolean,
+  onValueChangeCb:Function
+};
+
+type State = {
+  mode:string,
+  dimension:string  
+};
+
+export default class BossPuzzleOptions extends Component<Props, State> {
   
-  state = { mode: undefined, dimension: undefined }
+  state = { mode: '', dimension: '' }
 
   componentWillMount() {
 
     this.setState({ ...this.props.options });
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps:Props) {
     
     const { mode, dimension } = this.state;
 
@@ -68,7 +82,7 @@ class BossPuzzleOptions extends Component {
     );
   }
 
-  onValueChange(key, value) {
+  onValueChange(key:string, value:string) {
 
     this.setState({ [key]: value });
     
@@ -77,9 +91,3 @@ class BossPuzzleOptions extends Component {
     }
   }
 }
-
-BossPuzzleOptions.propTypes = {
-  options: PropTypes.object.isRequired
-};
-
-export default BossPuzzleOptions;

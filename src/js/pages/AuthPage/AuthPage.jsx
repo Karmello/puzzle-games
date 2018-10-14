@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
@@ -9,8 +11,25 @@ import { toggleAppLoader, setAuthStatus } from 'js/app/App/appActions';
 import { registerUser, loginUser } from 'js/api/apiActions';
 import './AuthPage.css';
 
+import type { AppStore } from 'types/store';
 
-class AuthPage extends Component {
+type Props = {
+  dispatch:Function,
+  app:AppStore,
+  clientUser:any,
+  location:{
+    state:{
+      from: {
+        pathname:string,
+        search:string
+      }
+    }
+  }
+};
+
+class AuthPage extends Component<Props, {}> {
+
+  onAuthFormSubmit:(actionName:string, values:{}) => Promise<any>;
 
   constructor(props) {
     super(props);
@@ -20,7 +39,7 @@ class AuthPage extends Component {
   componentDidMount() {
 
     const { dispatch, app } = this.props;
-    const  token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
     setTimeout(() => {
       if (app.authStatus !== 'logged_in' && token) {

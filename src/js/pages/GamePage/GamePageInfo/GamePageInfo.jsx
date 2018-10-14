@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import { ExpansionPanel } from 'material-ui';
 import { ExpansionPanelSummary, ExpansionPanelDetails } from 'material-ui/ExpansionPanel';
@@ -10,9 +11,17 @@ import { GameBtn } from 'js/game';
 import { humanizeHighscoreTime } from './gamePageInfoHelpers';
 import './GamePageInfo.css';
 
+import type { GameStore, GamePageStore } from 'types/store';
 
+type Props = {
+  game:GameStore,
+  gameData:{ categoryId:string, info:string },
+  gamePage:GamePageStore,
+  bestHighscore:any,
+  onToggleExpansionPanel:Function
+};
 
-const renderBestHighscore = props => {
+const renderBestHighscore = (props:Props) => {
 
   const res = props.bestHighscore.res;
   const { game, gameData, gamePage } = props;
@@ -50,7 +59,7 @@ const renderBestHighscore = props => {
   );
 }
 
-const renderInfo = props => {
+const renderInfo = (props:Props) => {
 
   const { gameData, gamePage } = props;
   
@@ -71,7 +80,7 @@ const renderInfo = props => {
   );
 }
 
-const GamePageInfo = props => {
+export default (props:Props) => {
   return (
     <div className='GamePageInfo'>
       <div>{renderInfo(props)}</div>
@@ -79,13 +88,3 @@ const GamePageInfo = props => {
     </div>
   );
 };
-
-GamePageInfo.propTypes = {
-  game: PropTypes.object.isRequired,
-  gameData: PropTypes.object.isRequired,
-  gamePage: PropTypes.object.isRequired,
-  bestHighscore: PropTypes.object.isRequired,
-  onToggleExpansionPanel: PropTypes.func.isRequired
-};
-
-export default GamePageInfo;

@@ -1,6 +1,8 @@
+// @flow
+
 import moment from 'moment';
 
-export const humanizeHighscoreTime = _seconds => {
+export const humanizeHighscoreTime = (_seconds:number) => {
 
   moment.relativeTimeThreshold('s', 60);
   moment.relativeTimeThreshold('ss', 0);

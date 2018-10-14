@@ -15,7 +15,10 @@ export type Action = {
 export type ApiStore = {
   clientUser:any,
   bestHighscore:any,
-  newHighscore:any
+  newHighscore:any,
+  gameCategories:any,
+  games:any,
+  highscores:any
 };
 
 export type AppStore = {
@@ -53,4 +56,19 @@ export type EightQueensEngine = {
 
 export type SudokuEngine = {
   values:Array<number>
+};
+
+export type GamePageStore = {
+  infoExpanded:boolean,
+  bestScoreExpanded:boolean
+};
+
+export type GamesPageStore = {
+  category:string,
+  options:GameOptions
+};
+
+export type HighscoresPageStore = {
+  gameFilter:{ id?:string, category?:string },
+  optionsFilter:GameOptions
 };

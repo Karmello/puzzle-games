@@ -40,7 +40,7 @@ export const loginUser = (credentials:Credentials) => {
     dispatch(apiRequest(CLIENT_USER_ACTION, {
       body: {
         ...credentials,
-        password: credentials.password ? credentials.password.replace(/./g, '*') : undefined
+        password: credentials.password ? String(credentials.password).replace(/./g, '*') : undefined
       }
     }));
     return api.post('/user/login', credentials).then(res => {

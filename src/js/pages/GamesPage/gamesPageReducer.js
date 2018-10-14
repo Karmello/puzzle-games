@@ -1,4 +1,8 @@
+// @flow
+
 import { SWITCH_GAME_CATEGORY_TAB, CHANGE_GAME_OPTIONS, GAMES_PAGE_CLEAR } from './gamesPageActions';
+
+import type { Action, GamesPageStore } from 'types/store';
 
 const initialState = {
   category: '',
@@ -7,7 +11,7 @@ const initialState = {
   }
 };
 
-const gamesPageReducer = (state = initialState, action) => {
+const gamesPageReducer = (state:GamesPageStore = initialState, action:Action) => {
   
   switch (action.type) {
 

@@ -17,7 +17,8 @@
     "globals": {
         "process": true,
         "__dirname": true,
-        "jest": true
+        "jest": true,
+        "NodeJS": true
     },
     "plugins": [
         "react", "jasmine", "import"

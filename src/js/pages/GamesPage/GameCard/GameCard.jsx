@@ -1,5 +1,6 @@
+// @flow
+
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
 import { Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
@@ -8,8 +9,16 @@ import { GameBtn } from 'js/game';
 import { kebabToCamelCase } from 'js/helpers';
 import './GameCard.css';
 
+import type { Game } from 'types/db';
+import type { GameOptions } from 'types/store';
 
-class GameCard extends Component {
+type Props = {
+  gameData:Game,
+  gameOptions:GameOptions,
+  onGameOptionsChange:Function
+};
+
+export default class GameCard extends Component<Props, {}> {
 
   render() {
 
@@ -26,7 +35,7 @@ class GameCard extends Component {
         <Card>
           <CardMedia
             style={{ height: '250px' }}
-            image={`${process.env.REACT_APP_S3_BUCKET}/${gameData.id}/logo.jpg`}
+            image={`${process.env.REACT_APP_S3_BUCKET || ''}/${gameData.id}/logo.jpg`}
             title={gameData.name}
           />
           <CardContent>
@@ -64,11 +73,3 @@ class GameCard extends Component {
     );
   }
 }
-
-GameCard.propTypes = {
-  gameData: PropTypes.object.isRequired,
-  gameOptions: PropTypes.object,
-  onGameOptionsChange: PropTypes.func
-};
-
-export default GameCard;

@@ -1,11 +1,15 @@
+// @flow
+
 import { CHANGE_HIGHSCORES_FILTER, HIGHSCORES_PAGE_CLEAR } from './highscoresPageActions';
+
+import type { HighscoresPageStore, Action } from 'types/store';
 
 const initialState = {
   gameFilter: {},
   optionsFilter: {}
 };
 
-const highscoresPageReducer = (state = initialState, action) => {
+const highscoresPageReducer = (state:HighscoresPageStore = initialState, action:Action) => {
 
   switch (action.type) {
 

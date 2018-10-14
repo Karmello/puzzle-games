@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -9,8 +11,18 @@ import HighscoresFilter from './HighscoresFilter/HighscoresFilter';
 import HighscoresTable from './HighscoresTable/HighscoresTable';
 import './HighscoresPage.css';
 
+import type { ApiStore, GameOptions, HighscoresPageStore } from 'types/store';
 
-class HighscoresPage extends Component {
+type Props = {
+  gameOptions:GameOptions,
+  highscoresPage:HighscoresPageStore,
+  api:ApiStore,
+  gameFilterToSet:{ id:string, category:string },
+  optionsFilterToSet:GameOptions,
+  dispatch:Function
+};
+
+class HighscoresPage extends Component<Props, {}> {
 
   componentWillMount() {
     const { gameFilterToSet, optionsFilterToSet } = this.props;
@@ -72,15 +84,17 @@ class HighscoresPage extends Component {
   onChange(gameFilterToSet, optionsFilterToSet) {
     
     const { dispatch, api } = this.props;
-    const ui = JSON.parse(localStorage.getItem('ui'));
-    const username = api.clientUser.res.data.username;
+    let ui = localStorage.getItem('ui');
 
-    ui[username].highscoresPage.gameFilter = gameFilterToSet;
-    ui[username].highscoresPage.optionsFilter = optionsFilterToSet;
-    localStorage.setItem('ui', JSON.stringify(ui));
-    
-    dispatch(changeHighscoresFilter(gameFilterToSet, optionsFilterToSet));
-    dispatch(fetchHighscores(gameFilterToSet.id, optionsFilterToSet, App.minLoadTime));
+    if (ui) {
+      ui = JSON.parse(ui);
+      const username = api.clientUser.res.data.username;
+      ui[username].highscoresPage.gameFilter = gameFilterToSet;
+      ui[username].highscoresPage.optionsFilter = optionsFilterToSet;
+      localStorage.setItem('ui', JSON.stringify(ui));
+      dispatch(changeHighscoresFilter(gameFilterToSet, optionsFilterToSet));
+      dispatch(fetchHighscores(gameFilterToSet.id, optionsFilterToSet, App.minLoadTime));
+    }
   }
 }
 

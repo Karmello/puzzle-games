@@ -1,14 +1,26 @@
+// @flow
+
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Chip } from 'material-ui';
 
 
-class Timer extends Component {
+type Props = {
+  on:boolean,
+  paused:boolean
+};
+
+type State = {
+  seconds:number
+};
+
+export default class Timer extends Component<Props, State> {
+
+  intervalId:any;
 
   state = { seconds: 0 }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps:Props) {
     
     if (nextProps.on) {
       this.start();
@@ -59,10 +71,3 @@ class Timer extends Component {
     return moment.utc(this.state.seconds * 1000).format('HH:mm:ss');
   }
 }
-
-Timer.propTypes = {
-  on: PropTypes.bool.isRequired,
-  paused: PropTypes.bool
-};
-
-export default Timer;

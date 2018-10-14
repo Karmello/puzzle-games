@@ -1,4 +1,8 @@
-export function validateGameParams(pathParams, queryParams, savedGameOptions) {
+// @flow
+
+import type { GameOptions } from 'types/store';
+
+export function validateGameParams(pathParams:{ category:string, id:string }, queryParams:GameOptions, savedGameOptions:GameOptions) {
   
   const { api } = this.props;
 

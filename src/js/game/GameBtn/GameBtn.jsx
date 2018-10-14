@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
 import { Button } from 'material-ui';
@@ -36,7 +35,7 @@ const getToObject = props => {
   }
 }
 
-const GameBtn = (props:Props) => (
+export default (props:Props) => (
   <Button
     variant={props.name === 'play' ? 'raised' : null}
     color='primary'
@@ -44,13 +43,3 @@ const GameBtn = (props:Props) => (
     to={getToObject(props)}
   >{props.label}</Button>
 );
-
-GameBtn.propTypes = {
-  name: PropTypes.oneOf(['play', 'highscores']),
-  label: PropTypes.string.isRequired,
-  gameCategory: PropTypes.string.isRequired,
-  gameId: PropTypes.string.isRequired,
-  gameOptions: PropTypes.object
-};
-
-export default GameBtn;

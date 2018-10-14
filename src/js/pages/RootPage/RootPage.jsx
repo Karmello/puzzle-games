@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+// @flow
+
+import * as React from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
@@ -11,15 +14,42 @@ import { toggleExpansionPanel } from 'js/pages/GamePage/gamePageActions';
 import { changeHighscoresFilter } from 'js/pages/HighscoresPage/highscoresPageActions';
 import { getUiConfig } from 'js/localStorage';
 import { validateGameParams } from 'js/pages/pagesHelpers';
-import * as rootPageRoutesLogic from 'js/pages/RootPage/rootPageRoutesLogic';
+import { gamesRouteLogic, gameRouteLogic, highscoresRouteLogic  } from 'js/pages/RootPage/rootPageRoutesLogic';
 
+import type { AppStore, ApiStore, GameOptions, GamePageStore, GamesPageStore } from 'types/store';
+import type { PageRouteLogicProps } from 'types/other';
 
-class RootPage extends Component {
+type Props = {
+  api:ApiStore,
+  app:AppStore,
+  pages:any,
+  location:string,
+  dispatch:Function
+};
+
+class RootPage extends Component<Props, {}> {
+
+  gamesRouteLogic:(props:PageRouteLogicProps) => React.Node;
+  gameRouteLogic:(props:PageRouteLogicProps) => React.Node;
+  highscoresRouteLogic:(props:PageRouteLogicProps) => React.Node;
   
+  getDefaultPath:() => string;
+  shouldRenderPageError:() => boolean;
+
+  ui:{
+    gamePage:GamePageStore,
+    gamesPage:GamesPageStore,
+    highscoresPage:any
+  };
+
+  validateGameParams:(pathParams:{ category:string, id:string }, queryParams:GameOptions, savedGameOptions:GameOptions) => {};
+
   constructor(props) {
     super(props);
     this.validateGameParams = validateGameParams.bind(this);
-    for (const key in rootPageRoutesLogic) { this[key] = rootPageRoutesLogic[key].bind(this); }
+    this.gamesRouteLogic = gamesRouteLogic.bind(this);
+    this.gameRouteLogic = gameRouteLogic.bind(this);
+    this.highscoresRouteLogic = highscoresRouteLogic.bind(this);
   }
   
   componentWillMount() {

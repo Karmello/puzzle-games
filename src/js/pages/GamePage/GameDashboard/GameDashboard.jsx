@@ -1,12 +1,23 @@
+// @flow
+
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Chip } from 'material-ui';
 
 import { Timer } from 'js/other';
 import './GameDashboard.css';
 
+import type { GameStore } from 'types/store';
+import type { GameDashBoardRef } from 'types/other';
 
-class GameDashboard extends Component {
+
+type Props = {
+  clientUserData:{ username:string },
+  game:GameStore
+};
+
+export default class GameDashboard extends Component<Props, {}> {
+
+  timerRef:GameDashBoardRef;
 
   render() {
     const { clientUserData, game } = this.props;
@@ -19,7 +30,7 @@ class GameDashboard extends Component {
           <Timer
             on={!game.isLoading && !game.isSolved}
             paused={game.isSolved}
-            ref={ref => this.timerRef = ref}
+            ref={ref => { if (ref) { this.timerRef = ref } }}
           />
         </div>
         <div>
@@ -29,10 +40,3 @@ class GameDashboard extends Component {
     );
   }
 }
-
-GameDashboard.propTypes = {
-  clientUserData: PropTypes.object.isRequired,
-  game: PropTypes.object.isRequired
-};
-
-export default GameDashboard;

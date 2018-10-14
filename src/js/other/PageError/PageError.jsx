@@ -1,10 +1,12 @@
+// @flow
+
 import React, { Component } from 'react';
 import { Button } from 'material-ui';
 
 import './PageError.css';
 
 
-export default class PageError extends Component {
+export default class PageError extends Component<{}, {}> {
 
   render() {
     return (

@@ -17,3 +17,8 @@ export type Event = {
   },
   currentTarget:{}
 };
+
+export type PageRouteLogicProps = {
+  match:{ params:{ id:string, category:string, gameId:string }},
+  location:{ pathname:string, search:string }
+};

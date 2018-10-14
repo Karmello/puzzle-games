@@ -1,5 +1,6 @@
+// @flow
+
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Paper, Typography } from 'material-ui';
 import moment from 'moment';
 import { Table } from 'material-ui';
@@ -8,14 +9,24 @@ import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import { Loader } from 'js/other';
 import './HighscoresTable.css';
 
+import type { ApiStore } from 'types/store';
+import type { Highscore } from 'types/db';
+
+type Props = {
+  api:ApiStore
+};
+
+type State = {
+  dataStatus:string
+};
 
 const columns = ['No.', 'Player', 'Time', 'Moves', 'Date'];
 
-class HighscoresTable extends Component {
+export default class HighscoresTable extends Component<Props, State> {
 
-  state = { dataStatus: undefined };
+  state = { dataStatus: '' };
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps:Props) {
     
     const { api } = nextProps;
 
@@ -26,7 +37,7 @@ class HighscoresTable extends Component {
       this.setState({ dataStatus: api.highscores.res.data.length === 0 ? 'NO_DATA' : 'DATA_READY' });
     
     } else {
-      this.setState({ dataStatus: undefined });
+      this.setState({ dataStatus: '' });
     }
   }
 
@@ -75,16 +86,10 @@ class HighscoresTable extends Component {
     }
   }
 
-  getRowStyle(highscore) {
+  getRowStyle(highscore:Highscore) {
 
     if (highscore.username === this.props.api.clientUser.res.data.username) {
       return { fontWeight: 'bold' };
     }
   }
 }
-
-HighscoresTable.propTypes = {
-  api: PropTypes.object.isRequired
-};
-
-export default HighscoresTable;

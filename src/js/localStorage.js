@@ -1,3 +1,5 @@
+// @flow
+
 const defaultUiConfig = {
   gamesPage: {
     category: 'sliding',
@@ -15,7 +17,7 @@ const defaultUiConfig = {
   }
 };
 
-export const getUiConfig = (username, callback) => {
+export const getUiConfig = (username:string, callback:Function) => {
 
   let ui = localStorage.getItem('ui');
 
