@@ -1,6 +1,6 @@
 // @flow
 
-import type { GameOptions } from 'types/store';
+import type { T_GameOptions } from 'js/gameOptions';
 
 export type User = {
   username:string,
@@ -10,7 +10,7 @@ export type User = {
 export type Highscore = {
   username:string,
   gameId:string,
-  options:GameOptions,
+  options:T_GameOptions,
   details:{ moves:number, seconds:number }
 };
 

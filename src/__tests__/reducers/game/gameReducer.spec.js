@@ -1,5 +1,5 @@
-import gameReducer from 'js/game/Game/gameReducer';
-import { startGame, stopGameLoader, makeMove, setAsSolved, endGame } from 'js/game/Game/gameActions';
+import gameReducer from 'js/game/gameReducer';
+import { startGame, stopGameLoader, makeMove, setAsSolved, endGame } from 'js/game/gameActions';
 
 
 describe('gameReducer', () => {

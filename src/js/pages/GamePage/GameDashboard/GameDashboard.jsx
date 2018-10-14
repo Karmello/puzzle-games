@@ -6,13 +6,13 @@ import { Chip } from 'material-ui';
 import { Timer } from 'js/other';
 import './GameDashboard.css';
 
-import type { GameStore } from 'types/store';
+import type { T_GameSettings } from 'js/game';
 import type { GameDashBoardRef } from 'types/other';
 
 
 type Props = {
   clientUserData:{ username:string },
-  game:GameStore
+  game:T_GameSettings
 };
 
 export default class GameDashboard extends Component<Props, {}> {

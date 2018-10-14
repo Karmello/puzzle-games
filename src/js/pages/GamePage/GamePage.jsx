@@ -9,24 +9,25 @@ import GameDashboard from './GameDashboard/GameDashboard';
 import GamePageInfo from './GamePageInfo/GamePageInfo';
 import { Loader } from 'js/other';
 import { setAppTitle } from 'js/app/appActions';
-import { startGame, endGame } from 'js/game/Game/gameActions';
+import { startGame, endGame } from 'js/game/gameActions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePageActions';
 import { kebabToCamelCase } from 'js/helpers';
 import './GamePage.css';
 
-import type { GameStore, GameOptions } from 'types/store';
+import type { T_GameOptions } from 'js/gameOptions';
 import type { QueryStringMatch } from 'types/query';
 import type { T_ApiEntities } from 'js/api';
+import type { T_GameSettings } from 'js/game';
 
 
 type Props = {
   dispatch: Function,
   match:QueryStringMatch,
-  queryParams:GameOptions,
+  queryParams:T_GameOptions,
   api:T_ApiEntities,
   gameData:{ name:string, categoryId:string, info:string },
   gamePage:any,
-  game:GameStore
+  game:T_GameSettings
 };
 
 class GamePage extends Component<Props> {

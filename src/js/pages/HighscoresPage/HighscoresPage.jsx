@@ -11,15 +11,16 @@ import HighscoresFilter from './HighscoresFilter/HighscoresFilter';
 import HighscoresTable from './HighscoresTable/HighscoresTable';
 import './HighscoresPage.css';
 
-import type { GameOptions, HighscoresPageStore } from 'types/store';
+import type { T_HighscoresPageSettings } from 'js/pages';
 import type { T_ApiEntities } from 'js/api';
+import type { T_GameOptions } from 'js/gameOptions';
 
 type Props = {
-  gameOptions:GameOptions,
-  highscoresPage:HighscoresPageStore,
+  gameOptions:T_GameOptions,
+  highscoresPage:T_HighscoresPageSettings,
   api:T_ApiEntities,
   gameFilterToSet:{ id:string, category:string },
-  optionsFilterToSet:GameOptions,
+  optionsFilterToSet:T_GameOptions,
   dispatch:Function
 };
 

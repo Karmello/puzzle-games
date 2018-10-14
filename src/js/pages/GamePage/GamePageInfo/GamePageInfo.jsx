@@ -11,12 +11,13 @@ import { GameBtn } from 'js/game';
 import { humanizeHighscoreTime } from './gamePageInfoHelpers';
 import './GamePageInfo.css';
 
-import type { GameStore, GamePageStore } from 'types/store';
+import type { T_GamePageSettings } from 'js/pages';
+import type { T_GameSettings } from 'js/game';
 
 type Props = {
-  game:GameStore,
+  game:T_GameSettings,
   gameData:{ categoryId:string, info:string },
-  gamePage:GamePageStore,
+  gamePage:T_GamePageSettings,
   bestHighscore:any,
   onToggleExpansionPanel:Function
 };

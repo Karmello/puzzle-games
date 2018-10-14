@@ -10,11 +10,11 @@ import { kebabToCamelCase } from 'js/helpers';
 import './GameCard.css';
 
 import type { Game } from 'types/db';
-import type { GameOptions } from 'types/store';
+import type { T_GameOptions } from 'js/gameOptions';
 
 type Props = {
   gameData:Game,
-  gameOptions:GameOptions,
+  gameOptions:T_GameOptions,
   onGameOptionsChange:Function
 };
 

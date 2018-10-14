@@ -8,7 +8,7 @@ import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
 
 import { App } from 'js/app';
-import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/app/App/appActions';
+import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/app/appActions';
 import { CLIENT_USER_ACTION, FETCH_GAMES, FETCH_GAME_CATEGORIES, FETCH_HIGHSCORES, FETCH_HIGHSCORE, SAVE_NEW_HIGHSCORE, FETCH_USERS } from 'js/api/apiActions';
 import { apiRequestClear } from 'js/api/apiActionCreators';
 import { clearPageConfig } from 'js/pages/pagesActionCreators';

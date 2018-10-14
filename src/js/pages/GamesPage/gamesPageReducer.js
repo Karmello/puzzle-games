@@ -2,7 +2,8 @@
 
 import { SWITCH_GAME_CATEGORY_TAB, CHANGE_GAME_OPTIONS, GAMES_PAGE_CLEAR } from './gamesPageActions';
 
-import type { Action, GamesPageStore } from 'types/store';
+import type { Action } from 'types/store';
+import type { T_GamesPageSettings } from 'js/pages';
 
 const initialState = {
   category: '',
@@ -11,7 +12,7 @@ const initialState = {
   }
 };
 
-const gamesPageReducer = (state:GamesPageStore = initialState, action:Action) => {
+const gamesPageReducer = (state:T_GamesPageSettings = initialState, action:Action) => {
   
   switch (action.type) {
 

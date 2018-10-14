@@ -5,7 +5,7 @@ import { Button } from 'material-ui';
 
 import { GridGameBoard } from 'js/game';
 import BossPuzzle from './../BossPuzzle';
-import type { GameOptions } from 'types/store';
+import type { T_GameOptions } from 'js/gameOptions';
 import type { Coords } from 'types/other';
 
 
@@ -15,7 +15,7 @@ type Props = {
   row:number,
   tiles:Array<number>,
   hiddenTileCoords:Coords,
-  options:GameOptions,
+  options:T_GameOptions,
   isSolved:boolean,
   onMoveMade:Function
 };

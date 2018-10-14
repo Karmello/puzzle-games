@@ -9,13 +9,13 @@ import GameCategories from './GameCategories/GameCategories';
 import GameCard from './GameCard/GameCard';
 import './GamesPage.css';
 
-import type { GamesPageStore } from 'types/store';
+import type { T_GamesPageSettings } from 'js/pages';
 import type { T_ApiEntities } from 'js/api';
 
 type Props = {
   dispatch:Function,
   api:T_ApiEntities,
-  gamesPage:GamesPageStore,
+  gamesPage:T_GamesPageSettings,
   gameCategoryToSet:string
 };
 

@@ -12,14 +12,14 @@ import { InputLabel } from 'material-ui/Input';
 import { kebabToCamelCase } from 'js/helpers';
 import './HighscoresFilter.css';
 
-import type { GameOptions } from 'types/store';
+import type { T_GameOptions } from 'js/gameOptions';
 import type { T_ApiEntities } from 'js/api';
 
 type Props = {
   api:T_ApiEntities,
-  gameOptions:GameOptions,
+  gameOptions:T_GameOptions,
   gameFilter:{ id?:string, category?:string },
-  optionsFilter:GameOptions
+  optionsFilter:T_GameOptions
 };
 
 type State = {

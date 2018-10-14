@@ -4,8 +4,8 @@ import { AppBar as MaterialAppBar, IconButton, Toolbar, Typography } from 'mater
 import MenuIcon from 'material-ui-icons/Menu';
 
 import { GameMenu } from 'js/game';
-import { startGame } from 'js/game/Game/gameActions';
-import { toggleAppDrawer } from 'js/app/App/appActions';
+import { startGame } from 'js/game/gameActions';
+import { toggleAppDrawer } from 'js/app/appActions';
 import './AppBar.css';
 
 

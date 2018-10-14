@@ -3,7 +3,7 @@
 import axios from 'axios';
 import { isEmpty } from 'lodash';
 import { apiRequest, apiRequestSuccess, apiRequestFailure } from './apiActionCreators';
-import type { GameOptions } from 'types/store';
+import type { T_GameOptions } from 'js/gameOptions';
 import type { Credentials, User, Highscore } from 'types/db';
 
 const baseURL = process.env.REACT_APP_API_URI;
@@ -100,7 +100,7 @@ export const fetchGameCategories = () => {
   }
 }
 
-export const fetchHighscores = (gameId:string, query:GameOptions, delay:number) => {
+export const fetchHighscores = (gameId:string, query:T_GameOptions, delay:number) => {
   const api = axios.create({ baseURL });
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
@@ -123,7 +123,7 @@ export const fetchHighscores = (gameId:string, query:GameOptions, delay:number) 
   }
 }
 
-export const fetchHighscore = (gameId:string, query:GameOptions) => {
+export const fetchHighscore = (gameId:string, query:T_GameOptions) => {
   const api = axios.create({ baseURL });
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
