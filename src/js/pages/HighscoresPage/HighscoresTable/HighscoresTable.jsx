@@ -9,11 +9,11 @@ import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import { Loader } from 'js/other';
 import './HighscoresTable.css';
 
-import type { ApiStore } from 'types/store';
 import type { Highscore } from 'types/db';
+import type { T_ApiEntities } from 'js/api';
 
 type Props = {
-  api:ApiStore
+  api:T_ApiEntities
 };
 
 type State = {

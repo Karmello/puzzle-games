@@ -5,23 +5,25 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Paper } from 'material-ui';
 
-import type { ApiStore, GameStore, GameOptions } from 'types/store';
-import type { QueryStringMatch } from 'types/query';
 import GameDashboard from './GameDashboard/GameDashboard';
 import GamePageInfo from './GamePageInfo/GamePageInfo';
 import { Loader } from 'js/other';
-import { setAppTitle } from 'js/app/App/appActions';
+import { setAppTitle } from 'js/app/appActions';
 import { startGame, endGame } from 'js/game/Game/gameActions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePageActions';
 import { kebabToCamelCase } from 'js/helpers';
 import './GamePage.css';
+
+import type { GameStore, GameOptions } from 'types/store';
+import type { QueryStringMatch } from 'types/query';
+import type { T_ApiEntities } from 'js/api';
 
 
 type Props = {
   dispatch: Function,
   match:QueryStringMatch,
   queryParams:GameOptions,
-  api:ApiStore,
+  api:T_ApiEntities,
   gameData:{ name:string, categoryId:string, info:string },
   gamePage:any,
   game:GameStore

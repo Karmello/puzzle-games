@@ -1,12 +1,17 @@
 // @flow
 
+import type { GameOptions } from 'types/store';
+
 export type User = {
   username:string,
   password:string
 };
 
 export type Highscore = {
-  username:string
+  username:string,
+  gameId:string,
+  options:GameOptions,
+  details:{ moves:number, seconds:number }
 };
 
 type Token = {

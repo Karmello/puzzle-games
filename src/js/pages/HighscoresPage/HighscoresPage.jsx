@@ -11,12 +11,13 @@ import HighscoresFilter from './HighscoresFilter/HighscoresFilter';
 import HighscoresTable from './HighscoresTable/HighscoresTable';
 import './HighscoresPage.css';
 
-import type { ApiStore, GameOptions, HighscoresPageStore } from 'types/store';
+import type { GameOptions, HighscoresPageStore } from 'types/store';
+import type { T_ApiEntities } from 'js/api';
 
 type Props = {
   gameOptions:GameOptions,
   highscoresPage:HighscoresPageStore,
-  api:ApiStore,
+  api:T_ApiEntities,
   gameFilterToSet:{ id:string, category:string },
   optionsFilterToSet:GameOptions,
   dispatch:Function

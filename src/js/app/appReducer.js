@@ -1,7 +1,8 @@
 // @flow
 
 import { TOGGLE_APP_LOADER, SET_AUTH_STATUS, SET_APP_TITLE, TOGGLE_APP_DRAWER } from './appActions';
-import type { Action, AppStore } from 'types/store';
+import type { Action } from 'types/store';
+import type { T_AppSettings } from 'js/app';
 
 const initialState = {
   NODE_ENV: process.env.REACT_APP_NODE_ENV || process.env.NODE_ENV,
@@ -11,7 +12,7 @@ const initialState = {
   isLoading: true
 };
 
-const appReducer = (state:AppStore = initialState, action:Action) => {
+const appReducer = (state:T_AppSettings = initialState, action:Action) => {
   
   switch (action.type) {
 

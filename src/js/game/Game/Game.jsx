@@ -5,16 +5,17 @@ import { Component } from 'react';
 import { App } from 'js/app';
 import { fetchHighscore, saveNewHighscore } from 'js/api/apiActions';
 import { stopGameLoader, makeMove, setAsSolved } from './gameActions';
-import type { GameStore, BossPuzzleEngine, EightQueensEngine, SudokuEngine } from 'types/store';
+import type { GameStore } from 'types/store';
+import type { T_BossPuzzleEngine, T_EightQueensEngine, T_SudokuEngine } from 'js/engines';
 
 type Props = {
   dispatch: Function,
   readTimer: Function,
   clientUser: any,
   game:GameStore,
-  bossPuzzleEngine:BossPuzzleEngine,
-  eightQueensEngine:EightQueensEngine,
-  sudokuEngine:SudokuEngine
+  bossPuzzleEngine:T_BossPuzzleEngine,
+  eightQueensEngine:T_EightQueensEngine,
+  sudokuEngine:T_SudokuEngine
 };
 
 type State = {

@@ -14,7 +14,7 @@ import {
   SAVE_NEW_HIGHSCORE
 } from './apiActions';
 
-
+// reducer
 export const apiReducers = combineReducers({
   clientUser: getApiRequestReducer(CLIENT_USER_ACTION),
   users: getApiRequestReducer(FETCH_USERS),
@@ -24,3 +24,13 @@ export const apiReducers = combineReducers({
   bestHighscore: getApiRequestReducer(FETCH_HIGHSCORE),
   newHighscore: getApiRequestReducer(SAVE_NEW_HIGHSCORE)
 });
+
+// flow types
+export type T_ApiEntities = {
+  clientUser:any,
+  bestHighscore:any,
+  newHighscore:any,
+  gameCategories:any,
+  games:any,
+  highscores:any
+};

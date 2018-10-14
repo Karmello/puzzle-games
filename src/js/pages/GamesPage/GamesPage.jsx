@@ -9,11 +9,12 @@ import GameCategories from './GameCategories/GameCategories';
 import GameCard from './GameCard/GameCard';
 import './GamesPage.css';
 
-import type { ApiStore, GamesPageStore } from 'types/store';
+import type { GamesPageStore } from 'types/store';
+import type { T_ApiEntities } from 'js/api';
 
 type Props = {
   dispatch:Function,
-  api:ApiStore,
+  api:T_ApiEntities,
   gamesPage:GamesPageStore,
   gameCategoryToSet:string
 };

@@ -6,13 +6,14 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 
 import { AuthPage, RootPage } from 'js/pages';
 import { Loader, MySnackBar } from 'js/other';
-import type { AppStore, ApiStore } from 'types/store';
+import type { T_AppSettings } from 'js/app';
+import type { T_ApiEntities } from 'js/api';
 import './App.css';
 
 
 type Props = {
-  api:ApiStore,
-  app:AppStore
+  api:T_ApiEntities,
+  app:T_AppSettings
 };
 
 type State = {

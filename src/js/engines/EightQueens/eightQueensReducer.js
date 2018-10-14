@@ -1,13 +1,14 @@
 // @flow
 
 import { INIT_FRAME, MOVE_QUEEN, RESET_FRAME } from './eightQueensActions';
-import type { Action, EightQueensEngine } from 'types/store';
+import type { Action,  } from 'types/store';
+import type { T_EightQueensEngine } from 'js/engines';
 
 const initialState = {
   queens: []
 };
 
-const eightQueensReducer = (state:EightQueensEngine = initialState, action:Action) => {
+const eightQueensReducer = (state:T_EightQueensEngine = initialState, action:Action) => {
   
   switch (action.type) {
 

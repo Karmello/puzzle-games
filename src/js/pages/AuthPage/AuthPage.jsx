@@ -7,15 +7,15 @@ import { Paper } from 'material-ui';
 
 import { App } from 'js/app';
 import { AuthForm } from 'js/other';
-import { toggleAppLoader, setAuthStatus } from 'js/app/App/appActions';
+import { toggleAppLoader, setAuthStatus } from 'js/app/appActions';
 import { registerUser, loginUser } from 'js/api/apiActions';
 import './AuthPage.css';
 
-import type { AppStore } from 'types/store';
+import type { T_AppSettings } from 'js/app';
 
 type Props = {
   dispatch:Function,
-  app:AppStore,
+  app:T_AppSettings,
   clientUser:any,
   location:{
     state:{

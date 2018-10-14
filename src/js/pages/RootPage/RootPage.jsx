@@ -8,7 +8,7 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { AppBar, AppDrawer } from 'js/app';
 import { PageError } from 'js/other';
 import { fetchGames, fetchGameCategories } from 'js/api/apiActions';
-import { toggleAppLoader } from 'js/app/App/appActions';
+import { toggleAppLoader } from 'js/app/appActions';
 import { switchGameCategoryTab, changeGameOptions } from 'js/pages/GamesPage/gamesPageActions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePageActions';
 import { changeHighscoresFilter } from 'js/pages/HighscoresPage/highscoresPageActions';
@@ -16,12 +16,14 @@ import { getUiConfig } from 'js/localStorage';
 import { validateGameParams } from 'js/pages/pagesHelpers';
 import { gamesRouteLogic, gameRouteLogic, highscoresRouteLogic  } from 'js/pages/RootPage/rootPageRoutesLogic';
 
-import type { AppStore, ApiStore, GameOptions, GamePageStore, GamesPageStore } from 'types/store';
+import type { GameOptions, GamePageStore, GamesPageStore } from 'types/store';
 import type { PageRouteLogicProps } from 'types/other';
+import type { T_ApiEntities } from 'js/api';
+import type { T_AppSettings } from 'js/app';
 
 type Props = {
-  api:ApiStore,
-  app:AppStore,
+  api:T_ApiEntities,
+  app:T_AppSettings,
   pages:any,
   location:string,
   dispatch:Function

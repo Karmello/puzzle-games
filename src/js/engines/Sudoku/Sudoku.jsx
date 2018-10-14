@@ -37,7 +37,7 @@ class Sudoku extends Game {
           return (
             <ValueField
               {...props}
-              value={(sudokuEngine.values && sudokuEngine.values[index]) || null}
+              value={(sudokuEngine.values && sudokuEngine.values[index]) || ''}
               size={this.squareSize}
               onChange={this.onMoveMade.bind(this)}
               disabled={this.state.disabledIndexes.indexOf(index) > -1}

@@ -1,7 +1,5 @@
 // @flow
 
-import type { Coords } from 'types/other';
-
 export type Action = {
   type:string,
   meta: {
@@ -10,23 +8,6 @@ export type Action = {
   payload:{
     [key:string]:any
   }
-};
-
-export type ApiStore = {
-  clientUser:any,
-  bestHighscore:any,
-  newHighscore:any,
-  gameCategories:any,
-  games:any,
-  highscores:any
-};
-
-export type AppStore = {
-  NODE_ENV:string|null|typeof undefined,
-  title:string,
-  authStatus:string,
-  showDrawer:boolean,
-  isLoading:boolean
 };
 
 export type GameOptions = {
@@ -41,21 +22,6 @@ export type GameStore = {
   isSolved:boolean,
   isLoading:boolean,
   doRestart:boolean
-};
-
-export type BossPuzzleEngine = {
-  imgNumbers:Array<number>,
-  imgIndex:number|typeof undefined,
-  tiles:Array<number>,
-  hiddenTileCoords:Coords
-};
-
-export type EightQueensEngine = {
-  queens:Array<boolean>
-};
-
-export type SudokuEngine = {
-  values:Array<number>
 };
 
 export type GamePageStore = {
