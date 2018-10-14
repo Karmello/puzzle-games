@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Paper } from 'material-ui';
 
-import type { ApiStore, GameStore } from 'types/store';
-import type { QueryStringMatch, QueryParams } from 'types/query';
+import type { ApiStore, GameStore, GameOptions } from 'types/store';
+import type { QueryStringMatch } from 'types/query';
 import type { GameDashBoardRef } from 'types/other';
 import GameDashboard from './GameDashboard/GameDashboard';
 import GamePageInfo from './GamePageInfo/GamePageInfo';
@@ -21,10 +21,10 @@ import './GamePage.css';
 type Props = {
   dispatch: Function,
   match:QueryStringMatch,
-  queryParams: QueryParams,
+  queryParams:GameOptions,
   api:ApiStore,
-  gameData: { name: string },
-  gamePage: any,
+  gameData:{ name:string },
+  gamePage:any,
   game:GameStore
 };
 

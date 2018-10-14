@@ -1,19 +1,22 @@
+// @flow
+
 import { shuffleIntArray } from 'js/helpers';
+import type { Coords } from 'types/other';
 
-export const coordsToIndex = (coords, dimension) => {
+export const coordsToIndex = (coords:Coords, dimension:number) => {
 
-  return coords.y * dimension + coords.x;
+  return (coords.y || 0) * dimension + (coords.x || 0);
 }
 
-export const indexToCoords = (index, dimension) => {
+export const indexToCoords = (index:number, dimension:number) => {
   return {
     x: index % dimension,
     y: Math.floor(index/dimension)
   }
 }
 
-export const offsetToIndex = (offset, squareSize, dimension) => {
-  const coords = { x: Math.round(offset.x / squareSize), y: Math.round(offset.y / squareSize) };
+export const offsetToIndex = (offset:Coords, squareSize:number, dimension:number) => {
+  const coords = { x: Math.round((offset.x || 0) / squareSize), y: Math.round((offset.y || 0) / squareSize) };
   if (coords.x >= 0 && coords.x < dimension && coords.y >= 0 && coords.y < dimension) {
     return Math.abs(coordsToIndex(coords, dimension));
   } else {
@@ -21,7 +24,10 @@ export const offsetToIndex = (offset, squareSize, dimension) => {
   }
 }
 
-export const findAllMovementCoords = (targetCoords, dimension) => {
+export const findAllMovementCoords = (targetCoords:Coords, dimension:number) => {
+
+  if (targetCoords.x === undefined) { targetCoords.x = 0; }
+  if (targetCoords.y === undefined) { targetCoords.y = 0; }
 
   if (dimension < 2) { throw new Error('Dimension must be greater than or equal 2'); }
 
@@ -43,10 +49,13 @@ export const findAllMovementCoords = (targetCoords, dimension) => {
   return realDestinationCoords;
 }
 
-export const isAloneOnAxis = (axis, targetCoords, dimension, gridData) => {
+export const isAloneOnAxis = (axis:'x'|'y'|'d1'|'d2', targetCoords:Coords, dimension:number, gridData:Array<boolean>) => {
 
-  let upperBound;
+  let upperBound = 0;
   let shouldTerminate;
+
+  if (targetCoords.x === undefined) { targetCoords.x = 0; }
+  if (targetCoords.y === undefined) { targetCoords.y = 0; }
 
   switch (axis) {
     
@@ -71,8 +80,8 @@ export const isAloneOnAxis = (axis, targetCoords, dimension, gridData) => {
 
       shouldTerminate = i => {
         
-        const { x, y } = targetCoords;
-        let j;
+        const { x = 0, y = 0 } = targetCoords;
+        let j = 0;
 
         if (axis === 'd1') {
           j = (((y - Math.min(x, y)) + i) * dimension) + (x - Math.min(x, y) + i);
@@ -104,7 +113,7 @@ export const isAloneOnAxis = (axis, targetCoords, dimension, gridData) => {
   return true;
 }
 
-export const areValuesUniqueOnAxis = (axis, axisIndex, dimension, gridData, disallowEmptyValues) => {
+export const areValuesUniqueOnAxis = (axis:'X'|'Y', axisIndex:number, dimension:number, gridData:Array<number>, disallowEmptyValues:boolean) => {
 
   const axisValues = [];
   const coord = axis === 'X' ? 'y' : 'x';
@@ -125,7 +134,7 @@ export const areValuesUniqueOnAxis = (axis, axisIndex, dimension, gridData, disa
   return (new Set(axisValues)).size === axisValues.length;
 }
 
-export const getFlipped = (axisDirection, dimension, gridData) => {
+export const getFlipped = (axisDirection:'H'|'V', dimension:number, gridData:Array<any>) => {
 
   const newGridData = [];
 
@@ -149,7 +158,7 @@ export const getFlipped = (axisDirection, dimension, gridData) => {
   return newGridData;
 }
 
-export const getRotated = (direction, angle, dimension, gridData) => {
+export const getRotated = (direction:'L'|'R', angle:90|180|270|360, dimension:number, gridData:Array<any>) => {
 
   const possibleAngles = [90, 180, 270, 360];
 
@@ -182,7 +191,7 @@ export const getRotated = (direction, angle, dimension, gridData) => {
   return newGridData;
 }
 
-export const getWithLinesShuffled = (axisDirection, startIndex, endIndex, dimension, gridData) => {
+export const getWithLinesShuffled = (axisDirection:'H'|'V', startIndex:number, endIndex:number, dimension:number, gridData:Array<any>) => {
 
   const newGridData = [...gridData];
   const indexes = Array.from({ length: endIndex - startIndex + 1 }, (v, k) => k + startIndex);

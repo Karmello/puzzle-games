@@ -5,5 +5,3 @@ export type QueryStringMatch = {
     id:string
   }
 };
-
-export type QueryParams = {};

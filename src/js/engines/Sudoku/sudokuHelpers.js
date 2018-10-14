@@ -27,18 +27,19 @@ export const initializeValues = (dimension:number) => {
   let values = [...startingValues];
 
   const jobs = [
-    () => {
+    (values:Array<number|null>) => {
       const randomIndexBounds = indexBounds[Math.floor(Math.random() * indexBounds.length)];
       return getWithLinesShuffled(axisDirections[Math.floor(Math.random() * axisDirections.length)], randomIndexBounds[0], randomIndexBounds[1], dimension, values);
     },
-    () => getRotated(directions[Math.floor(Math.random() * directions.length)], angles[Math.floor(Math.random() * angles.length)], dimension, values),
-    () => getFlipped(axisDirections[Math.floor(Math.random() * axisDirections.length)], dimension, values)
+    (values:Array<number|null>) => getRotated(directions[Math.floor(Math.random() * directions.length)], angles[Math.floor(Math.random() * angles.length)], dimension, values),
+    (values:Array<number|null>) => getFlipped(axisDirections[Math.floor(Math.random() * axisDirections.length)], dimension, values)
   ];
   
   // Creating unique values
 
   for (let i = 0; i < N; i++) {
-    values = jobs[Math.floor(Math.random() * jobs.length)]();
+    const newValues = jobs[Math.floor(Math.random() * jobs.length)](values);
+    if (newValues) { values = newValues; }
   }
 
   const numOfVisibleOnARow = shuffleIntArray([3, 3, 3, 3, 3, 3, 4, 4, 4]);

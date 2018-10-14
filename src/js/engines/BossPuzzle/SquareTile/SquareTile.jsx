@@ -29,7 +29,7 @@ class SquareTile extends Component<Props> {
 
   constructor(props:Props) {
     super(props);
-    this.index = GridGameBoard.coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
+    this.index = GridGameBoard.coordsToIndex({ x: props.col, y: props.row }, Number(props.options.dimension));
   }
 
   componentWillMount() {
@@ -71,7 +71,7 @@ class SquareTile extends Component<Props> {
       const label = this.getLabel();
 
       if (options.mode === 'IMG' && imgSrc && label) {
-        const imgCoords = GridGameBoard.indexToCoords(Number(label) - 1, options.dimension);
+        const imgCoords = GridGameBoard.indexToCoords(Number(label) - 1, Number(options.dimension));
         const imgSize = BossPuzzle.tilesSizes[options.dimension];
         style.backgroundImage = `url(${imgSrc})`;
         style.backgroundSize = `${Number(options.dimension) * imgSize}px ${Number(options.dimension) * imgSize}px`;
@@ -92,7 +92,7 @@ class SquareTile extends Component<Props> {
 
   isInProperPlace() {
     const { options, row, col } = this.props;
-    return GridGameBoard.coordsToIndex({ x: col, y: row }, options.dimension) + 1 === this.getLabel();
+    return GridGameBoard.coordsToIndex({ x: col, y: row }, Number(options.dimension)) + 1 === this.getLabel();
   }
 
   onClick() {
@@ -102,15 +102,15 @@ class SquareTile extends Component<Props> {
     if (!isSolved) {
       
       const targetCoords = { x: col, y: row };
-      const allMovementCoords = GridGameBoard.findAllMovementCoords(targetCoords, options.dimension);
+      const allMovementCoords = GridGameBoard.findAllMovementCoords(targetCoords, Number(options.dimension));
 
       for (let coords of allMovementCoords) {
 
         // If hidden tile found
         if (coords.x === hiddenTileCoords.x && coords.y === hiddenTileCoords.y) {
 
-          const index1 = GridGameBoard.coordsToIndex(targetCoords, options.dimension);
-          const index2 = GridGameBoard.coordsToIndex(coords, options.dimension);
+          const index1 = GridGameBoard.coordsToIndex(targetCoords, Number(options.dimension));
+          const index2 = GridGameBoard.coordsToIndex(coords, Number(options.dimension));
           return onMoveMade(index1, index2, targetCoords);
         }
       }

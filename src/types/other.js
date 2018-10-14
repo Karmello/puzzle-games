@@ -14,5 +14,6 @@ export type Coords = {
 export type Event = {
   target:{
     value:number
-  }
+  },
+  currentTarget:{}
 };
