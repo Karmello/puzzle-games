@@ -6,9 +6,9 @@ import { Redirect } from 'react-router-dom';
 
 import { GamesPage, GamePage, HighscoresPage } from 'js/pages';
 
-import type { PageRouteLogicProps } from 'types/other';
+import type { T_PageRouteLogicProps } from 'js/types';
 
-export const gamesRouteLogic = function(props:PageRouteLogicProps) {
+export const gamesRouteLogic = function(props:T_PageRouteLogicProps) {
 
   const pathParams = props.match.params;
 
@@ -25,7 +25,7 @@ export const gamesRouteLogic = function(props:PageRouteLogicProps) {
   }
 }
 
-export const gameRouteLogic = function(props:PageRouteLogicProps) {
+export const gameRouteLogic = function(props:T_PageRouteLogicProps) {
     
   const pathname = props.location.pathname;
   const pathParams = props.match.params;
@@ -55,7 +55,7 @@ export const gameRouteLogic = function(props:PageRouteLogicProps) {
   }
 }
 
-export const highscoresRouteLogic = function(props:PageRouteLogicProps) {
+export const highscoresRouteLogic = function(props:T_PageRouteLogicProps) {
 
   const pathname = props.location.pathname;
   const pathParams = props.match.params;

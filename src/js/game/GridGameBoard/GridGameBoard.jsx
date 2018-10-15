@@ -8,7 +8,7 @@ import Draggable from 'react-draggable';
 import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from './gridGameBoardHelpers';
 import './GridGameBoard.css';
 
-import type { Event, Coords } from 'types/other';
+import type { T_Event, T_Coords } from 'js/types';
 
 type Props = {
   dimension:number,
@@ -76,11 +76,11 @@ export default class GridGameBoard extends Component<Props, State> {
     );
   }
 
-  onDragStart(e:Event, data:Coords, index:number) {
+  onDragStart(e:T_Event, data:T_Coords, index:number) {
     this.setState({ lastDraggedIndex: index });
   }
 
-  onDragStop(e:Event, data:Coords, col:number, row:number, position:Coords) {
+  onDragStop(e:T_Event, data:T_Coords, col:number, row:number, position:T_Coords) {
 
     const { dimension, squareSize, gridData, onDragMade } = this.props;
 

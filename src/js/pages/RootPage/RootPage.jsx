@@ -16,10 +16,9 @@ import { getUiConfig } from 'js/localStorage';
 import { validateGameParams } from 'js/pages/pagesHelpers';
 import { gamesRouteLogic, gameRouteLogic, highscoresRouteLogic  } from 'js/pages/RootPage/rootPageRoutesLogic';
 
-import type { PageRouteLogicProps } from 'types/other';
-import type { T_ApiEntities } from 'js/api';
+import type { T_PageRouteLogicProps } from 'js/types';
+import type { T_ApiEntities, T_GameOptionsModel } from 'js/api';
 import type { T_AppSettings } from 'js/app';
-import type { T_GameOptions } from 'js/gameOptions';
 import type { T_GamePageSettings } from 'js/pages';
 import type { T_GamesPageSettings } from 'js/pages';
 
@@ -33,9 +32,9 @@ type Props = {
 
 class RootPage extends Component<Props, {}> {
 
-  gamesRouteLogic:(props:PageRouteLogicProps) => React.Node;
-  gameRouteLogic:(props:PageRouteLogicProps) => React.Node;
-  highscoresRouteLogic:(props:PageRouteLogicProps) => React.Node;
+  gamesRouteLogic:(props:T_PageRouteLogicProps) => React.Node;
+  gameRouteLogic:(props:T_PageRouteLogicProps) => React.Node;
+  highscoresRouteLogic:(props:T_PageRouteLogicProps) => React.Node;
   
   getDefaultPath:() => string;
   shouldRenderPageError:() => boolean;
@@ -46,7 +45,7 @@ class RootPage extends Component<Props, {}> {
     highscoresPage:any
   };
 
-  validateGameParams:(pathParams:{ category:string, id:string }, queryParams:T_GameOptions, savedGameOptions:T_GameOptions) => {};
+  validateGameParams:(pathParams:{ category:string, id:string }, queryParams:T_GameOptionsModel, savedGameOptions:T_GameOptionsModel) => {};
 
   constructor(props) {
     super(props);

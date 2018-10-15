@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button, Menu } from 'material-ui';
 import { MenuItem } from 'material-ui/Menu';
 
-import type { Event } from 'types/other';
+import type { T_Event } from 'js/types';
 
 type Props = {
   gameCategory:string,
@@ -19,7 +19,7 @@ type State = {
 
 export default class GameMenu extends Component<Props, State> {
   
-  setup:(e?:Event) => null;
+  setup:(e?:T_Event) => null;
   onItemClick:(itemId?:string) => null;
 
   componentWillMount() {
@@ -71,7 +71,7 @@ export default class GameMenu extends Component<Props, State> {
     }
   }
 
-  setup(e:Event) {
+  setup(e:T_Event) {
     this.setState({
       btnElem: e ? e.currentTarget : null
     });

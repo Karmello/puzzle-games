@@ -1,8 +1,8 @@
 // @flow
 
-import type { T_GameOptions } from 'js/gameOptions';
+import type { T_GameOptionsModel } from 'js/api';
 
-export function validateGameParams(pathParams:{ category:string, id:string }, queryParams:T_GameOptions, savedGameOptions:T_GameOptions) {
+export function validateGameParams(pathParams:{ category:string, id:string }, queryParams:T_GameOptionsModel, savedGameOptions:T_GameOptionsModel) {
   
   const { api } = this.props;
 

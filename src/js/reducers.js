@@ -10,6 +10,7 @@ import gameReducer from 'js/game/gameReducer';
 import { engineReducers } from 'js/engines';
 
 
+// reducers
 export default combineReducers({
   api: apiReducers,
   app: appReducer,
@@ -18,3 +19,14 @@ export default combineReducers({
   engines: engineReducers,
   form: formReducer
 });
+
+// flow types
+export type T_Action = {
+  type:string,
+  meta: {
+    [key:string]:any
+  },
+  payload:{
+    [key:string]:any
+  }
+};

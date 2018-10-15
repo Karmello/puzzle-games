@@ -4,7 +4,7 @@ import gamesPageReducer from './GamesPage/gamesPageReducer';
 import gamePageReducer from './GamePage/gamePageReducer';
 import highscoresPageReducer from './HighscoresPage/highscoresPageReducer';
 
-import type { T_GameOptions } from 'js/gameOptions';
+import type { T_GameOptionsModel } from 'js/api';
 
 // reducer
 export const pageReducers = combineReducers({
@@ -28,10 +28,10 @@ export type T_GamePageSettings = {
 
 export type T_GamesPageSettings = {
   category:string,
-  options:T_GameOptions
+  options:T_GameOptionsModel
 };
 
 export type T_HighscoresPageSettings = {
   gameFilter:{ id?:string, category?:string },
-  optionsFilter:T_GameOptions
+  optionsFilter:T_GameOptionsModel
 };

@@ -1,7 +1,7 @@
 // @flow
 
-import type { Action } from 'types/store';
-import type { ApiEndPoint } from 'types/api';
+import type { T_Action } from 'js/reducers';
+import type { T_ApiEndPoint } from 'js/api';
 
 
 const getApiRequestReducer = (actionType:string) => {
@@ -21,7 +21,7 @@ const getApiRequestReducer = (actionType:string) => {
     }
   };
 
-  return (state:ApiEndPoint = initialState, action:Action) => {
+  return (state:T_ApiEndPoint = initialState, action:T_Action) => {
 
     switch (action.type) {
   

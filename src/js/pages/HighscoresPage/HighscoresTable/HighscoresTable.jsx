@@ -9,8 +9,7 @@ import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import { Loader } from 'js/other';
 import './HighscoresTable.css';
 
-import type { Highscore } from 'types/db';
-import type { T_ApiEntities } from 'js/api';
+import type { T_HighscoreModel, T_ApiEntities } from 'js/api';
 
 type Props = {
   api:T_ApiEntities
@@ -86,7 +85,7 @@ export default class HighscoresTable extends Component<Props, State> {
     }
   }
 
-  getRowStyle(highscore:Highscore) {
+  getRowStyle(highscore:T_HighscoreModel) {
 
     if (highscore.username === this.props.api.clientUser.res.data.username) {
       return { fontWeight: 'bold' };

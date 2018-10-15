@@ -9,12 +9,11 @@ import { GameBtn } from 'js/game';
 import { kebabToCamelCase } from 'js/helpers';
 import './GameCard.css';
 
-import type { Game } from 'types/db';
-import type { T_GameOptions } from 'js/gameOptions';
+import type { T_GameModel, T_GameOptionsModel } from 'js/api';
 
 type Props = {
-  gameData:Game,
-  gameOptions:T_GameOptions,
+  gameData:T_GameModel,
+  gameOptions:T_GameOptionsModel,
   onGameOptionsChange:Function
 };
 

@@ -9,10 +9,10 @@ import { MenuItem } from 'material-ui/Menu';
 
 import './BossPuzzleOptions.css';
 
-import type { T_GameOptions } from 'js/gameOptions';
+import type { T_GameOptionsModel } from 'js/api';
 
 type Props = {
-  options:T_GameOptions,
+  options:T_GameOptionsModel,
   path:string,
   disabled:boolean,
   onValueChangeCb:Function

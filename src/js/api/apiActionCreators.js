@@ -1,8 +1,8 @@
 // @flow
 
-import type { ApiRequest, ApiResponse, ApiError } from 'types/api';
+import type { T_ApiRequest, T_ApiResponse, T_ApiError } from 'js/api';
 
-export const apiRequest = (actionType:string, req:ApiRequest) => {
+export const apiRequest = (actionType:string, req:T_ApiRequest) => {
   if (req) {
     return {
       type: actionType,
@@ -20,7 +20,7 @@ export const apiRequest = (actionType:string, req:ApiRequest) => {
   }
 }
 
-export const apiRequestSuccess = (actionType:string, res:ApiResponse) => ({
+export const apiRequestSuccess = (actionType:string, res:T_ApiResponse) => ({
   type: `${actionType}_SUCCESS`,
   payload: {
     config: {
@@ -33,7 +33,7 @@ export const apiRequestSuccess = (actionType:string, res:ApiResponse) => ({
   }
 });
 
-export const apiRequestFailure = (actionType:string, err:ApiError) => ({
+export const apiRequestFailure = (actionType:string, err:T_ApiError) => ({
   type: `${actionType}_FAILURE`,
   payload: {
     config: {

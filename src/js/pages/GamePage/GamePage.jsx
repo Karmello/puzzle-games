@@ -14,16 +14,14 @@ import { toggleExpansionPanel } from 'js/pages/GamePage/gamePageActions';
 import { kebabToCamelCase } from 'js/helpers';
 import './GamePage.css';
 
-import type { T_GameOptions } from 'js/gameOptions';
-import type { QueryStringMatch } from 'types/query';
-import type { T_ApiEntities } from 'js/api';
+import type { T_ApiEntities, T_GameOptionsModel } from 'js/api';
 import type { T_GameSettings } from 'js/game';
 
 
 type Props = {
   dispatch: Function,
-  match:QueryStringMatch,
-  queryParams:T_GameOptions,
+  match:{ params:{ id:string } },
+  queryParams:T_GameOptionsModel,
   api:T_ApiEntities,
   gameData:{ name:string, categoryId:string, info:string },
   gamePage:any,

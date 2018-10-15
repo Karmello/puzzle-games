@@ -3,8 +3,7 @@
 import axios from 'axios';
 import { isEmpty } from 'lodash';
 import { apiRequest, apiRequestSuccess, apiRequestFailure } from './apiActionCreators';
-import type { T_GameOptions } from 'js/gameOptions';
-import type { Credentials, User, Highscore } from 'types/db';
+import type { T_UserModel, T_HighscoreModel, T_GameOptionsModel } from 'js/api';
 
 const baseURL = process.env.REACT_APP_API_URI;
 
@@ -17,7 +16,7 @@ export const FETCH_USERS = 'FETCH_USERS';
 export const SAVE_NEW_HIGHSCORE = 'SAVE_NEW_HIGHSCORE';
 
 
-export const registerUser = (user:User) => {
+export const registerUser = (user:T_UserModel) => {
 
   const api = axios.create({ baseURL });
   api.interceptors.response.use(res => ({ ...res, token: res.data.token, data: res.data.user }));
@@ -31,7 +30,7 @@ export const registerUser = (user:User) => {
   }
 }
 
-export const loginUser = (credentials:Credentials) => {
+export const loginUser = (credentials:T_UserModel|{token:string}) => {
   
   const api = axios.create({ baseURL });
   api.interceptors.response.use(res => ({ ...res, token: res.data.token, data: res.data.user }));
@@ -100,7 +99,7 @@ export const fetchGameCategories = () => {
   }
 }
 
-export const fetchHighscores = (gameId:string, query:T_GameOptions, delay:number) => {
+export const fetchHighscores = (gameId:string, query:T_GameOptionsModel, delay:number) => {
   const api = axios.create({ baseURL });
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
@@ -123,7 +122,7 @@ export const fetchHighscores = (gameId:string, query:T_GameOptions, delay:number
   }
 }
 
-export const fetchHighscore = (gameId:string, query:T_GameOptions) => {
+export const fetchHighscore = (gameId:string, query:T_GameOptionsModel) => {
   const api = axios.create({ baseURL });
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
@@ -137,7 +136,7 @@ export const fetchHighscore = (gameId:string, query:T_GameOptions) => {
   }
 }
 
-export const saveNewHighscore = (highscore:Highscore) => {
+export const saveNewHighscore = (highscore:T_HighscoreModel) => {
   const api = axios.create({ baseURL });
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };

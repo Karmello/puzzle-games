@@ -1,24 +1,19 @@
 // @flow
 
-export type GameDashBoardRef = {
-  timerRef:{
-    state:{}
-  }
-};
-
-export type Coords = {
+// flow types
+export type T_Coords = {
    x:number|typeof undefined,
    y:number|typeof undefined
 };
 
-export type Event = {
+export type T_Event = {
   target:{
     value:number
   },
   currentTarget:{}
 };
 
-export type PageRouteLogicProps = {
+export type T_PageRouteLogicProps = {
   match:{ params:{ id:string, category:string, gameId:string }},
   location:{ pathname:string, search:string }
 };

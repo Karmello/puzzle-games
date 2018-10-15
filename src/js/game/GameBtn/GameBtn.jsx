@@ -6,14 +6,14 @@ import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
 import { Button } from 'material-ui';
 
-import type { T_GameOptions } from 'js/gameOptions';
+import type { T_GameOptionsModel } from 'js/api';
 
 type Props = {
   name:string,
   label:string,
   gameCategory:string,
   gameId:string,
-  gameOptions:T_GameOptions
+  gameOptions:T_GameOptionsModel
 };
 
 const getToObject = props => {

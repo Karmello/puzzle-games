@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { Select, MenuItem } from 'material-ui';
 
-import type { Event } from 'types/other';
+import type { T_Event } from 'js/types';
 import './ValueField.css';
 
 
@@ -69,7 +69,7 @@ class ValueField extends Component<Props> {
     return style;
   }
 
-  onChange(e:Event) {
+  onChange(e:T_Event) {
     const { col, row, value, onChange } = this.props;
     if (value !== e.target.value) {
       onChange(col, row, e.target.value);

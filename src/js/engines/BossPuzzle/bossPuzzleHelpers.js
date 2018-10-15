@@ -2,12 +2,12 @@
 
 import { shuffleIntArray } from 'js/helpers';
 import { GridGameBoard } from 'js/game';
-import type { Coords } from 'types/other';
+import type { T_Coords } from 'js/types';
 
 
 const initDataLoopRuns = 1000;
 
-export const initData = (args:{dimension:number, hiddenTileCoords:Coords}) => {
+export const initData = (args:{dimension:number, hiddenTileCoords:T_Coords}) => {
   
   if (args.dimension < 2) { throw new Error('Dimension must be greater than or equal 2'); }
 

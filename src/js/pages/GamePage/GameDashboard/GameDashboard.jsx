@@ -7,7 +7,6 @@ import { Timer } from 'js/other';
 import './GameDashboard.css';
 
 import type { T_GameSettings } from 'js/game';
-import type { GameDashBoardRef } from 'types/other';
 
 
 type Props = {
@@ -17,7 +16,7 @@ type Props = {
 
 export default class GameDashboard extends Component<Props, {}> {
 
-  timerRef:GameDashBoardRef;
+  timerRef:{ state:{} };
 
   render() {
     const { clientUserData, game } = this.props;

@@ -2,7 +2,7 @@
 
 import { CHANGE_HIGHSCORES_FILTER, HIGHSCORES_PAGE_CLEAR } from './highscoresPageActions';
 
-import type { Action } from 'types/store';
+import type { T_Action } from 'js/reducers';
 import type { T_HighscoresPageSettings } from 'js/pages';
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
   optionsFilter: {}
 };
 
-const highscoresPageReducer = (state:T_HighscoresPageSettings = initialState, action:Action) => {
+const highscoresPageReducer = (state:T_HighscoresPageSettings = initialState, action:T_Action) => {
 
   switch (action.type) {
 

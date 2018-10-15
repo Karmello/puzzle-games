@@ -1,7 +1,7 @@
 // @flow
 
 import { combineReducers } from 'redux';
-import type { Coords } from 'types/other';
+import type { T_Coords } from 'js/types';
 
 import bossPuzzleReducer from './BossPuzzle/bossPuzzleReducer';
 import eightQueensReducer from './EightQueens/eightQueensReducer';
@@ -25,7 +25,7 @@ export type T_BossPuzzleEngine = {
   imgNumbers:Array<number>,
   imgIndex:number|typeof undefined,
   tiles:Array<number>,
-  hiddenTileCoords:Coords
+  hiddenTileCoords:T_Coords
 };
 
 export type T_EightQueensEngine = {

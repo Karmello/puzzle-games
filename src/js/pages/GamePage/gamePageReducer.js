@@ -2,7 +2,7 @@
 
 import { TOGGLE_EXPANSION_PANEL, GAME_PAGE_CLEAR } from 'js/pages/GamePage/gamePageActions';
 
-import type { Action } from 'types/store';
+import type { T_Action } from 'js/reducers';
 import type { T_GamePageSettings } from 'js/pages';
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
   bestScoreExpanded: false
 };
 
-const gamePageReducer = (state:T_GamePageSettings = initialState, action:Action) => {
+const gamePageReducer = (state:T_GamePageSettings = initialState, action:T_Action) => {
   
   switch (action.type) {
 

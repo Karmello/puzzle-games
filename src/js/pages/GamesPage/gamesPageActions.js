@@ -1,6 +1,6 @@
 // @flow
 
-import type { T_GameOptions } from 'js/gameOptions';
+import type { T_GameOptionsModel } from 'js/api';
 
 export const SWITCH_GAME_CATEGORY_TAB = 'SWITCH_GAME_CATEGORY_TAB';
 export const CHANGE_GAME_OPTIONS = 'CHANGE_GAME_OPTIONS';
@@ -11,7 +11,7 @@ export const switchGameCategoryTab = (category:string) => ({
   payload: { category }
 });
 
-export const changeGameOptions = (id:string, options:T_GameOptions) => ({
+export const changeGameOptions = (id:string, options:T_GameOptionsModel) => ({
   type: CHANGE_GAME_OPTIONS,
   meta: { id },
   payload: { options }

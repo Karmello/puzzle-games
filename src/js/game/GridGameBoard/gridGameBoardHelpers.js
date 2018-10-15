@@ -1,9 +1,9 @@
 // @flow
 
 import { shuffleIntArray } from 'js/helpers';
-import type { Coords } from 'types/other';
+import type { T_Coords } from 'js/types';
 
-export const coordsToIndex = (coords:Coords, dimension:number) => {
+export const coordsToIndex = (coords:T_Coords, dimension:number) => {
 
   return (coords.y || 0) * dimension + (coords.x || 0);
 }
@@ -15,7 +15,7 @@ export const indexToCoords = (index:number, dimension:number) => {
   }
 }
 
-export const offsetToIndex = (offset:Coords, squareSize:number, dimension:number) => {
+export const offsetToIndex = (offset:T_Coords, squareSize:number, dimension:number) => {
   const coords = { x: Math.round((offset.x || 0) / squareSize), y: Math.round((offset.y || 0) / squareSize) };
   if (coords.x >= 0 && coords.x < dimension && coords.y >= 0 && coords.y < dimension) {
     return Math.abs(coordsToIndex(coords, dimension));
@@ -24,7 +24,7 @@ export const offsetToIndex = (offset:Coords, squareSize:number, dimension:number
   }
 }
 
-export const findAllMovementCoords = (targetCoords:Coords, dimension:number) => {
+export const findAllMovementCoords = (targetCoords:T_Coords, dimension:number) => {
 
   if (targetCoords.x === undefined) { targetCoords.x = 0; }
   if (targetCoords.y === undefined) { targetCoords.y = 0; }
@@ -49,7 +49,7 @@ export const findAllMovementCoords = (targetCoords:Coords, dimension:number) => 
   return realDestinationCoords;
 }
 
-export const isAloneOnAxis = (axis:'x'|'y'|'d1'|'d2', targetCoords:Coords, dimension:number, gridData:Array<boolean>) => {
+export const isAloneOnAxis = (axis:'x'|'y'|'d1'|'d2', targetCoords:T_Coords, dimension:number, gridData:Array<boolean>) => {
 
   let upperBound = 0;
   let shouldTerminate;
