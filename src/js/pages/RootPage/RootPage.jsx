@@ -1,25 +1,52 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import { AppBar, AppDrawer } from 'js/app';
 import { PageError } from 'js/other';
 import { fetchGames, fetchGameCategories } from 'js/api/apiActions';
-import { toggleAppLoader } from 'js/app/App/appActions';
+import { toggleAppLoader } from 'js/app/appActions';
 import { switchGameCategoryTab, changeGameOptions } from 'js/pages/GamesPage/gamesPageActions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePageActions';
 import { changeHighscoresFilter } from 'js/pages/HighscoresPage/highscoresPageActions';
 import { getUiConfig } from 'js/localStorage';
 import { validateGameParams } from 'js/pages/pagesHelpers';
-import * as rootPageRoutesLogic from 'js/pages/RootPage/rootPageRoutesLogic';
+import { gamesRouteLogic, gameRouteLogic, highscoresRouteLogic  } from 'js/pages/RootPage/rootPageRoutesLogic';
 
+import type { T_RouterProps } from 'js/types';
+import type { T_ApiEntities, T_GameOptionsModel } from 'js/api';
+import type { T_AppSettings } from 'js/app';
+import type { T_PagesSettings } from 'js/pages';
 
-class RootPage extends Component {
+type Props = {
+  api:T_ApiEntities,
+  app:T_AppSettings,
+  pages:T_PagesSettings,
+  location:string,
+  dispatch:Function
+};
+
+class RootPage extends Component<Props> {
+
+  gamesRouteLogic:(props:T_RouterProps) => React.Node;
+  gameRouteLogic:(props:T_RouterProps) => React.Node;
+  highscoresRouteLogic:(props:T_RouterProps) => React.Node;
   
+  getDefaultPath:() => string;
+  shouldRenderPageError:() => boolean;
+
+  ui:T_PagesSettings;
+
+  validateGameParams:(pathParams:{ category:string, id:string }, queryParams:T_GameOptionsModel, savedGameOptions:T_GameOptionsModel) => {};
+
   constructor(props) {
     super(props);
     this.validateGameParams = validateGameParams.bind(this);
-    for (const key in rootPageRoutesLogic) { this[key] = rootPageRoutesLogic[key].bind(this); }
+    this.gamesRouteLogic = gamesRouteLogic.bind(this);
+    this.gameRouteLogic = gameRouteLogic.bind(this);
+    this.highscoresRouteLogic = highscoresRouteLogic.bind(this);
   }
   
   componentWillMount() {

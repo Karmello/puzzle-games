@@ -1,9 +1,10 @@
+// @flow
 import axios from 'axios';
 import { isEmpty } from 'lodash';
 import { apiRequest, apiRequestSuccess, apiRequestFailure } from './apiActionCreators';
+import type { T_UserModel, T_HighscoreModel, T_GameOptionsModel } from 'js/api';
 
 const baseURL = process.env.REACT_APP_API_URI;
-
 
 export const CLIENT_USER_ACTION = 'CLIENT_USER_ACTION';
 export const FETCH_GAMES = 'FETCH_GAMES';
@@ -13,13 +14,12 @@ export const FETCH_HIGHSCORE = 'FETCH_HIGHSCORE';
 export const FETCH_USERS = 'FETCH_USERS';
 export const SAVE_NEW_HIGHSCORE = 'SAVE_NEW_HIGHSCORE';
 
-
-export const registerUser = user => {
+export const registerUser = (user:T_UserModel) => {
 
   const api = axios.create({ baseURL });
   api.interceptors.response.use(res => ({ ...res, token: res.data.token, data: res.data.user }));
 
-  return dispatch => {
+  return (dispatch:Function) => {
     dispatch(apiRequest(CLIENT_USER_ACTION, { body: { ...user, password: user.password.replace(/./g, '*') } }));
     return api.post('/user/register', user).then(res => {
       localStorage.setItem('token', res.token);
@@ -28,16 +28,16 @@ export const registerUser = user => {
   }
 }
 
-export const loginUser = credentials => {
+export const loginUser = (credentials:T_UserModel|{token:string}) => {
   
   const api = axios.create({ baseURL });
   api.interceptors.response.use(res => ({ ...res, token: res.data.token, data: res.data.user }));
 
-  return dispatch => {
+  return (dispatch:Function) => {
     dispatch(apiRequest(CLIENT_USER_ACTION, {
       body: {
         ...credentials,
-        password: credentials.password ? credentials.password.replace(/./g, '*') : undefined
+        password: credentials.password ? String(credentials.password).replace(/./g, '*') : undefined
       }
     }));
     return api.post('/user/login', credentials).then(res => {
@@ -47,11 +47,11 @@ export const loginUser = credentials => {
   }
 }
 
-export const updateUser = (username, updateQuery) => {
+export const updateUser = (username:string, updateQuery:{}) => {
 
   const api = axios.create({ baseURL });
 
-  return dispatch => {
+  return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     dispatch(apiRequest(CLIENT_USER_ACTION, { headers, body: updateQuery }));
     return api.post(`user/${username}`, updateQuery, { headers }).then(
@@ -63,7 +63,7 @@ export const updateUser = (username, updateQuery) => {
 
 export const fetchUsers = () => {
   const api = axios.create({ baseURL });
-  return dispatch => {
+  return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     dispatch(apiRequest(FETCH_USERS, { headers }));
     return api.get('/users', { headers }).then(
@@ -75,7 +75,7 @@ export const fetchUsers = () => {
 
 export const fetchGames = () => {
   const api = axios.create({ baseURL });
-  return dispatch => {
+  return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     dispatch(apiRequest(FETCH_GAMES, { headers }));
     return api.get('/games', { headers }).then(
@@ -87,7 +87,7 @@ export const fetchGames = () => {
 
 export const fetchGameCategories = () => {
   const api = axios.create({ baseURL });
-  return dispatch => {
+  return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     dispatch(apiRequest(FETCH_GAME_CATEGORIES, { headers }));
     return api.get('/game-categories', { headers }).then(
@@ -97,12 +97,12 @@ export const fetchGameCategories = () => {
   }
 }
 
-export const fetchHighscores = (gameId, query, delay) => {
+export const fetchHighscores = (gameId:string, query:T_GameOptionsModel, delay:number) => {
   const api = axios.create({ baseURL });
-  return dispatch => {
+  return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscores/${gameId}`;
-    if (query && !isEmpty(query)) { url += `?mode=${query.mode}&dimension=${query.dimension}`; }
+    if (query && !isEmpty(query) && query.mode && query.dimension) { url += `?mode=${query.mode}&dimension=${query.dimension}`; }
     dispatch(apiRequest(FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(res => {
       if (delay) {
@@ -120,12 +120,12 @@ export const fetchHighscores = (gameId, query, delay) => {
   }
 }
 
-export const fetchHighscore = (gameId, query) => {
+export const fetchHighscore = (gameId:string, query:T_GameOptionsModel) => {
   const api = axios.create({ baseURL });
-  return dispatch => {
+  return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscore/${gameId}`;
-    if (query && !isEmpty(query)) { url += `?mode=${query.mode}&dimension=${query.dimension}`; }
+    if (query && !isEmpty(query) && query.mode && query.dimension) { url += `?mode=${query.mode}&dimension=${query.dimension}`; }
     dispatch(apiRequest(FETCH_HIGHSCORE, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(
       res => dispatch(apiRequestSuccess(FETCH_HIGHSCORE, res)),
@@ -134,9 +134,9 @@ export const fetchHighscore = (gameId, query) => {
   }
 }
 
-export const saveNewHighscore = highscore => {
+export const saveNewHighscore = (highscore:T_HighscoreModel) => {
   const api = axios.create({ baseURL });
-  return dispatch => {
+  return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     dispatch(apiRequest(SAVE_NEW_HIGHSCORE, { headers, body: highscore }));
     return api.post('/highscore', highscore, { headers }).then(

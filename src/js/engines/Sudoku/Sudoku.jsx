@@ -1,18 +1,16 @@
+// @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { Game, GridGameBoard } from 'js/game';
 import ValueField from './ValueField/ValueField';
 import { initFrame, changeValue, resetFrame } from './sudokuActions';
 import { initializeValues, checkIfSolved } from './sudokuHelpers';
 
-
 class Sudoku extends Game {
 
-  state = {
-    disabledIndexes: []
-  }
+  dimension:number;
+  squareSize:number;
 
   constructor(props) {
     super(props);
@@ -48,7 +46,7 @@ class Sudoku extends Game {
     );
   }
 
-  startNew() {
+  startNew = () => {
     return new Promise(resolve => {
 
       const disabledIndexes = [];
@@ -70,14 +68,10 @@ class Sudoku extends Game {
     super.onMakeMove();
   }
 
-  checkIfSolved() {
+  checkIfSolved = () => {
     return checkIfSolved(this.props.sudokuEngine.values, this.dimension);
   }
 }
-
-Sudoku.propTypes = {
-  readTimer: PropTypes.func.isRequired
-};
 
 export default connect(store => ({
   clientUser: store.api.clientUser,

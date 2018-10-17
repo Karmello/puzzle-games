@@ -1,12 +1,25 @@
+// @flow
 import React, { Component } from 'react';
 import { Select, MenuItem } from 'material-ui';
 
+import type { T_Event } from 'js/types';
 import './ValueField.css';
 
-class ValueField extends Component {
+type Props = {
+  value:number,
+  disabled:boolean,
+  col:number,
+  row:number,
+  size:number,
+  onChange:Function
+};
+
+class ValueField extends Component<Props> {
+
+  selectValues:Array<number|null>;
 
   componentWillMount() {
-    this.selectValues = [''];
+    this.selectValues = [null];
     for (let i = 1; i < 10; i++) { this.selectValues.push(i); }
   }
   
@@ -45,14 +58,16 @@ class ValueField extends Component {
       border: '1px solid',
       width: `${size}px`,
       height: `${size}px`,
-      backgroundColor: '#FFFFF0'
+      backgroundColor: '#FFFFF0',
+      borderRight: undefined,
+      borderBottom: undefined
     };
     if (col === 2 || col === 5) { style.borderRight = '3px solid'; }
     if (row === 2 || row === 5) { style.borderBottom = '3px solid'; }
     return style;
   }
 
-  onChange(e) {
+  onChange(e:T_Event) {
     const { col, row, value, onChange } = this.props;
     if (value !== e.target.value) {
       onChange(col, row, e.target.value);

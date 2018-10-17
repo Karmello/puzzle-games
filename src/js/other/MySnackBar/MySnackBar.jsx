@@ -1,15 +1,23 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Snackbar } from 'material-ui';
-
 
 const autoHideDuration = 5000;
 
-class MySnackBar extends Component {
+type Props = {
+  message:string,
+  onClose:Function
+};
+
+type State = {
+  open:boolean
+};
+
+export default class MySnackBar extends Component<Props, State> {
 
   state = { open: false }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps:Props) {
     this.setState({ open: Boolean(nextProps.message) });
   }
 
@@ -34,10 +42,3 @@ class MySnackBar extends Component {
     this.props.onClose();
   }
 }
-
-MySnackBar.propTypes = {
-  message: PropTypes.string,
-  onClose: PropTypes.func
-}
-
-export default MySnackBar;

@@ -52,8 +52,10 @@ describe('async saveNewHighscore', () => {
       {
         type: SAVE_NEW_HIGHSCORE + '_SUCCESS',
         payload: {
-          method: 'post',
-          url: baseURL + '/highscore',
+          config: {
+            method: 'post',
+            url: baseURL + '/highscore',
+          },
           status: 200,
           statusText: 'OK',
           data: {
@@ -110,8 +112,10 @@ describe('async saveNewHighscore', () => {
       {
         type: SAVE_NEW_HIGHSCORE + '_FAILURE',
         payload: {
-          method: 'post',
-          url: baseURL + '/highscore',
+          config: {
+            method: 'post',
+            url: baseURL + '/highscore',
+          },
           status: 400,
           statusText: 'BAD_REQUEST'
         }

@@ -1,6 +1,6 @@
+// @flow
 import { getFlipped, getRotated, getWithLinesShuffled, coordsToIndex, areValuesUniqueOnAxis } from 'js/game/GridGameBoard/gridGameBoardHelpers';
 import { shuffleIntArray } from 'js/helpers';
-
 
 export const startingValues = [
   5, 3, 4, 6, 7, 8, 9, 1, 2,
@@ -14,7 +14,7 @@ export const startingValues = [
   3, 4, 5, 2, 8, 6, 1, 7, 9
 ];
 
-export const initializeValues = dimension => {
+export const initializeValues = (dimension:number) => {
 
   const axisDirections = ['H', 'V'];
   const directions = ['L', 'R'];
@@ -25,18 +25,19 @@ export const initializeValues = dimension => {
   let values = [...startingValues];
 
   const jobs = [
-    () => {
+    (values:Array<number|null>) => {
       const randomIndexBounds = indexBounds[Math.floor(Math.random() * indexBounds.length)];
       return getWithLinesShuffled(axisDirections[Math.floor(Math.random() * axisDirections.length)], randomIndexBounds[0], randomIndexBounds[1], dimension, values);
     },
-    () => getRotated(directions[Math.floor(Math.random() * directions.length)], angles[Math.floor(Math.random() * angles.length)], dimension, values),
-    () => getFlipped(axisDirections[Math.floor(Math.random() * axisDirections.length)], dimension, values)
+    (values:Array<number|null>) => getRotated(directions[Math.floor(Math.random() * directions.length)], angles[Math.floor(Math.random() * angles.length)], dimension, values),
+    (values:Array<number|null>) => getFlipped(axisDirections[Math.floor(Math.random() * axisDirections.length)], dimension, values)
   ];
   
   // Creating unique values
 
   for (let i = 0; i < N; i++) {
-    values = jobs[Math.floor(Math.random() * jobs.length)](this.dimension, values);
+    const newValues = jobs[Math.floor(Math.random() * jobs.length)](values);
+    if (newValues) { values = newValues; }
   }
 
   const numOfVisibleOnARow = shuffleIntArray([3, 3, 3, 3, 3, 3, 4, 4, 4]);
@@ -53,7 +54,7 @@ export const initializeValues = dimension => {
     for (let j = 0; j < dimension; j++) {
       const index = coordsToIndex({ x: j, y: i }, dimension);
       if (visibleIndexes.indexOf(j) === -1) {
-        values[index] = '';
+        values[index] = null;
       }
     }
   }
@@ -61,7 +62,7 @@ export const initializeValues = dimension => {
   return values;
 }
 
-export const checkIfSolved = (values, dimension) => {
+export const checkIfSolved = (values:Array<number>, dimension:number) => {
 
   return new Promise(resolve => {
     

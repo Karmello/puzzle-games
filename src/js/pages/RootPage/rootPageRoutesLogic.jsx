@@ -1,11 +1,12 @@
+// @flow
 import React from 'react';
 import * as qs from 'query-string';
 import { Redirect } from 'react-router-dom';
 
 import { GamesPage, GamePage, HighscoresPage } from 'js/pages';
+import type { T_RouterProps } from 'js/types';
 
-
-export const gamesRouteLogic = function(props) {
+export const gamesRouteLogic = function(props:T_RouterProps) {
 
   const pathParams = props.match.params;
 
@@ -22,7 +23,7 @@ export const gamesRouteLogic = function(props) {
   }
 }
 
-export const gameRouteLogic = function(props) {
+export const gameRouteLogic = function(props:T_RouterProps) {
     
   const pathname = props.location.pathname;
   const pathParams = props.match.params;
@@ -52,7 +53,7 @@ export const gameRouteLogic = function(props) {
   }
 }
 
-export const highscoresRouteLogic = function(props) {
+export const highscoresRouteLogic = function(props:T_RouterProps) {
 
   const pathname = props.location.pathname;
   const pathParams = props.match.params;

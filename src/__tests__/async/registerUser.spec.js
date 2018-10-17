@@ -42,8 +42,10 @@ describe('async registerUser', () => {
       {
         type: CLIENT_USER_ACTION + '_SUCCESS',
         payload: {
-          method: 'post',
-          url: baseURL + '/user/register',
+          config: {
+            method: 'post',
+            url: baseURL + '/user/register',
+          },
           status: 200,
           statusText: 'OK',
           data: {
@@ -84,8 +86,10 @@ describe('async registerUser', () => {
       {
         type: CLIENT_USER_ACTION + '_FAILURE',
         payload: {
-          method: 'post',
-          url: baseURL + '/user/register',
+          config: {
+            method: 'post',
+            url: baseURL + '/user/register',
+          },
           status: 400,
           statusText: 'BAD_REQUEST'
         }

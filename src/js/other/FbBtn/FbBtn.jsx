@@ -1,9 +1,13 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
+type Props = {
+  authStatus:string,
+  onClick:Function
+};
 
-const FbBtn = props => {
+export default (props:Props) => {
 
   const getLabel = () => {
 
@@ -26,10 +30,3 @@ const FbBtn = props => {
 
   return null;
 };
-
-FbBtn.propTypes = {
-  authStatus: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
-};
-
-export default FbBtn;

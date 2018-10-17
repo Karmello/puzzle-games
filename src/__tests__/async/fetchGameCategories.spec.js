@@ -39,8 +39,10 @@ describe('async fetchGameCategories', () => {
       {
         type: FETCH_GAME_CATEGORIES + '_SUCCESS',
         payload: {
-          method: 'get',
-          url: baseURL + '/game-categories',
+          config: {
+            method: 'get',
+            url: baseURL + '/game-categories',
+          },
           status: 200,
           statusText: 'OK',
           data: [{ id: 'sliding' }, { id: 'chess' }]
@@ -77,8 +79,10 @@ describe('async fetchGameCategories', () => {
       {
         type: FETCH_GAME_CATEGORIES + '_FAILURE',
         payload: {
-          method: 'get',
-          url: baseURL + '/game-categories',
+          config: {
+            method: 'get',
+            url: baseURL + '/game-categories'
+          },
           status: 400,
           statusText: 'BAD_REQUEST'
         }

@@ -1,14 +1,16 @@
+// @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/game';
 import { initFrame, moveQueen, resetFrame } from './eightQueensActions';
 
-
 class EightQueens extends Game {
 
+  dimension:number;
+  squareSize:number;
+    
   constructor(props) {
     super(props);
     this.dimension = 8;
@@ -34,7 +36,7 @@ class EightQueens extends Game {
     );
   }
 
-  startNew() {
+  startNew = () => {
     return new Promise(resolve => {
       this.loadImg('eight-queens/queen.png').then(() => {
         const queens = Array.from({ length: this.dimension ** 2 }, (v, k) => {
@@ -52,7 +54,7 @@ class EightQueens extends Game {
     super.onMakeMove();
   }
 
-  checkIfSolved() {
+  checkIfSolved = () => {
 
     return new Promise(resolve => {
 
@@ -62,9 +64,9 @@ class EightQueens extends Game {
       const queens = eightQueensEngine.queens;
       const qIndxs = [];
 
-      for (const key in queens) {
-        if (queens[key]) {
-          qIndxs.push(Number(key));
+      for (let i = 0; i < queens.length; i++) {
+        if (queens[i]) {
+          qIndxs.push(Number(i));
         }
       }
 
@@ -103,16 +105,12 @@ class EightQueens extends Game {
       height: `${this.squareSize}px`,
       border: '1px solid gray',
       borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET}/eight-queens/queen.png)`,
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
       backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
       backgroundColor: 'white'
     }
   }
 }
-
-EightQueens.propTypes = {
-  readTimer: PropTypes.func.isRequired
-};
 
 export default connect(store => ({
   clientUser: store.api.clientUser,

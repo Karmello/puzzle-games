@@ -1,18 +1,17 @@
+// @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { Game, GridGameBoard } from 'js/game';
 import SquareTile from './SquareTile/SquareTile';
 import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from './bossPuzzleActions';
 import * as helpers from './bossPuzzleHelpers';
 
-
 const numOfImgs = 20;
 
 class BossPuzzle extends Game {
 
-  static tilesSizes = { 3: 150, 4: 125, 5: 100 };
+  static tilesSizes = { '3': 150, '4': 125, '5': 100 };
 
   componentWillUnmount() {
     this.props.dispatch(resetFrame());
@@ -27,9 +26,9 @@ class BossPuzzle extends Game {
     if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
       return (
         <GridGameBoard
-          className={'BossPuzzle-' + game.options.dimension}
+          className={'BossPuzzle-' + String(game.options.dimension)}
           dimension={Number(game.options.dimension)}
-          squareSize={BossPuzzle.tilesSizes[game.options.dimension]}
+          squareSize={BossPuzzle.tilesSizes[String(game.options.dimension)]}
           Square={props => (
             <SquareTile
               options={game.options}
@@ -48,41 +47,40 @@ class BossPuzzle extends Game {
     return null;
   }
 
-  startNew(doRestart) {
+  startNew = doRestart => {
     
     return new Promise(resolve => {
 
       const { game, bossPuzzleEngine, dispatch } = this.props;
       const { imgIndex, imgNumbers } = bossPuzzleEngine;
 
-      let nextImgIndex, nextImgNumbers;
+      let nextImgIndex = 0, nextImgNumbers = [];
 
       if (game.options.mode === 'IMG') {
         
         if (!doRestart) {
           if (imgIndex === undefined || imgIndex === imgNumbers.length - 1) {
-            nextImgIndex = 0;
             nextImgNumbers = helpers.getNewImgNumbers(imgNumbers, numOfImgs)
           } else {
             nextImgIndex = imgIndex + 1;
             nextImgNumbers = imgNumbers;
           } 
-        } else {
+        } else if (imgIndex !== undefined) {
           nextImgIndex = imgIndex;
           nextImgNumbers = imgNumbers;
         }
       }
 
       const newHiddenTileCoords = {
-        x: Math.floor(Math.random() * game.options.dimension),
-        y: Math.floor(Math.random() * game.options.dimension)
+        x: Math.floor(Math.random() * Number(game.options.dimension)),
+        y: Math.floor(Math.random() * Number(game.options.dimension))
       }
       
       const tasks = [];
-      tasks.push(helpers.initData({ dimension: game.options.dimension, hiddenTileCoords: newHiddenTileCoords }));
+      tasks.push(helpers.initData({ dimension: Number(game.options.dimension), hiddenTileCoords: newHiddenTileCoords }));
       if (game.options.mode === 'IMG') { tasks.push(this.loadImg(`boss-puzzle/img${nextImgNumbers[nextImgIndex]}.jpg`)); }
 
-      return Promise.all(tasks).then((data) => {
+      return Promise.all(tasks).then((data:Array<any>) => {
         dispatch(initFrame(nextImgNumbers, nextImgIndex, data[0].tiles, data[0].hiddenTileCoords));
         resolve();
       });
@@ -94,7 +92,7 @@ class BossPuzzle extends Game {
     super.onMakeMove();
   }
 
-  checkIfSolved() {
+  checkIfSolved = () => {
 
     const { bossPuzzleEngine, dispatch } = this.props;
 
@@ -113,10 +111,6 @@ class BossPuzzle extends Game {
     });
   }
 }
-
-BossPuzzle.propTypes = {
-  readTimer: PropTypes.func.isRequired
-};
 
 export default connect(store => ({
   clientUser: store.api.clientUser,

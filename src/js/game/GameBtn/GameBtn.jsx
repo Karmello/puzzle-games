@@ -1,10 +1,19 @@
+// @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
 import { Button } from 'material-ui';
 
+import type { T_GameOptionsModel } from 'js/api';
+
+type Props = {
+  name:string,
+  label:string,
+  gameCategory:string,
+  gameId:string,
+  gameOptions:T_GameOptionsModel
+};
 
 const getToObject = props => {
   
@@ -17,7 +26,7 @@ const getToObject = props => {
         search: qs.stringify(gameOptions)
       }
     case 'highscores':
-      const to = { pathname: `/highscores/${gameId}` };
+      const to = { pathname: `/highscores/${gameId}`, search: '' };
       if (!isEmpty(gameOptions)) { to.search = `?${qs.stringify(gameOptions)}`; }
       return to;
     default:
@@ -25,7 +34,7 @@ const getToObject = props => {
   }
 }
 
-const GameBtn = props => (
+export default (props:Props) => (
   <Button
     variant={props.name === 'play' ? 'raised' : null}
     color='primary'
@@ -33,13 +42,3 @@ const GameBtn = props => (
     to={getToObject(props)}
   >{props.label}</Button>
 );
-
-GameBtn.propTypes = {
-  name: PropTypes.oneOf(['play', 'highscores']),
-  label: PropTypes.string.isRequired,
-  gameCategory: PropTypes.string.isRequired,
-  gameId: PropTypes.string.isRequired,
-  gameOptions: PropTypes.object
-};
-
-export default GameBtn;

@@ -1,13 +1,16 @@
+// @flow
 import { INIT_FRAME, SWITCH_TILES, CLEAR_HIDDEN_TILE_COORDS, RESET_FRAME } from './bossPuzzleActions';
+import type { T_Action } from 'js/reducers';
+import type { T_BossPuzzleEngine } from 'js/engines';
 
 const initialState = {
   imgNumbers: [],
   imgIndex: undefined,
   tiles: [],
-  hiddenTileCoords: {}
+  hiddenTileCoords: { x: undefined, y: undefined }
 };
 
-const bossPuzzleReducer = (state = initialState, action) => {
+const bossPuzzleReducer = (state:T_BossPuzzleEngine = initialState, action:T_Action) => {
   
   switch (action.type) {
 

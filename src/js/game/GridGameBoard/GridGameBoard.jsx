@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
+import { Component } from 'react';
 import { Paper } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
 import Draggable from 'react-draggable';
@@ -7,8 +8,24 @@ import Draggable from 'react-draggable';
 import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from './gridGameBoardHelpers';
 import './GridGameBoard.css';
 
+import type { T_Event, T_Coords } from 'js/types';
 
-class GridGameBoard extends Component {
+type Props = {
+  dimension:number,
+  draggable?:boolean,
+  Square:Function,
+  gridData?:Array<boolean>,
+  squareSize:number,
+  onDragMade?:Function
+};
+
+type State = {
+  lastDraggedIndex:number|null
+};
+
+export default class GridGameBoard extends Component<Props, State> {
+
+  getStyles:(subject:string, args?:{ col?:number, row?:number, index?:number }) => {}|null;
 
   static coordsToIndex = coordsToIndex;
   static indexToCoords = indexToCoords;
@@ -37,7 +54,7 @@ class GridGameBoard extends Component {
                 <Col key={j} style={this.getStyles('col')}>
                   {draggable &&
                   <div style={this.getStyles('draggableContainer', { col, row })}>
-                    {gridData[index] &&
+                    {gridData && gridData[index] &&
                     <Draggable
                       position={position}
                       onStart={(e, data) => this.onDragStart(e, data, index)}
@@ -58,11 +75,11 @@ class GridGameBoard extends Component {
     );
   }
 
-  onDragStart(e, data, index) {
+  onDragStart(e:T_Event, data:T_Coords, index:number) {
     this.setState({ lastDraggedIndex: index });
   }
 
-  onDragStop(e, data, col, row, position) {
+  onDragStop(e:T_Event, data:T_Coords, col:number, row:number, position:T_Coords) {
 
     const { dimension, squareSize, gridData, onDragMade } = this.props;
 
@@ -72,15 +89,17 @@ class GridGameBoard extends Component {
     }, squareSize, dimension);
 
 
-    if (index > -1 && !gridData[index]) {
+    if (index > -1 && gridData && !gridData[index]) {
       const newCoords = GridGameBoard.indexToCoords(index, dimension);
       position.x = newCoords.x * squareSize - col * squareSize;
       position.y = newCoords.y * squareSize - row * squareSize;
-      setTimeout(() => onDragMade(this.state.lastDraggedIndex, index));
+      if (onDragMade) {
+        setTimeout(() => onDragMade(this.state.lastDraggedIndex, index));
+      }
     }
   }
 
-  getStyles(subject, args) {
+  getStyles(subject:string, args:{ col:number, row:number, index:number }) {
   
     const squareBgColors = ['#dbbe92', '#52220b'];
     const { dimension, squareSize } = this.props;
@@ -114,14 +133,3 @@ class GridGameBoard extends Component {
     }
   }
 }
-
-GridGameBoard.propTypes = {
-  dimension: PropTypes.number.isRequired,
-  squareSize: PropTypes.number.isRequired,
-  Square: PropTypes.func.isRequired,
-  draggable: PropTypes.bool,
-  gridData: PropTypes.array,
-  onDragMade: PropTypes.func
-};
-
-export default GridGameBoard;

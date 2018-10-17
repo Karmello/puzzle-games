@@ -1,14 +1,13 @@
+// @flow
 import React from 'react';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
-import PropTypes from 'prop-types';
 import { Button, TextField } from 'material-ui';
 import ErrorIcon from 'material-ui-icons/Error';
 
 import { Loader } from 'js/other';
 import './AuthForm.css';
 
-
-const MyTextField = ({ input, meta: { touched, error }, ...custom }) => (
+const MyTextField:Function = ({ input, meta: { touched, error }, ...custom }) => (
   <div>
     <TextField {...input} {...custom} error={Boolean(error)} />
     {touched && error &&
@@ -19,7 +18,7 @@ const MyTextField = ({ input, meta: { touched, error }, ...custom }) => (
   </div>
 );
 
-let AuthForm = props => {
+const AuthForm = props => {
 
   const { handleSubmit, onSubmit, pristine, submitting } = props;
   
@@ -87,6 +86,4 @@ let AuthForm = props => {
   );
 }
 
-AuthForm.propTypes = { onSubmit: PropTypes.func.isRequired };
-AuthForm = reduxForm({ form: 'authForm' })(AuthForm);
-export default AuthForm;
+export default reduxForm({ form: 'authForm' })(AuthForm);

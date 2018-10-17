@@ -1,10 +1,11 @@
+// @flow
 import { shuffleIntArray } from 'js/helpers';
 import { GridGameBoard } from 'js/game';
-
+import type { T_Coords } from 'js/types';
 
 const initDataLoopRuns = 1000;
 
-export const initData = args => {
+export const initData = (args:{dimension:number, hiddenTileCoords:T_Coords}) => {
   
   if (args.dimension < 2) { throw new Error('Dimension must be greater than or equal 2'); }
 
@@ -12,7 +13,7 @@ export const initData = args => {
 
     let { dimension, hiddenTileCoords } = args;
 
-    const tiles = Array.from({ length: dimension ** 2 }, (value, key) => key + 1);
+    const tiles:Array<number> = Array.from({ length: dimension ** 2 }, (value, key) => key + 1);
     const tempHiddenTileCoords = { ...hiddenTileCoords };
   
     for (let i = 0; i < initDataLoopRuns; i++) {
@@ -42,7 +43,7 @@ export const initData = args => {
   return new Promise((resolve, reject) => {
 
     try {
-      resolve(run(args));
+      resolve(run());
     
     } catch(ex) {
       reject(ex);
@@ -50,7 +51,7 @@ export const initData = args => {
   });
 }
 
-export const getNewImgNumbers = (currentNumbers, numOfImgs) => {
+export const getNewImgNumbers = (currentNumbers:Array<number>, numOfImgs:number) => {
 
   const run = () => {
     const newImgNumbers = shuffleIntArray(Array.from({ length: numOfImgs }, (v, k) => k + 1));

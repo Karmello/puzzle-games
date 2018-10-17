@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -6,14 +7,33 @@ import { Paper } from 'material-ui';
 import GameDashboard from './GameDashboard/GameDashboard';
 import GamePageInfo from './GamePageInfo/GamePageInfo';
 import { Loader } from 'js/other';
-import { setAppTitle } from 'js/app/App/appActions';
-import { startGame, endGame } from 'js/game/Game/gameActions';
+import { setAppTitle } from 'js/app/appActions';
+import { startGame, endGame } from 'js/game/gameActions';
 import { toggleExpansionPanel } from 'js/pages/GamePage/gamePageActions';
 import { kebabToCamelCase } from 'js/helpers';
 import './GamePage.css';
 
+import type { T_ApiEntities, T_GameOptionsModel } from 'js/api';
+import type { T_GameSettings } from 'js/game';
+import type { T_GamePageSettings } from 'js/pages';
 
-class GamePage extends Component {
+type Props = {
+  dispatch: Function,
+  match:{ params:{ id:string } },
+  queryParams:T_GameOptionsModel,
+  api:T_ApiEntities,
+  gameData:{ name:string, categoryId:string, info:string },
+  gamePage:T_GamePageSettings,
+  game:T_GameSettings
+};
+
+class GamePage extends Component<Props> {
+
+  gameDashBoardRef:{
+    timerRef:{
+      state:{}
+    }
+  };
 
   componentWillMount() {
 
@@ -44,7 +64,7 @@ class GamePage extends Component {
           <GameDashboard
             clientUserData={clientUser.res.data}
             game={game}
-            ref={ref => this.gameDashBoardRef = ref}
+            ref={ref => ref ? this.gameDashBoardRef = ref : null}
           />
         </Paper>
         <Loader isShown={game.isLoading}>
@@ -86,16 +106,18 @@ class GamePage extends Component {
 
   onToggleExpansionPanel(name, expanded) {
     const { dispatch, api } = this.props;
-    const ui = JSON.parse(localStorage.getItem('ui'));
-    ui[api.clientUser.res.data.username].gamePage[`${name}Expanded`] = expanded;
-    localStorage.setItem('ui', JSON.stringify(ui));
-    dispatch(toggleExpansionPanel(name, expanded));
+    let ui = localStorage.getItem('ui');
+    if (ui) {
+      ui = JSON.parse(ui);
+      ui[api.clientUser.res.data.username].gamePage[`${name}Expanded`] = expanded;
+      localStorage.setItem('ui', JSON.stringify(ui));
+      dispatch(toggleExpansionPanel(name, expanded));
+    }
   }
 }
 
 export default withRouter(connect(store => ({
   api: store.api,
-  engines: store.engines,
   game: store.game,
   gamePage: store.pages.gamePage
 }))(GamePage));

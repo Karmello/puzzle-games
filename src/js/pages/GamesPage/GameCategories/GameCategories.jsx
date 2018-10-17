@@ -1,11 +1,17 @@
+// @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { Tabs } from 'material-ui';
 import { Tab } from 'material-ui/Tabs';
 
+import type { T_ApiEndPoint } from 'js/api';
 
-class GameCategories extends Component {
+type Props = {
+  category:string,
+  gameCategories:T_ApiEndPoint
+};
+
+export default class GameCategories extends Component<Props> {
 
   render() {
 
@@ -32,10 +38,3 @@ class GameCategories extends Component {
     );
   }
 }
-
-GameCategories.propTypes = {
-  category: PropTypes.string.isRequired,
-  gameCategories: PropTypes.object.isRequired
-};
-
-export default GameCategories;

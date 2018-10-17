@@ -42,8 +42,10 @@ describe('async fetchUsers', () => {
       {
         type: FETCH_USERS + '_SUCCESS',
         payload: {
-          method: 'get',
-          url: baseURL + '/users',
+          config: {
+            method: 'get',
+            url: baseURL + '/users',
+          },
           status: 200,
           statusText: 'OK',
           data: [{
@@ -83,8 +85,10 @@ describe('async fetchUsers', () => {
       {
         type: FETCH_USERS + '_FAILURE',
         payload: {
-          method: 'get',
-          url: baseURL + '/users',
+          config: {
+            method: 'get',
+            url: baseURL + '/users',
+          },
           status: 400,
           statusText: 'BAD_REQUEST'
         }

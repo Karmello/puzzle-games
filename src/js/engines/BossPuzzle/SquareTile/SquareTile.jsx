@@ -1,18 +1,33 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Button } from 'material-ui';
 
 import { GridGameBoard } from 'js/game';
 import BossPuzzle from './../BossPuzzle';
+import type { T_GameOptionsModel } from 'js/api';
+import type { T_Coords } from 'js/types';
 
+type Props = {
+  imgSrc:string,
+  col:number,
+  row:number,
+  tiles:Array<number>,
+  hiddenTileCoords:T_Coords,
+  options:T_GameOptionsModel,
+  isSolved:boolean,
+  onMoveMade:Function
+};
 
-const fontSizes = { 3: 40, 4: 30, 5: 22 };
+const fontSizes = { '3': 40, '4': 30, '5': 22 };
 
-class SquareTile extends Component {
+class SquareTile extends Component<Props> {
 
-  constructor(props) {
+  index:number;
+  isHidden:boolean;
+
+  constructor(props:Props) {
     super(props);
-    this.index = GridGameBoard.coordsToIndex({ x: props.col, y: props.row }, props.options.dimension);
+    this.index = GridGameBoard.coordsToIndex({ x: props.col, y: props.row }, Number(props.options.dimension));
   }
 
   componentWillMount() {
@@ -40,18 +55,24 @@ class SquareTile extends Component {
       minWidth: `${tileSize}px`,
       width: `${tileSize}px`,
       height: `${tileSize}px`,
-      fontSize: `${fontSizes[options.dimension]}px`,
+      fontSize: `${fontSizes[options.dimension || '3']}px`,
       color: '#001f3f',
-      backgroundColor: 'rgba(61, 153, 112, 0.75)'
+      backgroundColor: 'rgba(61, 153, 112, 0.75)',
+      backgroundImage: undefined,
+      backgroundSize: undefined,
+      backgroundPosition: undefined,
+      visibility: undefined
     };
 
     if (!this.isHidden) {
 
-      if (options.mode === 'IMG' && imgSrc) {
-        const imgCoords = GridGameBoard.indexToCoords(this.getLabel() - 1, options.dimension);
+      const label = this.getLabel();
+
+      if (options.mode === 'IMG' && imgSrc && label) {
+        const imgCoords = GridGameBoard.indexToCoords(Number(label) - 1, Number(options.dimension));
         const imgSize = BossPuzzle.tilesSizes[options.dimension];
         style.backgroundImage = `url(${imgSrc})`;
-        style.backgroundSize = `${options.dimension * imgSize}px ${options.dimension * imgSize}px`;
+        style.backgroundSize = `${Number(options.dimension) * imgSize}px ${Number(options.dimension) * imgSize}px`;
         style.backgroundPosition = `-${imgCoords.x * imgSize}px -${imgCoords.y * imgSize}px`;
       }
 
@@ -63,15 +84,13 @@ class SquareTile extends Component {
   }
 
   getLabel() {
-
     const { tiles } = this.props;
     if (tiles.length > 0) { return tiles[this.index]; } else { return ''; }
   }
 
   isInProperPlace() {
-
     const { options, row, col } = this.props;
-    return GridGameBoard.coordsToIndex({ x: col, y: row }, options.dimension) + 1 === this.getLabel();
+    return GridGameBoard.coordsToIndex({ x: col, y: row }, Number(options.dimension)) + 1 === this.getLabel();
   }
 
   onClick() {
@@ -81,31 +100,20 @@ class SquareTile extends Component {
     if (!isSolved) {
       
       const targetCoords = { x: col, y: row };
-      const allMovementCoords = GridGameBoard.findAllMovementCoords(targetCoords, options.dimension);
+      const allMovementCoords = GridGameBoard.findAllMovementCoords(targetCoords, Number(options.dimension));
 
       for (let coords of allMovementCoords) {
 
         // If hidden tile found
         if (coords.x === hiddenTileCoords.x && coords.y === hiddenTileCoords.y) {
 
-          const index1 = GridGameBoard.coordsToIndex(targetCoords, options.dimension);
-          const index2 = GridGameBoard.coordsToIndex(coords, options.dimension);
+          const index1 = GridGameBoard.coordsToIndex(targetCoords, Number(options.dimension));
+          const index2 = GridGameBoard.coordsToIndex(coords, Number(options.dimension));
           return onMoveMade(index1, index2, targetCoords);
         }
       }
     }
   }
 }
-
-SquareTile.propTypes = {
-  options: PropTypes.object.isRequired,
-  hiddenTileCoords: PropTypes.object.isRequired,
-  tiles: PropTypes.array.isRequired,
-  imgSrc: PropTypes.string,
-  row: PropTypes.number.isRequired,
-  col: PropTypes.number.isRequired,
-  isSolved: PropTypes.bool.isRequired,
-  onMoveMade: PropTypes.func.isRequired
-};
 
 export default SquareTile;

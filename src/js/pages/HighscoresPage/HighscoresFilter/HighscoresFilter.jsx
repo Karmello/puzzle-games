@@ -1,6 +1,6 @@
+// @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
 import { Input, Select } from 'material-ui';
@@ -11,8 +11,23 @@ import { InputLabel } from 'material-ui/Input';
 import { kebabToCamelCase } from 'js/helpers';
 import './HighscoresFilter.css';
 
+import type { T_ApiEntities, T_GameOptionsModel } from 'js/api';
 
-class HighscoresFilter extends Component {
+type Props = {
+  api:T_ApiEntities,
+  gameOptions:T_GameOptionsModel,
+  gameFilter:{ id?:string, category?:string },
+  optionsFilter:T_GameOptionsModel
+};
+
+type State = {
+  gameId?:string,
+  Options?:Function
+};
+
+export default class HighscoresFilter extends Component<Props, State> {
+
+  getMenuItemLink:(categoryId:string, id?:string) => string;
 
   state = {
     gameId: undefined,
@@ -21,12 +36,14 @@ class HighscoresFilter extends Component {
 
   componentWillMount() {
     
-    this.setupOptionsComponent(this.props.gameFilter.id);
+    if (this.props.gameFilter.id) {
+      this.setupOptionsComponent(this.props.gameFilter.id);
+    }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps:Props) {
 
-    if (nextProps.gameFilter.id !== this.state.gameId) {
+    if (nextProps.gameFilter.id !== this.state.gameId && nextProps.gameFilter.id) {
       this.setupOptionsComponent(nextProps.gameFilter.id);
     }
   }
@@ -85,7 +102,7 @@ class HighscoresFilter extends Component {
         <div>
           {Options && <Options
             options={optionsFilter}
-            path={`/highscores/${gameFilter.id}`}
+            path={gameFilter.id ? `/highscores/${gameFilter.id}` : ''}
             disabled={this.shouldBeDisabled()}
           />}
         </div>
@@ -93,7 +110,7 @@ class HighscoresFilter extends Component {
     );
   }
 
-  getMenuItemLink(category, id) {
+  getMenuItemLink(category:string, id:string) {
 
     const { gameOptions, gameFilter, optionsFilter, api } = this.props;
     let options;
@@ -105,7 +122,7 @@ class HighscoresFilter extends Component {
     return url;
   }
 
-  setupOptionsComponent(gameId) {
+  setupOptionsComponent(gameId:string) {
 
     let Options;
 
@@ -122,12 +139,3 @@ class HighscoresFilter extends Component {
     return api.highscores.res.status !== 200 || api.highscores.req.isAwaiting;
   }
 }
-
-HighscoresFilter.propTypes = {
-  api: PropTypes.object.isRequired,
-  gameOptions: PropTypes.object,
-  gameFilter: PropTypes.object.isRequired,
-  optionsFilter: PropTypes.object.isRequired
-};
-
-export default HighscoresFilter;

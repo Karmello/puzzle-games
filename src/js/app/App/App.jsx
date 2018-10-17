@@ -1,13 +1,25 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 import { AuthPage, RootPage } from 'js/pages';
 import { Loader, MySnackBar } from 'js/other';
+import type { T_AppSettings } from 'js/app';
+import type { T_ApiEntities } from 'js/api';
+
 import './App.css';
 
+type Props = {
+  api:T_ApiEntities,
+  app:T_AppSettings
+};
 
-class App extends Component {
+type State = {
+  snackBarMessage:string
+};
+
+class App extends Component<Props, State> {
 
   static minLoadTime = 500;
 
@@ -51,6 +63,5 @@ class App extends Component {
 
 export default withRouter(connect(store => ({
   api: store.api,
-  app: store.app,
-  pages: store.pages
+  app: store.app
 }))(App));

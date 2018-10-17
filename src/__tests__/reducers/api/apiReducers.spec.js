@@ -8,8 +8,18 @@ describe('apiReducers', () => {
 
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
-      req: { isAwaiting: false },
-      res: {}
+      req: {
+        isAwaiting: false
+      },
+      res: {
+        config: {
+          method: '',
+          url: '',
+        },
+        status: 0,
+        statusText: '',
+        data: undefined
+      }
     });
   });
 
@@ -22,23 +32,35 @@ describe('apiReducers', () => {
 
     expect(reducer(undefined, apiRequest('API_REQUEST', req))).toEqual({
       req: {
+        isAwaiting: true,
         params: { id: '1234' },
         query: { sort: 1 },
-        isAwaiting: true
+        body: undefined,
+        headers: undefined
       },
-      res: {}
+      res: {
+        config: {
+          method: '',
+          url: ''
+        },
+        data: undefined,
+        status: 0,
+        statusText: ''
+      }
     });
 
     const state = {
       req: {
+        isAwaiting: false,
         params: { id: '9876' },
         query: { sort: -1 },
-        body: { firstname: 'Alan', lastname: 'Watts' },
-        method: 'POST',
-        url: '/url',
-        isAwaiting: false
+        body: { firstname: 'Alan', lastname: 'Watts' }
       },
       res: {
+        config: {
+          method: 'POST',
+          url: '/url',
+        },
         status: 200,
         statusText: 'OK',
         data: [{ id: 1 }, { id: 2 }, { id: 3 }]
@@ -47,11 +69,15 @@ describe('apiReducers', () => {
 
     expect(reducer(state, apiRequest('API_REQUEST', req))).toEqual({
       req: {
+        isAwaiting: true,
         params: { id: '1234' },
-        query: { sort: 1 },
-        isAwaiting: true
+        query: { sort: 1 }
       },
       res: {
+        config: {
+          method: 'POST',
+          url: '/url',
+        },
         status: 200,
         statusText: 'OK',
         data: [{ id: 1 }, { id: 2 }, { id: 3 }]
@@ -63,12 +89,14 @@ describe('apiReducers', () => {
 
     const state = {
       req: {
+        isAwaiting: true,
         params: { id: '1234' },
         query: { sort: 1 },
-        body: { firstname: 'Alan', lastname: 'Watts' },
-        isAwaiting: true
+        body: { firstname: 'Alan', lastname: 'Watts' }
       },
-      res: { data: [] }
+      res: {
+        data: []
+      }
     };
 
     const res = {
@@ -83,11 +111,13 @@ describe('apiReducers', () => {
         params: { id: '1234' },
         query: { sort: 1 },
         body: { firstname: 'Alan', lastname: 'Watts' },
-        method: 'POST',
-        url: '/url',
         isAwaiting: false
       },
       res: {
+        config: {
+          method: 'POST',
+          url: '/url',
+        },
         status: 200,
         statusText: 'OK',
         data: [{ id: 1 }, { id: 2 }, { id: 3 }]
@@ -117,11 +147,13 @@ describe('apiReducers', () => {
         params: { id: '1234' },
         query: { sort: 1 },
         body: { firstname: 'Alan', lastname: 'Watts' },
-        method: 'POST',
-        url: '/url',
         isAwaiting: false
       },
       res: {
+        config: {
+          method: 'POST',
+          url: '/url',
+        },
         status: 400,
         statusText: 'BAD_REQUEST'
       }

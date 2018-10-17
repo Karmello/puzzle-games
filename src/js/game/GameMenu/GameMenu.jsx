@@ -1,11 +1,27 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
+import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Menu } from 'material-ui';
 import { MenuItem } from 'material-ui/Menu';
 
+import type { T_Event } from 'js/types';
 
-export default class GameMenu extends Component {
+type Props = {
+  gameCategory:string,
+  showRestartBtn:boolean,
+  onItemClick:Function
+};
+
+type State = {
+  btnElem:React.Node
+};
+
+export default class GameMenu extends Component<Props, State> {
   
+  setup:(e?:T_Event) => null;
+  onItemClick:(itemId?:string) => null;
+
   componentWillMount() {
     this.setup();
   }
@@ -55,13 +71,11 @@ export default class GameMenu extends Component {
     }
   }
 
-  setup(e) {
-    this.setState({
-      btnElem: e ? e.currentTarget : null
-    });
+  setup(e:T_Event) {
+    this.setState({ btnElem: e ? e.currentTarget : null});
   }
 
-  onItemClick(itemId) {
+  onItemClick(itemId:string) {
     this.setup();
     if (itemId) { this.props.onItemClick(itemId); }
   }
