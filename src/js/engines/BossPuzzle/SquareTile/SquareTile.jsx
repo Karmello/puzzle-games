@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component } from 'react';
 import { Button } from 'material-ui';
 
@@ -7,7 +6,6 @@ import { GridGameBoard } from 'js/game';
 import BossPuzzle from './../BossPuzzle';
 import type { T_GameOptionsModel } from 'js/api';
 import type { T_Coords } from 'js/types';
-
 
 type Props = {
   imgSrc:string,

@@ -1,5 +1,4 @@
 // @flow
-
 import axios from 'axios';
 import { isEmpty } from 'lodash';
 import { apiRequest, apiRequestSuccess, apiRequestFailure } from './apiActionCreators';
@@ -14,7 +13,6 @@ export const FETCH_HIGHSCORES = 'FETCH_HIGHSCORES';
 export const FETCH_HIGHSCORE = 'FETCH_HIGHSCORE';
 export const FETCH_USERS = 'FETCH_USERS';
 export const SAVE_NEW_HIGHSCORE = 'SAVE_NEW_HIGHSCORE';
-
 
 export const registerUser = (user:T_UserModel) => {
 

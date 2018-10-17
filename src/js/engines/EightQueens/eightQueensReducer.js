@@ -1,5 +1,4 @@
 // @flow
-
 import { INIT_FRAME, MOVE_QUEEN, RESET_FRAME } from './eightQueensActions';
 import type { T_Action } from 'js/reducers';
 import type { T_EightQueensEngine } from 'js/engines';

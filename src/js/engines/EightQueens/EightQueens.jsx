@@ -1,12 +1,10 @@
 // @flow
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/game';
 import { initFrame, moveQueen, resetFrame } from './eightQueensActions';
-
 
 class EightQueens extends Game {
 

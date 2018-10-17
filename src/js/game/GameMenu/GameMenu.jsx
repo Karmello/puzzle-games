@@ -1,6 +1,6 @@
 // @flow
-
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Menu } from 'material-ui';
 import { MenuItem } from 'material-ui/Menu';
@@ -9,12 +9,12 @@ import type { T_Event } from 'js/types';
 
 type Props = {
   gameCategory:string,
-  showRestartBtn:Boolean,
+  showRestartBtn:boolean,
   onItemClick:Function
 };
 
 type State = {
-  btnElem:any
+  btnElem:React.Node
 };
 
 export default class GameMenu extends Component<Props, State> {
@@ -72,9 +72,7 @@ export default class GameMenu extends Component<Props, State> {
   }
 
   setup(e:T_Event) {
-    this.setState({
-      btnElem: e ? e.currentTarget : null
-    });
+    this.setState({ btnElem: e ? e.currentTarget : null});
   }
 
   onItemClick(itemId:string) {

@@ -1,5 +1,4 @@
 // @flow
-
 import type { T_GameOptionsModel } from 'js/api';
 
 export const START_GAME = 'START_GAME';

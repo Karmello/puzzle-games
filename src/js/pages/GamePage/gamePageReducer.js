@@ -1,5 +1,4 @@
 // @flow
-
 import { TOGGLE_EXPANSION_PANEL, GAME_PAGE_CLEAR } from 'js/pages/GamePage/gamePageActions';
 
 import type { T_Action } from 'js/reducers';

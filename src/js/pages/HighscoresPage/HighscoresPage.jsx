@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -23,7 +22,7 @@ type Props = {
   dispatch:Function
 };
 
-class HighscoresPage extends Component<Props, {}> {
+class HighscoresPage extends Component<Props> {
 
   componentWillMount() {
     const { gameFilterToSet, optionsFilterToSet } = this.props;

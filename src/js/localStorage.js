@@ -1,5 +1,4 @@
 // @flow
-
 const defaultUiConfig = {
   gamesPage: {
     category: 'sliding',

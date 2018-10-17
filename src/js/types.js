@@ -1,19 +1,20 @@
 // @flow
+import * as React from 'react';
 
 // flow types
 export type T_Coords = {
-   x:number|typeof undefined,
-   y:number|typeof undefined
+   x?:number,
+   y?:number
 };
 
 export type T_Event = {
   target:{
     value:number
   },
-  currentTarget:{}
+  currentTarget:React.Node
 };
 
-export type T_PageRouteLogicProps = {
+export type T_RouterProps = {
   match:{ params:{ id:string, category:string, gameId:string }},
   location:{ pathname:string, search:string }
 };

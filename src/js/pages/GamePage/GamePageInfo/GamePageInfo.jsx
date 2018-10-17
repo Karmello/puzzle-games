@@ -1,5 +1,4 @@
 // @flow
-
 import React from 'react';
 import moment from 'moment';
 import { ExpansionPanel } from 'material-ui';
@@ -13,12 +12,13 @@ import './GamePageInfo.css';
 
 import type { T_GamePageSettings } from 'js/pages';
 import type { T_GameSettings } from 'js/game';
+import type { T_ApiEndPoint } from 'js/api';
 
 type Props = {
   game:T_GameSettings,
   gameData:{ categoryId:string, info:string },
   gamePage:T_GamePageSettings,
-  bestHighscore:any,
+  bestHighscore:T_ApiEndPoint,
   onToggleExpansionPanel:Function
 };
 

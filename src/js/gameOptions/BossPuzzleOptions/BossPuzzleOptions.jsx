@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Input, Select } from 'material-ui';

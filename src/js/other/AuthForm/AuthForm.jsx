@@ -1,5 +1,4 @@
 // @flow
-
 import React from 'react';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
 import { Button, TextField } from 'material-ui';
@@ -7,7 +6,6 @@ import ErrorIcon from 'material-ui-icons/Error';
 
 import { Loader } from 'js/other';
 import './AuthForm.css';
-
 
 const MyTextField:Function = ({ input, meta: { touched, error }, ...custom }) => (
   <div>

@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SwipeableViews from 'react-swipeable-views';
@@ -19,7 +18,7 @@ type Props = {
   gameCategoryToSet:string
 };
 
-class GamesPage extends Component<Props, {}> {
+class GamesPage extends Component<Props> {
 
   componentWillReceiveProps(nextProps) {
     

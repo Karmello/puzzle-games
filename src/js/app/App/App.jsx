@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -8,8 +7,8 @@ import { AuthPage, RootPage } from 'js/pages';
 import { Loader, MySnackBar } from 'js/other';
 import type { T_AppSettings } from 'js/app';
 import type { T_ApiEntities } from 'js/api';
-import './App.css';
 
+import './App.css';
 
 type Props = {
   api:T_ApiEntities,

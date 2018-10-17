@@ -1,9 +1,7 @@
 // @flow
-
 import { shuffleIntArray } from 'js/helpers';
 import { GridGameBoard } from 'js/game';
 import type { T_Coords } from 'js/types';
-
 
 const initDataLoopRuns = 1000;
 

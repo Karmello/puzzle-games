@@ -1,9 +1,7 @@
 // @flow
-
 import React, { Component } from 'react';
 import moment from 'moment';
 import { Chip } from 'material-ui';
-
 
 type Props = {
   on:boolean,

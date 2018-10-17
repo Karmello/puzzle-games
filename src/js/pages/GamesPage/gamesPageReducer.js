@@ -1,5 +1,4 @@
 // @flow
-
 import { SWITCH_GAME_CATEGORY_TAB, CHANGE_GAME_OPTIONS, GAMES_PAGE_CLEAR } from './gamesPageActions';
 
 import type { T_Action } from 'js/reducers';

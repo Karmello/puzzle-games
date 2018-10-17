@@ -1,5 +1,4 @@
 // @flow
-
 import { combineReducers } from 'redux';
 import type { T_Coords } from 'js/types';
 

@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
@@ -12,11 +11,12 @@ import { registerUser, loginUser } from 'js/api/apiActions';
 import './AuthPage.css';
 
 import type { T_AppSettings } from 'js/app';
+import type { T_ApiEndPoint } from 'js/api';
 
 type Props = {
   dispatch:Function,
   app:T_AppSettings,
-  clientUser:any,
+  clientUser:T_ApiEndPoint,
   location:{
     state:{
       from: {
@@ -27,7 +27,7 @@ type Props = {
   }
 };
 
-class AuthPage extends Component<Props, {}> {
+class AuthPage extends Component<Props> {
 
   onAuthFormSubmit:(actionName:string, values:{}) => Promise<any>;
 

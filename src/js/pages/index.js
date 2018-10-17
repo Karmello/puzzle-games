@@ -21,17 +21,24 @@ export { default as GamePage } from './GamePage/GamePage';
 export { default as HighscoresPage } from './HighscoresPage/HighscoresPage';
 
 // flow types
-export type T_GamePageSettings = {
-  infoExpanded:boolean,
-  bestScoreExpanded:boolean
-};
 
 export type T_GamesPageSettings = {
   category:string,
   options:T_GameOptionsModel
 };
 
+export type T_GamePageSettings = {
+  infoExpanded:boolean,
+  bestScoreExpanded:boolean
+};
+
 export type T_HighscoresPageSettings = {
   gameFilter:{ id?:string, category?:string },
   optionsFilter:T_GameOptionsModel
+};
+
+export type T_PagesSettings = {
+  gamesPage:T_GamesPageSettings,
+  gamePage:T_GamePageSettings,
+  highscoresPage:T_HighscoresPageSettings
 };

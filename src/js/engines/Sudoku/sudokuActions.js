@@ -1,5 +1,4 @@
 // @flow
-
 export const INIT_FRAME = 'INIT_FRAME';
 export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const RESET_FRAME = 'RESET_FRAME';

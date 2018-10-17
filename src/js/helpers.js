@@ -1,5 +1,4 @@
 // @flow
-
 export const shuffleIntArray = (array:Array<number>) => {
 
   let i = array.length, j = 0, temp;

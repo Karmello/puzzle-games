@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as qs from 'query-string';
@@ -23,7 +22,7 @@ type Props = {
 
 type State = {
   gameId?:string,
-  Options?:any
+  Options?:Function
 };
 
 export default class HighscoresFilter extends Component<Props, State> {

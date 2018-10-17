@@ -1,5 +1,4 @@
 // @flow
-
 import type { T_ApiRequest, T_ApiResponse, T_ApiError } from 'js/api';
 
 export const apiRequest = (actionType:string, req:T_ApiRequest) => {

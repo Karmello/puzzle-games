@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -16,7 +15,7 @@ import './GamePage.css';
 
 import type { T_ApiEntities, T_GameOptionsModel } from 'js/api';
 import type { T_GameSettings } from 'js/game';
-
+import type { T_GamePageSettings } from 'js/pages';
 
 type Props = {
   dispatch: Function,
@@ -24,13 +23,17 @@ type Props = {
   queryParams:T_GameOptionsModel,
   api:T_ApiEntities,
   gameData:{ name:string, categoryId:string, info:string },
-  gamePage:any,
+  gamePage:T_GamePageSettings,
   game:T_GameSettings
 };
 
 class GamePage extends Component<Props> {
 
-  gameDashBoardRef:any;
+  gameDashBoardRef:{
+    timerRef:{
+      state:{}
+    }
+  };
 
   componentWillMount() {
 

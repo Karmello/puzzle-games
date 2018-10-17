@@ -1,8 +1,6 @@
 // @flow
-
 import type { T_Action } from 'js/reducers';
 import type { T_ApiEndPoint } from 'js/api';
-
 
 const getApiRequestReducer = (actionType:string) => {
   

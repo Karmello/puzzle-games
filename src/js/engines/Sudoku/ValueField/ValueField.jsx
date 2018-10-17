@@ -1,11 +1,9 @@
 // @flow
-
 import React, { Component } from 'react';
 import { Select, MenuItem } from 'material-ui';
 
 import type { T_Event } from 'js/types';
 import './ValueField.css';
-
 
 type Props = {
   value:number,

@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component } from 'react';
 import { isEmpty } from 'lodash';
 import { Card, Typography } from 'material-ui';
@@ -17,7 +16,7 @@ type Props = {
   onGameOptionsChange:Function
 };
 
-export default class GameCard extends Component<Props, {}> {
+export default class GameCard extends Component<Props> {
 
   render() {
 

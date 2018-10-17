@@ -1,5 +1,4 @@
 // @flow
-
 import type { T_Coords } from 'js/types';
 
 export const INIT_FRAME = 'INIT_FRAME';

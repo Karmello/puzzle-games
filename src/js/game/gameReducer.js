@@ -1,5 +1,4 @@
 // @flow
-
 import { START_GAME, STOP_GAME_LOADER, MAKE_MOVE, SET_AS_SOLVED, END_GAME } from './gameActions';
 import type { T_Action } from 'js/reducers';
 import type { T_GameSettings } from 'js/game';

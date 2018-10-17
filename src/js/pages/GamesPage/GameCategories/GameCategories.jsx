@@ -1,17 +1,17 @@
 // @flow
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Tabs } from 'material-ui';
 import { Tab } from 'material-ui/Tabs';
 
+import type { T_ApiEndPoint } from 'js/api';
 
 type Props = {
   category:string,
-  gameCategories:any
+  gameCategories:T_ApiEndPoint
 };
 
-export default class GameCategories extends Component<Props, {}> {
+export default class GameCategories extends Component<Props> {
 
   render() {
 

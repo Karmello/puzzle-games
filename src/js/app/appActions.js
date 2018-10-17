@@ -1,5 +1,4 @@
 // @flow
-
 export const SET_APP_TITLE = 'SET_APP_TITLE';
 export const SET_AUTH_STATUS = 'SET_AUTH_STATUS';
 export const TOGGLE_APP_LOADER = 'TOGGLE_APP_LOADER';

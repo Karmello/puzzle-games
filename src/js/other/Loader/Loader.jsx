@@ -1,10 +1,8 @@
 // @flow
-
 import * as React from 'react';
 import { CircularProgress } from 'material-ui/Progress';
 
 import './Loader.css';
-
 
 type Props = {
   isShown: boolean,

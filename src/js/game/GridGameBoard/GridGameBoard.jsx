@@ -1,6 +1,6 @@
 // @flow
-
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 import { Paper } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
 import Draggable from 'react-draggable';
@@ -13,12 +13,11 @@ import type { T_Event, T_Coords } from 'js/types';
 type Props = {
   dimension:number,
   draggable?:boolean,
-  Square:any,
+  Square:Function,
   gridData?:Array<boolean>,
   squareSize:number,
   onDragMade?:Function
 };
-
 
 type State = {
   lastDraggedIndex:number|null

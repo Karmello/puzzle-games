@@ -1,5 +1,4 @@
 // @flow
-
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -7,7 +6,6 @@ import { Game, GridGameBoard } from 'js/game';
 import ValueField from './ValueField/ValueField';
 import { initFrame, changeValue, resetFrame } from './sudokuActions';
 import { initializeValues, checkIfSolved } from './sudokuHelpers';
-
 
 class Sudoku extends Game {
 

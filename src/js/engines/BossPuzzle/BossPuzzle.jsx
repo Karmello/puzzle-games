@@ -1,5 +1,4 @@
 // @flow
-
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -7,7 +6,6 @@ import { Game, GridGameBoard } from 'js/game';
 import SquareTile from './SquareTile/SquareTile';
 import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from './bossPuzzleActions';
 import * as helpers from './bossPuzzleHelpers';
-
 
 const numOfImgs = 20;
 

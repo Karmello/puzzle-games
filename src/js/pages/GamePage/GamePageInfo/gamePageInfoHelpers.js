@@ -1,5 +1,4 @@
 // @flow
-
 import moment from 'moment';
 
 export const humanizeHighscoreTime = (_seconds:number) => {

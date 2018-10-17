@@ -1,5 +1,4 @@
 // @flow
-
 import type { T_GameOptionsModel } from 'js/api';
 
 export const SWITCH_GAME_CATEGORY_TAB = 'SWITCH_GAME_CATEGORY_TAB';

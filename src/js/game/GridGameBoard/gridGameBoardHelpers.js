@@ -1,10 +1,8 @@
 // @flow
-
 import { shuffleIntArray } from 'js/helpers';
 import type { T_Coords } from 'js/types';
 
 export const coordsToIndex = (coords:T_Coords, dimension:number) => {
-
   return (coords.y || 0) * dimension + (coords.x || 0);
 }
 

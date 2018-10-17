@@ -1,5 +1,4 @@
 // @flow
-
 import { Component } from 'react';
 
 import { App } from 'js/app';
@@ -22,7 +21,6 @@ type State = {
   imgSrc:string,
   disabledIndexes:Array<number>
 };
-
 
 export default class Game extends Component<Props, State> {
 

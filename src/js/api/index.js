@@ -1,5 +1,4 @@
 // @flow
-
 import { combineReducers } from 'redux';
 import getApiRequestReducer from './apiReducerCreators';
 

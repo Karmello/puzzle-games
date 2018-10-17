@@ -1,8 +1,6 @@
 // @flow
-
 import { getFlipped, getRotated, getWithLinesShuffled, coordsToIndex, areValuesUniqueOnAxis } from 'js/game/GridGameBoard/gridGameBoardHelpers';
 import { shuffleIntArray } from 'js/helpers';
-
 
 export const startingValues = [
   5, 3, 4, 6, 7, 8, 9, 1, 2,

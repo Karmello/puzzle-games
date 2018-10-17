@@ -1,5 +1,4 @@
 // @flow
-
 import * as React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
@@ -16,34 +15,29 @@ import { getUiConfig } from 'js/localStorage';
 import { validateGameParams } from 'js/pages/pagesHelpers';
 import { gamesRouteLogic, gameRouteLogic, highscoresRouteLogic  } from 'js/pages/RootPage/rootPageRoutesLogic';
 
-import type { T_PageRouteLogicProps } from 'js/types';
+import type { T_RouterProps } from 'js/types';
 import type { T_ApiEntities, T_GameOptionsModel } from 'js/api';
 import type { T_AppSettings } from 'js/app';
-import type { T_GamePageSettings } from 'js/pages';
-import type { T_GamesPageSettings } from 'js/pages';
+import type { T_PagesSettings } from 'js/pages';
 
 type Props = {
   api:T_ApiEntities,
   app:T_AppSettings,
-  pages:any,
+  pages:T_PagesSettings,
   location:string,
   dispatch:Function
 };
 
-class RootPage extends Component<Props, {}> {
+class RootPage extends Component<Props> {
 
-  gamesRouteLogic:(props:T_PageRouteLogicProps) => React.Node;
-  gameRouteLogic:(props:T_PageRouteLogicProps) => React.Node;
-  highscoresRouteLogic:(props:T_PageRouteLogicProps) => React.Node;
+  gamesRouteLogic:(props:T_RouterProps) => React.Node;
+  gameRouteLogic:(props:T_RouterProps) => React.Node;
+  highscoresRouteLogic:(props:T_RouterProps) => React.Node;
   
   getDefaultPath:() => string;
   shouldRenderPageError:() => boolean;
 
-  ui:{
-    gamePage:T_GamePageSettings,
-    gamesPage:T_GamesPageSettings,
-    highscoresPage:any
-  };
+  ui:T_PagesSettings;
 
   validateGameParams:(pathParams:{ category:string, id:string }, queryParams:T_GameOptionsModel, savedGameOptions:T_GameOptionsModel) => {};
 

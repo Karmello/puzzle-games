@@ -1,5 +1,4 @@
 // @flow
-
 import { CHANGE_HIGHSCORES_FILTER, HIGHSCORES_PAGE_CLEAR } from './highscoresPageActions';
 
 import type { T_Action } from 'js/reducers';

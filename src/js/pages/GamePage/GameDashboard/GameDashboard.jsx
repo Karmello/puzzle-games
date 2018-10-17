@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component } from 'react';
 import { Chip } from 'material-ui';
 
@@ -8,13 +7,12 @@ import './GameDashboard.css';
 
 import type { T_GameSettings } from 'js/game';
 
-
 type Props = {
   clientUserData:{ username:string },
   game:T_GameSettings
 };
 
-export default class GameDashboard extends Component<Props, {}> {
+export default class GameDashboard extends Component<Props> {
 
   timerRef:{ state:{} };
 
