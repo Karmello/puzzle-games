@@ -1,26 +1,49 @@
+// @flow
 import { Component } from 'react';
 
 import { App } from 'js/app';
 import { fetchHighscore, saveNewHighscore } from 'js/api/apiActions';
-import { stopGameLoader, makeMove, setAsSolved } from './gameActions';
+import { stopGameLoader, makeMove, setAsSolved } from 'js/game/gameActions';
+import type { T_GameSettings } from 'js/game';
+import type { T_BossPuzzleEngine, T_EightQueensEngine, T_SudokuEngine } from 'js/engines';
 
+type Props = {
+  dispatch: Function,
+  readTimer: Function,
+  clientUser: any,
+  game:T_GameSettings,
+  bossPuzzleEngine:T_BossPuzzleEngine,
+  eightQueensEngine:T_EightQueensEngine,
+  sudokuEngine:T_SudokuEngine
+};
 
-export default class Game extends Component {
+type State = {
+  imgSrc:string,
+  disabledIndexes:Array<number>
+};
 
-  state = { imgSrc: null }
+export default class Game extends Component<Props, State> {
+
+  startNew:(doRestart?: boolean) => Promise<any>;
+  checkIfSolved:() => Promise<any>;
+
+  state = {
+    imgSrc: '',
+    disabledIndexes: []
+  };
 
   componentDidMount() {
     this.startNew().then(() => this.onFinishInit());
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     
     const { game } = this.props;
     const nextGame = nextProps.game;
 
     // on restarting
     if (!game.isLoading && nextGame.isLoading) {
-      this.setState({ imgSrc: null });
+      this.setState({ imgSrc: '' });
       this.startNew(nextProps.game.doRestart).then(() => this.onFinishInit());
     
     // on move made
@@ -61,12 +84,12 @@ export default class Game extends Component {
     });
   }
 
-  loadImg(imgPath) {
+  loadImg(imgPath: string) {
 
     return new Promise((resolve, reject) => {
 
       const img = new Image();
-      img.src = `${process.env.REACT_APP_S3_BUCKET}/${imgPath}`;
+      img.src = `${process.env.REACT_APP_S3_BUCKET || ''}/${imgPath}`;
         
       img.onload = () => {
         this.setState({ imgSrc: img.src });

@@ -1,10 +1,13 @@
+// @flow
 import { INIT_FRAME, CHANGE_VALUE, RESET_FRAME } from './sudokuActions';
+import type { T_Action } from 'js/reducers';
+import type { T_SudokuEngine } from 'js/engines';
 
 const initialState = {
   values: []
 };
 
-const sudokuReducer = (state = initialState, action) => {
+const sudokuReducer = (state:T_SudokuEngine = initialState, action:T_Action) => {
   
   switch (action.type) {
 

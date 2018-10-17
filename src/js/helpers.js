@@ -1,4 +1,5 @@
-export const shuffleIntArray = array => {
+// @flow
+export const shuffleIntArray = (array:Array<number>) => {
 
   let i = array.length, j = 0, temp;
 
@@ -12,6 +13,6 @@ export const shuffleIntArray = array => {
   return array;
 }
 
-export const kebabToCamelCase = id => {
+export const kebabToCamelCase = (id:string) => {
   return id.split('-').map(s => `${s[0].toUpperCase()}${s.slice(1)}`).join('');
 }
