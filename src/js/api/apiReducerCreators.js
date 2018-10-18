@@ -1,13 +1,25 @@
-const getApiRequestReducer = (actionType) => {
+// @flow
+import type { T_Action } from 'js/reducers';
+import type { T_ApiEndPoint } from 'js/api';
+
+const getApiRequestReducer = (actionType:string) => {
   
   const initialState = {
     req: {
       isAwaiting: false
     },
-    res: {}
+    res: {
+      config: {
+        method: '',
+        url: ''
+      },
+      status: 0,
+      statusText: '',
+      data: undefined
+    }
   };
 
-  return (state = initialState, action) => {
+  return (state:T_ApiEndPoint = initialState, action:T_Action) => {
 
     switch (action.type) {
   
@@ -15,11 +27,11 @@ const getApiRequestReducer = (actionType) => {
         return {
           ...state,
           req: {
+            isAwaiting: true,
             headers: action.payload.headers,
             params: action.payload.params,
             query: action.payload.query,
-            body: action.payload.body,
-            isAwaiting: true
+            body: action.payload.body
           }
         };
 
@@ -28,14 +40,13 @@ const getApiRequestReducer = (actionType) => {
         return {
           req: {
             ...state.req,
-            method: action.payload.method,
-            url: action.payload.url,
             isAwaiting: false
           },
           res: {
+            config: action.payload.config,
             status: action.payload.status,
             statusText: action.payload.statusText,
-            data: action.payload.data,
+            data: action.payload.data
           }
         };
 

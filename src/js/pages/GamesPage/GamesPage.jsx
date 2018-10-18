@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SwipeableViews from 'react-swipeable-views';
@@ -7,18 +8,30 @@ import GameCategories from './GameCategories/GameCategories';
 import GameCard from './GameCard/GameCard';
 import './GamesPage.css';
 
+import type { T_GamesPageSettings } from 'js/pages';
+import type { T_ApiEntities } from 'js/api';
 
-class GamesPage extends Component {
+type Props = {
+  dispatch:Function,
+  api:T_ApiEntities,
+  gamesPage:T_GamesPageSettings,
+  gameCategoryToSet:string
+};
+
+class GamesPage extends Component<Props> {
 
   componentWillReceiveProps(nextProps) {
     
     const { api, gamesPage, gameCategoryToSet, dispatch } = nextProps;
 
     if (gamesPage.category !== gameCategoryToSet) {
-      const ui = JSON.parse(localStorage.getItem('ui'));
-      ui[api.clientUser.res.data.username].gamesPage.category = gameCategoryToSet;
-      localStorage.setItem('ui', JSON.stringify(ui));
-      dispatch(switchGameCategoryTab(gameCategoryToSet));
+      let ui = localStorage.getItem('ui');
+      if (ui) {
+        ui = JSON.parse(ui);
+        ui[api.clientUser.res.data.username].gamesPage.category = gameCategoryToSet;
+        localStorage.setItem('ui', JSON.stringify(ui));
+        dispatch(switchGameCategoryTab(gameCategoryToSet));
+      }
     }
   }
 
@@ -61,10 +74,13 @@ class GamesPage extends Component {
 
   onGameOptionsChange(gameId, options) {
     const { dispatch, api } = this.props;
-    const ui = JSON.parse(localStorage.getItem('ui'));
-    ui[api.clientUser.res.data.username].gamesPage.options[gameId] = options;
-    localStorage.setItem('ui', JSON.stringify(ui));
-    dispatch(changeGameOptions(gameId, options));
+    let ui = localStorage.getItem('ui');
+    if (ui) {
+      ui = JSON.parse(ui);
+      ui[api.clientUser.res.data.username].gamesPage.options[gameId] = options;
+      localStorage.setItem('ui', JSON.stringify(ui));
+      dispatch(changeGameOptions(gameId, options));
+    }
   }
 }
 

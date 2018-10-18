@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
@@ -5,12 +6,30 @@ import { Paper } from 'material-ui';
 
 import { App } from 'js/app';
 import { AuthForm } from 'js/other';
-import { toggleAppLoader, setAuthStatus } from 'js/app/App/appActions';
+import { toggleAppLoader, setAuthStatus } from 'js/app/appActions';
 import { registerUser, loginUser } from 'js/api/apiActions';
 import './AuthPage.css';
 
+import type { T_AppSettings } from 'js/app';
+import type { T_ApiEndPoint } from 'js/api';
 
-class AuthPage extends Component {
+type Props = {
+  dispatch:Function,
+  app:T_AppSettings,
+  clientUser:T_ApiEndPoint,
+  location:{
+    state:{
+      from: {
+        pathname:string,
+        search:string
+      }
+    }
+  }
+};
+
+class AuthPage extends Component<Props> {
+
+  onAuthFormSubmit:(actionName:string, values:{}) => Promise<any>;
 
   constructor(props) {
     super(props);
@@ -20,7 +39,7 @@ class AuthPage extends Component {
   componentDidMount() {
 
     const { dispatch, app } = this.props;
-    const  token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
     setTimeout(() => {
       if (app.authStatus !== 'logged_in' && token) {
