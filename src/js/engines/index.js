@@ -18,6 +18,7 @@ export { default as BossPuzzle } from './BossPuzzle/BossPuzzle';
 export { default as SquareTile } from './BossPuzzle/SquareTile/SquareTile';
 export { default as EightQueens } from './EightQueens/EightQueens';
 export { default as Sudoku } from './Sudoku/Sudoku';
+export { default as KnightsTour } from './KnightsTour/KnightsTour';
 
 // flow types
 export type T_BossPuzzleEngine = {
