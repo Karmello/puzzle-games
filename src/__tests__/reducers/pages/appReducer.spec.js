@@ -1,5 +1,5 @@
-import appReducer from 'js/app/appReducer';
-import { setAppTitle, setAuthStatus, toggleAppLoader, toggleAppDrawer } from 'js/app/appActions';
+import appReducer from 'js/reducers/app';
+import { setAppTitle, setAuthStatus, toggleAppLoader, toggleAppDrawer } from 'js/actions/app';
 
 
 describe('appReducer', () => {

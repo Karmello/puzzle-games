@@ -8,7 +8,7 @@ import {
   getFlipped,
   getRotated,
   getWithLinesShuffled
-} from 'js/game/GridGameBoard/gridGameBoardHelpers';
+} from 'js/extracts/gridGameBoard';
 
 
 describe('GridGameBoard logic methods', () => {

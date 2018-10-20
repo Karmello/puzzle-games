@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { fetchGames, FETCH_GAMES } from 'js/api/apiActions';
+import { fetchGames, FETCH_GAMES } from 'js/actions/api';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;
