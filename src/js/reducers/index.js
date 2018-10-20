@@ -12,6 +12,7 @@ import highscoresPageReducer from './highscoresPage';
 import gameReducer from './game';
 import bossPuzzleReducer from './bossPuzzle';
 import eightQueensReducer from './eightQueens';
+import knightsTourReducer from './knightsTour';
 import sudokuReducer from './sudoku';
 
 import {
@@ -44,6 +45,7 @@ export default combineReducers({
   engines: combineReducers({
     'boss-puzzle': bossPuzzleReducer,
     'eight-queens': eightQueensReducer,
+    'knights-tour': knightsTourReducer,
     'sudoku': sudokuReducer
   }),
   form: formReducer

@@ -36,6 +36,23 @@ class EightQueens extends Game {
     );
   }
 
+  onMoveMade(fromIndex, toIndex) {
+    this.props.dispatch(moveQueen(fromIndex, toIndex));
+    super.onMakeMove();
+  }
+
+  getBtnStyle() {
+    return  {
+      minWidth: `${this.squareSize}px`,
+      height: `${this.squareSize}px`,
+      border: '1px solid gray',
+      borderRadius: '0px',
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
+      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
+      backgroundColor: 'white'
+    }
+  }
+
   startNew = () => {
     return new Promise(resolve => {
       this.loadImg('eight-queens/queen.png').then(() => {
@@ -47,12 +64,7 @@ class EightQueens extends Game {
         resolve();
       });
     });
-  }
-
-  onMoveMade(fromIndex, toIndex) {
-    this.props.dispatch(moveQueen(fromIndex, toIndex));
-    super.onMakeMove();
-  }
+  };
 
   checkIfSolved = () => {
 
@@ -97,19 +109,7 @@ class EightQueens extends Game {
 
       resolve(true);
     });
-  }
-
-  getBtnStyle() {
-    return  {
-      minWidth: `${this.squareSize}px`,
-      height: `${this.squareSize}px`,
-      border: '1px solid gray',
-      borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
-      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
-      backgroundColor: 'white'
-    }
-  }
+  };
 }
 
 export default connect(store => ({

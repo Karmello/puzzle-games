@@ -1,30 +1,65 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'material-ui';
 
-import { Game } from 'js/components';
+import { Game, GridGameBoard } from 'js/components';
 
 class KnightsTour extends Game {
+
+  dimension:number;
+  squareSize:number;
+
+  constructor(props) {
+    super(props);
+    this.dimension = 8;
+    this.squareSize = 75;
+  }
 
   render() {
     const { game } = this.props;
     if (game.isLoading) { return null; }
     return (
-      <div>Knight's Tour game</div>
+      <GridGameBoard
+        dimension={this.dimension}
+        squareSize={this.squareSize}
+        Square={() => <Button disableRipple style={this.getBtnStyle()}> </Button>}
+        gridData={[true, false]}
+        onDragMade={this.onMoveMade.bind(this)}
+      />
     );
+  }
+
+  onMoveMade(fromIndex, toIndex) {
+    //this.props.dispatch(moveQueen(fromIndex, toIndex));
+    super.onMakeMove();
+  }
+
+  getBtnStyle() {
+    return  {
+      minWidth: `${this.squareSize}px`,
+      height: `${this.squareSize}px`,
+      border: '1px solid gray',
+      borderRadius: '0px',
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/knights-tour/knight.jpg)`,
+      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
+      backgroundColor: 'white'
+    }
   }
 
   startNew = () => {
     return new Promise(resolve => {
-      resolve();
+      this.loadImg('knights-tour/knight.jpg').then(() => {
+        resolve();
+      });
     });
-  }
+  };
 
   checkIfSolved = () => {
     return new Promise(resolve => {
       resolve(false);
     });
-  }
+  };
 }
 
 export default connect(store => ({
