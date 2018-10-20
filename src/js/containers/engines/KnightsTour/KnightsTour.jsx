@@ -28,10 +28,11 @@ class KnightsTour extends Game {
       <GridGameBoard
         dimension={this.dimension}
         squareSize={this.squareSize}
-        Square={() => <Button disableRipple style={this.getBtnStyle()}> </Button>}
+        Square={() => <Button disabled disableRipple style={this.getBtnStyle()}> </Button>}
         isChessBoard={true}
         gridData={knightsTourEngine.visited}
         onDragMade={this.onMoveMade.bind(this)}
+        onEmptyBoardClick={index => { console.log(index); }}
       />
     );
   }

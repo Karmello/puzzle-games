@@ -16,7 +16,8 @@ type Props = {
   isDraggable?:boolean,
   isChessBoard?:boolean,
   gridData?:Array<boolean>,
-  onDragMade?:Function
+  onDragMade?:Function,
+  onEmptyBoardClick?:Function
 };
 
 type State = {
@@ -54,7 +55,7 @@ export default class GridGameBoard extends Component<Props, State> {
               
               return (
                 <Col key={j}>
-                  <div style={this.getStyles('squareContainer', { col, row })}>
+                  <div style={this.getStyles('squareContainer', { col, row })} onClick={() => this.onBoardClick(index)}>
                     {isDraggable && gridData && gridData[index] &&
                     <Draggable
                       position={position}
@@ -65,8 +66,10 @@ export default class GridGameBoard extends Component<Props, State> {
                         <Square col={col} row={row} />
                       </div>
                     </Draggable>}
-                    {!isDraggable && gridData && gridData[index] && <Square col={col} row={row} />}
-                    {!isDraggable && !gridData && <Square col={col} row={row} />}
+                    {!isDraggable &&
+                    <div style={{ cursor: 'default' }}>
+                      {((gridData && gridData[index]) || !gridData) && <Square col={col} row={row} />}
+                    </div>}
                   </div>
                 </Col>
               );
@@ -75,6 +78,11 @@ export default class GridGameBoard extends Component<Props, State> {
         ))
       }</Paper>
     );
+  }
+
+  onBoardClick(index:number) {
+    const { onEmptyBoardClick, gridData } = this.props;
+    if (onEmptyBoardClick && gridData && !gridData[index]) { onEmptyBoardClick(index); }
   }
 
   onDragStart(e:T_Event, data:T_Coords, index:number) {
@@ -104,12 +112,12 @@ export default class GridGameBoard extends Component<Props, State> {
   getStyles(subject:string, args:{ col:number, row:number, index:number }) {
   
     const squareBgColors = ['#dbbe92', '#52220b'];
-    const { dimension, squareSize, isChessBoard } = this.props;
+    const { dimension, squareSize, isChessBoard, onEmptyBoardClick } = this.props;
 
     switch (subject) {
 
       case 'board':
-        return { minWidth: dimension * squareSize + 'px' }
+        return { minWidth: dimension * squareSize + 'px', cursor: onEmptyBoardClick ? 'pointer' : 'default' }
 
       case 'row':
         return { padding: 0, margin: 0 }
