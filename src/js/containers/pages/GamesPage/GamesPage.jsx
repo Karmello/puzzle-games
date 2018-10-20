@@ -49,7 +49,7 @@ class GamesPage extends Component<Props> {
           index={api.gameCategories.res.data.findIndex(elem => elem.id === gameCategoryToSet)}
         >
           {api.gameCategories.res.data.map(categoryData => (
-            <div key={categoryData.id}>
+            <div className='GamesPage-category-games' key={categoryData.id}>
               {api.games.res.data.map(gameData => {
                 if (gameData.categoryId === categoryData.id) {
                   return (

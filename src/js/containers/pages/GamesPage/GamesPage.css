@@ -1,2 +1,6 @@
 .GamesPage .GamesPage-games {
   width: 100%; }
+  .GamesPage .GamesPage-games .GamesPage-category-games {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; }
