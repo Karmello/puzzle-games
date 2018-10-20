@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/components';
-import { initFrame } from 'js/actions/knightsTour';
+import { initFrame, resetFrame } from 'js/actions/knightsTour';
 
 class KnightsTour extends Game {
 
@@ -15,6 +15,10 @@ class KnightsTour extends Game {
     super(props);
     this.dimension = 8;
     this.squareSize = 75;
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch(resetFrame());
   }
 
   render() {

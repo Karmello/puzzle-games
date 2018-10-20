@@ -53,7 +53,7 @@ export default class GridGameBoard extends Component<Props, State> {
               const position = { x: 0, y: 0 };
               
               return (
-                <Col key={j} style={this.getStyles('col')}>
+                <Col key={j}>
                   <div style={this.getStyles('squareContainer', { col, row })}>
                     {isDraggable && gridData && gridData[index] &&
                     <Draggable
@@ -113,9 +113,6 @@ export default class GridGameBoard extends Component<Props, State> {
 
       case 'row':
         return { padding: 0, margin: 0 }
-
-      case 'col':
-        return { padding: 0, display: 'table' }
 
       case 'squareContainer':
         const style = {
