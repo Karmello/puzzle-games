@@ -7,7 +7,7 @@ export { default as GameCard } from './game/GameCard/GameCard';
 export { default as GameCategories } from './game/GameCategories/GameCategories';
 export { default as GameDashboard } from './game/GameDashboard/GameDashboard';
 export { default as GameMenu } from './game/GameMenu/GameMenu';
-export { default as GamePageInfo } from './game/GamePageInfo/GamePageInfo';
+export { default as GameInfo } from './game/GameInfo/GameInfo';
 export { default as GridGameBoard } from './game/GridGameBoard/GridGameBoard';
 
 // highscore

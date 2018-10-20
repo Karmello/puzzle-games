@@ -1,19 +1,19 @@
-.GamePageInfo {
+.GameInfo {
   max-width: 800px; }
-  .GamePageInfo > div {
+  .GameInfo > div {
     margin: 3px; }
   @media screen and (min-width: 750px) {
-    .GamePageInfo {
+    .GameInfo {
       display: flex;
       flex-flow: row wrap; }
-      .GamePageInfo > div {
+      .GameInfo > div {
         flex: 1;
         flex-basis: 49%; } }
   @media screen and (min-width: 1050px) {
-    .GamePageInfo {
+    .GameInfo {
       flex-flow: column nowrap;
       max-width: 350px; } }
-  .GamePageInfo a {
+  .GameInfo a {
     text-decoration: none; }
-  .GamePageInfo .GamePageInfo-panel-content {
+  .GameInfo .GameInfo-panel-content {
     width: 100%; }

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { Paper } from 'material-ui';
 
 import GameDashboard from 'js/components/game/GameDashboard/GameDashboard';
-import GamePageInfo from 'js/components/game/GamePageInfo/GamePageInfo';
+import GameInfo from 'js/components/game/GameInfo/GameInfo';
 import { Loader } from 'js/components';
 import { setAppTitle } from 'js/actions/app';
 import { startGame, endGame } from 'js/actions/game';
@@ -68,7 +68,7 @@ class GamePage extends Component<Props> {
         <Loader isShown={game.isLoading}>
           <div className='GamePage-main'>
             <div>
-              <GamePageInfo
+              <GameInfo
                 game={game}
                 gamePage={gamePage}
                 gameData={gameData}

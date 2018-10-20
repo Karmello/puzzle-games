@@ -7,8 +7,8 @@ import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
 
 import { GameBtn } from 'js/components';
-import { humanizeHighscoreTime } from 'js/extracts/gamePageInfo';
-import './GamePageInfo.css';
+import { humanizeHighscoreTime } from 'js/extracts/gameInfo';
+import './GameInfo.css';
 
 import type { T_GamePageSettings, T_GameSettings, T_ApiEndPoint } from 'js/flow-types';
 
@@ -35,7 +35,7 @@ const renderBestHighscore = (props:Props) => {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         {props.bestHighscore.res.status === 200 && props.bestHighscore.res.data &&
-        <div className='GamePageInfo-panel-content'>
+        <div className='GameInfo-panel-content'>
           <Typography>
             <span>{`${humanizeHighscoreTime(res.data.details.seconds)} and ${res.data.details.moves} moves by `}</span>
             <span style={{ fontWeight: 'bold' }}>{`${res.data.username}`}</span>
@@ -71,7 +71,7 @@ const renderInfo = (props:Props) => {
         <Typography>Info</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-        <div className='GamePageInfo-panel-content'>
+        <div className='GameInfo-panel-content'>
           <Typography style={{ textAlign: 'justify' }}>{gameData.info}</Typography>
         </div>
       </ExpansionPanelDetails>
@@ -81,7 +81,7 @@ const renderInfo = (props:Props) => {
 
 export default (props:Props) => {
   return (
-    <div className='GamePageInfo'>
+    <div className='GameInfo'>
       <div>{renderInfo(props)}</div>
       <div>{renderBestHighscore(props)}</div>
     </div>
