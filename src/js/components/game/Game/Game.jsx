@@ -4,7 +4,7 @@ import { Component } from 'react';
 import { App } from 'js/containers';
 import { fetchHighscore, saveNewHighscore } from 'js/actions/api';
 import { stopGameLoader, makeMove, setAsSolved } from 'js/actions/game';
-import type { T_GameSettings, T_BossPuzzleEngine, T_EightQueensEngine, T_SudokuEngine } from 'js/flow-types';
+import type { T_GameSettings, T_BossPuzzleEngine, T_EightQueensEngine, T_KnightsTourEngine, T_SudokuEngine } from 'js/flow-types';
 
 type Props = {
   dispatch:Function,
@@ -13,6 +13,7 @@ type Props = {
   game:T_GameSettings,
   bossPuzzleEngine:T_BossPuzzleEngine,
   eightQueensEngine:T_EightQueensEngine,
+  knightsTourEngine:T_KnightsTourEngine,
   sudokuEngine:T_SudokuEngine
 };
 

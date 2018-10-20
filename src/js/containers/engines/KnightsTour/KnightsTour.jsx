@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/components';
+import { initFrame } from 'js/actions/knightsTour';
 
 class KnightsTour extends Game {
 
@@ -17,21 +18,22 @@ class KnightsTour extends Game {
   }
 
   render() {
-    const { game } = this.props;
+    const { game, knightsTourEngine } = this.props;
     if (game.isLoading) { return null; }
     return (
       <GridGameBoard
         dimension={this.dimension}
         squareSize={this.squareSize}
         Square={() => <Button disableRipple style={this.getBtnStyle()}> </Button>}
-        gridData={[true, false]}
+        isChessBoard={true}
+        gridData={knightsTourEngine.visited}
         onDragMade={this.onMoveMade.bind(this)}
       />
     );
   }
 
-  onMoveMade(fromIndex, toIndex) {
-    //this.props.dispatch(moveQueen(fromIndex, toIndex));
+  onMoveMade() {
+    // this.props.dispatch(moveQueen(fromIndex, toIndex));
     super.onMakeMove();
   }
 
@@ -50,6 +52,11 @@ class KnightsTour extends Game {
   startNew = () => {
     return new Promise(resolve => {
       this.loadImg('knights-tour/knight.jpg').then(() => {
+        const visited = Array.from({ length: this.dimension ** 2 }, () => {
+          return false;
+        });
+        visited[2] = true;
+        this.props.dispatch(initFrame(visited));
         resolve();
       });
     });
@@ -64,5 +71,6 @@ class KnightsTour extends Game {
 
 export default connect(store => ({
   clientUser: store.api.clientUser,
-  game: store.game
+  game: store.game,
+  knightsTourEngine: store.engines['knights-tour']
 }))(KnightsTour);

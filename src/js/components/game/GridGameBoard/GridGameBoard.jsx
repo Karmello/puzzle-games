@@ -11,10 +11,11 @@ import './GridGameBoard.css';
 
 type Props = {
   dimension:number,
-  draggable?:boolean,
-  Square:Function,
-  gridData?:Array<boolean>,
   squareSize:number,
+  Square:Function,
+  isDraggable?:boolean,
+  isChessBoard?:boolean,
+  gridData?:Array<boolean>,
   onDragMade?:Function
 };
 
@@ -36,7 +37,9 @@ export default class GridGameBoard extends Component<Props, State> {
 
   render() {
 
-    const { dimension, draggable, Square, gridData } = this.props;
+    const { dimension, squareSize, isDraggable, Square, gridData } = this.props;
+
+    if (!dimension || !squareSize) { return null; }
 
     return (
       <Paper className='GridGameBoard' style={this.getStyles('board')}>{
@@ -51,20 +54,20 @@ export default class GridGameBoard extends Component<Props, State> {
               
               return (
                 <Col key={j} style={this.getStyles('col')}>
-                  {draggable &&
-                  <div style={this.getStyles('draggableContainer', { col, row })}>
-                    {gridData && gridData[index] &&
+                  <div style={this.getStyles('squareContainer', { col, row })}>
+                    {isDraggable && gridData && gridData[index] &&
                     <Draggable
                       position={position}
                       onStart={(e, data) => this.onDragStart(e, data, index)}
                       onStop={(e, data) => this.onDragStop(e, data, col, row, position)}
                     >
-                      <div style={this.getStyles('draggableChild', { index })}>
+                      <div style={this.getStyles('draggableContent', { index })}>
                         <Square col={col} row={row} />
                       </div>
                     </Draggable>}
-                  </div>}
-                  {!draggable && <Square col={col} row={row} />}
+                    {!isDraggable && gridData && gridData[index] && <Square col={col} row={row} />}
+                    {!isDraggable && !gridData && <Square col={col} row={row} />}
+                  </div>
                 </Col>
               );
             })
@@ -101,7 +104,7 @@ export default class GridGameBoard extends Component<Props, State> {
   getStyles(subject:string, args:{ col:number, row:number, index:number }) {
   
     const squareBgColors = ['#dbbe92', '#52220b'];
-    const { dimension, squareSize } = this.props;
+    const { dimension, squareSize, isChessBoard } = this.props;
 
     switch (subject) {
 
@@ -114,14 +117,18 @@ export default class GridGameBoard extends Component<Props, State> {
       case 'col':
         return { padding: 0, display: 'table' }
 
-      case 'draggableContainer':
-        return {
+      case 'squareContainer':
+        const style = {
           minWidth: `${squareSize}px`,
           height: `${squareSize}px`,
-          backgroundColor: squareBgColors[(args.col + args.row) % 2]
+          backgroundColor: undefined
+        };
+        if (isChessBoard) {
+          style.backgroundColor = squareBgColors[(args.col + args.row) % 2];
         }
+        return style;
 
-      case 'draggableChild':
+      case 'draggableContent':
         return {
           position: 'relative',
           zIndex: args.index === this.state.lastDraggedIndex ? 100: 99

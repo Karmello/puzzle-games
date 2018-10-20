@@ -29,7 +29,8 @@ class EightQueens extends Game {
         dimension={this.dimension}
         squareSize={this.squareSize}
         Square={() => <Button disableRipple style={this.getBtnStyle()}> </Button>}
-        draggable={true}
+        isDraggable={true}
+        isChessBoard={true}
         gridData={eightQueensEngine.queens}
         onDragMade={this.onMoveMade.bind(this)}
       />
