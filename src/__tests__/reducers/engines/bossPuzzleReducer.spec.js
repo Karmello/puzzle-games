@@ -1,5 +1,5 @@
-import bossPuzzleReducer from 'js/engines/BossPuzzle/bossPuzzleReducer';
-import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from 'js/engines/BossPuzzle/bossPuzzleActions';
+import bossPuzzleReducer from 'js/reducers/bossPuzzle';
+import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from 'js/actions/bossPuzzle';
 
 
 describe('bossPuzzleReducer', () => {

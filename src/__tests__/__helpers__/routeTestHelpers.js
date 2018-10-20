@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router';
 import { render } from 'enzyme';
 
 import store from 'js/store';
-import { App } from 'js/app';
+import { App } from 'js/containers';
 
 
 export const renderWrapper = (initialEntries, initialIndex) => {

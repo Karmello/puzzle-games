@@ -1,5 +1,5 @@
-import getApiRequestReducer from 'js/api/apiReducerCreators';
-import { apiRequest, apiRequestSuccess, apiRequestFailure } from 'js/api/apiActionCreators';
+import getApiRequestReducer from 'js/creators/reducer/api';
+import { apiRequest, apiRequestSuccess, apiRequestFailure } from 'js/creators/action/api';
 
 
 describe('apiReducers', () => {

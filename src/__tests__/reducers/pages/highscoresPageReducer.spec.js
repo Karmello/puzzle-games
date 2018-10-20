@@ -1,5 +1,5 @@
-import highscoresPageReducer from 'js/pages/HighscoresPage/highscoresPageReducer';
-import { changeHighscoresFilter } from 'js/pages/HighscoresPage/highscoresPageActions';
+import highscoresPageReducer from 'js/reducers/highscoresPage';
+import { changeHighscoresFilter } from 'js/actions/highscoresPage';
 
 
 describe('highscoresPageReducer', () => {

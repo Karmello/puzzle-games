@@ -1,4 +1,4 @@
-import { startingValues, checkIfSolved } from 'js/engines/Sudoku/sudokuHelpers';
+import { startingValues, checkIfSolved } from 'js/extracts/sudoku';
 
 describe('Sudoku helpers', () => {
 

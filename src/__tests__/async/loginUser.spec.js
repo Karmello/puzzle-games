@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { loginUser, CLIENT_USER_ACTION } from 'js/api/apiActions';
+import { loginUser, CLIENT_USER_ACTION } from 'js/actions/api';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;

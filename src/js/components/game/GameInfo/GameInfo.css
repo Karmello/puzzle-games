@@ -1,0 +1,19 @@
+.GameInfo {
+  max-width: 800px; }
+  .GameInfo > div {
+    margin: 3px; }
+  @media screen and (min-width: 750px) {
+    .GameInfo {
+      display: flex;
+      flex-flow: row wrap; }
+      .GameInfo > div {
+        flex: 1;
+        flex-basis: 49%; } }
+  @media screen and (min-width: 1050px) {
+    .GameInfo {
+      flex-flow: column nowrap;
+      max-width: 350px; } }
+  .GameInfo a {
+    text-decoration: none; }
+  .GameInfo .GameInfo-panel-content {
+    width: 100%; }
