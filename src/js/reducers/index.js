@@ -4,13 +4,12 @@ import { reducer as formReducer } from 'redux-form';
 
 import getApiRequestReducer from 'js/creators/reducer/api';
 
-import appReducer from 'js/reducers/app';
-import gameReducer from 'js/reducers/game';
-
+import appReducer from './app';
 import gamesPageReducer from './gamesPage';
 import gamePageReducer from './gamePage';
 import highscoresPageReducer from './highscoresPage';
 
+import gameReducer from './game';
 import bossPuzzleReducer from './bossPuzzle';
 import eightQueensReducer from './eightQueens';
 import sudokuReducer from './sudoku';

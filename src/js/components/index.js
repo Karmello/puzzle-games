@@ -6,8 +6,8 @@ export { default as GameBtn } from './game/GameBtn/GameBtn';
 export { default as GameCard } from './game/GameCard/GameCard';
 export { default as GameCategories } from './game/GameCategories/GameCategories';
 export { default as GameDashboard } from './game/GameDashboard/GameDashboard';
-export { default as GameMenu } from './game/GameMenu/GameMenu';
 export { default as GameInfo } from './game/GameInfo/GameInfo';
+export { default as GameMenu } from './game/GameMenu/GameMenu';
 export { default as GridGameBoard } from './game/GridGameBoard/GridGameBoard';
 
 // highscore
