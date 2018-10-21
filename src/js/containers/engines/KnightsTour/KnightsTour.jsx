@@ -5,6 +5,7 @@ import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/components';
 import { initEngine, moveKnight, resetEngine } from 'js/actions/knightsTour';
+import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridGameBoard';
 
 class KnightsTour extends Game {
 
@@ -41,14 +42,23 @@ class KnightsTour extends Game {
         )}
         isChessBoard={true}
         gridData={knightsTourEngine.visited}
-        onEmptyCellClick={index => this.onMoveMade(index)}
+        onEmptyCellClick={index => this.onEmptyCellClick(index)}
       />
     );
   }
 
-  onMoveMade(index:number) {
-    this.props.dispatch(moveKnight(index));
-    super.onMakeMove();
+  onEmptyCellClick(index:number) {
+    
+    const { knightsTourEngine: { active } } = this.props;
+    const newCoords = indexToCoords(index, this.dimension);
+    const allMovementCoords = findAllMovementCoords(indexToCoords(active, this.dimension), this.dimension, 'CHESS_KNIGHT');
+
+    for (let coords of allMovementCoords) {
+      if (coords.x === newCoords.x && coords.y === newCoords.y) {
+        this.props.dispatch(moveKnight(index));
+        return super.onMakeMove();
+      }
+    }
   }
 
   getKnightBtnStyle() {
