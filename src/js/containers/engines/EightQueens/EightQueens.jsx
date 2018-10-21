@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/components';
-import { initFrame, moveQueen, resetFrame } from 'js/actions/eightQueens';
+import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
 
 class EightQueens extends Game {
 
@@ -18,7 +18,7 @@ class EightQueens extends Game {
   }
 
   componentWillUnmount() {
-    this.props.dispatch(resetFrame());
+    this.props.dispatch(resetEngine());
   }
 
   render() {
@@ -61,7 +61,7 @@ class EightQueens extends Game {
           const coords = GridGameBoard.indexToCoords(k, this.dimension);
           return coords.x === coords.y;
         });
-        this.props.dispatch(initFrame(queens));
+        this.props.dispatch(initEngine(queens));
         resolve();
       });
     });

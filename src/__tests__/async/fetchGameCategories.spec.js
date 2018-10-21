@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { fetchGameCategories, FETCH_GAME_CATEGORIES } from 'js/actions/api';
+import { fetchGameCategories, API_FETCH_GAME_CATEGORIES } from 'js/actions/api';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;
@@ -29,7 +29,7 @@ describe('async fetchGameCategories', () => {
     
     const expectedActions = [
       {
-        type: FETCH_GAME_CATEGORIES,
+        type: API_FETCH_GAME_CATEGORIES,
         payload: {
           headers: {
             'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
@@ -37,7 +37,7 @@ describe('async fetchGameCategories', () => {
         }
       },
       {
-        type: FETCH_GAME_CATEGORIES + '_SUCCESS',
+        type: API_FETCH_GAME_CATEGORIES + '_SUCCESS',
         payload: {
           config: {
             method: 'get',
@@ -69,7 +69,7 @@ describe('async fetchGameCategories', () => {
     
     const expectedActions = [
       {
-        type: FETCH_GAME_CATEGORIES,
+        type: API_FETCH_GAME_CATEGORIES,
         payload: {
           headers: {
             'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
@@ -77,7 +77,7 @@ describe('async fetchGameCategories', () => {
         }
       },
       {
-        type: FETCH_GAME_CATEGORIES + '_FAILURE',
+        type: API_FETCH_GAME_CATEGORIES + '_FAILURE',
         payload: {
           config: {
             method: 'get',

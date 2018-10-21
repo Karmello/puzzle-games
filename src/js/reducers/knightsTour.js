@@ -1,5 +1,5 @@
 // @flow
-import { INIT_FRAME, RESET_FRAME } from 'js/actions/knightsTour';
+import { KNIGHTS_TOUR_INIT_ENGINE, KNIGHTS_TOUR_RESET_ENGINE } from 'js/actions/knightsTour';
 import type { T_Action, T_KnightsTourEngine } from 'js/flow-types';
 
 const initialState = {
@@ -11,13 +11,13 @@ const knightsTourReducer = (state:T_KnightsTourEngine = initialState, action:T_A
   
   switch (action.type) {
 
-    case INIT_FRAME:
+    case KNIGHTS_TOUR_INIT_ENGINE:
       return {
         visited: action.payload.visited,
         active:action.payload.active
       }
 
-    case RESET_FRAME:
+    case KNIGHTS_TOUR_RESET_ENGINE:
       return initialState;
 
     default:

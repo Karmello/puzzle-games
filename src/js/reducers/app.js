@@ -1,5 +1,5 @@
 // @flow
-import { TOGGLE_APP_LOADER, SET_AUTH_STATUS, SET_APP_TITLE, TOGGLE_APP_DRAWER } from 'js/actions/app';
+import { APP_TOGGLE_LOADER, APP_SET_AUTH_STATUS, APP_SET_TITLE, APP_TOGGLE_DRAWER } from 'js/actions/app';
 import type { T_Action, T_AppSettings } from 'js/flow-types';
 
 const initialState = {
@@ -14,26 +14,26 @@ const appReducer = (state:T_AppSettings = initialState, action:T_Action) => {
   
   switch (action.type) {
 
-    case SET_APP_TITLE:
+    case APP_SET_TITLE:
       return {
         ...state,
         title: action.payload.title
       }
 
-    case SET_AUTH_STATUS:
+    case APP_SET_AUTH_STATUS:
       return {
         ...state,
         authStatus: action.payload.authStatus,
         showDrawer: false
       }
 
-    case TOGGLE_APP_LOADER:
+    case APP_TOGGLE_LOADER:
       return {
         ...state,
         isLoading: action.payload.isLoading
       }
 
-    case TOGGLE_APP_DRAWER:
+    case APP_TOGGLE_DRAWER:
       return {
         ...state,
         showDrawer: action.payload.showDrawer

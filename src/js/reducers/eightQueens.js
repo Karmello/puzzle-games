@@ -1,5 +1,5 @@
 // @flow
-import { INIT_FRAME, MOVE_QUEEN, RESET_FRAME } from 'js/actions/eightQueens';
+import { EIGHT_QUEENS_INIT_ENGINE, EIGHT_QUEENS_MOVE_QUEEN, EIGHT_QUEENS_RESET_ENGINE } from 'js/actions/eightQueens';
 import type { T_Action, T_EightQueensEngine } from 'js/flow-types';
 
 const initialState = {
@@ -10,13 +10,13 @@ const eightQueensReducer = (state:T_EightQueensEngine = initialState, action:T_A
   
   switch (action.type) {
 
-    case INIT_FRAME:
+    case EIGHT_QUEENS_INIT_ENGINE:
       return {
         ...state,
         queens: action.payload.queens
       }
 
-    case MOVE_QUEEN:
+    case EIGHT_QUEENS_MOVE_QUEEN:
 
       const queens = [...state.queens];
       queens[action.meta.fromIndex] = !queens[action.meta.fromIndex];
@@ -27,7 +27,7 @@ const eightQueensReducer = (state:T_EightQueensEngine = initialState, action:T_A
         queens
       }
 
-    case RESET_FRAME:
+    case EIGHT_QUEENS_RESET_ENGINE:
       return initialState;
 
     default:

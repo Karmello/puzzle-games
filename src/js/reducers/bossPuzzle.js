@@ -1,5 +1,11 @@
 // @flow
-import { INIT_FRAME, SWITCH_TILES, CLEAR_HIDDEN_TILE_COORDS, RESET_FRAME } from 'js/actions/bossPuzzle';
+import {
+  BOSS_PUZZLE_INIT_ENGINE,
+  BOSS_PUZZLE_SWITCH_TILES,
+  BOSS_PUZZLE_CLEAR_HIDDEN_TILE_COORDS,
+  BOSS_PUZZLE_RESET_ENGINE
+} from 'js/actions/bossPuzzle';
+
 import type { T_Action, T_BossPuzzleEngine } from 'js/flow-types';
 
 const initialState = {
@@ -13,7 +19,7 @@ const bossPuzzleReducer = (state:T_BossPuzzleEngine = initialState, action:T_Act
   
   switch (action.type) {
 
-    case INIT_FRAME:
+    case BOSS_PUZZLE_INIT_ENGINE:
       return {
         ...state,
         imgNumbers: action.payload.imgNumbers,
@@ -22,7 +28,7 @@ const bossPuzzleReducer = (state:T_BossPuzzleEngine = initialState, action:T_Act
         hiddenTileCoords: action.payload.hiddenTileCoords
       }
 
-    case SWITCH_TILES:
+    case BOSS_PUZZLE_SWITCH_TILES:
 
       const newState = {
         ...state,
@@ -34,13 +40,13 @@ const bossPuzzleReducer = (state:T_BossPuzzleEngine = initialState, action:T_Act
       newState.tiles[action.meta.index2] = temp;
       return newState;
 
-    case CLEAR_HIDDEN_TILE_COORDS:
+    case BOSS_PUZZLE_CLEAR_HIDDEN_TILE_COORDS:
       return {
         ...state,
         hiddenTileCoords: {}
       }
 
-    case RESET_FRAME:
+    case BOSS_PUZZLE_RESET_ENGINE:
       return initialState;
 
     default:

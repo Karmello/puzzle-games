@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { Game, GridGameBoard } from 'js/components';
 import ValueField from './ValueField/ValueField';
-import { initFrame, changeValue, resetFrame } from 'js/actions/sudoku';
+import { initEngine, changeValue, resetEngine } from 'js/actions/sudoku';
 import { initializeValues, checkIfSolved } from 'js/extracts/sudoku';
 
 class Sudoku extends Game {
@@ -19,7 +19,7 @@ class Sudoku extends Game {
   }
 
   componentWillUnmount() {
-    this.props.dispatch(resetFrame());
+    this.props.dispatch(resetEngine());
   }
 
   render() {
@@ -57,7 +57,7 @@ class Sudoku extends Game {
       }
 
       this.setState({ disabledIndexes });
-      this.props.dispatch(initFrame(newValues));
+      this.props.dispatch(initEngine(newValues));
       resolve();
     });
   }

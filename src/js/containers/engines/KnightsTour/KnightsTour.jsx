@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/components';
-import { initFrame, resetFrame } from 'js/actions/knightsTour';
+import { initEngine, resetEngine } from 'js/actions/knightsTour';
 
 class KnightsTour extends Game {
 
@@ -18,7 +18,7 @@ class KnightsTour extends Game {
   }
 
   componentWillUnmount() {
-    this.props.dispatch(resetFrame());
+    this.props.dispatch(resetEngine());
   }
 
   render() {
@@ -60,7 +60,7 @@ class KnightsTour extends Game {
         const visited = Array.from({ length: this.dimension ** 2 }, () => false);
         const active = Math.floor(Math.random() * this.dimension ** 2);
         visited[active] = true;
-        this.props.dispatch(initFrame(visited, active));
+        this.props.dispatch(initEngine(visited, active));
         resolve();
       });
     });

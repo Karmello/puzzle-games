@@ -1,13 +1,13 @@
 // @flow
 import type { T_Coords } from 'js/flow-types';
 
-export const INIT_FRAME = 'INIT_FRAME';
-export const SWITCH_TILES = 'SWITCH_TILES';
-export const CLEAR_HIDDEN_TILE_COORDS = 'CLEAR_HIDDEN_TILE_COORDS';
-export const RESET_FRAME = 'RESET_FRAME';
+export const BOSS_PUZZLE_INIT_ENGINE = 'BOSS_PUZZLE_INIT_ENGINE';
+export const BOSS_PUZZLE_SWITCH_TILES = 'BOSS_PUZZLE_SWITCH_TILES';
+export const BOSS_PUZZLE_CLEAR_HIDDEN_TILE_COORDS = 'BOSS_PUZZLE_CLEAR_HIDDEN_TILE_COORDS';
+export const BOSS_PUZZLE_RESET_ENGINE = 'BOSS_PUZZLE_RESET_ENGINE';
 
-export const initFrame = (imgNumbers:Array<number>, imgIndex:number, tiles:Array<number>, hiddenTileCoords:T_Coords) => ({
-  type: INIT_FRAME,
+export const initEngine = (imgNumbers:Array<number>, imgIndex:number, tiles:Array<number>, hiddenTileCoords:T_Coords) => ({
+  type: BOSS_PUZZLE_INIT_ENGINE,
   payload: {
     imgNumbers: imgNumbers,
     imgIndex: imgIndex,
@@ -17,7 +17,7 @@ export const initFrame = (imgNumbers:Array<number>, imgIndex:number, tiles:Array
 });
 
 export const switchTiles = (index1:number, index2:number, hiddenTileCoords:T_Coords) => ({
-  type: SWITCH_TILES,
+  type: BOSS_PUZZLE_SWITCH_TILES,
   meta: {
     index1: index1,
     index2: index2
@@ -28,9 +28,9 @@ export const switchTiles = (index1:number, index2:number, hiddenTileCoords:T_Coo
 });
 
 export const clearHiddenTileCoords = () => ({
-  type: CLEAR_HIDDEN_TILE_COORDS
+  type: BOSS_PUZZLE_CLEAR_HIDDEN_TILE_COORDS
 });
 
-export const resetFrame = () => ({
-  type: RESET_FRAME
+export const resetEngine = () => ({
+  type: BOSS_PUZZLE_RESET_ENGINE
 });

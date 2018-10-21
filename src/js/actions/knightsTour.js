@@ -1,15 +1,15 @@
 // @flow
-export const INIT_FRAME = 'INIT_FRAME';
-export const RESET_FRAME = 'RESET_FRAME';
+export const KNIGHTS_TOUR_INIT_ENGINE = 'KNIGHTS_TOUR_INIT_ENGINE';
+export const KNIGHTS_TOUR_RESET_ENGINE = 'KNIGHTS_TOUR_RESET_ENGINE';
 
-export const initFrame = (visited:Array<boolean>, active:number) => ({
-  type: INIT_FRAME,
+export const initEngine = (visited:Array<boolean>, active:number) => ({
+  type: KNIGHTS_TOUR_INIT_ENGINE,
   payload: {
     visited,
     active
   }
 });
 
-export const resetFrame = () => ({
-  type: RESET_FRAME
+export const resetEngine = () => ({
+  type: KNIGHTS_TOUR_RESET_ENGINE
 });

@@ -11,7 +11,7 @@ describe('gamesPageReducer', () => {
     });
   });
 
-  it('should handle SWITCH_GAME_CATEGORY_TAB', () => {
+  it('should handle GAMES_PAGE_SWITCH_CATEGORY_TAB', () => {
     expect(gamesPageReducer({
       category: 'sliding',
       options: {
@@ -25,7 +25,7 @@ describe('gamesPageReducer', () => {
     });
   });
 
-  it('should handle CHANGE_GAME_OPTIONS', () => {
+  it('should handle GAMES_PAGE_CHANGE_GAME_OPTIONS', () => {
 
     expect(gamesPageReducer({
       category: 'sliding',

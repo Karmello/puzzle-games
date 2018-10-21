@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { fetchGames, FETCH_GAMES } from 'js/actions/api';
+import { fetchGames, API_FETCH_GAMES } from 'js/actions/api';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;
@@ -29,7 +29,7 @@ describe('async fetchGames', () => {
     
     const expectedActions = [
       {
-        type: FETCH_GAMES,
+        type: API_FETCH_GAMES,
         payload: {
           headers: {
             'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
@@ -37,7 +37,7 @@ describe('async fetchGames', () => {
         }
       },
       {
-        type: FETCH_GAMES + '_SUCCESS',
+        type: API_FETCH_GAMES + '_SUCCESS',
         payload: {
           config: {
             method: 'get',
@@ -69,7 +69,7 @@ describe('async fetchGames', () => {
     
     const expectedActions = [
       {
-        type: FETCH_GAMES,
+        type: API_FETCH_GAMES,
         payload: {
           headers: {
             'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
@@ -77,7 +77,7 @@ describe('async fetchGames', () => {
         }
       },
       {
-        type: FETCH_GAMES + '_FAILURE',
+        type: API_FETCH_GAMES + '_FAILURE',
         payload: {
           config: {
             method: 'get',

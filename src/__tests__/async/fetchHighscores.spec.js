@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { fetchHighscores, FETCH_HIGHSCORES } from 'js/actions/api';
+import { fetchHighscores, API_API_FETCH_HIGHSCORES } from 'js/actions/api';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;
@@ -36,7 +36,7 @@ describe('async fetchHighscores', () => {
     
     const expectedActions = [
       {
-        type: FETCH_HIGHSCORES,
+        type: API_API_FETCH_HIGHSCORES,
         payload: {
           params: { gameId: '5a88b19010216a6875e3163d' },
           query: { mode: 'NUM', dimension: '3' },
@@ -46,7 +46,7 @@ describe('async fetchHighscores', () => {
         }
       },
       {
-        type: FETCH_HIGHSCORES + '_SUCCESS',
+        type: API_API_FETCH_HIGHSCORES + '_SUCCESS',
         payload: {
           config: {
             method: 'get',
@@ -86,7 +86,7 @@ describe('async fetchHighscores', () => {
     
     const expectedActions = [
       {
-        type: FETCH_HIGHSCORES,
+        type: API_API_FETCH_HIGHSCORES,
         payload: {
           params: { gameId: '5a88b19010216a6875e3163d' },
           query: { mode: 'NUM', dimension: '3' },
@@ -96,7 +96,7 @@ describe('async fetchHighscores', () => {
         }
       },
       {
-        type: FETCH_HIGHSCORES + '_FAILURE',
+        type: API_API_FETCH_HIGHSCORES + '_FAILURE',
         payload: {
           config: {
             method: 'get',

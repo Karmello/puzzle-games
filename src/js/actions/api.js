@@ -6,13 +6,13 @@ import type { T_UserModel, T_HighscoreModel, T_GameOptionsModel } from 'js/flow-
 
 const baseURL = process.env.REACT_APP_API_URI;
 
-export const CLIENT_USER_ACTION = 'CLIENT_USER_ACTION';
-export const FETCH_GAMES = 'FETCH_GAMES';
-export const FETCH_GAME_CATEGORIES = 'FETCH_GAME_CATEGORIES';
-export const FETCH_HIGHSCORES = 'FETCH_HIGHSCORES';
-export const FETCH_HIGHSCORE = 'FETCH_HIGHSCORE';
-export const FETCH_USERS = 'FETCH_USERS';
-export const SAVE_NEW_HIGHSCORE = 'SAVE_NEW_HIGHSCORE';
+export const API_MAKE_AUTH_REQUEST = 'API_MAKE_AUTH_REQUEST';
+export const API_FETCH_GAMES = 'API_FETCH_GAMES';
+export const API_FETCH_GAME_CATEGORIES = 'API_FETCH_GAME_CATEGORIES';
+export const API_API_FETCH_HIGHSCORES = 'API_API_FETCH_HIGHSCORES';
+export const API_FETCH_HIGHSCORE = 'API_FETCH_HIGHSCORE';
+export const API_FETCH_USERS = 'API_FETCH_USERS';
+export const API_SAVE_NEW_HIGHSCORE = 'API_SAVE_NEW_HIGHSCORE';
 
 export const registerUser = (user:T_UserModel) => {
 
@@ -20,11 +20,11 @@ export const registerUser = (user:T_UserModel) => {
   api.interceptors.response.use(res => ({ ...res, token: res.data.token, data: res.data.user }));
 
   return (dispatch:Function) => {
-    dispatch(apiRequest(CLIENT_USER_ACTION, { body: { ...user, password: user.password.replace(/./g, '*') } }));
+    dispatch(apiRequest(API_MAKE_AUTH_REQUEST, { body: { ...user, password: user.password.replace(/./g, '*') } }));
     return api.post('/user/register', user).then(res => {
       localStorage.setItem('token', res.token);
-      dispatch(apiRequestSuccess(CLIENT_USER_ACTION, res));
-    }, err => dispatch(apiRequestFailure(CLIENT_USER_ACTION, err)));
+      dispatch(apiRequestSuccess(API_MAKE_AUTH_REQUEST, res));
+    }, err => dispatch(apiRequestFailure(API_MAKE_AUTH_REQUEST, err)));
   }
 }
 
@@ -34,7 +34,7 @@ export const loginUser = (credentials:T_UserModel|{token:string}) => {
   api.interceptors.response.use(res => ({ ...res, token: res.data.token, data: res.data.user }));
 
   return (dispatch:Function) => {
-    dispatch(apiRequest(CLIENT_USER_ACTION, {
+    dispatch(apiRequest(API_MAKE_AUTH_REQUEST, {
       body: {
         ...credentials,
         password: credentials.password ? String(credentials.password).replace(/./g, '*') : undefined
@@ -42,8 +42,8 @@ export const loginUser = (credentials:T_UserModel|{token:string}) => {
     }));
     return api.post('/user/login', credentials).then(res => {
       if (res.token) { localStorage.setItem('token', res.token); }
-      dispatch(apiRequestSuccess(CLIENT_USER_ACTION, res));
-    }, err => dispatch(apiRequestFailure(CLIENT_USER_ACTION, err)));
+      dispatch(apiRequestSuccess(API_MAKE_AUTH_REQUEST, res));
+    }, err => dispatch(apiRequestFailure(API_MAKE_AUTH_REQUEST, err)));
   }
 }
 
@@ -53,10 +53,10 @@ export const updateUser = (username:string, updateQuery:{}) => {
 
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
-    dispatch(apiRequest(CLIENT_USER_ACTION, { headers, body: updateQuery }));
+    dispatch(apiRequest(API_MAKE_AUTH_REQUEST, { headers, body: updateQuery }));
     return api.post(`user/${username}`, updateQuery, { headers }).then(
-      res => dispatch(apiRequestSuccess(CLIENT_USER_ACTION, res)),
-      err => dispatch(apiRequestFailure(CLIENT_USER_ACTION, err))
+      res => dispatch(apiRequestSuccess(API_MAKE_AUTH_REQUEST, res)),
+      err => dispatch(apiRequestFailure(API_MAKE_AUTH_REQUEST, err))
     );
   }
 }
@@ -65,10 +65,10 @@ export const fetchUsers = () => {
   const api = axios.create({ baseURL });
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
-    dispatch(apiRequest(FETCH_USERS, { headers }));
+    dispatch(apiRequest(API_FETCH_USERS, { headers }));
     return api.get('/users', { headers }).then(
-      res => dispatch(apiRequestSuccess(FETCH_USERS, res)),
-      err => dispatch(apiRequestFailure(FETCH_USERS, err))
+      res => dispatch(apiRequestSuccess(API_FETCH_USERS, res)),
+      err => dispatch(apiRequestFailure(API_FETCH_USERS, err))
     );
   }
 }
@@ -77,10 +77,10 @@ export const fetchGames = () => {
   const api = axios.create({ baseURL });
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
-    dispatch(apiRequest(FETCH_GAMES, { headers }));
+    dispatch(apiRequest(API_FETCH_GAMES, { headers }));
     return api.get('/games', { headers }).then(
-      res => dispatch(apiRequestSuccess(FETCH_GAMES, res)),
-      err => dispatch(apiRequestFailure(FETCH_GAMES, err))
+      res => dispatch(apiRequestSuccess(API_FETCH_GAMES, res)),
+      err => dispatch(apiRequestFailure(API_FETCH_GAMES, err))
     );
   }
 }
@@ -89,10 +89,10 @@ export const fetchGameCategories = () => {
   const api = axios.create({ baseURL });
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
-    dispatch(apiRequest(FETCH_GAME_CATEGORIES, { headers }));
+    dispatch(apiRequest(API_FETCH_GAME_CATEGORIES, { headers }));
     return api.get('/game-categories', { headers }).then(
-      res => dispatch(apiRequestSuccess(FETCH_GAME_CATEGORIES, res)),
-      err => dispatch(apiRequestFailure(FETCH_GAME_CATEGORIES, err))
+      res => dispatch(apiRequestSuccess(API_FETCH_GAME_CATEGORIES, res)),
+      err => dispatch(apiRequestFailure(API_FETCH_GAME_CATEGORIES, err))
     );
   }
 }
@@ -103,18 +103,18 @@ export const fetchHighscores = (gameId:string, query:T_GameOptionsModel, delay:n
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscores/${gameId}`;
     if (query && !isEmpty(query) && query.mode && query.dimension) { url += `?mode=${query.mode}&dimension=${query.dimension}`; }
-    dispatch(apiRequest(FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
+    dispatch(apiRequest(API_API_FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(res => {
       if (delay) {
-        setTimeout(() => dispatch(apiRequestSuccess(FETCH_HIGHSCORES, res)), delay);
+        setTimeout(() => dispatch(apiRequestSuccess(API_API_FETCH_HIGHSCORES, res)), delay);
       } else {
-        dispatch(apiRequestSuccess(FETCH_HIGHSCORES, res));
+        dispatch(apiRequestSuccess(API_API_FETCH_HIGHSCORES, res));
       }
     }, err => {
       if (delay) {
-        setTimeout(() => dispatch(apiRequestFailure(FETCH_HIGHSCORES, err)), delay);
+        setTimeout(() => dispatch(apiRequestFailure(API_API_FETCH_HIGHSCORES, err)), delay);
       } else {
-        dispatch(apiRequestFailure(FETCH_HIGHSCORES, err));
+        dispatch(apiRequestFailure(API_API_FETCH_HIGHSCORES, err));
       }
     });
   }
@@ -126,10 +126,10 @@ export const fetchHighscore = (gameId:string, query:T_GameOptionsModel) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscore/${gameId}`;
     if (query && !isEmpty(query) && query.mode && query.dimension) { url += `?mode=${query.mode}&dimension=${query.dimension}`; }
-    dispatch(apiRequest(FETCH_HIGHSCORE, { headers, params: { gameId }, query }));
+    dispatch(apiRequest(API_FETCH_HIGHSCORE, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(
-      res => dispatch(apiRequestSuccess(FETCH_HIGHSCORE, res)),
-      err => dispatch(apiRequestFailure(FETCH_HIGHSCORES, err))
+      res => dispatch(apiRequestSuccess(API_FETCH_HIGHSCORE, res)),
+      err => dispatch(apiRequestFailure(API_API_FETCH_HIGHSCORES, err))
     );
   }
 }
@@ -138,10 +138,10 @@ export const saveNewHighscore = (highscore:T_HighscoreModel) => {
   const api = axios.create({ baseURL });
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
-    dispatch(apiRequest(SAVE_NEW_HIGHSCORE, { headers, body: highscore }));
+    dispatch(apiRequest(API_SAVE_NEW_HIGHSCORE, { headers, body: highscore }));
     return api.post('/highscore', highscore, { headers }).then(
-      res => dispatch(apiRequestSuccess(SAVE_NEW_HIGHSCORE, res)),
-      err => dispatch(apiRequestFailure(SAVE_NEW_HIGHSCORE, err))
+      res => dispatch(apiRequestSuccess(API_SAVE_NEW_HIGHSCORE, res)),
+      err => dispatch(apiRequestFailure(API_SAVE_NEW_HIGHSCORE, err))
     );
   }
 }
