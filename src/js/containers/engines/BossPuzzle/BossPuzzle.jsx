@@ -47,6 +47,11 @@ class BossPuzzle extends Game {
     return null;
   }
 
+  onMoveMade(index1, index2, targetCoords) {
+    this.props.dispatch(switchTiles(index1, index2, targetCoords));
+    super.onMakeMove();
+  }
+
   startNew = doRestart => {
     
     return new Promise(resolve => {
@@ -85,12 +90,7 @@ class BossPuzzle extends Game {
         resolve();
       });
     });
-  }
-
-  onMoveMade(index1, index2, targetCoords) {
-    this.props.dispatch(switchTiles(index1, index2, targetCoords));
-    super.onMakeMove();
-  }
+  };
 
   checkIfSolved = () => {
 
@@ -109,7 +109,7 @@ class BossPuzzle extends Game {
       dispatch(clearHiddenTileCoords());
       resolve(true);
     });
-  }
+  };
 }
 
 export default connect(store => ({

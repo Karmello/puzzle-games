@@ -46,6 +46,12 @@ class Sudoku extends Game {
     );
   }
 
+  onMoveMade(col, row, newValue) {
+    const { props, dimension } = this;
+    props.dispatch(changeValue(GridGameBoard.coordsToIndex({ x: col, y: row }, dimension), newValue));
+    super.onMakeMove();
+  }
+
   startNew = () => {
     return new Promise(resolve => {
 
@@ -60,17 +66,11 @@ class Sudoku extends Game {
       this.props.dispatch(initEngine(newValues));
       resolve();
     });
-  }
-
-  onMoveMade(col, row, newValue) {
-    const { props, dimension } = this;
-    props.dispatch(changeValue(GridGameBoard.coordsToIndex({ x: col, y: row }, dimension), newValue));
-    super.onMakeMove();
-  }
+  };
 
   checkIfSolved = () => {
     return checkIfSolved(this.props.sudokuEngine.values, this.dimension);
-  }
+  };
 }
 
 export default connect(store => ({

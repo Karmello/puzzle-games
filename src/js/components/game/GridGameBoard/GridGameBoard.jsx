@@ -63,12 +63,12 @@ export default class GridGameBoard extends Component<Props, State> {
                       onStop={(e, data) => this.onDragStop(e, data, col, row, position)}
                     >
                       <div style={this.getStyles('draggableContent', { index })}>
-                        <Square col={col} row={row} />
+                        <Square col={col} row={row} index={index} />
                       </div>
                     </Draggable>}
                     {!isDraggable &&
                     <div style={{ cursor: 'default' }}>
-                      {((gridData && gridData[index]) || !gridData) && <Square col={col} row={row} />}
+                      {((gridData && gridData[index]) || !gridData) && <Square col={col} row={row} index={index} />}
                     </div>}
                   </div>
                 </Col>

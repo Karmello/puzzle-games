@@ -85,18 +85,14 @@ export default class Game extends Component<Props, State> {
   }
 
   loadImg(imgPath:string) {
-
     return new Promise((resolve, reject) => {
-
       const img = new Image();
       img.src = `${process.env.REACT_APP_S3_BUCKET || ''}/${imgPath}`;
-        
       img.onload = () => {
         this.setState({ imgSrc: img.src });
         resolve();
       }
-
-      img.onerror = (err) => { reject(err); }
+      img.onerror = err => { reject(err); }
     });
   }
 }
