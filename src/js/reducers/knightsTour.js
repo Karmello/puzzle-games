@@ -13,8 +13,8 @@ const knightsTourReducer = (state:T_KnightsTourEngine = initialState, action:T_A
 
     case INIT_FRAME:
       return {
-        ...state,
-        visited: action.payload.visited
+        visited: action.payload.visited,
+        active:action.payload.active
       }
 
     case RESET_FRAME:

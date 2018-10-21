@@ -32,7 +32,7 @@ class KnightsTour extends Game {
         isChessBoard={true}
         gridData={knightsTourEngine.visited}
         onDragMade={this.onMoveMade.bind(this)}
-        onEmptyBoardClick={index => { console.log(index); }}
+        onEmptyCellClick={index => { console.log(index); }}
       />
     );
   }
@@ -57,11 +57,10 @@ class KnightsTour extends Game {
   startNew = () => {
     return new Promise(resolve => {
       this.loadImg('knights-tour/knight.jpg').then(() => {
-        const visited = Array.from({ length: this.dimension ** 2 }, () => {
-          return false;
-        });
-        visited[2] = true;
-        this.props.dispatch(initFrame(visited));
+        const visited = Array.from({ length: this.dimension ** 2 }, () => false);
+        const active = Math.floor(Math.random() * this.dimension ** 2);
+        visited[active] = true;
+        this.props.dispatch(initFrame(visited, active));
         resolve();
       });
     });

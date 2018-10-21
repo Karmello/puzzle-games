@@ -17,7 +17,7 @@ type Props = {
   isChessBoard?:boolean,
   gridData?:Array<boolean>,
   onDragMade?:Function,
-  onEmptyBoardClick?:Function
+  onEmptyCellClick?:Function
 };
 
 type State = {
@@ -81,8 +81,8 @@ export default class GridGameBoard extends Component<Props, State> {
   }
 
   onBoardClick(index:number) {
-    const { onEmptyBoardClick, gridData } = this.props;
-    if (onEmptyBoardClick && gridData && !gridData[index]) { onEmptyBoardClick(index); }
+    const { onEmptyCellClick, gridData } = this.props;
+    if (onEmptyCellClick && gridData && !gridData[index]) { onEmptyCellClick(index); }
   }
 
   onDragStart(e:T_Event, data:T_Coords, index:number) {
@@ -112,12 +112,12 @@ export default class GridGameBoard extends Component<Props, State> {
   getStyles(subject:string, args:{ col:number, row:number, index:number }) {
   
     const squareBgColors = ['#dbbe92', '#52220b'];
-    const { dimension, squareSize, isChessBoard, onEmptyBoardClick } = this.props;
+    const { dimension, squareSize, isChessBoard, onEmptyCellClick } = this.props;
 
     switch (subject) {
 
       case 'board':
-        return { minWidth: dimension * squareSize + 'px', cursor: onEmptyBoardClick ? 'pointer' : 'default' }
+        return { minWidth: dimension * squareSize + 'px', cursor: onEmptyCellClick ? 'pointer' : 'default' }
 
       case 'row':
         return { padding: 0, margin: 0 }
