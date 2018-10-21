@@ -96,6 +96,8 @@ class KnightsTour extends Game {
 
   checkIfSolved = () => {
     return new Promise(resolve => {
+      const { knightsTourEngine: { visited } } = this.props;
+      if (visited.every(elem => elem)) { return resolve(true); }
       resolve(false);
     });
   };
