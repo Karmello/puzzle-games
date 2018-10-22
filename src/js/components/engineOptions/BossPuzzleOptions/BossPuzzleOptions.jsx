@@ -27,16 +27,15 @@ export default class BossPuzzleOptions extends Component<Props, State> {
   state = { mode: '', dimension: '' }
 
   componentWillMount() {
-
-    this.setState({ ...this.props.options });
+    const { mode, dimension } = this.props.options;
+    this.setState({ mode, dimension });
   }
 
   componentWillReceiveProps(nextProps:Props) {
-    
     const { mode, dimension } = this.state;
-
-    if (mode !== nextProps.options.mode || dimension !== nextProps.options.dimension) {
-      this.setState({ ...this.props.options });
+    const [nextMode, nextDimension] = [nextProps.options.mode, nextProps.options.dimension];
+    if (mode !== nextMode || dimension !== nextDimension) {
+      this.setState({ mode: nextMode, dimension: nextDimension });
     }
   } 
 
@@ -82,11 +81,9 @@ export default class BossPuzzleOptions extends Component<Props, State> {
   }
 
   onValueChange(key:string, value:string) {
-
     this.setState({ [key]: value });
-    
     if (this.props.onValueChangeCb) {
-      setTimeout(() => { this.props.onValueChangeCb(this.state); });
+      setTimeout(() => this.props.onValueChangeCb(this.state));
     }
   }
 }

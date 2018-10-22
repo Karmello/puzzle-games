@@ -5,7 +5,8 @@ import type { T_Action, T_GamesPageSettings } from 'js/flow-types';
 const initialState = {
   category: '',
   options: {
-    'boss-puzzle': {}
+    'boss-puzzle': {},
+    'knights-tour': {}
   }
 };
 

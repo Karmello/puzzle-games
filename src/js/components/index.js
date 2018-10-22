@@ -16,6 +16,7 @@ export { default as HighscoresTable } from './highscore/HighscoresTable/Highscor
 
 // engine options
 export { default as BossPuzzleOptions } from './engineOptions/BossPuzzleOptions/BossPuzzleOptions';
+export { default as KnightsTourOptions } from './engineOptions/KnightsTourOptions/KnightsTourOptions';
 
 // other
 export { default as AuthForm } from './other/AuthForm/AuthForm';

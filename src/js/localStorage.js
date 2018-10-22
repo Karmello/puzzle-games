@@ -3,7 +3,8 @@ const defaultUiConfig = {
   gamesPage: {
     category: 'sliding',
     options: {
-      'boss-puzzle': { mode: 'NUM', dimension: '3' }
+      'boss-puzzle': { mode: 'NUM', dimension: '3' },
+      'knights-tour': { dimension: '5' }
     }
   },
   gamePage: {

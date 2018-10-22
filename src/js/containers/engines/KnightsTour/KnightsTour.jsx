@@ -9,14 +9,12 @@ import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridGameBoard'
 
 class KnightsTour extends Game {
 
-  dimension:number;
   squareSize:number;
   knightImgPath:string;
   okArrowImgPath:string;
 
   constructor(props) {
     super(props);
-    this.dimension = 8;
     this.squareSize = 75;
     this.knightImgPath = 'knights-tour/knight.jpg';
     this.okArrowImgPath = 'knights-tour/ok_arrow.png';
@@ -31,7 +29,7 @@ class KnightsTour extends Game {
     if (game.isLoading) { return null; }
     return (
       <GridGameBoard
-        dimension={this.dimension}
+        dimension={Number(game.options.dimension)}
         squareSize={this.squareSize}
         Square={props => (
           <Button
@@ -49,9 +47,9 @@ class KnightsTour extends Game {
 
   onEmptyCellClick(index:number) {
     
-    const { knightsTourEngine: { active } } = this.props;
-    const newCoords = indexToCoords(index, this.dimension);
-    const allMovementCoords = findAllMovementCoords(indexToCoords(active, this.dimension), this.dimension, 'CHESS_KNIGHT');
+    const { knightsTourEngine: { active }, game: { options: { dimension } } } = this.props;
+    const newCoords = indexToCoords(index, Number(dimension));
+    const allMovementCoords = findAllMovementCoords(indexToCoords(active, Number(dimension)), Number(dimension), 'CHESS_KNIGHT');
 
     for (let coords of allMovementCoords) {
       if (coords.x === newCoords.x && coords.y === newCoords.y) {
@@ -83,12 +81,13 @@ class KnightsTour extends Game {
   }
 
   startNew = () => {
+    const { dispatch, game: { options: { dimension } } } = this.props;
     return new Promise(resolve => {
       Promise.all([this.loadImg(this.knightImgPath), this.loadImg(this.okArrowImgPath)]).then(() => {
-        const visited = Array.from({ length: this.dimension ** 2 }, () => false);
-        const active = Math.floor(Math.random() * this.dimension ** 2);
+        const visited = Array.from({ length: Number(dimension) ** 2 }, () => false);
+        const active = Math.floor(Math.random() * Number(dimension) ** 2);
         visited[active] = true;
-        this.props.dispatch(initEngine(visited, active));
+        dispatch(initEngine(visited, active));
         resolve();
       });
     });

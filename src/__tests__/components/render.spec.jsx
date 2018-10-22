@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import store from 'js/store';
 import { App, AppBar, AppDrawer, AuthPage, GamePage, GamesPage, HighscoresPage, BossPuzzle, EightQueens } from 'js/containers';
 import SquareTile from 'js/containers/engines/BossPuzzle/SquareTile';
-import { GridGameBoard, BossPuzzleOptions, FbBtn, Loader, MySnackBar, PageError, Timer } from 'js/components';
+import { GridGameBoard, BossPuzzleOptions, KnightsTourOptions, FbBtn, Loader, MySnackBar, PageError, Timer } from 'js/components';
 
 describe('should render', () => {
   
@@ -91,6 +91,10 @@ describe('should render', () => {
     
     it('BossPuzzleOptions', () => {
       shallow(<BossPuzzleOptions options={{}} />);
+    });
+
+    it('KnightsTourOptions', () => {
+      shallow(<KnightsTourOptions options={{}} />);
     });
   });
 
