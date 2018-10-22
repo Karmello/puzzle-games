@@ -19,7 +19,7 @@ type Props = {
 
 type State = {
   mode:string,
-  dimension:string  
+  dimension:string
 };
 
 export default class BossPuzzleOptions extends Component<Props, State> {

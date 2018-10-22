@@ -50,7 +50,7 @@ describe('async fetchHighscores', () => {
         payload: {
           config: {
             method: 'get',
-            url: baseURL + '/highscores/5a88b19010216a6875e3163d?mode=NUM&dimension=3',
+            url: baseURL + '/highscores/5a88b19010216a6875e3163d?dimension=3&mode=NUM',
           },
           status: 200,
           statusText: 'OK',
@@ -100,7 +100,7 @@ describe('async fetchHighscores', () => {
         payload: {
           config: {
             method: 'get',
-            url: baseURL + '/highscores/5a88b19010216a6875e3163d?mode=NUM&dimension=3',
+            url: baseURL + '/highscores/5a88b19010216a6875e3163d?dimension=3&mode=NUM',
           },
           status: 400,
           statusText: 'BAD_REQUEST'

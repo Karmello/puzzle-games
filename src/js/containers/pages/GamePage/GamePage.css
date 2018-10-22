@@ -20,6 +20,7 @@
       border: 15px solid #F5F5F5; }
     .GamePage .GamePage-main .GamePage-engine .GamePage-solved {
       position: absolute;
+      white-space: nowrap;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-35deg);

@@ -85,7 +85,17 @@ class KnightsTour extends Game {
     return new Promise(resolve => {
       Promise.all([this.loadImg(this.knightImgPath), this.loadImg(this.okArrowImgPath)]).then(() => {
         const visited = Array.from({ length: Number(dimension) ** 2 }, () => false);
-        const active = Math.floor(Math.random() * Number(dimension) ** 2);
+        let active;
+        switch (dimension) {
+          case '5':
+            // <0 - dimension^2-1> (even only)
+            active = Math.floor(Math.random() * ((Number(dimension) ** 2)/2)) * 2;
+            break;
+          default:
+            // <0 - dimension^2-1>
+            active = Math.floor(Math.random() * Number(dimension) ** 2);
+            break;
+        }
         visited[active] = true;
         dispatch(initEngine(visited, active));
         resolve();

@@ -1,6 +1,8 @@
 // @flow
 import axios from 'axios';
+import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
+
 import { apiRequest, apiRequestSuccess, apiRequestFailure } from 'js/creators/action/api';
 import type { T_UserModel, T_HighscoreModel, T_GameOptionsModel } from 'js/flow-types';
 
@@ -102,7 +104,7 @@ export const fetchHighscores = (gameId:string, query:T_GameOptionsModel, delay:n
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscores/${gameId}`;
-    if (query && !isEmpty(query) && query.mode && query.dimension) { url += `?mode=${query.mode}&dimension=${query.dimension}`; }
+    if (query && !isEmpty(query)) { url += `?${qs.stringify(query)}`; }
     dispatch(apiRequest(API_API_FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(res => {
       if (delay) {
@@ -125,7 +127,7 @@ export const fetchHighscore = (gameId:string, query:T_GameOptionsModel) => {
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscore/${gameId}`;
-    if (query && !isEmpty(query) && query.mode && query.dimension) { url += `?mode=${query.mode}&dimension=${query.dimension}`; }
+    if (query && !isEmpty(query)) { url += `?${qs.stringify(query)}`; }
     dispatch(apiRequest(API_FETCH_HIGHSCORE, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(
       res => dispatch(apiRequestSuccess(API_FETCH_HIGHSCORE, res)),
