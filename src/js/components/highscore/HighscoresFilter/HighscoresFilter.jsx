@@ -8,6 +8,7 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import { InputLabel } from 'material-ui/Input';
 
+import { GameOptions } from 'js/components';
 import { kebabToCamelCase } from 'js/helpers';
 import './HighscoresFilter.css';
 
@@ -100,11 +101,13 @@ export default class HighscoresFilter extends Component<Props, State> {
           </FormControl>
         </div>
         <div>
-          {Options && <Options
+          {Options &&
+          <GameOptions
             options={optionsFilter}
             path={gameFilter.id ? `/highscores/${gameFilter.id}` : ''}
             disabled={this.shouldBeDisabled()}
-          />}
+            Content={Options}
+          ></GameOptions>}
         </div>
       </div>
     );
@@ -128,7 +131,7 @@ export default class HighscoresFilter extends Component<Props, State> {
 
     if (this.props.gameOptions[gameId]) {
       const id = kebabToCamelCase(gameId);
-      Options = require(`js/components/engineOptions/${id}Options/${id}Options`).default;
+      Options = require(`js/components/engineOptions/${id}Options`).default;
     }
 
     this.setState({ gameId, Options });
