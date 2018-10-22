@@ -26,8 +26,16 @@ export default class KnightsTourOptions extends GameOptions {
             onChange={e => this.onValueChange('dimension', e.target.value)}
             disabled={disabled}
           >
-            <MenuItem value='5' component={path ? Link: undefined} to={`${String(path)}?dimension=5`}>5 x 5</MenuItem>
-            <MenuItem value='8' component={path ? Link: undefined} to={`${String(path)}?dimension=8`}>8 x 8</MenuItem>
+            <MenuItem
+              value='5'
+              component={path ? Link: undefined}
+              to={`${String(path)}?dimension=5`}
+            >5 x 5</MenuItem>
+            <MenuItem
+              value='8'
+              component={path ? Link: undefined}
+              to={`${String(path)}?dimension=8`}
+            >8 x 8</MenuItem>
           </Select>
         </FormControl>}
       </div>

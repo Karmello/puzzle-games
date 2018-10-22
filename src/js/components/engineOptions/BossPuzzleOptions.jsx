@@ -27,8 +27,16 @@ export default class BossPuzzleOptions extends GameOptions {
               disabled={disabled}
               style={{ width: '100px' }}
             >
-              <MenuItem value='NUM' component={path ? Link: undefined} to={`${String(path)}?dimension=${dimension}&mode=NUM`}>Numbers</MenuItem>
-              <MenuItem value='IMG' component={path ? Link: undefined} to={`${String(path)}?dimension=${dimension}&mode=IMG`}>Image</MenuItem>
+              <MenuItem
+                value='NUM'
+                component={path ? Link: undefined}
+                to={`${String(path)}?dimension=${String(dimension)}&mode=NUM`}
+              >Numbers</MenuItem>
+              <MenuItem
+                value='IMG'
+                component={path ? Link: undefined}
+                to={`${String(path)}?dimension=${String(dimension)}&mode=IMG`}
+              >Image</MenuItem>
             </Select>
           </FormControl>
         </div>}
@@ -41,9 +49,21 @@ export default class BossPuzzleOptions extends GameOptions {
               onChange={e => this.onValueChange('dimension', e.target.value)}
               disabled={disabled}
             >
-              <MenuItem value='3' component={path ? Link: undefined} to={`${String(path)}?dimension=3&mode=${mode}`}>3 x 3</MenuItem>
-              <MenuItem value='4' component={path ? Link: undefined} to={`${String(path)}?dimension=4&mode=${mode}`}>4 x 4</MenuItem>
-              <MenuItem value='5' component={path ? Link: undefined} to={`${String(path)}?dimension=5&mode=${mode}`}>5 x 5</MenuItem>
+              <MenuItem
+                value='3'
+                component={path ? Link: undefined}
+                to={`${String(path)}?dimension=3&mode=${String(mode)}`}
+              >3 x 3</MenuItem>
+              <MenuItem
+                value='4'
+                component={path ? Link: undefined}
+                to={`${String(path)}?dimension=4&mode=${String(mode)}`}
+              >4 x 4</MenuItem>
+              <MenuItem
+                value='5'
+                component={path ? Link: undefined}
+                to={`${String(path)}?dimension=5&mode=${String(mode)}`}
+              >5 x 5</MenuItem>
             </Select>
           </FormControl>
         </div>}

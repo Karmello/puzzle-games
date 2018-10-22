@@ -13,12 +13,7 @@ type Props = {
   onValueChangeCb?:Function
 };
 
-type State = {
-  mode:string,
-  dimension:string
-};
-
-export default class GameOptions extends React.Component<Props, State> {
+export default class GameOptions extends React.Component<Props, T_GameOptionsModel> {
   
   state = { mode: '', dimension: '' }
 
