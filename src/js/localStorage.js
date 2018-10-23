@@ -1,5 +1,8 @@
 // @flow
+import { version } from '~/package.json';
+
 const defaultUiConfig = {
+  version,
   gamesPage: {
     category: 'sliding',
     options: {
@@ -27,7 +30,7 @@ export const getUiConfig = (username:string, callback:Function) => {
 
   } else {
     ui = JSON.parse(ui);
-    if (!ui[username]) {
+    if (!ui[username] || ui[username].version !== defaultUiConfig.version) {
       ui[username] = defaultUiConfig;
       localStorage.setItem('ui', JSON.stringify(ui));
     }
