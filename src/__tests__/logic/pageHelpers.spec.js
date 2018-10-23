@@ -1,4 +1,4 @@
-import * as helpers from 'js/pages/pagesHelpers';
+import * as helpers from 'js/extracts/pages';
 import { gameCategoriesRes, gamesRes } from '__tests__/__mocks__/apiResponses';
 
 

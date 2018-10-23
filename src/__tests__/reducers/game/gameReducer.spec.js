@@ -1,5 +1,5 @@
-import gameReducer from 'js/game/gameReducer';
-import { startGame, stopGameLoader, makeMove, setAsSolved, endGame } from 'js/game/gameActions';
+import gameReducer from 'js/reducers/game';
+import { startGame, stopGameLoader, makeMove, setAsSolved, endGame } from 'js/actions/game';
 
 
 describe('gameReducer', () => {
@@ -15,7 +15,7 @@ describe('gameReducer', () => {
     });
   });
 
-  it('should handle START_GAME', () => {
+  it('should handle GAME_START', () => {
     expect(gameReducer({
       id: '',
       moves: 0,
@@ -33,7 +33,7 @@ describe('gameReducer', () => {
     });
   });
 
-  it('should handle STOP_GAME_LOADER', () => {
+  it('should handle GAME_STOP_LOADER', () => {
     expect(gameReducer({
       id: 'boss-puzzle',
       moves: 0,
@@ -51,7 +51,7 @@ describe('gameReducer', () => {
     });
   });
 
-  it('should handle MAKE_MOVE', () => {
+  it('should handle GAME_MAKE_MOVE', () => {
     expect(gameReducer({
       id: 'boss-puzzle',
       moves: 99,
@@ -69,7 +69,7 @@ describe('gameReducer', () => {
     });
   });
 
-  it('should handle SET_AS_SOLVED', () => {
+  it('should handle GAME_SET_AS_SOLVED', () => {
     expect(gameReducer({
       id: 'boss-puzzle',
       moves: 50,
@@ -87,7 +87,7 @@ describe('gameReducer', () => {
     });
   });
 
-  it('should handle END_GAME', () => {
+  it('should handle GAME_END', () => {
     expect(gameReducer({
       id: 'boss-puzzle',
       moves: 50,

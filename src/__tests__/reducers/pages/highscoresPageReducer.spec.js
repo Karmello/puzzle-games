@@ -1,5 +1,5 @@
-import highscoresPageReducer from 'js/pages/HighscoresPage/highscoresPageReducer';
-import { changeHighscoresFilter } from 'js/pages/HighscoresPage/highscoresPageActions';
+import highscoresPageReducer from 'js/reducers/highscoresPage';
+import { changeHighscoresFilter } from 'js/actions/highscoresPage';
 
 
 describe('highscoresPageReducer', () => {
@@ -11,7 +11,7 @@ describe('highscoresPageReducer', () => {
     });
   });
 
-  it('should handle CHANGE_HIGHSCORES_FILTER', () => {
+  it('should handle HIGHSCORES_PAGE_CHANGE_FILTER', () => {
 
     expect(highscoresPageReducer({
       gameFilter: { category: 'sliding', id: 'boss-puzzle' },

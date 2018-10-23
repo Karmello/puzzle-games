@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { registerUser, CLIENT_USER_ACTION } from 'js/api/apiActions';
+import { registerUser, API_MAKE_AUTH_REQUEST } from 'js/actions/api';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;
@@ -31,7 +31,7 @@ describe('async registerUser', () => {
     
     const expectedActions = [
       {
-        type: CLIENT_USER_ACTION,
+        type: API_MAKE_AUTH_REQUEST,
         payload: {
           body: {
             username: 'AlanWatts',
@@ -40,7 +40,7 @@ describe('async registerUser', () => {
         }
       },
       {
-        type: CLIENT_USER_ACTION + '_SUCCESS',
+        type: API_MAKE_AUTH_REQUEST + '_SUCCESS',
         payload: {
           config: {
             method: 'post',
@@ -75,7 +75,7 @@ describe('async registerUser', () => {
     
     const expectedActions = [
       {
-        type: CLIENT_USER_ACTION,
+        type: API_MAKE_AUTH_REQUEST,
         payload: {
           body: {
             username: 'AlanWatts',
@@ -84,7 +84,7 @@ describe('async registerUser', () => {
         }
       },
       {
-        type: CLIENT_USER_ACTION + '_FAILURE',
+        type: API_MAKE_AUTH_REQUEST + '_FAILURE',
         payload: {
           config: {
             method: 'post',

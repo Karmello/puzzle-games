@@ -1,0 +1,25 @@
+.GameCard {
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 25px;
+
+  > div {
+    width: 350px;
+    margin: 10px;
+    padding: 10px 10px 0 10px;
+
+    .GameCard-options {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .GameCard-actions {    
+      display: flex;
+      flex-flow: row wrap;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+  }
+}

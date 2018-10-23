@@ -2,13 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import store from 'js/store';
-import { App, AppBar, AppDrawer } from 'js/app';
-import { AuthPage, GamePage, GamesPage, HighscoresPage } from 'js/pages';
-import { GridGameBoard } from 'js/game';
-import { BossPuzzle, SquareTile, EightQueens } from 'js/engines';
-import * as gameOptions from 'js/gameOptions';
-import * as other from 'js/other';
-
+import { App, AppBar, AppDrawer, AuthPage, GamePage, GamesPage, HighscoresPage, BossPuzzle, EightQueens } from 'js/containers';
+import SquareTile from 'js/containers/engines/BossPuzzle/SquareTile';
+import { GridGameBoard, BossPuzzleOptions, KnightsTourOptions, FbBtn, Loader, MySnackBar, PageError, Timer } from 'js/components';
 
 describe('should render', () => {
   
@@ -94,30 +90,34 @@ describe('should render', () => {
   describe('game options', () => {
     
     it('BossPuzzleOptions', () => {
-      shallow(<gameOptions.BossPuzzleOptions options={{}} />);
+      shallow(<BossPuzzleOptions options={{}} />);
+    });
+
+    it('KnightsTourOptions', () => {
+      shallow(<KnightsTourOptions options={{}} />);
     });
   });
 
   describe('other components', () => {
     
     it('FbBtn', () => {
-      shallow(<other.FbBtn authStatus={'unknown'} onClick={() => {}} />);
+      shallow(<FbBtn authStatus={'unknown'} onClick={() => {}} />);
     });
 
     it('Loader', () => {
-      shallow(<other.Loader isShown />);
+      shallow(<Loader isShown />);
     });
 
     it('MySnackBar', () => {
-      shallow(<other.MySnackBar message={'message'} onClose={() => {}} />);
+      shallow(<MySnackBar message={'message'} onClose={() => {}} />);
     });
 
     it('PageError', () => {
-      shallow(<other.PageError />);
+      shallow(<PageError />);
     });
 
     it('Timer', () => {
-      shallow(<other.Timer on paused={false} />);
+      shallow(<Timer on paused={false} />);
     });
   });
 });

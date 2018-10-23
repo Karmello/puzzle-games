@@ -1,4 +1,4 @@
-import * as methods from 'js/engines/BossPuzzle/bossPuzzleHelpers.js';
+import { getNewImgNumbers, initData } from 'js/extracts/bossPuzzle';
 
 
 describe('BossPuzzle static methods', () => {
@@ -22,24 +22,24 @@ describe('BossPuzzle static methods', () => {
 
     it('should throw an error', () => {
       const args = { dimension: '1', hiddenTileCoords: { x: 0, y: 0 } };
-      expect(() => methods.initData(args)).toThrow(new Error('Dimension must be greater than or equal 2'));
+      expect(() => initData(args)).toThrow(new Error('Dimension must be greater than or equal 2'));
     });
 
     it('should initialize data', done => {
       const args = { dimension: '3', hiddenTileCoords: { x: 0, y: 0 } };
-      const promise = methods.initData(args);
+      const promise = initData(args);
       promise.then(data => { getExpectations(args, data, done); });
     });
 
     it('should initialize data', done => {
       const args = { dimension: '4', hiddenTileCoords: { x: 1, y: 1 } };
-      const promise = methods.initData(args);
+      const promise = initData(args);
       promise.then(data => { getExpectations(args, data, done); });
     });
 
     it('should initialize data', done => {
       const args = { dimension: '5', hiddenTileCoords: { x: 2, y: 2 } };
-      const promise = methods.initData(args);
+      const promise = initData(args);
       promise.then(data => { getExpectations(args, data, done); });
     });
   });
@@ -47,13 +47,13 @@ describe('BossPuzzle static methods', () => {
   describe('getNewImgNumbers', () => {
     
     it('should return numbers array', () => {
-      const numbers = methods.getNewImgNumbers([], 5);
+      const numbers = getNewImgNumbers([], 5);
       expect(numbers).toHaveLength(5);
       expect(numbers).toEqual(expect.arrayContaining([1, 2, 3, 4, 5]));
     });
     
     it('should return numbers array', () => {
-      const numbers = methods.getNewImgNumbers([2, 3, 1], 3);
+      const numbers = getNewImgNumbers([2, 3, 1], 3);
       expect(numbers).toHaveLength(3);
       expect(numbers).toEqual(expect.arrayContaining([1, 2, 3]));
       expect(numbers[0]).not.toBe(1);

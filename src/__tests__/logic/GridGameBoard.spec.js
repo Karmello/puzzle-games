@@ -8,7 +8,7 @@ import {
   getFlipped,
   getRotated,
   getWithLinesShuffled
-} from 'js/game/GridGameBoard/gridGameBoardHelpers';
+} from 'js/extracts/gridGameBoard';
 
 
 describe('GridGameBoard logic methods', () => {
@@ -65,6 +65,14 @@ describe('GridGameBoard logic methods', () => {
       expect(findAllMovementCoords({ x: 0, y: 0 }, '3')).toEqual([{ x: 1, y: 0 }, { x: 0, y: 1 }]);
       expect(findAllMovementCoords({ x: 2, y: 0 }, '4')).toEqual([{ x: 3, y: 0 }, { x: 2, y: 1 }, { x: 1, y: 0 }]);
       expect(findAllMovementCoords({ x: 1, y: 1 }, '5')).toEqual([{ x: 1, y: 0 }, { x: 2, y: 1 }, { x: 1, y: 2 }, { x: 0, y: 1 }]);
+    });
+
+    it('should find coords', () => {
+      expect(findAllMovementCoords({ x: 0, y: 0 }, '8', 'CHESS_KNIGHT')).toEqual([{ x: 1, y: 2 }, { x: 2, y: 1 }]);
+      expect(findAllMovementCoords({ x: 5, y: 5 }, '8', 'CHESS_KNIGHT')).toEqual([
+        { x: 3, y: 6 }, { x: 4, y: 7 }, { x: 6, y: 7 }, { x: 7, y: 6 },
+        { x: 3, y: 4 }, { x: 4, y: 3 }, { x: 6, y: 3 }, { x: 7, y: 4 }
+      ]);
     });
   });
 

@@ -1,0 +1,13 @@
+.GamesPage {
+  
+  .GamesPage-games {
+    width: 100%;
+
+    .GamesPage-category-games {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  }
+}

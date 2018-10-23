@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { fetchUsers, FETCH_USERS } from 'js/api/apiActions';
+import { fetchUsers, API_FETCH_USERS } from 'js/actions/api';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;
@@ -32,7 +32,7 @@ describe('async fetchUsers', () => {
     
     const expectedActions = [
       {
-        type: FETCH_USERS,
+        type: API_FETCH_USERS,
         payload: {
           headers: {
             'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
@@ -40,7 +40,7 @@ describe('async fetchUsers', () => {
         }
       },
       {
-        type: FETCH_USERS + '_SUCCESS',
+        type: API_FETCH_USERS + '_SUCCESS',
         payload: {
           config: {
             method: 'get',
@@ -75,7 +75,7 @@ describe('async fetchUsers', () => {
     
     const expectedActions = [
       {
-        type: FETCH_USERS,
+        type: API_FETCH_USERS,
         payload: {
           headers: {
             'x-access-token': '!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*!@#$%^&*'
@@ -83,7 +83,7 @@ describe('async fetchUsers', () => {
         }
       },
       {
-        type: FETCH_USERS + '_FAILURE',
+        type: API_FETCH_USERS + '_FAILURE',
         payload: {
           config: {
             method: 'get',

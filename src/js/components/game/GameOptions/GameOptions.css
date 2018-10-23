@@ -1,0 +1,6 @@
+.GameOptions > div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
+  .GameOptions > div > div {
+    margin: 10px; }
