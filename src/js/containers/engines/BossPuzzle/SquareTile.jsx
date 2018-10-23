@@ -72,7 +72,7 @@ class SquareTile extends Component<Props> {
         const imgSize = BossPuzzle.tilesSizes[options.dimension];
         style.backgroundImage = `url(${imgSrc})`;
         style.backgroundSize = `${Number(options.dimension) * imgSize}px ${Number(options.dimension) * imgSize}px`;
-        style.backgroundPosition = `-${imgCoords.x * imgSize}px -${imgCoords.y * imgSize}px`;
+        style.backgroundPosition = `-${Number(imgCoords.x) * imgSize}px -${Number(imgCoords.y) * imgSize}px`;
       }
 
     } else {

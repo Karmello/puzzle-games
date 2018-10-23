@@ -14,7 +14,7 @@ describe('appReducer', () => {
     });
   });
 
-  it('should handle SET_APP_TITLE', () => {
+  it('should handle APP_SET_TITLE', () => {
     expect(appReducer({
       NODE_ENV: 'test',
       title: 'Puzzle Games',
@@ -30,7 +30,7 @@ describe('appReducer', () => {
     });
   });
 
-  it('should handle SET_AUTH_STATUS', () => {
+  it('should handle APP_SET_AUTH_STATUS', () => {
     expect(appReducer({
       NODE_ENV: 'test',
       title: 'Eight Queens',
@@ -46,7 +46,7 @@ describe('appReducer', () => {
     });
   });
 
-  it('should handle TOGGLE_APP_LOADER', () => {
+  it('should handle APP_TOGGLE_LOADER', () => {
     
     expect(appReducer({
       NODE_ENV: 'test',
@@ -77,7 +77,7 @@ describe('appReducer', () => {
     });
   });
 
-  it('should handle TOGGLE_APP_DRAWER', () => {
+  it('should handle APP_TOGGLE_DRAWER', () => {
     
     expect(appReducer({
       NODE_ENV: 'test',

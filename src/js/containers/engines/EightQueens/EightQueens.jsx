@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
 import { Game, GridGameBoard } from 'js/components';
-import { initFrame, moveQueen, resetFrame } from 'js/actions/eightQueens';
+import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
 
 class EightQueens extends Game {
 
@@ -18,7 +18,7 @@ class EightQueens extends Game {
   }
 
   componentWillUnmount() {
-    this.props.dispatch(resetFrame());
+    this.props.dispatch(resetEngine());
   }
 
   render() {
@@ -29,11 +29,29 @@ class EightQueens extends Game {
         dimension={this.dimension}
         squareSize={this.squareSize}
         Square={() => <Button disableRipple style={this.getBtnStyle()}> </Button>}
-        draggable={true}
+        isDraggable={true}
+        isChessBoard={true}
         gridData={eightQueensEngine.queens}
         onDragMade={this.onMoveMade.bind(this)}
       />
     );
+  }
+
+  onMoveMade(fromIndex, toIndex) {
+    this.props.dispatch(moveQueen(fromIndex, toIndex));
+    super.onMakeMove();
+  }
+
+  getBtnStyle() {
+    return  {
+      minWidth: `${this.squareSize}px`,
+      height: `${this.squareSize}px`,
+      border: '1px solid gray',
+      borderRadius: '0px',
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
+      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
+      backgroundColor: 'white'
+    }
   }
 
   startNew = () => {
@@ -43,16 +61,11 @@ class EightQueens extends Game {
           const coords = GridGameBoard.indexToCoords(k, this.dimension);
           return coords.x === coords.y;
         });
-        this.props.dispatch(initFrame(queens));
+        this.props.dispatch(initEngine(queens));
         resolve();
       });
     });
-  }
-
-  onMoveMade(fromIndex, toIndex) {
-    this.props.dispatch(moveQueen(fromIndex, toIndex));
-    super.onMakeMove();
-  }
+  };
 
   checkIfSolved = () => {
 
@@ -97,19 +110,7 @@ class EightQueens extends Game {
 
       resolve(true);
     });
-  }
-
-  getBtnStyle() {
-    return  {
-      minWidth: `${this.squareSize}px`,
-      height: `${this.squareSize}px`,
-      border: '1px solid gray',
-      borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
-      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
-      backgroundColor: 'white'
-    }
-  }
+  };
 }
 
 export default connect(store => ({

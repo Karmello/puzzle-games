@@ -1,5 +1,5 @@
 import eightQueensReducer from 'js/reducers/eightQueens';
-import { initFrame, moveQueen, resetFrame } from 'js/actions/eightQueens';
+import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
 
 
 describe('eightQueensReducer', () => {
@@ -9,7 +9,7 @@ describe('eightQueensReducer', () => {
   });
 
   it('should handle INIT_FRAME', () => {
-    expect(eightQueensReducer({ queens: [] }, initFrame([true, true, false, false, true, true, false, false]))).toEqual({
+    expect(eightQueensReducer({ queens: [] }, initEngine([true, true, false, false, true, true, false, false]))).toEqual({
       queens: [true, true, false, false, true, true, false, false]
     });
   });
@@ -25,6 +25,6 @@ describe('eightQueensReducer', () => {
   it('should handle RESET_FRAME', () => {
     expect(eightQueensReducer({
       queens: [true, true, false, false, true, true, false, false]
-    }, resetFrame())).toEqual({ queens: [] });
+    }, resetEngine())).toEqual({ queens: [] });
   });
 });

@@ -11,7 +11,7 @@ describe('highscoresPageReducer', () => {
     });
   });
 
-  it('should handle CHANGE_HIGHSCORES_FILTER', () => {
+  it('should handle HIGHSCORES_PAGE_CHANGE_FILTER', () => {
 
     expect(highscoresPageReducer({
       gameFilter: { category: 'sliding', id: 'boss-puzzle' },

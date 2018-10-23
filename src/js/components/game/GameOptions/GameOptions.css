@@ -1,6 +1,6 @@
-.BossPuzzleOptions {
+.GameOptions > div {
   display: flex;
   flex-flow: row wrap;
   justify-content: center; }
-  .BossPuzzleOptions > div {
+  .GameOptions > div > div {
     margin: 10px; }

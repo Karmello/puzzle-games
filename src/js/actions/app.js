@@ -1,32 +1,32 @@
 // @flow
-export const SET_APP_TITLE = 'SET_APP_TITLE';
-export const SET_AUTH_STATUS = 'SET_AUTH_STATUS';
-export const TOGGLE_APP_LOADER = 'TOGGLE_APP_LOADER';
-export const TOGGLE_APP_DRAWER = 'TOGGLE_APP_DRAWER';
+export const APP_SET_TITLE = 'APP_SET_TITLE';
+export const APP_SET_AUTH_STATUS = 'APP_SET_AUTH_STATUS';
+export const APP_TOGGLE_LOADER = 'APP_TOGGLE_LOADER';
+export const APP_TOGGLE_DRAWER = 'APP_TOGGLE_DRAWER';
 
 export const setAppTitle = (title:string) => ({
-  type: SET_APP_TITLE,
+  type: APP_SET_TITLE,
   payload: {
     title: title
   }
 });
 
 export const setAuthStatus = (status:string) => ({
-  type: SET_AUTH_STATUS,
+  type: APP_SET_AUTH_STATUS,
   payload: {
     authStatus: status
   }
 });
 
 export const toggleAppLoader = (show:boolean) => ({
-  type: TOGGLE_APP_LOADER,
+  type: APP_TOGGLE_LOADER,
   payload: {
     isLoading: show
   }
 });
 
 export const toggleAppDrawer = (show:boolean) => ({
-  type: TOGGLE_APP_DRAWER,
+  type: APP_TOGGLE_DRAWER,
   payload: {
     showDrawer: show
   }

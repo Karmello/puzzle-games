@@ -15,4 +15,5 @@ export { default as RootPage } from './pages/RootPage/RootPage';
 // engines
 export { default as BossPuzzle } from './engines/BossPuzzle/BossPuzzle';
 export { default as EightQueens } from './engines/EightQueens/EightQueens';
+export { default as KnightsTour } from './engines/KnightsTour/KnightsTour';
 export { default as Sudoku } from './engines/Sudoku/Sudoku';

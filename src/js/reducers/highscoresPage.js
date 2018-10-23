@@ -1,5 +1,5 @@
 // @flow
-import { CHANGE_HIGHSCORES_FILTER, HIGHSCORES_PAGE_CLEAR } from 'js/actions/highscoresPage';
+import { HIGHSCORES_PAGE_CHANGE_FILTER, HIGHSCORES_PAGE_CLEAR } from 'js/actions/highscoresPage';
 
 import type { T_Action, T_HighscoresPageSettings } from 'js/flow-types';
 
@@ -12,7 +12,7 @@ const highscoresPageReducer = (state:T_HighscoresPageSettings = initialState, ac
 
   switch (action.type) {
 
-    case CHANGE_HIGHSCORES_FILTER:
+    case HIGHSCORES_PAGE_CHANGE_FILTER:
       return {
         gameFilter: { ...action.payload.gameFilter },
         optionsFilter: { ...action.payload.optionsFilter }

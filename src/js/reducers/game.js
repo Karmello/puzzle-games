@@ -1,5 +1,5 @@
 // @flow
-import { START_GAME, STOP_GAME_LOADER, MAKE_MOVE, SET_AS_SOLVED, END_GAME } from 'js/actions/game';
+import { GAME_START, GAME_STOP_LOADER, GAME_MAKE_MOVE, GAME_SET_AS_SOLVED, GAME_END } from 'js/actions/game';
 import type { T_Action, T_GameSettings } from 'js/flow-types';
 
 const initialState = {
@@ -15,7 +15,7 @@ const gameReducer = (state:T_GameSettings = initialState, action:T_Action) => {
   
   switch (action.type) {
   
-    case START_GAME:
+    case GAME_START:
       return {
         id: action.payload.id,
         options: action.payload.options,
@@ -25,26 +25,26 @@ const gameReducer = (state:T_GameSettings = initialState, action:T_Action) => {
         doRestart: action.payload.doRestart
       }
   
-    case STOP_GAME_LOADER:
+    case GAME_STOP_LOADER:
       return {
         ...state,
         doRestart: false,
         isLoading: false
       }
 
-    case MAKE_MOVE:
+    case GAME_MAKE_MOVE:
       return {
         ...state,
         moves: state.moves + 1
       }
 
-    case SET_AS_SOLVED:
+    case GAME_SET_AS_SOLVED:
       return {
         ...state,
         isSolved: true
       }
 
-    case END_GAME:
+    case GAME_END:
       return {
         ...initialState,
         isLoading: false

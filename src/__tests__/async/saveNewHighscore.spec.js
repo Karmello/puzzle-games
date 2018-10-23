@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { saveNewHighscore, SAVE_NEW_HIGHSCORE } from 'js/actions/api';
+import { saveNewHighscore, API_SAVE_NEW_HIGHSCORE } from 'js/actions/api';
 
 const mockStore = configureMockStore([thunk]);
 const baseURL = process.env.REACT_APP_API_URI;
@@ -36,7 +36,7 @@ describe('async saveNewHighscore', () => {
     
     const expectedActions = [
       {
-        type: SAVE_NEW_HIGHSCORE,
+        type: API_SAVE_NEW_HIGHSCORE,
         payload: {
           body: {
             details : { moves : 120, seconds : 30 },
@@ -50,7 +50,7 @@ describe('async saveNewHighscore', () => {
         }
       },
       {
-        type: SAVE_NEW_HIGHSCORE + '_SUCCESS',
+        type: API_SAVE_NEW_HIGHSCORE + '_SUCCESS',
         payload: {
           config: {
             method: 'post',
@@ -96,7 +96,7 @@ describe('async saveNewHighscore', () => {
     
     const expectedActions = [
       {
-        type: SAVE_NEW_HIGHSCORE,
+        type: API_SAVE_NEW_HIGHSCORE,
         payload: {
           body: {
             details : { moves : 120, seconds : 30 },
@@ -110,7 +110,7 @@ describe('async saveNewHighscore', () => {
         }
       },
       {
-        type: SAVE_NEW_HIGHSCORE + '_FAILURE',
+        type: API_SAVE_NEW_HIGHSCORE + '_FAILURE',
         payload: {
           config: {
             method: 'post',

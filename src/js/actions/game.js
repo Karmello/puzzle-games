@@ -1,29 +1,29 @@
 // @flow
 import type { T_GameOptionsModel } from 'js/flow-types';
 
-export const START_GAME = 'START_GAME';
-export const STOP_GAME_LOADER = 'STOP_GAME_LOADER';
-export const MAKE_MOVE = 'MAKE_MOVE';
-export const SET_AS_SOLVED = 'SET_AS_SOLVED';
-export const END_GAME = 'END_GAME';
+export const GAME_START = 'GAME_START';
+export const GAME_STOP_LOADER = 'GAME_STOP_LOADER';
+export const GAME_MAKE_MOVE = 'GAME_MAKE_MOVE';
+export const GAME_SET_AS_SOLVED = 'GAME_SET_AS_SOLVED';
+export const GAME_END = 'GAME_END';
 
 export const startGame = (id:string, options:T_GameOptionsModel, doRestart:boolean) => ({
-  type: START_GAME,
+  type: GAME_START,
   payload: { id, options, doRestart }
 });
 
 export const stopGameLoader = () => ({
-  type: STOP_GAME_LOADER
+  type: GAME_STOP_LOADER
 });
 
 export const makeMove = () => ({
-  type: MAKE_MOVE
+  type: GAME_MAKE_MOVE
 });
 
 export const setAsSolved = () => ({
-  type: SET_AS_SOLVED
+  type: GAME_SET_AS_SOLVED
 });
 
 export const endGame = () => ({
-  type: END_GAME
+  type: GAME_END
 });

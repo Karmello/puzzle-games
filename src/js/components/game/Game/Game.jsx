@@ -4,15 +4,16 @@ import { Component } from 'react';
 import { App } from 'js/containers';
 import { fetchHighscore, saveNewHighscore } from 'js/actions/api';
 import { stopGameLoader, makeMove, setAsSolved } from 'js/actions/game';
-import type { T_GameSettings, T_BossPuzzleEngine, T_EightQueensEngine, T_SudokuEngine } from 'js/flow-types';
+import type { T_GameSettings, T_BossPuzzleEngine, T_EightQueensEngine, T_KnightsTourEngine, T_SudokuEngine } from 'js/flow-types';
 
 type Props = {
-  dispatch: Function,
-  readTimer: Function,
-  clientUser: any,
+  dispatch:Function,
+  readTimer:Function,
+  clientUser:any,
   game:T_GameSettings,
   bossPuzzleEngine:T_BossPuzzleEngine,
   eightQueensEngine:T_EightQueensEngine,
+  knightsTourEngine:T_KnightsTourEngine,
   sudokuEngine:T_SudokuEngine
 };
 
@@ -23,7 +24,7 @@ type State = {
 
 export default class Game extends Component<Props, State> {
 
-  startNew:(doRestart?: boolean) => Promise<any>;
+  startNew:(doRestart?:boolean) => Promise<any>;
   checkIfSolved:() => Promise<any>;
 
   state = {
@@ -35,7 +36,7 @@ export default class Game extends Component<Props, State> {
     this.startNew().then(() => this.onFinishInit());
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps:Props) {
     
     const { game } = this.props;
     const nextGame = nextProps.game;
@@ -83,19 +84,15 @@ export default class Game extends Component<Props, State> {
     });
   }
 
-  loadImg(imgPath: string) {
-
+  loadImg(imgPath:string) {
     return new Promise((resolve, reject) => {
-
       const img = new Image();
       img.src = `${process.env.REACT_APP_S3_BUCKET || ''}/${imgPath}`;
-        
       img.onload = () => {
         this.setState({ imgSrc: img.src });
         resolve();
       }
-
-      img.onerror = (err) => { reject(err); }
+      img.onerror = err => { reject(err); }
     });
   }
 }

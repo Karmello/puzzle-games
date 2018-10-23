@@ -7,47 +7,56 @@ describe('gamesPageReducer', () => {
   it('should return the initial state', () => {
     expect(gamesPageReducer(undefined, {})).toEqual({
       category: '',
-      options: { 'boss-puzzle': {} }
+      options: {
+        'boss-puzzle': {},
+        'knights-tour': {}
+      }
     });
   });
 
-  it('should handle SWITCH_GAME_CATEGORY_TAB', () => {
+  it('should handle GAMES_PAGE_SWITCH_CATEGORY_TAB', () => {
     expect(gamesPageReducer({
       category: 'sliding',
       options: {
-        'boss-puzzle': { mode: 'NUM', dimension: '3' }
+        'boss-puzzle': { mode: 'NUM', dimension: '3' },
+        'knights-tour': {}
       }
     }, switchGameCategoryTab('chess'))).toEqual({
       category: 'chess',
       options: {
-        'boss-puzzle': { mode: 'NUM', dimension: '3' }
+        'boss-puzzle': { mode: 'NUM', dimension: '3' },
+        'knights-tour': {}
       }
     });
   });
 
-  it('should handle CHANGE_GAME_OPTIONS', () => {
+  it('should handle GAMES_PAGE_CHANGE_GAME_OPTIONS', () => {
 
     expect(gamesPageReducer({
       category: 'sliding',
       options: {
-        'boss-puzzle': { mode: 'NUM', dimension: '3' }
+        'boss-puzzle': { mode: 'NUM', dimension: '3' },
+        'knights-tour': {}
       }
     }, changeGameOptions('boss-puzzle', { mode: 'IMG' }))).toEqual({
       category: 'sliding',
       options: {
-        'boss-puzzle': { mode: 'IMG', dimension: '3' }
+        'boss-puzzle': { mode: 'IMG', dimension: '3' },
+        'knights-tour': {}
       }
     });
 
     expect(gamesPageReducer({
       category: 'sliding',
       options: {
-        'boss-puzzle': { mode: 'NUM', dimension: '3' }
+        'boss-puzzle': { mode: 'NUM', dimension: '3' },
+        'knights-tour': {}
       }
     }, changeGameOptions('boss-puzzle', { mode: 'IMG', dimension: '5' }))).toEqual({
       category: 'sliding',
       options: {
-        'boss-puzzle': { mode: 'IMG', dimension: '5' }
+        'boss-puzzle': { mode: 'IMG', dimension: '5' },
+        'knights-tour': {}
       }
     });
   });

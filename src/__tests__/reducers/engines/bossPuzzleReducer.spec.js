@@ -1,5 +1,5 @@
 import bossPuzzleReducer from 'js/reducers/bossPuzzle';
-import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from 'js/actions/bossPuzzle';
+import { initEngine, switchTiles, clearHiddenTileCoords, resetEngine } from 'js/actions/bossPuzzle';
 
 
 describe('bossPuzzleReducer', () => {
@@ -19,7 +19,7 @@ describe('bossPuzzleReducer', () => {
       imgIndex: undefined,
       tiles: [],
       hiddenTileCoords: {}
-    }, initFrame([1, 2, 3, 4, 5], 0, [4, 3, 6, 2, 7, 1, 8, 9, 5], { x: 0, y: 0 }))).toEqual({
+    }, initEngine([1, 2, 3, 4, 5], 0, [4, 3, 6, 2, 7, 1, 8, 9, 5], { x: 0, y: 0 }))).toEqual({
       imgNumbers: [1, 2, 3, 4, 5],
       imgIndex: 0,
       tiles: [4, 3, 6, 2, 7, 1, 8, 9, 5],
@@ -61,7 +61,7 @@ describe('bossPuzzleReducer', () => {
       imgIndex: 0,
       tiles: [4, 3, 6, 2, 7, 1, 8, 9, 5],
       hiddenTileCoords: { x: 0, y: 0 }
-    }, resetFrame())).toEqual({
+    }, resetEngine())).toEqual({
       imgNumbers: [],
       imgIndex: undefined,
       tiles: [],

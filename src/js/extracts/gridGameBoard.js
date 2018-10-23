@@ -22,19 +22,40 @@ export const offsetToIndex = (offset:T_Coords, squareSize:number, dimension:numb
   }
 }
 
-export const findAllMovementCoords = (targetCoords:T_Coords, dimension:number) => {
+export const findAllMovementCoords = (targetCoords:T_Coords, dimension:number, movementType?:'SINGLE'|'CHESS_KNIGHT') => {
 
+  if (!movementType) { movementType = 'SINGLE'; }
   if (targetCoords.x === undefined) { targetCoords.x = 0; }
   if (targetCoords.y === undefined) { targetCoords.y = 0; }
 
   if (dimension < 2) { throw new Error('Dimension must be greater than or equal 2'); }
 
-  const possibleDestinationCoords = [
-    { x: targetCoords.x, y : targetCoords.y - 1 },
-    { x: targetCoords.x + 1, y : targetCoords.y },
-    { x: targetCoords.x, y : targetCoords.y + 1 },
-    { x: targetCoords.x - 1, y : targetCoords.y }
-  ];
+  let possibleDestinationCoords;
+
+  switch (movementType) {
+    case 'SINGLE':
+      possibleDestinationCoords = [
+        { x: targetCoords.x, y : targetCoords.y - 1 },
+        { x: targetCoords.x + 1, y : targetCoords.y },
+        { x: targetCoords.x, y : targetCoords.y + 1 },
+        { x: targetCoords.x - 1, y : targetCoords.y }
+      ];
+      break;
+    case 'CHESS_KNIGHT':
+      possibleDestinationCoords = [
+        { x: targetCoords.x - 2, y : targetCoords.y + 1 },
+        { x: targetCoords.x - 1, y : targetCoords.y + 2 },
+        { x: targetCoords.x + 1, y : targetCoords.y + 2 },
+        { x: targetCoords.x + 2, y : targetCoords.y + 1 },
+        { x: targetCoords.x - 2, y : targetCoords.y - 1 },
+        { x: targetCoords.x - 1, y : targetCoords.y - 2 },
+        { x: targetCoords.x + 1, y : targetCoords.y - 2 },
+        { x: targetCoords.x + 2, y : targetCoords.y - 1 }
+      ];
+      break;
+    default:
+      return [];
+  }
 
   const realDestinationCoords = [];
 

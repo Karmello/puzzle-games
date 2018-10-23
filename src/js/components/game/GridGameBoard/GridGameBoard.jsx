@@ -11,11 +11,13 @@ import './GridGameBoard.css';
 
 type Props = {
   dimension:number,
-  draggable?:boolean,
-  Square:Function,
-  gridData?:Array<boolean>,
   squareSize:number,
-  onDragMade?:Function
+  Square:Function,
+  isDraggable?:boolean,
+  isChessBoard?:boolean,
+  gridData?:Array<boolean>,
+  onDragMade?:Function,
+  onEmptyCellClick?:Function
 };
 
 type State = {
@@ -36,7 +38,9 @@ export default class GridGameBoard extends Component<Props, State> {
 
   render() {
 
-    const { dimension, draggable, Square, gridData } = this.props;
+    const { dimension, squareSize, isDraggable, Square, gridData } = this.props;
+
+    if (!dimension || !squareSize) { return null; }
 
     return (
       <Paper className='GridGameBoard' style={this.getStyles('board')}>{
@@ -50,21 +54,23 @@ export default class GridGameBoard extends Component<Props, State> {
               const position = { x: 0, y: 0 };
               
               return (
-                <Col key={j} style={this.getStyles('col')}>
-                  {draggable &&
-                  <div style={this.getStyles('draggableContainer', { col, row })}>
-                    {gridData && gridData[index] &&
+                <Col key={j}>
+                  <div style={this.getStyles('squareContainer', { col, row })} onClick={() => this.onBoardClick(index)}>
+                    {isDraggable && gridData && gridData[index] &&
                     <Draggable
                       position={position}
                       onStart={(e, data) => this.onDragStart(e, data, index)}
                       onStop={(e, data) => this.onDragStop(e, data, col, row, position)}
                     >
-                      <div style={this.getStyles('draggableChild', { index })}>
-                        <Square col={col} row={row} />
+                      <div style={this.getStyles('draggableContent', { index })}>
+                        <Square col={col} row={row} index={index} />
                       </div>
                     </Draggable>}
-                  </div>}
-                  {!draggable && <Square col={col} row={row} />}
+                    {!isDraggable &&
+                    <div style={{ cursor: 'default' }}>
+                      {((gridData && gridData[index]) || !gridData) && <Square col={col} row={row} index={index} />}
+                    </div>}
+                  </div>
                 </Col>
               );
             })
@@ -72,6 +78,11 @@ export default class GridGameBoard extends Component<Props, State> {
         ))
       }</Paper>
     );
+  }
+
+  onBoardClick(index:number) {
+    const { onEmptyCellClick, gridData } = this.props;
+    if (onEmptyCellClick && gridData && !gridData[index]) { onEmptyCellClick(index); }
   }
 
   onDragStart(e:T_Event, data:T_Coords, index:number) {
@@ -101,27 +112,28 @@ export default class GridGameBoard extends Component<Props, State> {
   getStyles(subject:string, args:{ col:number, row:number, index:number }) {
   
     const squareBgColors = ['#dbbe92', '#52220b'];
-    const { dimension, squareSize } = this.props;
+    const { dimension, squareSize, isChessBoard, onEmptyCellClick } = this.props;
 
     switch (subject) {
 
       case 'board':
-        return { minWidth: dimension * squareSize + 'px' }
+        return { minWidth: dimension * squareSize + 'px', cursor: onEmptyCellClick ? 'pointer' : 'default' }
 
       case 'row':
         return { padding: 0, margin: 0 }
 
-      case 'col':
-        return { padding: 0, display: 'table' }
-
-      case 'draggableContainer':
-        return {
+      case 'squareContainer':
+        const style = {
           minWidth: `${squareSize}px`,
           height: `${squareSize}px`,
-          backgroundColor: squareBgColors[(args.col + args.row) % 2]
+          backgroundColor: undefined
+        };
+        if (isChessBoard) {
+          style.backgroundColor = squareBgColors[(args.col + args.row) % 2];
         }
+        return style;
 
-      case 'draggableChild':
+      case 'draggableContent':
         return {
           position: 'relative',
           zIndex: args.index === this.state.lastDraggedIndex ? 100: 99

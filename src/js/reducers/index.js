@@ -12,27 +12,28 @@ import highscoresPageReducer from './highscoresPage';
 import gameReducer from './game';
 import bossPuzzleReducer from './bossPuzzle';
 import eightQueensReducer from './eightQueens';
+import knightsTourReducer from './knightsTour';
 import sudokuReducer from './sudoku';
 
 import {
-  CLIENT_USER_ACTION,
-  FETCH_USERS,
-  FETCH_GAMES,
-  FETCH_GAME_CATEGORIES,
-  FETCH_HIGHSCORES,
-  FETCH_HIGHSCORE,
-  SAVE_NEW_HIGHSCORE
+  API_MAKE_AUTH_REQUEST,
+  API_FETCH_USERS,
+  API_FETCH_GAMES,
+  API_FETCH_GAME_CATEGORIES,
+  API_API_FETCH_HIGHSCORES,
+  API_FETCH_HIGHSCORE,
+  API_SAVE_NEW_HIGHSCORE
 } from 'js/actions/api';
 
 export default combineReducers({
   api: combineReducers({
-    clientUser: getApiRequestReducer(CLIENT_USER_ACTION),
-    users: getApiRequestReducer(FETCH_USERS),
-    games: getApiRequestReducer(FETCH_GAMES),
-    gameCategories: getApiRequestReducer(FETCH_GAME_CATEGORIES),
-    highscores: getApiRequestReducer(FETCH_HIGHSCORES),
-    bestHighscore: getApiRequestReducer(FETCH_HIGHSCORE),
-    newHighscore: getApiRequestReducer(SAVE_NEW_HIGHSCORE)
+    clientUser: getApiRequestReducer(API_MAKE_AUTH_REQUEST),
+    users: getApiRequestReducer(API_FETCH_USERS),
+    games: getApiRequestReducer(API_FETCH_GAMES),
+    gameCategories: getApiRequestReducer(API_FETCH_GAME_CATEGORIES),
+    highscores: getApiRequestReducer(API_API_FETCH_HIGHSCORES),
+    bestHighscore: getApiRequestReducer(API_FETCH_HIGHSCORE),
+    newHighscore: getApiRequestReducer(API_SAVE_NEW_HIGHSCORE)
   }),
   app: appReducer,
   pages: combineReducers({
@@ -44,6 +45,7 @@ export default combineReducers({
   engines: combineReducers({
     'boss-puzzle': bossPuzzleReducer,
     'eight-queens': eightQueensReducer,
+    'knights-tour': knightsTourReducer,
     'sudoku': sudokuReducer
   }),
   form: formReducer

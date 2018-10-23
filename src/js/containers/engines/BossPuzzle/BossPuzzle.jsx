@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { Game, GridGameBoard } from 'js/components';
 import SquareTile from './SquareTile';
-import { initFrame, switchTiles, clearHiddenTileCoords, resetFrame } from 'js/actions/bossPuzzle';
+import { initEngine, switchTiles, clearHiddenTileCoords, resetEngine } from 'js/actions/bossPuzzle';
 import { getNewImgNumbers, initData } from 'js/extracts/bossPuzzle';
 
 const numOfImgs = 20;
@@ -14,7 +14,7 @@ class BossPuzzle extends Game {
   static tilesSizes = { '3': 150, '4': 125, '5': 100 };
 
   componentWillUnmount() {
-    this.props.dispatch(resetFrame());
+    this.props.dispatch(resetEngine());
   }
 
   render() {
@@ -45,6 +45,11 @@ class BossPuzzle extends Game {
     }
 
     return null;
+  }
+
+  onMoveMade(index1, index2, targetCoords) {
+    this.props.dispatch(switchTiles(index1, index2, targetCoords));
+    super.onMakeMove();
   }
 
   startNew = doRestart => {
@@ -81,16 +86,11 @@ class BossPuzzle extends Game {
       if (game.options.mode === 'IMG') { tasks.push(this.loadImg(`boss-puzzle/img${nextImgNumbers[nextImgIndex]}.jpg`)); }
 
       return Promise.all(tasks).then((data:Array<any>) => {
-        dispatch(initFrame(nextImgNumbers, nextImgIndex, data[0].tiles, data[0].hiddenTileCoords));
+        dispatch(initEngine(nextImgNumbers, nextImgIndex, data[0].tiles, data[0].hiddenTileCoords));
         resolve();
       });
     });
-  }
-
-  onMoveMade(index1, index2, targetCoords) {
-    this.props.dispatch(switchTiles(index1, index2, targetCoords));
-    super.onMakeMove();
-  }
+  };
 
   checkIfSolved = () => {
 
@@ -109,7 +109,7 @@ class BossPuzzle extends Game {
       dispatch(clearHiddenTileCoords());
       resolve(true);
     });
-  }
+  };
 }
 
 export default connect(store => ({

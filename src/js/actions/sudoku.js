@@ -1,17 +1,17 @@
 // @flow
-export const INIT_FRAME = 'INIT_FRAME';
-export const CHANGE_VALUE = 'CHANGE_VALUE';
-export const RESET_FRAME = 'RESET_FRAME';
+export const SUDOKU_INIT_ENGINE = 'SUDOKU_INIT_ENGINE';
+export const SUDOKU_CHANGE_VALUE = 'SUDOKU_CHANGE_VALUE';
+export const SUDOKU_RESET_ENGINE = 'SUDOKU_RESET_ENGINE';
 
-export const initFrame = (values:Array<number|null>) => ({
-  type: INIT_FRAME,
+export const initEngine = (values:Array<number|null>) => ({
+  type: SUDOKU_INIT_ENGINE,
   payload: {
     values
   }
 });
 
 export const changeValue = (index:number, newValue:number) => ({
-  type: CHANGE_VALUE,
+  type: SUDOKU_CHANGE_VALUE,
   meta: {
     index
   },
@@ -20,6 +20,6 @@ export const changeValue = (index:number, newValue:number) => ({
   }
 });
 
-export const resetFrame = () => ({
-  type: RESET_FRAME
+export const resetEngine = () => ({
+  type: SUDOKU_RESET_ENGINE
 });

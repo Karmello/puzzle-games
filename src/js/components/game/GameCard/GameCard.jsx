@@ -4,7 +4,7 @@ import { isEmpty } from 'lodash';
 import { Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
-import { GameBtn } from 'js/components';
+import { GameBtn, GameOptions } from 'js/components';
 import { kebabToCamelCase } from 'js/helpers';
 import './GameCard.css';
 
@@ -25,7 +25,7 @@ export default class GameCard extends Component<Props> {
 
     if (!isEmpty(gameOptions)) {
       const id = kebabToCamelCase(gameData.id);
-      Options = require(`js/components/engineOptions/${id}Options/${id}Options`).default;
+      Options = require(`js/components/engineOptions/${id}Options`).default;
     }
 
     return (
@@ -40,10 +40,12 @@ export default class GameCard extends Component<Props> {
             <Typography variant='headline' component='h2'>{gameData.name}</Typography>
             <Typography component='p'>{gameData.description}</Typography>
             <div className='GameCard-options'>
-              {Options && <Options
-                options={gameOptions}
+              {Options &&
+              <GameOptions
                 onValueChangeCb={options => onGameOptionsChange(gameData.id, options)}
-              />}
+                options={gameOptions}
+                Content={Options}
+              ></GameOptions>}
             </div>
           </CardContent>
           <CardActions className='GameCard-actions'>
