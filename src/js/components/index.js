@@ -8,7 +8,7 @@ export { default as GameCategories } from './game/GameCategories/GameCategories'
 export { default as GameDashboard } from './game/GameDashboard/GameDashboard';
 export { default as GameInfo } from './game/GameInfo/GameInfo';
 export { default as GameMenu } from './game/GameMenu/GameMenu';
-export { default as GameOptions } from './game/GameOptions/GameOptions';
+export { default as GameOptions, Props as T_GameOptionsProps } from './game/GameOptions/GameOptions';
 export { default as GridGameBoard } from './game/GridGameBoard/GridGameBoard';
 
 // highscore

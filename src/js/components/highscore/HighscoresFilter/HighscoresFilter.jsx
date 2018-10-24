@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
@@ -12,6 +12,7 @@ import { GameOptions } from 'js/components';
 import { kebabToCamelCase } from 'js/helpers';
 import './HighscoresFilter.css';
 
+import type { T_GameOptionsProps } from 'js/components';
 import type { T_ApiEntities, T_GameOptionsModel } from 'js/flow-types';
 
 type Props = {
@@ -23,10 +24,10 @@ type Props = {
 
 type State = {
   gameId?:string,
-  Options?:Function
+  Options?:React.StatelessFunctionalComponent<T_GameOptionsProps>
 };
 
-export default class HighscoresFilter extends Component<Props, State> {
+export default class HighscoresFilter extends React.Component<Props, State> {
 
   getMenuItemLink:(categoryId:string, id?:string) => string;
 

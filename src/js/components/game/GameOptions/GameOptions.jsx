@@ -5,9 +5,9 @@ import { isEmpty } from 'lodash';
 import type { T_GameOptionsModel } from 'js/flow-types';
 import './GameOptions.css';
 
-type Props = {
+export type Props = {
   options:T_GameOptionsModel,
-  Content:Function,
+  Content:React.StatelessFunctionalComponent<Props>,
   path?:string,
   disabled?:boolean,
   onValueChangeCb?:Function

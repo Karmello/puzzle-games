@@ -12,7 +12,7 @@ import './GridGameBoard.css';
 type Props = {
   dimension:number,
   squareSize:number,
-  Square:Function,
+  Square:React.StatelessFunctionalComponent<{ col:number, row:number, index:number }>,
   isDraggable?:boolean,
   isChessBoard?:boolean,
   gridData?:Array<boolean>,
