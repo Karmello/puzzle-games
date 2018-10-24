@@ -37,14 +37,12 @@ export default class HighscoresFilter extends React.Component<Props, State> {
   }
 
   componentWillMount() {
-    
     if (this.props.gameFilter.id) {
       this.setupOptionsComponent(this.props.gameFilter.id);
     }
   }
 
   componentWillReceiveProps(nextProps:Props) {
-
     if (nextProps.gameFilter.id !== this.state.gameId && nextProps.gameFilter.id) {
       this.setupOptionsComponent(nextProps.gameFilter.id);
     }
