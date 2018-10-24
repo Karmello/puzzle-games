@@ -60,7 +60,9 @@ class App extends Component<Props, State> {
   }
 }
 
-export default withRouter(connect(store => ({
-  api: store.api,
-  app: store.app
-}))(App));
+export default withRouter(
+  connect(store => ({
+    api: store.api,
+    app: store.app
+  }))(App)
+);
