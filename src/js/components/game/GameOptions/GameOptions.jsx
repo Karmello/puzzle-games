@@ -7,7 +7,7 @@ import './GameOptions.css';
 
 export type Props = {
   options:T_GameOptionsModel,
-  Content:React.StatelessFunctionalComponent<Props>,
+  Content:React.ComponentType<Props>,
   path?:string,
   disabled?:boolean,
   onValueChangeCb?:Function

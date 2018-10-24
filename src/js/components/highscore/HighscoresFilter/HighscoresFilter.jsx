@@ -24,7 +24,7 @@ type Props = {
 
 type State = {
   gameId?:string,
-  Options?:React.StatelessFunctionalComponent<T_GameOptionsProps>
+  Options?:React.ComponentType<T_GameOptionsProps>
 };
 
 export default class HighscoresFilter extends React.Component<Props, State> {
