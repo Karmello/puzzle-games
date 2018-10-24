@@ -2,8 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Game, GridGameBoard } from 'js/components';
-import ValueField from './ValueField/ValueField';
+import { Game, GridGameBoard, ValueField } from 'js/components';
 import { initEngine, changeValue, resetEngine } from 'js/actions/sudoku';
 import { initializeValues, checkIfSolved } from 'js/extracts/sudoku';
 
