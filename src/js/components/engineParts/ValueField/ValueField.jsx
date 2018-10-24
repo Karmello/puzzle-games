@@ -19,10 +19,15 @@ class ValueField extends Component<Props> {
   selectValues:Array<number|null>;
 
   componentWillMount() {
+    const { value, disabled } = this.props;
     this.selectValues = [null];
-    for (let i = 1; i < 10; i++) { this.selectValues.push(i); }
+    if (!disabled) {
+      for (let i = 1; i < 10; i++) { this.selectValues.push(i); }
+    } else {
+      this.selectValues.push(value);
+    }
   }
-  
+
   render() {
     const { value, disabled } = this.props;
     return (
