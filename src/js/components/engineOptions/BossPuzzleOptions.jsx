@@ -7,6 +7,7 @@ import { FormControl } from 'material-ui/Form';
 import { MenuItem } from 'material-ui/Menu';
 
 import { GameOptions } from 'js/components';
+import type { T_Event } from 'js/flow-types';
 
 export default class BossPuzzleOptions extends GameOptions {
 
@@ -23,7 +24,7 @@ export default class BossPuzzleOptions extends GameOptions {
             <Select
               value={mode}
               input={<Input name='mode' id='mode' />}
-              onChange={e => this.onValueChange('mode', e.target.value)}
+              onChange={this.onModeChange}
               disabled={disabled}
               style={{ width: '100px' }}
             >
@@ -46,7 +47,7 @@ export default class BossPuzzleOptions extends GameOptions {
             <Select
               value={dimension}
               input={<Input name='dimension' id='dimension' />}
-              onChange={e => this.onValueChange('dimension', e.target.value)}
+              onChange={this.onDimensionChange}
               disabled={disabled}
             >
               <MenuItem
@@ -70,4 +71,7 @@ export default class BossPuzzleOptions extends GameOptions {
       </div>
     );
   }
+
+  onModeChange = (e:T_Event) => this.onValueChange('mode', String(e.target.value));
+  onDimensionChange = (e:T_Event) => this.onValueChange('dimension', String(e.target.value));
 }

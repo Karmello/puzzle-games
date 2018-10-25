@@ -38,45 +38,65 @@ export default class GameMenu extends Component<Props, State> {
           color='primary'
           aria-owns={btnElem ? 'gameMenu' : null}
           aria-haspopup='true'
-          onClick={(e) => { this.setup(e) }}
+          onClick={this.onMenuShow.bind(this)}
         >Game</Button>
         <Menu
           id='gameMenu'
           anchorEl={btnElem}
           open={Boolean(btnElem)}
-          onClose={() => { this.setup() }}
+          onClose={this.onMenuClose.bind(this)}
         >
           <MenuItem
             style={this.getItemStyle()}
-            onClick={() => { this.onItemClick('NEW') }}
+            onClick={this.onNewBtnClick.bind(this)}
           >New</MenuItem>
           {showRestartBtn && <MenuItem
             style={this.getItemStyle()}
-            onClick={() => { this.onItemClick('RESTART') }}
+            onClick={this.onRestartBtnClick.bind(this)}
           >Restart</MenuItem>}
           <MenuItem
             style={this.getItemStyle()}
             component={Link}
             to={`/games/${gameCategory}`}
-            onClick={() => { this.onItemClick() }}
+            onClick={this.onEndBtnClick.bind(this)}
           >End</MenuItem>
         </Menu>
       </div>
     );
   }
-  
-  getItemStyle() {
-    return {
-      width: '65px'
-    }
-  }
 
   setup(e:T_Event) {
-    this.setState({ btnElem: e ? e.currentTarget : null});
+    this.setState({ btnElem: e ? e.currentTarget : null });
   }
 
   onItemClick(itemId:string) {
     this.setup();
     if (itemId) { this.props.onItemClick(itemId); }
+  }
+
+  onMenuShow(e:T_Event) {
+    this.setup(e);
+  }
+
+  onMenuClose() {
+    this.setup();
+  }
+
+  onNewBtnClick() {
+    this.onItemClick('NEW');
+  }
+
+  onRestartBtnClick() {
+    this.onItemClick('RESTART');
+  }
+
+  onEndBtnClick() {
+    this.onItemClick.bind(this);
+  }
+
+  getItemStyle() {
+    return {
+      width: '65px'
+    }
   }
 }

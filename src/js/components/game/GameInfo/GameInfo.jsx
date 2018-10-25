@@ -20,6 +20,8 @@ type Props = {
   onToggleExpansionPanel:Function
 };
 
+const onChange = props => (e, expanded) => props.onToggleExpansionPanel('bestScore', expanded);
+
 const renderBestHighscore = (props:Props) => {
 
   const res = props.bestHighscore.res;
@@ -28,7 +30,7 @@ const renderBestHighscore = (props:Props) => {
   return (
     <ExpansionPanel
       expanded={gamePage.bestScoreExpanded}
-      onChange={(e, expanded) => props.onToggleExpansionPanel('bestScore', expanded)}
+      onChange={onChange(props)}
     >
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>Best score</Typography>

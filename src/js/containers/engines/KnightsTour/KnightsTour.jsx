@@ -7,6 +7,17 @@ import { Game, GridGameBoard } from 'js/components';
 import { initEngine, moveKnight, resetEngine } from 'js/actions/knightsTour';
 import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridGameBoard';
 
+const renderSquare = (knightsTourRef, active:number) => props => {
+  const { getKnightBtnStyle, getVisitedBtnStyle } = knightsTourRef;
+  return (
+    <Button
+      disabled
+      disableRipple
+      style={props.index === active ? getKnightBtnStyle() : getVisitedBtnStyle()}
+    > </Button>
+  );
+};
+
 class KnightsTour extends Game {
 
   squareSize:number;
@@ -31,16 +42,10 @@ class KnightsTour extends Game {
       <GridGameBoard
         dimension={Number(game.options.dimension)}
         squareSize={this.squareSize}
-        Square={props => (
-          <Button
-            disabled
-            disableRipple
-            style={props.index === knightsTourEngine.active ? this.getKnightBtnStyle() : this.getVisitedBtnStyle()}
-          > </Button>
-        )}
+        Square={renderSquare(this, knightsTourEngine.active)}
         isChessBoard={true}
         gridData={knightsTourEngine.visited}
-        onEmptyCellClick={index => this.onEmptyCellClick(index)}
+        onEmptyCellClick={this.onEmptyCellClick.bind(this)}
       />
     );
   }
@@ -56,27 +61,6 @@ class KnightsTour extends Game {
         this.props.dispatch(moveKnight(index));
         return super.onMakeMove();
       }
-    }
-  }
-
-  getKnightBtnStyle() {
-    return  {
-      minWidth: `${this.squareSize}px`,
-      height: `${this.squareSize}px`,
-      border: '1px solid gray',
-      borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${this.knightImgPath})`,
-      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
-      backgroundColor: 'white'
-    }
-  }
-
-  getVisitedBtnStyle() {
-    return  {
-      minWidth: `${this.squareSize}px`,
-      height: `${this.squareSize}px`,
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${this.okArrowImgPath})`,
-      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`
     }
   }
 
@@ -109,6 +93,27 @@ class KnightsTour extends Game {
       if (visited.every(elem => elem)) { return resolve(true); }
       resolve(false);
     });
+  };
+
+  getKnightBtnStyle = () => {
+    return  {
+      minWidth: `${this.squareSize}px`,
+      height: `${this.squareSize}px`,
+      border: '1px solid gray',
+      borderRadius: '0px',
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${this.knightImgPath})`,
+      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
+      backgroundColor: 'white'
+    }
+  };
+
+  getVisitedBtnStyle = () => {
+    return  {
+      minWidth: `${this.squareSize}px`,
+      height: `${this.squareSize}px`,
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${this.okArrowImgPath})`,
+      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`
+    }
   };
 }
 

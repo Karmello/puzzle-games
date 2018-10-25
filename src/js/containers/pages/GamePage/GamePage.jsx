@@ -13,7 +13,7 @@ import { toggleExpansionPanel } from 'js/actions/gamePage';
 import { kebabToCamelCase } from 'js/helpers';
 import './GamePage.css';
 
-import type { T_ApiEntities, T_GameOptionsModel, T_GameSettings, T_GamePageSettings } from 'js/flow-types';
+import type { T_ApiEntities, T_GameOptionsModel, T_GameSettings, T_GamePageSettings, T_TimerRef } from 'js/flow-types';
 
 type Props = {
   dispatch: Function,
@@ -28,9 +28,7 @@ type Props = {
 class GamePage extends Component<Props> {
 
   gameDashBoardRef:{
-    timerRef:{
-      state:{ seconds:number }
-    }
+    timerRef:T_TimerRef
   };
 
   componentWillMount() {
@@ -62,7 +60,7 @@ class GamePage extends Component<Props> {
           <GameDashboard
             clientUserData={clientUser.res.data}
             game={game}
-            ref={ref => ref ? this.gameDashBoardRef = ref : null}
+            ref={this.getGameDashboardRef}
           />
         </Paper>
         <Loader isShown={game.isLoading}>
@@ -78,7 +76,7 @@ class GamePage extends Component<Props> {
             </div>
             <div className='GamePage-engine'>
               <div style={this.getEngineContainerStyle(game.isSolved)}>
-                <Engine readTimer={() => this.gameDashBoardRef.timerRef.state} />
+                <Engine readTimer={this.readTimer.bind(this)} />
               </div>
               {game.isSolved && <div className='GamePage-solved'>SOLVED !</div>}
             </div>
@@ -112,6 +110,9 @@ class GamePage extends Component<Props> {
       dispatch(toggleExpansionPanel(name, expanded));
     }
   }
+
+  readTimer = () => this.gameDashBoardRef.timerRef.state;
+  getGameDashboardRef = ref => ref ? this.gameDashBoardRef = ref : null;
 }
 
 export default withRouter(connect(store => ({
