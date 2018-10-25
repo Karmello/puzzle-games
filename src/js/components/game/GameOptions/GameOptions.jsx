@@ -42,8 +42,10 @@ export default class GameOptions extends React.Component<Props, T_GameOptionsMod
   }
 
   onValueChange(key:string, value:string) {
-    const { onValueChangeCb } = this.props;
-    this.setState({ [key]: value });
-    if (onValueChangeCb) { setTimeout(() => onValueChangeCb(this.state)); }
+    if (this.state[key] !== value) {
+      const { onValueChangeCb } = this.props;
+      this.setState({ [key]: value });
+      if (onValueChangeCb) { setTimeout(() => onValueChangeCb(this.state)); }
+    }
   }
 }
