@@ -6,6 +6,21 @@ import { Game, GridGameBoard, ValueField } from 'js/components';
 import { initEngine, changeValue, resetEngine } from 'js/actions/sudoku';
 import { initializeValues, checkIfSolved } from 'js/extracts/sudoku';
 
+const renderSquare = (sudokuRef, values) => props => {
+  const { col, row } = props;
+  const { dimension, squareSize, onMoveMade, state: { disabledIndexes } } = sudokuRef;
+  const index = GridGameBoard.coordsToIndex({ x: col, y: row }, dimension);
+  return (
+    <ValueField
+      {...props}
+      value={(values && values[index]) || -1}
+      size={squareSize}
+      onChange={onMoveMade.bind(sudokuRef)}
+      disabled={disabledIndexes.indexOf(index) > -1}
+    />
+  );
+}
+
 class Sudoku extends Game {
 
   dimension:number;
@@ -22,25 +37,13 @@ class Sudoku extends Game {
   }
 
   render() {
-    const { game, sudokuEngine } = this.props;
+    const { game, sudokuEngine: { values } } = this.props;
     if (game.isLoading) { return null; }
     return (
       <GridGameBoard
         dimension={this.dimension}
         squareSize={this.squareSize}
-        Square={props => {
-          const { col, row } = props;
-          const index = GridGameBoard.coordsToIndex({ x: col, y: row }, this.dimension);
-          return (
-            <ValueField
-              {...props}
-              value={(sudokuEngine.values && sudokuEngine.values[index]) || -1}
-              size={this.squareSize}
-              onChange={this.onMoveMade.bind(this)}
-              disabled={this.state.disabledIndexes.indexOf(index) > -1}
-            />
-          );
-        }}
+        Square={renderSquare(this, values)}
       />
     );
   }

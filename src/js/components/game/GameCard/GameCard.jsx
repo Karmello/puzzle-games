@@ -20,7 +20,7 @@ export default class GameCard extends Component<Props> {
 
   render() {
 
-    const { gameData, gameOptions, onGameOptionsChange } = this.props;
+    const { gameData, gameOptions } = this.props;
     let Options;
 
     if (!isEmpty(gameOptions)) {
@@ -42,7 +42,7 @@ export default class GameCard extends Component<Props> {
             <div className='GameCard-options'>
               {Options &&
               <GameOptions
-                onValueChangeCb={options => onGameOptionsChange(gameData.id, options)}
+                onValueChangeCb={this.onValueChangeCb}
                 options={gameOptions}
                 Content={Options}
               ></GameOptions>}
@@ -72,4 +72,6 @@ export default class GameCard extends Component<Props> {
       </div>
     );
   }
+
+  onValueChangeCb = (options:T_GameOptionsModel) => this.props.onGameOptionsChange(this.props.gameData.id, options);
 }

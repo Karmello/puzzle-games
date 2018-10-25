@@ -7,6 +7,7 @@ import { FormControl } from 'material-ui/Form';
 import { MenuItem } from 'material-ui/Menu';
 
 import { GameOptions } from 'js/components';
+import type { T_Event } from 'js/flow-types';
 
 export default class KnightsTourOptions extends GameOptions {
   
@@ -23,7 +24,7 @@ export default class KnightsTourOptions extends GameOptions {
           <Select
             value={dimension}
             input={<Input name='dimension' id='dimension' />}
-            onChange={e => this.onValueChange('dimension', e.target.value)}
+            onChange={this.onDimensionChange}
             disabled={disabled}
           >
             <MenuItem
@@ -41,4 +42,6 @@ export default class KnightsTourOptions extends GameOptions {
       </div>
     );
   }
+
+  onDimensionChange = (e:T_Event) => this.onValueChange('dimension', String(e.target.value));
 }

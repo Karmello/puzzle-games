@@ -34,7 +34,7 @@ class ValueField extends Component<Props> {
       <div style={this.getStyle()}>
         <Select
           value={value}
-          onChange={e => this.onChange(e)}
+          onChange={this.onChange.bind(this)}
           classes={{ select: 'select', icon: 'icon' }}
           MenuProps={{
             transformOrigin: { vertical: 'center', horizontal: 'center' }

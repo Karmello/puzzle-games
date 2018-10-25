@@ -47,7 +47,7 @@ class App extends Component<Props, State> {
       <div className='App'>
         <MySnackBar
           message={this.state.snackBarMessage}
-          onClose={() => { this.setState({ snackBarMessage: '' }) }}
+          onClose={this.onClose.bind(this)}
         />
         <Loader centered={true} isShown={app.isLoading}>
           <Switch>
@@ -57,6 +57,10 @@ class App extends Component<Props, State> {
         </Loader>
       </div>
     );
+  }
+
+  onClose() {
+    this.setState({ snackBarMessage: '' });
   }
 }
 

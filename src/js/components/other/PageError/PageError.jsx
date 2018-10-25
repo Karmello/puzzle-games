@@ -20,7 +20,6 @@ export default class PageError extends Component<{}> {
   }
 
   onReloadClick() {
-
     setTimeout(() => { window.location.reload(); }, 300);
   }
 }

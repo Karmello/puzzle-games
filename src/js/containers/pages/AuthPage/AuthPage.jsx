@@ -67,7 +67,6 @@ class AuthPage extends Component<Props> {
       
       if (!state || state.from.pathname === '/') {
         pathname = '/games';
-
       } else {
         pathname = state.from.pathname + state.from.search;
       }
