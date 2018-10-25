@@ -40,9 +40,7 @@ class App extends Component<Props, State> {
   }
 
   render() {
-
     const { app } = this.props;
-
     return (
       <div className='App'>
         <MySnackBar
