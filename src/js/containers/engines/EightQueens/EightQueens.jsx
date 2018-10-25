@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
-import { Game, GridGameBoard } from 'js/components';
+import { Game, GridBoard } from 'js/components';
 import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
 
 class EightQueens extends Game {
@@ -25,7 +25,7 @@ class EightQueens extends Game {
     const { game, eightQueensEngine } = this.props;
     if (game.isLoading) { return null; }
     return (
-      <GridGameBoard
+      <GridBoard
         dimension={this.dimension}
         squareSize={this.squareSize}
         Square={() => <Button disableRipple style={this.getBtnStyle()}> </Button>}
@@ -58,7 +58,7 @@ class EightQueens extends Game {
     return new Promise(resolve => {
       this.loadImg('eight-queens/queen.png').then(() => {
         const queens = Array.from({ length: this.dimension ** 2 }, (v, k) => {
-          const coords = GridGameBoard.indexToCoords(k, this.dimension);
+          const coords = GridBoard.indexToCoords(k, this.dimension);
           return coords.x === coords.y;
         });
         this.props.dispatch(initEngine(queens));
@@ -71,7 +71,7 @@ class EightQueens extends Game {
 
     return new Promise(resolve => {
 
-      const { indexToCoords } = GridGameBoard;
+      const { indexToCoords } = GridBoard;
       const dimension = this.dimension;
       const { eightQueensEngine } = this.props;
       const queens = eightQueensEngine.queens;
@@ -88,22 +88,22 @@ class EightQueens extends Game {
         const qCrds = indexToCoords(q, dimension);
         
         // x axis
-        if (!GridGameBoard.isAloneOnAxis('x', qCrds, dimension, queens)) {
+        if (!GridBoard.isAloneOnAxis('x', qCrds, dimension, queens)) {
           return resolve(false);
         }
 
         // y axis
-        if (!GridGameBoard.isAloneOnAxis('y', qCrds, dimension, queens)) {
+        if (!GridBoard.isAloneOnAxis('y', qCrds, dimension, queens)) {
           return resolve(false);
         }
         
         // first diagonal (\)
-        if (!GridGameBoard.isAloneOnAxis('d1', qCrds, dimension, queens)) {
+        if (!GridBoard.isAloneOnAxis('d1', qCrds, dimension, queens)) {
           return resolve(false);
         }
 
         // second diagonal (/)
-        if (!GridGameBoard.isAloneOnAxis('d2', qCrds, dimension, queens)) {
+        if (!GridBoard.isAloneOnAxis('d2', qCrds, dimension, queens)) {
           return resolve(false);
         }
       }

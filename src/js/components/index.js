@@ -9,7 +9,9 @@ export { default as GameDashboard } from './game/GameDashboard/GameDashboard';
 export { default as GameInfo } from './game/GameInfo/GameInfo';
 export { default as GameMenu } from './game/GameMenu/GameMenu';
 export { default as GameOptions, Props as T_GameOptionsProps } from './game/GameOptions/GameOptions';
-export { default as GridGameBoard } from './game/GridGameBoard/GridGameBoard';
+
+// grid board
+export { default as GridBoard } from './gridBoard/GridBoard/GridBoard';
 
 // highscore
 export { default as HighscoresFilter } from './highscore/HighscoresFilter/HighscoresFilter';

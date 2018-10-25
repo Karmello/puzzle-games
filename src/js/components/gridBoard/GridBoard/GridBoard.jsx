@@ -5,9 +5,9 @@ import { Paper } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
 import Draggable from 'react-draggable';
 
-import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from 'js/extracts/gridGameBoard';
+import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from 'js/extracts/gridBoard';
 import type { T_Event, T_Coords } from 'js/flow-types';
-import './GridGameBoard.css';
+import './GridBoard.css';
 
 type Props = {
   dimension:number,
@@ -24,7 +24,7 @@ type State = {
   lastDraggedIndex:number|null
 };
 
-export default class GridGameBoard extends Component<Props, State> {
+export default class GridBoard extends Component<Props, State> {
 
   getStyles:(subject:string, args?:{ col?:number, row?:number, index?:number }) => {}|null;
 
@@ -43,14 +43,14 @@ export default class GridGameBoard extends Component<Props, State> {
     if (!dimension || !squareSize) { return null; }
 
     return (
-      <Paper className='GridGameBoard' style={this.getStyles('board')}>{
+      <Paper className='GridBoard' style={this.getStyles('board')}>{
         Array.from({ length: dimension }, (v, k) => k).map(i => (
           <Row key={i} style={this.getStyles('row')}>{
             Array.from({ length: dimension }, (v, k) => k).map(j => {
               
               const row = Number(i);
               const col = Number(j);
-              const index = GridGameBoard.coordsToIndex({ x: col, y: row }, dimension);
+              const index = GridBoard.coordsToIndex({ x: col, y: row }, dimension);
               const position = { x: 0, y: 0 };
               
               return (
@@ -129,13 +129,13 @@ export default class GridGameBoard extends Component<Props, State> {
 
     const { dimension, squareSize, gridData, onDragMade } = this.props;
 
-    const index = GridGameBoard.offsetToIndex({
+    const index = GridBoard.offsetToIndex({
       x: data.x + col * squareSize,
       y: data.y + row * squareSize
     }, squareSize, dimension);
 
     if (index > -1 && gridData && !gridData[index]) {
-      const newCoords = GridGameBoard.indexToCoords(index, dimension);
+      const newCoords = GridBoard.indexToCoords(index, dimension);
       position.x = newCoords.x * squareSize - col * squareSize;
       position.y = newCoords.y * squareSize - row * squareSize;
       if (onDragMade) {

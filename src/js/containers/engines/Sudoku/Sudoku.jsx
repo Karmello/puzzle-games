@@ -2,14 +2,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Game, GridGameBoard, ValueField } from 'js/components';
+import { Game, GridBoard, ValueField } from 'js/components';
 import { initEngine, changeValue, resetEngine } from 'js/actions/sudoku';
 import { initializeValues, checkIfSolved } from 'js/extracts/sudoku';
 
 const renderSquare = (sudokuRef, values) => props => {
   const { col, row } = props;
   const { dimension, squareSize, onMoveMade, state: { disabledIndexes } } = sudokuRef;
-  const index = GridGameBoard.coordsToIndex({ x: col, y: row }, dimension);
+  const index = GridBoard.coordsToIndex({ x: col, y: row }, dimension);
   return (
     <ValueField
       {...props}
@@ -40,7 +40,7 @@ class Sudoku extends Game {
     const { game, sudokuEngine: { values } } = this.props;
     if (game.isLoading) { return null; }
     return (
-      <GridGameBoard
+      <GridBoard
         dimension={this.dimension}
         squareSize={this.squareSize}
         Square={renderSquare(this, values)}
@@ -50,7 +50,7 @@ class Sudoku extends Game {
 
   onMoveMade(col, row, newValue) {
     const { props, dimension } = this;
-    props.dispatch(changeValue(GridGameBoard.coordsToIndex({ x: col, y: row }, dimension), newValue));
+    props.dispatch(changeValue(GridBoard.coordsToIndex({ x: col, y: row }, dimension), newValue));
     super.onMakeMove();
   }
 

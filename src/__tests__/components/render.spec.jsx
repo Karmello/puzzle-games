@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import store from 'js/store';
 import { App, AppBar, AppDrawer, AuthPage, GamePage, GamesPage, HighscoresPage, BossPuzzle, EightQueens } from 'js/containers';
-import { GridGameBoard, SquareTile, BossPuzzleOptions, KnightsTourOptions, FbBtn, Loader, MySnackBar, PageError, Timer } from 'js/components';
+import { GridBoard, SquareTile, BossPuzzleOptions, KnightsTourOptions, FbBtn, Loader, MySnackBar, PageError, Timer } from 'js/components';
 
 describe('should render', () => {
   
@@ -43,8 +43,8 @@ describe('should render', () => {
 
   describe('game', () => {
 
-    it('GridGameBoard', () => {
-      shallow(<GridGameBoard
+    it('GridBoard', () => {
+      shallow(<GridBoard
         dimension={3}
         squareSize={50}
         Square={() => <div>square</div>}

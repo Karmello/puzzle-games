@@ -5,7 +5,7 @@ import {
   getWithLinesShuffled,
   coordsToIndex,
   areValuesUniqueOnAxis
-} from 'js/extracts/gridGameBoard';
+} from 'js/extracts/gridBoard';
 
 import { shuffleIntArray } from 'js/helpers';
 

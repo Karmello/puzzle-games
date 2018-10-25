@@ -3,9 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
-import { Game, GridGameBoard } from 'js/components';
+import { Game, GridBoard } from 'js/components';
 import { initEngine, moveKnight, resetEngine } from 'js/actions/knightsTour';
-import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridGameBoard';
+import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
 
 const renderSquare = (knightsTourRef, active:number) => props => {
   const { getKnightBtnStyle, getVisitedBtnStyle } = knightsTourRef;
@@ -39,7 +39,7 @@ class KnightsTour extends Game {
     const { game, knightsTourEngine } = this.props;
     if (game.isLoading) { return null; }
     return (
-      <GridGameBoard
+      <GridBoard
         dimension={Number(game.options.dimension)}
         squareSize={this.squareSize}
         Square={renderSquare(this, knightsTourEngine.active)}

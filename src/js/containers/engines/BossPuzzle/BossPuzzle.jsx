@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Game, GridGameBoard, SquareTile } from 'js/components';
+import { Game, GridBoard, SquareTile } from 'js/components';
 import { initEngine, switchTiles, clearHiddenTileCoords, resetEngine } from 'js/actions/bossPuzzle';
 import { getNewImgNumbers, initData } from 'js/extracts/bossPuzzle';
 
@@ -24,7 +24,7 @@ class BossPuzzle extends Game {
     
     if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
       return (
-        <GridGameBoard
+        <GridBoard
           className={'BossPuzzle-' + String(game.options.dimension)}
           dimension={Number(game.options.dimension)}
           squareSize={BossPuzzle.tilesSizes[String(game.options.dimension)]}
