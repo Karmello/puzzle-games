@@ -92,7 +92,7 @@
     "react-hot-loader": "^4.3.11",
     "redux-devtools-extension": "^2.13.2",
     "sass-loader": "^6.0.6",
-    "webpack-bundle-analyzer": "^2.11.0"
+    "webpack-bundle-analyzer": "^3.0.3"
   },
   "jest": {
     "collectCoverageFrom": [
