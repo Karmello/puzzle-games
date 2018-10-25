@@ -39,7 +39,7 @@ class AppBar extends Component<Props> {
           >{appName}</Typography>
           {game.id && <GameMenu
             gameCategory={apiGames.res.data.find(elem => elem.id === game.id).categoryId}
-            onItemClick={itemId => { this.onMenuItemClick(itemId); }}
+            onItemClick={this.onMenuItemClick.bind(this)}
             showRestartBtn={game.id === 'boss-puzzle' && game.options.mode ==='IMG'}
           />}
         </Toolbar>

@@ -55,12 +55,15 @@ export default class GridGameBoard extends Component<Props, State> {
               
               return (
                 <Col key={j}>
-                  <div style={this.getStyles('squareContainer', { col, row })} onClick={() => this.onBoardClick(index)}>
+                  <div
+                    style={this.getStyles('squareContainer', { col, row })}
+                    onClick={this.onBoardClick.bind(this, index)}
+                  >
                     {isDraggable && gridData && gridData[index] &&
                     <Draggable
                       position={position}
-                      onStart={(e, data) => this.onDragStart(e, data, index)}
-                      onStop={(e, data) => this.onDragStop(e, data, col, row, position)}
+                      onStart={this.onDragStart.call(this, index)}
+                      onStop={this.onDragStop.call(this, index, col, row, position)}
                     >
                       <div style={this.getStyles('draggableContent', { index })}>
                         <Square col={col} row={row} index={index} />
@@ -83,30 +86,6 @@ export default class GridGameBoard extends Component<Props, State> {
   onBoardClick(index:number) {
     const { onEmptyCellClick, gridData } = this.props;
     if (onEmptyCellClick && gridData && !gridData[index]) { onEmptyCellClick(index); }
-  }
-
-  onDragStart(e:T_Event, data:T_Coords, index:number) {
-    this.setState({ lastDraggedIndex: index });
-  }
-
-  onDragStop(e:T_Event, data:T_Coords, col:number, row:number, position:T_Coords) {
-
-    const { dimension, squareSize, gridData, onDragMade } = this.props;
-
-    const index = GridGameBoard.offsetToIndex({
-      x: data.x + col * squareSize,
-      y: data.y + row * squareSize
-    }, squareSize, dimension);
-
-
-    if (index > -1 && gridData && !gridData[index]) {
-      const newCoords = GridGameBoard.indexToCoords(index, dimension);
-      position.x = newCoords.x * squareSize - col * squareSize;
-      position.y = newCoords.y * squareSize - row * squareSize;
-      if (onDragMade) {
-        setTimeout(() => onDragMade(this.state.lastDraggedIndex, index));
-      }
-    }
   }
 
   getStyles(subject:string, args:{ col:number, row:number, index:number }) {
@@ -143,4 +122,25 @@ export default class GridGameBoard extends Component<Props, State> {
         return null;
     }
   }
+
+  onDragStart = (index:number) => () => this.setState({ lastDraggedIndex: index });
+
+  onDragStop = (index:number, col:number, row:number, position:T_Coords) => (e:T_Event, data:T_Coords) => {
+
+    const { dimension, squareSize, gridData, onDragMade } = this.props;
+
+    const index = GridGameBoard.offsetToIndex({
+      x: data.x + col * squareSize,
+      y: data.y + row * squareSize
+    }, squareSize, dimension);
+
+    if (index > -1 && gridData && !gridData[index]) {
+      const newCoords = GridGameBoard.indexToCoords(index, dimension);
+      position.x = newCoords.x * squareSize - col * squareSize;
+      position.y = newCoords.y * squareSize - row * squareSize;
+      if (onDragMade) {
+        setTimeout(() => onDragMade(this.state.lastDraggedIndex, index));
+      }
+    }
+  };
 }

@@ -111,9 +111,9 @@ class RootPage extends Component<Props> {
           <AppBar/>
           <AppDrawer/>
           <Switch>
-            <Route exact path='/games/:category' render={props => this.gamesRouteLogic(props)} />
-            <Route exact path='/games/:category/:id' render={props => this.gameRouteLogic(props)} />
-            <Route exact path='/highscores/:gameId' render={props => this.highscoresRouteLogic(props)} />
+            <Route exact path='/games/:category' render={this.gamesRouteLogic} />
+            <Route exact path='/games/:category/:id' render={this.gameRouteLogic} />
+            <Route exact path='/highscores/:gameId' render={this.highscoresRouteLogic} />
             {pages.gamesPage.category && <Redirect from='*' to={this.getDefaultPath()} />}
           </Switch>
         </div>

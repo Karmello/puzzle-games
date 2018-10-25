@@ -151,7 +151,7 @@ export type T_Coords = {
 
 export type T_Event = {
   target:{
-    value:number
+    value:any
   },
   currentTarget:React.Node
 };
@@ -160,3 +160,5 @@ export type T_RouterProps = {
   match:{ params:{ id:string, category:string, gameId:string }},
   location:{ pathname:string, search:string }
 };
+
+export type T_TimerRef = { state:{ seconds:number } };
