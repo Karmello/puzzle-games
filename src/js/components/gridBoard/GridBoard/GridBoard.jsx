@@ -3,8 +3,8 @@ import * as React from 'react';
 import { Component } from 'react';
 import { Paper } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
-import Draggable from 'react-draggable';
 
+import { GridElement } from 'js/components';
 import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from 'js/extracts/gridBoard';
 import type { T_Event, T_Coords } from 'js/flow-types';
 import './GridBoard.css';
@@ -38,7 +38,7 @@ export default class GridBoard extends Component<Props, State> {
 
   render() {
 
-    const { dimension, squareSize, isDraggable, Square, gridData } = this.props;
+    const { dimension, squareSize, isDraggable, Square, gridData, onDragMade } = this.props;
 
     if (!dimension || !squareSize) { return null; }
 
@@ -51,7 +51,6 @@ export default class GridBoard extends Component<Props, State> {
               const row = Number(i);
               const col = Number(j);
               const index = GridBoard.coordsToIndex({ x: col, y: row }, dimension);
-              const position = { x: 0, y: 0 };
               
               return (
                 <Col key={j}>
@@ -59,20 +58,17 @@ export default class GridBoard extends Component<Props, State> {
                     style={this.getStyles('squareContainer', { col, row })}
                     onClick={this.onBoardClick.bind(this, index)}
                   >
-                    {isDraggable && gridData && gridData[index] &&
-                    <Draggable
-                      position={position}
-                      onStart={this.onDragStart.call(this, index)}
-                      onStop={this.onDragStop.call(this, index, col, row, position)}
-                    >
-                      <div style={this.getStyles('draggableContent', { index })}>
-                        <Square col={col} row={row} index={index} />
-                      </div>
-                    </Draggable>}
-                    {!isDraggable &&
-                    <div style={{ cursor: 'default' }}>
-                      {((gridData && gridData[index]) || !gridData) && <Square col={col} row={row} index={index} />}
-                    </div>}
+                    <GridElement
+                      col={col}
+                      row={row}
+                      index={index}
+                      dimension={dimension}
+                      squareSize={squareSize}
+                      Content={Square}
+                      isDraggable={isDraggable}
+                      gridData={gridData}
+                      onDragMade={onDragMade}
+                    />
                   </div>
                 </Col>
               );
