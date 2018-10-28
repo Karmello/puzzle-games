@@ -13,6 +13,7 @@ export { default as GameOptions, Props as T_GameOptionsProps } from './game/Game
 // grid board
 export { default as GridBoard } from './gridBoard/GridBoard/GridBoard';
 export { default as GridElement } from './gridBoard/GridElement/GridElement';
+export { default as DraggableGridElement } from './gridBoard/DraggableGridElement/DraggableGridElement';
 
 // highscore
 export { default as HighscoresFilter } from './highscore/HighscoresFilter/HighscoresFilter';

@@ -4,7 +4,7 @@ import { Component } from 'react';
 import { Paper } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
 
-import { GridElement } from 'js/components';
+import { GridElement, DraggableGridElement } from 'js/components';
 import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from 'js/extracts/gridBoard';
 import './GridBoard.css';
 
@@ -57,20 +57,26 @@ export default class GridBoard extends Component<Props, State> {
                     style={this.getStyles('squareContainer', { col, row })}
                     onClick={this.onBoardClick.bind(this, index)}
                   >
-                    <div style={ isDraggable ? this.getStyles('draggableContent', { index }) : {} }>
-                      <GridElement
+                    {!isDraggable && <GridElement
+                      gridData={gridData}
+                      col={col}
+                      row={row}
+                      index={index}
+                      Content={Square}
+                    />}
+                    {isDraggable && <div style={this.getStyles('draggableContent', { index })}>
+                      <DraggableGridElement
                         col={col}
                         row={row}
                         index={index}
                         dimension={dimension}
                         squareSize={squareSize}
                         Content={Square}
-                        isDraggable={isDraggable}
                         gridData={gridData}
                         onDragStart={this.onDragStart.bind(this)}
                         onDragMade={this.onDragMade.bind(this)}
                       />
-                    </div>
+                    </div>}
                   </div>
                 </Col>
               );
