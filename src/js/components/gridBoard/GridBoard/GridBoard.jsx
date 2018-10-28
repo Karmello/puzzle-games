@@ -6,7 +6,6 @@ import { Row, Col } from 'react-flexbox-grid';
 
 import { GridElement } from 'js/components';
 import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from 'js/extracts/gridBoard';
-import type { T_Event, T_Coords } from 'js/flow-types';
 import './GridBoard.css';
 
 type Props = {
@@ -38,8 +37,8 @@ export default class GridBoard extends Component<Props, State> {
 
   render() {
 
-    const { dimension, squareSize, isDraggable, Square, gridData, onDragMade } = this.props;
-
+    const { dimension, squareSize, isDraggable, Square, gridData } = this.props;
+    
     if (!dimension || !squareSize) { return null; }
 
     return (
@@ -58,17 +57,20 @@ export default class GridBoard extends Component<Props, State> {
                     style={this.getStyles('squareContainer', { col, row })}
                     onClick={this.onBoardClick.bind(this, index)}
                   >
-                    <GridElement
-                      col={col}
-                      row={row}
-                      index={index}
-                      dimension={dimension}
-                      squareSize={squareSize}
-                      Content={Square}
-                      isDraggable={isDraggable}
-                      gridData={gridData}
-                      onDragMade={onDragMade}
-                    />
+                    <div style={ isDraggable ? this.getStyles('draggableContent', { index }) : {} }>
+                      <GridElement
+                        col={col}
+                        row={row}
+                        index={index}
+                        dimension={dimension}
+                        squareSize={squareSize}
+                        Content={Square}
+                        isDraggable={isDraggable}
+                        gridData={gridData}
+                        onDragStart={this.onDragStart.bind(this)}
+                        onDragMade={this.onDragMade.bind(this)}
+                      />
+                    </div>
                   </div>
                 </Col>
               );
@@ -82,6 +84,14 @@ export default class GridBoard extends Component<Props, State> {
   onBoardClick(index:number) {
     const { onEmptyCellClick, gridData } = this.props;
     if (onEmptyCellClick && gridData && !gridData[index]) { onEmptyCellClick(index); }
+  }
+
+  onDragMade(index:number) {
+    const { onDragMade } = this.props;
+    const { lastDraggedIndex } = this.state;
+    if (onDragMade) {
+      return onDragMade(lastDraggedIndex, index);
+    }
   }
 
   getStyles(subject:string, args:{ col:number, row:number, index:number }) {
@@ -120,23 +130,4 @@ export default class GridBoard extends Component<Props, State> {
   }
 
   onDragStart = (index:number) => () => this.setState({ lastDraggedIndex: index });
-
-  onDragStop = (index:number, col:number, row:number, position:T_Coords) => (e:T_Event, data:T_Coords) => {
-
-    const { dimension, squareSize, gridData, onDragMade } = this.props;
-
-    const index = GridBoard.offsetToIndex({
-      x: data.x + col * squareSize,
-      y: data.y + row * squareSize
-    }, squareSize, dimension);
-
-    if (index > -1 && gridData && !gridData[index]) {
-      const newCoords = GridBoard.indexToCoords(index, dimension);
-      position.x = newCoords.x * squareSize - col * squareSize;
-      position.y = newCoords.y * squareSize - row * squareSize;
-      if (onDragMade) {
-        setTimeout(() => onDragMade(this.state.lastDraggedIndex, index));
-      }
-    }
-  };
 }

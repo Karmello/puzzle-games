@@ -14,20 +14,18 @@ type Props = {
   Content:React.ComponentType<{ col:number, row:number, index:number }>,
   isDraggable?:boolean,
   gridData?:Array<boolean>,
+  onDragStart?:Function,
   onDragMade?:Function
 };
 
 type State = {
-  lastDraggedIndex:number,
   position:T_Coords
 };
-
-const onDragStart = (state:State, index:number) => () => state.lastDraggedIndex = index;
 
 const onDragStop = (props:Props, state:State) => (e:T_Event, data:T_Coords) => {
 
   const { col, row, dimension, squareSize, gridData, onDragMade } = props;
-  const { position, lastDraggedIndex } = state;
+  const { position } = state;
 
   const index = offsetToIndex({
     x: data.x + col * squareSize,
@@ -39,7 +37,7 @@ const onDragStop = (props:Props, state:State) => (e:T_Event, data:T_Coords) => {
     position.x = newCoords.x * squareSize - col * squareSize;
     position.y = newCoords.y * squareSize - row * squareSize;
     if (onDragMade) {
-      setTimeout(() => onDragMade(lastDraggedIndex, index));
+      setTimeout(() => onDragMade(index));
     }
   }
 };
@@ -47,21 +45,20 @@ const onDragStop = (props:Props, state:State) => (e:T_Event, data:T_Coords) => {
 export default (props:Props) => {
   
   const state = {
-    lastDraggedIndex: -1,
     position: { x: 0, y: 0 }
   }
 
-  const { col, row, index, Content, isDraggable, gridData } = props;
+  const { col, row, index, Content, isDraggable, gridData, onDragStart } = props;
 
   return (
     <div>
       {isDraggable && gridData && gridData[index] &&
       <Draggable
         position={state.position}
-        onStart={onDragStart(state, index)}
+        onStart={onDragStart ? onDragStart(index) : undefined}
         onStop={onDragStop(props, state)}
       >
-        <div style={{ position: 'relative', zIndex: index === state.lastDraggedIndex ? 100: 99 }}>
+        <div>
           <Content col={col} row={row} index={index} />
         </div>
       </Draggable>}
