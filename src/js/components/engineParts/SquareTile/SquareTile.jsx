@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Button } from 'material-ui';
 
 import { BossPuzzle } from 'js/containers';
-import { GridGameBoard } from 'js/components';
+import { coordsToIndex, indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
 import type { T_GameOptionsModel, T_Coords } from 'js/flow-types';
 
 type Props = {
@@ -19,14 +19,14 @@ type Props = {
 
 const fontSizes = { '3': 40, '4': 30, '5': 22 };
 
-class SquareTile extends Component<Props> {
+export default class SquareTile extends Component<Props> {
 
   index:number;
   isHidden:boolean;
 
   constructor(props:Props) {
     super(props);
-    this.index = GridGameBoard.coordsToIndex({ x: props.col, y: props.row }, Number(props.options.dimension));
+    this.index = coordsToIndex({ x: props.col, y: props.row }, Number(props.options.dimension));
   }
 
   componentWillMount() {
@@ -68,7 +68,7 @@ class SquareTile extends Component<Props> {
       const label = this.getLabel();
 
       if (options.mode === 'IMG' && imgSrc && label) {
-        const imgCoords = GridGameBoard.indexToCoords(Number(label) - 1, Number(options.dimension));
+        const imgCoords = indexToCoords(Number(label) - 1, Number(options.dimension));
         const imgSize = BossPuzzle.tilesSizes[options.dimension];
         style.backgroundImage = `url(${imgSrc})`;
         style.backgroundSize = `${Number(options.dimension) * imgSize}px ${Number(options.dimension) * imgSize}px`;
@@ -89,7 +89,7 @@ class SquareTile extends Component<Props> {
 
   isInProperPlace() {
     const { options, row, col } = this.props;
-    return GridGameBoard.coordsToIndex({ x: col, y: row }, Number(options.dimension)) + 1 === this.getLabel();
+    return coordsToIndex({ x: col, y: row }, Number(options.dimension)) + 1 === this.getLabel();
   }
 
   onClick() {
@@ -99,20 +99,18 @@ class SquareTile extends Component<Props> {
     if (!isSolved) {
       
       const targetCoords = { x: col, y: row };
-      const allMovementCoords = GridGameBoard.findAllMovementCoords(targetCoords, Number(options.dimension));
+      const allMovementCoords = findAllMovementCoords(targetCoords, Number(options.dimension));
 
       for (let coords of allMovementCoords) {
 
         // If hidden tile found
         if (coords.x === hiddenTileCoords.x && coords.y === hiddenTileCoords.y) {
 
-          const index1 = GridGameBoard.coordsToIndex(targetCoords, Number(options.dimension));
-          const index2 = GridGameBoard.coordsToIndex(coords, Number(options.dimension));
+          const index1 = coordsToIndex(targetCoords, Number(options.dimension));
+          const index2 = coordsToIndex(coords, Number(options.dimension));
           return onMoveMade(index1, index2, targetCoords);
         }
       }
     }
   }
 }
-
-export default SquareTile;

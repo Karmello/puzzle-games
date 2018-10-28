@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Game, GridGameBoard, SquareTile } from 'js/components';
+import { Game, GridBoard, SquareTile } from 'js/components';
 import { initEngine, switchTiles, clearHiddenTileCoords, resetEngine } from 'js/actions/bossPuzzle';
 import { getNewImgNumbers, initData } from 'js/extracts/bossPuzzle';
 
@@ -16,29 +16,36 @@ class BossPuzzle extends Game {
     this.props.dispatch(resetEngine());
   }
 
+  renderElement() {
+    const { game, bossPuzzleEngine } = this.props;
+    const { imgSrc } = this.state;
+    return props => (
+      <SquareTile
+        options={game.options}
+        hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
+        tiles={bossPuzzleEngine.tiles}
+        imgSrc={imgSrc}
+        isSolved={game.isSolved}
+        onMoveMade={this.onMoveMade.bind(this)}
+        {...props}
+      />
+    );
+  }
+
   render() {
 
+    const { game } = this.props;
     const { imgSrc } = this.state;
-    const { game, bossPuzzleEngine } = this.props;
+
     if (game.isLoading) { return null; }
     
     if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
       return (
-        <GridGameBoard
+        <GridBoard
           className={'BossPuzzle-' + String(game.options.dimension)}
           dimension={Number(game.options.dimension)}
-          squareSize={BossPuzzle.tilesSizes[String(game.options.dimension)]}
-          Square={props => (
-            <SquareTile
-              options={game.options}
-              hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
-              tiles={bossPuzzleEngine.tiles}
-              imgSrc={imgSrc}
-              isSolved={game.isSolved}
-              onMoveMade={this.onMoveMade.bind(this)}
-              {...props}
-            />
-          )}
+          elementSize={BossPuzzle.tilesSizes[String(game.options.dimension)]}
+          Element={this.renderElement()}
         />
       );
     }

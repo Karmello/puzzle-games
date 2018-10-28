@@ -2,55 +2,58 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Game, GridGameBoard, ValueField } from 'js/components';
+import { Game, GridBoard, ValueField } from 'js/components';
 import { initEngine, changeValue, resetEngine } from 'js/actions/sudoku';
 import { initializeValues, checkIfSolved } from 'js/extracts/sudoku';
-
-const renderSquare = (sudokuRef, values) => props => {
-  const { col, row } = props;
-  const { dimension, squareSize, onMoveMade, state: { disabledIndexes } } = sudokuRef;
-  const index = GridGameBoard.coordsToIndex({ x: col, y: row }, dimension);
-  return (
-    <ValueField
-      {...props}
-      value={(values && values[index]) || -1}
-      size={squareSize}
-      onChange={onMoveMade.bind(sudokuRef)}
-      disabled={disabledIndexes.indexOf(index) > -1}
-    />
-  );
-}
+import { coordsToIndex } from 'js/extracts/gridBoard';
 
 class Sudoku extends Game {
 
   dimension:number;
-  squareSize:number;
+  elementSize:number;
 
   constructor(props) {
     super(props);
     this.dimension = 9;
-    this.squareSize = 65;
+    this.elementSize = 65;
   }
 
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
   }
 
+  renderElement(values) {
+    return props => {
+      const { col, row } = props;
+      const { dimension, elementSize, onMoveMade, state: { disabledIndexes } } = this;
+      const index = coordsToIndex({ x: col, y: row }, dimension);
+      return (
+        <ValueField
+          {...props}
+          value={(values && values[index]) || -1}
+          size={elementSize}
+          onChange={onMoveMade.bind(this)}
+          disabled={disabledIndexes.indexOf(index) > -1}
+        />
+      );
+    }
+  }
+
   render() {
     const { game, sudokuEngine: { values } } = this.props;
     if (game.isLoading) { return null; }
     return (
-      <GridGameBoard
+      <GridBoard
         dimension={this.dimension}
-        squareSize={this.squareSize}
-        Square={renderSquare(this, values)}
+        elementSize={this.elementSize}
+        Element={this.renderElement(values)}
       />
     );
   }
 
   onMoveMade(col, row, newValue) {
     const { props, dimension } = this;
-    props.dispatch(changeValue(GridGameBoard.coordsToIndex({ x: col, y: row }, dimension), newValue));
+    props.dispatch(changeValue(coordsToIndex({ x: col, y: row }, dimension), newValue));
     super.onMakeMove();
   }
 

@@ -13,8 +13,8 @@ export const indexToCoords = (index:number, dimension:number) => {
   }
 }
 
-export const offsetToIndex = (offset:T_Coords, squareSize:number, dimension:number) => {
-  const coords = { x: Math.round((offset.x || 0) / squareSize), y: Math.round((offset.y || 0) / squareSize) };
+export const offsetToIndex = (offset:T_Coords, elementSize:number, dimension:number) => {
+  const coords = { x: Math.round((offset.x || 0) / elementSize), y: Math.round((offset.y || 0) / elementSize) };
   if (coords.x >= 0 && coords.x < dimension && coords.y >= 0 && coords.y < dimension) {
     return Math.abs(coordsToIndex(coords, dimension));
   } else {

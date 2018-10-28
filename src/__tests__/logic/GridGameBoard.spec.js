@@ -8,10 +8,10 @@ import {
   getFlipped,
   getRotated,
   getWithLinesShuffled
-} from 'js/extracts/gridGameBoard';
+} from 'js/extracts/gridBoard';
 
 
-describe('GridGameBoard logic methods', () => {
+describe('GridBoard logic methods', () => {
 
   describe('coordsToIndex', () => {
     it('should convert to index', () => {

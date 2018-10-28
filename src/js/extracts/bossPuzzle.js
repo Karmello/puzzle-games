@@ -1,5 +1,5 @@
 // @flow
-import { findAllMovementCoords, coordsToIndex } from 'js/extracts/gridGameBoard';
+import { findAllMovementCoords, coordsToIndex } from 'js/extracts/gridBoard';
 import { shuffleIntArray } from 'js/helpers';
 import type { T_Coords } from 'js/flow-types';
 
