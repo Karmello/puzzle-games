@@ -46,7 +46,7 @@ describe('should render', () => {
     it('GridBoard', () => {
       shallow(<GridBoard
         dimension={3}
-        squareSize={50}
+        elementSize={50}
         Square={() => <div>square</div>}
       />);
     });

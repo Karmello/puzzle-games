@@ -5,17 +5,17 @@ import { Paper } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
 
 import { GridElement, DraggableGridElement } from 'js/components';
-import { coordsToIndex, indexToCoords, offsetToIndex, findAllMovementCoords, isAloneOnAxis } from 'js/extracts/gridBoard';
+import { coordsToIndex } from 'js/extracts/gridBoard';
 import './GridBoard.css';
 
 type Props = {
   dimension:number,
-  squareSize:number,
-  Square:React.ComponentType<{ col:number, row:number, index:number }>,
+  elementSize:number,
+  Element:React.ComponentType<{ col:number, row:number, index:number }>,
   isDraggable?:boolean,
   isChessBoard?:boolean,
   gridData?:Array<boolean>,
-  onDragMade?:Function,
+  onDragStop?:Function,
   onEmptyCellClick?:Function
 };
 
@@ -27,19 +27,13 @@ export default class GridBoard extends Component<Props, State> {
 
   getStyles:(subject:string, args?:{ col?:number, row?:number, index?:number }) => {}|null;
 
-  static coordsToIndex = coordsToIndex;
-  static indexToCoords = indexToCoords;
-  static offsetToIndex = offsetToIndex;
-  static findAllMovementCoords = findAllMovementCoords;
-  static isAloneOnAxis = isAloneOnAxis;
-
   state = { lastDraggedIndex: null };
 
   render() {
 
-    const { dimension, squareSize, isDraggable, Square, gridData } = this.props;
+    const { dimension, elementSize, isDraggable, Element, gridData } = this.props;
     
-    if (!dimension || !squareSize) { return null; }
+    if (!dimension || !elementSize) { return null; }
 
     return (
       <Paper className='GridBoard' style={this.getStyles('board')}>{
@@ -49,12 +43,12 @@ export default class GridBoard extends Component<Props, State> {
               
               const row = Number(i);
               const col = Number(j);
-              const index = GridBoard.coordsToIndex({ x: col, y: row }, dimension);
+              const index = coordsToIndex({ x: col, y: row }, dimension);
               
               return (
                 <Col key={j}>
                   <div
-                    style={this.getStyles('squareContainer', { col, row })}
+                    style={this.getStyles('elementContainer', { col, row })}
                     onClick={this.onBoardClick.bind(this, index)}
                   >
                     {!isDraggable && <GridElement
@@ -62,19 +56,19 @@ export default class GridBoard extends Component<Props, State> {
                       col={col}
                       row={row}
                       index={index}
-                      Content={Square}
+                      Element={Element}
                     />}
-                    {isDraggable && <div style={this.getStyles('draggableContent', { index })}>
+                    {isDraggable && <div style={this.getStyles('draggableElementContainer', { index })}>
                       <DraggableGridElement
                         col={col}
                         row={row}
                         index={index}
                         dimension={dimension}
-                        squareSize={squareSize}
-                        Content={Square}
+                        elementSize={elementSize}
+                        Element={Element}
                         gridData={gridData}
                         onDragStart={this.onDragStart.bind(this)}
-                        onDragMade={this.onDragMade.bind(this)}
+                        onDragStop={this.onDragStop.bind(this)}
                       />
                     </div>}
                   </div>
@@ -92,31 +86,31 @@ export default class GridBoard extends Component<Props, State> {
     if (onEmptyCellClick && gridData && !gridData[index]) { onEmptyCellClick(index); }
   }
 
-  onDragMade(index:number) {
-    const { onDragMade } = this.props;
+  onDragStop(index:number) {
+    const { onDragStop } = this.props;
     const { lastDraggedIndex } = this.state;
-    if (onDragMade) {
-      return onDragMade(lastDraggedIndex, index);
+    if (onDragStop) {
+      return onDragStop(lastDraggedIndex, index);
     }
   }
 
   getStyles(subject:string, args:{ col:number, row:number, index:number }) {
   
     const squareBgColors = ['#dbbe92', '#52220b'];
-    const { dimension, squareSize, isChessBoard, onEmptyCellClick } = this.props;
+    const { dimension, elementSize, isChessBoard, onEmptyCellClick } = this.props;
 
     switch (subject) {
 
       case 'board':
-        return { minWidth: dimension * squareSize + 'px', cursor: onEmptyCellClick ? 'pointer' : 'default' }
+        return { minWidth: dimension * elementSize + 'px', cursor: onEmptyCellClick ? 'pointer' : 'default' }
 
       case 'row':
         return { padding: 0, margin: 0 }
 
-      case 'squareContainer':
+      case 'elementContainer':
         const style = {
-          minWidth: `${squareSize}px`,
-          height: `${squareSize}px`,
+          minWidth: `${elementSize}px`,
+          height: `${elementSize}px`,
           backgroundColor: undefined
         };
         if (isChessBoard) {
@@ -124,7 +118,7 @@ export default class GridBoard extends Component<Props, State> {
         }
         return style;
 
-      case 'draggableContent':
+      case 'draggableElementContainer':
         return {
           position: 'relative',
           zIndex: args.index === this.state.lastDraggedIndex ? 100: 99

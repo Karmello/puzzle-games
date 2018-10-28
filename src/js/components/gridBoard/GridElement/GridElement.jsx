@@ -6,16 +6,16 @@ type Props = {
   col:number,
   row:number,
   index:number,
-  Content:React.ComponentType<{ col:number, row:number, index:number }>
+  Element:React.ComponentType<{ col:number, row:number, index:number }>
 };
 
 export default (props:Props) => {
 
-  const { gridData, col, row, index, Content } = props;
+  const { gridData, col, row, index, Element } = props;
 
   return (
     <div style={{ cursor: 'default' }}>
-      {((gridData && gridData[index]) || !gridData) && <Content col={col} row={row} index={index} />}
+      {((gridData && gridData[index]) || !gridData) && <Element col={col} row={row} index={index} />}
     </div>
   );
 };

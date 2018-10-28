@@ -5,20 +5,25 @@ import { Button } from 'material-ui';
 
 import { Game, GridBoard } from 'js/components';
 import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
+import { indexToCoords, isAloneOnAxis } from 'js/extracts/gridBoard';
 
 class EightQueens extends Game {
 
   dimension:number;
-  squareSize:number;
+  elementSize:number;
     
   constructor(props) {
     super(props);
     this.dimension = 8;
-    this.squareSize = 75;
+    this.elementSize = 75;
   }
 
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
+  }
+
+  renderElement() {
+    return () => <Button disableRipple style={this.getBtnStyle()}> </Button>;
   }
 
   render() {
@@ -27,12 +32,12 @@ class EightQueens extends Game {
     return (
       <GridBoard
         dimension={this.dimension}
-        squareSize={this.squareSize}
-        Square={() => <Button disableRipple style={this.getBtnStyle()}> </Button>}
+        elementSize={this.elementSize}
+        Element={this.renderElement()}
         isDraggable={true}
         isChessBoard={true}
         gridData={eightQueensEngine.queens}
-        onDragMade={this.onMoveMade.bind(this)}
+        onDragStop={this.onMoveMade.bind(this)}
       />
     );
   }
@@ -44,12 +49,12 @@ class EightQueens extends Game {
 
   getBtnStyle() {
     return  {
-      minWidth: `${this.squareSize}px`,
-      height: `${this.squareSize}px`,
+      minWidth: `${this.elementSize}px`,
+      height: `${this.elementSize}px`,
       border: '1px solid gray',
       borderRadius: '0px',
       backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
-      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
+      backgroundSize: `${this.elementSize-2}px ${this.elementSize-2}px`,
       backgroundColor: 'white'
     }
   }
@@ -58,7 +63,7 @@ class EightQueens extends Game {
     return new Promise(resolve => {
       this.loadImg('eight-queens/queen.png').then(() => {
         const queens = Array.from({ length: this.dimension ** 2 }, (v, k) => {
-          const coords = GridBoard.indexToCoords(k, this.dimension);
+          const coords = indexToCoords(k, this.dimension);
           return coords.x === coords.y;
         });
         this.props.dispatch(initEngine(queens));
@@ -71,7 +76,6 @@ class EightQueens extends Game {
 
     return new Promise(resolve => {
 
-      const { indexToCoords } = GridBoard;
       const dimension = this.dimension;
       const { eightQueensEngine } = this.props;
       const queens = eightQueensEngine.queens;
@@ -88,22 +92,22 @@ class EightQueens extends Game {
         const qCrds = indexToCoords(q, dimension);
         
         // x axis
-        if (!GridBoard.isAloneOnAxis('x', qCrds, dimension, queens)) {
+        if (!isAloneOnAxis('x', qCrds, dimension, queens)) {
           return resolve(false);
         }
 
         // y axis
-        if (!GridBoard.isAloneOnAxis('y', qCrds, dimension, queens)) {
+        if (!isAloneOnAxis('y', qCrds, dimension, queens)) {
           return resolve(false);
         }
         
         // first diagonal (\)
-        if (!GridBoard.isAloneOnAxis('d1', qCrds, dimension, queens)) {
+        if (!isAloneOnAxis('d1', qCrds, dimension, queens)) {
           return resolve(false);
         }
 
         // second diagonal (/)
-        if (!GridBoard.isAloneOnAxis('d2', qCrds, dimension, queens)) {
+        if (!isAloneOnAxis('d2', qCrds, dimension, queens)) {
           return resolve(false);
         }
       }

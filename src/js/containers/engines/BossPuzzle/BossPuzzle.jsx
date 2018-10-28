@@ -16,10 +16,27 @@ class BossPuzzle extends Game {
     this.props.dispatch(resetEngine());
   }
 
+  renderElement() {
+    const { game, bossPuzzleEngine } = this.props;
+    const { imgSrc } = this.state;
+    return props => (
+      <SquareTile
+        options={game.options}
+        hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
+        tiles={bossPuzzleEngine.tiles}
+        imgSrc={imgSrc}
+        isSolved={game.isSolved}
+        onMoveMade={this.onMoveMade.bind(this)}
+        {...props}
+      />
+    );
+  }
+
   render() {
 
+    const { game } = this.props;
     const { imgSrc } = this.state;
-    const { game, bossPuzzleEngine } = this.props;
+
     if (game.isLoading) { return null; }
     
     if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
@@ -27,18 +44,8 @@ class BossPuzzle extends Game {
         <GridBoard
           className={'BossPuzzle-' + String(game.options.dimension)}
           dimension={Number(game.options.dimension)}
-          squareSize={BossPuzzle.tilesSizes[String(game.options.dimension)]}
-          Square={props => (
-            <SquareTile
-              options={game.options}
-              hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
-              tiles={bossPuzzleEngine.tiles}
-              imgSrc={imgSrc}
-              isSolved={game.isSolved}
-              onMoveMade={this.onMoveMade.bind(this)}
-              {...props}
-            />
-          )}
+          elementSize={BossPuzzle.tilesSizes[String(game.options.dimension)]}
+          Element={this.renderElement()}
         />
       );
     }
