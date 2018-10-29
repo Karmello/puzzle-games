@@ -2,27 +2,20 @@
 import * as React from 'react';
 import { DraggableGridElement } from 'js/components';
 
-type Props = {
-  col:number,
-  row:number,
-  index:number,
-  dimension:number,
-  Element:React.ComponentType<{ col:number, row:number, index:number }>,
-  elementSize:number,
-  isDraggable?:boolean,
-  gridData?:Array<boolean>,
-  onDragStart:Function,
-  onDragStop?:Function
-};
+import type { T_GridElementProps } from 'js/flow-types';
 
-export default (props:Props) => {
+export default (props:T_GridElementProps) => {
 
-  const { col, row, index, dimension, Element, elementSize, isDraggable, gridData, onDragStart, onDragStop } = props;
+  const {
+    col, row, index, size, isDraggable, Element,
+    board: { dimension, data },
+    callback: { onDragStart, onDragStop  }
+  } = props;
 
   if (!isDraggable) {
     return (
       <div style={{ cursor: 'default' }}>
-        {((gridData && gridData[index]) || !gridData) && <Element col={col} row={row} index={index} />}
+        {((data && data[index]) || !data) && <Element col={col} row={row} index={index} />}
       </div>
     );
 
@@ -32,12 +25,10 @@ export default (props:Props) => {
         col={col}
         row={row}
         index={index}
-        dimension={dimension}
-        elementSize={elementSize}
+        size={size}
         Element={Element}
-        gridData={gridData}
-        onDragStart={onDragStart}
-        onDragStop={onDragStop}
+        board={{ dimension, data }}
+        callback={{ onDragStart, onDragStop }}
       />
     );
   }

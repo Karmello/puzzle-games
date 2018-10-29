@@ -10,13 +10,17 @@ import './GridBoard.css';
 
 type Props = {
   dimension:number,
-  elementSize:number,
-  Element:React.ComponentType<{ col:number, row:number, index:number }>,
-  isDraggable?:boolean,
   isChessBoard?:boolean,
-  gridData?:Array<boolean>,
-  onDragStop?:Function,
-  onEmptyCellClick?:Function
+  data?:Array<boolean>,
+  element:{
+    size:number,
+    isDraggable?:boolean,
+    Element:React.ComponentType<{ col:number, row:number, index:number }>
+  },
+  callback:{
+    onDragStop?:Function,
+    onEmptyCellClick?:Function
+  }
 };
 
 type State = {
@@ -25,20 +29,26 @@ type State = {
 
 export default class GridBoard extends Component<Props, State> {
 
+  static defaultProps = {
+    isChessBoard: false,
+    element: { isDraggable: false },
+    callback: {}
+  };
+
   getElementContainerStyle:(col?:number, row?:number, index?:number) => {};
 
   state = { lastDraggedIndex: null };
 
   render() {
 
-    const { dimension, elementSize, Element, isDraggable, gridData, onEmptyCellClick } = this.props;
+    const { dimension, data, element, callback } = this.props;
     
-    if (!dimension || !elementSize) { return null; }
+    if (!dimension || !element.size) { return null; }
 
     return (
       <Paper
         className='GridBoard'
-        style={{ minWidth: dimension * elementSize + 'px', cursor: onEmptyCellClick ? 'pointer' : 'default' }}
+        style={{ minWidth: dimension * element.size + 'px', cursor: callback.onEmptyCellClick ? 'pointer' : 'default' }}
       >
         {Array.from({ length: dimension }, (v, k) => k).map(i => (
           <Row
@@ -61,13 +71,14 @@ export default class GridBoard extends Component<Props, State> {
                       col={col}
                       row={row}
                       index={index}
-                      dimension={dimension}
-                      elementSize={elementSize}
-                      Element={Element}
-                      isDraggable={isDraggable}
-                      gridData={gridData}
-                      onDragStart={this.onDragStart.bind(this)}
-                      onDragStop={this.onDragStop.bind(this)}
+                      size={element.size}
+                      isDraggable={element.isDraggable}
+                      Element={element.Element}
+                      board={{ dimension, data }}
+                      callback={{
+                        onDragStart: this.onDragStart.bind(this),
+                        onDragStop: this.onDragStop.bind(this)
+                      }}
                     />
                   </div>
                 </Col>
@@ -80,12 +91,12 @@ export default class GridBoard extends Component<Props, State> {
   }
 
   onBoardClick(index:number) {
-    const { onEmptyCellClick, gridData } = this.props;
-    if (onEmptyCellClick && gridData && !gridData[index]) { onEmptyCellClick(index); }
+    const { data, callback: { onEmptyCellClick } } = this.props;
+    if (onEmptyCellClick && data && !data[index]) { onEmptyCellClick(index); }
   }
 
   onDragStop(index:number) {
-    const { onDragStop } = this.props;
+    const { onDragStop } = this.props.callback;
     const { lastDraggedIndex } = this.state;
     if (onDragStop) {
       return onDragStop(lastDraggedIndex, index);
@@ -95,17 +106,17 @@ export default class GridBoard extends Component<Props, State> {
   getElementContainerStyle(col:number, row:number, index:number ) {
   
     const squareBgColors = ['#dbbe92', '#52220b'];
-    const { elementSize, isDraggable, isChessBoard, gridData } = this.props;
+    const { isChessBoard, data, element } = this.props;
 
     const style = {
-      minWidth: `${elementSize}px`,
-      height: `${elementSize}px`,
+      minWidth: `${element.size}px`,
+      height: `${element.size}px`,
       backgroundColor: undefined,
       position: undefined,
       zIndex: undefined
     };
 
-    if (isDraggable && gridData && gridData[index]) {
+    if (element.isDraggable && data && data[index]) {
       style.position = 'relative';
       style.zIndex = index === this.state.lastDraggedIndex ? 100: 99;
     }

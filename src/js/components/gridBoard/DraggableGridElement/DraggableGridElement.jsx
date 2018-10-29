@@ -3,55 +3,43 @@ import * as React from 'react';
 import Draggable from 'react-draggable';
 
 import { indexToCoords, offsetToIndex } from 'js/extracts/gridBoard';
-import type { T_Event, T_Coords } from 'js/flow-types';
-
-type Props = {
-  col:number,
-  row:number,
-  index:number,
-  dimension:number,
-  elementSize:number,
-  Element:React.ComponentType<{ col:number, row:number, index:number }>,
-  gridData?:Array<boolean>,
-  onDragStart?:Function,
-  onDragStop?:Function
-};
+import type { T_Event, T_Coords, T_GridElementProps } from 'js/flow-types';
 
 type State = {
   position:T_Coords
 };
 
-const onDragStop = (props:Props, state:State) => (e:T_Event, data:T_Coords) => {
+const onDragStop = (props:T_GridElementProps, state:State) => (e:T_Event, coords:T_Coords) => {
 
-  const { col, row, dimension, elementSize, gridData, onDragStop } = props;
+  const { col, row, size, board: { dimension, data }, callback: { onDragStop } } = props;
   const { position } = state;
 
   const index = offsetToIndex({
-    x: data.x + col * elementSize,
-    y: data.y + row * elementSize
-  }, elementSize, dimension);
+    x: coords.x + col * size,
+    y: coords.y + row * size
+  }, size, dimension);
 
-  if (index > -1 && gridData && !gridData[index]) {
+  if (index > -1 && data && !data[index]) {
     const newCoords = indexToCoords(index, dimension);
-    position.x = newCoords.x * elementSize - col * elementSize;
-    position.y = newCoords.y * elementSize - row * elementSize;
+    position.x = newCoords.x * size - col * size;
+    position.y = newCoords.y * size - row * size;
     if (onDragStop) {
       setTimeout(() => onDragStop(index));
     }
   }
 };
 
-export default (props:Props) => {
+export default (props:T_GridElementProps) => {
   
   const state = {
     position: { x: 0, y: 0 }
   }
 
-  const { col, row, index, Element, gridData, onDragStart } = props;
+  const { col, row, index, Element, board: { data }, callback: { onDragStart } } = props;
 
   return (
     <div>
-      {gridData && gridData[index] &&
+      {data && data[index] &&
       <Draggable
         position={state.position}
         onStart={onDragStart ? onDragStart(index) : undefined}

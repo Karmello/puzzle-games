@@ -32,12 +32,16 @@ class EightQueens extends Game {
     return (
       <GridBoard
         dimension={this.dimension}
-        elementSize={this.elementSize}
-        Element={this.renderElement()}
-        isDraggable={true}
         isChessBoard={true}
-        gridData={eightQueensEngine.queens}
-        onDragStop={this.onMoveMade.bind(this)}
+        data={eightQueensEngine.queens}
+        element={{
+          size: this.elementSize,
+          Element: this.renderElement(),
+          isDraggable: true
+        }}
+        callback={{
+          onDragStop: this.onMoveMade.bind(this)
+        }}
       />
     );
   }

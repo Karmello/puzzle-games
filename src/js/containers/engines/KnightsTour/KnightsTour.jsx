@@ -43,11 +43,15 @@ class KnightsTour extends Game {
     return (
       <GridBoard
         dimension={Number(game.options.dimension)}
-        elementSize={this.elementSize}
-        Element={this.renderElement(knightsTourEngine.active)}
         isChessBoard={true}
-        gridData={knightsTourEngine.visited}
-        onEmptyCellClick={this.onEmptyCellClick.bind(this)}
+        data={knightsTourEngine.visited}
+        element={{
+          size: this.elementSize,
+          Element: this.renderElement(knightsTourEngine.active)
+        }}
+        callback={{
+          onEmptyCellClick: this.onEmptyCellClick.bind(this)
+        }}
       />
     );
   }
