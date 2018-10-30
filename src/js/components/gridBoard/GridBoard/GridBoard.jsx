@@ -15,6 +15,7 @@ type Props = {
   element:{
     size:number,
     isDraggable?:boolean,
+    isSelectable?:boolean,
     Element:React.ComponentType<{ col:number, row:number, index:number }>
   },
   callback:{
@@ -24,25 +25,30 @@ type Props = {
 };
 
 type State = {
-  lastDraggedIndex:number|null
+  lastClickedIndex:number
 };
 
 export default class GridBoard extends Component<Props, State> {
 
   static defaultProps = {
     isChessBoard: false,
-    element: { isDraggable: false },
+    element: {
+      isDraggable: false,
+      isSelectable: false,
+    },
     callback: {}
   };
 
   getElementContainerStyle:(col?:number, row?:number, index?:number) => {};
 
-  state = { lastDraggedIndex: null };
+  state = { lastClickedIndex: -1 };
+  onClick = (index:number) => () => this.setState({ lastClickedIndex: index });
 
   render() {
 
     const { dimension, data, element, callback } = this.props;
-    
+    const { lastClickedIndex } = this.state;
+
     if (!dimension || !element.size) { return null; }
 
     return (
@@ -73,10 +79,11 @@ export default class GridBoard extends Component<Props, State> {
                       index={index}
                       size={element.size}
                       isDraggable={element.isDraggable}
+                      isSelected={element.isSelectable && index === lastClickedIndex}
                       Element={element.Element}
                       board={{ dimension, data }}
                       callback={{
-                        onDragStart: this.onDragStart.bind(this),
+                        onClick: this.onClick.bind(this),
                         onDragStop: this.onDragStop.bind(this)
                       }}
                     />
@@ -92,14 +99,16 @@ export default class GridBoard extends Component<Props, State> {
 
   onBoardClick(index:number) {
     const { data, callback: { onEmptyCellClick } } = this.props;
-    if (onEmptyCellClick && data && !data[index]) { onEmptyCellClick(index); }
+    if (onEmptyCellClick && data && !data[index]) {
+      onEmptyCellClick(index, this.state.lastClickedIndex);
+    }
   }
 
   onDragStop(index:number) {
     const { onDragStop } = this.props.callback;
-    const { lastDraggedIndex } = this.state;
+    const { lastClickedIndex } = this.state;
     if (onDragStop) {
-      return onDragStop(lastDraggedIndex, index);
+      return onDragStop(lastClickedIndex, index);
     }
   }
 
@@ -118,7 +127,7 @@ export default class GridBoard extends Component<Props, State> {
 
     if (element.isDraggable && data && data[index]) {
       style.position = 'relative';
-      style.zIndex = index === this.state.lastDraggedIndex ? 100: 99;
+      style.zIndex = index === this.state.lastClickedIndex ? 100: 99;
     }
 
     if (isChessBoard) {
@@ -127,6 +136,4 @@ export default class GridBoard extends Component<Props, State> {
     
     return style;
   }
-
-  onDragStart = (index:number) => () => this.setState({ lastDraggedIndex: index });
 }

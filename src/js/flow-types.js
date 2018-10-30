@@ -118,13 +118,14 @@ export type T_GridElementProps = {
   index:number,
   size:number,
   isDraggable?:boolean,
+  isSelected?:boolean,
   Element:React.ComponentType<{ col:number, row:number, index:number }>,
   board:{
     dimension:number,
     data?:Array<boolean>
   },
   callback:{
-    onDragStart:Function,
+    onClick:Function,
     onDragStop?:Function
   }
 };

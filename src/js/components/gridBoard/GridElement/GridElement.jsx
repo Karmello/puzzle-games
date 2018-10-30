@@ -7,15 +7,21 @@ import type { T_GridElementProps } from 'js/flow-types';
 export default (props:T_GridElementProps) => {
 
   const {
-    col, row, index, size, isDraggable, Element,
+    col, row, index, size, isDraggable, isSelected, Element,
     board: { dimension, data },
-    callback: { onDragStart, onDragStop  }
+    callback: { onClick, onDragStop  }
   } = props;
 
   if (!isDraggable) {
     return (
-      <div style={{ cursor: 'default' }}>
-        {((data && data[index]) || !data) && <Element col={col} row={row} index={index} />}
+      <div style={{ cursor: 'default' }} onClick={onClick(index)}>
+        {((data && data[index]) || !data) &&
+        <Element
+          col={col}
+          row={row}
+          index={index}
+          isSelected={isSelected}
+        />}
       </div>
     );
 
@@ -28,7 +34,7 @@ export default (props:T_GridElementProps) => {
         size={size}
         Element={Element}
         board={{ dimension, data }}
-        callback={{ onDragStart, onDragStop }}
+        callback={{ onClick, onDragStop }}
       />
     );
   }

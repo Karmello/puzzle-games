@@ -23,7 +23,7 @@ class EightQueens extends Game {
   }
 
   renderElement() {
-    return () => <Button disableRipple style={this.getBtnStyle()}> </Button>;
+    return (props:Object) => <Button disableRipple style={this.getBtnStyle(props.isSelected)}> </Button>;
   }
 
   render() {
@@ -36,22 +36,28 @@ class EightQueens extends Game {
         data={eightQueensEngine.queens}
         element={{
           size: this.elementSize,
-          Element: this.renderElement(),
-          isDraggable: true
+          isSelectable: true,
+          Element: this.renderElement()
         }}
         callback={{
-          onDragStop: this.onMoveMade.bind(this)
+          onEmptyCellClick: this.onEmptyCellClick.bind(this)
         }}
       />
     );
   }
 
-  onMoveMade(fromIndex, toIndex) {
-    this.props.dispatch(moveQueen(fromIndex, toIndex));
-    super.onMakeMove();
+  onEmptyCellClick(clickedIndex, selectedIndex) {
+
+    if (selectedIndex > -1) {
+
+      console.log(selectedIndex);
+
+      //this.props.dispatch(moveQueen(fromIndex, toIndex));
+      //super.onMakeMove();
+    }
   }
 
-  getBtnStyle() {
+  getBtnStyle(isSelected:boolean) {
     return  {
       minWidth: `${this.elementSize}px`,
       height: `${this.elementSize}px`,
@@ -59,7 +65,7 @@ class EightQueens extends Game {
       borderRadius: '0px',
       backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
       backgroundSize: `${this.elementSize-2}px ${this.elementSize-2}px`,
-      backgroundColor: 'white'
+      backgroundColor: !isSelected ? 'white' : 'yellow'
     }
   }
 
