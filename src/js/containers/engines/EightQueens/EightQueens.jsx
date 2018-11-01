@@ -5,7 +5,7 @@ import { Button } from 'material-ui';
 
 import { Game, GridBoard } from 'js/components';
 import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
-import { indexToCoords, isAloneOnAxis } from 'js/extracts/gridBoard';
+import { indexToCoords, isAloneOnAxis, isItEmptyBetweenThem } from 'js/extracts/gridBoard';
 
 class EightQueens extends Game {
 
@@ -47,9 +47,10 @@ class EightQueens extends Game {
     );
   }
 
-  onMoveTry(selectedIndex:number) {
-    if (selectedIndex > -1) { return true; }
-    return false;
+  onMoveTry(selectedIndex:number, clickedIndex:number) {
+    const { queens } = this.props.eightQueensEngine;
+    const isItEmptyBetween = isItEmptyBetweenThem(selectedIndex, clickedIndex, this.dimension, queens);
+    return selectedIndex > -1 && (isItEmptyBetween === undefined || isItEmptyBetween === true);
   }
 
   onMoveDone(selectedIndex:number, clickedIndex:number) {

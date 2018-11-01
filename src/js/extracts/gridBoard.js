@@ -241,3 +241,73 @@ export const getWithLinesShuffled = (axisDirection:'H'|'V', startIndex:number, e
 
   return newGridData;
 }
+
+export const areOnTheSameAxis = (index1:number, index2:number, dimension:number) => {
+
+  const coords1 = indexToCoords(index1, dimension);
+  const coords2 = indexToCoords(index2, dimension);
+
+  if (coords1.x === coords2.x) {
+    return 'y';
+
+  } else if (coords1.y === coords2.y) {
+    return 'x';
+  
+  } else {
+
+    const xDiff = coords1.x - coords2.x;
+    const yDiff = coords1.y - coords2.y;
+
+    if (Math.abs(xDiff) === Math.abs(yDiff)) {
+      if (xDiff + yDiff !== 0) {
+        return 'd1';
+      } else {
+        return 'd2';
+      }
+    }
+  }
+
+  return false;
+}
+
+export const isItEmptyBetweenThem = (index1:number, index2:number, dimension:number, data:Array<any>) => {
+
+  const axis = areOnTheSameAxis(index1, index2, dimension);
+  const minIndex = Math.min(index1, index2);
+  const maxIndex = Math.max(index1, index2);
+  let indexes = [];
+
+  switch (axis) {
+    
+    case 'x':
+      indexes = Array.from({ length: maxIndex - minIndex - 1 }, (value, key) => minIndex + key + 1);
+      break;
+    
+    case 'y':
+      indexes = Array.from({ length: (maxIndex - minIndex) / dimension - 1 }, (value, key) => minIndex + (key + 1) * dimension);
+      break;
+    
+    case 'd1':
+    case 'd2':
+      const coords1 = indexToCoords(minIndex, dimension);
+      const coords2 = indexToCoords(maxIndex, dimension);
+      const length = Math.abs(coords1.x - coords2.x) - 1;
+      if (axis === 'd1') {
+        indexes = Array.from({ length }, (value, key) => minIndex + (key + 1) * (dimension + 1));
+      } else if (axis === 'd2') {
+        indexes = Array.from({ length }, (value, key) => minIndex + (key + 1) * (dimension - 1));
+      }
+      break;
+
+    default:
+      return false;
+  }
+
+  if (indexes.length === 0) { return; }
+
+  for (let i = 0; i < indexes.length; i++) {
+    if (data[indexes[i]]) { return false; }
+  }
+    
+  return true;
+}

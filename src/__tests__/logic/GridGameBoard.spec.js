@@ -7,7 +7,9 @@ import {
   areValuesUniqueOnAxis,
   getFlipped,
   getRotated,
-  getWithLinesShuffled
+  getWithLinesShuffled,
+  areOnTheSameAxis,
+  isItEmptyBetweenThem
 } from 'js/extracts/gridBoard';
 
 
@@ -170,4 +172,81 @@ describe('GridBoard logic methods', () => {
       expect(getWithLinesShuffled('', 0, 1, 3, values)).toEqual(false);
     })
   });
+
+  describe('areOnTheSameAxis', () => {
+
+    it('should return axis', () => {
+      expect(areOnTheSameAxis(0, 1, 3)).toEqual('x');
+      expect(areOnTheSameAxis(0, 4, 3)).toEqual('d1');
+      expect(areOnTheSameAxis(0, 9, 8)).toEqual('d1');
+      expect(areOnTheSameAxis(9, 0, 8)).toEqual('d1');
+      expect(areOnTheSameAxis(2, 9, 8)).toEqual('d2');
+      expect(areOnTheSameAxis(9, 2, 8)).toEqual('d2');
+      expect(areOnTheSameAxis(0, 63, 8)).toEqual('d1');
+      expect(areOnTheSameAxis(26, 53, 8)).toEqual('d1');
+      expect(areOnTheSameAxis(13, 20, 8)).toEqual('d2');
+      expect(areOnTheSameAxis(45, 37, 8)).toEqual('y');
+    });
+
+    it('should return false', () => {
+      expect(areOnTheSameAxis(0, 5, 3)).toBeFalsy();
+      expect(areOnTheSameAxis(8, 1, 3)).toBeFalsy();
+      expect(areOnTheSameAxis(1, 11, 8)).toBeFalsy();
+      expect(areOnTheSameAxis(63, 6, 8)).toBeFalsy();
+      expect(areOnTheSameAxis(36, 42, 8)).toBeFalsy();
+      expect(areOnTheSameAxis(30, 18, 8)).toBeFalsy();
+    });
+  });
+
+  describe('isItEmptyBetweenThem', () => {
+    
+    it('should return undefined', () => {
+      expect(isItEmptyBetweenThem(0, 1, 3, [0, 1, 0, 1, 0, 1, 0, 1, 0])).toBeUndefined();
+    });
+
+    it('should return false (3 x 3)', () => {
+      expect(isItEmptyBetweenThem(3, 5, 3, [0, 0, 0, 1, 1, 1, 0, 0, 0])).toBeFalsy();
+      expect(isItEmptyBetweenThem(5, 3, 3, [0, 0, 0, 1, 1, 1, 0, 0, 0])).toBeFalsy();
+      expect(isItEmptyBetweenThem(2, 8, 3, [0, 0, 1, 0, 0, 1, 0, 0, 1])).toBeFalsy();
+      expect(isItEmptyBetweenThem(8, 2, 3, [0, 0, 1, 0, 0, 1, 0, 0, 1])).toBeFalsy();
+      expect(isItEmptyBetweenThem(0, 8, 3, [1, 0, 0, 0, 1, 0, 0, 0, 1])).toBeFalsy();
+      expect(isItEmptyBetweenThem(8, 0, 3, [1, 0, 0, 0, 1, 0, 0, 0, 1])).toBeFalsy();
+      expect(isItEmptyBetweenThem(2, 6, 3, [0, 0, 1, 0, 1, 0, 1, 0, 0])).toBeFalsy();
+      expect(isItEmptyBetweenThem(6, 2, 3, [0, 0, 1, 0, 1, 0, 1, 0, 0])).toBeFalsy();
+      expect(isItEmptyBetweenThem(6, 2, 3, [0, 0, 1, 0, 1, 0, 1, 0, 0])).toBeFalsy();
+    });
+
+    it('should return true (3 x 3)', () => {
+      expect(isItEmptyBetweenThem(3, 5, 3, [1, 1, 1, 1, 0, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(5, 3, 3, [1, 1, 1, 1, 0, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(2, 8, 3, [1, 1, 1, 1, 1, 0, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(8, 2, 3, [1, 1, 1, 1, 1, 0, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(0, 8, 3, [1, 1, 1, 1, 0, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(8, 0, 3, [1, 1, 1, 1, 0, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(2, 6, 3, [1, 1, 1, 1, 0, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(6, 2, 3, [1, 1, 1, 1, 0, 1, 1, 1, 1])).toBeTruthy();
+    });
+
+    it('should return false (5 x 5)', () => {
+      expect(isItEmptyBetweenThem(6, 9, 5, [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])).toBeFalsy();
+      expect(isItEmptyBetweenThem(9, 6, 5, [0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])).toBeFalsy();
+      expect(isItEmptyBetweenThem(2, 22, 5, [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0])).toBeFalsy();
+      expect(isItEmptyBetweenThem(22, 2, 5, [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0])).toBeFalsy();
+      expect(isItEmptyBetweenThem(0, 24, 5, [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1])).toBeFalsy();
+      expect(isItEmptyBetweenThem(24, 0, 5, [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1])).toBeFalsy();
+      expect(isItEmptyBetweenThem(8, 20, 5, [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0])).toBeFalsy();
+      expect(isItEmptyBetweenThem(20, 8, 5, [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0])).toBeFalsy();
+    });
+
+    it('should return true (5 x 5)', () => {
+      expect(isItEmptyBetweenThem(6, 9, 5, [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(9, 6, 5, [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(2, 22, 5, [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(22, 2, 5, [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(0, 24, 5, [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(24, 0, 5, [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(8, 20, 5, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1])).toBeTruthy();
+      expect(isItEmptyBetweenThem(20, 8, 5, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1])).toBeTruthy();
+    });
+  })
 });
