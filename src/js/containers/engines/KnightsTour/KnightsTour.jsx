@@ -50,24 +50,31 @@ class KnightsTour extends Game {
           Element: this.renderElement(knightsTourEngine.active)
         }}
         callback={{
-          onEmptyCellClick: this.onEmptyCellClick.bind(this)
+          onMoveTry: this.onMoveTry.bind(this),
+          onMoveDone: this.onMoveDone.bind(this)
         }}
       />
     );
   }
 
-  onEmptyCellClick(index:number) {
+  onMoveTry(selectedIndex:number, clickedIndex:number) {
     
     const { knightsTourEngine: { active }, game: { options: { dimension } } } = this.props;
-    const newCoords = indexToCoords(index, Number(dimension));
+    const newCoords = indexToCoords(clickedIndex, Number(dimension));
     const allMovementCoords = findAllMovementCoords(indexToCoords(active, Number(dimension)), Number(dimension), 'CHESS_KNIGHT');
 
     for (let coords of allMovementCoords) {
       if (coords.x === newCoords.x && coords.y === newCoords.y) {
-        this.props.dispatch(moveKnight(index));
-        return super.onMakeMove();
+        return true;
       }
     }
+
+    return false;
+  }
+
+  onMoveDone(selectedIndex:number, clickedIndex:number) {
+    this.props.dispatch(moveKnight(clickedIndex));
+    return super.onMakeMove();
   }
 
   startNew = () => {

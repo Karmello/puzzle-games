@@ -20,7 +20,8 @@ type Props = {
   },
   callback:{
     onDragStop?:Function,
-    onEmptyCellClick?:Function
+    onMoveTry?:Function,
+    onMoveDone?:Function
   }
 };
 
@@ -54,7 +55,7 @@ export default class GridBoard extends Component<Props, State> {
     return (
       <Paper
         className='GridBoard'
-        style={{ minWidth: dimension * element.size + 'px', cursor: callback.onEmptyCellClick ? 'pointer' : 'default' }}
+        style={{ minWidth: dimension * element.size + 'px', cursor: callback.onMoveTry ? 'pointer' : 'default' }}
       >
         {Array.from({ length: dimension }, (v, k) => k).map(i => (
           <Row
@@ -98,9 +99,12 @@ export default class GridBoard extends Component<Props, State> {
   }
 
   onBoardClick(index:number) {
-    const { data, callback: { onEmptyCellClick } } = this.props;
-    if (onEmptyCellClick && data && !data[index]) {
-      onEmptyCellClick(index, this.state.lastClickedIndex);
+    const { data, callback: { onMoveTry, onMoveDone } } = this.props;
+    if (onMoveTry && data && !data[index]) {
+      if (onMoveTry(this.state.lastClickedIndex, index)) {
+        if (onMoveDone) { onMoveDone(this.state.lastClickedIndex, index); }
+        this.setState({ lastClickedIndex: index });
+      }
     }
   }
 

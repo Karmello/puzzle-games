@@ -40,21 +40,21 @@ class EightQueens extends Game {
           Element: this.renderElement()
         }}
         callback={{
-          onEmptyCellClick: this.onEmptyCellClick.bind(this)
+          onMoveTry: this.onMoveTry.bind(this),
+          onMoveDone: this.onMoveDone.bind(this)
         }}
       />
     );
   }
 
-  onEmptyCellClick(clickedIndex, selectedIndex) {
+  onMoveTry(selectedIndex:number) {
+    if (selectedIndex > -1) { return true; }
+    return false;
+  }
 
-    if (selectedIndex > -1) {
-
-      console.log(selectedIndex);
-
-      //this.props.dispatch(moveQueen(fromIndex, toIndex));
-      //super.onMakeMove();
-    }
+  onMoveDone(selectedIndex:number, clickedIndex:number) {
+    this.props.dispatch(moveQueen(selectedIndex, clickedIndex));
+    super.onMakeMove();
   }
 
   getBtnStyle(isSelected:boolean) {
