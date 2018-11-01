@@ -43,27 +43,38 @@ class KnightsTour extends Game {
     return (
       <GridBoard
         dimension={Number(game.options.dimension)}
-        elementSize={this.elementSize}
-        Element={this.renderElement(knightsTourEngine.active)}
         isChessBoard={true}
-        gridData={knightsTourEngine.visited}
-        onEmptyCellClick={this.onEmptyCellClick.bind(this)}
+        data={knightsTourEngine.visited}
+        element={{
+          size: this.elementSize,
+          Element: this.renderElement(knightsTourEngine.active)
+        }}
+        callback={{
+          onMoveTry: this.onMoveTry.bind(this),
+          onMoveDone: this.onMoveDone.bind(this)
+        }}
       />
     );
   }
 
-  onEmptyCellClick(index:number) {
+  onMoveTry(selectedIndex:number, clickedIndex:number) {
     
     const { knightsTourEngine: { active }, game: { options: { dimension } } } = this.props;
-    const newCoords = indexToCoords(index, Number(dimension));
+    const newCoords = indexToCoords(clickedIndex, Number(dimension));
     const allMovementCoords = findAllMovementCoords(indexToCoords(active, Number(dimension)), Number(dimension), 'CHESS_KNIGHT');
 
     for (let coords of allMovementCoords) {
       if (coords.x === newCoords.x && coords.y === newCoords.y) {
-        this.props.dispatch(moveKnight(index));
-        return super.onMakeMove();
+        return true;
       }
     }
+
+    return false;
+  }
+
+  onMoveDone(selectedIndex:number, clickedIndex:number) {
+    this.props.dispatch(moveKnight(clickedIndex));
+    return super.onMakeMove();
   }
 
   startNew = () => {

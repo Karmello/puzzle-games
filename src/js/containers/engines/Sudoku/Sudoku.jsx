@@ -45,8 +45,10 @@ class Sudoku extends Game {
     return (
       <GridBoard
         dimension={this.dimension}
-        elementSize={this.elementSize}
-        Element={this.renderElement(values)}
+        element={{
+          size: this.elementSize,
+          Element: this.renderElement(values)
+        }}
       />
     );
   }

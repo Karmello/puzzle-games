@@ -44,8 +44,10 @@ class BossPuzzle extends Game {
         <GridBoard
           className={'BossPuzzle-' + String(game.options.dimension)}
           dimension={Number(game.options.dimension)}
-          elementSize={BossPuzzle.tilesSizes[String(game.options.dimension)]}
-          Element={this.renderElement()}
+          element={{
+            size: BossPuzzle.tilesSizes[String(game.options.dimension)],
+            Element: this.renderElement()
+          }}
         />
       );
     }

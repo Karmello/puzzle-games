@@ -1,21 +1,41 @@
 // @flow
 import * as React from 'react';
+import { DraggableGridElement } from 'js/components';
 
-type Props = {
-  gridData?:Array<boolean>,
-  col:number,
-  row:number,
-  index:number,
-  Element:React.ComponentType<{ col:number, row:number, index:number }>
-};
+import type { T_GridElementProps } from 'js/flow-types';
 
-export default (props:Props) => {
+export default (props:T_GridElementProps) => {
 
-  const { gridData, col, row, index, Element } = props;
+  const {
+    col, row, index, size, isDraggable, isSelected, Element,
+    board: { dimension, data },
+    callback: { onClick, onDragStop  }
+  } = props;
 
-  return (
-    <div style={{ cursor: 'default' }}>
-      {((gridData && gridData[index]) || !gridData) && <Element col={col} row={row} index={index} />}
-    </div>
-  );
+  if (!isDraggable) {
+    return (
+      <div style={{ cursor: 'default' }} onClick={onClick(index)}>
+        {((data && data[index]) || !data) &&
+        <Element
+          col={col}
+          row={row}
+          index={index}
+          isSelected={isSelected}
+        />}
+      </div>
+    );
+
+  } else {
+    return (
+      <DraggableGridElement
+        col={col}
+        row={row}
+        index={index}
+        size={size}
+        Element={Element}
+        board={{ dimension, data }}
+        callback={{ onClick, onDragStop }}
+      />
+    );
+  }
 };

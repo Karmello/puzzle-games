@@ -5,7 +5,7 @@ import { Button } from 'material-ui';
 
 import { Game, GridBoard } from 'js/components';
 import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
-import { indexToCoords, isAloneOnAxis } from 'js/extracts/gridBoard';
+import { indexToCoords, isAloneOnAxis, isItEmptyBetweenThem } from 'js/extracts/gridBoard';
 
 class EightQueens extends Game {
 
@@ -23,7 +23,7 @@ class EightQueens extends Game {
   }
 
   renderElement() {
-    return () => <Button disableRipple style={this.getBtnStyle()}> </Button>;
+    return (props:Object) => <Button disableRipple style={this.getBtnStyle(props.isSelected)}> </Button>;
   }
 
   render() {
@@ -32,22 +32,33 @@ class EightQueens extends Game {
     return (
       <GridBoard
         dimension={this.dimension}
-        elementSize={this.elementSize}
-        Element={this.renderElement()}
-        isDraggable={true}
         isChessBoard={true}
-        gridData={eightQueensEngine.queens}
-        onDragStop={this.onMoveMade.bind(this)}
+        data={eightQueensEngine.queens}
+        element={{
+          size: this.elementSize,
+          isSelectable: true,
+          Element: this.renderElement()
+        }}
+        callback={{
+          onMoveTry: this.onMoveTry.bind(this),
+          onMoveDone: this.onMoveDone.bind(this)
+        }}
       />
     );
   }
 
-  onMoveMade(fromIndex, toIndex) {
-    this.props.dispatch(moveQueen(fromIndex, toIndex));
+  onMoveTry(selectedIndex:number, clickedIndex:number) {
+    const { queens } = this.props.eightQueensEngine;
+    const isItEmptyBetween = isItEmptyBetweenThem(selectedIndex, clickedIndex, this.dimension, queens);
+    return selectedIndex > -1 && (isItEmptyBetween === undefined || isItEmptyBetween === true);
+  }
+
+  onMoveDone(selectedIndex:number, clickedIndex:number) {
+    this.props.dispatch(moveQueen(selectedIndex, clickedIndex));
     super.onMakeMove();
   }
 
-  getBtnStyle() {
+  getBtnStyle(isSelected:boolean) {
     return  {
       minWidth: `${this.elementSize}px`,
       height: `${this.elementSize}px`,
@@ -55,7 +66,7 @@ class EightQueens extends Game {
       borderRadius: '0px',
       backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
       backgroundSize: `${this.elementSize-2}px ${this.elementSize-2}px`,
-      backgroundColor: 'white'
+      backgroundColor: !isSelected ? 'white' : 'yellow'
     }
   }
 
