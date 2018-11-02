@@ -112,6 +112,10 @@ export type T_GameSettings = {
 };
 
 // grid board
+export type T_GridBoardState = {
+  elementsMap:Array<boolean>
+};
+
 export type T_GridElementProps = {
   col:number,
   row:number,
