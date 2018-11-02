@@ -79,7 +79,7 @@ export default class Game extends Component<Props, State> {
   }
 
   onMakeMove() {
-    this.props.dispatch(makeMove());
+    setTimeout(() => this.props.dispatch(makeMove()));
   }
 
   loadImg(imgPath:string) {
