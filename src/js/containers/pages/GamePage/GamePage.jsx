@@ -13,7 +13,7 @@ import { toggleExpansionPanel } from 'js/actions/gamePage';
 import { kebabToCamelCase } from 'js/helpers';
 import './GamePage.css';
 
-import type { T_ApiEntities, T_GameOptionsModel, T_GameSettings, T_GamePageSettings, T_TimerRef } from 'js/flow-types';
+import type { T_ApiEntities, T_GameOptionsModel, T_GameState, T_GamePageState, T_TimerRef } from 'js/flow-types';
 
 type Props = {
   dispatch: Function,
@@ -21,8 +21,8 @@ type Props = {
   queryParams:T_GameOptionsModel,
   api:T_ApiEntities,
   gameData:{ name:string, categoryId:string, info:string },
-  gamePage:T_GamePageSettings,
-  game:T_GameSettings
+  gamePage:T_GamePageState,
+  game:T_GameState
 };
 
 class GamePage extends Component<Props> {

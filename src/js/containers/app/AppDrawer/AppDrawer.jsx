@@ -14,14 +14,14 @@ import { API_MAKE_AUTH_REQUEST, API_FETCH_GAMES, API_FETCH_GAME_CATEGORIES, API_
 import { apiRequestClear } from 'js/creators/action/api';
 import { clearPageConfig } from 'js/creators/action/pages';
 
-import type { T_AppSettings, T_ApiEndPoint, T_PagesSettings } from 'js/flow-types';
+import type { T_AppState, T_ApiEndPoint, T_PagesState } from 'js/flow-types';
 
 import './AppDrawer.css';
 
 type Props = {
-  app:T_AppSettings,
+  app:T_AppState,
   clientUser:T_ApiEndPoint,
-  pages:T_PagesSettings,
+  pages:T_PagesState,
   dispatch:Function
 };
 

@@ -5,11 +5,11 @@ import { Chip } from 'material-ui';
 import { Timer } from 'js/components';
 import './GameDashboard.css';
 
-import type { T_GameSettings, T_TimerRef } from 'js/flow-types';
+import type { T_GameState, T_TimerRef } from 'js/flow-types';
 
 type Props = {
   clientUserData:{ username:string },
-  game:T_GameSettings
+  game:T_GameState
 };
 
 export default class GameDashboard extends React.Component<Props> {
