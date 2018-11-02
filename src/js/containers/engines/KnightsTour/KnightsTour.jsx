@@ -74,7 +74,7 @@ class KnightsTour extends Game {
 
   onMoveDone(selectedIndex:number, clickedIndex:number) {
     this.props.dispatch(moveKnight(clickedIndex));
-    return super.onMakeMove();
+    super.onMakeMove();
   }
 
   startNew = () => {
