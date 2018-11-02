@@ -23,3 +23,20 @@ export type T_RouterProps = {
   match:{ params:{ id:string, category:string, gameId:string }},
   location:{ pathname:string, search:string }
 };
+
+export type T_GridBoardProps = {
+  dimension:number,
+  isChessBoard?:boolean,
+  elementsMap?:Array<boolean>,
+  element:{
+    size:number,
+    isDraggable?:boolean,
+    isSelectable?:boolean,
+    Element:React.ComponentType<{ col:number, row:number, index:number }>
+  },
+  callback:{
+    onDragStop?:Function,
+    onMoveTry?:Function,
+    onMoveDone?:Function
+  }
+};

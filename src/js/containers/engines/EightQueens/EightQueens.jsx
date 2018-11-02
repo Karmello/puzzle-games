@@ -34,7 +34,7 @@ class EightQueens extends Game {
       <GridBoard
         dimension={this.dimension}
         isChessBoard={true}
-        data={eightQueensEngine.queens}
+        elementsMap={eightQueensEngine.queens}
         element={{
           size: this.elementSize,
           isSelectable: true,

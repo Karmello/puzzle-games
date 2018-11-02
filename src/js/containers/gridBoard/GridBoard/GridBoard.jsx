@@ -7,30 +7,15 @@ import { Row, Col } from 'react-flexbox-grid';
 
 import { GridElement } from 'js/components';
 import { coordsToIndex } from 'js/extracts/gridBoard';
-import './GridBoard.css';
 
-type Props = {
-  dimension:number,
-  isChessBoard?:boolean,
-  data?:Array<boolean>,
-  element:{
-    size:number,
-    isDraggable?:boolean,
-    isSelectable?:boolean,
-    Element:React.ComponentType<{ col:number, row:number, index:number }>
-  },
-  callback:{
-    onDragStop?:Function,
-    onMoveTry?:Function,
-    onMoveDone?:Function
-  }
-};
+import type { T_GridBoardProps } from 'js/flow-types';
+import './GridBoard.css';
 
 type State = {
   lastClickedIndex:number
 };
 
-class GridBoard extends Component<Props, State> {
+class GridBoard extends Component<T_GridBoardProps, State> {
 
   static defaultProps = {
     isChessBoard: false,
@@ -48,7 +33,7 @@ class GridBoard extends Component<Props, State> {
 
   render() {
 
-    const { dimension, data, element, callback } = this.props;
+    const { dimension, elementsMap, element, callback } = this.props;
     const { lastClickedIndex } = this.state;
 
     if (!dimension || !element.size) { return null; }
@@ -83,7 +68,7 @@ class GridBoard extends Component<Props, State> {
                       isDraggable={element.isDraggable}
                       isSelected={element.isSelectable && index === lastClickedIndex}
                       Element={element.Element}
-                      board={{ dimension, data }}
+                      board={{ dimension, data: elementsMap }}
                       callback={{
                         onClick: this.onClick.bind(this),
                         onDragStop: this.onDragStop.bind(this)
@@ -100,8 +85,8 @@ class GridBoard extends Component<Props, State> {
   }
 
   onBoardClick(index:number) {
-    const { data, callback: { onMoveTry, onMoveDone } } = this.props;
-    if (onMoveTry && data && !data[index]) {
+    const { elementsMap, callback: { onMoveTry, onMoveDone } } = this.props;
+    if (onMoveTry && elementsMap && !elementsMap[index]) {
       if (onMoveTry(this.state.lastClickedIndex, index)) {
         if (onMoveDone) { onMoveDone(this.state.lastClickedIndex, index); }
         this.setState({ lastClickedIndex: index });
@@ -120,7 +105,7 @@ class GridBoard extends Component<Props, State> {
   getElementContainerStyle(col:number, row:number, index:number ) {
   
     const squareBgColors = ['#dbbe92', '#52220b'];
-    const { isChessBoard, data, element } = this.props;
+    const { isChessBoard, elementsMap, element } = this.props;
 
     const style = {
       minWidth: `${element.size}px`,
@@ -130,7 +115,7 @@ class GridBoard extends Component<Props, State> {
       zIndex: undefined
     };
 
-    if (element.isDraggable && data && data[index]) {
+    if (element.isDraggable && elementsMap && elementsMap[index]) {
       style.position = 'relative';
       style.zIndex = index === this.state.lastClickedIndex ? 100: 99;
     }

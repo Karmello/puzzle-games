@@ -45,7 +45,7 @@ class KnightsTour extends Game {
       <GridBoard
         dimension={Number(game.options.dimension)}
         isChessBoard={true}
-        data={knightsTourEngine.visited}
+        elementsMap={knightsTourEngine.visited}
         element={{
           size: this.elementSize,
           Element: this.renderElement(knightsTourEngine.active)
