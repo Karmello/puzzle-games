@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Component } from 'react';
+import { connect } from 'react-redux';
 import { Paper } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
 
@@ -29,7 +30,7 @@ type State = {
   lastClickedIndex:number
 };
 
-export default class GridBoard extends Component<Props, State> {
+class GridBoard extends Component<Props, State> {
 
   static defaultProps = {
     isChessBoard: false,
@@ -141,3 +142,7 @@ export default class GridBoard extends Component<Props, State> {
     return style;
   }
 }
+
+export default connect(store => ({
+  gridBoard: store.gridBoard
+}))(GridBoard);

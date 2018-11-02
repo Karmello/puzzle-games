@@ -15,6 +15,8 @@ import eightQueensReducer from './eightQueens';
 import knightsTourReducer from './knightsTour';
 import sudokuReducer from './sudoku';
 
+import gridBoardReducer from './gridBoard';
+
 import {
   API_MAKE_AUTH_REQUEST,
   API_FETCH_USERS,
@@ -48,5 +50,6 @@ export default combineReducers({
     'knights-tour': knightsTourReducer,
     'sudoku': sudokuReducer
   }),
+  gridBoard: gridBoardReducer,
   form: formReducer
 });

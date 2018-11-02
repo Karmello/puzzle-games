@@ -40,5 +40,5 @@ export type T_GameState = {
 };
 
 export type T_GridBoardState = {
-  elementsMap:Array<boolean>
+  selectedIndexes:Array<number>
 };

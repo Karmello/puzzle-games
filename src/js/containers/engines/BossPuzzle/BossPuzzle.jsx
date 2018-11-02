@@ -2,7 +2,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Game, GridBoard, SquareTile } from 'js/components';
+import { GridBoard } from 'js/containers';
+import { Game, SquareTile } from 'js/components';
 import { initEngine, switchTiles, clearHiddenTileCoords, resetEngine } from 'js/actions/bossPuzzle';
 import { getNewImgNumbers, initData } from 'js/extracts/bossPuzzle';
 

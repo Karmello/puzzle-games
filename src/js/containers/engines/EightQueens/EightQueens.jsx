@@ -3,7 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
-import { Game, GridBoard } from 'js/components';
+import { GridBoard } from 'js/containers';
+import { Game } from 'js/components';
 import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
 import { indexToCoords, isAloneOnAxis, isItEmptyBetweenThem } from 'js/extracts/gridBoard';
 

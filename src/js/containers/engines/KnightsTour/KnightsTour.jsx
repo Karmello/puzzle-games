@@ -3,7 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
-import { Game, GridBoard } from 'js/components';
+import { GridBoard } from 'js/containers';
+import { Game } from 'js/components';
 import { initEngine, moveKnight, resetEngine } from 'js/actions/knightsTour';
 import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
 

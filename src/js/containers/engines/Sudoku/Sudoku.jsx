@@ -2,7 +2,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Game, GridBoard, ValueField } from 'js/components';
+import { GridBoard } from 'js/containers';
+import { Game, ValueField } from 'js/components';
 import { initEngine, changeValue, resetEngine } from 'js/actions/sudoku';
 import { initializeValues, checkIfSolved } from 'js/extracts/sudoku';
 import { coordsToIndex } from 'js/extracts/gridBoard';
