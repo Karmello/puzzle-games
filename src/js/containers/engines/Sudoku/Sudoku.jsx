@@ -46,12 +46,22 @@ class Sudoku extends Game {
     return (
       <GridBoard
         dimension={this.dimension}
+        gridMap={this.createGridMap()}
         element={{
           size: this.elementSize,
           Element: this.renderElement(values)
         }}
       />
     );
+  }
+
+  createGridMap() {
+    const { values } = this.props.sudokuEngine;
+    const gridMap = {};
+    values.forEach((value, i) => {
+      gridMap[i] = { isOccupied: true };
+    });
+    return gridMap;
   }
 
   onMoveMade(col, row, newValue) {

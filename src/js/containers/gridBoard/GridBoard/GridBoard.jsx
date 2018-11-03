@@ -91,7 +91,7 @@ class GridBoard extends Component<T_GridBoardProps> {
   }
 
   onBoardCellClick(index:number) {
-    const { dispatch, gridBoard: { gridMap }, element: { isSelectable }, callback: { onMoveTry, onMoveDone } } = this.props;
+    const { dispatch, gridBoard: { gridMap }, element: { isSelectable, isDraggable }, callback: { onMoveTry, onMoveDone } } = this.props;
     if (gridMap && !isEmpty(gridMap)) {
       // Empty cell
       if (!gridMap[index].isOccupied) {
@@ -101,7 +101,7 @@ class GridBoard extends Component<T_GridBoardProps> {
         }
       // Occupied cell
       } else {
-        dispatch(grabElement(index));
+        if (isDraggable) { dispatch(grabElement(index)); }
         if (isSelectable) { dispatch(selectElement(index)); }
       }
     }

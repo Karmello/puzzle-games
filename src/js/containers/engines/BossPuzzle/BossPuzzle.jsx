@@ -35,18 +35,19 @@ class BossPuzzle extends Game {
 
   render() {
 
-    const { game } = this.props;
+    const { game: { isLoading, options: { mode, dimension } } } = this.props;
     const { imgSrc } = this.state;
 
-    if (game.isLoading) { return null; }
+    if (isLoading) { return null; }
     
-    if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
+    if (mode === 'NUM' || (mode === 'IMG' && imgSrc)) {
       return (
         <GridBoard
-          className={'BossPuzzle-' + String(game.options.dimension)}
-          dimension={Number(game.options.dimension)}
+          className={'BossPuzzle-' + String(dimension)}
+          dimension={Number(dimension)}
+          gridMap={this.createGridMap()}
           element={{
-            size: BossPuzzle.tilesSizes[String(game.options.dimension)],
+            size: BossPuzzle.tilesSizes[String(dimension)],
             Element: this.renderElement()
           }}
         />
@@ -56,6 +57,15 @@ class BossPuzzle extends Game {
     return null;
   }
 
+  createGridMap() {
+    const { tiles } = this.props.bossPuzzleEngine;
+    const gridMap = {};
+    tiles.forEach((value, i) => {
+      gridMap[i] = { isOccupied: true };
+    });
+    return gridMap;
+  }
+  
   onMoveMade(index1, index2, targetCoords) {
     this.props.dispatch(switchTiles(index1, index2, targetCoords));
     super.onMakeMove();
