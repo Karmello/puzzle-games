@@ -19,7 +19,7 @@ const onDragStop = (props:T_GridElementProps, state:State) => (e:T_Event, coords
     y: coords.y + row * size
   }, size, dimension);
 
-  if (index > -1 && data && !data[index]) {
+  if (index > -1 && data && !data[index].isOccupied) {
     const newCoords = indexToCoords(index, dimension);
     position.x = newCoords.x * size - col * size;
     position.y = newCoords.y * size - row * size;
@@ -39,7 +39,7 @@ export default (props:T_GridElementProps) => {
 
   return (
     <div>
-      {data && data[index] &&
+      {data && data[index].isOccupied &&
       <Draggable
         position={state.position}
         onStart={onClick(index)}

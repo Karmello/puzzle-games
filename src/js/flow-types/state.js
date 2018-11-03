@@ -1,5 +1,5 @@
 // @flow
-import type { T_GameOptionsModel } from 'js/flow-types';
+import type { T_GridMap, T_GameOptionsModel } from 'js/flow-types';
 
 export type T_AppState = {
   NODE_ENV:string|null|typeof undefined,
@@ -40,5 +40,6 @@ export type T_GameState = {
 };
 
 export type T_GridBoardState = {
-  selectedIndexes:Array<number>
+  gridMap:T_GridMap,
+  grabbedIndex:number
 };

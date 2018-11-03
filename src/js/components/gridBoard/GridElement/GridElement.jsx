@@ -15,7 +15,7 @@ export default (props:T_GridElementProps) => {
   if (!isDraggable) {
     return (
       <div style={{ cursor: 'default' }} onClick={onClick(index)}>
-        {((data && data[index]) || !data) &&
+        {((data && data[index].isOccupied) || !data) &&
         <Element
           col={col}
           row={row}

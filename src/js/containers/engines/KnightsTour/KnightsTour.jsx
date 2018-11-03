@@ -45,7 +45,7 @@ class KnightsTour extends Game {
       <GridBoard
         dimension={Number(game.options.dimension)}
         isChessBoard={true}
-        elementsMap={knightsTourEngine.visited}
+        gridMap={this.createGridMap()}
         element={{
           size: this.elementSize,
           Element: this.renderElement(knightsTourEngine.active)
@@ -56,6 +56,15 @@ class KnightsTour extends Game {
         }}
       />
     );
+  }
+
+  createGridMap() {
+    const { visited } = this.props.knightsTourEngine;
+    const gridMap = {};
+    visited.forEach((isVisited, i) => {
+      gridMap[i] = { isOccupied: isVisited };
+    });
+    return gridMap;
   }
 
   onMoveTry(selectedIndex:number, clickedIndex:number) {

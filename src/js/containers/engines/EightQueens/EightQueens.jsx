@@ -28,13 +28,13 @@ class EightQueens extends Game {
   }
 
   render() {
-    const { game, eightQueensEngine } = this.props;
+    const { game } = this.props;
     if (game.isLoading) { return null; }
     return (
       <GridBoard
         dimension={this.dimension}
         isChessBoard={true}
-        elementsMap={eightQueensEngine.queens}
+        gridMap={this.createGridMap()}
         element={{
           size: this.elementSize,
           isSelectable: true,
@@ -46,6 +46,15 @@ class EightQueens extends Game {
         }}
       />
     );
+  }
+
+  createGridMap() {
+    const { queens } = this.props.eightQueensEngine;
+    const gridMap = {};
+    queens.forEach((isQueen, i) => {
+      gridMap[i] = { isOccupied: isQueen };
+    });
+    return gridMap;
   }
 
   onMoveTry(selectedIndex:number, clickedIndex:number) {
