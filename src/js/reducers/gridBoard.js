@@ -24,7 +24,7 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
       }
 
     case GRID_BOARD_UPDATE:
-      for (const key in state.gridMap) {
+      for (const key in action.payload.gridMap) {
         gridMap[key] = { ...action.payload.gridMap[key] };
       }
       if (action.meta.isSelectable) {

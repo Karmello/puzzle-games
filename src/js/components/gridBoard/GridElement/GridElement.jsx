@@ -9,12 +9,12 @@ export default (props:T_GridElementProps) => {
   const {
     col, row, index, size, isDraggable, isSelected, Element,
     board: { dimension, data },
-    callback: { onClick, onDragStop  }
+    callback: { onDragStop  }
   } = props;
 
   if (!isDraggable) {
     return (
-      <div style={{ cursor: 'default' }} onClick={onClick(index)}>
+      <div style={{ cursor: 'default' }}>
         {((data && data[index].isOccupied) || !data) &&
         <Element
           col={col}
@@ -34,7 +34,7 @@ export default (props:T_GridElementProps) => {
         size={size}
         Element={Element}
         board={{ dimension, data }}
-        callback={{ onClick, onDragStop }}
+        callback={{ onDragStop }}
       />
     );
   }

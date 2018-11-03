@@ -35,14 +35,13 @@ export default (props:T_GridElementProps) => {
     position: { x: 0, y: 0 }
   }
 
-  const { col, row, index, Element, board: { data }, callback: { onClick } } = props;
+  const { col, row, index, Element, board: { data } } = props;
 
   return (
     <div>
       {data && data[index].isOccupied &&
       <Draggable
         position={state.position}
-        onStart={onClick(index)}
         onStop={onDragStop(props, state)}
       >
         <div>

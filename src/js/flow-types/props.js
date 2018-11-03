@@ -22,7 +22,6 @@ export type T_GridElementProps = {
     data?:T_GridMap
   },
   callback:{
-    onClick:Function,
     onDragStop?:Function
   }
 };

@@ -24,14 +24,6 @@ class GridBoard extends Component<T_GridBoardProps> {
     callback: {}
   };
 
-  getElementContainerStyle:(col?:number, row?:number, index?:number) => {};
-
-  onElementClick = (index:number) => () => {
-    const { dispatch, element: { isSelectable } } = this.props;
-    dispatch(grabElement(index));
-    if (isSelectable) { dispatch(selectElement(index)); }
-  };
-
   componentWillMount() {
     const { dispatch, element: { isSelectable }, gridMap } = this.props;
     if (gridMap) { dispatch(initGridBoard(gridMap, isSelectable)); }
@@ -74,7 +66,7 @@ class GridBoard extends Component<T_GridBoardProps> {
                 <Col key={j}>
                   <div
                     style={this.getElementContainerStyle(col, row, index)}
-                    onClick={this.onBoardClick.bind(this, index)}
+                    onClick={this.onBoardCellClick.bind(this, index)}
                   >
                     <GridElement
                       col={col}
@@ -86,8 +78,7 @@ class GridBoard extends Component<T_GridBoardProps> {
                       Element={element.Element}
                       board={{ dimension, data: gridMap }}
                       callback={{
-                        onClick: this.onElementClick.bind(this),
-                        onDragStop: this.onDragStop.bind(this)
+                        onDragStop: this.onElementDragStop.bind(this)
                       }}
                     />
                   </div>
@@ -100,17 +91,24 @@ class GridBoard extends Component<T_GridBoardProps> {
     );
   }
 
-  onBoardClick(index:number) {
-    const { gridBoard: { gridMap }, callback: { onMoveTry, onMoveDone } } = this.props;
-    if (onMoveTry && gridMap && !gridMap[index].isOccupied) {
-      const selectedIndex = findKey(gridMap, { isSelected: true });
-      if (onMoveTry(selectedIndex, index)) {
-        if (onMoveDone) { onMoveDone(selectedIndex, index); }
+  onBoardCellClick(index:number) {
+    const { dispatch, gridBoard: { gridMap }, element: { isSelectable }, callback: { onMoveTry, onMoveDone } } = this.props;
+    if (gridMap && !isEmpty(gridMap)) {
+      // Empty cell
+      if (!gridMap[index].isOccupied) {
+        const selectedIndex = findKey(gridMap, { isSelected: true });
+        if (!onMoveTry || (onMoveTry && onMoveTry(selectedIndex, index))) {
+          if (onMoveDone) { onMoveDone(selectedIndex, index); }
+        }
+      // Occupied cell
+      } else {
+        dispatch(grabElement(index));
+        if (isSelectable) { dispatch(selectElement(index)); }
       }
     }
   }
 
-  onDragStop(index:number) {
+  onElementDragStop(index:number) {
     const { gridBoard, callback: { onDragStop } } = this.props;
     if (onDragStop) {
       return onDragStop(gridBoard.grabbedIndex, index);
