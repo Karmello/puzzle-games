@@ -7,10 +7,10 @@ import { Row, Col } from 'react-flexbox-grid';
 import { isEmpty, isEqual, findKey } from 'lodash';
 
 import { GridElement } from 'js/components';
-import { coordsToIndex } from 'js/extracts/gridBoard';
-import { initGridBoard, updateGridBoard, grabElement, selectElement, resetGridBoard } from 'js/actions/gridBoard';
+import { coordsToIndex, indexToCoords, offsetToIndex } from 'js/extracts/gridBoard';
+import { initGridBoard, updateGridBoard, grabElement, selectElement, changeElementPosition, resetGridBoard } from 'js/actions/gridBoard';
 
-import type { T_GridBoardProps } from 'js/flow-types';
+import type { T_GridBoardProps, T_GridElementProps, T_Event, T_Coords } from 'js/flow-types';
 import './GridBoard.css';
 
 class GridBoard extends Component<T_GridBoardProps> {
@@ -68,7 +68,7 @@ class GridBoard extends Component<T_GridBoardProps> {
                     style={this.getElementContainerStyle(col, row, index)}
                     onClick={this.onBoardCellClick.bind(this, index)}
                   >
-                    <GridElement
+                    {gridMap[index].isOccupied && <GridElement
                       col={col}
                       row={row}
                       index={index}
@@ -76,11 +76,10 @@ class GridBoard extends Component<T_GridBoardProps> {
                       isDraggable={element.isDraggable}
                       isSelected={element.isSelectable && gridMap[index].isSelected}
                       Element={element.Element}
-                      board={{ dimension, data: gridMap }}
                       callback={{
                         onDragStop: this.onElementDragStop.bind(this)
                       }}
-                    />
+                    />}
                   </div>
                 </Col>
               );
@@ -108,10 +107,24 @@ class GridBoard extends Component<T_GridBoardProps> {
     }
   }
 
-  onElementDragStop(index:number) {
-    const { gridBoard, callback: { onDragStop } } = this.props;
-    if (onDragStop) {
-      return onDragStop(gridBoard.grabbedIndex, index);
+  onElementDragStop(elementProps:T_GridElementProps) {
+    return (e:T_Event, coords:T_Coords) => {
+
+      const { dispatch, gridBoard: { gridMap }, dimension } = this.props;
+      const { col, row, size } = elementProps;
+
+      const newIndex = offsetToIndex({
+        x: coords.x + col * size,
+        y: coords.y + row * size
+      }, size, dimension);
+
+      if (newIndex > -1 && gridMap && !gridMap[newIndex].isOccupied) {
+        const newCoords = indexToCoords(newIndex, dimension);
+        dispatch(changeElementPosition(newIndex, {
+          x: Number(newCoords.x) * size - col * size,
+          y: Number(newCoords.y) * size - row * size
+        }));
+      }
     }
   }
 

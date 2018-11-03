@@ -1,10 +1,11 @@
 // @flow
-import type { T_GridMap } from 'js/flow-types';
+import type { T_GridMap, T_Coords } from 'js/flow-types';
 
 export const GRID_BOARD_INIT = 'GRID_BOARD_INIT';
 export const GRID_BOARD_UPDATE = 'GRID_BOARD_UPDATE';
 export const GRID_BOARD_GRAB_ELEMENT = 'GRID_BOARD_GRAB_ELEMENT';
 export const GRID_BOARD_SELECT_ELEMENT = 'GRID_BOARD_SELECT_ELEMENT';
+export const GRID_BOARD_CHANGE_ELEMENT_POSITION = 'GRID_BOARD_CHANGE_ELEMENT_POSITION';
 export const GRID_BOARD_RESET = 'GRID_BOARD_RESET';
 
 export const initGridBoard = (gridMap:T_GridMap, isSelectable?:boolean) => ({
@@ -41,6 +42,16 @@ export const selectElement = (index:number, allowMultiSelect?:boolean) => ({
   },
   payload: {
     index
+  }
+});
+
+export const changeElementPosition = (index:number, position:T_Coords) => ({
+  type: GRID_BOARD_CHANGE_ELEMENT_POSITION,
+  meta: {
+    index
+  },
+  payload: {
+    position
   }
 });
 

@@ -1,5 +1,13 @@
 // @flow
-import { GRID_BOARD_INIT, GRID_BOARD_UPDATE, GRID_BOARD_GRAB_ELEMENT, GRID_BOARD_SELECT_ELEMENT, GRID_BOARD_RESET } from 'js/actions/gridBoard';
+import {
+  GRID_BOARD_INIT,
+  GRID_BOARD_UPDATE,
+  GRID_BOARD_GRAB_ELEMENT,
+  GRID_BOARD_SELECT_ELEMENT,
+  GRID_BOARD_CHANGE_ELEMENT_POSITION,
+  GRID_BOARD_RESET
+} from 'js/actions/gridBoard';
+
 import type { T_GridBoardState, T_Action } from 'js/flow-types';
 
 const initialState = {
@@ -59,6 +67,18 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
         ...state,
         gridMap
       };
+
+    case GRID_BOARD_CHANGE_ELEMENT_POSITION:
+      return {
+        ...state,
+        gridMap: {
+          ...state.gridMap,
+          [action.meta.index]: {
+            ...state.gridMap[action.meta.index],
+            position: action.payload.position
+          }
+        }        
+      }
 
     case GRID_BOARD_RESET:
       return initialState;
