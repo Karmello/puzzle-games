@@ -7,31 +7,9 @@ import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
 import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
 import { indexToCoords, isAloneOnAxis, isItEmptyBetweenThem } from 'js/extracts/gridBoard';
-
 import { C_EightQueens } from 'js/constants';
 
 const { dimension, elementSize, imgPaths } = C_EightQueens;
-
-class Element extends React.Component<{ isSelected: boolean }> {
-
-  render() {
-    return (
-      <Button disableRipple style={this.getBtnStyle(this.props.isSelected)}> </Button>
-    );
-  }
-
-  getBtnStyle(isSelected:boolean) {
-    return  {
-      minWidth: `${elementSize}px`,
-      height: `${elementSize}px`,
-      border: '1px solid gray',
-      borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.queen})`,
-      backgroundSize: `${elementSize-2}px ${elementSize-2}px`,
-      backgroundColor: !isSelected ? 'white' : 'yellow'
-    }
-  }
-}
 
 class EightQueens extends Game {
 
@@ -50,13 +28,19 @@ class EightQueens extends Game {
         element={{
           size: elementSize,
           isSelectable: true,
-          Element
+          Element: this.renderElement()
         }}
         callback={{
           onMoveTry: this.onMoveTry.bind(this),
           onMoveDone: this.onMoveDone.bind(this)
         }}
       />
+    );
+  }
+
+  renderElement() {
+    return (props) => (
+      <Button disableRipple style={this.getBtnStyle(props.isSelected)}> </Button>
     );
   }
 
@@ -78,6 +62,18 @@ class EightQueens extends Game {
   onMoveDone(selectedIndex:number, clickedIndex:number) {
     this.props.dispatch(moveQueen(selectedIndex, clickedIndex));
     super.onMakeMove();
+  }
+
+  getBtnStyle(isSelected:boolean) {
+    return  {
+      minWidth: `${elementSize}px`,
+      height: `${elementSize}px`,
+      border: '1px solid gray',
+      borderRadius: '0px',
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.queen})`,
+      backgroundSize: `${elementSize-2}px ${elementSize-2}px`,
+      backgroundColor: !isSelected ? 'white' : 'yellow'
+    }
   }
 
   startNew = () => {

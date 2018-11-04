@@ -7,67 +7,9 @@ import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
 import { initEngine, moveKnight, resetEngine } from 'js/actions/knightsTour';
 import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
-
 import { C_KnightsTour } from 'js/constants';
 
 const { elementSize, imgPaths } = C_KnightsTour;
-
-type Props = { index:number, active:number };
-type State = { buttonStyle:Object };
-
-class Element extends React.Component<Props, State> {
-
-  state = { buttonStyle: {} };
-
-  componentWillMount() {
-    this.setState({ buttonStyle: this.getKnightBtnStyle() });
-  }
-
-  componentWillReceiveProps(nextProps:Props) {
-    const { index, active } = nextProps;
-    const { getKnightBtnStyle, getVisitedBtnStyle } = this;
-    if (index === active) {
-      this.setState({ buttonStyle: getKnightBtnStyle() });
-    } else {
-      this.setState({ buttonStyle: getVisitedBtnStyle() });
-    }
-  }
-
-  render() {
-    const { buttonStyle } = this.state;
-    return (
-      <Button
-        disabled
-        disableRipple
-        style={buttonStyle}
-      > </Button>
-    );
-  }
-
-  getKnightBtnStyle() {
-    return  {
-      minWidth: `${elementSize}px`,
-      height: `${elementSize}px`,
-      border: '1px solid gray',
-      borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.knight})`,
-      backgroundSize: `${elementSize-2}px ${elementSize-2}px`
-    }
-  }
-
-  getVisitedBtnStyle() {
-    return  {
-      minWidth: `${elementSize}px`,
-      height: `${elementSize}px`,
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.okArrow})`,
-      backgroundSize: `${elementSize-2}px ${elementSize-2}px`
-    }
-  }
-}
-
-const ConnectedElement = connect(store => ({
-  active: store.engines['knights-tour'].active
-}))(Element);
 
 class KnightsTour extends Game {
 
@@ -85,13 +27,24 @@ class KnightsTour extends Game {
         gridMap={this.createGridMap()}
         element={{
           size: elementSize,
-          Element: ConnectedElement
+          Element: this.renderElement()
         }}
         callback={{
           onMoveTry: this.onMoveTry.bind(this),
           onMoveDone: this.onMoveDone.bind(this)
         }}
       />
+    );
+  }
+
+  renderElement() {
+    const { active } = this.props.knightsTourEngine;
+    return (props) => (
+      <Button
+        disabled
+        disableRipple
+        style={props.index === active ? this.getKnightBtnStyle() : this.getVisitedBtnStyle()}
+      > </Button>
     );
   }
 
@@ -124,6 +77,26 @@ class KnightsTour extends Game {
     super.onMakeMove();
   }
 
+  getKnightBtnStyle() {
+    return  {
+      minWidth: `${elementSize}px`,
+      height: `${elementSize}px`,
+      border: '1px solid gray',
+      borderRadius: '0px',
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.knight})`,
+      backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+    }
+  }
+
+  getVisitedBtnStyle() {
+    return  {
+      minWidth: `${elementSize}px`,
+      height: `${elementSize}px`,
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.okArrow})`,
+      backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+    }
+  }
+  
   startNew = () => {
     const { dispatch, game: { options: { dimension } } } = this.props;
     return new Promise(resolve => {

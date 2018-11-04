@@ -18,20 +18,6 @@ class BossPuzzle extends Game {
     this.props.dispatch(resetEngine());
   }
 
-  renderElement() {
-    const { mode } = this.props.game.options;
-    return props => (
-      <Button
-        disableRipple
-        variant='raised'
-        style={this.getStyle(props)}
-        onClick={this.onClick.bind(this, props)}
-      >
-        {mode === 'NUM' ? this.getLabel(props) : ''}
-      </Button>
-    );
-  }
-
   render() {
 
     const { game: { isLoading, options: { mode, dimension } } } = this.props;
@@ -54,6 +40,20 @@ class BossPuzzle extends Game {
     }
 
     return null;
+  }
+
+  renderElement() {
+    const { mode } = this.props.game.options;
+    return props => (
+      <Button
+        disableRipple
+        variant='raised'
+        style={this.getStyle(props)}
+        onClick={this.onClick.bind(this, props)}
+      >
+        {mode === 'NUM' ? this.getLabel(props) : ''}
+      </Button>
+    );
   }
 
   createGridMap() {
