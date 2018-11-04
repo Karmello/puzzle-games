@@ -17,9 +17,6 @@ export { default as GridElement } from './gridBoard/GridElement/GridElement';
 export { default as HighscoresFilter } from './highscore/HighscoresFilter/HighscoresFilter';
 export { default as HighscoresTable } from './highscore/HighscoresTable/HighscoresTable';
 
-// engine parts
-export { default as ValueField } from  './engineParts/ValueField/ValueField';
-
 // engine options
 export { default as BossPuzzleOptions } from './engineOptions/BossPuzzleOptions';
 export { default as KnightsTourOptions } from './engineOptions/KnightsTourOptions';

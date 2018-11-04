@@ -1,12 +1,16 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
+import { Select, MenuItem } from 'material-ui';
 
 import { GridBoard } from 'js/containers';
-import { Game, ValueField } from 'js/components';
+import { Game } from 'js/components';
 import { initEngine, changeValue, resetEngine } from 'js/actions/sudoku';
 import { initializeValues, checkIfSolved } from 'js/extracts/sudoku';
 import { coordsToIndex } from 'js/extracts/gridBoard';
+
+import type { T_Event } from 'js/flow-types';
+import './Sudoku.css';
 
 class Sudoku extends Game {
 
@@ -25,17 +29,40 @@ class Sudoku extends Game {
 
   renderElement(values) {
     return props => {
+      
       const { col, row } = props;
-      const { dimension, elementSize, onMoveMade, state: { disabledIndexes } } = this;
+      const { dimension, state: { disabledIndexes } } = this;
       const index = coordsToIndex({ x: col, y: row }, dimension);
+      const disabled = disabledIndexes.indexOf(index) > -1;
+      
+      const selectValues = [null];
+
+      if (!disabled) {
+        for (let i = 1; i < 10; i++) { selectValues.push(i); }
+      } else {
+        selectValues.push(values[index]);
+      }
+
       return (
-        <ValueField
-          {...props}
-          value={(values && values[index]) || -1}
-          size={elementSize}
-          onChange={onMoveMade.bind(this)}
-          disabled={disabledIndexes.indexOf(index) > -1}
-        />
+        <div style={this.getStyle(props)}>
+          <Select
+            value={(values && values[index]) || -1}
+            onChange={this.onChange.call(this, props, values[index])}
+            classes={{ select: 'select', icon: 'icon' }}
+            MenuProps={{
+              transformOrigin: { vertical: 'center', horizontal: 'center' }
+            }}
+            disabled={disabled}
+          >
+            {selectValues.map(selectValue => (
+              <MenuItem
+                key={selectValue}
+                value={selectValue}
+                style={{ display: 'inline', padding: '11px', fontSize: '25px' }}
+              >{selectValue}</MenuItem>)
+            )}
+          </Select>
+        </div>
       );
     }
   }
@@ -64,10 +91,37 @@ class Sudoku extends Game {
     return gridMap;
   }
 
-  onMoveMade(col, row, newValue) {
-    const { props, dimension } = this;
-    props.dispatch(changeValue(coordsToIndex({ x: col, y: row }, dimension), newValue));
-    super.onMakeMove();
+  onChange(elemProps:{ col:number, row:number }, value:number) {
+    return (e:T_Event) => {
+      const { col, row } = elemProps;
+      if (value !== e.target.value) {
+        const { dimension } = this;
+        this.props.dispatch(changeValue(coordsToIndex({ x: col, y: row }, dimension), e.target.value));
+        super.onMakeMove();
+      }
+    }
+  }
+
+  getStyle(elemProps) {
+    const { col, row } = elemProps;
+    const style = {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      boxSizing: 'border-box',
+      width: `${this.elementSize}px`,
+      height: `${this.elementSize}px`,
+      backgroundColor: '#FFFFF0',
+      borderTop: undefined,
+      borderRight: undefined,
+      borderBottom: undefined,
+      borderLeft: undefined
+    };
+    if (row > 0) { style.borderTop = '1px solid'; }
+    if (col > 0) { style.borderLeft = '1px solid'; }
+    if (col === 2 || col === 5) { style.borderRight = '2px solid'; }
+    if (row === 2 || row === 5) { style.borderBottom = '2px solid'; }
+    return style;
   }
 
   startNew = () => {
