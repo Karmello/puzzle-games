@@ -18,7 +18,6 @@ export { default as HighscoresFilter } from './highscore/HighscoresFilter/Highsc
 export { default as HighscoresTable } from './highscore/HighscoresTable/HighscoresTable';
 
 // engine parts
-export { default as SquareTile } from './engineParts/SquareTile/SquareTile';
 export { default as ValueField } from  './engineParts/ValueField/ValueField';
 
 // engine options

@@ -1,35 +1,34 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'material-ui';
 
 import { GridBoard } from 'js/containers';
-import { Game, SquareTile } from 'js/components';
+import { Game } from 'js/components';
 import { initEngine, switchTiles, clearHiddenTileCoords, resetEngine } from 'js/actions/bossPuzzle';
 import { getNewImgNumbers, initData } from 'js/extracts/bossPuzzle';
+import { coordsToIndex, indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
+import { C_BossPuzzle } from 'js/constants';
 
-const numOfImgs = 20;
+const { numOfImgs, fontSizes, tileSizes } = C_BossPuzzle;
 
 class BossPuzzle extends Game {
-
-  static tilesSizes = { '3': 150, '4': 125, '5': 100 };
 
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
   }
 
   renderElement() {
-    const { game, bossPuzzleEngine } = this.props;
-    const { imgSrc } = this.state;
+    const { mode } = this.props.game.options;
     return props => (
-      <SquareTile
-        options={game.options}
-        hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
-        tiles={bossPuzzleEngine.tiles}
-        imgSrc={imgSrc}
-        isSolved={game.isSolved}
-        onMoveMade={this.onMoveMade.bind(this)}
-        {...props}
-      />
+      <Button
+        disableRipple
+        variant='raised'
+        style={this.getStyle(props)}
+        onClick={this.onClick.bind(this, props)}
+      >
+        {mode === 'NUM' ? this.getLabel(props) : ''}
+      </Button>
     );
   }
 
@@ -47,7 +46,7 @@ class BossPuzzle extends Game {
           dimension={Number(dimension)}
           gridMap={this.createGridMap()}
           element={{
-            size: BossPuzzle.tilesSizes[String(dimension)],
+            size: tileSizes[String(dimension)],
             Element: this.renderElement()
           }}
         />
@@ -66,9 +65,77 @@ class BossPuzzle extends Game {
     return gridMap;
   }
   
+  onClick(elemProps) {
+    
+    const { row, col } = elemProps;
+    const { game: { isSolved, options }, bossPuzzleEngine: { hiddenTileCoords } } = this.props;
+
+    if (!isSolved) {
+      
+      const targetCoords = { x: col, y: row };
+      const allMovementCoords = findAllMovementCoords(targetCoords, Number(options.dimension));
+
+      for (let coords of allMovementCoords) {
+
+        // If hidden tile found
+        if (coords.x === hiddenTileCoords.x && coords.y === hiddenTileCoords.y) {
+
+          const index1 = coordsToIndex(targetCoords, Number(options.dimension));
+          const index2 = coordsToIndex(coords, Number(options.dimension));
+          return this.onMoveMade(index1, index2, targetCoords);
+        }
+      }
+    }
+  }
+
   onMoveMade(index1, index2, targetCoords) {
     this.props.dispatch(switchTiles(index1, index2, targetCoords));
     super.onMakeMove();
+  }
+
+  getLabel(elemProps:{ index:number }) {
+    const { bossPuzzleEngine: { tiles } } = this.props;
+    if (tiles.length > 0) { return tiles[elemProps.index]; } else { return ''; }
+  }
+
+  getStyle(elemProps) {
+    
+    const { col, row } = elemProps;
+    const { imgSrc } = this.state;
+    const { mode, dimension } = this.props.game.options;
+    const { hiddenTileCoords } = this.props.bossPuzzleEngine;
+    const tileSize = tileSizes[Number(dimension)];
+
+    const style = {
+      minWidth: `${tileSize}px`,
+      width: `${tileSize}px`,
+      height: `${tileSize}px`,
+      fontSize: `${fontSizes[dimension || '3']}px`,
+      color: '#001f3f',
+      backgroundColor: 'rgba(61, 153, 112, 0.75)',
+      backgroundImage: undefined,
+      backgroundSize: undefined,
+      backgroundPosition: undefined,
+      visibility: undefined
+    };
+
+    if (col !== hiddenTileCoords.x || row !== hiddenTileCoords.y) {
+
+      const label = this.getLabel(elemProps);
+
+      if (mode === 'IMG' && imgSrc && label) {
+        const imgCoords = indexToCoords(Number(label) - 1, Number(dimension));
+        const imgSize = tileSizes[Number(dimension)];
+        style.backgroundImage = `url(${imgSrc})`;
+        style.backgroundSize = `${Number(dimension) * imgSize}px ${Number(dimension) * imgSize}px`;
+        style.backgroundPosition = `-${Number(imgCoords.x) * imgSize}px -${Number(imgCoords.y) * imgSize}px`;
+      }
+
+    } else {
+      style.visibility = 'hidden';
+    }
+
+    return style;
   }
 
   startNew = doRestart => {

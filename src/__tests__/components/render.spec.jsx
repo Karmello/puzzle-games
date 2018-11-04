@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import store from 'js/store';
 import { App, AppBar, AppDrawer, AuthPage, GamePage, GamesPage, HighscoresPage, BossPuzzle, EightQueens, GridBoard } from 'js/containers';
-import { SquareTile, BossPuzzleOptions, KnightsTourOptions, FbBtn, Loader, MySnackBar, PageError, Timer } from 'js/components';
+import { BossPuzzleOptions, KnightsTourOptions, FbBtn, Loader, MySnackBar, PageError, Timer } from 'js/components';
 
 describe('should render', () => {
   
@@ -64,21 +64,6 @@ describe('should render', () => {
         <BossPuzzle
           store={store}
           readTimer={() => {}}
-        />
-      );
-    });
-
-    it('SquareTile', () => {
-      shallow(
-        <SquareTile
-          options={{}}
-          hiddenTileCoords={{ x: 0, y: 0 }}
-          tiles={[2, 4, 6, 3, 1, 5, 7, 9, 8]}
-          imgSrc={'img.png'}
-          row={0}
-          col={0}
-          isSolved={false}
-          onMoveMade={() => {}}
         />
       );
     });
