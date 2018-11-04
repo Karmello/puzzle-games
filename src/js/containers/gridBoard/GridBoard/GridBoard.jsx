@@ -75,7 +75,7 @@ class GridBoard extends Component<T_GridBoardProps> {
                             col={col}
                             row={row}
                             index={index}
-                            isSelected={element.isSelectable && gridMap[index].isSelected}
+                            isSelected={element.isSelectable && !isEmpty(gridMap) && gridMap[index].isSelected}
                           />
                         </div>
                       ) ||
