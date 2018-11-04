@@ -30,8 +30,7 @@ class KnightsTour extends Game {
           Element: this.renderElement()
         }}
         callback={{
-          onMoveTry: this.onMoveTry.bind(this),
-          onMoveDone: this.onMoveDone.bind(this)
+          onMoveTry: this.onMoveTry.bind(this)
         }}
       />
     );
@@ -65,16 +64,10 @@ class KnightsTour extends Game {
 
     for (let coords of allMovementCoords) {
       if (coords.x === newCoords.x && coords.y === newCoords.y) {
-        return true;
+        this.props.dispatch(moveKnight(clickedIndex));
+        return super.onMakeMove();
       }
     }
-
-    return false;
-  }
-
-  onMoveDone(selectedIndex:number, clickedIndex:number) {
-    this.props.dispatch(moveKnight(clickedIndex));
-    super.onMakeMove();
   }
 
   getElementStyle(active:boolean) {
