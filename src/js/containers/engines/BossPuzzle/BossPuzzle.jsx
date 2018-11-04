@@ -28,7 +28,6 @@ class BossPuzzle extends Game {
     if (mode === 'NUM' || (mode === 'IMG' && imgSrc)) {
       return (
         <GridBoard
-          className={'BossPuzzle-' + String(dimension)}
           dimension={Number(dimension)}
           gridMap={this.createGridMap()}
           element={{
