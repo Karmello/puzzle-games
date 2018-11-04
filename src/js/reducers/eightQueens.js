@@ -11,21 +11,13 @@ const eightQueensReducer = (state:T_EightQueensEngine = initialState, action:T_A
   switch (action.type) {
 
     case EIGHT_QUEENS_INIT_ENGINE:
-      return {
-        ...state,
-        queens: action.payload.queens
-      }
+      return action.payload;
 
     case EIGHT_QUEENS_MOVE_QUEEN:
-
       const queens = [...state.queens];
       queens[action.meta.fromIndex] = !queens[action.meta.fromIndex];
       queens[action.meta.toIndex] = !queens[action.meta.toIndex];
-
-      return {
-        ...state,
-        queens
-      }
+      return { queens };
 
     case EIGHT_QUEENS_RESET_ENGINE:
       return initialState;

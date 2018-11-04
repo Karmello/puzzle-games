@@ -12,15 +12,14 @@ const knightsTourReducer = (state:T_KnightsTourEngine = initialState, action:T_A
   switch (action.type) {
 
     case KNIGHTS_TOUR_INIT_ENGINE:
-      return {
-        visited: action.payload.visited,
-        active:action.payload.active
-      }
+      return action.payload;
   
     case KNIGHTS_TOUR_MOVE_KNIGHT:
-      const newState = { ...state };
+      const newState = {
+        visited: [...state.visited],
+        active: action.payload.newIndex
+      };
       newState.visited[action.payload.newIndex] = true;
-      newState.active = action.payload.newIndex;
       return newState;
 
     case KNIGHTS_TOUR_RESET_ENGINE:

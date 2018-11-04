@@ -10,9 +10,9 @@ import type { T_Action, T_BossPuzzleEngine } from 'js/flow-types';
 
 const initialState = {
   imgNumbers: [],
-  imgIndex: undefined,
+  imgIndex: -1,
   tiles: [],
-  hiddenTileCoords: { x: undefined, y: undefined }
+  hiddenTileCoords: {}
 };
 
 const bossPuzzleReducer = (state:T_BossPuzzleEngine = initialState, action:T_Action) => {
@@ -20,21 +20,15 @@ const bossPuzzleReducer = (state:T_BossPuzzleEngine = initialState, action:T_Act
   switch (action.type) {
 
     case BOSS_PUZZLE_INIT_ENGINE:
-      return {
-        ...state,
-        imgNumbers: action.payload.imgNumbers,
-        imgIndex: action.payload.imgIndex,
-        tiles: action.payload.tiles,
-        hiddenTileCoords: action.payload.hiddenTileCoords
-      }
+      return action.payload;
 
     case BOSS_PUZZLE_SWITCH_TILES:
-
       const newState = {
-        ...state,
+        imgNumbers: [...state.imgNumbers],
+        imgIndex: state.imgIndex,
+        tiles: [...state.tiles],
         hiddenTileCoords: action.payload.hiddenTileCoords
       };
-
       const temp = newState.tiles[action.meta.index1];
       newState.tiles[action.meta.index1] = newState.tiles[action.meta.index2];
       newState.tiles[action.meta.index2] = temp;
@@ -42,7 +36,9 @@ const bossPuzzleReducer = (state:T_BossPuzzleEngine = initialState, action:T_Act
 
     case BOSS_PUZZLE_CLEAR_HIDDEN_TILE_COORDS:
       return {
-        ...state,
+        imgNumbers: [...state.imgNumbers],
+        imgIndex: state.imgIndex,
+        tiles: [...state.tiles],
         hiddenTileCoords: {}
       }
 

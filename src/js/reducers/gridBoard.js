@@ -27,8 +27,8 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
         if (action.meta.isSelectable) { gridMap[key].isSelected = false; }
       }
       return {
-        ...state,
-        gridMap
+        gridMap,
+        grabbedIndex: state.grabbedIndex
       }
 
     case GRID_BOARD_UPDATE:
@@ -47,13 +47,16 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
         }   
       }
       return {
-        ...state,
-        gridMap
+        gridMap,
+        grabbedIndex: state.grabbedIndex
       }
 
     case GRID_BOARD_GRAB_ELEMENT:
+      for (const key in state.gridMap) {
+        gridMap[key] = { ...state.gridMap[Number(key)] };
+      }
       return {
-        ...state,
+        gridMap,
         grabbedIndex: action.payload.index
       };
 
@@ -64,20 +67,18 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
       }
       gridMap[action.payload.index].isSelected = true;
       return {
-        ...state,
-        gridMap
+        gridMap,
+        grabbedIndex: state.grabbedIndex
       };
 
     case GRID_BOARD_CHANGE_ELEMENT_POSITION:
+      for (const key in state.gridMap) {
+        gridMap[key] = { ...state.gridMap[Number(key)] };
+      }
+      gridMap[action.meta.index].position = action.payload.position;
       return {
-        ...state,
-        gridMap: {
-          ...state.gridMap,
-          [action.meta.index]: {
-            ...state.gridMap[action.meta.index],
-            position: action.payload.position
-          }
-        }        
+        gridMap,
+        grabbedIndex: state.grabbedIndex
       }
 
     case GRID_BOARD_RESET:

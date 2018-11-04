@@ -17,17 +17,16 @@ const gameReducer = (state:T_GameState = initialState, action:T_Action) => {
   
     case GAME_START:
       return {
+        ...initialState,
         id: action.payload.id,
         options: action.payload.options,
-        moves: 0,
-        isSolved: false,
-        isLoading: true,
         doRestart: action.payload.doRestart
       }
-  
+
     case GAME_STOP_LOADER:
       return {
         ...state,
+        options: { ...state.options },
         doRestart: false,
         isLoading: false
       }
@@ -35,12 +34,14 @@ const gameReducer = (state:T_GameState = initialState, action:T_Action) => {
     case GAME_MAKE_MOVE:
       return {
         ...state,
+        options: { ...state.options },
         moves: state.moves + 1
       }
 
     case GAME_SET_AS_SOLVED:
       return {
         ...state,
+        options: { ...state.options },
         isSolved: true
       }
 

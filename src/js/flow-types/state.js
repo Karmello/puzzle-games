@@ -11,7 +11,10 @@ export type T_AppState = {
 
 export type T_GamesPageState = {
   category:string,
-  options:T_GameOptionsModel
+  options:{
+    'boss-puzzle':T_GameOptionsModel,
+    'knights-tour':T_GameOptionsModel
+  }
 };
 
 export type T_GamePageState = {

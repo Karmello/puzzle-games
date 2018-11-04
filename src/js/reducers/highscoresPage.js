@@ -13,10 +13,7 @@ const highscoresPageReducer = (state:T_HighscoresPageState = initialState, actio
   switch (action.type) {
 
     case HIGHSCORES_PAGE_CHANGE_FILTER:
-      return {
-        gameFilter: { ...action.payload.gameFilter },
-        optionsFilter: { ...action.payload.optionsFilter }
-      }
+      return action.payload;
 
     case HIGHSCORES_PAGE_CLEAR:
       return initialState;

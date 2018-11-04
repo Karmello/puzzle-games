@@ -3,7 +3,7 @@ import type { T_Coords } from 'js/flow-types';
 
 export type T_BossPuzzleEngine = {
   imgNumbers:Array<number>,
-  imgIndex:number|typeof undefined,
+  imgIndex:number,
   tiles:Array<number>,
   hiddenTileCoords:T_Coords
 };

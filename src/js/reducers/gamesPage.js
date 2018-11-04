@@ -16,15 +16,19 @@ const gamesPageReducer = (state:T_GamesPageState = initialState, action:T_Action
 
     case GAMES_PAGE_SWITCH_CATEGORY_TAB:
       return {
-        ...state,
-        category: action.payload.category
+        category: action.payload.category,
+        options: {
+          'boss-puzzle': { ...state.options['boss-puzzle'] },
+          'knights-tour': { ...state.options['knights-tour'] }
+        }
       }
 
     case GAMES_PAGE_CHANGE_GAME_OPTIONS:
       return {
-        ...state,
+        category: state.category,
         options: {
-          ...state.options,
+          'boss-puzzle': { ...state.options['boss-puzzle'] },
+          'knights-tour': { ...state.options['knights-tour'] },
           [action.meta.id]: {
             ...state.options[action.meta.id],
             ...action.payload.options
