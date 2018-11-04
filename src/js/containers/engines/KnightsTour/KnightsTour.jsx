@@ -8,9 +8,9 @@ import { Game } from 'js/components';
 import { initEngine, moveKnight, resetEngine } from 'js/actions/knightsTour';
 import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
 
-const elementSize = 75;
-const knightImgPath = 'knights-tour/knight.jpg';
-const okArrowImgPath = 'knights-tour/ok_arrow.png';
+import { C_KnightsTour } from 'js/constants';
+
+const { elementSize, imgPaths } = C_KnightsTour;
 
 type Props = { index:number, active:number };
 type State = { buttonStyle:Object };
@@ -50,7 +50,7 @@ class Element extends React.Component<Props, State> {
       height: `${elementSize}px`,
       border: '1px solid gray',
       borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${knightImgPath})`,
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.knight})`,
       backgroundSize: `${elementSize-2}px ${elementSize-2}px`
     }
   }
@@ -59,7 +59,7 @@ class Element extends React.Component<Props, State> {
     return  {
       minWidth: `${elementSize}px`,
       height: `${elementSize}px`,
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${okArrowImgPath})`,
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.okArrow})`,
       backgroundSize: `${elementSize-2}px ${elementSize-2}px`
     }
   }
@@ -127,7 +127,7 @@ class KnightsTour extends Game {
   startNew = () => {
     const { dispatch, game: { options: { dimension } } } = this.props;
     return new Promise(resolve => {
-      Promise.all([this.loadImg(knightImgPath), this.loadImg(okArrowImgPath)]).then(() => {
+      Promise.all([this.loadImg(imgPaths.knight), this.loadImg(imgPaths.okArrow)]).then(() => {
         const visited = Array.from({ length: Number(dimension) ** 2 }, () => false);
         let active;
         switch (dimension) {

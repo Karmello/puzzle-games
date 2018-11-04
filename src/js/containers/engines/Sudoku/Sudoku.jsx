@@ -8,20 +8,14 @@ import { Game } from 'js/components';
 import { initEngine, changeValue, resetEngine } from 'js/actions/sudoku';
 import { initializeValues, checkIfSolved } from 'js/extracts/sudoku';
 import { coordsToIndex } from 'js/extracts/gridBoard';
+import { C_Sudoku } from 'js/constants';
 
 import type { T_Event } from 'js/flow-types';
 import './Sudoku.css';
 
+const { dimension, elementSize, selectMaxValue } = C_Sudoku;
+
 class Sudoku extends Game {
-
-  dimension:number;
-  elementSize:number;
-
-  constructor(props) {
-    super(props);
-    this.dimension = 9;
-    this.elementSize = 65;
-  }
 
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
@@ -31,14 +25,13 @@ class Sudoku extends Game {
     return props => {
       
       const { col, row } = props;
-      const { dimension, state: { disabledIndexes } } = this;
       const index = coordsToIndex({ x: col, y: row }, dimension);
-      const disabled = disabledIndexes.indexOf(index) > -1;
+      const disabled = this.state.disabledIndexes.indexOf(index) > -1;
       
       const selectValues = [null];
 
       if (!disabled) {
-        for (let i = 1; i < 10; i++) { selectValues.push(i); }
+        for (let i = 1; i <= selectMaxValue; i++) { selectValues.push(i); }
       } else {
         selectValues.push(values[index]);
       }
@@ -59,7 +52,9 @@ class Sudoku extends Game {
                 key={selectValue}
                 value={selectValue}
                 style={{ display: 'inline', padding: '11px', fontSize: '25px' }}
-              >{selectValue}</MenuItem>)
+              >
+                {selectValue}
+              </MenuItem>)
             )}
           </Select>
         </div>
@@ -72,10 +67,10 @@ class Sudoku extends Game {
     if (game.isLoading) { return null; }
     return (
       <GridBoard
-        dimension={this.dimension}
+        dimension={dimension}
         gridMap={this.createGridMap()}
         element={{
-          size: this.elementSize,
+          size: elementSize,
           Element: this.renderElement(values)
         }}
       />
@@ -95,7 +90,6 @@ class Sudoku extends Game {
     return (e:T_Event) => {
       const { col, row } = elemProps;
       if (value !== e.target.value) {
-        const { dimension } = this;
         this.props.dispatch(changeValue(coordsToIndex({ x: col, y: row }, dimension), e.target.value));
         super.onMakeMove();
       }
@@ -109,8 +103,8 @@ class Sudoku extends Game {
       justifyContent: 'center',
       alignItems: 'center',
       boxSizing: 'border-box',
-      width: `${this.elementSize}px`,
-      height: `${this.elementSize}px`,
+      width: `${elementSize}px`,
+      height: `${elementSize}px`,
       backgroundColor: '#FFFFF0',
       borderTop: undefined,
       borderRight: undefined,
@@ -128,7 +122,7 @@ class Sudoku extends Game {
     return new Promise(resolve => {
 
       const disabledIndexes = [];
-      const newValues = initializeValues(this.dimension);
+      const newValues = initializeValues(dimension);
       
       for (let i = 0; i < newValues.length; i++) {
         if (newValues[i]) { disabledIndexes.push(i); }
@@ -141,7 +135,7 @@ class Sudoku extends Game {
   };
 
   checkIfSolved = () => {
-    return checkIfSolved(this.props.sudokuEngine.values, this.dimension);
+    return checkIfSolved(this.props.sudokuEngine.values, dimension);
   };
 }
 

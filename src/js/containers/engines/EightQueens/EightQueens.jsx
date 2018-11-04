@@ -8,7 +8,9 @@ import { Game } from 'js/components';
 import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
 import { indexToCoords, isAloneOnAxis, isItEmptyBetweenThem } from 'js/extracts/gridBoard';
 
-const elementSize = 75;
+import { C_EightQueens } from 'js/constants';
+
+const { dimension, elementSize, imgPaths } = C_EightQueens;
 
 class Element extends React.Component<{ isSelected: boolean }> {
 
@@ -24,7 +26,7 @@ class Element extends React.Component<{ isSelected: boolean }> {
       height: `${elementSize}px`,
       border: '1px solid gray',
       borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.queen})`,
       backgroundSize: `${elementSize-2}px ${elementSize-2}px`,
       backgroundColor: !isSelected ? 'white' : 'yellow'
     }
@@ -32,13 +34,6 @@ class Element extends React.Component<{ isSelected: boolean }> {
 }
 
 class EightQueens extends Game {
-
-  dimension:number;
-    
-  constructor(props) {
-    super(props);
-    this.dimension = 8;
-  }
 
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
@@ -49,7 +44,7 @@ class EightQueens extends Game {
     if (game.isLoading) { return null; }
     return (
       <GridBoard
-        dimension={this.dimension}
+        dimension={dimension}
         isChessBoard={true}
         gridMap={this.createGridMap()}
         element={{
@@ -76,7 +71,7 @@ class EightQueens extends Game {
 
   onMoveTry(selectedIndex:number, clickedIndex:number) {
     const { queens } = this.props.eightQueensEngine;
-    const isItEmptyBetween = isItEmptyBetweenThem(selectedIndex, clickedIndex, this.dimension, queens);
+    const isItEmptyBetween = isItEmptyBetweenThem(selectedIndex, clickedIndex, dimension, queens);
     return selectedIndex > -1 && (isItEmptyBetween === undefined || isItEmptyBetween === true);
   }
 
@@ -87,9 +82,9 @@ class EightQueens extends Game {
 
   startNew = () => {
     return new Promise(resolve => {
-      this.loadImg('eight-queens/queen.png').then(() => {
-        const queens = Array.from({ length: this.dimension ** 2 }, (v, k) => {
-          const coords = indexToCoords(k, this.dimension);
+      this.loadImg(imgPaths.queen).then(() => {
+        const queens = Array.from({ length: dimension ** 2 }, (v, k) => {
+          const coords = indexToCoords(k, dimension);
           return coords.x === coords.y;
         });
         this.props.dispatch(initEngine(queens));
@@ -102,7 +97,6 @@ class EightQueens extends Game {
 
     return new Promise(resolve => {
 
-      const dimension = this.dimension;
       const { eightQueensEngine } = this.props;
       const queens = eightQueensEngine.queens;
       const qIndxs = [];

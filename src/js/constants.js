@@ -6,7 +6,11 @@ export const C_BossPuzzle = {
 };
 
 export const C_EightQueens = {
-  elementSize: 75
+  dimension:8,
+  elementSize: 75,
+  imgPaths: {
+    queen: 'eight-queens/queen.png'
+  }
 };
 
 export const C_KnightsTour = {
@@ -15,4 +19,10 @@ export const C_KnightsTour = {
     knight: 'knights-tour/knight.jpg',
     okArrow: 'knights-tour/ok_arrow.png'
   }
+};
+
+export const C_Sudoku = {
+  dimension: 9,
+  elementSize: 65,
+  selectMaxValue: 9
 };
