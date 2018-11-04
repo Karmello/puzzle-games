@@ -7,7 +7,7 @@ describe('bossPuzzleReducer', () => {
   it('should return the initial state', () => {
     expect(bossPuzzleReducer(undefined, {})).toEqual({
       imgNumbers: [],
-      imgIndex: undefined,
+      imgIndex: -1,
       tiles: [],
       hiddenTileCoords: {}
     });
@@ -16,7 +16,7 @@ describe('bossPuzzleReducer', () => {
   it('should handle INIT_FRAME', () => {
     expect(bossPuzzleReducer({
       imgNumbers: [],
-      imgIndex: undefined,
+      imgIndex: -1,
       tiles: [],
       hiddenTileCoords: {}
     }, initEngine([1, 2, 3, 4, 5], 0, [4, 3, 6, 2, 7, 1, 8, 9, 5], { x: 0, y: 0 }))).toEqual({
@@ -63,7 +63,7 @@ describe('bossPuzzleReducer', () => {
       hiddenTileCoords: { x: 0, y: 0 }
     }, resetEngine())).toEqual({
       imgNumbers: [],
-      imgIndex: undefined,
+      imgIndex: -1,
       tiles: [],
       hiddenTileCoords: {}
     });

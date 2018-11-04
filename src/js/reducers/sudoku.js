@@ -11,15 +11,12 @@ const sudokuReducer = (state:T_SudokuEngine = initialState, action:T_Action) => 
   switch (action.type) {
 
     case SUDOKU_INIT_ENGINE:
-      return {
-        ...state,
-        values: action.payload.values
-      }
+      return action.payload;
 
     case SUDOKU_CHANGE_VALUE:
       const values = [...state.values];
       values[action.meta.index] = action.payload.newValue;
-      return { ...state, values };
+      return { values };
 
     case SUDOKU_RESET_ENGINE:
       return initialState;
