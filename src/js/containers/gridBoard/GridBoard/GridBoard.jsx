@@ -49,7 +49,7 @@ class GridBoard extends Component<T_GridBoardProps> {
     return (
       <Paper
         className='GridBoard'
-        style={{ minWidth: dimension * element.size + 'px', cursor: callback.onMoveTry ? 'pointer' : 'default' }}
+        style={{ minWidth: dimension * element.size + 'px', cursor: callback.onEmptyCellClick ? 'pointer' : 'default' }}
       >
         {Array.from({ length: dimension }, (v, k) => k).map(i => (
           <Row
@@ -91,17 +91,24 @@ class GridBoard extends Component<T_GridBoardProps> {
     );
   }
 
-  onBoardCellClick(index:number) {
-    const { dispatch, gridBoard: { gridMap }, element: { isSelectable, isDraggable }, callback: { onMoveTry } } = this.props;
+  onBoardCellClick(clickedIndex:number) {
+    const { dispatch, gridBoard: { gridMap }, element: { isSelectable, isDraggable }, callback: { onEmptyCellClick } } = this.props;
     if (gridMap && !isEmpty(gridMap)) {
       // Empty cell
-      if (!gridMap[index].isOccupied) {
-        const selectedIndex = findKey(gridMap, { isSelected: true });
-        if (onMoveTry) { onMoveTry(selectedIndex, index); }
+      if (!gridMap[clickedIndex].isOccupied) {
+        if (!isSelectable) {
+          onEmptyCellClick && onEmptyCellClick(clickedIndex);
+        } else {
+          const activeIndex = findKey(gridMap, { isSelected: true });
+          if (activeIndex > -1) {
+            onEmptyCellClick && onEmptyCellClick(clickedIndex, activeIndex);
+          }
+        }
+        
       // Occupied cell
       } else {
-        if (isDraggable) { dispatch(grabElement(index)); }
-        if (isSelectable) { dispatch(selectElement(index)); }
+        if (isDraggable) { dispatch(grabElement(clickedIndex)); }
+        if (isSelectable) { dispatch(selectElement(clickedIndex)); }
       }
     }
   }

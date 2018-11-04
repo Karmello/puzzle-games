@@ -43,6 +43,6 @@ export type T_GridBoardProps = {
   },
   callback:{
     onDragStop?:Function,
-    onMoveTry?:Function
+    onEmptyCellClick?:Function
   }
 };

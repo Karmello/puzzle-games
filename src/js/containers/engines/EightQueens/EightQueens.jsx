@@ -31,7 +31,7 @@ class EightQueens extends Game {
           Element: this.renderElement()
         }}
         callback={{
-          onMoveTry: this.onMoveTry.bind(this)
+          onEmptyCellClick: this.onMoveTry.bind(this)
         }}
       />
     );
@@ -52,11 +52,11 @@ class EightQueens extends Game {
     return gridMap;
   }
 
-  onMoveTry(selectedIndex:number, clickedIndex:number) {
+  onMoveTry(toIndex:number, fromIndex:number) {
     const { queens } = this.props.eightQueensEngine;
-    const isItEmptyBetween = isItEmptyBetweenThem(selectedIndex, clickedIndex, dimension, queens);
-    if (selectedIndex > -1 && (isItEmptyBetween === undefined || isItEmptyBetween === true)) {
-      this.props.dispatch(moveQueen(selectedIndex, clickedIndex));
+    const isItEmptyBetween = isItEmptyBetweenThem(fromIndex, toIndex, dimension, queens);
+    if (isItEmptyBetween === undefined || isItEmptyBetween === true) {
+      this.props.dispatch(moveQueen(fromIndex, toIndex));
       super.onMakeMove();
     }
   }

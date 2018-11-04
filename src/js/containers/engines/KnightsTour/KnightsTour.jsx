@@ -30,7 +30,7 @@ class KnightsTour extends Game {
           Element: this.renderElement()
         }}
         callback={{
-          onMoveTry: this.onMoveTry.bind(this)
+          onEmptyCellClick: this.onMoveTry.bind(this)
         }}
       />
     );
@@ -56,15 +56,15 @@ class KnightsTour extends Game {
     return gridMap;
   }
 
-  onMoveTry(selectedIndex:number, clickedIndex:number) {
+  onMoveTry(toIndex:number) {
     
     const { knightsTourEngine: { active }, game: { options: { dimension } } } = this.props;
-    const newCoords = indexToCoords(clickedIndex, Number(dimension));
+    const newCoords = indexToCoords(toIndex, Number(dimension));
     const allMovementCoords = findAllMovementCoords(indexToCoords(active, Number(dimension)), Number(dimension), 'CHESS_KNIGHT');
 
     for (let coords of allMovementCoords) {
       if (coords.x === newCoords.x && coords.y === newCoords.y) {
-        this.props.dispatch(moveKnight(clickedIndex));
+        this.props.dispatch(moveKnight(toIndex));
         return super.onMakeMove();
       }
     }
