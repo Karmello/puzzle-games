@@ -10,18 +10,9 @@ export { default as GameInfo } from './game/GameInfo/GameInfo';
 export { default as GameMenu } from './game/GameMenu/GameMenu';
 export { default as GameOptions, Props as T_GameOptionsProps } from './game/GameOptions/GameOptions';
 
-// grid board
-export { default as GridBoard } from './gridBoard/GridBoard/GridBoard';
-export { default as GridElement } from './gridBoard/GridElement/GridElement';
-export { default as DraggableGridElement } from './gridBoard/DraggableGridElement/DraggableGridElement';
-
 // highscore
 export { default as HighscoresFilter } from './highscore/HighscoresFilter/HighscoresFilter';
 export { default as HighscoresTable } from './highscore/HighscoresTable/HighscoresTable';
-
-// engine parts
-export { default as SquareTile } from './engineParts/SquareTile/SquareTile';
-export { default as ValueField } from  './engineParts/ValueField/ValueField';
 
 // engine options
 export { default as BossPuzzleOptions } from './engineOptions/BossPuzzleOptions';

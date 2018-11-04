@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import store from 'js/store';
-import { App, AppBar, AppDrawer, AuthPage, GamePage, GamesPage, HighscoresPage, BossPuzzle, EightQueens } from 'js/containers';
-import { GridBoard, SquareTile, BossPuzzleOptions, KnightsTourOptions, FbBtn, Loader, MySnackBar, PageError, Timer } from 'js/components';
+import { App, AppBar, AppDrawer, AuthPage, GamePage, GamesPage, HighscoresPage, BossPuzzle, EightQueens, GridBoard } from 'js/containers';
+import { BossPuzzleOptions, KnightsTourOptions, FbBtn, Loader, MySnackBar, PageError, Timer } from 'js/components';
 
 describe('should render', () => {
   
@@ -44,11 +44,16 @@ describe('should render', () => {
   describe('game', () => {
 
     it('GridBoard', () => {
-      shallow(<GridBoard
-        dimension={3}
-        elementSize={50}
-        Square={() => <div>square</div>}
-      />);
+      shallow(
+        <GridBoard
+          store={store}
+          dimension={3}
+          element={{
+            size: 50
+          }}
+          Square={() => <div>square</div>}
+        />
+      );
     });
   });
 
@@ -59,21 +64,6 @@ describe('should render', () => {
         <BossPuzzle
           store={store}
           readTimer={() => {}}
-        />
-      );
-    });
-
-    it('SquareTile', () => {
-      shallow(
-        <SquareTile
-          options={{}}
-          hiddenTileCoords={{ x: 0, y: 0 }}
-          tiles={[2, 4, 6, 3, 1, 5, 7, 9, 8]}
-          imgSrc={'img.png'}
-          row={0}
-          col={0}
-          isSolved={false}
-          onMoveMade={() => {}}
         />
       );
     });

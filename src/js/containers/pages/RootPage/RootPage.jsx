@@ -15,12 +15,12 @@ import { getUiConfig } from 'js/localStorage';
 import { validateGameParams } from 'js/extracts/pages';
 import { gamesRouteLogic, gameRouteLogic, highscoresRouteLogic  } from 'js/extracts/rootPageRoutesLogic';
 
-import type { T_RouterProps, T_ApiEntities, T_GameOptionsModel, T_AppSettings, T_PagesSettings } from 'js/flow-types';
+import type { T_RouterProps, T_ApiEntities, T_GameOptionsModel, T_AppState, T_PagesState } from 'js/flow-types';
 
 type Props = {
   api:T_ApiEntities,
-  app:T_AppSettings,
-  pages:T_PagesSettings,
+  app:T_AppState,
+  pages:T_PagesState,
   location:string,
   dispatch:Function
 };
@@ -34,7 +34,7 @@ class RootPage extends Component<Props> {
   getDefaultPath:() => string;
   shouldRenderPageError:() => boolean;
 
-  ui:T_PagesSettings;
+  ui:T_PagesState;
 
   validateGameParams:(pathParams:{ category:string, id:string }, queryParams:T_GameOptionsModel, savedGameOptions:T_GameOptionsModel) => {};
 

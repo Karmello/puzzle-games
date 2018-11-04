@@ -9,11 +9,11 @@ import { changeHighscoresFilter } from 'js/actions/highscoresPage';
 import { HighscoresFilter, HighscoresTable } from 'js/components';
 import './HighscoresPage.css';
 
-import type { T_HighscoresPageSettings, T_ApiEntities, T_GameOptionsModel } from 'js/flow-types';
+import type { T_HighscoresPageState, T_ApiEntities, T_GameOptionsModel } from 'js/flow-types';
 
 type Props = {
   gameOptions:T_GameOptionsModel,
-  highscoresPage:T_HighscoresPageSettings,
+  highscoresPage:T_HighscoresPageState,
   api:T_ApiEntities,
   gameFilterToSet:{ id:string, category:string },
   optionsFilterToSet:T_GameOptionsModel,

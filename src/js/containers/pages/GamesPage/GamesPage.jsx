@@ -7,12 +7,12 @@ import { switchGameCategoryTab, changeGameOptions } from 'js/actions/gamesPage';
 import { GameCategories, GameCard } from 'js/components';
 import './GamesPage.css';
 
-import type { T_GamesPageSettings, T_ApiEntities } from 'js/flow-types';
+import type { T_GamesPageState, T_ApiEntities } from 'js/flow-types';
 
 type Props = {
   dispatch:Function,
   api:T_ApiEntities,
-  gamesPage:T_GamesPageSettings,
+  gamesPage:T_GamesPageState,
   gameCategoryToSet:string
 };
 

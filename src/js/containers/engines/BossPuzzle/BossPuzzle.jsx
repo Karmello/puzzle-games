@@ -1,51 +1,38 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'material-ui';
+import { isEmpty } from 'lodash';
 
-import { Game, GridBoard, SquareTile } from 'js/components';
+import { GridBoard } from 'js/containers';
+import { Game } from 'js/components';
 import { initEngine, switchTiles, clearHiddenTileCoords, resetEngine } from 'js/actions/bossPuzzle';
 import { getNewImgNumbers, initData } from 'js/extracts/bossPuzzle';
+import { coordsToIndex, indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
+import { C_BossPuzzle } from 'js/constants';
 
-const numOfImgs = 20;
+const { numOfImgs, fontSizes, tileSizes } = C_BossPuzzle;
 
 class BossPuzzle extends Game {
-
-  static tilesSizes = { '3': 150, '4': 125, '5': 100 };
 
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
   }
 
-  renderElement() {
-    const { game, bossPuzzleEngine } = this.props;
-    const { imgSrc } = this.state;
-    return props => (
-      <SquareTile
-        options={game.options}
-        hiddenTileCoords={bossPuzzleEngine.hiddenTileCoords}
-        tiles={bossPuzzleEngine.tiles}
-        imgSrc={imgSrc}
-        isSolved={game.isSolved}
-        onMoveMade={this.onMoveMade.bind(this)}
-        {...props}
-      />
-    );
-  }
-
   render() {
 
-    const { game } = this.props;
+    const { game: { isLoading, options: { mode, dimension } } } = this.props;
     const { imgSrc } = this.state;
 
-    if (game.isLoading) { return null; }
+    if (isLoading) { return null; }
     
-    if (game.options.mode === 'NUM' || (game.options.mode === 'IMG' && imgSrc)) {
+    if (mode === 'NUM' || (mode === 'IMG' && imgSrc)) {
       return (
         <GridBoard
-          className={'BossPuzzle-' + String(game.options.dimension)}
-          dimension={Number(game.options.dimension)}
+          dimension={Number(dimension)}
+          gridMap={this.createGridMap()}
           element={{
-            size: BossPuzzle.tilesSizes[String(game.options.dimension)],
+            size: tileSizes[String(dimension)],
             Element: this.renderElement()
           }}
         />
@@ -55,9 +42,92 @@ class BossPuzzle extends Game {
     return null;
   }
 
-  onMoveMade(index1, index2, targetCoords) {
-    this.props.dispatch(switchTiles(index1, index2, targetCoords));
-    super.onMakeMove();
+  renderElement() {
+    const { mode } = this.props.game.options;
+    return props => (
+      <Button
+        disableRipple
+        variant='raised'
+        style={this.getStyle(props)}
+        onClick={this.onTileClick.bind(this, props)}
+      >
+        {mode === 'NUM' ? this.getTileLabel(props) : ''}
+      </Button>
+    );
+  }
+  
+  createGridMap() {
+    const { dimension } = this.props.game.options;
+    const { tiles, hiddenTileCoords } = this.props.bossPuzzleEngine;
+    const hiddenIndex = coordsToIndex(hiddenTileCoords, Number(dimension));
+    const gridMap = {};
+    tiles.forEach((value, i) => {
+      gridMap[i] = { isOccupied: i !== hiddenIndex || isEmpty(hiddenTileCoords) };
+    });
+    return gridMap;
+  }
+
+  onTileClick(elemProps) {
+    
+    const { row, col } = elemProps;
+    const { game: { isSolved, options }, bossPuzzleEngine: { hiddenTileCoords } } = this.props;
+
+    if (!isSolved) {
+
+      const targetCoords = { x: col, y: row };
+      const allMovementCoords = findAllMovementCoords(targetCoords, Number(options.dimension));
+
+      for (let coords of allMovementCoords) {
+        // If hidden tile found
+        if (coords.x === hiddenTileCoords.x && coords.y === hiddenTileCoords.y) {
+          const index1 = coordsToIndex(targetCoords, Number(options.dimension));
+          const index2 = coordsToIndex(coords, Number(options.dimension));
+          this.props.dispatch(switchTiles(index1, index2, targetCoords));
+          super.onMakeMove();
+        }
+      }
+    }
+  }
+
+  getTileLabel(elemProps:{ index:number }) {
+    const { bossPuzzleEngine: { tiles } } = this.props;
+    if (tiles.length > 0) { return tiles[elemProps.index]; } else { return ''; }
+  }
+
+  getStyle(elemProps) {
+    
+    const { col, row } = elemProps;
+    const { imgSrc } = this.state;
+    const { mode, dimension } = this.props.game.options;
+    const { hiddenTileCoords } = this.props.bossPuzzleEngine;
+    const tileSize = tileSizes[Number(dimension)];
+
+    const style = {
+      minWidth: `${tileSize}px`,
+      width: `${tileSize}px`,
+      height: `${tileSize}px`,
+      fontSize: `${fontSizes[dimension || '3']}px`,
+      color: '#001f3f',
+      backgroundColor: 'rgba(61, 153, 112, 0.75)',
+      backgroundImage: undefined,
+      backgroundSize: undefined,
+      backgroundPosition: undefined
+    };
+
+    if (col !== hiddenTileCoords.x || row !== hiddenTileCoords.y) {
+
+      const label = this.getTileLabel(elemProps);
+
+      if (mode === 'IMG' && imgSrc && label) {
+        const imgCoords = indexToCoords(Number(label) - 1, Number(dimension));
+        const imgSize = tileSizes[Number(dimension)];
+        style.backgroundImage = `url(${imgSrc})`;
+        style.backgroundSize = `${Number(dimension) * imgSize}px ${Number(dimension) * imgSize}px`;
+        style.backgroundPosition = `-${Number(imgCoords.x) * imgSize}px -${Number(imgCoords.y) * imgSize}px`;
+      }
+    }
+
+    return style;
   }
 
   startNew = doRestart => {
@@ -101,18 +171,14 @@ class BossPuzzle extends Game {
   };
 
   checkIfSolved = () => {
-
-    const { bossPuzzleEngine, dispatch } = this.props;
-
+    const { dispatch, bossPuzzleEngine: { tiles } } = this.props;
     return new Promise(resolve => {
-
       // checking if solved
-      for (let i = 0; i < bossPuzzleEngine.tiles.length; i++) {
-        if (i + 1 !== bossPuzzleEngine.tiles[i]) {
+      for (let i = 0; i < tiles.length; i++) {
+        if (i + 1 !== tiles[i]) {
           return resolve(false);
         }
       }
-
       // if been solved
       dispatch(clearHiddenTileCoords());
       resolve(true);

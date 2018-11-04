@@ -8,14 +8,14 @@ import { GameMenu } from 'js/components';
 import { startGame } from 'js/actions/game';
 import { toggleAppDrawer } from 'js/actions/app';
 
-import type { T_GameSettings, T_ApiEndPoint } from 'js/flow-types';
+import type { T_GameState, T_ApiEndPoint } from 'js/flow-types';
 
 import './AppBar.css';
 
 type Props = {
   appName:string,
   showDrawer:boolean,
-  game:T_GameSettings,
+  game:T_GameState,
   apiGames:T_ApiEndPoint,
   dispatch:Function
 };

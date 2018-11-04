@@ -10,12 +10,12 @@ import { GameBtn } from 'js/components';
 import { humanizeHighscoreTime } from 'js/extracts/gameInfo';
 import './GameInfo.css';
 
-import type { T_GamePageSettings, T_GameSettings, T_ApiEndPoint } from 'js/flow-types';
+import type { T_GamePageState, T_GameState, T_ApiEndPoint } from 'js/flow-types';
 
 type Props = {
-  game:T_GameSettings,
+  game:T_GameState,
   gameData:{ categoryId:string, info:string },
-  gamePage:T_GamePageSettings,
+  gamePage:T_GamePageState,
   bestHighscore:T_ApiEndPoint,
   onToggleExpansionPanel:Function
 };

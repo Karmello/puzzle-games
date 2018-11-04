@@ -1,6 +1,6 @@
 // @flow
 import { GAME_START, GAME_STOP_LOADER, GAME_MAKE_MOVE, GAME_SET_AS_SOLVED, GAME_END } from 'js/actions/game';
-import type { T_Action, T_GameSettings } from 'js/flow-types';
+import type { T_Action, T_GameState } from 'js/flow-types';
 
 const initialState = {
   id: '',
@@ -11,7 +11,7 @@ const initialState = {
   doRestart: false
 };
 
-const gameReducer = (state:T_GameSettings = initialState, action:T_Action) => {
+const gameReducer = (state:T_GameState = initialState, action:T_Action) => {
   
   switch (action.type) {
   
