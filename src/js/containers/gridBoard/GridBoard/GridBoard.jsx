@@ -72,6 +72,7 @@ class GridBoard extends Component<T_GridBoardProps> {
                       col={col}
                       row={row}
                       index={index}
+                      position={element.isDraggable ? gridMap[index].position : undefined}
                       size={element.size}
                       isDraggable={element.isDraggable}
                       isSelected={element.isSelectable && gridMap[index].isSelected}

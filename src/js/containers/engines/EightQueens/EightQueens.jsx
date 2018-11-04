@@ -8,23 +8,40 @@ import { Game } from 'js/components';
 import { initEngine, moveQueen, resetEngine } from 'js/actions/eightQueens';
 import { indexToCoords, isAloneOnAxis, isItEmptyBetweenThem } from 'js/extracts/gridBoard';
 
+const elementSize = 75;
+
+class Element extends React.Component<{ isSelected: boolean }> {
+
+  render() {
+    return (
+      <Button disableRipple style={this.getBtnStyle(this.props.isSelected)}> </Button>
+    );
+  }
+
+  getBtnStyle(isSelected:boolean) {
+    return  {
+      minWidth: `${elementSize}px`,
+      height: `${elementSize}px`,
+      border: '1px solid gray',
+      borderRadius: '0px',
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
+      backgroundSize: `${elementSize-2}px ${elementSize-2}px`,
+      backgroundColor: !isSelected ? 'white' : 'yellow'
+    }
+  }
+}
+
 class EightQueens extends Game {
 
   dimension:number;
-  elementSize:number;
     
   constructor(props) {
     super(props);
     this.dimension = 8;
-    this.elementSize = 75;
   }
 
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
-  }
-
-  renderElement() {
-    return (props:Object) => <Button disableRipple style={this.getBtnStyle(props.isSelected)}> </Button>;
   }
 
   render() {
@@ -36,9 +53,9 @@ class EightQueens extends Game {
         isChessBoard={true}
         gridMap={this.createGridMap()}
         element={{
-          size: this.elementSize,
+          size: elementSize,
           isSelectable: true,
-          Element: this.renderElement()
+          Element
         }}
         callback={{
           onMoveTry: this.onMoveTry.bind(this),
@@ -66,18 +83,6 @@ class EightQueens extends Game {
   onMoveDone(selectedIndex:number, clickedIndex:number) {
     this.props.dispatch(moveQueen(selectedIndex, clickedIndex));
     super.onMakeMove();
-  }
-
-  getBtnStyle(isSelected:boolean) {
-    return  {
-      minWidth: `${this.elementSize}px`,
-      height: `${this.elementSize}px`,
-      border: '1px solid gray',
-      borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/eight-queens/queen.png)`,
-      backgroundSize: `${this.elementSize-2}px ${this.elementSize-2}px`,
-      backgroundColor: !isSelected ? 'white' : 'yellow'
-    }
   }
 
   startNew = () => {

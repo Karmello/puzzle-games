@@ -8,38 +8,75 @@ import { Game } from 'js/components';
 import { initEngine, moveKnight, resetEngine } from 'js/actions/knightsTour';
 import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
 
-class KnightsTour extends Game {
+const elementSize = 75;
+const knightImgPath = 'knights-tour/knight.jpg';
+const okArrowImgPath = 'knights-tour/ok_arrow.png';
 
-  elementSize:number;
-  knightImgPath:string;
-  okArrowImgPath:string;
+type Props = { index:number, active:number };
+type State = { buttonStyle:Object };
 
-  constructor(props) {
-    super(props);
-    this.elementSize = 75;
-    this.knightImgPath = 'knights-tour/knight.jpg';
-    this.okArrowImgPath = 'knights-tour/ok_arrow.png';
+class Element extends React.Component<Props, State> {
+
+  state = { buttonStyle: {} };
+
+  componentWillMount() {
+    this.setState({ buttonStyle: this.getKnightBtnStyle() });
   }
+
+  componentWillReceiveProps(nextProps:Props) {
+    const { index, active } = nextProps;
+    const { getKnightBtnStyle, getVisitedBtnStyle } = this;
+    if (index === active) {
+      this.setState({ buttonStyle: getKnightBtnStyle() });
+    } else {
+      this.setState({ buttonStyle: getVisitedBtnStyle() });
+    }
+  }
+
+  render() {
+    const { buttonStyle } = this.state;
+    return (
+      <Button
+        disabled
+        disableRipple
+        style={buttonStyle}
+      > </Button>
+    );
+  }
+
+  getKnightBtnStyle() {
+    return  {
+      minWidth: `${elementSize}px`,
+      height: `${elementSize}px`,
+      border: '1px solid gray',
+      borderRadius: '0px',
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${knightImgPath})`,
+      backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+    }
+  }
+
+  getVisitedBtnStyle() {
+    return  {
+      minWidth: `${elementSize}px`,
+      height: `${elementSize}px`,
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${okArrowImgPath})`,
+      backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+    }
+  }
+}
+
+const ConnectedElement = connect(store => ({
+  active: store.engines['knights-tour'].active
+}))(Element);
+
+class KnightsTour extends Game {
 
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
   }
 
-  renderElement(active:number) {
-    return props => {
-      const { getKnightBtnStyle, getVisitedBtnStyle } = this;
-      return (
-        <Button
-          disabled
-          disableRipple
-          style={props.index === active ? getKnightBtnStyle() : getVisitedBtnStyle()}
-        > </Button>
-      );
-    }
-  }
-
   render() {
-    const { game, knightsTourEngine } = this.props;
+    const { game } = this.props;
     if (game.isLoading) { return null; }
     return (
       <GridBoard
@@ -47,8 +84,8 @@ class KnightsTour extends Game {
         isChessBoard={true}
         gridMap={this.createGridMap()}
         element={{
-          size: this.elementSize,
-          Element: this.renderElement(knightsTourEngine.active)
+          size: elementSize,
+          Element: ConnectedElement
         }}
         callback={{
           onMoveTry: this.onMoveTry.bind(this),
@@ -90,7 +127,7 @@ class KnightsTour extends Game {
   startNew = () => {
     const { dispatch, game: { options: { dimension } } } = this.props;
     return new Promise(resolve => {
-      Promise.all([this.loadImg(this.knightImgPath), this.loadImg(this.okArrowImgPath)]).then(() => {
+      Promise.all([this.loadImg(knightImgPath), this.loadImg(okArrowImgPath)]).then(() => {
         const visited = Array.from({ length: Number(dimension) ** 2 }, () => false);
         let active;
         switch (dimension) {
@@ -116,27 +153,6 @@ class KnightsTour extends Game {
       if (visited.every(elem => elem)) { return resolve(true); }
       resolve(false);
     });
-  };
-
-  getKnightBtnStyle = () => {
-    return  {
-      minWidth: `${this.elementSize}px`,
-      height: `${this.elementSize}px`,
-      border: '1px solid gray',
-      borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${this.knightImgPath})`,
-      backgroundSize: `${this.elementSize-2}px ${this.elementSize-2}px`,
-      backgroundColor: 'white'
-    }
-  };
-
-  getVisitedBtnStyle = () => {
-    return  {
-      minWidth: `${this.elementSize}px`,
-      height: `${this.elementSize}px`,
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${this.okArrowImgPath})`,
-      backgroundSize: `${this.elementSize-2}px ${this.elementSize-2}px`
-    }
   };
 }
 
