@@ -44,7 +44,7 @@ class GridBoard extends Component<T_GridBoardProps> {
 
     const { gridBoard: { gridMap }, dimension, element, callback } = this.props;
 
-    if (isEmpty(gridMap) || !dimension || !element.size) { return null; }
+    if (!dimension || !element.size) { return null; }
 
     return (
       <Paper
@@ -68,7 +68,7 @@ class GridBoard extends Component<T_GridBoardProps> {
                     style={this.getElementContainerStyle(col, row, index)}
                     onClick={this.onBoardCellClick.bind(this, index)}
                   >
-                    {gridMap[index].isOccupied && <GridElement
+                    {(isEmpty(gridMap) || gridMap[index].isOccupied) && <GridElement
                       col={col}
                       row={row}
                       index={index}
@@ -160,6 +160,4 @@ class GridBoard extends Component<T_GridBoardProps> {
   }
 }
 
-export default connect(store => ({
-  gridBoard: store.gridBoard
-}))(GridBoard);
+export default connect(store => ({ gridBoard: store.gridBoard }))(GridBoard);

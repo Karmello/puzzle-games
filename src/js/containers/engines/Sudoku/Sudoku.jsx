@@ -27,7 +27,6 @@ class Sudoku extends Game {
     return (
       <GridBoard
         dimension={dimension}
-        gridMap={this.createGridMap()}
         element={{
           size: elementSize,
           Element: this.renderElement(values)
@@ -75,15 +74,6 @@ class Sudoku extends Game {
         </div>
       );
     }
-  }
-
-  createGridMap() {
-    const { values } = this.props.sudokuEngine;
-    const gridMap = {};
-    values.forEach((value, i) => {
-      gridMap[i] = { isOccupied: true };
-    });
-    return gridMap;
   }
 
   onElementValueChange(elemProps:{ col:number, row:number }, value:number) {

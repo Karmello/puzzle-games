@@ -5,7 +5,7 @@ import { Button } from 'material-ui';
 
 import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
-import { initEngine, switchTiles, clearHiddenTileCoords, resetEngine } from 'js/actions/bossPuzzle';
+import { initEngine, switchTiles, resetEngine } from 'js/actions/bossPuzzle';
 import { getNewImgNumbers, initData } from 'js/extracts/bossPuzzle';
 import { coordsToIndex, indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
 import { C_BossPuzzle } from 'js/constants';
@@ -54,23 +54,25 @@ class BossPuzzle extends Game {
       </Button>
     );
   }
-
+  
   createGridMap() {
-    const { tiles } = this.props.bossPuzzleEngine;
+    const { dimension } = this.props.game.options;
+    const { tiles, hiddenTileCoords } = this.props.bossPuzzleEngine;
+    const hiddenIndex = coordsToIndex(hiddenTileCoords, Number(dimension));
     const gridMap = {};
     tiles.forEach((value, i) => {
-      gridMap[i] = { isOccupied: true };
+      gridMap[i] = { isOccupied: i !== hiddenIndex };
     });
     return gridMap;
   }
-  
+
   onTileClick(elemProps) {
     
     const { row, col } = elemProps;
     const { game: { isSolved, options }, bossPuzzleEngine: { hiddenTileCoords } } = this.props;
 
     if (!isSolved) {
-      
+
       const targetCoords = { x: col, y: row };
       const allMovementCoords = findAllMovementCoords(targetCoords, Number(options.dimension));
 
@@ -108,8 +110,7 @@ class BossPuzzle extends Game {
       backgroundColor: 'rgba(61, 153, 112, 0.75)',
       backgroundImage: undefined,
       backgroundSize: undefined,
-      backgroundPosition: undefined,
-      visibility: undefined
+      backgroundPosition: undefined
     };
 
     if (col !== hiddenTileCoords.x || row !== hiddenTileCoords.y) {
@@ -123,9 +124,6 @@ class BossPuzzle extends Game {
         style.backgroundSize = `${Number(dimension) * imgSize}px ${Number(dimension) * imgSize}px`;
         style.backgroundPosition = `-${Number(imgCoords.x) * imgSize}px -${Number(imgCoords.y) * imgSize}px`;
       }
-
-    } else {
-      style.visibility = 'hidden';
     }
 
     return style;
@@ -172,20 +170,15 @@ class BossPuzzle extends Game {
   };
 
   checkIfSolved = () => {
-
-    const { bossPuzzleEngine, dispatch } = this.props;
-
+    const { tiles } = this.props.bossPuzzleEngine;
     return new Promise(resolve => {
-
       // checking if solved
-      for (let i = 0; i < bossPuzzleEngine.tiles.length; i++) {
-        if (i + 1 !== bossPuzzleEngine.tiles[i]) {
+      for (let i = 0; i < tiles.length; i++) {
+        if (i + 1 !== tiles[i]) {
           return resolve(false);
         }
       }
-
       // if been solved
-      dispatch(clearHiddenTileCoords());
       resolve(true);
     });
   };
