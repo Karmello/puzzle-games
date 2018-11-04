@@ -2,11 +2,11 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { Paper } from 'material-ui';
+import Draggable from 'react-draggable';
 import { Row, Col } from 'react-flexbox-grid';
+import { Paper } from 'material-ui';
 import { isEmpty, isEqual, findKey } from 'lodash';
 
-import { GridElement } from 'js/components';
 import { coordsToIndex, indexToCoords, offsetToIndex } from 'js/extracts/gridBoard';
 import { initGridBoard, updateGridBoard, grabElement, selectElement, changeElementPosition, resetGridBoard } from 'js/actions/gridBoard';
 
@@ -68,19 +68,28 @@ class GridBoard extends Component<T_GridBoardProps> {
                     style={this.getElementContainerStyle(col, row, index)}
                     onClick={this.onBoardCellClick.bind(this, index)}
                   >
-                    {(isEmpty(gridMap) || gridMap[index].isOccupied) && <GridElement
-                      col={col}
-                      row={row}
-                      index={index}
-                      position={element.isDraggable ? gridMap[index].position : undefined}
-                      size={element.size}
-                      isDraggable={element.isDraggable}
-                      isSelected={element.isSelectable && gridMap[index].isSelected}
-                      Element={element.Element}
-                      callback={{
-                        onDragStop: this.onElementDragStop.bind(this)
-                      }}
-                    />}
+                    {(isEmpty(gridMap) || gridMap[index].isOccupied) && (
+                      !element.isDraggable && (
+                        <div style={{ cursor: 'default' }}>
+                          <element.Element
+                            col={col}
+                            row={row}
+                            index={index}
+                            isSelected={element.isSelectable && gridMap[index].isSelected}
+                          />
+                        </div>
+                      ) ||
+                      element.isDraggable && (
+                        <Draggable
+                          position={element.isDraggable ? gridMap[index].position : undefined}
+                          onStop={this.onElementDragStop.bind(this)}
+                        >
+                          <div>
+                            <element.Element col={col} row={row} index={index} />
+                          </div>
+                        </Draggable>
+                      )
+                    )}
                   </div>
                 </Col>
               );

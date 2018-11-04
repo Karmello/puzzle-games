@@ -2,10 +2,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'material-ui';
+import { isEmpty } from 'lodash';
 
 import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
-import { initEngine, switchTiles, resetEngine } from 'js/actions/bossPuzzle';
+import { initEngine, switchTiles, clearHiddenTileCoords, resetEngine } from 'js/actions/bossPuzzle';
 import { getNewImgNumbers, initData } from 'js/extracts/bossPuzzle';
 import { coordsToIndex, indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
 import { C_BossPuzzle } from 'js/constants';
@@ -61,7 +62,7 @@ class BossPuzzle extends Game {
     const hiddenIndex = coordsToIndex(hiddenTileCoords, Number(dimension));
     const gridMap = {};
     tiles.forEach((value, i) => {
-      gridMap[i] = { isOccupied: i !== hiddenIndex };
+      gridMap[i] = { isOccupied: i !== hiddenIndex || isEmpty(hiddenTileCoords) };
     });
     return gridMap;
   }
@@ -170,7 +171,7 @@ class BossPuzzle extends Game {
   };
 
   checkIfSolved = () => {
-    const { tiles } = this.props.bossPuzzleEngine;
+    const { dispatch, bossPuzzleEngine: { tiles } } = this.props;
     return new Promise(resolve => {
       // checking if solved
       for (let i = 0; i < tiles.length; i++) {
@@ -179,6 +180,7 @@ class BossPuzzle extends Game {
         }
       }
       // if been solved
+      dispatch(clearHiddenTileCoords());
       resolve(true);
     });
   };
