@@ -21,6 +21,21 @@ class Sudoku extends Game {
     this.props.dispatch(resetEngine());
   }
 
+  render() {
+    const { game, sudokuEngine: { values } } = this.props;
+    if (game.isLoading) { return null; }
+    return (
+      <GridBoard
+        dimension={dimension}
+        gridMap={this.createGridMap()}
+        element={{
+          size: elementSize,
+          Element: this.renderElement(values)
+        }}
+      />
+    );
+  }
+
   renderElement(values) {
     return props => {
       
@@ -37,10 +52,10 @@ class Sudoku extends Game {
       }
 
       return (
-        <div style={this.getStyle(props)}>
+        <div style={this.getElementStyle(props)}>
           <Select
             value={(values && values[index]) || -1}
-            onChange={this.onChange.call(this, props, values[index])}
+            onChange={this.onElementValueChange.call(this, props, values[index])}
             classes={{ select: 'select', icon: 'icon' }}
             MenuProps={{
               transformOrigin: { vertical: 'center', horizontal: 'center' }
@@ -62,21 +77,6 @@ class Sudoku extends Game {
     }
   }
 
-  render() {
-    const { game, sudokuEngine: { values } } = this.props;
-    if (game.isLoading) { return null; }
-    return (
-      <GridBoard
-        dimension={dimension}
-        gridMap={this.createGridMap()}
-        element={{
-          size: elementSize,
-          Element: this.renderElement(values)
-        }}
-      />
-    );
-  }
-
   createGridMap() {
     const { values } = this.props.sudokuEngine;
     const gridMap = {};
@@ -86,7 +86,7 @@ class Sudoku extends Game {
     return gridMap;
   }
 
-  onChange(elemProps:{ col:number, row:number }, value:number) {
+  onElementValueChange(elemProps:{ col:number, row:number }, value:number) {
     return (e:T_Event) => {
       const { col, row } = elemProps;
       if (value !== e.target.value) {
@@ -96,7 +96,7 @@ class Sudoku extends Game {
     }
   }
 
-  getStyle(elemProps) {
+  getElementStyle(elemProps) {
     const { col, row } = elemProps;
     const style = {
       display: 'flex',

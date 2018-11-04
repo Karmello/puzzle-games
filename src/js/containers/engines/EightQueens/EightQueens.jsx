@@ -40,7 +40,7 @@ class EightQueens extends Game {
 
   renderElement() {
     return (props) => (
-      <Button disableRipple style={this.getBtnStyle(props.isSelected)}> </Button>
+      <Button disableRipple style={this.getElementStyle(props.isSelected)}> </Button>
     );
   }
 
@@ -64,7 +64,7 @@ class EightQueens extends Game {
     super.onMakeMove();
   }
 
-  getBtnStyle(isSelected:boolean) {
+  getElementStyle(isSelected:boolean) {
     return  {
       minWidth: `${elementSize}px`,
       height: `${elementSize}px`,

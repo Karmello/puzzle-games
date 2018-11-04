@@ -43,7 +43,7 @@ class KnightsTour extends Game {
       <Button
         disabled
         disableRipple
-        style={props.index === active ? this.getKnightBtnStyle() : this.getVisitedBtnStyle()}
+        style={this.getElementStyle(props.index === active)}
       > </Button>
     );
   }
@@ -77,23 +77,23 @@ class KnightsTour extends Game {
     super.onMakeMove();
   }
 
-  getKnightBtnStyle() {
-    return  {
-      minWidth: `${elementSize}px`,
-      height: `${elementSize}px`,
-      border: '1px solid gray',
-      borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.knight})`,
-      backgroundSize: `${elementSize-2}px ${elementSize-2}px`
-    }
-  }
-
-  getVisitedBtnStyle() {
-    return  {
-      minWidth: `${elementSize}px`,
-      height: `${elementSize}px`,
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.okArrow})`,
-      backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+  getElementStyle(active:boolean) {
+    if (active) {
+      return  {
+        minWidth: `${elementSize}px`,
+        height: `${elementSize}px`,
+        border: '1px solid gray',
+        borderRadius: '0px',
+        backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.knight})`,
+        backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+      }
+    } else {
+      return  {
+        minWidth: `${elementSize}px`,
+        height: `${elementSize}px`,
+        backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.okArrow})`,
+        backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+      }
     }
   }
   

@@ -49,9 +49,9 @@ class BossPuzzle extends Game {
         disableRipple
         variant='raised'
         style={this.getStyle(props)}
-        onClick={this.onClick.bind(this, props)}
+        onClick={this.onTileClick.bind(this, props)}
       >
-        {mode === 'NUM' ? this.getLabel(props) : ''}
+        {mode === 'NUM' ? this.getTileLabel(props) : ''}
       </Button>
     );
   }
@@ -65,7 +65,7 @@ class BossPuzzle extends Game {
     return gridMap;
   }
   
-  onClick(elemProps) {
+  onTileClick(elemProps) {
     
     const { row, col } = elemProps;
     const { game: { isSolved, options }, bossPuzzleEngine: { hiddenTileCoords } } = this.props;
@@ -76,24 +76,18 @@ class BossPuzzle extends Game {
       const allMovementCoords = findAllMovementCoords(targetCoords, Number(options.dimension));
 
       for (let coords of allMovementCoords) {
-
         // If hidden tile found
         if (coords.x === hiddenTileCoords.x && coords.y === hiddenTileCoords.y) {
-
           const index1 = coordsToIndex(targetCoords, Number(options.dimension));
           const index2 = coordsToIndex(coords, Number(options.dimension));
-          return this.onMoveMade(index1, index2, targetCoords);
+          this.props.dispatch(switchTiles(index1, index2, targetCoords));
+          super.onMakeMove();
         }
       }
     }
   }
 
-  onMoveMade(index1, index2, targetCoords) {
-    this.props.dispatch(switchTiles(index1, index2, targetCoords));
-    super.onMakeMove();
-  }
-
-  getLabel(elemProps:{ index:number }) {
+  getTileLabel(elemProps:{ index:number }) {
     const { bossPuzzleEngine: { tiles } } = this.props;
     if (tiles.length > 0) { return tiles[elemProps.index]; } else { return ''; }
   }
@@ -121,7 +115,7 @@ class BossPuzzle extends Game {
 
     if (col !== hiddenTileCoords.x || row !== hiddenTileCoords.y) {
 
-      const label = this.getLabel(elemProps);
+      const label = this.getTileLabel(elemProps);
 
       if (mode === 'IMG' && imgSrc && label) {
         const imgCoords = indexToCoords(Number(label) - 1, Number(dimension));
