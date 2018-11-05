@@ -1,7 +1,6 @@
 import store from 'js/store';
-import { clientUserRes, gameCategoriesRes, gamesRes } from '__tests__/__mocks__/apiResponses';
-import { renderWrapper } from '__tests__/__helpers__/routeTestHelpers';
-
+import { clientUserRes, gameCategoriesRes, gamesRes } from 'js/helpers/apiResponses';
+import { renderWrapper } from 'js/helpers/methods';
 
 describe('/', () => {
 

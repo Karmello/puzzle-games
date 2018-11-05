@@ -15,8 +15,8 @@ export { default as HighscoresFilter } from './highscore/HighscoresFilter/Highsc
 export { default as HighscoresTable } from './highscore/HighscoresTable/HighscoresTable';
 
 // engine options
-export { default as BossPuzzleOptions } from './engineOptions/BossPuzzleOptions';
-export { default as KnightsTourOptions } from './engineOptions/KnightsTourOptions';
+export { default as BossPuzzleOptions } from './engineOptions/BossPuzzleOptions/BossPuzzleOptions';
+export { default as KnightsTourOptions } from './engineOptions/KnightsTourOptions/KnightsTourOptions';
 
 // other
 export { default as AuthForm } from './other/AuthForm/AuthForm';

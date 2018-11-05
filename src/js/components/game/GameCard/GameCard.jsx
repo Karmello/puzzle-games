@@ -5,7 +5,7 @@ import { Card, Typography } from 'material-ui';
 import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
 import { GameBtn, GameOptions } from 'js/components';
-import { kebabToCamelCase } from 'js/helpers';
+import { kebabToCamelCase } from 'js/helpers/methods';
 import './GameCard.css';
 
 import type { T_GameModel, T_GameOptionsModel } from 'js/flow-types';
@@ -25,7 +25,7 @@ export default class GameCard extends Component<Props> {
 
     if (!isEmpty(gameOptions)) {
       const id = kebabToCamelCase(gameData.id);
-      Options = require(`js/components/engineOptions/${id}Options`).default;
+      Options = require(`js/components/engineOptions/${id}Options/${id}Options`).default;
     }
 
     return (

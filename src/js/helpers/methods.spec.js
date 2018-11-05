@@ -1,5 +1,4 @@
-import * as methods from 'js/helpers';
-
+import * as methods from 'js/helpers/methods';
 
 describe('helpers', () => {
 

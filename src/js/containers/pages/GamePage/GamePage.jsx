@@ -10,7 +10,7 @@ import { Loader } from 'js/components';
 import { setAppTitle } from 'js/actions/app';
 import { startGame, endGame } from 'js/actions/game';
 import { toggleExpansionPanel } from 'js/actions/gamePage';
-import { kebabToCamelCase } from 'js/helpers';
+import { kebabToCamelCase } from 'js/helpers/methods';
 import './GamePage.css';
 
 import type { T_ApiEntities, T_GameOptionsModel, T_GameState, T_GamePageState, T_TimerRef } from 'js/flow-types';
