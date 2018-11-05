@@ -1,5 +1,5 @@
 // @flow
-import { shuffleIntArray } from 'js/helpers';
+import { shuffleIntArray } from 'js/helpers/methods';
 import type { T_Coords } from 'js/flow-types';
 
 export const coordsToIndex = (coords:T_Coords, dimension:number) => {

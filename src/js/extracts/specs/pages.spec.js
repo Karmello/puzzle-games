@@ -1,5 +1,5 @@
 import * as helpers from 'js/extracts/pages';
-import { gameCategoriesRes, gamesRes } from '__tests__/__mocks__/apiResponses';
+import { gameCategoriesRes, gamesRes } from 'js/helpers/apiResponses';
 
 
 describe('page helpers', () => {
