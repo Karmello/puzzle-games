@@ -7,6 +7,7 @@ import { Paper } from 'material-ui';
 import GameDashboard from 'js/components/game/GameDashboard/GameDashboard';
 import GameInfo from 'js/components/game/GameInfo/GameInfo';
 import { Loader } from 'js/components';
+import { fetchHighscore, saveNewHighscore } from 'js/actions/api';
 import { setAppTitle } from 'js/actions/app';
 import { startGame, endGame } from 'js/actions/game';
 import { toggleExpansionPanel } from 'js/actions/gamePage';
@@ -37,8 +38,26 @@ class GamePage extends Component<Props> {
     const { match, queryParams, gameData, dispatch } = this.props;
     const id = match.params.id;
   
+    dispatch(fetchHighscore(id, queryParams));
     dispatch(setAppTitle(gameData.name));
     dispatch(startGame(id, queryParams, false));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { game } = nextProps;
+    if (!this.props.game.isSolved && game.isSolved) {
+      const { api, dispatch } = this.props;
+      dispatch(saveNewHighscore({
+        username: api.clientUser.res.data.username,
+        gameId: game.id,
+        options: game.options,
+        details: { moves: game.moves, seconds: this.readTimer().seconds }
+      })).then(action => {
+        if (action.payload.status === 200) {
+          dispatch(fetchHighscore(game.id, game.options))
+        }
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -77,7 +96,7 @@ class GamePage extends Component<Props> {
             </div>
             <div className='GamePage-engine'>
               <div style={this.getEngineContainerStyle(game.isSolved)}>
-                <Engine readTimer={this.readTimer.bind(this)} />
+                <Engine />
               </div>
               {game.isSolved && <div className='GamePage-solved'>SOLVED !</div>}
             </div>
