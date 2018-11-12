@@ -11,6 +11,7 @@ import { setAppTitle } from 'js/actions/app';
 import { startGame, endGame } from 'js/actions/game';
 import { toggleExpansionPanel } from 'js/actions/gamePage';
 import { kebabToCamelCase } from 'js/helpers/methods';
+import { C_AppTitle } from 'js/constants';
 import './GamePage.css';
 
 import type { T_ApiEntities, T_GameOptionsModel, T_GameState, T_GamePageState, T_TimerRef } from 'js/flow-types';
@@ -43,7 +44,7 @@ class GamePage extends Component<Props> {
   componentWillUnmount() {
     const { dispatch } = this.props;
     dispatch(endGame());
-    dispatch(setAppTitle('Puzzle Games'));
+    dispatch(setAppTitle(C_AppTitle));
   }
 
   render() {
