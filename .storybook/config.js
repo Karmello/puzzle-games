@@ -1,10 +1,9 @@
 import { configure } from '@storybook/react';
 
-
-const req = require.context('./../stories', true, /\.story\.js$/)
-
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  //require('./../src/js/containers/gridBoard/GridBoard/GridBoard.stories.js');
+  require('./../src/js/containers/engines/BossPuzzle/BossPuzzle.stories.js');
+  require('./../src/js/containers/engines/EightQueens/EightQueens.stories.js');
 }
 
 configure(loadStories, module);

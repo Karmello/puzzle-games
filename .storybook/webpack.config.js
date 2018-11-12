@@ -7,6 +7,7 @@ module.exports = (baseConfig, env) => {
   const config = genDefaultConfig(baseConfig, env);
   
   config.resolve.modules.push(path.resolve('./src'));
+  config.resolve.alias['~'] = path.resolve('./');
 
   config.module.rules.push({
     test: /\.scss/,

@@ -22,7 +22,7 @@ import {
   API_FETCH_USERS,
   API_FETCH_GAMES,
   API_FETCH_GAME_CATEGORIES,
-  API_API_FETCH_HIGHSCORES,
+  API_FETCH_HIGHSCORES,
   API_FETCH_HIGHSCORE,
   API_SAVE_NEW_HIGHSCORE
 } from 'js/actions/api';
@@ -33,7 +33,7 @@ export default combineReducers({
     users: getApiRequestReducer(API_FETCH_USERS),
     games: getApiRequestReducer(API_FETCH_GAMES),
     gameCategories: getApiRequestReducer(API_FETCH_GAME_CATEGORIES),
-    highscores: getApiRequestReducer(API_API_FETCH_HIGHSCORES),
+    highscores: getApiRequestReducer(API_FETCH_HIGHSCORES),
     bestHighscore: getApiRequestReducer(API_FETCH_HIGHSCORE),
     newHighscore: getApiRequestReducer(API_SAVE_NEW_HIGHSCORE)
   }),
