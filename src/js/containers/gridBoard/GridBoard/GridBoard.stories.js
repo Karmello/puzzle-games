@@ -47,10 +47,10 @@ storiesOf('gridBoard/GridBoard', module)
   })
   .add('chessboard with selectable elements', () => {
     const gridMap = Array.from({ length: 64 }, () => ({ isOccupied: false }));
-    gridMap[0].isOccupied =true;
-    gridMap[22].isOccupied =true;
-    gridMap[34].isOccupied =true;
-    gridMap[48].isOccupied =true;
+    gridMap[0].isOccupied = true;
+    gridMap[22].isOccupied = true;
+    gridMap[34].isOccupied = true;
+    gridMap[48].isOccupied = true;
     return render({
       dimension: 8,
       isChessBoard: true,
