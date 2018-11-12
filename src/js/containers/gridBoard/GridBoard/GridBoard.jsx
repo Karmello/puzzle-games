@@ -42,14 +42,14 @@ class GridBoard extends Component<T_GridBoardProps> {
 
   render() {
 
-    const { gridBoard: { gridMap }, dimension, element, callback } = this.props;
+    const { gridBoard: { gridMap }, dimension, element } = this.props;
 
     if (!dimension || !element.size) { return null; }
 
     return (
       <Paper
         className='GridBoard'
-        style={{ minWidth: dimension * element.size + 'px', cursor: callback.onEmptyCellClick ? 'pointer' : 'default' }}
+        style={{ minWidth: dimension * element.size + 'px' }}
       >
         {Array.from({ length: dimension }, (v, k) => k).map(i => (
           <Row
@@ -70,7 +70,7 @@ class GridBoard extends Component<T_GridBoardProps> {
                   >
                     {(isEmpty(gridMap) || gridMap[index].isOccupied) && (
                       !element.isDraggable && (
-                        <div style={{ cursor: 'default' }}>
+                        <div style={{ cursor: element.isSelectable ? 'pointer': 'default' }}>
                           {element.Element && <element.Element
                             col={col}
                             row={row}
@@ -146,25 +146,30 @@ class GridBoard extends Component<T_GridBoardProps> {
   getElementContainerStyle(col:number, row:number, index:number ) {
   
     const squareBgColors = ['#dbbe92', '#52220b'];
-    const { gridBoard: { gridMap, grabbedIndex }, isChessBoard, element } = this.props;
+    const { gridBoard: { gridMap, grabbedIndex }, isChessBoard, element, callback } = this.props;
 
     const style = {
       minWidth: `${element.size}px`,
       height: `${element.size}px`,
+      cursor: 'default',
       backgroundColor: undefined,
       position: undefined,
       zIndex: undefined
     };
 
+    if (isChessBoard) {
+      style.backgroundColor = squareBgColors[(col + row) % 2];
+    }
+
     if (element.isDraggable && gridMap && gridMap[index].isOccupied) {
       style.position = 'relative';
       style.zIndex = index === grabbedIndex ? 100: 99;
     }
-
-    if (isChessBoard) {
-      style.backgroundColor = squareBgColors[(col + row) % 2];
-    }
     
+    if (callback.onEmptyCellClick) {
+      style.cursor = 'pointer';
+    }
+
     return style;
   }
 }
