@@ -10,20 +10,6 @@ export type T_GridMap = {
   }
 };
 
-export type T_GridElementProps = {
-  col:number,
-  row:number,
-  index:number,
-  position?: T_Coords,
-  size:number,
-  isDraggable?:boolean,
-  isSelected?:boolean,
-  Element:React.ComponentType<{ col:number, row:number, index:number }>,
-  callback:{
-    onDragStop?:Function
-  }
-};
-
 export type T_RouterProps = {
   match:{ params:{ id:string, category:string, gameId:string }},
   location:{ pathname:string, search:string }
@@ -39,7 +25,7 @@ export type T_GridBoardProps = {
     size:number,
     isDraggable?:boolean,
     isSelectable?:boolean,
-    Element:React.ComponentType<{ col:number, row:number, index:number }>
+    Element?:React.ComponentType<{ col:number, row:number, index:number }>
   },
   callback:{
     onDragStop?:Function,

@@ -10,7 +10,7 @@ import { isEmpty, isEqual, findKey } from 'lodash';
 import { coordsToIndex, indexToCoords, offsetToIndex } from 'js/extracts/gridBoard';
 import { initGridBoard, updateGridBoard, grabElement, selectElement, changeElementPosition, resetGridBoard } from 'js/actions/gridBoard';
 
-import type { T_GridBoardProps, T_GridElementProps, T_Event, T_Coords } from 'js/flow-types';
+import type { T_GridBoardProps, T_Event, T_Coords } from 'js/flow-types';
 import './GridBoard.css';
 
 class GridBoard extends Component<T_GridBoardProps> {
@@ -71,12 +71,12 @@ class GridBoard extends Component<T_GridBoardProps> {
                     {(isEmpty(gridMap) || gridMap[index].isOccupied) && (
                       !element.isDraggable && (
                         <div style={{ cursor: 'default' }}>
-                          <element.Element
+                          {element.Element && <element.Element
                             col={col}
                             row={row}
                             index={index}
                             isSelected={element.isSelectable && !isEmpty(gridMap) && gridMap[index].isSelected}
-                          />
+                          />}
                         </div>
                       ) ||
                       element.isDraggable && (
@@ -85,7 +85,7 @@ class GridBoard extends Component<T_GridBoardProps> {
                           onStop={this.onElementDragStop.bind(this)}
                         >
                           <div>
-                            <element.Element col={col} row={row} index={index} />
+                            {element.Element && <element.Element col={col} row={row} index={index} />}
                           </div>
                         </Draggable>
                       )
@@ -122,7 +122,7 @@ class GridBoard extends Component<T_GridBoardProps> {
     }
   }
 
-  onElementDragStop(elementProps:T_GridElementProps) {
+  onElementDragStop(elementProps: { col:number, row:number, size:number }) {
     return (e:T_Event, coords:T_Coords) => {
 
       const { dispatch, gridBoard: { gridMap }, dimension } = this.props;
