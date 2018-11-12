@@ -16,4 +16,6 @@ if (process.env.NODE_ENV !== 'development') {
   store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))));
 }
 
+export const createNewStore = () => createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))));
+
 export default store;
