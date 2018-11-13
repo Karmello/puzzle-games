@@ -38,16 +38,16 @@ class EightQueens extends Game {
   }
 
   renderElement() {
-    return (props) => (
+    return props => (
       <Button disableRipple style={this.getElementStyle(props.isSelected)}> </Button>
     );
   }
 
   createGridMap() {
     const { queens } = this.props.eightQueensEngine;
-    const gridMap = {};
+    const gridMap = [];
     queens.forEach((isQueen, i) => {
-      gridMap[i] = { isOccupied: isQueen };
+      gridMap[i] = isQueen;
     });
     return gridMap;
   }

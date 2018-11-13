@@ -49,9 +49,9 @@ class KnightsTour extends Game {
 
   createGridMap() {
     const { visited } = this.props.knightsTourEngine;
-    const gridMap = {};
+    const gridMap = [];
     visited.forEach((isVisited, i) => {
-      gridMap[i] = { isOccupied: isVisited };
+      gridMap[i] = isVisited;
     });
     return gridMap;
   }

@@ -27,8 +27,8 @@ storiesOf('gridBoard/GridBoard', module)
     });
   })
   .add('chessboard with one static element', () => {
-    const gridMap = Array.from({ length: 64 }, () => ({ isOccupied: false }));
-    gridMap[0].isOccupied =true;
+    const gridMap = Array.from({ length: 64 }, () => false);
+    gridMap[0] = true;
     return render({
       dimension: 8,
       isChessBoard: true,
@@ -46,11 +46,11 @@ storiesOf('gridBoard/GridBoard', module)
     });
   })
   .add('chessboard with selectable elements', () => {
-    const gridMap = Array.from({ length: 64 }, () => ({ isOccupied: false }));
-    gridMap[0].isOccupied = true;
-    gridMap[22].isOccupied = true;
-    gridMap[34].isOccupied = true;
-    gridMap[48].isOccupied = true;
+    const gridMap = Array.from({ length: 64 }, () => false);
+    gridMap[0] = true;
+    gridMap[22] = true;
+    gridMap[34] = true;
+    gridMap[48] = true;
     return render({
       dimension: 8,
       isChessBoard: true,
@@ -64,6 +64,30 @@ storiesOf('gridBoard/GridBoard', module)
             width='80px'
             height='80px'
             style={{ backgroundColor: isSelected ? 'yellow': 'white' }}
+          />
+        )
+      }
+    });
+  })
+  .add('chessboard with draggable elements', () => {
+    const gridMap = Array.from({ length: 64 }, () => false);
+    gridMap[5] = true;
+    gridMap[18] = true;
+    gridMap[33] = true;
+    gridMap[55] = true;
+    return render({
+      dimension: 8,
+      isChessBoard: true,
+      gridMap,
+      element: {
+        size: 80,
+        isDraggable: true,
+        Element: () => (
+          <img
+            src={queenImg}
+            width='80px'
+            height='80px'
+            style={{ backgroundColor: 'white' }}
           />
         )
       }

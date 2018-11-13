@@ -1,12 +1,11 @@
 // @flow
 import * as React from 'react';
-import type { T_GridBoardState, T_Coords } from 'js/flow-types';
+import type { T_GridBoardState } from 'js/flow-types';
 
 export type T_GridMap = {
   [number]:{
     isOccupied:boolean,
-    isSelected:boolean,
-    position: T_Coords
+    isSelected:boolean
   }
 };
 
@@ -20,7 +19,7 @@ export type T_GridBoardProps = {
   gridBoard:T_GridBoardState,
   dimension:number,
   isChessBoard?:boolean,
-  gridMap?:T_GridMap,
+  gridMap?:Array<boolean>,
   element:{
     size:number,
     isDraggable?:boolean,

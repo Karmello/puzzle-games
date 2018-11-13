@@ -60,9 +60,9 @@ class BossPuzzle extends Game {
     const { dimension } = this.props.game.options;
     const { tiles, hiddenTileCoords } = this.props.bossPuzzleEngine;
     const hiddenIndex = coordsToIndex(hiddenTileCoords, Number(dimension));
-    const gridMap = {};
+    const gridMap = [];
     tiles.forEach((value, i) => {
-      gridMap[i] = { isOccupied: i !== hiddenIndex || isEmpty(hiddenTileCoords) };
+      gridMap[i] = i !== hiddenIndex || isEmpty(hiddenTileCoords) ? true : false;
     });
     return gridMap;
   }

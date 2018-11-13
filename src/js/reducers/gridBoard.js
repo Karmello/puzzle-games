@@ -4,7 +4,7 @@ import {
   GRID_BOARD_UPDATE,
   GRID_BOARD_GRAB_ELEMENT,
   GRID_BOARD_SELECT_ELEMENT,
-  GRID_BOARD_CHANGE_ELEMENT_POSITION,
+  GRID_BOARD_MOVE_ELEMENT,
   GRID_BOARD_RESET
 } from 'js/actions/gridBoard';
 
@@ -23,8 +23,9 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
 
     case GRID_BOARD_INIT:
       for (const key in action.payload.gridMap) {
-        gridMap[key] = { ...action.payload.gridMap[key] };
+        gridMap[key] = { isOccupied: action.payload.gridMap[key] };
         if (action.meta.isSelectable) { gridMap[key].isSelected = false; }
+        if (action.meta.isDraggable) { gridMap[key].position = { x: 0, y: 0 }; }
       }
       return {
         gridMap,
@@ -33,7 +34,7 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
 
     case GRID_BOARD_UPDATE:
       for (const key in action.payload.gridMap) {
-        gridMap[key] = { ...action.payload.gridMap[key] };
+        gridMap[key] = { isOccupied: action.payload.gridMap[key] };
       }
       if (action.meta.isSelectable) {
         for (const key in state.gridMap) {
@@ -51,14 +52,16 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
         grabbedIndex: state.grabbedIndex
       }
 
-    case GRID_BOARD_GRAB_ELEMENT:
+    case GRID_BOARD_MOVE_ELEMENT:
       for (const key in state.gridMap) {
         gridMap[key] = { ...state.gridMap[Number(key)] };
       }
+      gridMap[action.meta.fromIndex].isOccupied = false;
+      gridMap[action.meta.toIndex].isOccupied = true;
       return {
         gridMap,
-        grabbedIndex: action.payload.index
-      };
+        grabbedIndex: state.grabbedIndex
+      }
 
     case GRID_BOARD_SELECT_ELEMENT:
       for (const key in state.gridMap) {
@@ -71,15 +74,14 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
         grabbedIndex: state.grabbedIndex
       };
 
-    case GRID_BOARD_CHANGE_ELEMENT_POSITION:
+    case GRID_BOARD_GRAB_ELEMENT:
       for (const key in state.gridMap) {
         gridMap[key] = { ...state.gridMap[Number(key)] };
       }
-      gridMap[action.meta.index].position = action.payload.position;
       return {
         gridMap,
-        grabbedIndex: state.grabbedIndex
-      }
+        grabbedIndex: action.payload.index
+      };
 
     case GRID_BOARD_RESET:
       return initialState;

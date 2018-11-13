@@ -7,8 +7,8 @@ import { Row, Col } from 'react-flexbox-grid';
 import { Paper } from 'material-ui';
 import { isEmpty, isEqual, findKey } from 'lodash';
 
-import { coordsToIndex, indexToCoords, offsetToIndex } from 'js/extracts/gridBoard';
-import { initGridBoard, updateGridBoard, grabElement, selectElement, changeElementPosition, resetGridBoard } from 'js/actions/gridBoard';
+import { coordsToIndex, offsetToIndex } from 'js/extracts/gridBoard';
+import { initGridBoard, updateGridBoard, grabElement, selectElement, moveElement, resetGridBoard } from 'js/actions/gridBoard';
 
 import type { T_GridBoardProps, T_Event, T_Coords } from 'js/flow-types';
 import './GridBoard.css';
@@ -25,8 +25,8 @@ class GridBoard extends Component<T_GridBoardProps> {
   };
 
   componentWillMount() {
-    const { dispatch, element: { isSelectable }, gridMap } = this.props;
-    if (gridMap) { dispatch(initGridBoard(gridMap, isSelectable)); }
+    const { dispatch, element: { isSelectable, isDraggable }, gridMap } = this.props;
+    if (gridMap) { dispatch(initGridBoard(gridMap, isSelectable, isDraggable)); }
   }
 
   componentWillReceiveProps(nextProps:T_GridBoardProps) {
@@ -42,9 +42,9 @@ class GridBoard extends Component<T_GridBoardProps> {
 
   render() {
 
-    const { gridBoard: { gridMap }, dimension, element } = this.props;
+    const { gridBoard, dimension, gridMap, element } = this.props;
 
-    if (!dimension || !element.size) { return null; }
+    if (!dimension || !element.size || (gridMap && isEmpty(gridBoard.gridMap))) { return null; }
 
     return (
       <Paper
@@ -68,24 +68,27 @@ class GridBoard extends Component<T_GridBoardProps> {
                     style={this.getElementContainerStyle(col, row, index)}
                     onClick={this.onBoardCellClick.bind(this, index)}
                   >
-                    {(isEmpty(gridMap) || gridMap[index].isOccupied) && (
+                    {(isEmpty(gridBoard.gridMap) || gridBoard.gridMap[index].isOccupied) && (
                       !element.isDraggable && (
                         <div style={{ cursor: element.isSelectable ? 'pointer': 'default' }}>
                           {element.Element && <element.Element
                             col={col}
                             row={row}
                             index={index}
-                            isSelected={element.isSelectable && !isEmpty(gridMap) && gridMap[index].isSelected}
+                            isSelected={element.isSelectable && !isEmpty(gridBoard.gridMap) && gridBoard.gridMap[index].isSelected}
                           />}
                         </div>
                       ) ||
                       element.isDraggable && (
                         <Draggable
-                          position={element.isDraggable ? gridMap[index].position : undefined}
-                          onStop={this.onElementDragStop.bind(this)}
+                          position={{ x: 0, y: 0 }}
+                          onStart={() => this.props.dispatch(grabElement(index))}
+                          onStop={this.onElementDragStop({ col, row, index, size: element.size })}
                         >
                           <div>
-                            {element.Element && <element.Element col={col} row={row} index={index} />}
+                            <div style={{ pointerEvents: 'none' }}>
+                              {element.Element && <element.Element col={col} row={row} index={index} />}
+                            </div>
                           </div>
                         </Draggable>
                       )
@@ -101,7 +104,7 @@ class GridBoard extends Component<T_GridBoardProps> {
   }
 
   onBoardCellClick(clickedIndex:number) {
-    const { dispatch, gridBoard: { gridMap }, element: { isSelectable, isDraggable }, callback: { onEmptyCellClick } } = this.props;
+    const { dispatch, gridBoard: { gridMap }, element: { isSelectable }, callback: { onEmptyCellClick } } = this.props;
     if (gridMap && !isEmpty(gridMap)) {
       // Empty cell
       if (!gridMap[clickedIndex].isOccupied) {
@@ -116,29 +119,24 @@ class GridBoard extends Component<T_GridBoardProps> {
         
       // Occupied cell
       } else {
-        if (isDraggable) { dispatch(grabElement(clickedIndex)); }
         if (isSelectable) { dispatch(selectElement(clickedIndex)); }
       }
     }
   }
 
-  onElementDragStop(elementProps: { col:number, row:number, size:number }) {
+  onElementDragStop(elementProps: { col:number, row:number, index:number, size:number }) {
     return (e:T_Event, coords:T_Coords) => {
 
-      const { dispatch, gridBoard: { gridMap }, dimension } = this.props;
-      const { col, row, size } = elementProps;
+      const { dispatch, dimension } = this.props;
+      const { col, row, index, size } = elementProps;
 
       const newIndex = offsetToIndex({
         x: coords.x + col * size,
         y: coords.y + row * size
       }, size, dimension);
 
-      if (newIndex > -1 && gridMap && !gridMap[newIndex].isOccupied) {
-        const newCoords = indexToCoords(newIndex, dimension);
-        dispatch(changeElementPosition(newIndex, {
-          x: Number(newCoords.x) * size - col * size,
-          y: Number(newCoords.y) * size - row * size
-        }));
+      if (newIndex > -1) {
+        dispatch(moveElement(index, newIndex));
       }
     }
   }
@@ -164,6 +162,7 @@ class GridBoard extends Component<T_GridBoardProps> {
     if (element.isDraggable && gridMap && gridMap[index].isOccupied) {
       style.position = 'relative';
       style.zIndex = index === grabbedIndex ? 100: 99;
+      style.cursor = 'pointer';
     }
     
     if (callback.onEmptyCellClick) {
