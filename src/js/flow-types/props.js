@@ -27,7 +27,7 @@ export type T_GridBoardProps = {
     Element?:React.ComponentType<{ col:number, row:number, index:number }>
   },
   callback:{
-    onDragStop?:Function,
-    onEmptyCellClick?:Function
+    onEmptyCellClick?:Function,
+    onElementMove?:Function
   }
 };

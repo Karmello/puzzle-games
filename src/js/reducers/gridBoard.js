@@ -4,7 +4,6 @@ import {
   GRID_BOARD_UPDATE,
   GRID_BOARD_GRAB_ELEMENT,
   GRID_BOARD_SELECT_ELEMENT,
-  GRID_BOARD_MOVE_ELEMENT,
   GRID_BOARD_RESET
 } from 'js/actions/gridBoard';
 
@@ -47,17 +46,6 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
           }
         }   
       }
-      return {
-        gridMap,
-        grabbedIndex: state.grabbedIndex
-      }
-
-    case GRID_BOARD_MOVE_ELEMENT:
-      for (const key in state.gridMap) {
-        gridMap[key] = { ...state.gridMap[Number(key)] };
-      }
-      gridMap[action.meta.fromIndex].isOccupied = false;
-      gridMap[action.meta.toIndex].isOccupied = true;
       return {
         gridMap,
         grabbedIndex: state.grabbedIndex

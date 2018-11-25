@@ -8,7 +8,7 @@ import { Paper } from 'material-ui';
 import { isEmpty, isEqual, findKey } from 'lodash';
 
 import { coordsToIndex, offsetToIndex } from 'js/extracts/gridBoard';
-import { initGridBoard, updateGridBoard, grabElement, selectElement, moveElement, resetGridBoard } from 'js/actions/gridBoard';
+import { initGridBoard, updateGridBoard, grabElement, selectElement, resetGridBoard } from 'js/actions/gridBoard';
 
 import type { T_GridBoardProps, T_Event, T_Coords } from 'js/flow-types';
 import './GridBoard.css';
@@ -111,7 +111,7 @@ class GridBoard extends Component<T_GridBoardProps> {
         if (!isSelectable) {
           onEmptyCellClick && onEmptyCellClick(clickedIndex);
         } else {
-          const activeIndex = findKey(gridMap, { isSelected: true });
+          const activeIndex = Number(findKey(gridMap, { isSelected: true }));
           if (activeIndex > -1) {
             onEmptyCellClick && onEmptyCellClick(clickedIndex, activeIndex);
           }
@@ -126,17 +126,17 @@ class GridBoard extends Component<T_GridBoardProps> {
 
   onElementDragStop(elementProps: { col:number, row:number, index:number, size:number }) {
     return (e:T_Event, coords:T_Coords) => {
+      const { gridBoard: { gridMap }, dimension, callback: { onElementMove } } = this.props;
+      if (onElementMove) {
+        const { col, row, index, size } = elementProps;
+        const newIndex = offsetToIndex({
+          x: coords.x + col * size,
+          y: coords.y + row * size
+        }, size, dimension);
 
-      const { dispatch, dimension } = this.props;
-      const { col, row, index, size } = elementProps;
-
-      const newIndex = offsetToIndex({
-        x: coords.x + col * size,
-        y: coords.y + row * size
-      }, size, dimension);
-
-      if (newIndex > -1) {
-        dispatch(moveElement(index, newIndex));
+        if (newIndex > -1 && newIndex !== index && !gridMap[newIndex].isOccupied) {
+          onElementMove(index, newIndex);
+        }
       }
     }
   }

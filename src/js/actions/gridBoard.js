@@ -28,14 +28,6 @@ export const updateGridBoard = (gridMap:Array<boolean>, isSelectable?:boolean, i
   }
 });
 
-export const moveElement = (fromIndex:number, toIndex:number) => ({
-  type: GRID_BOARD_MOVE_ELEMENT,
-  meta: {
-    fromIndex,
-    toIndex
-  }
-});
-
 export const grabElement = (index:number) => ({
   type: GRID_BOARD_GRAB_ELEMENT,
   payload: {
