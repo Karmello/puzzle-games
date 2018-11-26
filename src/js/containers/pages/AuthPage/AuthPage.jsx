@@ -10,11 +10,11 @@ import { toggleAppLoader, setAuthStatus } from 'js/actions/app';
 import { registerUser, loginUser } from 'js/actions/api';
 import './AuthPage.css';
 
-import type { T_AppSettings, T_ApiEndPoint } from 'js/flow-types';
+import type { T_AppState, T_ApiEndPoint } from 'js/flow-types';
 
 type Props = {
   dispatch:Function,
-  app:T_AppSettings,
+  app:T_AppState,
   clientUser:T_ApiEndPoint,
   location:{
     state:{
@@ -67,7 +67,6 @@ class AuthPage extends Component<Props> {
       
       if (!state || state.from.pathname === '/') {
         pathname = '/games';
-
       } else {
         pathname = state.from.pathname + state.from.search;
       }

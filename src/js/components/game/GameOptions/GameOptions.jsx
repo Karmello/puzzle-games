@@ -5,9 +5,9 @@ import { isEmpty } from 'lodash';
 import type { T_GameOptionsModel } from 'js/flow-types';
 import './GameOptions.css';
 
-type Props = {
+export type Props = {
   options:T_GameOptionsModel,
-  Content:Function,
+  Content:React.ComponentType<Props>,
   path?:string,
   disabled?:boolean,
   onValueChangeCb?:Function
@@ -42,8 +42,10 @@ export default class GameOptions extends React.Component<Props, T_GameOptionsMod
   }
 
   onValueChange(key:string, value:string) {
-    const { onValueChangeCb } = this.props;
-    this.setState({ [key]: value });
-    if (onValueChangeCb) { setTimeout(() => onValueChangeCb(this.state)); }
+    if (this.state[key] !== value) {
+      const { onValueChangeCb } = this.props;
+      this.setState({ [key]: value });
+      if (onValueChangeCb) { setTimeout(() => onValueChangeCb(this.state)); }
+    }
   }
 }

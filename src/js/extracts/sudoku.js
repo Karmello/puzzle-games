@@ -5,9 +5,9 @@ import {
   getWithLinesShuffled,
   coordsToIndex,
   areValuesUniqueOnAxis
-} from 'js/extracts/gridGameBoard';
+} from 'js/extracts/gridBoard';
 
-import { shuffleIntArray } from 'js/helpers';
+import { shuffleIntArray } from 'js/helpers/methods';
 
 export const startingValues = [
   5, 3, 4, 6, 7, 8, 9, 1, 2,

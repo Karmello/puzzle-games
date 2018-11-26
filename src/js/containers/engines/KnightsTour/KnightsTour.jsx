@@ -3,87 +3,97 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'material-ui';
 
-import { Game, GridGameBoard } from 'js/components';
+import { GridBoard } from 'js/containers';
+import { Game } from 'js/components';
 import { initEngine, moveKnight, resetEngine } from 'js/actions/knightsTour';
-import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridGameBoard';
+import { indexToCoords, findAllMovementCoords } from 'js/extracts/gridBoard';
+import { C_KnightsTour } from 'js/constants';
+
+const { elementSize, imgPaths } = C_KnightsTour;
 
 class KnightsTour extends Game {
-
-  squareSize:number;
-  knightImgPath:string;
-  okArrowImgPath:string;
-
-  constructor(props) {
-    super(props);
-    this.squareSize = 75;
-    this.knightImgPath = 'knights-tour/knight.jpg';
-    this.okArrowImgPath = 'knights-tour/ok_arrow.png';
-  }
 
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
   }
 
   render() {
-    const { game, knightsTourEngine } = this.props;
+    const { game } = this.props;
     if (game.isLoading) { return null; }
     return (
-      <GridGameBoard
+      <GridBoard
         dimension={Number(game.options.dimension)}
-        squareSize={this.squareSize}
-        Square={props => (
-          <Button
-            disabled
-            disableRipple
-            style={props.index === knightsTourEngine.active ? this.getKnightBtnStyle() : this.getVisitedBtnStyle()}
-          > </Button>
-        )}
         isChessBoard={true}
-        gridData={knightsTourEngine.visited}
-        onEmptyCellClick={index => this.onEmptyCellClick(index)}
+        gridMap={this.createGridMap()}
+        element={{
+          size: elementSize,
+          Element: this.renderElement()
+        }}
+        callback={{
+          onEmptyCellClick: this.onMoveTry.bind(this)
+        }}
       />
     );
   }
 
-  onEmptyCellClick(index:number) {
+  renderElement() {
+    const { active } = this.props.knightsTourEngine;
+    return (props) => (
+      <Button
+        disabled
+        disableRipple
+        style={this.getElementStyle(props.index === active)}
+      > </Button>
+    );
+  }
+
+  createGridMap() {
+    const { visited } = this.props.knightsTourEngine;
+    const gridMap = [];
+    visited.forEach((isVisited, i) => {
+      gridMap[i] = isVisited;
+    });
+    return gridMap;
+  }
+
+  onMoveTry(toIndex:number) {
     
     const { knightsTourEngine: { active }, game: { options: { dimension } } } = this.props;
-    const newCoords = indexToCoords(index, Number(dimension));
+    const newCoords = indexToCoords(toIndex, Number(dimension));
     const allMovementCoords = findAllMovementCoords(indexToCoords(active, Number(dimension)), Number(dimension), 'CHESS_KNIGHT');
 
     for (let coords of allMovementCoords) {
       if (coords.x === newCoords.x && coords.y === newCoords.y) {
-        this.props.dispatch(moveKnight(index));
+        this.props.dispatch(moveKnight(toIndex));
         return super.onMakeMove();
       }
     }
   }
 
-  getKnightBtnStyle() {
-    return  {
-      minWidth: `${this.squareSize}px`,
-      height: `${this.squareSize}px`,
-      border: '1px solid gray',
-      borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${this.knightImgPath})`,
-      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`,
-      backgroundColor: 'white'
+  getElementStyle(active:boolean) {
+    if (active) {
+      return  {
+        minWidth: `${elementSize}px`,
+        height: `${elementSize}px`,
+        border: '1px solid gray',
+        borderRadius: '0px',
+        backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.knight})`,
+        backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+      }
+    } else {
+      return  {
+        minWidth: `${elementSize}px`,
+        height: `${elementSize}px`,
+        backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.okArrow})`,
+        backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+      }
     }
   }
-
-  getVisitedBtnStyle() {
-    return  {
-      minWidth: `${this.squareSize}px`,
-      height: `${this.squareSize}px`,
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${this.okArrowImgPath})`,
-      backgroundSize: `${this.squareSize-2}px ${this.squareSize-2}px`
-    }
-  }
-
+  
   startNew = () => {
     const { dispatch, game: { options: { dimension } } } = this.props;
     return new Promise(resolve => {
-      Promise.all([this.loadImg(this.knightImgPath), this.loadImg(this.okArrowImgPath)]).then(() => {
+      Promise.all([this.loadImg(imgPaths.knight), this.loadImg(imgPaths.okArrow)]).then(() => {
         const visited = Array.from({ length: Number(dimension) ** 2 }, () => false);
         let active;
         switch (dimension) {

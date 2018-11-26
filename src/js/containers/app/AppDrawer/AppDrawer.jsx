@@ -10,18 +10,18 @@ import { isEmpty } from 'lodash';
 
 import { App } from 'js/containers';
 import { toggleAppDrawer, toggleAppLoader, setAuthStatus } from 'js/actions/app';
-import { API_MAKE_AUTH_REQUEST, API_FETCH_GAMES, API_FETCH_GAME_CATEGORIES, API_API_FETCH_HIGHSCORES, API_FETCH_HIGHSCORE, API_SAVE_NEW_HIGHSCORE, API_FETCH_USERS } from 'js/actions/api';
+import { API_MAKE_AUTH_REQUEST, API_FETCH_GAMES, API_FETCH_GAME_CATEGORIES, API_FETCH_HIGHSCORES, API_FETCH_HIGHSCORE, API_SAVE_NEW_HIGHSCORE, API_FETCH_USERS } from 'js/actions/api';
 import { apiRequestClear } from 'js/creators/action/api';
 import { clearPageConfig } from 'js/creators/action/pages';
 
-import type { T_AppSettings, T_ApiEndPoint, T_PagesSettings } from 'js/flow-types';
+import type { T_AppState, T_ApiEndPoint, T_PagesState } from 'js/flow-types';
 
 import './AppDrawer.css';
 
 type Props = {
-  app:T_AppSettings,
+  app:T_AppState,
   clientUser:T_ApiEndPoint,
-  pages:T_PagesSettings,
+  pages:T_PagesState,
   dispatch:Function
 };
 
@@ -94,7 +94,7 @@ class AppDrawer extends Component<Props> {
         dispatch(apiRequestClear(API_MAKE_AUTH_REQUEST));
         dispatch(apiRequestClear(API_FETCH_GAMES));
         dispatch(apiRequestClear(API_FETCH_GAME_CATEGORIES));
-        dispatch(apiRequestClear(API_API_FETCH_HIGHSCORES));
+        dispatch(apiRequestClear(API_FETCH_HIGHSCORES));
         dispatch(apiRequestClear(API_FETCH_HIGHSCORE));
         dispatch(apiRequestClear(API_FETCH_USERS));
         dispatch(apiRequestClear(API_SAVE_NEW_HIGHSCORE));

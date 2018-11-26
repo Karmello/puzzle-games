@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
@@ -9,9 +9,10 @@ import { FormControl } from 'material-ui/Form';
 import { InputLabel } from 'material-ui/Input';
 
 import { GameOptions } from 'js/components';
-import { kebabToCamelCase } from 'js/helpers';
+import { kebabToCamelCase } from 'js/helpers/methods';
 import './HighscoresFilter.css';
 
+import type { T_GameOptionsProps } from 'js/components';
 import type { T_ApiEntities, T_GameOptionsModel } from 'js/flow-types';
 
 type Props = {
@@ -23,10 +24,10 @@ type Props = {
 
 type State = {
   gameId?:string,
-  Options?:Function
+  Options?:React.ComponentType<T_GameOptionsProps>
 };
 
-export default class HighscoresFilter extends Component<Props, State> {
+export default class HighscoresFilter extends React.Component<Props, State> {
 
   getMenuItemLink:(categoryId:string, id?:string) => string;
 
@@ -36,14 +37,12 @@ export default class HighscoresFilter extends Component<Props, State> {
   }
 
   componentWillMount() {
-    
     if (this.props.gameFilter.id) {
       this.setupOptionsComponent(this.props.gameFilter.id);
     }
   }
 
   componentWillReceiveProps(nextProps:Props) {
-
     if (nextProps.gameFilter.id !== this.state.gameId && nextProps.gameFilter.id) {
       this.setupOptionsComponent(nextProps.gameFilter.id);
     }
@@ -131,7 +130,7 @@ export default class HighscoresFilter extends Component<Props, State> {
 
     if (this.props.gameOptions[gameId]) {
       const id = kebabToCamelCase(gameId);
-      Options = require(`js/components/engineOptions/${id}Options`).default;
+      Options = require(`js/components/engineOptions/${id}Options/${id}Options`).default;
     }
 
     this.setState({ gameId, Options });

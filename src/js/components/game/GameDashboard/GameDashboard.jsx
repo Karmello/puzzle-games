@@ -1,20 +1,20 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Chip } from 'material-ui';
 
 import { Timer } from 'js/components';
 import './GameDashboard.css';
 
-import type { T_GameSettings } from 'js/flow-types';
+import type { T_GameState, T_TimerRef } from 'js/flow-types';
 
 type Props = {
   clientUserData:{ username:string },
-  game:T_GameSettings
+  game:T_GameState
 };
 
-export default class GameDashboard extends Component<Props> {
+export default class GameDashboard extends React.Component<Props> {
 
-  timerRef:{ state:{ seconds:number } };
+  timerRef:T_TimerRef;
 
   render() {
     const { clientUserData, game } = this.props;
@@ -27,7 +27,7 @@ export default class GameDashboard extends Component<Props> {
           <Timer
             on={!game.isLoading && !game.isSolved}
             paused={game.isSolved}
-            ref={ref => { if (ref) { this.timerRef = ref } }}
+            ref={this.getRef}
           />
         </div>
         <div>
@@ -36,4 +36,6 @@ export default class GameDashboard extends Component<Props> {
       </div>
     );
   }
+
+  getRef = (ref:T_TimerRef|null) => ref ? this.timerRef = ref : null;
 }

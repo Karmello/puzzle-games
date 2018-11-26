@@ -2,15 +2,13 @@
 import { Component } from 'react';
 
 import { App } from 'js/containers';
-import { fetchHighscore, saveNewHighscore } from 'js/actions/api';
 import { stopGameLoader, makeMove, setAsSolved } from 'js/actions/game';
-import type { T_GameSettings, T_BossPuzzleEngine, T_EightQueensEngine, T_KnightsTourEngine, T_SudokuEngine } from 'js/flow-types';
+import type { T_GameState, T_BossPuzzleEngine, T_EightQueensEngine, T_KnightsTourEngine, T_SudokuEngine } from 'js/flow-types';
 
 type Props = {
   dispatch:Function,
-  readTimer:Function,
   clientUser:any,
-  game:T_GameSettings,
+  game:T_GameState,
   bossPuzzleEngine:T_BossPuzzleEngine,
   eightQueensEngine:T_EightQueensEngine,
   knightsTourEngine:T_KnightsTourEngine,
@@ -50,18 +48,8 @@ export default class Game extends Component<Props, State> {
     } else if (nextGame.moves > 0 && nextGame.moves - game.moves === 1) {
       this.checkIfSolved().then(solved => {
         if (solved) {
-          const { clientUser, readTimer, dispatch } = this.props;
+          const { dispatch } = this.props;
           dispatch(setAsSolved());
-          dispatch(saveNewHighscore({
-            username: clientUser.res.data.username,
-            gameId: nextGame.id,
-            options: game.options,
-            details: { moves: nextGame.moves, seconds: readTimer().seconds }
-          })).then(action => {
-            if (action.payload.status === 200) {
-              dispatch(fetchHighscore(nextGame.id, nextGame.options))
-            }
-          });
         }
       });
     }
@@ -73,15 +61,12 @@ export default class Game extends Component<Props, State> {
 
   onFinishInit() {
     setTimeout(() => {
-      const { dispatch, game } = this.props;
-      dispatch(fetchHighscore(game.id, game.options)).then(() => dispatch(stopGameLoader()));
+      this.props.dispatch(stopGameLoader());
     }, App.minLoadTime);
   }
 
   onMakeMove() {
-    setTimeout(() => {
-      this.props.dispatch(makeMove());
-    });
+    setTimeout(() => this.props.dispatch(makeMove()));
   }
 
   loadImg(imgPath:string) {

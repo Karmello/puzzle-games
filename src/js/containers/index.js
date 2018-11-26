@@ -12,6 +12,9 @@ export { default as GamesPage } from './pages/GamesPage/GamesPage';
 export { default as HighscoresPage } from './pages/HighscoresPage/HighscoresPage';
 export { default as RootPage } from './pages/RootPage/RootPage';
 
+// grid board
+export { default as GridBoard } from './gridBoard/GridBoard/GridBoard';
+
 // engines
 export { default as BossPuzzle } from './engines/BossPuzzle/BossPuzzle';
 export { default as EightQueens } from './engines/EightQueens/EightQueens';

@@ -7,13 +7,15 @@ import { Paper } from 'material-ui';
 import GameDashboard from 'js/components/game/GameDashboard/GameDashboard';
 import GameInfo from 'js/components/game/GameInfo/GameInfo';
 import { Loader } from 'js/components';
+import { fetchHighscore, saveNewHighscore } from 'js/actions/api';
 import { setAppTitle } from 'js/actions/app';
 import { startGame, endGame } from 'js/actions/game';
 import { toggleExpansionPanel } from 'js/actions/gamePage';
-import { kebabToCamelCase } from 'js/helpers';
+import { kebabToCamelCase } from 'js/helpers/methods';
+import { C_AppTitle } from 'js/constants';
 import './GamePage.css';
 
-import type { T_ApiEntities, T_GameOptionsModel, T_GameSettings, T_GamePageSettings } from 'js/flow-types';
+import type { T_ApiEntities, T_GameOptionsModel, T_GameState, T_GamePageState, T_TimerRef } from 'js/flow-types';
 
 type Props = {
   dispatch: Function,
@@ -21,16 +23,14 @@ type Props = {
   queryParams:T_GameOptionsModel,
   api:T_ApiEntities,
   gameData:{ name:string, categoryId:string, info:string },
-  gamePage:T_GamePageSettings,
-  game:T_GameSettings
+  gamePage:T_GamePageState,
+  game:T_GameState
 };
 
 class GamePage extends Component<Props> {
 
   gameDashBoardRef:{
-    timerRef:{
-      state:{ seconds:number }
-    }
+    timerRef:T_TimerRef
   };
 
   componentWillMount() {
@@ -38,14 +38,32 @@ class GamePage extends Component<Props> {
     const { match, queryParams, gameData, dispatch } = this.props;
     const id = match.params.id;
   
+    dispatch(fetchHighscore(id, queryParams));
     dispatch(setAppTitle(gameData.name));
     dispatch(startGame(id, queryParams, false));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { game } = nextProps;
+    if (!this.props.game.isSolved && game.isSolved) {
+      const { api, dispatch } = this.props;
+      dispatch(saveNewHighscore({
+        username: api.clientUser.res.data.username,
+        gameId: game.id,
+        options: game.options,
+        details: { moves: game.moves, seconds: this.readTimer().seconds }
+      })).then(action => {
+        if (action.payload.status === 200) {
+          dispatch(fetchHighscore(game.id, game.options))
+        }
+      });
+    }
   }
 
   componentWillUnmount() {
     const { dispatch } = this.props;
     dispatch(endGame());
-    dispatch(setAppTitle('Puzzle Games'));
+    dispatch(setAppTitle(C_AppTitle));
   }
 
   render() {
@@ -62,7 +80,7 @@ class GamePage extends Component<Props> {
           <GameDashboard
             clientUserData={clientUser.res.data}
             game={game}
-            ref={ref => ref ? this.gameDashBoardRef = ref : null}
+            ref={this.getGameDashboardRef}
           />
         </Paper>
         <Loader isShown={game.isLoading}>
@@ -78,7 +96,7 @@ class GamePage extends Component<Props> {
             </div>
             <div className='GamePage-engine'>
               <div style={this.getEngineContainerStyle(game.isSolved)}>
-                <Engine readTimer={() => this.gameDashBoardRef.timerRef.state} />
+                <Engine />
               </div>
               {game.isSolved && <div className='GamePage-solved'>SOLVED !</div>}
             </div>
@@ -112,6 +130,9 @@ class GamePage extends Component<Props> {
       dispatch(toggleExpansionPanel(name, expanded));
     }
   }
+
+  readTimer = () => this.gameDashBoardRef.timerRef.state;
+  getGameDashboardRef = ref => ref ? this.gameDashBoardRef = ref : null;
 }
 
 export default withRouter(connect(store => ({

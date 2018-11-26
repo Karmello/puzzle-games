@@ -5,13 +5,13 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 
 import { AuthPage, RootPage } from 'js/containers';
 import { Loader, MySnackBar } from 'js/components';
-import type { T_AppSettings, T_ApiEntities } from 'js/flow-types';
+import type { T_AppState, T_ApiEntities } from 'js/flow-types';
 
 import './App.css';
 
 type Props = {
   api:T_ApiEntities,
-  app:T_AppSettings
+  app:T_AppState
 };
 
 type State = {
@@ -40,14 +40,12 @@ class App extends Component<Props, State> {
   }
 
   render() {
-
     const { app } = this.props;
-
     return (
       <div className='App'>
         <MySnackBar
           message={this.state.snackBarMessage}
-          onClose={() => { this.setState({ snackBarMessage: '' }) }}
+          onClose={this.onClose.bind(this)}
         />
         <Loader centered={true} isShown={app.isLoading}>
           <Switch>
@@ -58,9 +56,15 @@ class App extends Component<Props, State> {
       </div>
     );
   }
+
+  onClose() {
+    this.setState({ snackBarMessage: '' });
+  }
 }
 
-export default withRouter(connect(store => ({
-  api: store.api,
-  app: store.app
-}))(App));
+export default withRouter(
+  connect(store => ({
+    api: store.api,
+    app: store.app
+  }))(App)
+);

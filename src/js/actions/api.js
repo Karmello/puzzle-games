@@ -11,7 +11,7 @@ const baseURL = process.env.REACT_APP_API_URI;
 export const API_MAKE_AUTH_REQUEST = 'API_MAKE_AUTH_REQUEST';
 export const API_FETCH_GAMES = 'API_FETCH_GAMES';
 export const API_FETCH_GAME_CATEGORIES = 'API_FETCH_GAME_CATEGORIES';
-export const API_API_FETCH_HIGHSCORES = 'API_API_FETCH_HIGHSCORES';
+export const API_FETCH_HIGHSCORES = 'API_FETCH_HIGHSCORES';
 export const API_FETCH_HIGHSCORE = 'API_FETCH_HIGHSCORE';
 export const API_FETCH_USERS = 'API_FETCH_USERS';
 export const API_SAVE_NEW_HIGHSCORE = 'API_SAVE_NEW_HIGHSCORE';
@@ -105,18 +105,18 @@ export const fetchHighscores = (gameId:string, query:T_GameOptionsModel, delay:n
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscores/${gameId}`;
     if (query && !isEmpty(query)) { url += `?${qs.stringify(query)}`; }
-    dispatch(apiRequest(API_API_FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
+    dispatch(apiRequest(API_FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(res => {
       if (delay) {
-        setTimeout(() => dispatch(apiRequestSuccess(API_API_FETCH_HIGHSCORES, res)), delay);
+        setTimeout(() => dispatch(apiRequestSuccess(API_FETCH_HIGHSCORES, res)), delay);
       } else {
-        dispatch(apiRequestSuccess(API_API_FETCH_HIGHSCORES, res));
+        dispatch(apiRequestSuccess(API_FETCH_HIGHSCORES, res));
       }
     }, err => {
       if (delay) {
-        setTimeout(() => dispatch(apiRequestFailure(API_API_FETCH_HIGHSCORES, err)), delay);
+        setTimeout(() => dispatch(apiRequestFailure(API_FETCH_HIGHSCORES, err)), delay);
       } else {
-        dispatch(apiRequestFailure(API_API_FETCH_HIGHSCORES, err));
+        dispatch(apiRequestFailure(API_FETCH_HIGHSCORES, err));
       }
     });
   }
@@ -131,7 +131,7 @@ export const fetchHighscore = (gameId:string, query:T_GameOptionsModel) => {
     dispatch(apiRequest(API_FETCH_HIGHSCORE, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(
       res => dispatch(apiRequestSuccess(API_FETCH_HIGHSCORE, res)),
-      err => dispatch(apiRequestFailure(API_API_FETCH_HIGHSCORES, err))
+      err => dispatch(apiRequestFailure(API_FETCH_HIGHSCORES, err))
     );
   }
 }

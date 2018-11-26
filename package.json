@@ -10,6 +10,7 @@
     "build": "npm run build-css && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "test-win": "set CI=true & npm test",
+    "test-coverage": "set CI=true & npm test -- --coverage",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "lint": "eslint --ext .js --ext .jsx src",
     "flow": "flow"
@@ -83,13 +84,15 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
-    "@storybook/react": "^3.3.14",
+    "@storybook/react": "^3.4.0",
+    "babel-plugin-root-import": "^6.1.0",
     "flow-webpack-plugin": "^1.2.0",
     "jest-localstorage-mock": "^2.2.0",
     "npm-run-all": "^4.1.1",
+    "react-hot-loader": "^4.3.11",
     "redux-devtools-extension": "^2.13.2",
     "sass-loader": "^6.0.6",
-    "webpack-bundle-analyzer": "^2.11.0"
+    "webpack-bundle-analyzer": "^3.0.3"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -101,7 +104,7 @@
       "jest-localstorage-mock"
     ],
     "testMatch": [
-      "<rootDir>/src/**/__tests__/**/?(*.)(spec|test).js?(x)"
+      "<rootDir>/src/js/**/?(*.)(spec|test).js?(x)"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
@@ -131,6 +134,11 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "babel-plugin-root-import"
+      ]
     ]
   },
   "eslintConfig": {

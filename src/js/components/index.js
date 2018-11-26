@@ -8,16 +8,15 @@ export { default as GameCategories } from './game/GameCategories/GameCategories'
 export { default as GameDashboard } from './game/GameDashboard/GameDashboard';
 export { default as GameInfo } from './game/GameInfo/GameInfo';
 export { default as GameMenu } from './game/GameMenu/GameMenu';
-export { default as GameOptions } from './game/GameOptions/GameOptions';
-export { default as GridGameBoard } from './game/GridGameBoard/GridGameBoard';
+export { default as GameOptions, Props as T_GameOptionsProps } from './game/GameOptions/GameOptions';
 
 // highscore
 export { default as HighscoresFilter } from './highscore/HighscoresFilter/HighscoresFilter';
 export { default as HighscoresTable } from './highscore/HighscoresTable/HighscoresTable';
 
 // engine options
-export { default as BossPuzzleOptions } from './engineOptions/BossPuzzleOptions';
-export { default as KnightsTourOptions } from './engineOptions/KnightsTourOptions';
+export { default as BossPuzzleOptions } from './engineOptions/BossPuzzleOptions/BossPuzzleOptions';
+export { default as KnightsTourOptions } from './engineOptions/KnightsTourOptions/KnightsTourOptions';
 
 // other
 export { default as AuthForm } from './other/AuthForm/AuthForm';
