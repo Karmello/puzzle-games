@@ -4,7 +4,6 @@ import {
   GRID_BOARD_UPDATE,
   GRID_BOARD_GRAB_ELEMENT,
   GRID_BOARD_SELECT_ELEMENT,
-  GRID_BOARD_CHANGE_ELEMENT_POSITION,
   GRID_BOARD_RESET
 } from 'js/actions/gridBoard';
 
@@ -23,7 +22,7 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
 
     case GRID_BOARD_INIT:
       for (const key in action.payload.gridMap) {
-        gridMap[key] = { ...action.payload.gridMap[key] };
+        gridMap[key] = { isOccupied: action.payload.gridMap[key] };
         if (action.meta.isSelectable) { gridMap[key].isSelected = false; }
       }
       return {
@@ -33,7 +32,7 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
 
     case GRID_BOARD_UPDATE:
       for (const key in action.payload.gridMap) {
-        gridMap[key] = { ...action.payload.gridMap[key] };
+        gridMap[key] = { isOccupied: action.payload.gridMap[key] };
       }
       if (action.meta.isSelectable) {
         for (const key in state.gridMap) {
@@ -51,35 +50,27 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
         grabbedIndex: state.grabbedIndex
       }
 
+    case GRID_BOARD_SELECT_ELEMENT:
+      for (const key in state.gridMap) {
+        gridMap[key] = { ...state.gridMap[Number(key)]}
+        if (!action.meta.allowMultiSelect) { gridMap[key].isSelected = false; }
+      }
+      if (gridMap[action.payload.index].isOccupied) {
+        gridMap[action.payload.index].isSelected = true;
+      }
+      return {
+        gridMap,
+        grabbedIndex: state.grabbedIndex
+      };
+
     case GRID_BOARD_GRAB_ELEMENT:
       for (const key in state.gridMap) {
         gridMap[key] = { ...state.gridMap[Number(key)] };
       }
       return {
         gridMap,
-        grabbedIndex: action.payload.index
+        grabbedIndex: gridMap[action.payload.index].isOccupied ? action.payload.index : state.grabbedIndex
       };
-
-    case GRID_BOARD_SELECT_ELEMENT:
-      for (const key in state.gridMap) {
-        gridMap[key] = { ...state.gridMap[Number(key)]}
-        if (!action.meta.allowMultiSelect) { gridMap[key].isSelected = false; }
-      }
-      gridMap[action.payload.index].isSelected = true;
-      return {
-        gridMap,
-        grabbedIndex: state.grabbedIndex
-      };
-
-    case GRID_BOARD_CHANGE_ELEMENT_POSITION:
-      for (const key in state.gridMap) {
-        gridMap[key] = { ...state.gridMap[Number(key)] };
-      }
-      gridMap[action.meta.index].position = action.payload.position;
-      return {
-        gridMap,
-        grabbedIndex: state.grabbedIndex
-      }
 
     case GRID_BOARD_RESET:
       return initialState;

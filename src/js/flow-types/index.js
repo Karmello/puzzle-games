@@ -20,7 +20,6 @@ export {
 
 export {
   T_GridMap,
-  T_GridElementProps,
   T_RouterProps,
   T_GridBoardProps
 } from './props';
