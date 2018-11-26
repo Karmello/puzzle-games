@@ -24,7 +24,6 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
       for (const key in action.payload.gridMap) {
         gridMap[key] = { isOccupied: action.payload.gridMap[key] };
         if (action.meta.isSelectable) { gridMap[key].isSelected = false; }
-        if (action.meta.isDraggable) { gridMap[key].position = { x: 0, y: 0 }; }
       }
       return {
         gridMap,
@@ -56,7 +55,9 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
         gridMap[key] = { ...state.gridMap[Number(key)]}
         if (!action.meta.allowMultiSelect) { gridMap[key].isSelected = false; }
       }
-      gridMap[action.payload.index].isSelected = true;
+      if (gridMap[action.payload.index].isOccupied) {
+        gridMap[action.payload.index].isSelected = true;
+      }
       return {
         gridMap,
         grabbedIndex: state.grabbedIndex
@@ -68,7 +69,7 @@ const gridBoardReducer = (state:T_GridBoardState = initialState, action:T_Action
       }
       return {
         gridMap,
-        grabbedIndex: action.payload.index
+        grabbedIndex: gridMap[action.payload.index].isOccupied ? action.payload.index : state.grabbedIndex
       };
 
     case GRID_BOARD_RESET:
