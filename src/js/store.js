@@ -6,16 +6,12 @@ import { createLogger } from 'redux-logger';
 
 import reducers from 'js/reducers';
 
-
-let store;
-
-if (process.env.NODE_ENV !== 'development') {
-  store = createStore(reducers, applyMiddleware(thunkMiddleware));
-
-} else {
-  store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))));
+export const createNewStore = () => {
+  if (process.env.NODE_ENV !== 'development') {
+    return createStore(reducers, applyMiddleware(thunkMiddleware));
+  } else {
+    return createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))));
+  }
 }
 
-export const createNewStore = () => createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))));
-
-export default store;
+export default createNewStore();
