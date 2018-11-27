@@ -6,7 +6,6 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { AuthPage, RootPage } from 'js/containers';
 import { Loader, MySnackBar } from 'js/components';
 import type { T_AppState, T_ApiEntities } from 'js/flow-types';
-
 import './App.css';
 
 type Props = {
