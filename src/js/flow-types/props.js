@@ -24,7 +24,8 @@ export type T_GridBoardProps = {
     size:number,
     isDraggable?:boolean,
     isSelectable?:boolean,
-    Element?:React.ComponentType<{ col:number, row:number, index:number }>
+    Element?:React.ComponentType<{ col:number, row:number, index:number }>,
+    getStyle?:Function
   },
   callback:{
     onEmptyCellClick?:Function,

@@ -28,7 +28,8 @@ class EightQueens extends Game {
         element={{
           size: elementSize,
           isSelectable: true,
-          Element: this.renderElement()
+          Element: this.renderElement(),
+          getStyle: this.getElementStyle.bind(this)
         }}
         callback={{
           onEmptyCellClick: this.onMoveTry.bind(this)
@@ -39,7 +40,7 @@ class EightQueens extends Game {
 
   renderElement() {
     return props => (
-      <Button disableRipple style={this.getElementStyle(props.isSelected)}> </Button>
+      <Button disableRipple style={props.style}> </Button>
     );
   }
 
@@ -61,14 +62,14 @@ class EightQueens extends Game {
     }
   }
 
-  getElementStyle(isSelected:boolean) {
+  getElementStyle({ isSelected, size }) {
     return  {
-      minWidth: `${elementSize}px`,
-      height: `${elementSize}px`,
+      minWidth: `${size}px`,
+      height: `${size}px`,
       border: '1px solid gray',
       borderRadius: '0px',
       backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.queen})`,
-      backgroundSize: `${elementSize-2}px ${elementSize-2}px`,
+      backgroundSize: `${size-2}px ${size-2}px`,
       backgroundColor: !isSelected ? 'white' : 'yellow'
     }
   }

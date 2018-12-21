@@ -27,7 +27,8 @@ class KnightsTour extends Game {
         gridMap={this.createGridMap()}
         element={{
           size: elementSize,
-          Element: this.renderElement()
+          Element: this.renderElement(),
+          getStyle: this.getElementStyle.bind(this)
         }}
         callback={{
           onEmptyCellClick: this.onMoveTry.bind(this)
@@ -37,12 +38,11 @@ class KnightsTour extends Game {
   }
 
   renderElement() {
-    const { active } = this.props.knightsTourEngine;
-    return (props) => (
+    return props => (
       <Button
         disabled
         disableRipple
-        style={this.getElementStyle(props.index === active)}
+        style={props.style}
       > </Button>
     );
   }
@@ -70,22 +70,23 @@ class KnightsTour extends Game {
     }
   }
 
-  getElementStyle(active:boolean) {
-    if (active) {
+  getElementStyle({ index, size }) {
+    const { active } = this.props.knightsTourEngine;
+    if (index === active) {
       return  {
-        minWidth: `${elementSize}px`,
-        height: `${elementSize}px`,
+        minWidth: `${size}px`,
+        height: `${size}px`,
         border: '1px solid gray',
         borderRadius: '0px',
         backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.knight})`,
-        backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+        backgroundSize: `${size-2}px ${size-2}px`
       }
     } else {
       return  {
-        minWidth: `${elementSize}px`,
-        height: `${elementSize}px`,
+        minWidth: `${size}px`,
+        height: `${size}px`,
         backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.okArrow})`,
-        backgroundSize: `${elementSize-2}px ${elementSize-2}px`
+        backgroundSize: `${size-2}px ${size-2}px`
       }
     }
   }
