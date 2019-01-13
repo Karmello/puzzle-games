@@ -9,6 +9,7 @@ import { isEmpty, isEqual, findKey } from 'lodash';
 
 import { coordsToIndex, offsetToIndex } from 'js/extracts/gridBoard';
 import { initGridBoard, updateGridBoard, grabElement, selectElement, resetGridBoard } from 'js/actions/gridBoard';
+import { C_GridBoard } from 'js/constants';
 
 import type { T_GridBoardProps, T_Event, T_Coords } from 'js/flow-types';
 import './GridBoard.css';
@@ -209,10 +210,11 @@ class GridBoard extends Component<T_GridBoardProps, State> {
   }
 
   getActualElementSize() {
-    const offset = 75;
+    const { minGridBoardElemSize, offset } = C_GridBoard;
     const { dimension, element: { size } } = this.props;
     if (dimension * size > window.innerWidth - offset) {
-      return Math.floor((window.innerWidth - offset) / dimension);
+      const newSize = Math.floor((window.innerWidth - offset) / dimension);
+      return newSize >= minGridBoardElemSize ? newSize : minGridBoardElemSize;
     }
     return size;
   }
