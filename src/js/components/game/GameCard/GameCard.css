@@ -2,16 +2,24 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin-top: 25px; }
+  max-width: 100%; }
   .GameCard > div {
     width: 350px;
-    margin: 10px;
-    padding: 10px 10px 0 10px; }
-    .GameCard > div .GameCard-options {
+    margin: 5px 10px 5px 10px; }
+    .GameCard > div .GameCard-logoContainer {
+      padding: 10px; }
+    .GameCard > div .GameCard-contentContainer .GameCard-options {
       margin-top: 10px;
       text-align: center; }
-    .GameCard > div .GameCard-actions {
+    .GameCard > div .GameCard-contentContainer .GameCard-actions {
       display: flex;
       flex-flow: row wrap;
       align-items: flex-start;
       justify-content: flex-end; }
+
+@media screen and (min-width: 600px) and (max-width: 1250px) {
+  .GameCard > div {
+    display: flex;
+    width: 700px; }
+    .GameCard > div .GameCard-logoContainer {
+      width: 350px; } }
