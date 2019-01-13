@@ -10,6 +10,9 @@
 
     .GameCard-logoContainer {
       padding: 10px;
+      > * {
+        height: 225px;
+      }
     }
 
     .GameCard-contentContainer {
@@ -34,8 +37,12 @@
     > div {
       display: flex;
       width: 700px;
+
       .GameCard-logoContainer {
         width: 350px;
+        > * {
+          height: 100%;
+        }
       }
     }
   }

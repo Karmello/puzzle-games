@@ -33,7 +33,6 @@ export default class GameCard extends Component<Props> {
         <Card>
           <div className='GameCard-logoContainer'>
             <CardMedia
-              style={{ height: '200px' }}
               image={`${process.env.REACT_APP_S3_BUCKET || ''}/${gameData.id}/logo.jpg`}
               title={gameData.name}
             />
