@@ -211,12 +211,16 @@ class GridBoard extends Component<T_GridBoardProps, State> {
 
   getActualElementSize() {
     const { minGridBoardElemSize, offset } = C_GridBoard;
-    const { dimension, element: { size } } = this.props;
-    if (dimension * size > window.innerWidth - offset) {
-      const newSize = Math.floor((window.innerWidth - offset) / dimension);
+    const { dimension, element } = this.props;
+    const size = dimension * element.size;
+    const maxPossibleWidth = window.innerWidth - offset;
+    const maxPossibleHeight = window.innerHeight - offset;
+    if (size > maxPossibleWidth || size > maxPossibleHeight) {
+      const maxPossibleSize = Math.min(maxPossibleWidth, maxPossibleHeight);
+      const newSize = Math.floor(maxPossibleSize / dimension);
       return newSize >= minGridBoardElemSize ? newSize : minGridBoardElemSize;
     }
-    return size;
+    return element.size;
   }
 }
 
