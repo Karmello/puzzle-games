@@ -4,7 +4,7 @@ import { version } from '~/package.json';
 const defaultUiConfig = {
   version,
   gamesPage: {
-    category: 'sliding',
+    category: 'all',
     options: {
       'boss-puzzle': { mode: 'NUM', dimension: '3' },
       'knights-tour': { dimension: '5' }

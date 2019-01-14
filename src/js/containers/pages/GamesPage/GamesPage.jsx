@@ -54,7 +54,7 @@ class GamesPage extends Component<Props> {
           {api.gameCategories.res.data.map(categoryData => (
             <div className='GamesPage-category-games' key={categoryData.id}>
               {api.games.res.data.map(gameData => {
-                if (gameData.categoryId === categoryData.id) {
+                if (gameData.categoryId === categoryData.id || categoryData.id === 'all') {
                   return (
                     <GameCard
                       key={gameData.id}
