@@ -86,7 +86,7 @@ class GamesPage extends Component<Props> {
 
   onSwipe(index) {
     const { api, history } = this.props;
-    history.push(`/games/${api.gameCategories.res.data[index].id}`);
+    setTimeout(() => history.push(`/games/${api.gameCategories.res.data[index].id}`), 300);
   }
 }
 
