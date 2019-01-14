@@ -27,6 +27,8 @@
         flex-flow: row wrap;
         align-items: flex-start;
         justify-content: flex-end;
+        margin-left: 5px;
+        margin-right: 5px;
       }
     }
   }
@@ -39,10 +41,14 @@
       width: 700px;
 
       .GameCard-logoContainer {
-        width: 350px;
+        flex: 3;
         > * {
           height: 100%;
         }
+      }
+
+      .GameCard-contentContainer {
+        flex: 5;
       }
     }
   }
