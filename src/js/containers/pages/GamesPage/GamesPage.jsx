@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SwipeableViews from 'react-swipeable-views';
 
@@ -11,6 +12,7 @@ import type { T_GamesPageState, T_ApiEntities } from 'js/flow-types';
 
 type Props = {
   dispatch:Function,
+  history:{ push:Function },
   api:T_ApiEntities,
   gamesPage:T_GamesPageState,
   gameCategoryToSet:string
@@ -47,6 +49,7 @@ class GamesPage extends Component<Props> {
           className='GamesPage-games'
           axis={'x'}
           index={api.gameCategories.res.data.findIndex(elem => elem.id === gameCategoryToSet)}
+          onChangeIndex={this.onSwipe.bind(this)}
         >
           {api.gameCategories.res.data.map(categoryData => (
             <div className='GamesPage-category-games' key={categoryData.id}>
@@ -80,9 +83,14 @@ class GamesPage extends Component<Props> {
       dispatch(changeGameOptions(gameId, options));
     }
   }
+
+  onSwipe(index) {
+    const { api, history } = this.props;
+    setTimeout(() => history.push(`/games/${api.gameCategories.res.data[index].id}`), 300);
+  }
 }
 
-export default connect(store => ({
+export default withRouter(connect(store => ({
   gamesPage: store.pages.gamesPage,
   api: store.api
-}))(GamesPage);
+}))(GamesPage));
