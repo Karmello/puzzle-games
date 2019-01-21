@@ -23,8 +23,8 @@ const render = () => (
 
 render(App);
 
-if (module.hot) {
-  module.hot.accept([
+if ((module:{ hot:boolean }).hot) {
+  (module:{ hot:boolean }).hot.accept([
     'js/containers/app/App/App',
     'js/containers',
     'js/components'

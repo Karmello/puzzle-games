@@ -106,7 +106,7 @@ export default class HighscoresFilter extends React.Component<Props, State> {
             path={gameFilter.id ? `/highscores/${gameFilter.id}` : ''}
             disabled={this.shouldBeDisabled()}
             Content={Options}
-          ></GameOptions>}
+          />}
         </div>
       </div>
     );
