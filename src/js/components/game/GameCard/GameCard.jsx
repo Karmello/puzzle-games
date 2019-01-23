@@ -47,7 +47,7 @@ export default class GameCard extends Component<Props> {
                   onValueChangeCb={this.onValueChangeCb}
                   options={gameOptions}
                   Content={Options}
-                ></GameOptions>}
+                />}
               </div>
             </CardContent>
             <CardActions className='GameCard-actions'>

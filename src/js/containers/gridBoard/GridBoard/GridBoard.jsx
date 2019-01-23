@@ -57,7 +57,6 @@ class GridBoard extends Component<T_GridBoardProps, State> {
   }
 
   render() {
-
     const { actualElementSize } = this.state;
     const { gridBoard, dimension, gridMap, element } = this.props;
 
