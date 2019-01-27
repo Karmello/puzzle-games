@@ -1,6 +1,11 @@
 // @flow
 export const C_AppTitle = 'Puzzle Games';
 
+export const C_GridBoard = {
+  minGridBoardElemSize: 50,
+  offset: 75
+};
+
 export const C_BossPuzzle = {
   numOfImgs : 20,
   fontSizes: { '3': 40, '4': 30, '5': 22 },

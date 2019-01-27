@@ -2,4 +2,6 @@
   margin: 0 auto;
   overflow-x: auto; }
   .HighscoresTable .HighscoresTable-title {
-    margin: 20px 0 0 20px; }
+    margin: 20px 0 20px 20px; }
+  .HighscoresTable .HighscoresTable-cell {
+    padding: 15px; }

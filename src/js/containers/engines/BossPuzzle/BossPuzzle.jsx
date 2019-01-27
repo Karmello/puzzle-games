@@ -33,7 +33,8 @@ class BossPuzzle extends Game {
           gridMap={this.createGridMap()}
           element={{
             size: tileSizes[String(dimension)],
-            Element: this.renderElement()
+            Element: this.renderElement(),
+            getStyle: this.getElementStyle.bind(this)
           }}
         />
       );
@@ -48,7 +49,7 @@ class BossPuzzle extends Game {
       <Button
         disableRipple
         variant='raised'
-        style={this.getStyle(props)}
+        style={props.style}
         onClick={this.onTileClick.bind(this, props)}
       >
         {mode === 'NUM' ? this.getTileLabel(props) : ''}
@@ -94,18 +95,16 @@ class BossPuzzle extends Game {
     if (tiles.length > 0) { return tiles[elemProps.index]; } else { return ''; }
   }
 
-  getStyle(elemProps) {
+  getElementStyle({ col, row, index, size }) {
     
-    const { col, row } = elemProps;
     const { imgSrc } = this.state;
     const { mode, dimension } = this.props.game.options;
     const { hiddenTileCoords } = this.props.bossPuzzleEngine;
-    const tileSize = tileSizes[Number(dimension)];
 
     const style = {
-      minWidth: `${tileSize}px`,
-      width: `${tileSize}px`,
-      height: `${tileSize}px`,
+      minWidth: `${size}px`,
+      width: `${size}px`,
+      height: `${size}px`,
       fontSize: `${fontSizes[dimension || '3']}px`,
       color: '#001f3f',
       backgroundColor: 'rgba(61, 153, 112, 0.75)',
@@ -116,14 +115,13 @@ class BossPuzzle extends Game {
 
     if (col !== hiddenTileCoords.x || row !== hiddenTileCoords.y) {
 
-      const label = this.getTileLabel(elemProps);
+      const label = this.getTileLabel({ index });
 
       if (mode === 'IMG' && imgSrc && label) {
         const imgCoords = indexToCoords(Number(label) - 1, Number(dimension));
-        const imgSize = tileSizes[Number(dimension)];
         style.backgroundImage = `url(${imgSrc})`;
-        style.backgroundSize = `${Number(dimension) * imgSize}px ${Number(dimension) * imgSize}px`;
-        style.backgroundPosition = `-${Number(imgCoords.x) * imgSize}px -${Number(imgCoords.y) * imgSize}px`;
+        style.backgroundSize = `${Number(dimension) * size}px ${Number(dimension) * size}px`;
+        style.backgroundPosition = `-${Number(imgCoords.x) * size}px -${Number(imgCoords.y) * size}px`;
       }
     }
 

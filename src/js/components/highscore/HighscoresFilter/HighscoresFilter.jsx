@@ -64,7 +64,7 @@ export default class HighscoresFilter extends React.Component<Props, State> {
               disabled={this.shouldBeDisabled()}
               style={{ width: '90px' }}
             >
-              {api.gameCategories.res.data.map(obj => (
+              {api.gameCategories.res.data.filter(obj => obj.id !== 'all').map(obj => (
                 <MenuItem
                   key={obj.id}
                   value={obj.id}
@@ -106,7 +106,7 @@ export default class HighscoresFilter extends React.Component<Props, State> {
             path={gameFilter.id ? `/highscores/${gameFilter.id}` : ''}
             disabled={this.shouldBeDisabled()}
             Content={Options}
-          ></GameOptions>}
+          />}
         </div>
       </div>
     );
