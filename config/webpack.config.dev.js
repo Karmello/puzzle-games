@@ -10,7 +10,7 @@ const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeM
 const FlowWebpackPlugin = require('flow-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -254,7 +254,7 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new BundleAnalyzerPlugin({ openAnalyzer: false }),
+    // new BundleAnalyzerPlugin({ openAnalyzer: false }),
     new FlowWebpackPlugin({ failOnError: false, failOnErrorWatch: false, reportingSeverity: 'warning' })
   ],
   // Some libraries import Node modules but don't use them in the browser.
