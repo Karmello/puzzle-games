@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9f516f3-b9ac-4d01-9091-8347933162c3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/webpack.config.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack.config.dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,6 +28,137 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="puzzle-games">
+      <favorite_root url="file://$PROJECT_DIR$/src/js/actions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/loginUser.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/fetchGames.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/fetchUsers.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/registerUser.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/fetchHighscores.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/saveNewHighscore.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/fetchGameCategories.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          </favorite_root>
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/api.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/app.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/game.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/sudoku.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/gamePage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/gamesPage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/gridBoard.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/bossPuzzle.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/eightQueens.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/knightsTour.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/actions/highscoresPage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+      </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/components/game" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/Game" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/Game/Game.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameBtn" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameMenu" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCategories" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+      </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+      </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/components/other" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/FbBtn" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/FbBtn/FbBtn.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/FbBtn/FbBtn.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Timer" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Timer/Timer.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Timer/Timer.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/MySnackBar" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+      </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+      </favorite_root>
       <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
         <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
           <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
@@ -35,6 +166,9 @@
           <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
           <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
           <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.stories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Tetris" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
         </favorite_root>
         <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
           <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
@@ -52,194 +186,391 @@
           <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.stories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
         </favorite_root>
       </favorite_root>
-      <favorite_root url="file://$PROJECT_DIR$/src/js/containers" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-        </favorite_root>
-        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/RootPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-        </favorite_root>
-        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.stories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Tetris" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.stories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.stories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.stories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-        </favorite_root>
-        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/index.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.stories.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.stories.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
         </favorite_root>
       </favorite_root>
-      <favorite_root url="file://$PROJECT_DIR$/src/js/components" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-        <favorite_root url="file://$PROJECT_DIR$/src/js/components/game" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/Game" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/Game/Game.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameBtn" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameMenu" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCategories" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
         </favorite_root>
-        <favorite_root url="file://$PROJECT_DIR$/src/js/components/other" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/FbBtn" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/FbBtn/FbBtn.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/FbBtn/FbBtn.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Timer" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Timer/Timer.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Timer/Timer.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/MySnackBar" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
         </favorite_root>
-        <favorite_root url="file://$PROJECT_DIR$/src/js/components/index.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-        <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/RootPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
         </favorite_root>
-        <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
-          <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-          </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
         </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+      </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/extracts" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/specs" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/specs/pages.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/specs/sudoku.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/specs/gridBoard.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/specs/bossPuzzle.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/pages.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/sudoku.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/gameInfo.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/gridBoard.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/bossPuzzle.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/rootPageRoutesLogic.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/api.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/index.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/other.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/props.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/state.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/models.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/engines.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/helpers" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/helpers/methods.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/helpers/apiResponses.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/helpers/methods.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src/js/reducers" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/apiReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/appReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/gameReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/gamesPageReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/gridBoardReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/bossPuzzleReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/eightQueensReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/highscoresPageReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/app.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/game.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/index.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/sudoku.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/gamePage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/gamesPage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/gridBoard.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/bossPuzzle.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/eightQueens.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/knightsTour.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/highscoresPage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      </favorite_root>
+      <favorite_root url="file://$PROJECT_DIR$/src" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/js" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/src/js/actions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/loginUser.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/fetchGames.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/fetchUsers.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/registerUser.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/fetchHighscores.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/saveNewHighscore.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/actions/specs/api/fetchGameCategories.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+            </favorite_root>
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/api.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/app.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/game.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/sudoku.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/gamePage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/gamesPage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/gridBoard.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/bossPuzzle.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/eightQueens.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/knightsTour.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/actions/highscoresPage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          </favorite_root>
+          <favorite_root url="file://$PROJECT_DIR$/src/js/helpers" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/src/js/helpers/methods.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/helpers/apiResponses.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/helpers/methods.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          </favorite_root>
+          <favorite_root url="file://$PROJECT_DIR$/src/js/creators" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/src/js/creators/action" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/creators/action/api.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/creators/action/pages.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </favorite_root>
+            <favorite_root url="file://$PROJECT_DIR$/src/js/creators/reducer" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/creators/reducer/api.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </favorite_root>
+          </favorite_root>
+          <favorite_root url="file://$PROJECT_DIR$/src/js/extracts" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/specs" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/specs/pages.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/specs/sudoku.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/specs/gridBoard.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/specs/bossPuzzle.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </favorite_root>
+            <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/pages.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/sudoku.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/gameInfo.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/gridBoard.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/bossPuzzle.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/extracts/rootPageRoutesLogic.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          </favorite_root>
+          <favorite_root url="file://$PROJECT_DIR$/src/js/reducers" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/apiReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/appReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/gameReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/gamesPageReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/gridBoardReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/bossPuzzleReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/eightQueensReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/specs/highscoresPageReducer.spec.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </favorite_root>
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/app.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/game.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/index.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/sudoku.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/gamePage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/gamesPage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/gridBoard.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/bossPuzzle.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/eightQueens.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/knightsTour.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/reducers/highscoresPage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          </favorite_root>
+          <favorite_root url="file://$PROJECT_DIR$/src/js/store.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/components" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/src/js/components/game" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/Game" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/Game/Game.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameBtn" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameMenu" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCategories" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+            </favorite_root>
+            <favorite_root url="file://$PROJECT_DIR$/src/js/components/other" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/FbBtn" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/FbBtn/FbBtn.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/FbBtn/FbBtn.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Timer" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Timer/Timer.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Timer/Timer.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/MySnackBar" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+            </favorite_root>
+            <favorite_root url="file://$PROJECT_DIR$/src/js/components/index.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+            </favorite_root>
+            <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+            </favorite_root>
+          </favorite_root>
+          <favorite_root url="file://$PROJECT_DIR$/src/js/containers" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/App/App.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+            </favorite_root>
+            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/RootPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+            </favorite_root>
+            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.stories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Tetris" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.stories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.stories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.stories.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+            </favorite_root>
+            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/index.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+              <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+                <favorite_root url="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.stories.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+              </favorite_root>
+            </favorite_root>
+          </favorite_root>
+          <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types" module="puzzle-games" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+            <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/api.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/index.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/other.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/props.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/state.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/models.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            <favorite_root url="file://$PROJECT_DIR$/src/js/flow-types/engines.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          </favorite_root>
+          <favorite_root url="file://$PROJECT_DIR$/src/js/constants.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/src/js/localStorage.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/src/index.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/index.css" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/index.scss" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/setupTests.js" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
       </favorite_root>
     </favorites_list>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            <state relative-caret-position="242">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+              <folding>
+                <element signature="e#9#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -266,7 +597,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" />
-        <option value="$PROJECT_DIR$/src/js/extracts/gridBoard.js" />
         <option value="$PROJECT_DIR$/src/index.scss" />
         <option value="$PROJECT_DIR$/puzzle-games.iml" />
         <option value="$PROJECT_DIR$/src/js/actions/eightQueens.js" />
@@ -280,6 +610,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/config/webpack.config.dev.js" />
         <option value="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" />
+        <option value="$PROJECT_DIR$/src/js/extracts/gridBoard.js" />
+        <option value="$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -296,10 +629,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1911" />
-    <option name="y" value="-195" />
-    <option name="width" value="2578" />
-    <option name="height" value="1408" />
+    <option name="x" value="-44" />
+    <option name="y" value="60" />
+    <option name="width" value="1937" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -309,125 +642,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Tests'; set:Tests; class com.intellij.psi.search.scope.TestsScope">
-          <expand>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="actions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="actions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="specs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="actions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="specs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="api" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="extracts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="extracts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="specs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="reducers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="js" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="reducers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="specs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
-          <expand>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
-          <expand>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="puzzle-games" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="puzzle-games" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
               <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
-              <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
-              <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -449,7 +670,7 @@
     <property name="node.js.selected.package.eslint" value="C:\Dev\puzzle-games\node_modules\eslint" />
     <property name="node.js.selected.package.standard" value="C:\Dev\puzzle-games\node_modules\eslint" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -463,22 +684,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
-    <configuration name="flow" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="api" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="flow" />
+        <script value="api" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="mongo" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="lint" />
+        <script value="mongo" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -516,11 +737,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.api" />
+        <item itemvalue="npm.mongo" />
         <item itemvalue="npm.test-win" />
         <item itemvalue="npm.test" />
-        <item itemvalue="npm.lint" />
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.flow" />
       </list>
     </recent_temporary>
   </component>
@@ -554,12 +775,32 @@
       <workItem from="1548282686699" duration="709000" />
       <workItem from="1548608870611" duration="637000" />
       <workItem from="1548610515611" duration="6000" />
-      <workItem from="1548624549855" duration="2460000" />
+      <workItem from="1548624549855" duration="3164000" />
+      <workItem from="1548883991387" duration="313000" />
+      <workItem from="1548884328923" duration="35000" />
+      <workItem from="1548884384492" duration="35000" />
+      <workItem from="1548884441247" duration="71000" />
+      <workItem from="1548966534967" duration="592000" />
+      <workItem from="1548970059044" duration="69000" />
+      <workItem from="1549381847777" duration="12000" />
+      <workItem from="1549382302035" duration="15000" />
+      <workItem from="1549382411734" duration="71000" />
+      <workItem from="1549382593597" duration="56000" />
+      <workItem from="1549393773957" duration="27000" />
+      <workItem from="1549580319788" duration="160000" />
+      <workItem from="1549580504152" duration="178000" />
+      <workItem from="1549714370758" duration="2161000" />
+      <workItem from="1549716733596" duration="613000" />
+      <workItem from="1549718486783" duration="886000" />
+      <workItem from="1549736682083" duration="58000" />
+      <workItem from="1549752564669" duration="301000" />
+      <workItem from="1549795408681" duration="450000" />
+      <workItem from="1549795993187" duration="1065000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28598000" />
+    <option name="totallyTimeSpent" value="36470000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -571,13 +812,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1913" y="-193" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.51029253" visible="true" weight="0.14635365" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.51029253" visible="true" weight="0.16979866" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
-      <window_info id="Structure" order="3" weight="0.25" />
+      <window_info id="Structure" order="3" weight="0.16733244" />
+      <window_info id="Favorites" order="4" sideWeight="0.48970747" weight="0.14966443" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
@@ -586,9 +827,10 @@
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32897383" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" auto_hide="true" id="Event Log" order="8" side_tool="true" weight="0.4305835" />
+      <window_info anchor="bottom" auto_hide="true" id="Event Log" order="8" side_tool="true" weight="0.42917848" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" auto_hide="true" id="Version Control" order="10" weight="0.5895372" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="11" weight="0.674221" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" auto_hide="true" id="Mongo Explorer" order="1" weight="0.16533467" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -597,10 +839,8 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Maven" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="7" weight="0.32995737" />
-      <window_info anchor="right" id="Favorites" order="8" sideWeight="0.48970747" weight="0.15984017" />
-      <window_info anchor="right" id="npm" order="9" sideWeight="0.47778982" weight="0.14835165" />
-      <window_info anchor="right" auto_hide="true" id="Terminal" order="10" weight="0.47761193" />
-      <window_info anchor="right" auto_hide="true" id="Run" order="11" weight="0.5964036" />
+      <window_info anchor="right" id="npm" order="8" sideWeight="0.47778982" weight="0.147651" />
+      <window_info anchor="right" auto_hide="true" id="Terminal" order="9" weight="0.44630873" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
@@ -680,50 +920,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/extracts/sudoku.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/extracts/rootPageRoutesLogic.jsx">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/extracts/pages.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/extracts/gridBoard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="193" column="20" lean-forward="true" selection-start-line="193" selection-start-column="20" selection-end-line="193" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/extracts/gameInfo.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/creators/reducer/api.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/creators/action/pages.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/creators/action/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/flow-types/engines.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/flow-types/models.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/flow-types/other.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/flow-types/props.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/flow-types/state.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -789,20 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/actions/bossPuzzle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/extracts/bossPuzzle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1034">
-          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.spec.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -816,20 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-822">
           <caret line="148" column="14" lean-forward="true" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="101" column="35" lean-forward="true" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -854,16 +1022,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-          <folding>
-            <element signature="e#9#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -900,20 +1058,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpack.config.dev.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/flow-types/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/flow-types/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -928,10 +1072,145 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/app/App/App.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/app/App/App.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="101" column="35" lean-forward="true" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        <state relative-caret-position="831">
+          <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+          <folding>
+            <element signature="e#9#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpack.config.dev.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@babel/code-frame/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/actions/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="77" column="48" lean-forward="true" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/actions/bossPuzzle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/extracts/gridBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="134" column="145" lean-forward="true" selection-start-line="134" selection-start-column="145" selection-end-line="134" selection-end-column="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/flow-types/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-134">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/extracts/bossPuzzle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/extracts/gameInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/extracts/sudoku.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="71" column="11" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="97" column="46" lean-forward="true" selection-start-line="97" selection-start-column="46" selection-end-line="97" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding>
+            <element signature="e#9#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

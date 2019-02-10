@@ -13,7 +13,9 @@
     "test-coverage": "set CI=true & npm test -- --coverage",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "lint": "eslint --ext .js --ext .jsx src",
-    "flow": "flow"
+    "flow": "flow",
+    "mongo": "mongod",
+    "api": "cd ./../puzzle-games-api && npm start"
   },
   "dependencies": {
     "@mars/heroku-js-runtime-env": "^3.0.2",
