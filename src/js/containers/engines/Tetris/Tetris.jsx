@@ -2,8 +2,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// import { GridBoard } from 'js/containers';
+import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
+import { C_Tetris } from 'js/constants';
+
+const { dimension, elementSize } = C_Tetris;
 
 class Tetris extends Game {
 
@@ -14,10 +17,20 @@ class Tetris extends Game {
   render() {
     const { game } = this.props;
     if (game.isLoading) { return null; }
-    return null;
+    return (
+      <GridBoard
+        dimension={dimension}
+        gridMap={this.createGridMap()}
+        element={{
+          size: elementSize,
+          Element: this.renderElement(),
+          getStyle: this.getElementStyle.bind(this)
+        }}
+      />
+    );
   }
 
-  renderElement(values) {
+  renderElement() {
     return props => {
       return (
         <div style={props.style}>x</div>
@@ -25,8 +38,21 @@ class Tetris extends Game {
     }
   }
 
-  getElementStyle({ col, row, size }) {
-    const style = {};
+  createGridMap() {
+    const gridMap = [];
+    Array.from({ length: dimension.x * dimension.y }).forEach((value, key) => {
+      gridMap[key] = true;
+    });
+    return gridMap;
+  }
+
+  getElementStyle({ size }) {
+    const style = {
+      minWidth: `${size}px`,
+      width: `${size}px`,
+      height: `${size}px`,
+      backgroundColor: 'red'
+    };
     return style;
   }
 

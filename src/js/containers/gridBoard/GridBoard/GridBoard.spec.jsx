@@ -14,7 +14,7 @@ describe('GridBoard', () => {
     const gridBoard = mount(
       <GridBoard
         store={createNewStore()}
-        dimension={3}
+        dimension={{ x: 3, y: 3 }}
         gridMap={[true, false, false, false, false, true, false, false, true]}
         element={{ size: 50, Element }}
       />
@@ -29,7 +29,7 @@ describe('GridBoard', () => {
     const gridBoard = mount(
       <GridBoard
         store={createNewStore()}
-        dimension={2}
+        dimension={{ x: 2, y: 2 }}
         gridMap={[true, false, false, false]}
         element={{
           size: 50,

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import type { T_GridBoardState } from 'js/flow-types';
+import type { T_GridBoardState, T_Coords } from 'js/flow-types';
 
 export type T_GridMap = {
   [number]:{
@@ -17,7 +17,7 @@ export type T_RouterProps = {
 export type T_GridBoardProps = {
   dispatch:Function,
   gridBoard:T_GridBoardState,
-  dimension:number,
+  dimension:T_Coords,
   isChessBoard?:boolean,
   gridMap?:Array<boolean>,
   element:{

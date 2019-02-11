@@ -29,7 +29,7 @@ class BossPuzzle extends Game {
     if (mode === 'NUM' || (mode === 'IMG' && imgSrc)) {
       return (
         <GridBoard
-          dimension={Number(dimension)}
+          dimension={{ x: Number(dimension), y: Number(dimension ) }}
           gridMap={this.createGridMap()}
           element={{
             size: tileSizes[String(dimension)],

@@ -65,18 +65,18 @@ class GridBoard extends Component<T_GridBoardProps, State> {
     return (
       <Paper
         className='GridBoard'
-        style={{ minWidth: dimension * actualElementSize + 'px' }}
+        style={{ minWidth: dimension.x * actualElementSize + 'px' }}
       >
-        {Array.from({ length: dimension }, (v, k) => k).map(i => (
+        {Array.from({ length: dimension.y }, (v, k) => k).map(i => (
           <Row
             key={i}
             style={{ padding: 0, margin: 0 }}
           >
-            {Array.from({ length: dimension }, (v, k) => k).map(j => {
+            {Array.from({ length: dimension.x }, (v, k) => k).map(j => {
               
               const row = Number(i);
               const col = Number(j);
-              const index = coordsToIndex({ x: col, y: row }, dimension);
+              const index = coordsToIndex({ x: col, y: row }, dimension.x);
               
               return (
                 <Col key={j}>
@@ -157,7 +157,7 @@ class GridBoard extends Component<T_GridBoardProps, State> {
         const newIndex = offsetToIndex({
           x: coords.x + col * actualElementSize,
           y: coords.y + row * actualElementSize
-        }, actualElementSize, dimension);
+        }, actualElementSize, dimension.x);
 
         if (newIndex > -1 && newIndex !== index && !gridMap[newIndex].isOccupied) {
           onElementMove(index, newIndex);
@@ -211,12 +211,12 @@ class GridBoard extends Component<T_GridBoardProps, State> {
   getActualElementSize() {
     const { minGridBoardElemSize, offset } = C_GridBoard;
     const { dimension, element } = this.props;
-    const size = dimension * element.size;
+    const size = dimension.x * element.size;
     const maxPossibleWidth = window.innerWidth - offset;
     const maxPossibleHeight = window.innerHeight - offset;
     if (size > maxPossibleWidth || size > maxPossibleHeight) {
       const maxPossibleSize = Math.min(maxPossibleWidth, maxPossibleHeight);
-      const newSize = Math.floor(maxPossibleSize / dimension);
+      const newSize = Math.floor(maxPossibleSize / dimension.x);
       return newSize >= minGridBoardElemSize ? newSize : minGridBoardElemSize;
     }
     return element.size;

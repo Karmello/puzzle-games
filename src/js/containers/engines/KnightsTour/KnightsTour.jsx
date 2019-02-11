@@ -22,7 +22,7 @@ class KnightsTour extends Game {
     if (game.isLoading) { return null; }
     return (
       <GridBoard
-        dimension={Number(game.options.dimension)}
+        dimension={{ x: Number(game.options.dimension), y: Number(game.options.dimension) }}
         isChessBoard={true}
         gridMap={this.createGridMap()}
         element={{

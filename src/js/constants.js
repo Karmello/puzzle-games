@@ -33,3 +33,8 @@ export const C_Sudoku = {
   elementSize: 65,
   selectMaxValue: 9
 };
+
+export const C_Tetris = {
+  dimension: { x: 4, y: 8 },
+  elementSize: 50
+};
