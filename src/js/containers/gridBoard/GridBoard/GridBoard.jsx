@@ -24,7 +24,7 @@ class GridBoard extends Component<T_GridBoardProps, State> {
     isChessBoard: false,
     element: {
       isDraggable: false,
-      isSelectable: false,
+      isSelectable: false
     },
     callback: {}
   };
@@ -76,7 +76,7 @@ class GridBoard extends Component<T_GridBoardProps, State> {
               
               const row = Number(i);
               const col = Number(j);
-              const index = coordsToIndex({ x: col, y: row }, dimension.x);
+              const index = coordsToIndex({ x: col, y: row }, dimension.x); // todo
               
               return (
                 <Col key={j}>
@@ -157,7 +157,7 @@ class GridBoard extends Component<T_GridBoardProps, State> {
         const newIndex = offsetToIndex({
           x: coords.x + col * actualElementSize,
           y: coords.y + row * actualElementSize
-        }, actualElementSize, dimension.x);
+        }, actualElementSize, dimension.x); // todo
 
         if (newIndex > -1 && newIndex !== index && !gridMap[newIndex].isOccupied) {
           onElementMove(index, newIndex);
@@ -211,13 +211,15 @@ class GridBoard extends Component<T_GridBoardProps, State> {
   getActualElementSize() {
     const { minGridBoardElemSize, offset } = C_GridBoard;
     const { dimension, element } = this.props;
-    const size = dimension.x * element.size;
+    const sizeX = dimension.x * element.size;
+    const sizeY = dimension.y * element.size;
     const maxPossibleWidth = window.innerWidth - offset;
     const maxPossibleHeight = window.innerHeight - offset;
-    if (size > maxPossibleWidth || size > maxPossibleHeight) {
+    if (sizeX > maxPossibleWidth || sizeY > maxPossibleHeight) {
       const maxPossibleSize = Math.min(maxPossibleWidth, maxPossibleHeight);
-      const newSize = Math.floor(maxPossibleSize / dimension.x);
-      return newSize >= minGridBoardElemSize ? newSize : minGridBoardElemSize;
+      const newSize = Math.floor(maxPossibleSize / (maxPossibleSize === maxPossibleWidth ? dimension.x : dimension.y));
+      const actualMinElemSize = element.minSize ? element.minSize : minGridBoardElemSize;
+      return newSize >= actualMinElemSize ? newSize : actualMinElemSize;
     }
     return element.size;
   }

@@ -6,7 +6,7 @@ import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
 import { C_Tetris } from 'js/constants';
 
-const { dimension, elementSize } = C_Tetris;
+const { dimension, elementSize, minElemSize } = C_Tetris;
 
 class Tetris extends Game {
 
@@ -23,6 +23,7 @@ class Tetris extends Game {
         gridMap={this.createGridMap()}
         element={{
           size: elementSize,
+          minSize: minElemSize,
           Element: this.renderElement(),
           getStyle: this.getElementStyle.bind(this)
         }}
@@ -33,7 +34,7 @@ class Tetris extends Game {
   renderElement() {
     return props => {
       return (
-        <div style={props.style}>x</div>
+        <div style={props.style}> </div>
       );
     }
   }
@@ -51,7 +52,7 @@ class Tetris extends Game {
       minWidth: `${size}px`,
       width: `${size}px`,
       height: `${size}px`,
-      backgroundColor: 'red'
+      backgroundColor: 'black'
     };
     return style;
   }

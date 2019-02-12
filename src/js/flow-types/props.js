@@ -22,6 +22,7 @@ export type T_GridBoardProps = {
   gridMap?:Array<boolean>,
   element:{
     size:number,
+    minSize?: number,
     isDraggable?:boolean,
     isSelectable?:boolean,
     Element?:React.ComponentType<{ col:number, row:number, index:number }>,
