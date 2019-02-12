@@ -28,7 +28,8 @@ export {
   T_BossPuzzleEngine,
   T_EightQueensEngine,
   T_KnightsTourEngine,
-  T_SudokuEngine
+  T_SudokuEngine,
+  T_TetrisEngine
 } from './engines';
 
 export {

@@ -5,29 +5,34 @@ import { connect } from 'react-redux';
 import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
 import { C_Tetris } from 'js/constants';
+import { resetEngine } from 'js/actions/tetris';
+
+import './Tetris.css';
 
 const { dimension, elementSize, minElemSize } = C_Tetris;
 
 class Tetris extends Game {
 
   componentWillUnmount() {
-    // this.props.dispatch(resetEngine());
+    this.props.dispatch(resetEngine());
   }
 
   render() {
     const { game } = this.props;
     if (game.isLoading) { return null; }
     return (
-      <GridBoard
-        dimension={dimension}
-        gridMap={this.createGridMap()}
-        element={{
-          size: elementSize,
-          minSize: minElemSize,
-          Element: this.renderElement(),
-          getStyle: this.getElementStyle.bind(this)
-        }}
-      />
+      <div className='Tetris'>
+        <GridBoard
+          dimension={dimension}
+          gridMap={this.createGridMap()}
+          element={{
+            size: elementSize,
+            minSize: minElemSize,
+            Element: this.renderElement(),
+            getStyle: this.getElementStyle.bind(this)
+          }}
+        />
+      </div>
     );
   }
 
@@ -42,8 +47,9 @@ class Tetris extends Game {
   createGridMap() {
     const gridMap = [];
     Array.from({ length: dimension.x * dimension.y }).forEach((value, key) => {
-      gridMap[key] = true;
+      gridMap[key] = false;
     });
+    gridMap[0] = true;
     return gridMap;
   }
 
@@ -52,7 +58,7 @@ class Tetris extends Game {
       minWidth: `${size}px`,
       width: `${size}px`,
       height: `${size}px`,
-      backgroundColor: 'black'
+      backgroundColor: 'lightblue'
     };
     return style;
   }
