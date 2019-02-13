@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
 import { C_Tetris } from 'js/constants';
-import { resetEngine } from 'js/actions/tetris';
+import {initEngine, updateEngine, resetEngine } from 'js/actions/tetris';
 
 import './Tetris.css';
 
@@ -45,11 +45,11 @@ class Tetris extends Game {
   }
 
   createGridMap() {
+    const { blocks } = this.props.tetrisEngine;
     const gridMap = [];
-    Array.from({ length: dimension.x * dimension.y }).forEach((value, key) => {
-      gridMap[key] = false;
+    blocks.forEach((renderBlock, i) => {
+      gridMap[i] = renderBlock;
     });
-    gridMap[0] = true;
     return gridMap;
   }
 
@@ -64,7 +64,22 @@ class Tetris extends Game {
   }
 
   startNew = () => {
+    const { dispatch } = this.props;
+    let intervalId;
+    let index = 0;
     return new Promise(resolve => {
+      const blocks = Array.from({ length: dimension.x * dimension.y }, () => false);
+      dispatch(initEngine(blocks));
+      intervalId = setInterval(() => {
+        if (index < dimension.x * dimension.y) {
+          blocks[index] = true;
+          if (index > 0) { blocks[index - 1] = false; }
+          index++;
+        } else {
+          clearInterval(intervalId);
+        }
+        dispatch(updateEngine(blocks));
+      }, 100);
       resolve();
     });
   };

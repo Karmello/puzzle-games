@@ -3,7 +3,14 @@ import { Component } from 'react';
 
 import { App } from 'js/containers';
 import { stopGameLoader, makeMove, setAsSolved } from 'js/actions/game';
-import type { T_GameState, T_BossPuzzleEngine, T_EightQueensEngine, T_KnightsTourEngine, T_SudokuEngine } from 'js/flow-types';
+import type {
+  T_GameState,
+  T_BossPuzzleEngine,
+  T_EightQueensEngine,
+  T_KnightsTourEngine,
+  T_SudokuEngine,
+  T_TetrisEngine
+} from 'js/flow-types';
 
 type Props = {
   dispatch:Function,
@@ -12,7 +19,8 @@ type Props = {
   bossPuzzleEngine:T_BossPuzzleEngine,
   eightQueensEngine:T_EightQueensEngine,
   knightsTourEngine:T_KnightsTourEngine,
-  sudokuEngine:T_SudokuEngine
+  sudokuEngine:T_SudokuEngine,
+  tetrisEngine:T_TetrisEngine
 };
 
 type State = {
