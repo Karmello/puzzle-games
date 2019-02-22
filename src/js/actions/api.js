@@ -49,19 +49,19 @@ export const loginUser = (credentials:T_UserModel|{token:string}) => {
   }
 }
 
-export const updateUser = (username:string, updateQuery:{}) => {
-
-  const api = axios.create({ baseURL });
-
-  return (dispatch:Function) => {
-    const headers = { 'x-access-token': localStorage.getItem('token') };
-    dispatch(apiRequest(API_MAKE_AUTH_REQUEST, { headers, body: updateQuery }));
-    return api.post(`user/${username}`, updateQuery, { headers }).then(
-      res => dispatch(apiRequestSuccess(API_MAKE_AUTH_REQUEST, res)),
-      err => dispatch(apiRequestFailure(API_MAKE_AUTH_REQUEST, err))
-    );
-  }
-}
+// export const updateUser = (username:string, updateQuery:{}) => {
+//
+//   const api = axios.create({ baseURL });
+//
+//   return (dispatch:Function) => {
+//     const headers = { 'x-access-token': localStorage.getItem('token') };
+//     dispatch(apiRequest(API_MAKE_AUTH_REQUEST, { headers, body: updateQuery }));
+//     return api.post(`user/${username}`, updateQuery, { headers }).then(
+//       res => dispatch(apiRequestSuccess(API_MAKE_AUTH_REQUEST, res)),
+//       err => dispatch(apiRequestFailure(API_MAKE_AUTH_REQUEST, err))
+//     );
+//   }
+// }
 
 export const fetchUsers = () => {
   const api = axios.create({ baseURL });

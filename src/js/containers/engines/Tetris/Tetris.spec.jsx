@@ -4,16 +4,16 @@ import { shallow, mount } from 'enzyme';
 
 import { createNewStore } from 'js/store';
 import { startGame, stopGameLoader } from 'js/actions/game';
-import Sudoku from './Sudoku';
+import Tetris from './Tetris';
 
-describe('Sudoku', () => {
+describe('Tetris', () => {
 
   let store, getComponent;
   beforeAll(() => {
     store = createNewStore();
     getComponent = store => (
       <Provider store={store}>
-        <Sudoku />
+        <Tetris />
       </Provider>
     );
   });
@@ -23,7 +23,7 @@ describe('Sudoku', () => {
   });
 
   it('should mount and unmount', () => {
-    store.dispatch(startGame('sudoku'));
+    store.dispatch(startGame('tetris'));
     store.dispatch(stopGameLoader());
     const wrapper = mount(getComponent(store));
     wrapper.unmount();
