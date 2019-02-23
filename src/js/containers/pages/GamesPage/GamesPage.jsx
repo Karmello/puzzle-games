@@ -4,8 +4,9 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SwipeableViews from 'react-swipeable-views';
 
+import GameCategories from 'js/components/game/GameCategories/GameCategories';
+import GameCard from 'js/components/game/GameCard/GameCard';
 import { switchGameCategoryTab, changeGameOptions } from 'js/actions/gamesPage';
-import { GameCategories, GameCard } from 'js/components';
 import './GamesPage.css';
 
 import type { T_GamesPageState, T_ApiEntities } from 'js/flow-types';
@@ -21,18 +22,19 @@ type Props = {
 class GamesPage extends Component<Props> {
 
   componentWillReceiveProps(nextProps) {
-    
-    const { api, gamesPage, gameCategoryToSet, dispatch } = nextProps;
 
-    if (gamesPage.category !== gameCategoryToSet) {
+    const {api, gamesPage, gameCategoryToSet, dispatch} = nextProps;
+
+    (gamesPage.category !== gameCategoryToSet) &&
+    (() => {
       let ui = localStorage.getItem('ui');
-      if (ui) {
+      ui && (() => {
         ui = JSON.parse(ui);
         ui[api.clientUser.res.data.username].gamesPage.category = gameCategoryToSet;
         localStorage.setItem('ui', JSON.stringify(ui));
         dispatch(switchGameCategoryTab(gameCategoryToSet));
-      }
-    }
+      })();
+    })();
   }
 
   render() {
@@ -76,12 +78,12 @@ class GamesPage extends Component<Props> {
   onGameOptionsChange(gameId, options) {
     const { dispatch, api } = this.props;
     let ui = localStorage.getItem('ui');
-    if (ui) {
+    ui && (() => {
       ui = JSON.parse(ui);
       ui[api.clientUser.res.data.username].gamesPage.options[gameId] = options;
       localStorage.setItem('ui', JSON.stringify(ui));
       dispatch(changeGameOptions(gameId, options));
-    }
+    })();
   }
 
   onSwipe(index) {

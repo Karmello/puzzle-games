@@ -6,7 +6,7 @@ import { ExpansionPanelSummary, ExpansionPanelDetails } from 'material-ui/Expans
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Typography from 'material-ui/Typography';
 
-import { GameBtn } from 'js/components';
+import GameBtn from 'js/components/game/GameBtn/GameBtn';
 import { humanizeHighscoreTime } from 'js/extracts/gameInfo';
 import './GameInfo.css';
 
