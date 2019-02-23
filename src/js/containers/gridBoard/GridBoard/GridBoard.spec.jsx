@@ -10,7 +10,7 @@ const Element = () => <div>i am element</div>;
 
 describe('GridBoard', () => {
 
-  it('should render', () => {
+  it('should mount', () => {
     const gridBoard = mount(
       <GridBoard
         store={createNewStore()}
@@ -25,7 +25,7 @@ describe('GridBoard', () => {
     expect(gridBoard.find(Draggable).length).toEqual(0);
   });
 
-  it('should render', () => {
+  it('should mount', () => {
     const gridBoard = mount(
       <GridBoard
         store={createNewStore()}
@@ -42,5 +42,24 @@ describe('GridBoard', () => {
     expect(gridBoard.find(Col).length).toEqual(4);
     expect(gridBoard.find(Element).length).toEqual(1);
     expect(gridBoard.find(Draggable).length).toEqual(1);
+  });
+
+  it('should mount', () => {
+    const gridBoard = mount(
+      <GridBoard
+        store={createNewStore()}
+        dimension={{ x: 2, y: 2 }}
+        gridMap={[true, false, false, false]}
+        element={{
+          size: 50,
+          isSelectable: true,
+          Element
+        }}
+      />
+    );
+    expect(gridBoard.find(Row).length).toEqual(2);
+    expect(gridBoard.find(Col).length).toEqual(4);
+    expect(gridBoard.find(Element).length).toEqual(1);
+    expect(gridBoard.find(Draggable).length).toEqual(0);
   });
 });

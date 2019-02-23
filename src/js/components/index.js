@@ -20,7 +20,6 @@ export { default as KnightsTourOptions } from './engineOptions/KnightsTourOption
 
 // other
 export { default as AuthForm } from './other/AuthForm/AuthForm';
-export { default as FbBtn } from './other/FbBtn/FbBtn';
 export { default as Loader } from './other/Loader/Loader';
 export { default as MySnackBar } from './other/MySnackBar/MySnackBar';
 export { default as PageError } from './other/PageError/PageError';

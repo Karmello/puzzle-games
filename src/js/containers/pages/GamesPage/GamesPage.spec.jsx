@@ -1,24 +1,29 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import store from 'js/store';
+import { createNewStore } from 'js/store';
 import { GamesPage } from 'js/containers';
 import { clientUserRes, gameCategoriesRes, gamesRes } from 'js/helpers/apiResponses';
 import { renderWrapper } from 'js/helpers/methods';
 
 describe('GamesPage', () => {
-  
+
   describe('component', () => {
-    it('should render', () => {
+
+    let store;
+    beforeAll(() => store = createNewStore());
+
+    it('should shallow render', () => {
       shallow(<GamesPage store={store} />);
     });
   });
 
   describe('/games', () => {
 
-    let state;
+    let store, state;
 
     beforeAll(() => {
+      store = createNewStore();
       state = store.getState();
       state.api.clientUser.res = clientUserRes;
       state.api.gameCategories.res = gameCategoriesRes;

@@ -5,7 +5,7 @@ import moment from 'moment';
 import { Table } from 'material-ui';
 import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 
-import { Loader } from 'js/components';
+import Loader from 'js/components/other/Loader/Loader';
 import './HighscoresTable.css';
 
 import type { T_HighscoreModel, T_ApiEntities } from 'js/flow-types';

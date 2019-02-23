@@ -8,7 +8,7 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import { InputLabel } from 'material-ui/Input';
 
-import { GameOptions } from 'js/components';
+import GameOptions from 'js/components/game/GameOptions/GameOptions';
 import { kebabToCamelCase } from 'js/helpers/methods';
 import './HighscoresFilter.css';
 

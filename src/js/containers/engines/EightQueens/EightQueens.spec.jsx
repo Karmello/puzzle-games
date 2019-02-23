@@ -22,6 +22,17 @@ describe('EightQueens', () => {
     shallow(getComponent(store));
   });
 
+  it('should mount', () => {
+    store.dispatch(startGame('eight-queens'));
+    mount(getComponent(store));
+  });
+
+  it('should mount', () => {
+    store.dispatch(startGame('eight-queens'));
+    store.dispatch(stopGameLoader());
+    mount(getComponent(store));
+  });
+
   it('should mount and unmount', () => {
     store.dispatch(startGame('eight-queens'));
     store.dispatch(stopGameLoader());
