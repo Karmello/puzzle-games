@@ -5,8 +5,11 @@ import Timer from './Timer';
 
 describe('Timer', () => {
 
-  it('should shallow render', () => {
-    shallow(<Timer />);
+  it('should shallow render', done => {
+    const wrapper = shallow(<Timer />);
+    wrapper.instance().start();
+    wrapper.instance().start();
+    setTimeout(done, 1000);
   });
 
   it('should mount and receive props', () => {
