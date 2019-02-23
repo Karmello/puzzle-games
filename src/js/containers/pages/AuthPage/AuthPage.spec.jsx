@@ -37,12 +37,6 @@ describe('AuthPage', () => {
       expect(wrapper.find('.AuthPage').length).toBe(1);
     });
 
-    it('should render AuthPage', () => {
-      state.app.authStatus = 'logged_out';
-      const wrapper = renderWrapper(['/auth'], 0);
-      expect(wrapper.find('.AuthPage').length).toBe(1);
-    });
-
     it('should redirect', () => {
       state.app.authStatus = 'logged_in';
       const wrapper = renderWrapper(['/auth'], 0);
