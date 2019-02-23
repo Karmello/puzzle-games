@@ -43,7 +43,7 @@ export const loginUser = (credentials:T_UserModel|{token:string}) => {
       }
     }));
     return api.post('/user/login', credentials).then(res => {
-      if (res.token) { localStorage.setItem('token', res.token); }
+      res.token && localStorage.setItem('token', res.token);
       dispatch(apiRequestSuccess(API_MAKE_AUTH_REQUEST, res));
     }, err => dispatch(apiRequestFailure(API_MAKE_AUTH_REQUEST, err)));
   }
@@ -104,7 +104,7 @@ export const fetchHighscores = (gameId:string, query:T_GameOptionsModel, delay:n
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscores/${gameId}`;
-    if (query && !isEmpty(query)) { url += `?${qs.stringify(query)}`; }
+    query && !isEmpty(query) && (url += `?${qs.stringify(query)}`);
     dispatch(apiRequest(API_FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(res => {
       if (delay) {
@@ -127,7 +127,7 @@ export const fetchHighscore = (gameId:string, query:T_GameOptionsModel) => {
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscore/${gameId}`;
-    if (query && !isEmpty(query)) { url += `?${qs.stringify(query)}`; }
+    query && !isEmpty(query) && (url += `?${qs.stringify(query)}`);
     dispatch(apiRequest(API_FETCH_HIGHSCORE, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(
       res => dispatch(apiRequestSuccess(API_FETCH_HIGHSCORE, res)),

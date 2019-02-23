@@ -24,7 +24,8 @@ describe('App', () => {
   });
 
   it('should shallow render', () => {
-    shallow(<App />);
+    const wrapper = shallow(<App.WrappedComponent app={{ isLoading: false }} />);
+    wrapper.instance().onClose();
   });
 
   it('should mount', () => {
