@@ -6,7 +6,7 @@ import { isEmpty } from 'lodash';
 import { apiRequest, apiRequestSuccess, apiRequestFailure } from 'js/creators/action/api';
 import type { T_UserModel, T_HighscoreModel, T_GameOptionsModel } from 'js/flow-types';
 
-const baseURL = process.env.REACT_APP_API_URI;
+const baseURL = process.env.REACT_APP_API_URI || '';
 
 export const API_MAKE_AUTH_REQUEST = 'API_MAKE_AUTH_REQUEST';
 export const API_FETCH_GAMES = 'API_FETCH_GAMES';
@@ -43,7 +43,7 @@ export const loginUser = (credentials:T_UserModel|{token:string}) => {
       }
     }));
     return api.post('/user/login', credentials).then(res => {
-      res.token && localStorage.setItem('token', res.token);
+      if (res.token) { localStorage.setItem('token', res.token); }
       dispatch(apiRequestSuccess(API_MAKE_AUTH_REQUEST, res));
     }, err => dispatch(apiRequestFailure(API_MAKE_AUTH_REQUEST, err)));
   }
@@ -104,7 +104,7 @@ export const fetchHighscores = (gameId:string, query:T_GameOptionsModel, delay:n
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscores/${gameId}`;
-    query && !isEmpty(query) && (url += `?${qs.stringify(query)}`);
+    if (query && !isEmpty(query)) { url += `?${qs.stringify(query)}`; }
     dispatch(apiRequest(API_FETCH_HIGHSCORES, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(res => {
       if (delay) {
@@ -127,7 +127,7 @@ export const fetchHighscore = (gameId:string, query:T_GameOptionsModel) => {
   return (dispatch:Function) => {
     const headers = { 'x-access-token': localStorage.getItem('token') };
     let url = `/highscore/${gameId}`;
-    query && !isEmpty(query) && (url += `?${qs.stringify(query)}`);
+    if (query && !isEmpty(query)) { url += `?${qs.stringify(query)}`; }
     dispatch(apiRequest(API_FETCH_HIGHSCORE, { headers, params: { gameId }, query }));
     return api.get(url, { headers }).then(
       res => dispatch(apiRequestSuccess(API_FETCH_HIGHSCORE, res)),

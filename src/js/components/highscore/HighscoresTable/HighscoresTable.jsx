@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 import { Paper, Typography } from 'material-ui';
 import moment from 'moment';
 import { Table } from 'material-ui';
-import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import TableBody from 'material-ui/Table/TableBody';
+import TableCell from 'material-ui/Table/TableCell';
+import TableHead from 'material-ui/Table/TableHead';
+import TableRow from 'material-ui/Table/TableRow';
 
 import Loader from 'js/components/other/Loader/Loader';
 import './HighscoresTable.css';

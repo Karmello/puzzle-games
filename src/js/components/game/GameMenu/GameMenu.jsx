@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Menu } from 'material-ui';
-import { MenuItem } from 'material-ui/Menu';
+import MenuItem from 'material-ui/Menu/MenuItem';
 
 import type { T_Event } from 'js/flow-types';
 

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
 import { C_Tetris } from 'js/constants';
-import {initEngine, updateEngine, resetEngine } from 'js/actions/tetris';
+import { initEngine, updateEngine, resetEngine } from 'js/actions/tetris';
 
 import './Tetris.css';
 
@@ -37,7 +37,7 @@ class Tetris extends Game {
   }
 
   renderElement() {
-    return props => {
+    return (props:{ style: {} }) => {
       return (
         <div style={props.style}> </div>
       );
@@ -53,7 +53,8 @@ class Tetris extends Game {
     return gridMap;
   }
 
-  getElementStyle({ size }) {
+  getElementStyle(args:{ size:number }) {
+    const { size } = args;
     const style = {
       minWidth: `${size}px`,
       width: `${size}px`,

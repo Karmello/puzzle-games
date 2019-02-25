@@ -125,12 +125,12 @@ class GamePage extends Component<Props> {
   onToggleExpansionPanel(name, expanded) {
     const { dispatch, api } = this.props;
     let ui = localStorage.getItem('ui');
-    ui && (() => {
+    if (ui) {
       ui = JSON.parse(ui);
       ui[api.clientUser.res.data.username].gamePage[`${name}Expanded`] = expanded;
       localStorage.setItem('ui', JSON.stringify(ui));
       dispatch(toggleExpansionPanel(name, expanded));
-    })();
+    }
   }
 
   readTimer = () => this.gameDashBoardRef.timerRef.state;

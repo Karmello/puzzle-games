@@ -2,9 +2,10 @@
 import React from 'react';
 import moment from 'moment';
 import { ExpansionPanel } from 'material-ui';
-import { ExpansionPanelSummary, ExpansionPanelDetails } from 'material-ui/ExpansionPanel';
+import ExpansionPanelSummary from 'material-ui/ExpansionPanel/ExpansionPanelSummary';
+import ExpansionPanelDetails from 'material-ui/ExpansionPanel/ExpansionPanelDetails';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
-import Typography from 'material-ui/Typography';
+import Typography from 'material-ui/Typography/Typography';
 
 import GameBtn from 'js/components/game/GameBtn/GameBtn';
 import { humanizeHighscoreTime } from 'js/extracts/gameInfo';

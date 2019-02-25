@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Tabs } from 'material-ui';
-import { Tab } from 'material-ui/Tabs';
+import Tab from 'material-ui/Tabs/Tab';
 
 import type { T_ApiEndPoint } from 'js/flow-types';
 
