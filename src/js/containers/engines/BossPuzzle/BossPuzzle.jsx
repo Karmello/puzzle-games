@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'material-ui';
+import { Button } from '@material-ui/core';
 import { isEmpty } from 'lodash';
 
 import { GridBoard } from 'js/containers';
@@ -48,7 +48,7 @@ class BossPuzzle extends Game {
     return props => (
       <Button
         disableRipple
-        variant='raised'
+        variant='contained'
         style={props.style}
         onClick={this.onTileClick.bind(this, props)}
       >

@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AppBar as MaterialAppBar, IconButton, Toolbar, Typography } from 'material-ui';
-import MenuIcon from 'material-ui-icons/Menu';
+import { AppBar as MaterialAppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
+import { Menu as MenuIcon } from '@material-ui/icons';
 
 import { GameMenu } from 'js/components';
 import { startGame } from 'js/actions/game';

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import CircularProgress from 'material-ui/Progress/CircularProgress';
+import { CircularProgress } from '@material-ui/core';
 
 import './Loader.css';
 

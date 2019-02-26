@@ -2,8 +2,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Menu } from 'material-ui';
-import MenuItem from 'material-ui/Menu/MenuItem';
+import { Button, Menu, MenuItem } from '@material-ui/core';
 
 import type { T_Event } from 'js/flow-types';
 
@@ -34,7 +33,7 @@ export default class GameMenu extends Component<Props, State> {
     return (
       <div className='GameMenu'>
         <Button
-          variant='raised'
+          variant='contained'
           color='primary'
           aria-owns={btnElem ? 'gameMenu' : null}
           aria-haspopup='true'

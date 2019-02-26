@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Paper } from 'material-ui';
+import { Paper } from '@material-ui/core';
 
 import GameDashboard from 'js/components/game/GameDashboard/GameDashboard';
 import GameInfo from 'js/components/game/GameInfo/GameInfo';

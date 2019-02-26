@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'material-ui';
+import { Button } from '@material-ui/core';
 
 import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Chip } from 'material-ui';
+import { Chip } from '@material-ui/core';
 
 import Timer from 'js/components/other/Timer/Timer';
 import './GameDashboard.css';

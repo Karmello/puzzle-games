@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Snackbar } from 'material-ui';
+import { Snackbar } from '@material-ui/core';
 
 const autoHideDuration = 5000;
 

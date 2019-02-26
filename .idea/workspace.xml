@@ -3,11 +3,38 @@
   <component name="ChangeListManager">
     <list default="true" id="a9f516f3-b9ac-4d01-9091-8347933162c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flow-typed/npm/enzyme-adapter-react-16_vx.x.x.js" beforeDir="false" afterPath="$PROJECT_DIR$/flow-typed/npm/enzyme-adapter-react-16_vx.x.x.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flow-typed/npm/eslint_vx.x.x.js" beforeDir="false" afterPath="$PROJECT_DIR$/flow-typed/npm/eslint_vx.x.x.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flow-typed/npm/jest_v20.x.x.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flow-typed/npm/material-ui-icons_vx.x.x.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flow-typed/npm/material-ui_vx.x.x.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flow-typed/npm/redux-thunk_vx.x.x.js" beforeDir="false" afterPath="$PROJECT_DIR$/flow-typed/npm/redux-thunk_vx.x.x.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flow-typed/npm/redux_v3.x.x.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/other/Timer/Timer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/Timer/Timer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1140,52 +1167,52 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/index.es.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+            <state relative-caret-position="88">
+              <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx">
+        <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/icons/index.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="75" column="72" selection-start-line="75" selection-start-column="72" selection-end-line="75" selection-end-column="72" />
+            <state relative-caret-position="268">
+              <caret line="1150" column="36" selection-start-line="1150" selection-start-column="36" selection-end-line="1150" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
               <folding>
-                <element signature="e#9#50#0" expanded="true" />
+                <element signature="e#9#35#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/game/Game/Game.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
-              <folding>
-                <element signature="e#9#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="132" column="35" lean-forward="true" selection-start-line="132" selection-start-column="35" selection-end-line="132" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx">
+        <entry file="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="113" column="11" selection-start-line="113" selection-start-column="11" selection-end-line="113" selection-end-column="11" />
+            <state relative-caret-position="160">
+              <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+              <folding>
+                <element signature="e#9#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1194,16 +1221,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>WrappedComponent</find>
-      <find>game</find>
-      <find>gameCategory</find>
-      <find>pages</find>
-      <find>intervalId</find>
-      <find>gameOptions</find>
-      <find>highscoresPage</find>
-      <find>dispatch</find>
-      <find>Link</find>
-      <find>getGameDashboardRef</find>
       <find>gameDashBoardRef</find>
       <find>readTimer</find>
       <find>localStorage.setItem('ui'</find>
@@ -1224,6 +1241,16 @@
       <find>dispatch(startGame(</find>
       <find>startGame</find>
       <find>startNew</find>
+      <find>material-ui</find>
+      <find>MenuIcon</find>
+      <find>@material-ui/icons</find>
+      <find>ExpandMore</find>
+      <find>PlayCircleOutline</find>
+      <find>PowerSettingsNew</find>
+      <find>paste</find>
+      <find>copy</find>
+      <find>ContentPaste</find>
+      <find>raised</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Dev\puzzle-games\src</dir>
@@ -1240,17 +1267,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/js/components/index.js" />
-        <option value="$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.spec.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.spec.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.spec.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.spec.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.spec.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.spec.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.spec.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.spec.jsx" />
         <option value="$PROJECT_DIR$/src/js/actions/specs/api/fetchHighscores.spec.js" />
         <option value="$PROJECT_DIR$/src/js/components/other/PageError/PageError.spec.jsx" />
         <option value="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.spec.jsx" />
@@ -1270,27 +1286,38 @@
         <option value="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPageRoutes.spec.jsx" />
         <option value="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.spec.jsx" />
         <option value="$PROJECT_DIR$/.flowconfig" />
-        <option value="$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx" />
-        <option value="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" />
         <option value="$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.jsx" />
         <option value="$PROJECT_DIR$/flow-typed/npm/react-router-dom_vx.x.x.js" />
         <option value="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" />
-        <option value="$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx" />
         <option value="$PROJECT_DIR$/src/js/helpers/methods.js" />
         <option value="$PROJECT_DIR$/src/js/actions/api.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" />
-        <option value="$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/game/Game/Game.jsx" />
-        <option value="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/other/Timer/Timer.jsx" />
+        <option value="$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx" />
         <option value="$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx" />
+        <option value="$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx" />
+        <option value="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" />
+        <option value="$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx" />
+        <option value="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" />
+        <option value="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx" />
+        <option value="$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx" />
+        <option value="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" />
       </list>
     </option>
   </component>
@@ -1365,12 +1392,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
     <configuration name="api" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="api" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -1406,23 +1443,13 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="test" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.lint" />
         <item itemvalue="npm.api" />
         <item itemvalue="npm.mongo" />
         <item itemvalue="npm.test-win" />
-        <item itemvalue="npm.test" />
       </list>
     </recent_temporary>
   </component>
@@ -1496,12 +1523,12 @@
       <workItem from="1550941421171" duration="18492000" />
       <workItem from="1551004788102" duration="3881000" />
       <workItem from="1551129715514" duration="5571000" />
-      <workItem from="1551209966338" duration="5001000" />
+      <workItem from="1551209966338" duration="10442000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156692000" />
+    <option name="totallyTimeSpent" value="162133000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1516,10 +1543,10 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69014084" weight="0.16778524" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.18120806" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
-      <window_info active="true" id="Favorites" order="3" sideWeight="0.48970747" visible="true" weight="0.15503356" />
+      <window_info id="Favorites" order="3" sideWeight="0.48970747" weight="0.13825503" />
       <window_info id="Structure" order="4" weight="0.1671141" />
       <window_info anchor="bottom" auto_hide="true" id="TODO" order="0" weight="0.4815864" />
       <window_info anchor="bottom" id="Message" order="1" />
@@ -1530,9 +1557,9 @@
       <window_info anchor="bottom" id="Database Changes" order="6" />
       <window_info anchor="bottom" id="TypeScript" order="7" show_stripe_button="false" weight="0.3286119" />
       <window_info anchor="bottom" auto_hide="true" id="Version Control" order="8" sideWeight="0.4995005" weight="0.5878187" />
-      <window_info anchor="bottom" auto_hide="true" id="Find" order="9" sideWeight="0.4985015" weight="0.96579474" />
-      <window_info anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="10" sideWeight="0.5100671" visible="true" weight="0.2266289" />
-      <window_info anchor="bottom" auto_hide="true" id="Event Log" order="11" sideWeight="0.4995005" weight="0.42776203" />
+      <window_info anchor="bottom" auto_hide="true" id="Event Log" order="9" sideWeight="0.4995005" weight="0.42776203" />
+      <window_info anchor="bottom" auto_hide="true" id="Find" order="10" show_stripe_button="false" sideWeight="0.4985015" weight="0.96458924" />
+      <window_info active="true" anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="11" sideWeight="0.5100671" visible="true" weight="0.34560907" />
       <window_info anchor="bottom" id="Flow" order="12" show_stripe_button="false" weight="0.42776203" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" auto_hide="true" id="Mongo Explorer" order="1" weight="0.16533467" />
@@ -1542,8 +1569,8 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Maven" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="7" weight="0.32995737" />
-      <window_info anchor="right" id="npm" order="8" sideWeight="0.45070422" weight="0.13959731" />
-      <window_info anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" weight="0.48724833" />
+      <window_info anchor="right" id="npm" order="8" sideWeight="0.45070422" visible="true" weight="0.14161074" />
+      <window_info anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" weight="0.43087247" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
@@ -1633,267 +1660,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/flow-types/models.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/flow-types/state.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coverage/lcov-report/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#4;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#4;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#5;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#5;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#6;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#6;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#7;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#7;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#8;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#8;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#9;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#9;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#10;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#10;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#11;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#11;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#12;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#12;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#13;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#13;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#14;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#14;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#15;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#15;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#16;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#16;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#17;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#17;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#18;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#18;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#19;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#19;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#20;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#20;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#21;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#21;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#22;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#22;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#23;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#23;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#24;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#24;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#25;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#25;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#26;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#26;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#27;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#27;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#28;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#28;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#29;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#29;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#30;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#30;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#31;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#31;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#32;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#32;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#33;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#33;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#34;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#34;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#35;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#35;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#36;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#36;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#37;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#td#1;n#tr#37;n#tbody#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPageRoutes.spec.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.spec.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.spec.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="46" column="54" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPageRoutes.spec.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#1#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.spec.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1166">
-          <caret line="64" column="35" lean-forward="true" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.spec.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/material-ui/Menu/MenuItem.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/material-ui/Menu/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding>
-            <element signature="e#9#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.flowconfig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding>
-            <element signature="e#9#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="49" lean-forward="true" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="50" lean-forward="true" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding>
-            <element signature="e#9#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="15" column="55" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/flow/flowlib_11585a2c/react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flow-typed/npm/react-redux_v5.x.x.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
@@ -1944,20 +1710,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="58" lean-forward="true" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="44" lean-forward="true" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -2071,30 +1823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="121" column="30" selection-start-line="121" selection-start-column="30" selection-end-line="121" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="75" column="72" selection-start-line="75" selection-start-column="72" selection-end-line="75" selection-end-column="72" />
-          <folding>
-            <element signature="e#9#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/game/Game/Game.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -2105,24 +1833,229 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="84" column="18" selection-start-line="84" selection-start-column="18" selection-end-line="84" selection-end-column="18" />
+        <state relative-caret-position="132">
+          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/other/Timer/Timer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="132" column="35" lean-forward="true" selection-start-line="132" selection-start-column="35" selection-end-line="132" selection-end-column="35" />
+        <state relative-caret-position="66">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="113" column="11" selection-start-line="113" selection-start-column="11" selection-end-line="113" selection-end-column="11" />
+        <state relative-caret-position="66">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="49" lean-forward="true" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="e#9#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="85" lean-forward="true" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="85" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="38" lean-forward="true" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/icons/ExpandMore.d.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/icons/index.es.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1584" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/Tabs/Tabs.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="6" selection-start-line="41" selection-end-line="41" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/Tabs/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+          <folding>
+            <element signature="e#9#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/index.es.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="66" lean-forward="true" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/icons/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="1150" column="36" selection-start-line="1150" selection-start-column="36" selection-end-line="1150" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+          <folding>
+            <element signature="e#9#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+          <folding>
+            <element signature="e#9#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

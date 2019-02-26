@@ -1,10 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { isEmpty } from 'lodash';
-import { Card, Typography } from 'material-ui';
-import CardActions from 'material-ui/Card/CardActions';
-import CardContent from 'material-ui/Card/CardContent';
-import CardMedia from 'material-ui/Card/CardMedia';
+import { Card, Typography, CardActions, CardContent, CardMedia } from '@material-ui/core';
 
 import GameBtn from './../GameBtn/GameBtn';
 import GameOptions from './../GameOptions/GameOptions';

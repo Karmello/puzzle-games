@@ -4,7 +4,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import Draggable from 'react-draggable';
 import { Row, Col } from 'react-flexbox-grid';
-import { Paper } from 'material-ui';
+import { Paper } from '@material-ui/core';
 import { isEmpty, isEqual, findKey } from 'lodash';
 
 import { coordsToIndex, offsetToIndex } from 'js/extracts/gridBoard';
