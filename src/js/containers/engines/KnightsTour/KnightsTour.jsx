@@ -92,24 +92,26 @@ class KnightsTour extends Game {
   }
   
   startNew = () => {
-    const { dispatch, game: { options: { dimension } } } = this.props;
     return new Promise(resolve => {
-      Promise.all([this.loadImg(imgPaths.knight), this.loadImg(imgPaths.okArrow)]).then(() => {
-        const visited = Array.from({ length: Number(dimension) ** 2 }, () => false);
-        let active;
-        switch (dimension) {
-          case '5':
-            // <0 - dimension^2-1> (even only)
-            active = Math.floor(Math.random() * ((Number(dimension) ** 2)/2)) * 2;
-            break;
-          default:
-            // <0 - dimension^2-1>
-            active = Math.floor(Math.random() * Number(dimension) ** 2);
-            break;
-        }
-        visited[active] = true;
-        dispatch(initEngine(visited, active));
-        resolve();
+      setTimeout(() => {
+        const { dispatch, game: { options: { dimension } } } = this.props;
+        Promise.all([this.loadImg(imgPaths.knight), this.loadImg(imgPaths.okArrow)]).then(() => {
+          const visited = Array.from({ length: Number(dimension) ** 2 }, () => false);
+          let active;
+          switch (dimension) {
+            case '5':
+              // <0 - dimension^2-1> (even only)
+              active = Math.floor(Math.random() * ((Number(dimension) ** 2)/2)) * 2;
+              break;
+            default:
+              // <0 - dimension^2-1>
+              active = Math.floor(Math.random() * Number(dimension) ** 2);
+              break;
+          }
+          visited[active] = true;
+          dispatch(initEngine(visited, active));
+          resolve();
+        });
       });
     });
   };

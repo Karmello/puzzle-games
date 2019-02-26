@@ -44,9 +44,8 @@ class GamePage extends Component<Props> {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {game} = nextProps;
-    (!this.props.game.isSolved && game.isSolved) &&
-    (() => {
+    const { game } = nextProps;
+    if (!this.props.game.isSolved && game.isSolved) {
       const {api, dispatch} = this.props;
       dispatch(saveNewHighscore({
         username: api.clientUser.res.data.username,
@@ -59,7 +58,7 @@ class GamePage extends Component<Props> {
           dispatch(fetchHighscore(game.id, game.options));
         })();
       });
-    })();
+    }
   }
 
   componentWillUnmount() {
