@@ -2,40 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9f516f3-b9ac-4d01-9091-8347933162c3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/enzyme-adapter-react-16_vx.x.x.js" beforeDir="false" afterPath="$PROJECT_DIR$/flow-typed/npm/enzyme-adapter-react-16_vx.x.x.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/eslint_vx.x.x.js" beforeDir="false" afterPath="$PROJECT_DIR$/flow-typed/npm/eslint_vx.x.x.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/jest_v20.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/material-ui-icons_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/material-ui_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/redux-thunk_vx.x.x.js" beforeDir="false" afterPath="$PROJECT_DIR$/flow-typed/npm/redux-thunk_vx.x.x.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/redux_v3.x.x.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack.config.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack.config.dev.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameCategories/GameCategories.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/Loader/Loader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/other/Timer/Timer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/Timer/Timer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1166,53 +1135,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/index.es.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/icons/index.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="1150" column="36" selection-start-line="1150" selection-start-column="36" selection-end-line="1150" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
-              <folding>
-                <element signature="e#9#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
-              <folding>
-                <element signature="e#9#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="198">
+              <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -1221,39 +1148,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gameDashBoardRef</find>
-      <find>readTimer</find>
-      <find>localStorage.setItem('ui'</find>
-      <find>api</find>
-      <find>options</find>
-      <find>app</find>
-      <find>clientUser</find>
-      <find>gamesPage</find>
-      <find>pathname</find>
-      <find>match</find>
-      <find>router</find>
-      <find>StatelessFunctionalComponent</find>
-      <find>relativeTimeThreshold</find>
-      <find>MemoryRouter</find>
-      <find>react-router</find>
-      <find>withRef</find>
+      <find>chalk</find>
+      <find>css-loader</find>
+      <find>dotenv</find>
       <find>enzyme</find>
-      <find>dispatch(startGame(</find>
-      <find>startGame</find>
-      <find>startNew</find>
-      <find>material-ui</find>
-      <find>MenuIcon</find>
-      <find>@material-ui/icons</find>
-      <find>ExpandMore</find>
-      <find>PlayCircleOutline</find>
-      <find>PowerSettingsNew</find>
-      <find>paste</find>
-      <find>copy</find>
-      <find>ContentPaste</find>
-      <find>raised</find>
+      <find>enzyme-adapter-react-16</find>
+      <find>extract-text-webpack-plugin</find>
+      <find>file-loader</find>
+      <find>flow-bin</find>
+      <find>fs-extra</find>
+      <find>html-webpack-plugin</find>
+      <find>jest</find>
+      <find>lodash</find>
+      <find>marked</find>
+      <find>moxios</find>
+      <find>nock</find>
+      <find>node-sass-chokidar</find>
+      <find>object-assign</find>
+      <find>postcss-flexbugs-fixes</find>
+      <find>postcss-loader</find>
+      <find>promise</find>
+      <find>react-dev-utils</find>
+      <find>react-motion</find>
+      <find>react-test-renderer</find>
+      <find>redux-logger</find>
+      <find>style-loader</find>
+      <find>sw-precache-webpack-plugin</find>
+      <find>url-loader</find>
+      <find>whatwg-fetch</find>
+      <find>autoprefixer</find>
+      <find>redux-mock-store</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Dev\puzzle-games\src</dir>
+      <dir>C:\Dev\puzzle-games\</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -1267,7 +1195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/js/actions/specs/api/fetchHighscores.spec.js" />
         <option value="$PROJECT_DIR$/src/js/components/other/PageError/PageError.spec.jsx" />
         <option value="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.spec.jsx" />
         <option value="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.spec.jsx" />
@@ -1293,7 +1220,6 @@
         <option value="$PROJECT_DIR$/src/js/actions/api.js" />
         <option value="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/game/Game/Game.jsx" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx" />
@@ -1318,6 +1244,8 @@
         <option value="$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.jsx" />
         <option value="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" />
+        <option value="$PROJECT_DIR$/config/webpack.config.dev.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -1523,12 +1451,12 @@
       <workItem from="1550941421171" duration="18492000" />
       <workItem from="1551004788102" duration="3881000" />
       <workItem from="1551129715514" duration="5571000" />
-      <workItem from="1551209966338" duration="10442000" />
+      <workItem from="1551209966338" duration="12216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162133000" />
+    <option name="totallyTimeSpent" value="163907000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1543,7 +1471,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.18120806" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.18120806" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.48970747" weight="0.13825503" />
@@ -1559,7 +1487,7 @@
       <window_info anchor="bottom" auto_hide="true" id="Version Control" order="8" sideWeight="0.4995005" weight="0.5878187" />
       <window_info anchor="bottom" auto_hide="true" id="Event Log" order="9" sideWeight="0.4995005" weight="0.42776203" />
       <window_info anchor="bottom" auto_hide="true" id="Find" order="10" show_stripe_button="false" sideWeight="0.4985015" weight="0.96458924" />
-      <window_info active="true" anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="11" sideWeight="0.5100671" visible="true" weight="0.34560907" />
+      <window_info anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="11" sideWeight="0.5100671" visible="true" weight="0.21388102" />
       <window_info anchor="bottom" id="Flow" order="12" show_stripe_button="false" weight="0.42776203" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" auto_hide="true" id="Mongo Explorer" order="1" weight="0.16533467" />
@@ -1569,7 +1497,7 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Maven" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="7" weight="0.32995737" />
-      <window_info anchor="right" id="npm" order="8" sideWeight="0.45070422" visible="true" weight="0.14161074" />
+      <window_info anchor="right" id="npm" order="8" sideWeight="0.45070422" weight="0.14161074" />
       <window_info anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" weight="0.43087247" />
     </layout>
     <layout-to-restore>
@@ -1660,49 +1588,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/flow-typed/npm/react-redux_v5.x.x.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="101" column="22" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flow-typed/npm/material-ui_vx.x.x.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flow-typed/npm/moment_v2.x.x.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="151" column="12" selection-start-line="151" selection-start-column="12" selection-end-line="151" selection-end-column="12" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flow-typed/npm/moment_vx.x.x.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-396">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/extracts/gameInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flow-typed/npm/react-router-dom_vx.x.x.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1830,13 +1715,6 @@
           <folding>
             <element signature="e#9#43#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -2032,13 +1910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -2051,11 +1922,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/other/AuthForm/AuthForm.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
+        <state relative-caret-position="216">
+          <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
           <folding>
             <element signature="e#9#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/puzzle-games.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpack.config.prod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpack.config.dev.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="255" selection-start-line="255" selection-end-line="255" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
         </state>
       </provider>
     </entry>
