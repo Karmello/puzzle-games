@@ -97,13 +97,14 @@ export default class HighscoresFilter extends React.Component<Props, State> {
           </FormControl>
         </div>
         <div>
-          {Options &&
-          <GameOptions
-            options={optionsFilter}
-            path={gameFilter.id ? `/highscores/${gameFilter.id}` : ''}
-            disabled={this.shouldBeDisabled()}
-            Content={Options}
-          />}
+          {Options ?
+            <GameOptions
+              options={optionsFilter}
+              path={gameFilter.id ? `/highscores/${gameFilter.id}` : ''}
+              disabled={this.shouldBeDisabled()}
+              Content={Options}
+            /> : ''
+          }
         </div>
       </div>
     );

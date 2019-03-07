@@ -12,6 +12,7 @@ describe('GamesPage component', () => {
     store = createNewStore();
     getDefaultProps = () => ({
       dispatch: store.dispatch,
+      history: { push: jest.fn() },
       api: {
         gameCategories: { res: { data: [{ id: 'sliding' }, { id: 'chess' }] } },
         games: {

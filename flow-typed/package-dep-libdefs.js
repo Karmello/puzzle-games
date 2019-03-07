@@ -4,15 +4,15 @@ declare module '@mars/heroku-js-runtime-env' {
   declare module.exports: any;
 }
 
-declare module 'material-ui' {
+declare module '@material-ui/core' {
+  declare module.exports: any;
+}
+
+declare module '@material-ui/icons' {
   declare module.exports: any;
 }
 
 declare module 'promise' {
-  declare module.exports: any;
-}
-
-declare module 'react-motion' {
   declare module.exports: any;
 }
 

@@ -87,13 +87,13 @@ class GridBoard extends Component<T_GridBoardProps, State> {
                     {(isEmpty(gridBoard.gridMap) || gridBoard.gridMap[index].isOccupied) && (
                       !element.isDraggable && (
                         <div style={{ cursor: element.isSelectable ? 'pointer': 'default' }}>
-                          {element.Element && <element.Element
+                          {element.Element ? <element.Element
                             col={col}
                             row={row}
                             index={index}
                             isSelected={this.isElementSelected(index)}
                             style={this.getElementStyle({ col, row, index, size: actualElementSize })}
-                          />}
+                          /> : ''}
                         </div>
                       ) ||
                       element.isDraggable && (
@@ -104,12 +104,12 @@ class GridBoard extends Component<T_GridBoardProps, State> {
                         >
                           <div>
                             <div style={{ pointerEvents: 'none' }}>
-                              {element.Element && <element.Element
+                              {element.Element ? <element.Element
                                 col={col}
                                 row={row}
                                 index={index}
                                 style={this.getElementStyle({ col, row, index, size: actualElementSize })}
-                              />}
+                              /> : ''}
                             </div>
                           </div>
                         </Draggable>

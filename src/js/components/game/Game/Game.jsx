@@ -77,7 +77,7 @@ export default class Game extends Component<Props, State> {
     setTimeout(() => this.props.dispatch(makeMove()));
   }
 
-  loadImg(imgPath:string) {
+  loadImg(imgPath:string):Promise<any> {
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.src = `${process.env.REACT_APP_S3_BUCKET || ''}/${imgPath}`;

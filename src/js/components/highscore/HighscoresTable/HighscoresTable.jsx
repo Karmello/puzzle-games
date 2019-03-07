@@ -68,7 +68,7 @@ export default class HighscoresTable extends Component<Props, State> {
                     <TableCell className='HighscoresTable-cell'>{i + 1}</TableCell>
                     <TableCell className='HighscoresTable-cell'>{highscore.username}</TableCell>
                     <TableCell className='HighscoresTable-cell'>{moment.utc(highscore.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
-                    <TableCell className='HighscoresTable-cell' numeric>{highscore.details.moves}</TableCell>
+                    <TableCell className='HighscoresTable-cell' align='right'>{highscore.details.moves}</TableCell>
                     <TableCell className='HighscoresTable-cell'>{moment(highscore.date).format('DD-MM-YY, h:mm:ss a')}</TableCell>
                   </TableRow>
                 ))}

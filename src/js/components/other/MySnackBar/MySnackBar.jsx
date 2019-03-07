@@ -29,7 +29,6 @@ export default class MySnackBar extends Component<Props, State> {
           open={this.state.open}
           autoHideDuration={autoHideDuration}
           onClose={this.onClose.bind(this)}
-          SnackbarContentProps={{ 'aria-describedby': 'message-id' }}
           message={<span id='message-id'>{this.props.message}</span>}
         />
       </div>
@@ -37,7 +36,6 @@ export default class MySnackBar extends Component<Props, State> {
   }
 
   onClose() {
-
     this.setState({ open: false });
     this.props.onClose();
   }
