@@ -21,7 +21,8 @@ export {
 export {
   T_GridMap,
   T_RouterProps,
-  T_GridBoardProps
+  T_GridBoardProps,
+  T_GameOptionsProps
 } from './props';
 
 export {

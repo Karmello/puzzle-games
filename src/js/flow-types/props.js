@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import type { T_GridBoardState, T_Coords } from 'js/flow-types';
+import type {T_GridBoardState, T_Coords, T_GameOptionsModel} from 'js/flow-types';
 
 export type T_GridMap = {
   [number]:{
@@ -32,4 +32,12 @@ export type T_GridBoardProps = {
     onEmptyCellClick?:Function,
     onElementMove?:Function
   }
+};
+
+export type T_GameOptionsProps = {
+  options:T_GameOptionsModel,
+  Content:React.ComponentType<T_GameOptionsProps>,
+  path?:string,
+  disabled?:boolean,
+  onValueChangeCb?:Function
 };

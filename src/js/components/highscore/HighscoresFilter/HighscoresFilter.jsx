@@ -9,8 +9,7 @@ import GameOptions from 'js/components/game/GameOptions/GameOptions';
 import { kebabToCamelCase } from 'js/helpers/methods';
 import './HighscoresFilter.css';
 
-import type { T_GameOptionsProps } from 'js/components';
-import type { T_ApiEntities, T_GameOptionsModel } from 'js/flow-types';
+import type { T_ApiEntities, T_GameOptionsModel, T_GameOptionsProps } from 'js/flow-types';
 
 type Props = {
   api:T_ApiEntities,

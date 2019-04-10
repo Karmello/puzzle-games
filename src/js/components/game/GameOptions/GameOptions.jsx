@@ -2,18 +2,10 @@
 import * as React from 'react';
 import { isEmpty } from 'lodash';
 
-import type { T_GameOptionsModel } from 'js/flow-types';
+import type { T_GameOptionsModel, T_GameOptionsProps } from 'js/flow-types';
 import './GameOptions.css';
 
-export type Props = {
-  options:T_GameOptionsModel,
-  Content:React.ComponentType<Props>,
-  path?:string,
-  disabled?:boolean,
-  onValueChangeCb?:Function
-};
-
-export default class GameOptions extends React.Component<Props, T_GameOptionsModel> {
+export default class GameOptions extends React.Component<T_GameOptionsProps, T_GameOptionsModel> {
   
   state = { mode: '', dimension: '' }
 
@@ -22,7 +14,7 @@ export default class GameOptions extends React.Component<Props, T_GameOptionsMod
     this.setState({ mode, dimension });
   }
 
-  componentWillReceiveProps(nextProps:Props) {
+  componentWillReceiveProps(nextProps:T_GameOptionsProps) {
     const newState = {};
     for (const key in this.state) {
       if (this.state[key] && this.state[key] !== nextProps.options[key]) {
