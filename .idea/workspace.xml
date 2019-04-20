@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9f516f3-b9ac-4d01-9091-8347933162c3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1133,11 +1133,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="57" column="47" lean-forward="true" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+            <state relative-caret-position="231">
+              <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -1146,16 +1146,16 @@
         <entry file="file://$PROJECT_DIR$/scripts/test.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/env.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
-              <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -1173,7 +1173,7 @@
         <entry file="file://$PROJECT_DIR$/config/webpack.config.prod.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="350">
-              <caret line="247" column="33" lean-forward="true" selection-start-line="247" selection-start-column="33" selection-end-line="247" selection-end-column="33" />
+              <caret line="247" column="33" selection-start-line="247" selection-start-column="33" selection-end-line="247" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -1277,10 +1277,10 @@
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/.babelrc.js" />
         <option value="$PROJECT_DIR$/babel.config.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/config/webpack.config.dev.js" />
         <option value="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" />
         <option value="$PROJECT_DIR$/config/webpack.config.prod.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -1519,12 +1519,12 @@
       <workItem from="1554916826939" duration="654000" />
       <workItem from="1554924245412" duration="6036000" />
       <workItem from="1554930665266" duration="3823000" />
-      <workItem from="1555743047532" duration="15173000" />
+      <workItem from="1555743047532" duration="15758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205858000" />
+    <option name="totallyTimeSpent" value="206443000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1537,6 +1537,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1913" y="-284" width="2062" height="1126" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.18163672" />
       <window_info id="Designer" order="1" />
@@ -1565,7 +1566,7 @@
       <window_info anchor="right" id="Maven" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="7" weight="0.32995737" />
       <window_info anchor="right" id="npm" order="8" sideWeight="0.45070422" weight="0.16866267" />
-      <window_info active="true" anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" visible="true" weight="0.43712574" />
+      <window_info anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" weight="0.43712574" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.15918164" />
@@ -2023,28 +2024,28 @@
     <entry file="file://$PROJECT_DIR$/config/webpack.config.prod.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
-          <caret line="247" column="33" lean-forward="true" selection-start-line="247" selection-start-column="33" selection-end-line="247" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="57" column="47" lean-forward="true" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+          <caret line="247" column="33" selection-start-line="247" selection-start-column="33" selection-end-line="247" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/env.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
-          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
         </state>
       </provider>
     </entry>
