@@ -8,7 +8,7 @@ import { GameMenu } from 'js/components';
 import { startGame } from 'js/actions/game';
 import { toggleAppDrawer } from 'js/actions/app';
 
-import type { T_GameState, T_ApiEndPoint } from 'js/flow-types';
+import type { T_GameState } from 'js/flow-types';
 
 import './AppBar.css';
 
@@ -16,14 +16,14 @@ type Props = {
   appName:string,
   showDrawer:boolean,
   game:T_GameState,
-  apiGames:T_ApiEndPoint,
+  gameCategory:string,
   dispatch:Function
 };
 
 class AppBar extends Component<Props> {
 
   render() {
-    const { appName, game, apiGames } = this.props;
+    const { appName, game, gameCategory } = this.props;
     return (
       <MaterialAppBar className='AppBar' position='static' color='primary'>
         <Toolbar>
@@ -38,7 +38,7 @@ class AppBar extends Component<Props> {
             color='inherit'
           >{appName}</Typography>
           {game.id && <GameMenu
-            gameCategory={apiGames.res.data.find(elem => elem.id === game.id).categoryId}
+            gameCategory={gameCategory}
             onItemClick={this.onMenuItemClick.bind(this)}
             showRestartBtn={game.id === 'boss-puzzle' && game.options.mode ==='IMG'}
           />}
@@ -62,5 +62,5 @@ export default connect(store => ({
   appName: store.app.title,
   showDrawer: store.app.showDrawer,
   game: store.game,
-  apiGames: store.api.games
+  gameCategory: store.pages.gamesPage.category
 }))(AppBar);

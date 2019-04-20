@@ -4,7 +4,7 @@ import moment from 'moment';
 import { Typography, ExpansionPanel,  ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 
-import { GameBtn } from 'js/components';
+import GameBtn from 'js/components/game/GameBtn/GameBtn';
 import { humanizeHighscoreTime } from 'js/extracts/gameInfo';
 import './GameInfo.css';
 

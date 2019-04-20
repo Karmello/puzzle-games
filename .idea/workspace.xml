@@ -1,7 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d1a25b6-23c7-45a7-a3bb-ec0ab617bee8" name="Default Changelist" comment="" />
+    <list default="true" id="1d1a25b6-23c7-45a7-a3bb-ec0ab617bee8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/@babel/core_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/@mars/heroku-js-runtime-env_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/@material-ui/core_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/@material-ui/icons_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/@storybook/react_v3.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/autoprefixer_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/axios_v0.18.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/axios_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/babel-core_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/babel-eslint_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/babel-jest_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/babel-loader_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/babel-plugin-root-import_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/babel-preset-react-app_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/babel-runtime_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/case-sensitive-paths-webpack-plugin_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/chalk_v1.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/css-loader_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/dotenv_v4.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/enzyme-adapter-react-16_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/enzyme_v3.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/eslint-config-react-app_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/eslint-loader_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/eslint-plugin-flowtype_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/eslint-plugin-import_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/eslint-plugin-jasmine_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/eslint-plugin-jsx-a11y_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/eslint-plugin-react_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/eslint_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/extract-text-webpack-plugin_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/file-loader_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/flow-bin_v0.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/flow-webpack-plugin_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/fs-extra_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/html-webpack-plugin_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/jest-localstorage-mock_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/jest_v24.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/lodash_v4.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/marked_v0.3.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/moment_v2.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/moment_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/moxios_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/nock_v9.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/node-sass-chokidar_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/npm-run-all_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/object-assign_v4.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/postcss-flexbugs-fixes_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/postcss-loader_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/prop-types_v15.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/query-string_v5.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/react-dev-utils_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/react-draggable_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/react-flexbox-grid_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/react-hot-loader_v4.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/react-redux_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/react-router-dom_v4.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/react-router-dom_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/react-swipeable-views_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/react-test-renderer_v16.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/redux-axios-middleware_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/redux-devtools-extension_v2.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/redux-logger_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/redux-mock-store_v1.2.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/redux-thunk_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/redux_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/sass-loader_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/style-loader_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/sw-precache-webpack-plugin_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/url-loader_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/webpack-bundle-analyzer_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/webpack-dev-server_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/webpack-manifest-plugin_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/webpack_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/npm/whatwg-fetch_vx.x.x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flow-typed/package-dep-libdefs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/actions/tetris.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/components/game/GameMenu/GameMenu.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPageRoutes.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPageRoutes.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPageRoutes.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPageRoutes.spec.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/extracts/specs/gameInfo.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/reducers/specs/gamePageReducer.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/reducers/specs/knightsTourReducer.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/reducers/specs/sudokuReducer.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/reducers/specs/tetrisReducer.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/reducers/tetris.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flowconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.flowconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img11.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img12.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img13.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img14.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img14.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img15.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img15.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img16.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img17.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img17.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img18.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img18.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img19.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img19.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img20.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img20.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/img9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/BossPuzzle/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/actions/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/actions/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/actions/bossPuzzle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/actions/bossPuzzle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/engineOptions/KnightsTourOptions/KnightsTourOptions.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/Game/Game.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/Game/Game.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameCard/GameCard.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/other/PageError/PageError.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/PageError/PageError.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/other/Timer/Timer.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/other/Timer/Timer.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/app/App/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/App/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/app/App/App.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/App/App.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/AppBar/AppBar.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/EightQueens/EightQueens.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/KnightsTour/KnightsTour.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/engines/Sudoku/Sudoku.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.stories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.stories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/GamePage/GamePage.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/HighscoresPage/HighscoresPage.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/pages/RootPage/RootPage.spec.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/creators/action/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/creators/action/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/extracts/bossPuzzle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/extracts/bossPuzzle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/extracts/rootPageRoutesLogic.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/extracts/rootPageRoutesLogic.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/extracts/sudoku.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/extracts/sudoku.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/flow-types/engines.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/flow-types/engines.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/flow-types/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/flow-types/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/flow-types/other.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/flow-types/other.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/flow-types/props.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/flow-types/props.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/helpers/methods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/helpers/methods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/localStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/localStorage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/reducers/bossPuzzle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/reducers/bossPuzzle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/reducers/specs/bossPuzzleReducer.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/reducers/specs/bossPuzzleReducer.spec.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,12 +201,24 @@
     <favorites_list name="puzzle-games" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="80" column="4" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
+            <state relative-caret-position="198">
+              <caret line="84" column="42" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPageRoutes.spec.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,6 +258,7 @@
     <setting file="file://$PROJECT_DIR$/config/webpack.config.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/run.cmd" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/components/game/GameInfo/GameInfo.jsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Jenkinsfile" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/components/game/GameBtn/GameBtn.jsx" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/components/index.js" root0="SKIP_INSPECTION" />
@@ -100,6 +298,10 @@
         <option value="$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/index.js" />
         <option value="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.jsx" />
+        <option value="$PROJECT_DIR$/.flowconfig" />
+        <option value="$PROJECT_DIR$/Jenkinsfile" />
+        <option value="$PROJECT_DIR$/src/js/flow-types/engines.js" />
+        <option value="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPageRoutes.spec.jsx" />
         <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
@@ -114,10 +316,10 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2467" />
+    <option name="x" value="2465" />
     <option name="y" value="-37" />
     <option name="width" value="1440" />
-    <option name="height" value="774" />
+    <option name="height" value="775" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -139,6 +341,26 @@
               <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
+              <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
+              <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
+              <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="flow-types" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -155,7 +377,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2018.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RunDashboard">
@@ -170,12 +392,32 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.build">
+    <configuration name="api" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="api" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="mongo" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="mongo" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -193,6 +435,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.api" />
+        <item itemvalue="npm.mongo" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.start" />
       </list>
@@ -209,11 +453,13 @@
       <option name="presentableId" value="Default" />
       <updated>1555784807340</updated>
       <workItem from="1555784813080" duration="10604000" />
+      <workItem from="1555796875778" duration="175000" />
+      <workItem from="1555797103192" duration="1677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10604000" />
+    <option name="totallyTimeSpent" value="12456000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -228,10 +474,9 @@
     <frame x="1913" y="-284" width="2062" height="1126" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992928" visible="true" weight="0.18962076" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992928" visible="true" weight="0.19361277" />
       <window_info id="Favorites" order="1" sideWeight="0.5007072" weight="0.24932976" />
       <window_info id="Structure" order="2" sideWeight="0.5007072" weight="0.2533512" />
-      <window_info anchor="bottom" id="TypeScript" show_stripe_button="false" weight="0.32964823" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" auto_hide="true" id="Version Control" order="1" weight="0.3286432" />
       <window_info anchor="bottom" auto_hide="true" id="Event Log" order="2" weight="0.39698493" />
@@ -241,7 +486,8 @@
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" auto_hide="true" id="TODO" order="8" weight="0.3286432" />
-      <window_info anchor="bottom" id="Run" order="9" weight="0.30653265" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.30653265" />
+      <window_info anchor="bottom" id="TypeScript" order="10" show_stripe_button="false" weight="0.32964823" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -253,55 +499,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupTests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-440">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -359,13 +556,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/jest/cssTransform.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.flowconfig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="55" lean-forward="true" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -614,13 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="75" lean-forward="true" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/components/highscore/HighscoresTable/HighscoresTable.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -669,10 +852,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.flowconfig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jenkinsfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.spec.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/engineOptions/BossPuzzleOptions/BossPuzzleOptions.spec.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="34" column="3" lean-forward="true" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/actions/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/flow-types/engines.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="2" lean-forward="true" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPageRoutes.spec.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="80" column="4" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
+        <state relative-caret-position="198">
+          <caret line="84" column="42" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
         </state>
       </provider>
     </entry>

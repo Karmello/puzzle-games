@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import type { T_GridBoardState, T_GameOptionsModel } from 'js/flow-types';
+import type {T_GridBoardState, T_Coords, T_GameOptionsModel} from 'js/flow-types';
 
 export type T_GridMap = {
   [number]:{
@@ -17,14 +17,16 @@ export type T_RouterProps = {
 export type T_GridBoardProps = {
   dispatch:Function,
   gridBoard:T_GridBoardState,
-  dimension:number,
+  dimension:T_Coords,
   isChessBoard?:boolean,
   gridMap?:Array<boolean>,
   element:{
     size:number,
+    minSize?: number,
     isDraggable?:boolean,
     isSelectable?:boolean,
-    Element?:React.ComponentType<{ col:number, row:number, index:number }>
+    Element?:React.ComponentType<{ col:number, row:number, index:number }>,
+    getStyle?:Function
   },
   callback:{
     onEmptyCellClick?:Function,
@@ -32,7 +34,7 @@ export type T_GridBoardProps = {
   }
 };
 
-export type T_GameOptionsProps =  {
+export type T_GameOptionsProps = {
   options:T_GameOptionsModel,
   Content:React.ComponentType<T_GameOptionsProps>,
   path?:string,

@@ -35,14 +35,14 @@ class HighscoresPage extends Component<Props> {
 
     let anyOptionChanged;
 
-    if (nextOptionsFilterToSet && optionsFilterToSet) {
+    (nextOptionsFilterToSet && optionsFilterToSet) &&
+    (() => {
       const keys = Object.keys(nextOptionsFilterToSet);
       anyOptionChanged = keys.some(key => nextOptionsFilterToSet[key] !== optionsFilterToSet[key]);
-    }
+    })();
 
-    if (gameFilterToSet.category !== nextGameFilterToSet.category || gameFilterToSet.id !== nextGameFilterToSet.id || anyOptionChanged) {
-      this.onChange(nextGameFilterToSet, nextOptionsFilterToSet);
-    }
+    (gameFilterToSet.category !== nextGameFilterToSet.category || gameFilterToSet.id !== nextGameFilterToSet.id || anyOptionChanged) &&
+    (() => this.onChange(nextGameFilterToSet, nextOptionsFilterToSet))();
   }
 
   render() {

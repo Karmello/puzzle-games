@@ -6,7 +6,7 @@ import { Paper } from '@material-ui/core';
 
 import GameDashboard from 'js/components/game/GameDashboard/GameDashboard';
 import GameInfo from 'js/components/game/GameInfo/GameInfo';
-import { Loader } from 'js/components';
+import Loader from 'js/components/other/Loader/Loader';
 import { fetchHighscore, saveNewHighscore } from 'js/actions/api';
 import { setAppTitle } from 'js/actions/app';
 import { startGame, endGame } from 'js/actions/game';
@@ -46,16 +46,17 @@ class GamePage extends Component<Props> {
   componentWillReceiveProps(nextProps) {
     const { game } = nextProps;
     if (!this.props.game.isSolved && game.isSolved) {
-      const { api, dispatch } = this.props;
+      const {api, dispatch} = this.props;
       dispatch(saveNewHighscore({
         username: api.clientUser.res.data.username,
         gameId: game.id,
         options: game.options,
-        details: { moves: game.moves, seconds: this.readTimer().seconds }
+        details: {moves: game.moves, seconds: this.readTimer().seconds}
       })).then(action => {
-        if (action.payload.status === 200) {
-          dispatch(fetchHighscore(game.id, game.options))
-        }
+        /* istanbul ignore next */
+        action.payload.status === 200 && (() => {
+          dispatch(fetchHighscore(game.id, game.options));
+        })();
       });
     }
   }
