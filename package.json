@@ -29,7 +29,7 @@
     "@material-ui/icons": "^3.0.2",
     "autoprefixer": "7.1.2",
     "axios": "^0.18.0",
-    "babel-jest": "^24.7.1",
+    "babel-jest": "^22.4.4",
     "babel-loader": "^8.0.5",
     "babel-plugin-root-import": "^6.1.0",
     "babel-runtime": "6.26.0",
