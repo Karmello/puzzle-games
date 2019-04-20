@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { Field, reduxForm, SubmissionError } from 'redux-form';
-import { Button, TextField } from 'material-ui';
-import ErrorIcon from 'material-ui-icons/Error';
+import { Button, TextField } from '@material-ui/core';
+import { Error as ErrorIcon } from '@material-ui/icons';
 
 import { Loader } from 'js/components';
 import './AuthForm.css';
@@ -51,7 +51,7 @@ const AuthForm = props => {
           </div>
           <div>
             <Button
-              variant='raised'
+              variant='contained'
               color='inherit'
               disabled={pristine || submitting}
               onClick={
@@ -68,7 +68,7 @@ const AuthForm = props => {
           </div>
           <div>
             <Button
-              variant='raised'
+              variant='contained'
               color='primary'
               disabled={pristine || submitting}
               onClick={

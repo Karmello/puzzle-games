@@ -4,8 +4,9 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SwipeableViews from 'react-swipeable-views';
 
+import GameCategories from 'js/components/game/GameCategories/GameCategories';
+import GameCard from 'js/components/game/GameCard/GameCard';
 import { switchGameCategoryTab, changeGameOptions } from 'js/actions/gamesPage';
-import { GameCategories, GameCard } from 'js/components';
 import './GamesPage.css';
 
 import type { T_GamesPageState, T_ApiEntities } from 'js/flow-types';
@@ -21,8 +22,8 @@ type Props = {
 class GamesPage extends Component<Props> {
 
   componentWillReceiveProps(nextProps) {
-    
-    const { api, gamesPage, gameCategoryToSet, dispatch } = nextProps;
+
+    const {api, gamesPage, gameCategoryToSet, dispatch} = nextProps;
 
     if (gamesPage.category !== gameCategoryToSet) {
       let ui = localStorage.getItem('ui');

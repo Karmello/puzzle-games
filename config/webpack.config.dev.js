@@ -10,7 +10,7 @@ const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeM
 const FlowWebpackPlugin = require('flow-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -29,9 +29,10 @@ const env = getClientEnvironment(publicUrl);
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
 module.exports = {
+  mode: 'development',
   // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
   // See the discussion in https://github.com/facebookincubator/create-react-app/issues/343.
-  devtool: 'cheap-module-source-map',
+  devtool: 'eval',
   // These are the "entry points" to our application.
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
@@ -154,7 +155,6 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
@@ -222,16 +222,16 @@ module.exports = {
     ],
   },
   plugins: [
-    // Makes some environment variables available in index.html.
-    // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
-    // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    // In development, this will be an empty string.
-    new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
     }),
+    // Makes some environment variables available in index.html.
+    // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
+    // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    // In development, this will be an empty string.
+    new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:
@@ -254,8 +254,8 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new BundleAnalyzerPlugin({ openAnalyzer: false }),
-    new FlowWebpackPlugin({ failOnError: false, failOnErrorWatch: false, reportingSeverity: 'warning' })
+    new FlowWebpackPlugin({ failOnError: false, failOnErrorWatch: false, reportingSeverity: 'warning' }),
+    new HardSourceWebpackPlugin()
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

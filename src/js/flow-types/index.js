@@ -21,14 +21,16 @@ export {
 export {
   T_GridMap,
   T_RouterProps,
-  T_GridBoardProps
+  T_GridBoardProps,
+  T_GameOptionsProps
 } from './props';
 
 export {
   T_BossPuzzleEngine,
   T_EightQueensEngine,
   T_KnightsTourEngine,
-  T_SudokuEngine
+  T_SudokuEngine,
+  T_TetrisEngine
 } from './engines';
 
 export {

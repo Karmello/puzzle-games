@@ -2,9 +2,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Drawer, List } from 'material-ui';
-import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import { PlayCircleOutline, ContentPaste, PowerSettingsNew } from 'material-ui-icons';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { PlayCircleOutline, PowerSettingsNew, List as ListIcon } from '@material-ui/icons';
 import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
 
@@ -55,7 +54,7 @@ class AppDrawer extends Component<Props> {
                   <ListItemText primary='Games' />
                 </ListItem>
                 <ListItem button component={Link} to={this.getHighscoresPageUrl()}>
-                  <ListItemIcon><ContentPaste/></ListItemIcon>
+                  <ListItemIcon><ListIcon /></ListItemIcon>
                   <ListItemText primary='Highscores' />
                 </ListItem>
                 {app.authStatus === 'logged_in' && <ListItem button onClick={this.onLogout.bind(this)}>

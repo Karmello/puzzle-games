@@ -20,7 +20,7 @@ const store = createNewStore();
 storiesOf('gridBoard/GridBoard', module)
   .add('an empty chessboard', () => {
     return render({
-      dimension: 8,
+      dimension: { x: 8, y: 8 },
       isChessBoard: true,
       element: {
         size: 80
@@ -31,7 +31,7 @@ storiesOf('gridBoard/GridBoard', module)
     const gridMap = Array.from({ length: 64 }, () => false);
     gridMap[0] = true;
     return render({
-      dimension: 8,
+      dimension: { x: 8, y: 8 },
       isChessBoard: true,
       gridMap,
       element: {
@@ -53,7 +53,7 @@ storiesOf('gridBoard/GridBoard', module)
     gridMap[34] = true;
     gridMap[48] = true;
     return render({
-      dimension: 8,
+      dimension: { x: 8, y: 8 },
       isChessBoard: true,
       gridMap,
       element: {
@@ -77,7 +77,7 @@ storiesOf('gridBoard/GridBoard', module)
     gridMap[34] = true;
     gridMap[48] = true;
     return render({
-      dimension: 8,
+      dimension: { x: 8, y: 8 },
       isChessBoard: true,
       gridMap,
       element: {
@@ -108,7 +108,7 @@ storiesOf('gridBoard/GridBoard', module)
     gridMap[33] = true;
     gridMap[55] = true;
     return render({
-      dimension: 8,
+      dimension: { x: 8, y: 8 },
       isChessBoard: true,
       gridMap,
       element: {

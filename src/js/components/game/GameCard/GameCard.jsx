@@ -1,10 +1,10 @@
 // @flow
 import React, { Component } from 'react';
 import { isEmpty } from 'lodash';
-import { Card, Typography } from 'material-ui';
-import { CardActions, CardContent, CardMedia } from 'material-ui/Card';
+import { Card, Typography, CardActions, CardContent, CardMedia } from '@material-ui/core';
 
-import { GameBtn, GameOptions } from 'js/components';
+import GameBtn from './../GameBtn/GameBtn';
+import GameOptions from './../GameOptions/GameOptions';
 import { kebabToCamelCase } from 'js/helpers/methods';
 import './GameCard.css';
 

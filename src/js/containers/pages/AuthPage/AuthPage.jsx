@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
-import { Paper } from 'material-ui';
+import { Paper } from '@material-ui/core';
 
 import { App } from 'js/containers';
 import { AuthForm } from 'js/components';

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'material-ui';
+import { Button } from '@material-ui/core';
 
 import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
@@ -22,7 +22,7 @@ class EightQueens extends Game {
     if (game.isLoading) { return null; }
     return (
       <GridBoard
-        dimension={dimension}
+        dimension={{ x: Number(dimension), y: Number(dimension ) }}
         isChessBoard={true}
         gridMap={this.createGridMap()}
         element={{

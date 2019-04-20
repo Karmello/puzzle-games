@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
-import { Button } from 'material-ui';
+import { Button } from '@material-ui/core';
 
 import type { T_GameOptionsModel } from 'js/flow-types';
 
@@ -36,7 +36,7 @@ const getToObject = props => {
 
 export default (props:Props) => (
   <Button
-    variant={props.name === 'play' ? 'raised' : null}
+    variant={props.name === 'play' ? 'contained' : null}
     color='primary'
     component={Link}
     to={getToObject(props)}

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { Select, MenuItem } from 'material-ui';
+import { Select, MenuItem } from '@material-ui/core';
 
 import { GridBoard } from 'js/containers';
 import { Game } from 'js/components';
@@ -26,7 +26,7 @@ class Sudoku extends Game {
     if (game.isLoading) { return null; }
     return (
       <GridBoard
-        dimension={dimension}
+        dimension={{ x: Number(dimension), y: Number(dimension ) }}
         element={{
           size: elementSize,
           Element: this.renderElement(values),

@@ -5,7 +5,7 @@ import type { T_Coords } from 'js/flow-types';
 
 const initDataLoopRuns = 1000;
 
-export const initData = (args:{dimension:number, hiddenTileCoords:T_Coords}) => {
+export const initData = (args:{dimension:number, hiddenTileCoords:T_Coords}):Promise<any> => {
   
   if (args.dimension < 2) { throw new Error('Dimension must be greater than or equal 2'); }
 

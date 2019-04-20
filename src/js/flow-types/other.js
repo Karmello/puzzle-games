@@ -12,8 +12,8 @@ export type T_Action = {
 };
 
 export type T_Coords = {
-   x?:number,
-   y?:number
+   x:number,
+   y:number
 };
 
 export type T_Event = {

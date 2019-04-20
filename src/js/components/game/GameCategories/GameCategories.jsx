@@ -1,8 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Tabs } from 'material-ui';
-import { Tab } from 'material-ui/Tabs';
+import { Tabs, Tab } from '@material-ui/core';
 
 import type { T_ApiEndPoint } from 'js/flow-types';
 
