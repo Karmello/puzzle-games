@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a9f516f3-b9ac-4d01-9091-8347933162c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1136,8 +1140,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+            <state relative-caret-position="24">
+              <caret line="10" column="45" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="344">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -1145,8 +1158,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/babel.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+            <state relative-caret-position="160">
+              <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -1222,7 +1235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/flow-typed/npm/react-router-dom_vx.x.x.js" />
         <option value="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.jsx" />
         <option value="$PROJECT_DIR$/src/js/helpers/methods.js" />
         <option value="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" />
@@ -1270,9 +1282,10 @@
         <option value="$PROJECT_DIR$/config/webpack.config.dev.js" />
         <option value="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" />
         <option value="$PROJECT_DIR$/src/js/reducers/specs/bossPuzzleReducer.spec.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/babel.config.js" />
         <option value="$PROJECT_DIR$/config/webpack.config.prod.js" />
+        <option value="$PROJECT_DIR$/scripts/test.js" />
+        <option value="$PROJECT_DIR$/babel.config.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -1315,13 +1328,25 @@
             <path>
               <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
               <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
               <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="jest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
+              <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
+              <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1517,7 +1542,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223498000" />
+    <option name="totallyTimeSpent" value="227057000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1530,6 +1555,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.18699732" />
       <window_info id="Designer" order="1" />
@@ -1547,7 +1573,7 @@
       <window_info anchor="bottom" auto_hide="true" id="Version Control" order="8" sideWeight="0.4995005" weight="0.5878187" />
       <window_info anchor="bottom" auto_hide="true" id="Event Log" order="9" sideWeight="0.4995005" weight="0.26308346" />
       <window_info anchor="bottom" auto_hide="true" id="Find" order="10" show_stripe_button="false" sideWeight="0.4985015" weight="0.96458924" />
-      <window_info anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="11" sideWeight="0.5100671" visible="true" weight="0.2036775" />
+      <window_info active="true" anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="11" sideWeight="0.5100671" visible="true" weight="0.5912306" />
       <window_info anchor="bottom" id="Flow" order="12" show_stripe_button="false" weight="0.42776203" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" auto_hide="true" id="Mongo Explorer" order="1" weight="0.16533467" />
@@ -1558,7 +1584,7 @@
       <window_info anchor="right" id="Maven" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="7" weight="0.32995737" />
       <window_info anchor="right" id="npm" order="8" sideWeight="0.45070422" weight="0.16823056" />
-      <window_info active="true" anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" visible="true" weight="0.40482575" />
+      <window_info anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" weight="0.40482575" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.15918164" />
@@ -1891,13 +1917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/flow-types/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1980,13 +1999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/babel.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/webpackDevServer.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-770">
@@ -2022,10 +2034,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/babel.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        <state relative-caret-position="24">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="45" />
         </state>
       </provider>
     </entry>

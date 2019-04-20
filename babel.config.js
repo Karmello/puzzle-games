@@ -3,6 +3,7 @@ module.exports = function (api) {
   api.cache(true);
 
   const presets = [
+    '@babel/preset-env',
     '@babel/preset-flow',
     '@babel/preset-react'
   ];
@@ -11,8 +12,11 @@ module.exports = function (api) {
     '@babel/plugin-transform-flow-strip-types',
     '@babel/plugin-proposal-class-properties',
     'babel-plugin-root-import',
-    '@babel/plugin-transform-modules-commonjs'
   ];
+
+  if (process.env.NODE_ENV === 'test') {
+    plugins.push('@babel/plugin-transform-modules-commonjs');
+  }
 
   return {
     presets,
