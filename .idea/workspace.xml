@@ -1136,8 +1136,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+            <state relative-caret-position="299">
+              <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -1145,8 +1145,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+            <state relative-caret-position="396">
+              <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -1154,8 +1154,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/env.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+            <state relative-caret-position="264">
+              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/babel.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="61" lean-forward="true" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -1182,9 +1191,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>babel.dev</find>
-      <find>flow</find>
-      <find>onAuthFormSubmit</find>
       <find>babel-e</find>
       <find>== 'test'</find>
       <find>react-dom</find>
@@ -1212,10 +1218,14 @@
       <find>test: /\.css$/,</find>
       <find>chunkFilename</find>
       <find>dotenv</find>
+      <find>require('request')</find>
+      <find>request</find>
+      <find>from 'nock'</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Dev\puzzle-games\</dir>
       <dir>C:\Dev\puzzle-games\src</dir>
+      <dir>C:\Dev\puzzle-games``</dir>
       <dir>C:\Dev\puzzle-games</dir>
     </dirStrings>
   </component>
@@ -1300,10 +1310,10 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2401" />
-    <option name="y" value="-82" />
-    <option name="width" value="1440" />
-    <option name="height" value="773" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1098" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -1519,12 +1529,12 @@
       <workItem from="1554916826939" duration="654000" />
       <workItem from="1554924245412" duration="6036000" />
       <workItem from="1554930665266" duration="3823000" />
-      <workItem from="1555743047532" duration="16504000" />
+      <workItem from="1555743047532" duration="17362000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207189000" />
+    <option name="totallyTimeSpent" value="208047000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1536,10 +1546,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1913" y="-284" width="2062" height="1126" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.18163672" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.24396783" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.48970747" weight="0.19810379" />
@@ -1555,7 +1565,7 @@
       <window_info anchor="bottom" auto_hide="true" id="Version Control" order="8" sideWeight="0.4995005" weight="0.5878187" />
       <window_info anchor="bottom" auto_hide="true" id="Event Log" order="9" sideWeight="0.4995005" weight="0.2643216" />
       <window_info anchor="bottom" auto_hide="true" id="Find" order="10" show_stripe_button="false" sideWeight="0.4985015" weight="0.96458924" />
-      <window_info anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="11" sideWeight="0.5100671" visible="true" weight="0.31256282" />
+      <window_info anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="11" sideWeight="0.5100671" visible="true" weight="0.19377652" />
       <window_info anchor="bottom" id="Flow" order="12" show_stripe_button="false" weight="0.42776203" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" auto_hide="true" id="Mongo Explorer" order="1" weight="0.16533467" />
@@ -1566,7 +1576,7 @@
       <window_info anchor="right" id="Maven" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="7" weight="0.32995737" />
       <window_info anchor="right" id="npm" order="8" sideWeight="0.45070422" weight="0.16866267" />
-      <window_info active="true" anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" visible="true" weight="0.43712574" />
+      <window_info anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" weight="0.5871314" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.15918164" />
@@ -1983,13 +1993,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/babel.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/build.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -2028,24 +2031,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/test.js">
+    <entry file="file://$PROJECT_DIR$/babel.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <caret line="15" column="61" lean-forward="true" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/env.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        <state relative-caret-position="264">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="299">
+          <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
         </state>
       </provider>
     </entry>
