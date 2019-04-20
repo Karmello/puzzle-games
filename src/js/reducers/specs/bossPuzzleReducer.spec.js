@@ -2,7 +2,7 @@ import bossPuzzleReducer from 'js/reducers/bossPuzzle';
 import { initEngine, switchTiles, clearHiddenTileCoords, resetEngine } from 'js/actions/bossPuzzle';
 
 
-fdescribe('bossPuzzleReducer', () => {
+describe('bossPuzzleReducer', () => {
   
   it('should return the initial state', () => {
     expect(bossPuzzleReducer(undefined, {})).toEqual({
