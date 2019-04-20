@@ -1181,8 +1181,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/reducers/specs/bossPuzzleReducer.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="88">
+              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
               </folding>
@@ -1194,7 +1194,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CommonsChunkPlugin </find>
       <find>plugins</find>
       <find>cheap</find>
       <find>speed</find>
@@ -1224,6 +1223,7 @@
       <find>react-hot-loader</find>
       <find>flow-bin</find>
       <find>done</find>
+      <find>xit</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Dev\puzzle-games\</dir>
@@ -1537,7 +1537,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213872000" />
+    <option name="totallyTimeSpent" value="214501000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2038,8 +2038,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/reducers/specs/bossPuzzleReducer.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="88">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
           <folding>
             <element signature="e#0#55#0" expanded="true" />
           </folding>
