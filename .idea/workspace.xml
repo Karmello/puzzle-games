@@ -2,40 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9f516f3-b9ac-4d01-9091-8347933162c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/webpack.config.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack.config.dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/webpack.config.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack.config.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img18.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img19.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img20.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/img9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/BussPuzzle/logo.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/start.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/flow-types/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/flow-types/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/flow-types/props.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/flow-types/props.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1165,40 +1137,80 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/webpack.config.dev.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/webpack.config.prod.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-44">
+              <caret line="16" column="67" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+              <folding>
+                <element signature="e#9#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>TableCell</find>
-      <find>xdesc</find>
-      <find>withRouter</find>
-      <find>list</find>
-      <find>watch</find>
-      <find>WatchMissingNodeModulesPlugin</find>
-      <find>jest</find>
-      <find>store</find>
-      <find>isOccupied</find>
-      <find>webpack</find>
-      <find>loader</find>
-      <find>NoEmitOnErrorsPlugin</find>
-      <find>ModuleConcatenationPlugin</find>
-      <find>DefinePlugin</find>
-      <find>UglifyJsPlugin</find>
-      <find>NoErrorsPlugin</find>
-      <find>NewWatchingPlugin</find>
-      <find>CommonsChunkPlugin</find>
-      <find>json</find>
-      <find>rules</find>
-      <find>html-webpack-plugin</find>
-      <find>HtmlWebpackPlugin</find>
-      <find>react-scripts</find>
-      <find>react-dev-utile</find>
-      <find>Tapable</find>
-      <find>getClientEnvironment</find>
-      <find>@babel/polyfill</find>
       <find>babel</find>
       <find>T_GameOptionsProps</find>
       <find>babel-plugin-root-import</find>
+      <find>extract</find>
+      <find>jest</find>
+      <find>polyfill</find>
+      <find>babel.dev</find>
+      <find>flow</find>
+      <find>onAuthFormSubmit</find>
+      <find>babel-e</find>
+      <find>== 'test'</find>
+      <find>react-dom</find>
+      <find>hot-loa</find>
+      <find>babel-loader</find>
+      <find>uglify</find>
+      <find>ugli</find>
+      <find>file-lo</find>
+      <find>ExtractTextPlugin</find>
+      <find>coffee-loader</find>
+      <find>cache</find>
+      <find>CommonsChunkPlugin </find>
+      <find>plugins</find>
+      <find>cheap</find>
+      <find>speed</find>
+      <find>dev-see</find>
+      <find>devtool</find>
+      <find>resolve</find>
+      <find>nested</find>
+      <find>Uglify</find>
+      <find>copy-webpack-plugin</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Dev\puzzle-games\</dir>
@@ -1217,13 +1229,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.flowconfig" />
         <option value="$PROJECT_DIR$/src/js/containers/engines/Tetris/Tetris.jsx" />
         <option value="$PROJECT_DIR$/flow-typed/npm/react-router-dom_vx.x.x.js" />
         <option value="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.jsx" />
         <option value="$PROJECT_DIR$/src/js/helpers/methods.js" />
-        <option value="$PROJECT_DIR$/src/js/actions/api.js" />
-        <option value="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/game/GameDashboard/GameDashboard.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/other/PageError/PageError.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/other/Timer/Timer.jsx" />
@@ -1252,22 +1261,25 @@
         <option value="$PROJECT_DIR$/src/js/containers/pages/GamesPage/GamesPage.spec.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/other/PageError/PageError.spec.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/other/MySnackBar/MySnackBar.jsx" />
-        <option value="$PROJECT_DIR$/src/js/containers/app/App/App.jsx" />
         <option value="$PROJECT_DIR$/src/js/containers/app/AppDrawer/AppDrawer.jsx" />
         <option value="$PROJECT_DIR$/src/js/containers/engines/BossPuzzle/BossPuzzle.jsx" />
         <option value="$PROJECT_DIR$/src/js/containers/gridBoard/GridBoard/GridBoard.spec.jsx" />
         <option value="$PROJECT_DIR$/scripts/start.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/babel.config.js" />
         <option value="$PROJECT_DIR$/config/webpack.config.prod.js" />
-        <option value="$PROJECT_DIR$/config/webpack.config.dev.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/js/components/index.js" />
         <option value="$PROJECT_DIR$/src/js/flow-types/props.js" />
         <option value="$PROJECT_DIR$/src/js/flow-types/index.js" />
         <option value="$PROJECT_DIR$/src/js/components/highscore/HighscoresFilter/HighscoresFilter.jsx" />
         <option value="$PROJECT_DIR$/src/js/components/game/GameOptions/GameOptions.jsx" />
+        <option value="$PROJECT_DIR$/src/js/actions/api.js" />
+        <option value="$PROJECT_DIR$/src/js/containers/app/App/App.jsx" />
         <option value="$PROJECT_DIR$/.babelrc" />
+        <option value="$PROJECT_DIR$/.babelrc.js" />
+        <option value="$PROJECT_DIR$/babel.config.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/config/webpack.config.dev.js" />
+        <option value="$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx" />
       </list>
     </option>
   </component>
@@ -1287,10 +1299,10 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2272" />
-    <option name="y" value="-151" />
-    <option name="width" value="1939" />
-    <option name="height" value="1049" />
+    <option name="x" value="2401" />
+    <option name="y" value="-82" />
+    <option name="width" value="1440" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -1300,7 +1312,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1311,18 +1322,13 @@
             <path>
               <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
               <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
-              <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -1339,8 +1345,13 @@
     <property name="node.js.selected.package.eslint" value="C:\Dev\puzzle-games\node_modules\eslint" />
     <property name="node.js.selected.package.standard" value="C:\Dev\puzzle-games\node_modules\eslint" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
     <property name="settings.editor.splitter.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Dev\puzzle-games\config" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1354,7 +1365,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.api">
     <configuration name="api" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -1408,9 +1419,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.test-win" />
         <item itemvalue="npm.api" />
         <item itemvalue="npm.mongo" />
-        <item itemvalue="npm.test-win" />
         <item itemvalue="npm.flow" />
       </list>
     </recent_temporary>
@@ -1501,12 +1512,13 @@
       <workItem from="1554663262365" duration="2675000" />
       <workItem from="1554916826939" duration="654000" />
       <workItem from="1554924245412" duration="6036000" />
-      <workItem from="1554930665266" duration="2757000" />
+      <workItem from="1554930665266" duration="3823000" />
+      <workItem from="1555743047532" duration="11753000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189619000" />
+    <option name="totallyTimeSpent" value="202438000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1520,10 +1532,10 @@
   <component name="ToolWindowManager">
     <frame x="1913" y="-284" width="2062" height="1126" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.1521956" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.18163672" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
-      <window_info id="Favorites" order="3" sideWeight="0.48970747" weight="0.19839142" />
+      <window_info id="Favorites" order="3" sideWeight="0.48970747" weight="0.19810379" />
       <window_info id="Structure" order="4" weight="0.16823056" />
       <window_info anchor="bottom" auto_hide="true" id="TODO" order="0" weight="0.4815864" />
       <window_info anchor="bottom" id="Message" order="1" />
@@ -1536,7 +1548,7 @@
       <window_info anchor="bottom" auto_hide="true" id="Version Control" order="8" sideWeight="0.4995005" weight="0.5878187" />
       <window_info anchor="bottom" auto_hide="true" id="Event Log" order="9" sideWeight="0.4995005" weight="0.2643216" />
       <window_info anchor="bottom" auto_hide="true" id="Find" order="10" show_stripe_button="false" sideWeight="0.4985015" weight="0.96458924" />
-      <window_info anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="11" sideWeight="0.5100671" visible="true" weight="0.280402" />
+      <window_info anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="11" sideWeight="0.5100671" visible="true" weight="0.36582914" />
       <window_info anchor="bottom" id="Flow" order="12" show_stripe_button="false" weight="0.42776203" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" auto_hide="true" id="Mongo Explorer" order="1" weight="0.16533467" />
@@ -1546,9 +1558,39 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Maven" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="7" weight="0.32995737" />
-      <window_info active="true" anchor="right" id="npm" order="8" sideWeight="0.45070422" visible="true" weight="0.11477046" />
-      <window_info anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" weight="0.41616768" />
+      <window_info active="true" anchor="right" id="npm" order="8" sideWeight="0.45070422" visible="true" weight="0.16866267" />
+      <window_info anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" weight="0.43712574" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.69014084" visible="true" weight="0.15918164" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="3" sideWeight="0.48970747" weight="0.19810379" />
+      <window_info id="Structure" order="4" weight="0.16823056" />
+      <window_info anchor="bottom" auto_hide="true" id="TODO" order="0" weight="0.4815864" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="6" />
+      <window_info anchor="bottom" id="TypeScript" order="7" show_stripe_button="false" weight="0.3286119" />
+      <window_info anchor="bottom" auto_hide="true" id="Version Control" order="8" sideWeight="0.4995005" weight="0.5878187" />
+      <window_info anchor="bottom" auto_hide="true" id="Event Log" order="9" sideWeight="0.4995005" weight="0.2643216" />
+      <window_info anchor="bottom" auto_hide="true" id="Find" order="10" show_stripe_button="false" sideWeight="0.4985015" weight="0.96458924" />
+      <window_info anchor="bottom" x="2279" y="-28" width="1052" height="673" id="Run" order="11" sideWeight="0.5100671" weight="0.280402" />
+      <window_info anchor="bottom" id="Flow" order="12" show_stripe_button="false" weight="0.42776203" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" auto_hide="true" id="Mongo Explorer" order="1" weight="0.16533467" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="7" weight="0.32995737" />
+      <window_info anchor="right" id="npm" order="8" sideWeight="0.45070422" visible="true" weight="0.1257485" />
+      <window_info anchor="right" x="803" y="41" width="698" height="781" id="Terminal" order="9" sideWeight="0.4899329" weight="0.41616768" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1608,39 +1650,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.flowconfig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/flow/flowlib_3f7af34b/node.js" />
-    <entry file="file://$PROJECT_DIR$/src/js/components/game/Game/Game.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="81" column="30" lean-forward="true" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
-          <folding>
-            <element signature="e#9#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="8069" column="13" selection-start-line="8069" selection-start-column="5" selection-end-line="8069" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flow-typed/npm/react-redux_v5.x.x.js" />
     <entry file="file://$PROJECT_DIR$/flow-typed/npm/react-redux_vx.x.x.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-330" />
@@ -1692,16 +1701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/jest/cssTransform.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/jest/fileTransform.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -1788,16 +1787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="123" column="15" lean-forward="true" selection-start-line="123" selection-start-column="15" selection-end-line="123" selection-end-column="15" />
-          <folding>
-            <element signature="e#9#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flow-typed/package-dep-libdefs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -1856,9 +1845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpackDevServer.config.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/start.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -1868,17 +1854,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/babel.config.js" />
-    <entry file="file://$PROJECT_DIR$/src/js/containers/app/App/App.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding>
-            <element signature="e#9#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/paths.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1891,20 +1866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpack.config.dev.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="202" column="46" selection-start-line="202" selection-start-column="46" selection-end-line="202" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpack.config.prod.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="150" column="22" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1949,27 +1910,127 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/actions/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="18" column="51" lean-forward="true" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.flowconfig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/app/App/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
+          <folding>
+            <element signature="e#9#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="26" column="15" lean-forward="true" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="39" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/polyfills.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpackDevServer.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1420">
+          <caret line="7" column="65" lean-forward="true" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+        <state relative-caret-position="166">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.babelrc">
+    <entry file="file://$PROJECT_DIR$/.babelrc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/jest/cssTransform.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/jest/fileTransform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/env.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/babel.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpack.config.prod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="16" column="67" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/containers/pages/AuthPage/AuthPage.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+          <folding>
+            <element signature="e#9#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/webpack.config.dev.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="51" column="41" lean-forward="true" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+        <state relative-caret-position="352">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
         </state>
       </provider>
     </entry>
