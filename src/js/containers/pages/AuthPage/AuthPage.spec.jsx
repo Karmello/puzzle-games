@@ -1,68 +1,71 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { createNewStore } from 'js/store';
+import store from 'js/store';
+import { clientUserRes, gameCategoriesRes, gamesRes } from 'js/helpers/apiResponses';
+import { renderWrapper } from 'js/helpers/methods';
 import AuthPage from './AuthPage';
 
-describe('AuthPage component', () => {
-
-  let store, getDefaultProps;
-
-  beforeAll(() => {
-    store = createNewStore();
-    getDefaultProps = () => ({
-      dispatch: store.dispatch,
-      app: { authStatus: 'logged_in' },
-      clientUser: { res: { status: 200 } },
-      location: {}
+describe('AuthPage', () => {
+  
+  describe('component', () => {
+    it('should render', () => {
+      shallow(<AuthPage store={store} />);
     });
   });
 
-  it('should shallow render and unmount', () => {
-    const wrapper = shallow(<AuthPage.WrappedComponent {...getDefaultProps()} />);
-    wrapper.unmount();
-  });
+  describe('/auth', () => {
 
-  it('should shallow render', () => {
-    const props = getDefaultProps();
-    props.app.authStatus = 'logged_out';
-    localStorage.setItem('token', '##########');
-    shallow(<AuthPage.WrappedComponent {...props} />);
-  });
+    let state;
 
-  it('should shallow render', () => {
-    const props = getDefaultProps();
-    props.app.authStatus = '';
-    localStorage.removeItem('token');
-    shallow(<AuthPage.WrappedComponent {...props} />);
-  });
-
-  it('should shallow render', () => {
-    const props = getDefaultProps();
-    props.app.authStatus = 'logged_out';
-    props.clientUser.res.status = 400;
-    localStorage.setItem('token', '##########');
-    shallow(<AuthPage.WrappedComponent {...props} />);
-  });
-
-  it('should shallow render and call a method', done => {
-    const wrapper = shallow(<AuthPage.WrappedComponent {...getDefaultProps()} />);
-    wrapper.instance().onAuthFormSubmit('login', {
-      username: 'Karmello',
-      password: 'password'
+    beforeAll(() => {
+      state = store.getState();
+      state.api.clientUser.res = clientUserRes;
+      state.api.gameCategories.res = gameCategoriesRes;
+      state.api.games.res = gamesRes;
     });
-    setTimeout(done, 3000);
-  });
 
-  it('should shallow render and call a method', done => {
-    const props = getDefaultProps();
-    props.clientUser.res.status = 400;
-    props.clientUser.res.data = { errors: {} };
-    const wrapper = shallow(<AuthPage.WrappedComponent {...props} />);
-    wrapper.instance().onAuthFormSubmit('login', {
-      username: 'Karmello',
-      password: 'password'
+    it('should render AuthPage', () => {
+      state.app.authStatus = '';
+      const wrapper = renderWrapper(['/auth'], 0);
+      expect(wrapper.find('.AuthPage').length).toBe(1);
     });
-    setTimeout(done, 1000);
+
+    it('should render AuthPage', () => {
+      state.app.authStatus = 'logged_out';
+      const wrapper = renderWrapper(['/auth'], 0);
+      expect(wrapper.find('.AuthPage').length).toBe(1);
+    });
+
+    it('should render AuthPage', () => {
+      state.app.authStatus = 'logged_out';
+      const wrapper = renderWrapper(['/auth'], 0);
+      expect(wrapper.find('.AuthPage').length).toBe(1);
+    });
+
+    it('should redirect', () => {
+      state.app.authStatus = 'logged_in';
+      const wrapper = renderWrapper(['/auth'], 0);
+      expect(wrapper.find('.AuthPage').length).toBe(0);
+      expect(wrapper.find('[pathname="/games"]').length).toBe(1);
+    });
+
+    it('should redirect', () => {
+      
+      state.app.authStatus = 'logged_in';
+      
+      const wrapper = renderWrapper([{
+        pathname: '/auth',
+        state: {
+          from: {
+            pathname: '/games/chess',
+            search: ''
+          }
+        }
+      }], 0);
+      
+      expect(wrapper.find('.AuthPage').length).toBe(0);
+      expect(wrapper.find('[pathname="/games/chess"]').length).toBe(1);
+    });
   });
 });

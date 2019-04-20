@@ -22,13 +22,12 @@ class KnightsTour extends Game {
     if (game.isLoading) { return null; }
     return (
       <GridBoard
-        dimension={{ x: Number(game.options.dimension), y: Number(game.options.dimension) }}
+        dimension={Number(game.options.dimension)}
         isChessBoard={true}
         gridMap={this.createGridMap()}
         element={{
           size: elementSize,
-          Element: this.renderElement(),
-          getStyle: this.getElementStyle.bind(this)
+          Element: this.renderElement()
         }}
         callback={{
           onEmptyCellClick: this.onMoveTry.bind(this)
@@ -38,11 +37,12 @@ class KnightsTour extends Game {
   }
 
   renderElement() {
-    return props => (
+    const { active } = this.props.knightsTourEngine;
+    return (props) => (
       <Button
         disabled
         disableRipple
-        style={props.style}
+        style={this.getElementStyle(props.index === active)}
       > </Button>
     );
   }
@@ -70,48 +70,45 @@ class KnightsTour extends Game {
     }
   }
 
-  getElementStyle({ index, size }) {
-    const { active } = this.props.knightsTourEngine;
-    if (index === active) {
+  getElementStyle(active:boolean) {
+    if (active) {
       return  {
-        minWidth: `${size}px`,
-        height: `${size}px`,
+        minWidth: `${elementSize}px`,
+        height: `${elementSize}px`,
         border: '1px solid gray',
         borderRadius: '0px',
         backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.knight})`,
-        backgroundSize: `${size-2}px ${size-2}px`
+        backgroundSize: `${elementSize-2}px ${elementSize-2}px`
       }
     } else {
       return  {
-        minWidth: `${size}px`,
-        height: `${size}px`,
+        minWidth: `${elementSize}px`,
+        height: `${elementSize}px`,
         backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.okArrow})`,
-        backgroundSize: `${size-2}px ${size-2}px`
+        backgroundSize: `${elementSize-2}px ${elementSize-2}px`
       }
     }
   }
   
   startNew = () => {
+    const { dispatch, game: { options: { dimension } } } = this.props;
     return new Promise(resolve => {
-      setTimeout(() => {
-        const { dispatch, game: { options: { dimension } } } = this.props;
-        Promise.all([this.loadImg(imgPaths.knight), this.loadImg(imgPaths.okArrow)]).then(() => {
-          const visited = Array.from({ length: Number(dimension) ** 2 }, () => false);
-          let active;
-          switch (dimension) {
-            case '5':
-              // <0 - dimension^2-1> (even only)
-              active = Math.floor(Math.random() * ((Number(dimension) ** 2)/2)) * 2;
-              break;
-            default:
-              // <0 - dimension^2-1>
-              active = Math.floor(Math.random() * Number(dimension) ** 2);
-              break;
-          }
-          visited[active] = true;
-          dispatch(initEngine(visited, active));
-          resolve();
-        });
+      Promise.all([this.loadImg(imgPaths.knight), this.loadImg(imgPaths.okArrow)]).then(() => {
+        const visited = Array.from({ length: Number(dimension) ** 2 }, () => false);
+        let active;
+        switch (dimension) {
+          case '5':
+            // <0 - dimension^2-1> (even only)
+            active = Math.floor(Math.random() * ((Number(dimension) ** 2)/2)) * 2;
+            break;
+          default:
+            // <0 - dimension^2-1>
+            active = Math.floor(Math.random() * Number(dimension) ** 2);
+            break;
+        }
+        visited[active] = true;
+        dispatch(initEngine(visited, active));
+        resolve();
       });
     });
   };

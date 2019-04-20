@@ -29,12 +29,11 @@ class BossPuzzle extends Game {
     if (mode === 'NUM' || (mode === 'IMG' && imgSrc)) {
       return (
         <GridBoard
-          dimension={{ x: Number(dimension), y: Number(dimension ) }}
+          dimension={Number(dimension)}
           gridMap={this.createGridMap()}
           element={{
             size: tileSizes[String(dimension)],
-            Element: this.renderElement(),
-            getStyle: this.getElementStyle.bind(this)
+            Element: this.renderElement()
           }}
         />
       );
@@ -49,7 +48,7 @@ class BossPuzzle extends Game {
       <Button
         disableRipple
         variant='contained'
-        style={props.style}
+        style={this.getStyle(props)}
         onClick={this.onTileClick.bind(this, props)}
       >
         {mode === 'NUM' ? this.getTileLabel(props) : ''}
@@ -95,16 +94,18 @@ class BossPuzzle extends Game {
     if (tiles.length > 0) { return tiles[elemProps.index]; } else { return ''; }
   }
 
-  getElementStyle({ col, row, index, size }) {
+  getStyle(elemProps) {
     
+    const { col, row } = elemProps;
     const { imgSrc } = this.state;
     const { mode, dimension } = this.props.game.options;
     const { hiddenTileCoords } = this.props.bossPuzzleEngine;
+    const tileSize = tileSizes[Number(dimension)];
 
     const style = {
-      minWidth: `${size}px`,
-      width: `${size}px`,
-      height: `${size}px`,
+      minWidth: `${tileSize}px`,
+      width: `${tileSize}px`,
+      height: `${tileSize}px`,
       fontSize: `${fontSizes[dimension || '3']}px`,
       color: '#001f3f',
       backgroundColor: 'rgba(61, 153, 112, 0.75)',
@@ -115,13 +116,14 @@ class BossPuzzle extends Game {
 
     if (col !== hiddenTileCoords.x || row !== hiddenTileCoords.y) {
 
-      const label = this.getTileLabel({ index });
+      const label = this.getTileLabel(elemProps);
 
       if (mode === 'IMG' && imgSrc && label) {
         const imgCoords = indexToCoords(Number(label) - 1, Number(dimension));
+        const imgSize = tileSizes[Number(dimension)];
         style.backgroundImage = `url(${imgSrc})`;
-        style.backgroundSize = `${Number(dimension) * size}px ${Number(dimension) * size}px`;
-        style.backgroundPosition = `-${Number(imgCoords.x) * size}px -${Number(imgCoords.y) * size}px`;
+        style.backgroundSize = `${Number(dimension) * imgSize}px ${Number(dimension) * imgSize}px`;
+        style.backgroundPosition = `-${Number(imgCoords.x) * imgSize}px -${Number(imgCoords.y) * imgSize}px`;
       }
     }
 
@@ -129,44 +131,41 @@ class BossPuzzle extends Game {
   }
 
   startNew = doRestart => {
-
+    
     return new Promise(resolve => {
 
-      setTimeout(() => {
+      const { game, bossPuzzleEngine, dispatch } = this.props;
+      const { imgIndex, imgNumbers } = bossPuzzleEngine;
 
-        const { game, bossPuzzleEngine, dispatch } = this.props;
-        const { imgIndex, imgNumbers } = bossPuzzleEngine;
+      let nextImgIndex = 0, nextImgNumbers = [];
 
-        let nextImgIndex = 0, nextImgNumbers = [];
-
-        if (game.options.mode === 'IMG') {
-
-          if (!doRestart) {
-            if (imgIndex === undefined || imgIndex === imgNumbers.length - 1) {
-              nextImgNumbers = getNewImgNumbers(imgNumbers, numOfImgs)
-            } else {
-              nextImgIndex = imgIndex + 1;
-              nextImgNumbers = imgNumbers;
-            }
-          } else if (imgIndex !== undefined) {
-            nextImgIndex = imgIndex;
+      if (game.options.mode === 'IMG') {
+        
+        if (!doRestart) {
+          if (imgIndex === undefined || imgIndex === imgNumbers.length - 1) {
+            nextImgNumbers = getNewImgNumbers(imgNumbers, numOfImgs)
+          } else {
+            nextImgIndex = imgIndex + 1;
             nextImgNumbers = imgNumbers;
-          }
+          } 
+        } else if (imgIndex !== undefined) {
+          nextImgIndex = imgIndex;
+          nextImgNumbers = imgNumbers;
         }
+      }
 
-        const newHiddenTileCoords = {
-          x: Math.floor(Math.random() * Number(game.options.dimension)),
-          y: Math.floor(Math.random() * Number(game.options.dimension))
-        }
+      const newHiddenTileCoords = {
+        x: Math.floor(Math.random() * Number(game.options.dimension)),
+        y: Math.floor(Math.random() * Number(game.options.dimension))
+      }
+      
+      const tasks = [];
+      tasks.push(initData({ dimension: Number(game.options.dimension), hiddenTileCoords: newHiddenTileCoords }));
+      if (game.options.mode === 'IMG') { tasks.push(this.loadImg(`boss-puzzle/img${nextImgNumbers[nextImgIndex]}.jpg`)); }
 
-        const tasks = [];
-        tasks.push(initData({ dimension: Number(game.options.dimension), hiddenTileCoords: newHiddenTileCoords }));
-        if (game.options.mode === 'IMG') { tasks.push(this.loadImg(`boss-puzzle/img${nextImgNumbers[nextImgIndex]}.jpg`)); }
-
-        Promise.all(tasks).then((data:Array<any>) => {
-          dispatch(initEngine(nextImgNumbers, nextImgIndex, data[0].tiles, data[0].hiddenTileCoords));
-          resolve();
-        });
+      return Promise.all(tasks).then((data:Array<any>) => {
+        dispatch(initEngine(nextImgNumbers, nextImgIndex, data[0].tiles, data[0].hiddenTileCoords));
+        resolve();
       });
     });
   };

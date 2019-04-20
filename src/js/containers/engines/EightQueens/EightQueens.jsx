@@ -22,14 +22,13 @@ class EightQueens extends Game {
     if (game.isLoading) { return null; }
     return (
       <GridBoard
-        dimension={{ x: Number(dimension), y: Number(dimension ) }}
+        dimension={dimension}
         isChessBoard={true}
         gridMap={this.createGridMap()}
         element={{
           size: elementSize,
           isSelectable: true,
-          Element: this.renderElement(),
-          getStyle: this.getElementStyle.bind(this)
+          Element: this.renderElement()
         }}
         callback={{
           onEmptyCellClick: this.onMoveTry.bind(this)
@@ -40,7 +39,7 @@ class EightQueens extends Game {
 
   renderElement() {
     return props => (
-      <Button disableRipple style={props.style}> </Button>
+      <Button disableRipple style={this.getElementStyle(props.isSelected)}> </Button>
     );
   }
 
@@ -62,14 +61,14 @@ class EightQueens extends Game {
     }
   }
 
-  getElementStyle({ isSelected, size }) {
+  getElementStyle(isSelected:boolean) {
     return  {
-      minWidth: `${size}px`,
-      height: `${size}px`,
+      minWidth: `${elementSize}px`,
+      height: `${elementSize}px`,
       border: '1px solid gray',
       borderRadius: '0px',
       backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.queen})`,
-      backgroundSize: `${size-2}px ${size-2}px`,
+      backgroundSize: `${elementSize-2}px ${elementSize-2}px`,
       backgroundColor: !isSelected ? 'white' : 'yellow'
     }
   }

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 import { render } from 'enzyme';
 
 import store from 'js/store';

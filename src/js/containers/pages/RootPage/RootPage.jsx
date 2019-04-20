@@ -36,11 +36,7 @@ class RootPage extends Component<Props> {
 
   ui:T_PagesState;
 
-  validateGameParams:(pathParams:{ category:string, id:string }, queryParams:T_GameOptionsModel, savedGameOptions:T_GameOptionsModel) => ({
-    shouldRedirect:boolean,
-    validQueryParams?:{},
-    gameData?:{}
-  });
+  validateGameParams:(pathParams:{ category:string, id:string }, queryParams:T_GameOptionsModel, savedGameOptions:T_GameOptionsModel) => {};
 
   constructor(props) {
     super(props);

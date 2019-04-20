@@ -26,11 +26,10 @@ class Sudoku extends Game {
     if (game.isLoading) { return null; }
     return (
       <GridBoard
-        dimension={{ x: Number(dimension), y: Number(dimension ) }}
+        dimension={dimension}
         element={{
           size: elementSize,
-          Element: this.renderElement(values),
-          getStyle: this.getElementStyle.bind(this)
+          Element: this.renderElement(values)
         }}
       />
     );
@@ -52,7 +51,7 @@ class Sudoku extends Game {
       }
 
       return (
-        <div style={props.style}>
+        <div style={this.getElementStyle(props)}>
           <Select
             value={(values && values[index]) || -1}
             onChange={this.onElementValueChange.call(this, props, values[index])}
@@ -87,14 +86,15 @@ class Sudoku extends Game {
     }
   }
 
-  getElementStyle({ col, row, size }) {
+  getElementStyle(elemProps) {
+    const { col, row } = elemProps;
     const style = {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       boxSizing: 'border-box',
-      width: `${size}px`,
-      height: `${size}px`,
+      width: `${elementSize}px`,
+      height: `${elementSize}px`,
       backgroundColor: '#FFFFF0',
       borderTop: undefined,
       borderRight: undefined,

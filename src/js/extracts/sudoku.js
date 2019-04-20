@@ -69,7 +69,7 @@ export const initializeValues = (dimension:number) => {
   return values;
 }
 
-export const checkIfSolved = (values:Array<number>, dimension:number):Promise<any> => {
+export const checkIfSolved = (values:Array<number>, dimension:number) => {
 
   return new Promise(resolve => {
     

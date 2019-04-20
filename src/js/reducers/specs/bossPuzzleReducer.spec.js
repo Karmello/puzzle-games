@@ -9,7 +9,7 @@ describe('bossPuzzleReducer', () => {
       imgNumbers: [],
       imgIndex: -1,
       tiles: [],
-      hiddenTileCoords: { x: -1, y: -1 }
+      hiddenTileCoords: {}
     });
   });
 
@@ -18,7 +18,7 @@ describe('bossPuzzleReducer', () => {
       imgNumbers: [],
       imgIndex: -1,
       tiles: [],
-      hiddenTileCoords: { x: -1, y: -1 }
+      hiddenTileCoords: {}
     }, initEngine([1, 2, 3, 4, 5], 0, [4, 3, 6, 2, 7, 1, 8, 9, 5], { x: 0, y: 0 }))).toEqual({
       imgNumbers: [1, 2, 3, 4, 5],
       imgIndex: 0,
@@ -51,7 +51,7 @@ describe('bossPuzzleReducer', () => {
       imgNumbers: [1, 2, 3, 4, 5],
       imgIndex: 0,
       tiles: [4, 3, 6, 2, 7, 1, 8, 9, 5],
-      hiddenTileCoords: { x: -1, y: -1 }
+      hiddenTileCoords: {}
     });
   });
 
@@ -65,7 +65,7 @@ describe('bossPuzzleReducer', () => {
       imgNumbers: [],
       imgIndex: -1,
       tiles: [],
-      hiddenTileCoords: { x: -1, y: -1 }
+      hiddenTileCoords: {}
     });
   });
 });

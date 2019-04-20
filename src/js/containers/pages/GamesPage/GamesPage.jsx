@@ -1,19 +1,16 @@
 // @flow
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SwipeableViews from 'react-swipeable-views';
 
-import GameCategories from 'js/components/game/GameCategories/GameCategories';
-import GameCard from 'js/components/game/GameCard/GameCard';
 import { switchGameCategoryTab, changeGameOptions } from 'js/actions/gamesPage';
+import { GameCategories, GameCard } from 'js/components';
 import './GamesPage.css';
 
 import type { T_GamesPageState, T_ApiEntities } from 'js/flow-types';
 
 type Props = {
   dispatch:Function,
-  history:{ push:Function },
   api:T_ApiEntities,
   gamesPage:T_GamesPageState,
   gameCategoryToSet:string
@@ -22,8 +19,8 @@ type Props = {
 class GamesPage extends Component<Props> {
 
   componentWillReceiveProps(nextProps) {
-
-    const {api, gamesPage, gameCategoryToSet, dispatch} = nextProps;
+    
+    const { api, gamesPage, gameCategoryToSet, dispatch } = nextProps;
 
     if (gamesPage.category !== gameCategoryToSet) {
       let ui = localStorage.getItem('ui');
@@ -50,12 +47,11 @@ class GamesPage extends Component<Props> {
           className='GamesPage-games'
           axis={'x'}
           index={api.gameCategories.res.data.findIndex(elem => elem.id === gameCategoryToSet)}
-          onChangeIndex={this.onSwipe.bind(this)}
         >
           {api.gameCategories.res.data.map(categoryData => (
             <div className='GamesPage-category-games' key={categoryData.id}>
               {api.games.res.data.map(gameData => {
-                if (gameData.categoryId === categoryData.id || categoryData.id === 'all') {
+                if (gameData.categoryId === categoryData.id) {
                   return (
                     <GameCard
                       key={gameData.id}
@@ -84,14 +80,9 @@ class GamesPage extends Component<Props> {
       dispatch(changeGameOptions(gameId, options));
     }
   }
-
-  onSwipe(index) {
-    const { api, history } = this.props;
-    setTimeout(() => history.push(`/games/${api.gameCategories.res.data[index].id}`), 300);
-  }
 }
 
-export default withRouter(connect(store => ({
+export default connect(store => ({
   gamesPage: store.pages.gamesPage,
   api: store.api
-}))(GamesPage));
+}))(GamesPage);

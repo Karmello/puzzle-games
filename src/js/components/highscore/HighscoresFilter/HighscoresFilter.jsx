@@ -5,11 +5,12 @@ import * as qs from 'query-string';
 import { isEmpty } from 'lodash';
 import { Input, Select, InputLabel, MenuItem, FormControl } from '@material-ui/core';
 
-import GameOptions from 'js/components/game/GameOptions/GameOptions';
+import { GameOptions } from 'js/components';
 import { kebabToCamelCase } from 'js/helpers/methods';
 import './HighscoresFilter.css';
 
-import type { T_ApiEntities, T_GameOptionsModel, T_GameOptionsProps } from 'js/flow-types';
+import type { T_GameOptionsProps } from 'js/components';
+import type { T_ApiEntities, T_GameOptionsModel } from 'js/flow-types';
 
 type Props = {
   api:T_ApiEntities,
@@ -60,7 +61,7 @@ export default class HighscoresFilter extends React.Component<Props, State> {
               disabled={this.shouldBeDisabled()}
               style={{ width: '90px' }}
             >
-              {api.gameCategories.res.data.filter(obj => obj.id !== 'all').map(obj => (
+              {api.gameCategories.res.data.map(obj => (
                 <MenuItem
                   key={obj.id}
                   value={obj.id}
@@ -96,14 +97,13 @@ export default class HighscoresFilter extends React.Component<Props, State> {
           </FormControl>
         </div>
         <div>
-          {Options ?
-            <GameOptions
-              options={optionsFilter}
-              path={gameFilter.id ? `/highscores/${gameFilter.id}` : ''}
-              disabled={this.shouldBeDisabled()}
-              Content={Options}
-            /> : ''
-          }
+          {Options &&
+          <GameOptions
+            options={optionsFilter}
+            path={gameFilter.id ? `/highscores/${gameFilter.id}` : ''}
+            disabled={this.shouldBeDisabled()}
+            Content={Options}
+          ></GameOptions>}
         </div>
       </div>
     );

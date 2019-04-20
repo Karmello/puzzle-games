@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import { isEmpty } from 'lodash';
 import { Card, Typography, CardActions, CardContent, CardMedia } from '@material-ui/core';
 
-import GameBtn from './../GameBtn/GameBtn';
-import GameOptions from './../GameOptions/GameOptions';
+import { GameBtn, GameOptions } from 'js/components';
 import { kebabToCamelCase } from 'js/helpers/methods';
 import './GameCard.css';
 
@@ -31,46 +30,43 @@ export default class GameCard extends Component<Props> {
     return (
       <div className='GameCard'>
         <Card>
-          <div className='GameCard-logoContainer'>
-            <CardMedia
-              image={`${process.env.REACT_APP_S3_BUCKET || ''}/${gameData.id}/logo.jpg`}
-              title={gameData.name}
-            />
-          </div>
-          <div className='GameCard-contentContainer'>
-            <CardContent>
-              <Typography variant='headline' component='h2'>{gameData.name}</Typography>
-              <Typography component='p'>{gameData.description}</Typography>
-              <div className='GameCard-options'>
-                {Options &&
-                <GameOptions
-                  onValueChangeCb={this.onValueChangeCb}
-                  options={gameOptions}
-                  Content={Options}
-                />}
-              </div>
-            </CardContent>
-            <CardActions className='GameCard-actions'>
-              <div>
-                <GameBtn
-                  name='highscores'
-                  label='Highscores'
-                  gameCategory={gameData.categoryId}
-                  gameId={gameData.id}
-                  gameOptions={gameOptions}
-                />
-              </div>
-              <div>
-                <GameBtn
-                  name='play'
-                  label='Play'
-                  gameCategory={gameData.categoryId}
-                  gameId={gameData.id}
-                  gameOptions={gameOptions}
-                />
-              </div>
-            </CardActions>
-          </div>
+          <CardMedia
+            style={{ height: '250px' }}
+            image={`${process.env.REACT_APP_S3_BUCKET || ''}/${gameData.id}/logo.jpg`}
+            title={gameData.name}
+          />
+          <CardContent>
+            <Typography variant='headline' component='h2'>{gameData.name}</Typography>
+            <Typography component='p'>{gameData.description}</Typography>
+            <div className='GameCard-options'>
+              {Options &&
+              <GameOptions
+                onValueChangeCb={this.onValueChangeCb}
+                options={gameOptions}
+                Content={Options}
+              ></GameOptions>}
+            </div>
+          </CardContent>
+          <CardActions className='GameCard-actions'>
+            <div>
+              <GameBtn
+                name='highscores'
+                label='Highscores'
+                gameCategory={gameData.categoryId}
+                gameId={gameData.id}
+                gameOptions={gameOptions}
+              />
+            </div>
+            <div>
+              <GameBtn
+                name='play'
+                label='Play'
+                gameCategory={gameData.categoryId}
+                gameId={gameData.id}
+                gameOptions={gameOptions}
+              />
+            </div>
+          </CardActions>
         </Card>
       </div>
     );

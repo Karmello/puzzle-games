@@ -1,55 +1,25 @@
 .GameCard {
+
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  max-width: 100%;
+  margin-top: 25px;
 
   > div {
     width: 350px;
-    margin: 5px 10px 5px 10px;
+    margin: 10px;
+    padding: 10px 10px 0 10px;
 
-    .GameCard-logoContainer {
-      padding: 10px;
-      > * {
-        height: 225px;
-      }
+    .GameCard-options {
+      margin-top: 10px;
+      text-align: center;
     }
 
-    .GameCard-contentContainer {
-
-      .GameCard-options {
-        margin-top: 10px;
-        text-align: center;
-      }
-
-      .GameCard-actions {    
-        display: flex;
-        flex-flow: row wrap;
-        align-items: flex-start;
-        justify-content: flex-end;
-        margin-left: 5px;
-        margin-right: 5px;
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 600px) and (max-width: 1250px) {
-  .GameCard {
-    > div {
+    .GameCard-actions {    
       display: flex;
-      width: 700px;
-
-      .GameCard-logoContainer {
-        flex: 3;
-        > * {
-          height: 100%;
-        }
-      }
-
-      .GameCard-contentContainer {
-        flex: 5;
-      }
+      flex-flow: row wrap;
+      align-items: flex-start;
+      justify-content: flex-end;
     }
   }
 }

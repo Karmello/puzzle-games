@@ -9,21 +9,21 @@ export const BOSS_PUZZLE_RESET_ENGINE = 'BOSS_PUZZLE_RESET_ENGINE';
 export const initEngine = (imgNumbers:Array<number>, imgIndex:number, tiles:Array<number>, hiddenTileCoords:T_Coords) => ({
   type: BOSS_PUZZLE_INIT_ENGINE,
   payload: {
-    imgNumbers,
-    imgIndex,
-    tiles,
-    hiddenTileCoords
+    imgNumbers: imgNumbers,
+    imgIndex: imgIndex,
+    tiles: tiles,
+    hiddenTileCoords: hiddenTileCoords
   }
 });
 
 export const switchTiles = (index1:number, index2:number, hiddenTileCoords:T_Coords) => ({
   type: BOSS_PUZZLE_SWITCH_TILES,
   meta: {
-    index1,
-    index2
+    index1: index1,
+    index2: index2
   },
   payload: {
-    hiddenTileCoords
+    hiddenTileCoords: hiddenTileCoords
   }
 });
 

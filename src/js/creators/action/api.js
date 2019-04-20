@@ -2,14 +2,20 @@
 import type { T_ApiRequest, T_ApiResponse, T_ApiError } from 'js/flow-types';
 
 export const apiRequest = (actionType:string, req:T_ApiRequest) => {
+  if (req) {
+    return {
+      type: actionType,
+      payload: {
+        headers: req.headers,
+        params: req.params,
+        query: req.query,
+        body: req.body
+      }
+    }
+  }
   return {
     type: actionType,
-    payload: {
-      headers: req && req.headers,
-      params: req && req.params,
-      query: req && req.query,
-      body: req && req.body
-    }
+    payload: {}
   }
 }
 
