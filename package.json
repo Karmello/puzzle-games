@@ -143,10 +143,6 @@
     ],
     "modulePaths": [
       "<rootDir>/src/"
-    ],
-    "watchPlugins": [
-      "C:\\Dev\\puzzle-games\\node_modules\\jest-watch-typeahead\\filename.js",
-      "C:\\Dev\\puzzle-games\\node_modules\\jest-watch-typeahead\\testname.js"
     ]
   },
   "babel": {
