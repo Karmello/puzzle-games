@@ -20,3 +20,7 @@ export type T_KnightsTourEngine = {
 export type T_SudokuEngine = {
   values:Array<number>
 };
+
+export type T_TetrisEngine = {
+  blocks:Array<boolean>
+};

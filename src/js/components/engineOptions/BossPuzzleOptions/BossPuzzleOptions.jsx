@@ -1,10 +1,7 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Input, Select } from 'material-ui';
-import { InputLabel } from 'material-ui/Input';
-import { FormControl } from 'material-ui/Form';
-import { MenuItem } from 'material-ui/Menu';
+import { Input, Select, InputLabel, FormControl, MenuItem } from '@material-ui/core';
 
 import GameOptions from 'js/components/game/GameOptions/GameOptions';
 import type { T_Event } from 'js/flow-types';

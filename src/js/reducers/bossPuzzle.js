@@ -12,7 +12,7 @@ const initialState = {
   imgNumbers: [],
   imgIndex: -1,
   tiles: [],
-  hiddenTileCoords: {}
+  hiddenTileCoords: { x: -1, y: -1 }
 };
 
 const bossPuzzleReducer = (state:T_BossPuzzleEngine = initialState, action:T_Action) => {
@@ -39,7 +39,7 @@ const bossPuzzleReducer = (state:T_BossPuzzleEngine = initialState, action:T_Act
         imgNumbers: [...state.imgNumbers],
         imgIndex: state.imgIndex,
         tiles: [...state.tiles],
-        hiddenTileCoords: {}
+        hiddenTileCoords: { x: -1, y: -1 }
       }
 
     case BOSS_PUZZLE_RESET_ENGINE:

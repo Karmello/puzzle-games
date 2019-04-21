@@ -4,29 +4,44 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import Draggable from 'react-draggable';
 import { Row, Col } from 'react-flexbox-grid';
-import { Paper } from 'material-ui';
+import { Paper } from '@material-ui/core';
 import { isEmpty, isEqual, findKey } from 'lodash';
 
 import { coordsToIndex, offsetToIndex } from 'js/extracts/gridBoard';
 import { initGridBoard, updateGridBoard, grabElement, selectElement, resetGridBoard } from 'js/actions/gridBoard';
+import { C_GridBoard } from 'js/constants';
 
 import type { T_GridBoardProps, T_Event, T_Coords } from 'js/flow-types';
 import './GridBoard.css';
 
-class GridBoard extends Component<T_GridBoardProps> {
+type State = {
+  actualElementSize:number
+};
+
+class GridBoard extends Component<T_GridBoardProps, State> {
 
   static defaultProps = {
     isChessBoard: false,
     element: {
       isDraggable: false,
-      isSelectable: false,
+      isSelectable: false
     },
     callback: {}
   };
 
+  constructor(props) {
+    super(props);
+    this.state = { actualElementSize: this.getActualElementSize() };
+    this.onWindowResize = this.onWindowResize.bind(this);
+  }
+  
   componentWillMount() {
     const { dispatch, element: { isSelectable, isDraggable }, gridMap } = this.props;
     if (gridMap) { dispatch(initGridBoard(gridMap, isSelectable, isDraggable)); }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.onWindowResize);
   }
 
   componentWillReceiveProps(nextProps:T_GridBoardProps) {
@@ -37,11 +52,12 @@ class GridBoard extends Component<T_GridBoardProps> {
   }
   
   componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResize);
     this.props.dispatch(resetGridBoard());
   }
 
   render() {
-
+    const { actualElementSize } = this.state;
     const { gridBoard, dimension, gridMap, element } = this.props;
 
     if (!dimension || !element.size || (gridMap && isEmpty(gridBoard.gridMap))) { return null; }
@@ -49,18 +65,18 @@ class GridBoard extends Component<T_GridBoardProps> {
     return (
       <Paper
         className='GridBoard'
-        style={{ minWidth: dimension * element.size + 'px' }}
+        style={{ minWidth: dimension.x * actualElementSize + 'px' }}
       >
-        {Array.from({ length: dimension }, (v, k) => k).map(i => (
+        {Array.from({ length: dimension.y }, (v, k) => k).map(i => (
           <Row
             key={i}
             style={{ padding: 0, margin: 0 }}
           >
-            {Array.from({ length: dimension }, (v, k) => k).map(j => {
+            {Array.from({ length: dimension.x }, (v, k) => k).map(j => {
               
               const row = Number(i);
               const col = Number(j);
-              const index = coordsToIndex({ x: col, y: row }, dimension);
+              const index = coordsToIndex({ x: col, y: row }, dimension.x); // todo
               
               return (
                 <Col key={j}>
@@ -71,23 +87,29 @@ class GridBoard extends Component<T_GridBoardProps> {
                     {(isEmpty(gridBoard.gridMap) || gridBoard.gridMap[index].isOccupied) && (
                       !element.isDraggable && (
                         <div style={{ cursor: element.isSelectable ? 'pointer': 'default' }}>
-                          {element.Element && <element.Element
+                          {element.Element ? <element.Element
                             col={col}
                             row={row}
                             index={index}
-                            isSelected={element.isSelectable && !isEmpty(gridBoard.gridMap) && gridBoard.gridMap[index].isSelected}
-                          />}
+                            isSelected={this.isElementSelected(index)}
+                            style={this.getElementStyle({ col, row, index, size: actualElementSize })}
+                          /> : ''}
                         </div>
                       ) ||
                       element.isDraggable && (
                         <Draggable
                           position={{ x: 0, y: 0 }}
                           onStart={() => this.props.dispatch(grabElement(index))}
-                          onStop={this.onElementDragStop({ col, row, index, size: element.size })}
+                          onStop={this.onElementDragStop({ col, row, index, size: actualElementSize })}
                         >
                           <div>
                             <div style={{ pointerEvents: 'none' }}>
-                              {element.Element && <element.Element col={col} row={row} index={index} />}
+                              {element.Element ? <element.Element
+                                col={col}
+                                row={row}
+                                index={index}
+                                style={this.getElementStyle({ col, row, index, size: actualElementSize })}
+                              /> : ''}
                             </div>
                           </div>
                         </Draggable>
@@ -102,6 +124,8 @@ class GridBoard extends Component<T_GridBoardProps> {
       </Paper>
     );
   }
+
+  onWindowResize = () => this.setState({ actualElementSize: this.getActualElementSize() });
 
   onBoardCellClick(clickedIndex:number) {
     const { dispatch, gridBoard: { gridMap }, element: { isSelectable }, callback: { onEmptyCellClick } } = this.props;
@@ -124,15 +148,16 @@ class GridBoard extends Component<T_GridBoardProps> {
     }
   }
 
-  onElementDragStop(elementProps: { col:number, row:number, index:number, size:number }) {
+  onElementDragStop(elementProps: { col:number, row:number, index:number }) {
     return (e:T_Event, coords:T_Coords) => {
+      const { actualElementSize } = this.state;
       const { gridBoard: { gridMap }, dimension, callback: { onElementMove } } = this.props;
       if (onElementMove) {
-        const { col, row, index, size } = elementProps;
+        const { col, row, index } = elementProps;
         const newIndex = offsetToIndex({
-          x: coords.x + col * size,
-          y: coords.y + row * size
-        }, size, dimension);
+          x: coords.x + col * actualElementSize,
+          y: coords.y + row * actualElementSize
+        }, actualElementSize, dimension.x); // todo
 
         if (newIndex > -1 && newIndex !== index && !gridMap[newIndex].isOccupied) {
           onElementMove(index, newIndex);
@@ -144,11 +169,12 @@ class GridBoard extends Component<T_GridBoardProps> {
   getElementContainerStyle(col:number, row:number, index:number ) {
   
     const squareBgColors = ['#dbbe92', '#52220b'];
+    const { actualElementSize } = this.state;
     const { gridBoard: { gridMap, grabbedIndex }, isChessBoard, element, callback } = this.props;
 
     const style = {
-      minWidth: `${element.size}px`,
-      height: `${element.size}px`,
+      minWidth: `${actualElementSize}px`,
+      height: `${actualElementSize}px`,
       cursor: 'default',
       backgroundColor: undefined,
       position: undefined,
@@ -170,6 +196,32 @@ class GridBoard extends Component<T_GridBoardProps> {
     }
 
     return style;
+  }
+
+  getElementStyle({ col, row, index, size }) {
+    const { getStyle } = this.props.element;
+    return getStyle ? getStyle({ col, row, index, isSelected: this.isElementSelected(index), size }) : undefined;
+  }
+
+  isElementSelected(index:number) {
+    const { element, gridBoard } = this.props;
+    return element.isSelectable && !isEmpty(gridBoard.gridMap) && gridBoard.gridMap[index].isSelected;
+  }
+
+  getActualElementSize() {
+    const { minGridBoardElemSize, offset } = C_GridBoard;
+    const { dimension, element } = this.props;
+    const sizeX = dimension.x * element.size;
+    const sizeY = dimension.y * element.size;
+    const maxPossibleWidth = window.innerWidth - offset;
+    const maxPossibleHeight = window.innerHeight - offset;
+    if (sizeX > maxPossibleWidth || sizeY > maxPossibleHeight) {
+      const maxPossibleSize = Math.min(maxPossibleWidth, maxPossibleHeight);
+      const newSize = Math.floor(maxPossibleSize / (maxPossibleSize === maxPossibleWidth ? dimension.x : dimension.y));
+      const actualMinElemSize = element.minSize ? element.minSize : minGridBoardElemSize;
+      return newSize >= actualMinElemSize ? newSize : actualMinElemSize;
+    }
+    return element.size;
   }
 }
 

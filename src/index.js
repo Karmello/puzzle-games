@@ -7,6 +7,7 @@ import { AppContainer } from 'react-hot-loader';
 import store from 'js/store';
 import { App } from 'js/containers';
 
+import * as serviceWorker from './serviceWorker';
 import './index.css';
 
 const render = () => (
@@ -30,3 +31,8 @@ if (module.hot) {
     'js/components'
   ], () => render(require('js/containers/app/App/App')));
 }
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

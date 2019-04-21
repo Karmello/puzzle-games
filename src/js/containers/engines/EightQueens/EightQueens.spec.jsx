@@ -1,16 +1,42 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
-import store from 'js/store';
+import { createNewStore } from 'js/store';
+import { startGame, stopGameLoader } from 'js/actions/game';
 import EightQueens from './EightQueens';
 
 describe('EightQueens', () => {
-  it('should render', () => {
-    shallow(
+
+  let store, getComponent;
+  beforeAll(() => {
+    store = createNewStore();
+    getComponent = store => (
       <Provider store={store}>
         <EightQueens />
       </Provider>
     );
+  });
+
+  it('should shallow render', () => {
+    shallow(getComponent(store));
+  });
+
+  it('should mount', () => {
+    store.dispatch(startGame('eight-queens'));
+    mount(getComponent(store));
+  });
+
+  it('should mount', () => {
+    store.dispatch(startGame('eight-queens'));
+    store.dispatch(stopGameLoader());
+    mount(getComponent(store));
+  });
+
+  it('should mount and unmount', () => {
+    store.dispatch(startGame('eight-queens'));
+    store.dispatch(stopGameLoader());
+    const wrapper = mount(getComponent(store));
+    wrapper.unmount();
   });
 });

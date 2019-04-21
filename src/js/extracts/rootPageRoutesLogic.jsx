@@ -61,7 +61,7 @@ export const highscoresRouteLogic = function(props:T_RouterProps) {
   const optionsFilter = this.ui.highscoresPage.optionsFilter;
 
   const gameData = this.props.api.games.res.data.find(obj => obj.id === pathParams.gameId);
-  const gameCategory = gameData ? gameData.categoryId : undefined;
+  const gameCategory = gameData ? gameData.categoryId : '';
   
   const { shouldRedirect, validQueryParams } = this.validateGameParams({ category: gameCategory, id:  pathParams.gameId }, queryParams, optionsFilter);
 

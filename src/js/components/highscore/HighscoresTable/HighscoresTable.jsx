@@ -1,11 +1,9 @@
 // @flow
 import React, { Component } from 'react';
-import { Paper, Typography } from 'material-ui';
 import moment from 'moment';
-import { Table } from 'material-ui';
-import { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import { Paper, Typography, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 
-import { Loader } from 'js/components';
+import Loader from 'js/components/other/Loader/Loader';
 import './HighscoresTable.css';
 
 import type { T_HighscoreModel, T_ApiEntities } from 'js/flow-types';
@@ -60,18 +58,18 @@ export default class HighscoresTable extends Component<Props, State> {
               <TableHead>
                 <TableRow>
                   {columns.map((label, i) => (
-                    <TableCell key={i}>{label}</TableCell>
+                    <TableCell className='HighscoresTable-cell' key={i}>{label}</TableCell>
                   ))}
                 </TableRow>
               </TableHead>
               <TableBody>
                 {api.highscores.res.data.map((highscore, i) => (
                   <TableRow key={highscore._id} style={this.getRowStyle(highscore)}>
-                    <TableCell>{i + 1}</TableCell>
-                    <TableCell>{highscore.username}</TableCell>
-                    <TableCell>{moment.utc(highscore.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
-                    <TableCell numeric>{highscore.details.moves}</TableCell>
-                    <TableCell>{moment(highscore.date).format('YYYY, MMMM Do, h:mm:ss a')}</TableCell>
+                    <TableCell className='HighscoresTable-cell'>{i + 1}</TableCell>
+                    <TableCell className='HighscoresTable-cell'>{highscore.username}</TableCell>
+                    <TableCell className='HighscoresTable-cell'>{moment.utc(highscore.details.seconds * 1000).format('HH:mm:ss')}</TableCell>
+                    <TableCell className='HighscoresTable-cell' align='right'>{highscore.details.moves}</TableCell>
+                    <TableCell className='HighscoresTable-cell'>{moment(highscore.date).format('DD-MM-YY, h:mm:ss a')}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

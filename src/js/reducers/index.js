@@ -14,6 +14,7 @@ import bossPuzzleReducer from './bossPuzzle';
 import eightQueensReducer from './eightQueens';
 import knightsTourReducer from './knightsTour';
 import sudokuReducer from './sudoku';
+import tetrisReducer from './tetris';
 
 import gridBoardReducer from './gridBoard';
 
@@ -48,7 +49,8 @@ export default combineReducers({
     'boss-puzzle': bossPuzzleReducer,
     'eight-queens': eightQueensReducer,
     'knights-tour': knightsTourReducer,
-    'sudoku': sudokuReducer
+    'sudoku': sudokuReducer,
+    'tetris': tetrisReducer
   }),
   gridBoard: gridBoardReducer,
   form: formReducer

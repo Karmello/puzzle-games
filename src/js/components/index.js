@@ -8,7 +8,7 @@ export { default as GameCategories } from './game/GameCategories/GameCategories'
 export { default as GameDashboard } from './game/GameDashboard/GameDashboard';
 export { default as GameInfo } from './game/GameInfo/GameInfo';
 export { default as GameMenu } from './game/GameMenu/GameMenu';
-export { default as GameOptions, Props as T_GameOptionsProps } from './game/GameOptions/GameOptions';
+export { default as GameOptions } from './game/GameOptions/GameOptions';
 
 // highscore
 export { default as HighscoresFilter } from './highscore/HighscoresFilter/HighscoresFilter';
@@ -20,7 +20,6 @@ export { default as KnightsTourOptions } from './engineOptions/KnightsTourOption
 
 // other
 export { default as AuthForm } from './other/AuthForm/AuthForm';
-export { default as FbBtn } from './other/FbBtn/FbBtn';
 export { default as Loader } from './other/Loader/Loader';
 export { default as MySnackBar } from './other/MySnackBar/MySnackBar';
 export { default as PageError } from './other/PageError/PageError';

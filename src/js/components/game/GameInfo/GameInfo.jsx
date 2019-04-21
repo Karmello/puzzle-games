@@ -1,12 +1,10 @@
 // @flow
 import React from 'react';
 import moment from 'moment';
-import { ExpansionPanel } from 'material-ui';
-import { ExpansionPanelSummary, ExpansionPanelDetails } from 'material-ui/ExpansionPanel';
-import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
-import Typography from 'material-ui/Typography';
+import { Typography, ExpansionPanel,  ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 
-import { GameBtn } from 'js/components';
+import GameBtn from 'js/components/game/GameBtn/GameBtn';
 import { humanizeHighscoreTime } from 'js/extracts/gameInfo';
 import './GameInfo.css';
 
