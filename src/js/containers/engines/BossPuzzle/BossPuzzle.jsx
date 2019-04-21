@@ -102,9 +102,6 @@ class BossPuzzle extends Game {
     const { hiddenTileCoords } = this.props.bossPuzzleEngine;
 
     const style = {
-      minWidth: `${size}px`,
-      width: `${size}px`,
-      height: `${size}px`,
       fontSize: `${fontSizes[dimension || '3']}px`,
       color: '#001f3f',
       backgroundColor: 'rgba(61, 153, 112, 0.75)',

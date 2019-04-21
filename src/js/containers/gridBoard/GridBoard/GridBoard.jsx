@@ -199,8 +199,16 @@ class GridBoard extends Component<T_GridBoardProps, State> {
   }
 
   getElementStyle({ col, row, index, size }) {
+    const defaultStyle = {
+      minWidth: `${size}px`,
+      width: `${size}px`,
+      height: `${size}px`
+    };
     const { getStyle } = this.props.element;
-    return getStyle ? getStyle({ col, row, index, isSelected: this.isElementSelected(index), size }) : undefined;
+    return getStyle ? {
+      ...defaultStyle,
+      ...getStyle({ col, row, index, isSelected: this.isElementSelected(index), size })
+    } : defaultStyle;
   }
 
   isElementSelected(index:number) {

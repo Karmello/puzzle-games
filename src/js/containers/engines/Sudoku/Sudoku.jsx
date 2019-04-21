@@ -87,14 +87,12 @@ class Sudoku extends Game {
     }
   }
 
-  getElementStyle({ col, row, size }) {
+  getElementStyle({ col, row }) {
     const style = {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       boxSizing: 'border-box',
-      width: `${size}px`,
-      height: `${size}px`,
       backgroundColor: '#FFFFF0',
       borderTop: undefined,
       borderRight: undefined,
