@@ -53,15 +53,10 @@ class Tetris extends Game {
     return gridMap;
   }
 
-  getElementStyle(args:{ size:number }) {
-    const { size } = args;
-    const style = {
-      minWidth: `${size}px`,
-      width: `${size}px`,
-      height: `${size}px`,
+  getElementStyle() {
+    return {
       backgroundColor: 'lightblue'
     };
-    return style;
   }
 
   startNew = () => {

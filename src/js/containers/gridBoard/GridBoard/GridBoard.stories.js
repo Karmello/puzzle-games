@@ -16,6 +16,10 @@ const render = props => (
 );
 
 const store = createNewStore();
+const imgSize = 75;
+
+window.innerWidth = 1500;
+window.innerHeight = 1000;
 
 storiesOf('gridBoard/GridBoard', module)
   .add('an empty chessboard', () => {
@@ -23,7 +27,7 @@ storiesOf('gridBoard/GridBoard', module)
       dimension: { x: 8, y: 8 },
       isChessBoard: true,
       element: {
-        size: 80
+        size: imgSize
       }
     });
   })
@@ -35,12 +39,12 @@ storiesOf('gridBoard/GridBoard', module)
       isChessBoard: true,
       gridMap,
       element: {
-        size: 80,
+        size: imgSize,
         Element: () => (
           <img
             src={knightImg}
-            width='80px'
-            height='80px'
+            width={`${imgSize}px`}
+            height={`${imgSize}px`}
           />
         )
       }
@@ -57,13 +61,13 @@ storiesOf('gridBoard/GridBoard', module)
       isChessBoard: true,
       gridMap,
       element: {
-        size: 80,
+        size: imgSize,
         isSelectable: true,
         Element: ({ isSelected }) => (
           <img
             src={queenImg}
-            width='80px'
-            height='80px'
+            width={`${imgSize}px`}
+            height={`${imgSize}px`}
             style={{ backgroundColor: isSelected ? 'yellow': 'white' }}
           />
         )
@@ -81,14 +85,14 @@ storiesOf('gridBoard/GridBoard', module)
       isChessBoard: true,
       gridMap,
       element: {
-        size: 80,
+        size: imgSize,
         isSelectable: true,
         Element: ({ isSelected }) => (
           <img
             src={queenImg}
-            width='80px'
-            height='80px'
-            style={{ backgroundColor: isSelected ? 'yellow': 'white' }}
+            width={`${imgSize}px`}
+            height={`${imgSize}px`}
+            style={{backgroundColor: isSelected ? 'yellow' : 'white'}}
           />
         )
       },
@@ -112,13 +116,13 @@ storiesOf('gridBoard/GridBoard', module)
       isChessBoard: true,
       gridMap,
       element: {
-        size: 80,
+        size: imgSize,
         isDraggable: true,
         Element: () => (
           <img
             src={queenImg}
-            width='80px'
-            height='80px'
+            width={`${imgSize}px`}
+            height={`${imgSize}px`}
             style={{ backgroundColor: 'white' }}
           />
         )

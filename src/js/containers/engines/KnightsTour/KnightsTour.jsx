@@ -74,8 +74,6 @@ class KnightsTour extends Game {
     const { active } = this.props.knightsTourEngine;
     if (index === active) {
       return  {
-        minWidth: `${size}px`,
-        height: `${size}px`,
         border: '1px solid gray',
         borderRadius: '0px',
         backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.knight})`,
@@ -83,8 +81,6 @@ class KnightsTour extends Game {
       }
     } else {
       return  {
-        minWidth: `${size}px`,
-        height: `${size}px`,
         backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.okArrow})`,
         backgroundSize: `${size-2}px ${size-2}px`
       }
