@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{@types/babel-core, @types/chai, @types/enzyme, @types/eslint, @types/express, @types/jasmine, @types/jest, @types/lodash, @types/react, @types/webpack, HTML, HTTP Response Handler, Node.js Core}" />
+    <file url="file://$PROJECT_DIR$" libraries="{@types/babel-core, @types/chai, @types/enzyme, @types/eslint, @types/express, @types/jasmine, @types/jest, @types/lodash, @types/react, @types/webpack, HTML, puzzle-games/node_modules}" />
+    <file url="PROJECT" libraries="{@types/babel-core, @types/chai, @types/enzyme, @types/eslint, @types/express, @types/jasmine, @types/jest, @types/lodash, @types/material-ui, @types/react, @types/webpack, HTML, puzzle-games/node_modules}" />
+    <includedPredefinedLibrary name="HTTP Response Handler" />
+    <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>

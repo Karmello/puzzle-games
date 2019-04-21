@@ -17,9 +17,15 @@ type State = {
 };
 
 export default class GameMenu extends Component<Props, State> {
-  
+
   setup:(e?:T_Event) => null;
   onItemClick:(itemId?:string) => null;
+
+  static getItemStyle() {
+    return {
+      width: '65px'
+    }
+  }
 
   componentWillMount() {
     this.setup();
@@ -29,6 +35,7 @@ export default class GameMenu extends Component<Props, State> {
 
     const { btnElem } = this.state;
     const { gameCategory, showRestartBtn } = this.props;
+    const itemStyle = GameMenu.getItemStyle();
 
     return (
       <div className='GameMenu'>
@@ -46,15 +53,15 @@ export default class GameMenu extends Component<Props, State> {
           onClose={this.onMenuClose.bind(this)}
         >
           <MenuItem
-            style={this.getItemStyle()}
+            style={itemStyle}
             onClick={this.onNewBtnClick.bind(this)}
           >New</MenuItem>
           {showRestartBtn && <MenuItem
-            style={this.getItemStyle()}
+            style={itemStyle}
             onClick={this.onRestartBtnClick.bind(this)}
           >Restart</MenuItem>}
           <MenuItem
-            style={this.getItemStyle()}
+            style={itemStyle}
             component={Link}
             to={`/games/${gameCategory}`}
             onClick={this.onEndBtnClick.bind(this)}
@@ -91,11 +98,5 @@ export default class GameMenu extends Component<Props, State> {
 
   onEndBtnClick() {
     this.onItemClick.bind(this);
-  }
-
-  getItemStyle() {
-    return {
-      width: '65px'
-    }
   }
 }

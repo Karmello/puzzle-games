@@ -22,6 +22,6 @@ const tetrisReducer = (state:T_TetrisEngine = initialState, action:T_Action) => 
     default:
       return state;
   }
-}
+};
 
 export default tetrisReducer;

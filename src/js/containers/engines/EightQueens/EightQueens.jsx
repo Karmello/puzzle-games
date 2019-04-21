@@ -13,6 +13,22 @@ const { dimension, elementSize, imgPaths } = C_EightQueens;
 
 class EightQueens extends Game {
 
+  static renderElement() {
+    return props => (
+      <Button disableRipple style={props.style}> </Button>
+    );
+  }
+
+  static getElementStyle({ isSelected, size }) {
+    return  {
+      border: '1px solid gray',
+      borderRadius: '0px',
+      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.queen})`,
+      backgroundSize: `${size-2}px ${size-2}px`,
+      backgroundColor: !isSelected ? 'white' : 'yellow'
+    }
+  }
+
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
   }
@@ -28,19 +44,13 @@ class EightQueens extends Game {
         element={{
           size: elementSize,
           isSelectable: true,
-          Element: this.renderElement(),
-          getStyle: this.getElementStyle.bind(this)
+          Element: EightQueens.renderElement(),
+          getStyle: EightQueens.getElementStyle.bind(this)
         }}
         callback={{
           onEmptyCellClick: this.onMoveTry.bind(this)
         }}
       />
-    );
-  }
-
-  renderElement() {
-    return props => (
-      <Button disableRipple style={props.style}> </Button>
     );
   }
 
@@ -59,16 +69,6 @@ class EightQueens extends Game {
     if (isItEmptyBetween === undefined || isItEmptyBetween === true) {
       this.props.dispatch(moveQueen(fromIndex, toIndex));
       super.onMakeMove();
-    }
-  }
-
-  getElementStyle({ isSelected, size }) {
-    return  {
-      border: '1px solid gray',
-      borderRadius: '0px',
-      backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.queen})`,
-      backgroundSize: `${size-2}px ${size-2}px`,
-      backgroundColor: !isSelected ? 'white' : 'yellow'
     }
   }
 

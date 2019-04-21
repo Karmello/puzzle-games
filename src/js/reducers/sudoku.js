@@ -24,6 +24,6 @@ const sudokuReducer = (state:T_SudokuEngine = initialState, action:T_Action) => 
     default:
       return state;
   }
-}
+};
 
 export default sudokuReducer;

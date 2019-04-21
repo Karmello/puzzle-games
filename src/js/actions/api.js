@@ -1,7 +1,7 @@
 // @flow
 import axios from 'axios';
 import * as qs from 'query-string';
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 
 import { apiRequest, apiRequestSuccess, apiRequestFailure } from 'js/creators/action/api';
 import type { T_UserModel, T_HighscoreModel, T_GameOptionsModel } from 'js/flow-types';
@@ -28,7 +28,7 @@ export const registerUser = (user:T_UserModel) => {
       dispatch(apiRequestSuccess(API_MAKE_AUTH_REQUEST, res));
     }, err => dispatch(apiRequestFailure(API_MAKE_AUTH_REQUEST, err)));
   }
-}
+};
 
 export const loginUser = (credentials:T_UserModel|{token:string}) => {
   
@@ -47,21 +47,7 @@ export const loginUser = (credentials:T_UserModel|{token:string}) => {
       dispatch(apiRequestSuccess(API_MAKE_AUTH_REQUEST, res));
     }, err => dispatch(apiRequestFailure(API_MAKE_AUTH_REQUEST, err)));
   }
-}
-
-// export const updateUser = (username:string, updateQuery:{}) => {
-//
-//   const api = axios.create({ baseURL });
-//
-//   return (dispatch:Function) => {
-//     const headers = { 'x-access-token': localStorage.getItem('token') };
-//     dispatch(apiRequest(API_MAKE_AUTH_REQUEST, { headers, body: updateQuery }));
-//     return api.post(`user/${username}`, updateQuery, { headers }).then(
-//       res => dispatch(apiRequestSuccess(API_MAKE_AUTH_REQUEST, res)),
-//       err => dispatch(apiRequestFailure(API_MAKE_AUTH_REQUEST, err))
-//     );
-//   }
-// }
+};
 
 export const fetchUsers = () => {
   const api = axios.create({ baseURL });
@@ -73,7 +59,7 @@ export const fetchUsers = () => {
       err => dispatch(apiRequestFailure(API_FETCH_USERS, err))
     );
   }
-}
+};
 
 export const fetchGames = () => {
   const api = axios.create({ baseURL });
@@ -85,7 +71,7 @@ export const fetchGames = () => {
       err => dispatch(apiRequestFailure(API_FETCH_GAMES, err))
     );
   }
-}
+};
 
 export const fetchGameCategories = () => {
   const api = axios.create({ baseURL });
@@ -97,7 +83,7 @@ export const fetchGameCategories = () => {
       err => dispatch(apiRequestFailure(API_FETCH_GAME_CATEGORIES, err))
     );
   }
-}
+};
 
 export const fetchHighscores = (gameId:string, query:T_GameOptionsModel, delay:number) => {
   const api = axios.create({ baseURL });
@@ -120,7 +106,7 @@ export const fetchHighscores = (gameId:string, query:T_GameOptionsModel, delay:n
       }
     });
   }
-}
+};
 
 export const fetchHighscore = (gameId:string, query:T_GameOptionsModel) => {
   const api = axios.create({ baseURL });
@@ -134,7 +120,7 @@ export const fetchHighscore = (gameId:string, query:T_GameOptionsModel) => {
       err => dispatch(apiRequestFailure(API_FETCH_HIGHSCORES, err))
     );
   }
-}
+};
 
 export const saveNewHighscore = (highscore:T_HighscoreModel) => {
   const api = axios.create({ baseURL });
@@ -146,4 +132,4 @@ export const saveNewHighscore = (highscore:T_HighscoreModel) => {
       err => dispatch(apiRequestFailure(API_SAVE_NEW_HIGHSCORE, err))
     );
   }
-}
+};

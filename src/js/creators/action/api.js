@@ -11,7 +11,7 @@ export const apiRequest = (actionType:string, req:T_ApiRequest) => {
       body: req && req.body
     }
   }
-}
+};
 
 export const apiRequestSuccess = (actionType:string, res:T_ApiResponse) => ({
   type: `${actionType}_SUCCESS`,

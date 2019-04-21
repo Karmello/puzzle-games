@@ -12,6 +12,6 @@ export const createNewStore = () => {
   } else {
     return createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))));
   }
-}
+};
 
 export default createNewStore();

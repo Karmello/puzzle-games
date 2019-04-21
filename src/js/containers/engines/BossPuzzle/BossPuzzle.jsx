@@ -154,7 +154,7 @@ class BossPuzzle extends Game {
         const newHiddenTileCoords = {
           x: Math.floor(Math.random() * Number(game.options.dimension)),
           y: Math.floor(Math.random() * Number(game.options.dimension))
-        }
+        };
 
         const tasks = [];
         tasks.push(initData({ dimension: Number(game.options.dimension), hiddenTileCoords: newHiddenTileCoords }));

@@ -15,7 +15,7 @@ type State = {
 
 export default class MySnackBar extends Component<Props, State> {
 
-  state = { open: false }
+  state = { open: false };
 
   componentWillReceiveProps(nextProps:Props) {
     this.setState({ open: Boolean(nextProps.message) });

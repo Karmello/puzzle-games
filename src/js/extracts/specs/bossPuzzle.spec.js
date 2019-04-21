@@ -18,7 +18,7 @@ describe('BossPuzzle static methods', () => {
       expect(data.hiddenTileCoords.x).toBeLessThanOrEqual(args.dimension - 1);
       expect(data.hiddenTileCoords.y).toBeLessThanOrEqual(args.dimension - 1);
       done();
-    }
+    };
 
     it('should throw an error', () => {
       const args = { dimension: '1', hiddenTileCoords: { x: 0, y: 0 } };

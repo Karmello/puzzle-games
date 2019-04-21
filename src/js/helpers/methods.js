@@ -16,11 +16,11 @@ export const shuffleIntArray = (array:Array<number>) => {
     array[j] = temp;
   }
   return array;
-}
+};
 
 export const kebabToCamelCase = (id:string) => {
   return id.split('-').map(s => `${s[0].toUpperCase()}${s.slice(1)}`).join('');
-}
+};
 
 export const renderWrapper = (initialEntries:Array<string>, initialIndex:number) => {
   return render(
@@ -30,4 +30,4 @@ export const renderWrapper = (initialEntries:Array<string>, initialIndex:number)
       </MemoryRouter>
     </Provider>
   );
-}
+};

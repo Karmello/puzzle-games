@@ -7,7 +7,7 @@ import './GameOptions.css';
 
 export default class GameOptions extends React.Component<T_GameOptionsProps, T_GameOptionsModel> {
   
-  state = { mode: '', dimension: '' }
+  state = { mode: '', dimension: '' };
 
   componentWillMount() {
     const { mode, dimension } = this.props.options;
