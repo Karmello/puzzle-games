@@ -21,7 +21,7 @@ export const gamesRouteLogic = function(props:T_RouterProps) {
       </div>
     );
   }
-}
+};
 
 export const gameRouteLogic = function(props:T_RouterProps) {
     
@@ -51,7 +51,7 @@ export const gameRouteLogic = function(props:T_RouterProps) {
       </div>
     );
   }
-}
+};
 
 export const highscoresRouteLogic = function(props:T_RouterProps) {
 
@@ -89,4 +89,4 @@ export const highscoresRouteLogic = function(props:T_RouterProps) {
       </div>
     );
   }
-}
+};

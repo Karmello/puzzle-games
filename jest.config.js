@@ -1,7 +1,16 @@
 module.exports = {
   collectCoverageFrom: [
-    'src/**/*.{js,jsx,ts,tsx}',
-    '!src/**/*.d.ts'
+    'src/**/*.{js,jsx}',
+    '!src/index.js',
+    '!src/serviceWorker.js',
+    '!src/setupTests.js',
+    '!src/js/constants.js',
+    '!src/js/store.js',
+    '!src/js/components/index.js',
+    '!src/js/containers/index.js',
+    '!src/js/reducers/index.js',
+    '!src/js/flow-types/*.js',
+    '!src/**/*.stories.{js,jsx}'
   ],
   resolver: 'jest-pnp-resolver',
   setupFiles: [

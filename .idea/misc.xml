@@ -20,4 +20,7 @@
       </profile-state>
     </entry>
   </component>
+  <component name="WebPackConfiguration">
+    <option name="path" value="$PROJECT_DIR$/config/webpack.config.js" />
+  </component>
 </project>

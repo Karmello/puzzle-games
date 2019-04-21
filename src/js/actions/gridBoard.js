@@ -3,7 +3,6 @@ export const GRID_BOARD_INIT = 'GRID_BOARD_INIT';
 export const GRID_BOARD_UPDATE = 'GRID_BOARD_UPDATE';
 export const GRID_BOARD_GRAB_ELEMENT = 'GRID_BOARD_GRAB_ELEMENT';
 export const GRID_BOARD_SELECT_ELEMENT = 'GRID_BOARD_SELECT_ELEMENT';
-export const GRID_BOARD_MOVE_ELEMENT = 'GRID_BOARD_MOVE_ELEMENT';
 export const GRID_BOARD_RESET = 'GRID_BOARD_RESET';
 
 export const initGridBoard = (gridMap:Array<boolean>, isSelectable?:boolean, isDraggable?:boolean) => ({

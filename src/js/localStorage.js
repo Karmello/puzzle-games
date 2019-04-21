@@ -37,4 +37,4 @@ export const getUiConfig = (username:string, callback:Function) => {
   }
 
   callback(ui);
-}
+};

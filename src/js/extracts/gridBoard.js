@@ -4,14 +4,14 @@ import type { T_Coords } from 'js/flow-types';
 
 export const coordsToIndex = (coords:T_Coords, dimension:number) => {
   return (coords.y || 0) * dimension + (coords.x || 0);
-}
+};
 
 export const indexToCoords = (index:number, dimension:number) => {
   return {
     x: index % dimension,
     y: Math.floor(index/dimension)
   }
-}
+};
 
 export const offsetToIndex = (offset:T_Coords, elementSize:number, dimension:number) => {
   const coords = { x: Math.round((offset.x || 0) / elementSize), y: Math.round((offset.y || 0) / elementSize) };
@@ -20,7 +20,7 @@ export const offsetToIndex = (offset:T_Coords, elementSize:number, dimension:num
   } else {
     return -1;
   }
-}
+};
 
 export const findAllMovementCoords = (targetCoords:T_Coords, dimension:number, movementType?:'SINGLE'|'CHESS_KNIGHT') => {
 
@@ -66,7 +66,7 @@ export const findAllMovementCoords = (targetCoords:T_Coords, dimension:number, m
   }
 
   return realDestinationCoords;
-}
+};
 
 export const isAloneOnAxis = (axis:'x'|'y'|'d1'|'d2', targetCoords:T_Coords, dimension:number, gridData:Array<boolean>) => {
 
@@ -110,12 +110,8 @@ export const isAloneOnAxis = (axis:'x'|'y'|'d1'|'d2', targetCoords:T_Coords, dim
 
         const q = coordsToIndex(targetCoords, dimension);
 
-        if (j !== q && gridData[j]) {
-          return true;
-        }
-
-        return false;
-      }
+        return j !== q && gridData[j];
+      };
 
       break;
 
@@ -130,7 +126,7 @@ export const isAloneOnAxis = (axis:'x'|'y'|'d1'|'d2', targetCoords:T_Coords, dim
   }
 
   return true;
-}
+};
 
 export const areValuesUniqueOnAxis = (axis:'X'|'Y', axisIndex:number, dimension:number, gridData:Array<number>, disallowEmptyValues:boolean) => {
 
@@ -151,7 +147,7 @@ export const areValuesUniqueOnAxis = (axis:'X'|'Y', axisIndex:number, dimension:
   }
 
   return (new Set(axisValues)).size === axisValues.length;
-}
+};
 
 export const getFlipped = (axisDirection:'H'|'V', dimension:number, gridData:Array<any>) => {
 
@@ -175,7 +171,7 @@ export const getFlipped = (axisDirection:'H'|'V', dimension:number, gridData:Arr
   }
 
   return newGridData;
-}
+};
 
 export const getRotated = (direction:'L'|'R', angle:90|180|270|360, dimension:number, gridData:Array<any>) => {
 
@@ -208,7 +204,7 @@ export const getRotated = (direction:'L'|'R', angle:90|180|270|360, dimension:nu
   }
 
   return newGridData;
-}
+};
 
 export const getWithLinesShuffled = (axisDirection:'H'|'V', startIndex:number, endIndex:number, dimension:number, gridData:Array<any>) => {
 
@@ -240,7 +236,7 @@ export const getWithLinesShuffled = (axisDirection:'H'|'V', startIndex:number, e
   }
 
   return newGridData;
-}
+};
 
 export const areOnTheSameAxis = (index1:number, index2:number, dimension:number) => {
 
@@ -268,7 +264,7 @@ export const areOnTheSameAxis = (index1:number, index2:number, dimension:number)
   }
 
   return false;
-}
+};
 
 export const isItEmptyBetweenThem = (index1:number, index2:number, dimension:number, data:Array<any>) => {
 
@@ -310,4 +306,4 @@ export const isItEmptyBetweenThem = (index1:number, index2:number, dimension:num
   }
     
   return true;
-}
+};

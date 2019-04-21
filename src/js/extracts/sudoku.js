@@ -67,7 +67,7 @@ export const initializeValues = (dimension:number) => {
   }
 
   return values;
-}
+};
 
 export const checkIfSolved = (values:Array<number>, dimension:number):Promise<any> => {
 
@@ -86,7 +86,7 @@ export const checkIfSolved = (values:Array<number>, dimension:number):Promise<an
         for (let a = 0; a < dimensionSqrt; a++) {
           for (let b = 0; b < dimensionSqrt; b++) {
             
-            const coords = { x: startingPointCoords.x + b * 1, y: startingPointCoords.y + a * 1 };
+            const coords = { x: startingPointCoords.x + b, y: startingPointCoords.y + a };
             const value = values[coordsToIndex(coords, dimension)];
             if (!value) { return false; }
             sectionValues.push(value);
@@ -117,4 +117,4 @@ export const checkIfSolved = (values:Array<number>, dimension:number):Promise<an
 
     resolve(true);
   });
-}
+};

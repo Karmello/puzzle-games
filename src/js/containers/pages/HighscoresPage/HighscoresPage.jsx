@@ -33,7 +33,7 @@ class HighscoresPage extends Component<Props> {
     const nextGameFilterToSet = nextProps.gameFilterToSet;
     const nextOptionsFilterToSet = nextProps.optionsFilterToSet;
 
-    let anyOptionChanged;
+    let anyOptionChanged = false;
 
     (nextOptionsFilterToSet && optionsFilterToSet) &&
     (() => {

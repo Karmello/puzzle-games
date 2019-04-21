@@ -16,7 +16,7 @@ export default class Timer extends Component<Props, State> {
 
   intervalId:any;
 
-  state = { seconds: 0 }
+  state = { seconds: 0 };
 
   componentWillReceiveProps(nextProps:Props) {
     

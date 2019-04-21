@@ -13,6 +13,16 @@ const { elementSize, imgPaths } = C_KnightsTour;
 
 class KnightsTour extends Game {
 
+  static renderElement() {
+    return props => (
+      <Button
+        disabled
+        disableRipple
+        style={props.style}
+      > </Button>
+    );
+  }
+
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
   }
@@ -27,23 +37,13 @@ class KnightsTour extends Game {
         gridMap={this.createGridMap()}
         element={{
           size: elementSize,
-          Element: this.renderElement(),
+          Element: KnightsTour.renderElement(),
           getStyle: this.getElementStyle.bind(this)
         }}
         callback={{
           onEmptyCellClick: this.onMoveTry.bind(this)
         }}
       />
-    );
-  }
-
-  renderElement() {
-    return props => (
-      <Button
-        disabled
-        disableRipple
-        style={props.style}
-      > </Button>
     );
   }
 
