@@ -63,7 +63,7 @@ class BossPuzzle extends Game {
     const hiddenIndex = coordsToIndex(hiddenTileCoords, Number(dimension));
     const gridMap = [];
     tiles.forEach((value, i) => {
-      gridMap[i] = i !== hiddenIndex || isEmpty(hiddenTileCoords) ? true : false;
+      gridMap[i] = !!(i !== hiddenIndex || isEmpty(hiddenTileCoords));
     });
     return gridMap;
   }
