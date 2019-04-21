@@ -47,10 +47,6 @@ node {
               sh('git push -f https://$HEROKU_USERNAME:$HEROKU_PASSWORD@git.heroku.com/puzzle-games.git staging:master')
             }
           }
-
-          stage('Testing') {
-            sh('heroku run "CI=true npm test" -a puzzle-games --exit-code')
-          }
         }
 
       } catch(ex) {
