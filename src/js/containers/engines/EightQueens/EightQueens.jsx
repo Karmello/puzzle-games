@@ -64,8 +64,6 @@ class EightQueens extends Game {
 
   getElementStyle({ isSelected, size }) {
     return  {
-      minWidth: `${size}px`,
-      height: `${size}px`,
       border: '1px solid gray',
       borderRadius: '0px',
       backgroundImage: `url(${process.env.REACT_APP_S3_BUCKET || ''}/${imgPaths.queen})`,
