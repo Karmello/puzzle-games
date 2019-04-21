@@ -2,82 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d1a25b6-23c7-45a7-a3bb-ec0ab617bee8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/@babel/core_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/@mars/heroku-js-runtime-env_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/@material-ui/core_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/@material-ui/icons_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/@storybook/react_v3.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/autoprefixer_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/axios_v0.18.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/axios_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/babel-core_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/babel-eslint_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/babel-jest_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/babel-loader_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/babel-plugin-root-import_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/babel-preset-react-app_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/babel-runtime_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/case-sensitive-paths-webpack-plugin_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/chalk_v1.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/css-loader_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/dotenv_v4.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/enzyme-adapter-react-16_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/enzyme_v3.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/eslint-config-react-app_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/eslint-loader_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/eslint-plugin-flowtype_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/eslint-plugin-import_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/eslint-plugin-jasmine_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/eslint-plugin-jsx-a11y_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/eslint-plugin-react_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/eslint_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/extract-text-webpack-plugin_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/file-loader_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/flow-bin_v0.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/flow-webpack-plugin_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/fs-extra_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/html-webpack-plugin_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/jest-localstorage-mock_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/jest_v24.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/lodash_v4.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/marked_v0.3.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/moment_v2.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/moment_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/moxios_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/nock_v9.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/node-sass-chokidar_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/npm-run-all_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/object-assign_v4.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/postcss-flexbugs-fixes_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/postcss-loader_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/prop-types_v15.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/query-string_v5.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/react-dev-utils_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/react-draggable_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/react-flexbox-grid_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/react-hot-loader_v4.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/react-redux_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/react-router-dom_v4.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/react-router-dom_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/react-swipeable-views_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/react-test-renderer_v16.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/redux-axios-middleware_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/redux-devtools-extension_v2.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/redux-logger_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/redux-mock-store_v1.2.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/redux-thunk_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/redux_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/sass-loader_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/style-loader_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/sw-precache-webpack-plugin_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/url-loader_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/webpack-bundle-analyzer_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/webpack-dev-server_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/webpack-manifest-plugin_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/webpack_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/npm/whatwg-fetch_vx.x.x.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flow-typed/package-dep-libdefs.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -1198,20 +1122,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/flow-typed/package-dep-libdefs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+            <state relative-caret-position="308">
+              <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -1361,11 +1276,6 @@
               <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
               <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="puzzle-games" type="b2602c69:ProjectViewProjectNode" />
-              <item name="puzzle-games" type="462c0819:PsiDirectoryNode" />
-              <item name="flow-typed" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -1485,7 +1395,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29590000" />
+    <option name="totallyTimeSpent" value="29864000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1563,13 +1473,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/jest/fileTransform.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -1953,17 +1856,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/flow-typed/npm/lodash_v4.x.x.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+        <state relative-caret-position="220">
+          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flow-typed/package-dep-libdefs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
         </state>
       </provider>
     </entry>

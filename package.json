@@ -12,8 +12,7 @@
     "lint": "eslint --ext .js --ext .jsx src",
     "flow": "flow",
     "mongo": "mongod",
-    "api": "cd ./../puzzle-games-api && npm start",
-    "postinstall": "flow-scripts stub"
+    "api": "cd ./../puzzle-games-api && npm start"
   },
   "dependencies": {
     "@babel/core": "7.2.2",
