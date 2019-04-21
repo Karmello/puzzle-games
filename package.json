@@ -7,6 +7,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --silent --runInBand",
     "test-win": "set CI=true & npm test",
+    "test-coverage": "set CI=true & npm test -- --coverage",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "lint": "eslint --ext .js --ext .jsx src",
     "flow": "flow",
