@@ -84,7 +84,7 @@ export default class Game extends Component<Props, State> {
       img.onload = () => {
         this.setState({ imgSrc: img.src });
         resolve();
-      }
+      };
       img.onerror = err => { reject(err); }
     });
   }

@@ -17,6 +17,25 @@ const { dimension, elementSize, selectMaxValue } = C_Sudoku;
 
 class Sudoku extends Game {
 
+  static getElementStyle({ col, row }) {
+    const style = {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      boxSizing: 'border-box',
+      backgroundColor: '#FFFFF0',
+      borderTop: undefined,
+      borderRight: undefined,
+      borderBottom: undefined,
+      borderLeft: undefined
+    };
+    if (row > 0) { style.borderTop = '1px solid'; }
+    if (col > 0) { style.borderLeft = '1px solid'; }
+    if (col === 2 || col === 5) { style.borderRight = '2px solid'; }
+    if (row === 2 || row === 5) { style.borderBottom = '2px solid'; }
+    return style;
+  }
+
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
   }
@@ -30,7 +49,7 @@ class Sudoku extends Game {
         element={{
           size: elementSize,
           Element: this.renderElement(values),
-          getStyle: this.getElementStyle.bind(this)
+          getStyle: Sudoku.getElementStyle.bind(this)
         }}
       />
     );
@@ -85,25 +104,6 @@ class Sudoku extends Game {
         super.onMakeMove();
       }
     }
-  }
-
-  getElementStyle({ col, row }) {
-    const style = {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      boxSizing: 'border-box',
-      backgroundColor: '#FFFFF0',
-      borderTop: undefined,
-      borderRight: undefined,
-      borderBottom: undefined,
-      borderLeft: undefined
-    };
-    if (row > 0) { style.borderTop = '1px solid'; }
-    if (col > 0) { style.borderLeft = '1px solid'; }
-    if (col === 2 || col === 5) { style.borderRight = '2px solid'; }
-    if (row === 2 || row === 5) { style.borderBottom = '2px solid'; }
-    return style;
   }
 
   startNew = () => {

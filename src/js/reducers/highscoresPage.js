@@ -21,6 +21,6 @@ const highscoresPageReducer = (state:T_HighscoresPageState = initialState, actio
     default:
       return state;
   }
-}
+};
 
 export default highscoresPageReducer;

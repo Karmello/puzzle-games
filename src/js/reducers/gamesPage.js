@@ -21,7 +21,7 @@ const gamesPageReducer = (state:T_GamesPageState = initialState, action:T_Action
           'boss-puzzle': { ...state.options['boss-puzzle'] },
           'knights-tour': { ...state.options['knights-tour'] }
         }
-      }
+      };
 
     case GAMES_PAGE_CHANGE_GAME_OPTIONS:
       return {
@@ -34,7 +34,7 @@ const gamesPageReducer = (state:T_GamesPageState = initialState, action:T_Action
             ...action.payload.options
           }
         }
-      }
+      };
 
     case GAMES_PAGE_CLEAR:
       return initialState;
@@ -42,6 +42,6 @@ const gamesPageReducer = (state:T_GamesPageState = initialState, action:T_Action
     default:
       return state;
   }
-}
+};
 
 export default gamesPageReducer;

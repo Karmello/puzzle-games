@@ -28,6 +28,6 @@ const knightsTourReducer = (state:T_KnightsTourEngine = initialState, action:T_A
     default:
       return state;
   }
-}
+};
 
 export default knightsTourReducer;

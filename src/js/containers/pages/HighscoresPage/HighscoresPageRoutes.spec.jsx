@@ -19,7 +19,7 @@ describe('HighscoresPage', () => {
       state.pages.highscoresPage = {
         gameFilter: { id: 'boss-puzzle', category: 'sliding' },
         optionsFilter: { mode: 'NUM', dimension: '3' }
-      }
+      };
 
       localStorage.setItem('ui', JSON.stringify({
         [clientUserRes.data.username]: {

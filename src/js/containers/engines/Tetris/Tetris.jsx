@@ -13,6 +13,20 @@ const { dimension, elementSize, minElemSize } = C_Tetris;
 
 class Tetris extends Game {
 
+  static renderElement() {
+    return (props:{ style: {} }) => {
+      return (
+        <div style={props.style}> </div>
+      );
+    }
+  }
+
+  static getElementStyle() {
+    return {
+      backgroundColor: 'lightblue'
+    };
+  }
+
   componentWillUnmount() {
     this.props.dispatch(resetEngine());
   }
@@ -28,20 +42,12 @@ class Tetris extends Game {
           element={{
             size: elementSize,
             minSize: minElemSize,
-            Element: this.renderElement(),
-            getStyle: this.getElementStyle.bind(this)
+            Element: Tetris.renderElement(),
+            getStyle: Tetris.getElementStyle.bind(this)
           }}
         />
       </div>
     );
-  }
-
-  renderElement() {
-    return (props:{ style: {} }) => {
-      return (
-        <div style={props.style}> </div>
-      );
-    }
   }
 
   createGridMap() {
@@ -51,12 +57,6 @@ class Tetris extends Game {
       gridMap[i] = renderBlock;
     });
     return gridMap;
-  }
-
-  getElementStyle() {
-    return {
-      backgroundColor: 'lightblue'
-    };
   }
 
   startNew = () => {

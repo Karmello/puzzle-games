@@ -56,6 +56,6 @@ const getApiRequestReducer = (actionType:string) => {
         return state;
     }
   }
-}
+};
 
 export default getApiRequestReducer;

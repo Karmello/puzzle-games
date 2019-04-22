@@ -38,7 +38,7 @@ export const initData = (args:{dimension:number, hiddenTileCoords:T_Coords}):Pro
     }
 
     return { tiles, hiddenTileCoords };
-  }
+  };
 
   return new Promise((resolve, reject) => {
 
@@ -49,7 +49,7 @@ export const initData = (args:{dimension:number, hiddenTileCoords:T_Coords}):Pro
       reject(ex);
     }
   });
-}
+};
 
 export const getNewImgNumbers = (currentNumbers:Array<number>, numOfImgs:number) => {
 
@@ -60,7 +60,7 @@ export const getNewImgNumbers = (currentNumbers:Array<number>, numOfImgs:number)
     } else {
       return newImgNumbers;
     }
-  }
+  };
 
   return run();
-}
+};

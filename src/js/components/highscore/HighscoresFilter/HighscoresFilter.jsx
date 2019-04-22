@@ -30,7 +30,7 @@ export default class HighscoresFilter extends React.Component<Props, State> {
   state = {
     gameId: undefined,
     Options: undefined
-  }
+  };
 
   componentWillMount() {
     if (this.props.gameFilter.id) {

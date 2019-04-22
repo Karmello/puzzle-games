@@ -33,6 +33,20 @@ class GamePage extends Component<Props> {
     timerRef:T_TimerRef
   };
 
+  static getEngineContainerStyle(isSolved) {
+    if (isSolved) {
+      return {
+        opacity: 0.5,
+        pointerEvents: 'none'
+      }
+    } else {
+      return {
+        opacity: 1,
+        pointerEvents: 'initial'
+      }
+    }
+  }
+
   componentWillMount() {
 
     const { match, queryParams, gameData, dispatch } = this.props;
@@ -96,7 +110,7 @@ class GamePage extends Component<Props> {
               />
             </div>
             <div className='GamePage-engine'>
-              <div style={this.getEngineContainerStyle(game.isSolved)}>
+              <div style={GamePage.getEngineContainerStyle(game.isSolved)}>
                 <Engine />
               </div>
               {game.isSolved && <div className='GamePage-solved'>SOLVED !</div>}
@@ -105,20 +119,6 @@ class GamePage extends Component<Props> {
         </Loader>
       </div>
     );
-  }
-
-  getEngineContainerStyle(isSolved) {
-    if (isSolved) {
-      return {
-        opacity: 0.5,
-        pointerEvents: 'none'
-      }
-    } else {
-      return {
-        opacity: 1,
-        pointerEvents: 'initial'
-      }
-    }
   }
 
   onToggleExpansionPanel(name, expanded) {

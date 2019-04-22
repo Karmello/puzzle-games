@@ -23,7 +23,7 @@ export const humanizeHighscoreTime = (_seconds:number) => {
 
   if (seconds) {
     seconds = moment.duration(seconds, 'seconds').humanize();
-    if (seconds == '1 seconds') { seconds = 'a second'; }
+    if (seconds === '1 seconds') { seconds = 'a second'; }
   }
 
   moment.relativeTimeThreshold('s', 45);
@@ -31,4 +31,4 @@ export const humanizeHighscoreTime = (_seconds:number) => {
   moment.relativeTimeThreshold('m', 45);
 
   return `${hours ? hours : ''} ${minutes ? minutes : ''} ${seconds ? seconds : ''}`;
-}
+};
