@@ -7,71 +7,169 @@ import BossPuzzle from './BossPuzzle';
 
 describe('BossPuzzle', () => {
 
-  let store, getDefaultProps;
+  const store = createNewStore();
+
+  const getDefaultProps = () => ({
+    game: {
+      isLoading: false,
+      isSolved: false,
+      options: { mode: 'NUM', dimension: '3' }
+    },
+    bossPuzzleEngine: {
+      tiles: [9, 8, 7, 6, 5, 4, 3, 2, 1],
+      hiddenTileCoords: { x: 0, y: 0 },
+      imgNumbers: [3, 2, 4, 5, 1],
+      imgIndex: 4
+    },
+    dispatch: store.dispatch
+  });
+
+  let shallowWrapper, shallowInstance, props;
 
   beforeAll(() => {
-    store = createNewStore();
-    getDefaultProps = () => ({
-      game: {
-        isLoading: false,
-        isSolved: false,
-        options: { mode: 'NUM', dimension: '3' }
-      },
-      bossPuzzleEngine: {
-        tiles: [9, 8, 7, 6, 5, 4, 3, 2, 1],
-        hiddenTileCoords: { x: 0, y: 0 }
-      },
-      dispatch: store.dispatch
+    shallowWrapper = shallow(<BossPuzzle.WrappedComponent {...getDefaultProps()} />);
+    shallowInstance = shallowWrapper.instance();
+  });
+
+  beforeEach(() => {
+    props = getDefaultProps();
+  });
+
+  describe('render method', () => {
+
+    it('should run', () => {
+      props.game.isLoading = true;
+      shallowWrapper.setProps(props);
+      shallowInstance.render();
+    });
+
+    it('should run', () => {
+      props.game.options.mode = 'IMG';
+      shallowWrapper.setProps(props);
+      shallowInstance.render();
     });
   });
 
-  it('should shallow render and unmount', () => {
-    const wrapper = shallow(<BossPuzzle.WrappedComponent {...getDefaultProps()} />);
-    wrapper.unmount();
+  describe('renderElement method', () => {
+
+    it('should run', () => {
+      shallowWrapper.setProps(props);
+      shallowInstance.renderElement()({ style: {}, col: 1, row: 1, index: 4 });
+    });
+
+    it('should run', () => {
+      props.game.options.mode = 'IMG';
+      shallowWrapper.setProps(props);
+      shallowInstance.renderElement()({ style: {}, col: 1, row: 1, index: 4 });
+    });
   });
 
-  it('should shallow render', () => {
-    const props = getDefaultProps();
-    props.game.isLoading = true;
-    shallow(<BossPuzzle.WrappedComponent {...props} />);
+  describe('onTileClick method', () => {
+
+    it('should run', () => {
+      shallowWrapper.setProps(props);
+      shallowInstance.onTileClick({ col: 0, row: 1 });
+    });
+
+    it('should run', () => {
+      shallowWrapper.setProps({ ...props, game: { ...props.game, isSolved: true } });
+      shallowInstance.onTileClick({ col: 0, row: 1 });
+    });
   });
 
-  it('should shallow render', () => {
-    const props = getDefaultProps();
-    props.game.options.mode = 'IMG';
-    shallow(<BossPuzzle.WrappedComponent {...props} />);
+  describe('getTileLabel method', () => {
+
+    it('should run', () => {
+      props.bossPuzzleEngine.tiles = [];
+      shallowWrapper.setProps(props);
+      shallowInstance.getTileLabel({ index: 1 });
+    });
   });
 
-  it('should shallow render and test renderElement method', () => {
-    const props = getDefaultProps();
-    const wrapper = shallow(<BossPuzzle.WrappedComponent {...props} />);
-    const instance = wrapper.instance();
-    instance.renderElement()({ style: {}, col: 1, row: 1, index: 4 });
-    props.game.options.mode = 'IMG';
-    instance.renderElement()({ style: {}, col: 1, row: 1, index: 4 });
+  describe('getElementStyle method', () => {
+
+    it('should run', () => {
+      shallowWrapper.setProps(props);
+      shallowInstance.getElementStyle({ col: 1, row: 1, index: 4, size: 80 });
+    });
+
+    it('should run', () => {
+      props.game.options.dimension = undefined;
+      shallowWrapper.setProps(props);
+      shallowInstance.getElementStyle({ col: 0, row: 0, index: 4, size: 80 });
+    });
+
+    it('should run', () => {
+      props.game.options.mode = 'IMG';
+      shallowWrapper.setProps(props);
+      shallowInstance.getElementStyle({ col: 0, row: 0, index: 4, size: 80 });
+    });
+
+    it('should run', () => {
+      props.game.options.mode = 'IMG';
+      shallowWrapper.setState({ imgSrc: 'imagesource' });
+      shallowWrapper.setProps(props);
+      shallowInstance.getElementStyle({ col: 1, row: 1, index: 4, size: 80 });
+    });
   });
 
-  it('should shallow render and test onTileClick method', () => {
-    const props = getDefaultProps();
-    const wrapper = shallow(<BossPuzzle.WrappedComponent {...props} />);
-    const instance = wrapper.instance();
-    instance.onTileClick({ col: 0, row: 1 });
-    wrapper.setProps({ ...props, game: { ...props.game, isSolved: true } });
-    instance.onTileClick({ col: 0, row: 1 });
+  describe('startNew method', () => {
+
+    it('should run', done => {
+      shallowWrapper.setProps(props);
+      shallowInstance.startNew();
+      setTimeout(done);
+    });
+
+    it('should run', done => {
+      props.game.options.mode = 'IMG';
+      shallowWrapper.setProps(props);
+      shallowInstance.startNew();
+      setTimeout(done);
+    });
+
+    it('should run', done => {
+      props.game.options.mode = 'IMG';
+      shallowWrapper.setProps(props);
+      shallowInstance.startNew(true);
+      setTimeout(done);
+    });
+
+    it('should run', done => {
+      props.game.options.mode = 'IMG';
+      props.bossPuzzleEngine.imgIndex = 1;
+      shallowWrapper.setProps(props);
+      shallowInstance.startNew();
+      setTimeout(done);
+    });
+
+    it('should run', done => {
+      props.game.options.mode = 'IMG';
+      props.bossPuzzleEngine.imgIndex = undefined;
+      shallowWrapper.setProps(props);
+      shallowInstance.startNew(true);
+      setTimeout(done);
+    });
   });
 
-  it('should shallow render and test getTileLabel method', () => {
-    const props = getDefaultProps();
-    const wrapper = shallow(<BossPuzzle.WrappedComponent {...props} />);
-    const instance = wrapper.instance();
-    props.bossPuzzleEngine.tiles = [];
-    instance.getTileLabel({ index: 1 });
+  describe('checkIfSolved method', () => {
+
+    it('should run', () => {
+      shallowWrapper.setProps(props);
+      shallowInstance.checkIfSolved();
+    });
+
+    it('should run', () => {
+      props.bossPuzzleEngine.tiles = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      shallowWrapper.setProps(props);
+      shallowInstance.checkIfSolved();
+    });
   });
 
-  it('should shallow render and test getElementStyle method', () => {
-    const props = getDefaultProps();
-    const wrapper = shallow(<BossPuzzle.WrappedComponent {...props} />);
-    const instance = wrapper.instance();
-    instance.getElementStyle({ col: 1, row: 1, index: 4, size: 80 });
+  describe('finishing', () => {
+
+    it('should unmount', () => {
+      shallowWrapper.unmount();
+    });
   });
 });
