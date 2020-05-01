@@ -114,7 +114,7 @@ class BossPuzzle extends Game {
 
       const label = this.getTileLabel({ index });
 
-      if (mode === 'IMG' && imgSrc && label) {
+      if (mode === 'IMG' && label && imgSrc) {
         const imgCoords = indexToCoords(Number(label) - 1, Number(dimension));
         style.backgroundImage = `url(${imgSrc})`;
         style.backgroundSize = `${Number(dimension) * size}px ${Number(dimension) * size}px`;
@@ -184,8 +184,11 @@ class BossPuzzle extends Game {
   };
 }
 
-export default connect(store => ({
-  clientUser: store.api.clientUser,
-  game: store.game,
-  bossPuzzleEngine: store.engines['boss-puzzle']
-}))(BossPuzzle);
+export default connect(
+  /* istanbul ignore next */
+  store => ({
+    clientUser: store.api.clientUser,
+    game: store.game,
+    bossPuzzleEngine: store.engines['boss-puzzle']
+  })
+)(BossPuzzle);
